@@ -2,7 +2,8 @@
  * Market Shock Simulator (2.1 to 2.3): a prediction card game in Riverton's coffee bean market.
  * Draw an event card, predict which curve shifts and which way, drag the curve,
  * then watch the shortage or surplus at the old price push the market to a new equilibrium.
- * Trap mode deals cards where the answer is a movement along a curve, not a shift.
+ * Level 1: one curve shifts. Level 2: trap cards (a movement along a curve, not a shift), shifts of
+ * different sizes, and a prediction of the new price and quantity. Level 3: two events at once.
  */
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { equilibrium, Line, Pt, quantityAt, round } from '../../econ/calc';
@@ -12,10 +13,12 @@ import { Arrow, Curve, Diagram, Dot, Guide, Handle, Label, Tone } from '../../sh
 import type { TryProps } from '../../shared/activity/types';
 import { celebrate } from '../../shared/fun/celebrate';
 import { play } from '../../shared/fun/sound';
+import { LevelPicker } from '../../shared/activity/LevelPicker';
+import { DoubleShock } from './DoubleShock';
 import { GapScene } from './GapScene';
 import {
-  Answer, BASE_D, BASE_S, buildDeck, checkPrediction, dragDirection, gapAtPrice, HANDLE_P, marketOutcome, Mechanism,
-  outcomeWords, parseShift, PredictionResult, priceStep, segment, Shift, shiftedMarket, SHIFT_SIZE, Side, snapDrag, X_MAX, Y_MAX,
+  Answer, BASE_D, BASE_S, buildDeck, Change, checkPrediction, dragDirection, expectedOutcome, gapAtPrice, HANDLE_P, marketOutcome, Mechanism,
+  outcomeWords, parseShift, PredictionResult, priceStep, segment, Shift, shiftedMarket, shiftSizeFor, SHIFT_SIZE, Side, snapDrag, X_MAX, Y_MAX,
 } from './model';
 
 interface Option { id: Answer; text: string }
@@ -38,6 +41,7 @@ interface TryContent {
   hlQuestion: { prompt: string; options: { text: string; correct?: boolean; feedback: string }[] };
   cards: ShiftCard[];
   traps: TrapCard[];
+  levels: { title: string; blurb: string }[];
 }
 
 type Phase = 'predict' | 'drag' | 'gap' | 'adjust' | 'settled' | 'trap-done';
@@ -45,6 +49,7 @@ type Phase = 'predict' | 'drag' | 'gap' | 'adjust' | 'settled' | 'trap-done';
 /** Cards in one round, and how many right predictions earn the Market Mover stamp. */
 export const ROUND_SIZE = 8;
 export const ROUND_GOAL = 6;
+export const STAMP_NAMES = ['Market Mover', 'Trap Spotter', 'Double Shock'];
 
 const isTrap = (c: Card): c is TrapCard => c.answer === 'none';
 const TONE_OF: Record<Side, Tone> = { demand: 'navy', supply: 'green' };
@@ -71,7 +76,29 @@ function LearnDiagram() {
   );
 }
 
-function Try({ content, onComplete, onGoal }: TryProps) {
+function Try(props: TryProps) {
+  const data = props.content.try as unknown as TryContent;
+  const [level, setLevel] = useState(1);
+  return (
+    <div class="stack">
+      <LevelPicker
+        levels={data.levels}
+        level={level}
+        onPick={(n) => {
+          play('tap');
+          setLevel(n);
+        }}
+        stamps={props.stamps}
+        teacher={props.teacher}
+        icon="shift"
+        stampNames={STAMP_NAMES}
+      />
+      {level === 3 ? <DoubleShock {...props} /> : <Cards key={level} {...props} level={level} />}
+    </div>
+  );
+}
+
+function Cards({ content, onComplete, onGoal, level }: TryProps & { level: number }) {
   const data = content.try as unknown as TryContent;
   const byId = useMemo(() => {
     const m = new Map<string, Card>();
@@ -79,7 +106,8 @@ function Try({ content, onComplete, onGoal }: TryProps) {
     return m;
   }, [data]);
 
-  const [trapMode, setTrapMode] = useState(false);
+  // Level 2 deals trap cards between shift cards.
+  const trapMode = level >= 2;
   const [seed, setSeed] = useState(0);
   const [pos, setPos] = useState(0);
   const [phase, setPhase] = useState<Phase>('predict');
@@ -90,6 +118,9 @@ function Try({ content, onComplete, onGoal }: TryProps) {
   const [dragMsg, setDragMsg] = useState<string | null>(null);
   const [animP, setAnimP] = useState<number | null>(null);
   const [mech, setMech] = useState<Mechanism | null>(null);
+  /** Level 2: the student's prediction of what happens to equilibrium price and quantity. */
+  const [outPred, setOutPred] = useState<{ price: Change | null; quantity: Change | null }>({ price: null, quantity: null });
+  const [outChecked, setOutChecked] = useState(false);
   const [played, setPlayed] = useState(0);
   const [correct, setCorrect] = useState(0);
   const completed = useRef(false);
@@ -108,7 +139,9 @@ function Try({ content, onComplete, onGoal }: TryProps) {
   // The curve that shifts on this card (for a trap card with a cause, the other curve).
   const mover: Shift | null = trap ? card.move.cause ?? null : card.answer;
   const moverSide = mover ? parseShift(mover).side : null;
-  const shownDq = phase === 'drag' ? dq : phase === 'predict' ? 0 : mover ? (parseShift(mover).dir === 'right' ? SHIFT_SIZE : -SHIFT_SIZE) : 0;
+  // Level 1 always shifts 20 bags. Level 2 uses different sizes, so the numbers change from card to card.
+  const size = level >= 2 ? shiftSizeFor(seed * 31 + pos) : SHIFT_SIZE;
+  const shownDq = phase === 'drag' ? dq : phase === 'predict' ? 0 : mover ? (parseShift(mover).dir === 'right' ? size : -size) : 0;
   const market = moverSide && (!trap || phase === 'trap-done') ? shiftedMarket(moverSide, shownDq) : { demand: BASE_D, supply: BASE_S };
   const out = marketOutcome(BASE_D, BASE_S, market.demand, market.supply);
   const e1 = out.e1;
@@ -122,7 +155,7 @@ function Try({ content, onComplete, onGoal }: TryProps) {
           if (n >= ROUND_GOAL) {
             play('win');
             celebrate({ size: 'big' });
-            onGoal();
+            onGoal(level);
           } else play('pop');
         }, 300);
       }
@@ -148,6 +181,8 @@ function Try({ content, onComplete, onGoal }: TryProps) {
     setDragMsg(null);
     setAnimP(null);
     setMech(null);
+    setOutPred({ price: null, quantity: null });
+    setOutChecked(false);
   };
 
   const nextCard = () => {
@@ -159,12 +194,6 @@ function Try({ content, onComplete, onGoal }: TryProps) {
     setAnnounce('New event card drawn.');
   };
 
-  const toggleTrap = () => {
-    setTrapMode(!trapMode);
-    setPos(0);
-    resetCard();
-    setAnnounce(!trapMode ? 'Trap mode on. Watch out for movements along a curve.' : 'Trap mode off.');
-  };
 
   const submitPrediction = () => {
     if (!prediction) return;
@@ -179,7 +208,7 @@ function Try({ content, onComplete, onGoal }: TryProps) {
       setPhase('drag');
       if (right) setCorrect((n) => n + 1);
     }
-    setAnnounce(right ? 'Your prediction was right.' : 'Not quite. Read the explanation, then carry on.');
+    setAnnounce(right ? 'Your prediction was right.' : trap ? 'Not quite. Read the explanation, then carry on.' : 'Not quite. Read the hint, then drag the curve.');
   };
 
   // ----- Dragging the curve -----
@@ -190,7 +219,7 @@ function Try({ content, onComplete, onGoal }: TryProps) {
   const curveName = side === 'demand' ? 'demand curve' : 'supply curve';
 
   const acceptShift = () => {
-    const final = correctDir === 'right' ? SHIFT_SIZE : -SHIFT_SIZE;
+    const final = correctDir === 'right' ? size : -size;
     dqRef.current = final;
     setDq(final);
     setDragMsg(null);
@@ -249,7 +278,8 @@ function Try({ content, onComplete, onGoal }: TryProps) {
     if (mech || trap) return;
     setMech(m);
     play(m === card.mechanism.answer ? 'correct' : 'wrong');
-    finishCard(result === 'right', false);
+    // Level 2: a card counts only when the curve AND the new price and quantity were predicted right.
+    finishCard(result === 'right' && (level < 2 || outcomeRight), false);
     setAnnounce(m === card.mechanism.answer ? 'Right function.' : `Not quite. This sentence describes ${card.mechanism.answer}.`);
   };
 
@@ -281,18 +311,14 @@ function Try({ content, onComplete, onGoal }: TryProps) {
   })();
 
   const options = trap ? data.focusOptions[card.focus] : data.options;
+  const expected = !trap && mover ? expectedOutcome(mover) : null;
+  const outcomeRight = !!expected && outPred.price === expected.price && outPred.quantity === expected.quantity;
   const pickedRight = result === 'right';
 
   return (
     <div class="stack">
       <LiveRegion text={announce} />
-      <div class="row">
-        <button class="btn btn-secondary btn-sm" aria-pressed={trapMode} onClick={toggleTrap}>
-          Trap mode: {trapMode ? 'on' : 'off'}
-        </button>
-        <span class="small muted">Trap mode mixes in cards where nothing shifts: only a movement along a curve.</span>
-      </div>
-      <div class="play">
+      <div class="play play-card-first">
         <div class="stack">
           <Diagram
             xMax={X_MAX}
@@ -423,10 +449,10 @@ function Try({ content, onComplete, onGoal }: TryProps) {
           </div>
         </div>
 
-        <section key={`${seed}-${pos}-${trapMode}`} class="event-card stack card-deal" aria-labelledby="ms-card-h">
+        <section key={`${seed}-${pos}-${level}`} class="event-card stack card-deal" aria-labelledby="ms-card-h">
           <div class="row" style={{ justifyContent: 'space-between', gap: 8 }}>
             <p class="small muted" style={{ margin: 0 }}>
-              Round: card {Math.min(results.length + 1, ROUND_SIZE)} of {ROUND_SIZE}{trapMode ? ' (trap mode)' : ''}
+              Level {level}: card {Math.min(results.length + 1, ROUND_SIZE)} of {ROUND_SIZE}
             </p>
             <ol class="round-track" aria-label={`This round: ${roundRight} right out of ${results.length} played`}>
               {Array.from({ length: ROUND_SIZE }, (_, i) => (
@@ -458,8 +484,13 @@ function Try({ content, onComplete, onGoal }: TryProps) {
                 {pickedRight ? data.feedback.right : 'Not quite, and that is how we learn.'}
               </p>
               {!pickedRight && result && <Md text={data.feedback[result]} />}
-              <p class="small"><strong>{card.determinant}</strong></p>
-              <Md text={card.explain} />
+              {/* After a wrong prediction, the answer waits until the student has dragged the curve themselves. */}
+              {(pickedRight || phase !== 'drag') && (
+                <>
+                  <p class="small"><strong>{card.determinant}</strong></p>
+                  <Md text={card.explain} />
+                </>
+              )}
             </div>
           )}
 
@@ -476,7 +507,45 @@ function Try({ content, onComplete, onGoal }: TryProps) {
                   ? 'Buyers compete for the scarce bags, so the price is pushed up.'
                   : 'Roasters cannot sell all their bags, so they cut the price.'}
               </p>
-              <div><button class="btn" onClick={() => setPhase('adjust')}>Let the price adjust</button></div>
+              {level >= 2 && (
+                <div class="stack">
+                  <p style={{ margin: 0 }}>
+                    <strong>Predict:</strong> when the market settles, what happens to the equilibrium price and quantity?
+                  </p>
+                  {(['price', 'quantity'] as const).map((k) => (
+                    <div key={k} class="row" role="group" aria-label={`Equilibrium ${k}`}>
+                      <span style={{ minWidth: 70 }}>{k === 'price' ? 'Price' : 'Quantity'}</span>
+                      {(['rises', 'falls'] as Change[]).map((c) => (
+                        <button
+                          key={c}
+                          type="button"
+                          class="choice-btn"
+                          aria-pressed={outPred[k] === c}
+                          disabled={outChecked}
+                          onClick={() => setOutPred({ ...outPred, [k]: c })}
+                        >
+                          {c === 'rises' ? 'Rises' : 'Falls'}
+                        </button>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div>
+                <button
+                  class="btn"
+                  disabled={level >= 2 && (!outPred.price || !outPred.quantity)}
+                  onClick={() => {
+                    if (level >= 2) {
+                      setOutChecked(true);
+                      play(outcomeRight ? 'correct' : 'wrong');
+                    }
+                    setPhase('adjust');
+                  }}
+                >
+                  {level >= 2 ? 'Lock in and let the price adjust' : 'Let the price adjust'}
+                </button>
+              </div>
             </div>
           )}
 
@@ -484,6 +553,16 @@ function Try({ content, onComplete, onGoal }: TryProps) {
 
           {phase === 'settled' && !trap && (
             <div class="stack">
+              {level >= 2 && (
+                <p class={`callout ${outcomeRight ? 'callout-ok' : 'callout-try'}`} style={{ display: 'flex', gap: 6 }}>
+                  {outcomeRight ? <MarkIcon /> : <CrossIcon />}
+                  <span>
+                    {outcomeRight
+                      ? 'Your price and quantity prediction was right.'
+                      : `Not quite. You said price ${outPred.price} and quantity ${outPred.quantity}. Look at where the new curves cross.`}
+                  </span>
+                </p>
+              )}
               <div class="callout callout-ok">
                 <p><strong>New equilibrium.</strong> {outcomeWords(out)}</p>
                 <p class="small">
@@ -517,8 +596,8 @@ function Try({ content, onComplete, onGoal }: TryProps) {
               <h3 style={{ margin: 0 }}>Round complete: {roundRight} of {ROUND_SIZE} predictions right</h3>
               <p style={{ margin: 0 }}>
                 {roundRight >= ROUND_GOAL
-                  ? 'Great reading of the market. You earned the Market Mover stamp.'
-                  : `Get ${ROUND_GOAL} or more in a round to earn the Market Mover stamp. Each card teaches you something, so the next round gets easier.`}
+                  ? `Great reading of the market. You earned the ${STAMP_NAMES[level - 1]} stamp.${level < 3 ? ` Level ${level + 1} is now open.` : ''}`
+                  : `Get ${ROUND_GOAL} or more in a round to earn the ${STAMP_NAMES[level - 1]} stamp. Each card teaches you something, so the next round gets easier.`}
               </p>
               <div>
                 <button

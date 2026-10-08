@@ -6,15 +6,15 @@ import { ACTIVITIES } from './registry';
 
 export function StampBook(props: { progress: Progress; enabled: Record<string, boolean>; teacher: boolean }) {
   const acts = ACTIVITIES.filter((a) => a.load && a.goal && (props.enabled[a.id] || props.teacher));
-  const total = acts.length * 3;
+  const total = acts.reduce((n, a) => n + stampsFor(a).length, 0);
   const earned = acts.reduce((n, a) => n + countStamps(props.progress.activities[a.id]?.stamps ?? 0), 0);
   return (
     <div class="stack">
       <section class="hero">
         <h1>My stamp book</h1>
         <p>
-          You have <strong>{earned} of {total}</strong> stamps. Each activity has three: one for its game, one for getting every Check it question right on
-          the first try, and one for finishing all four steps.
+          You have <strong>{earned} of {total}</strong> stamps. Each activity has five: one for each of its three game levels, one for getting every Check
+          it question right on the first try, and one for finishing all four steps.
         </p>
         <p class="small muted">Stamps are just for you. Nobody else sees them, and they are never taken away. They travel with your progress code.</p>
       </section>
@@ -27,14 +27,14 @@ export function StampBook(props: { progress: Progress; enabled: Record<string, b
               <a href={`#/a/${a.id}/learn`}>Open activity</a>
             </div>
             <ul class="stamp-row">
-              {stampsFor(a.goal!).map((d) => {
+              {stampsFor(a).map((d) => {
                 const has = (stamps & d.flag) !== 0;
                 return (
                   <li key={d.flag} class="stamp-slot">
-                    <Stamp icon={d.icon} earned={has} />
+                    <Stamp icon={d.icon} level={d.level} earned={has} />
                     <div>
                       <p style={{ margin: 0 }}>
-                        <strong>{d.name}</strong>
+                        <strong>{d.name}</strong>{d.level ? <span class="small muted"> (Level {d.level})</span> : null}
                       </p>
                       <p class="small" style={{ margin: 0 }}>
                         {has ? <span class="badge badge-done">Earned</span> : <span class="muted">Not yet. {d.how}</span>}

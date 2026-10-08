@@ -6,7 +6,7 @@
     "caption": "The price rises from P₁ ($6) to P₂ ($7). Cups sold fall from Q₁ (160) to Q₂ (120). The price pull (hatched) adds $120. The quantity pull (cross pattern) loses $240. TR falls from $960 to $840, so demand is price elastic here."
   },
   "try": {
-    "intro": "**Welcome to your café** (an invented business). Each week has six days. Each day, choose a price and open the café. Watch how many customers come in and your [[total revenue]]. The demand curve is **hidden**. At the end of the week, use your own sales data to decide: is demand price elastic or price inelastic? Other things stay the same all week ([[ceteris paribus]]).\n\n**Campaign:** run four cafés, one each week. The goal each week is to finish with a higher daily revenue than on day 1. Meet the goal in 3 of the 4 weeks to earn the **Café Tycoon** stamp.",
+    "intro": "**Welcome to your café** (an invented business). Each day, choose a price and open the café. Watch how many customers come in and your [[total revenue]]. The demand curve is **hidden** until the end of the week. Other things stay the same all week ([[ceteris paribus]]).\n\n**Level 1:** each week, finish with more daily revenue than on day 1 **and** decide correctly whether demand is price elastic or price inelastic. Do both in 3 of the 4 weeks to earn the **Café Tycoon** stamp.\n\n**Level 2:** these price ranges cross the point where |PED| = 1. Find the price that earns the most revenue.\n\n**Level 3:** only five days, and you work out each PED yourself before the sales log shows it.",
     "days": 6,
     "scenarios": [
       {
@@ -178,6 +178,141 @@
             "text": "There is no other coffee on the platform, so there are no close substitutes. Demand is price inelastic."
           }
         ]
+      },
+      {
+        "id": "gym",
+        "name": "Smoothie bar at the gym",
+        "text": "Gym members buy smoothies after a workout. You start at a low price. Find the price that earns the most in a day.",
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 9
+          },
+          "b": {
+            "q": 360,
+            "p": 0
+          }
+        },
+        "priceMin": 2.5,
+        "priceMax": 8,
+        "startPrice": 3,
+        "qMax": 360,
+        "pMax": 9,
+        "hints": [],
+        "level": 2
+      },
+      {
+        "id": "bubble",
+        "name": "Bubble tea near the school",
+        "text": "Students walk past after school. You start at a high price. Find the price that earns the most in a day.",
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 11
+          },
+          "b": {
+            "q": 220,
+            "p": 0
+          }
+        },
+        "priceMin": 3,
+        "priceMax": 9,
+        "startPrice": 8.5,
+        "qMax": 220,
+        "pMax": 11,
+        "hints": [],
+        "level": 2
+      },
+      {
+        "id": "soup",
+        "name": "Soup from a food truck",
+        "text": "Office workers buy lunch from your truck. Find the price that earns the most in a day.",
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 13
+          },
+          "b": {
+            "q": 416,
+            "p": 0
+          }
+        },
+        "priceMin": 4,
+        "priceMax": 10.5,
+        "startPrice": 4.5,
+        "qMax": 416,
+        "pMax": 13,
+        "hints": [],
+        "level": 2
+      },
+      {
+        "id": "ferry",
+        "name": "Coffee at the ferry dock",
+        "text": "Only five days this week. Work out each PED yourself.",
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 14
+          },
+          "b": {
+            "q": 336,
+            "p": 0
+          }
+        },
+        "priceMin": 4,
+        "priceMax": 11,
+        "startPrice": 10,
+        "qMax": 336,
+        "pMax": 14,
+        "hints": [],
+        "level": 3,
+        "mystery": true
+      },
+      {
+        "id": "rink",
+        "name": "Hot cider at the ice rink",
+        "text": "Only five days this week. Work out each PED yourself.",
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 8
+          },
+          "b": {
+            "q": 384,
+            "p": 0
+          }
+        },
+        "priceMin": 1.5,
+        "priceMax": 6.5,
+        "startPrice": 2,
+        "qMax": 384,
+        "pMax": 8,
+        "hints": [],
+        "level": 3,
+        "mystery": true
+      },
+      {
+        "id": "lemonade",
+        "name": "Lemonade at the farmers' market",
+        "text": "Only five days this week. Work out each PED yourself.",
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 10
+          },
+          "b": {
+            "q": 400,
+            "p": 0
+          }
+        },
+        "priceMin": 2,
+        "priceMax": 8.75,
+        "startPrice": 7.5,
+        "qMax": 400,
+        "pMax": 10,
+        "hints": [],
+        "level": 3,
+        "mystery": true
       }
     ],
     "decision": {
@@ -205,7 +340,41 @@
       "reveal": "Here is the hidden demand curve D. Your dots all lie on it.",
       "hl": "^HL^ PED changes as you move along a straight demand curve. In this price range it goes from {pedLow} at {pLow} to {pedHigh} at {pHigh}, but it stays {side} 1 the whole time.",
       "hintsTitle": "Why? Use HINTS"
-    }
+    },
+    "goal": "Set a price each day, read your sales log, and grow your revenue.",
+    "levels": [
+      {
+        "title": "Read your customers",
+        "blurb": "Four cafés. Grow revenue and decide: elastic or inelastic?"
+      },
+      {
+        "title": "Find the sweet spot",
+        "blurb": "Three cafés where PED changes from inelastic to elastic. Find the price that earns the most."
+      },
+      {
+        "title": "Run the numbers",
+        "blurb": "Five days only. Work out every PED yourself, then find the best price."
+      }
+    ],
+    "sweet": {
+      "question": "Along a straight demand curve, where is total revenue highest?",
+      "options": {
+        "elastic": "Where demand is price elastic (|PED| more than 1)",
+        "unit": "Where |PED| = 1 (unit elastic)",
+        "inelastic": "Where demand is price inelastic (|PED| less than 1)"
+      },
+      "right": "Yes. Total revenue is highest where |PED| = 1.",
+      "wrong": "Not this time. Total revenue is highest where |PED| = 1.",
+      "reached": "Your best day was Day {day} at {price}, with total revenue {best}. The most this café can earn in a day is {max}, at {maxPrice}. You reached {pct}% of it. The goal was {goal}%.",
+      "why": "Below {maxPrice}, demand is price inelastic, so a higher price raises total revenue. Above {maxPrice}, demand is price elastic, so a higher price lowers total revenue. At {maxPrice}, |PED| = 1, so a small price change leaves total revenue almost the same.",
+      "pedTitle": "Work out PED for Day {day}",
+      "pedHelp": "PED = % change in quantity demanded ÷ % change in price. Use Day {prev} as the original value. Round to 2 decimal places.",
+      "pedRight": "Correct. PED = {ped}.",
+      "pedWrong": "Not quite. Check which day is the original value, then try again.",
+      "pedShow": "PED = {pctQ} ÷ {pctP} = {ped}.",
+      "hl": "^HL^ PED changes as you move along a straight demand curve. Here it goes from {pedLow} at {pLow} to {pedHigh} at {pHigh}. |PED| = 1 at {maxPrice}, the midpoint of the curve."
+    },
+    "nickname": "\"Price pull\" and \"quantity pull\" are this app's nicknames. In an exam, write \"the extra revenue from the higher price on units still sold\" and \"the revenue lost on units no longer sold\"."
   },
   "check": [
     {
@@ -477,6 +646,12 @@
       "The PED was ___, which is ___ than 1 in size, so demand is price ___.",
       "When I raised the price, total revenue ___ because the ___ pull was bigger.",
       "Demand was ___ because of HINTS, especially ___."
+    ],
+    "checklist": [
+      "I used real numbers from my sales log (prices and cups sold).",
+      "I calculated PED and compared its size with 1.",
+      "I said what happened to total revenue and linked it to PED.",
+      "I said whether the café should raise or lower its price, and gave a HINTS reason."
     ]
   },
   "teacherNotes": "Each scenario has a hidden straight-line demand curve. Its playable price range lies wholly on the elastic part (latte, Cloud Fizz) or wholly on the inelastic part (ski lodge) of the line, so every price change the student makes gives the same answer. Cups sold are whole numbers and every PED in the sales log is worked out from them, using the previous day as the original value. The price pull is the price change on the units sold at both prices: (P₂ − P₁) × the smaller quantity. The quantity pull is the units gained or lost, valued at the lower price: lower price × (Q₂ − Q₁). The two areas never overlap, and together they equal the change in TR. In class: give half the room the latte and half the ski lodge, then compare their sales logs and link the results to HINTS. You can edit the scenarios (demand points, price range, start price, axes and HINTS text) in this file; keep each price range on one side of the unitary point, which the automated tests check. PED changing along a straight line is HL, and is labelled HL in the reveal."

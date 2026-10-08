@@ -11,7 +11,10 @@ function stepsDone(steps: number) {
 }
 
 export function Home(props: { progress: Progress; enabled: Record<string, boolean>; teacher: boolean; showHl: boolean }) {
-  const visible = ACTIVITIES.filter((a) => props.teacher || ((props.showHl || a.hl !== 'all') && (props.enabled[a.id] || !a.load)));
+  const allowed = ACTIVITIES.filter((a) => props.teacher || ((props.showHl || a.hl !== 'all') && (props.enabled[a.id] || !a.load)));
+  // Activities not built yet are folded into one line at the end, so the page shows only what can be played.
+  const visible = allowed.filter((a) => a.load);
+  const later = allowed.filter((a) => !a.load);
   return (
     <div class="stack">
       <section class="hero">
@@ -69,9 +72,9 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
                             </span>
                             {p && p.rating > 0 && <span class="small muted">Self-rating: {DEFAULT_LEVELS[p.rating - 1]?.name}</span>}
                             {a.goal && (
-                              <span class="mini-stamps" aria-label={`${countStamps(p?.stamps ?? 0)} of 3 stamps`} role="img">
-                                {stampsFor(a.goal).map((d) => (
-                                  <Stamp key={d.flag} icon={d.icon} earned={((p?.stamps ?? 0) & d.flag) !== 0} size={30} />
+                              <span class="mini-stamps" aria-label={`${countStamps(p?.stamps ?? 0)} of ${stampsFor(a).length} stamps`} role="img">
+                                {stampsFor(a).map((d) => (
+                                  <Stamp key={d.flag} icon={d.icon} level={d.level} earned={((p?.stamps ?? 0) & d.flag) !== 0} size={26} />
                                 ))}
                               </span>
                             )}
@@ -98,6 +101,21 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
           })}
         </section>
       ))}
+
+      {later.length > 0 && (
+        <details class="card coming-later">
+          <summary>
+            <strong>Coming later:</strong> {later.length} more activities for Units 1 and 2
+          </summary>
+          <ul class="small" style={{ marginTop: 8 }}>
+            {later.map((a) => (
+              <li key={a.id}>
+                <strong>{a.title}</strong> ({a.tag}{a.hl === 'all' ? ', HL' : ''}). {a.blurb}
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
     </div>
   );
 }

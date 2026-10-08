@@ -9,8 +9,8 @@ import { SoundToggle } from '../shared/fun/SoundToggle';
 import { stampsFor } from '../shared/fun/stampDefs';
 import { StampToast } from '../shared/fun/StampToast';
 import { LocalProgressStore } from '../shared/progress/localStore';
-import { autoStamps, newStampFlags } from '../shared/progress/stamps';
-import { emptyActivity, Progress, STAMP, STEP, today } from '../shared/progress/types';
+import { autoStamps, levelFlag, newStampFlags } from '../shared/progress/stamps';
+import { emptyActivity, Progress, STEP, today } from '../shared/progress/types';
 import { GlossaryPage } from './GlossaryPage';
 import { Home } from './Home';
 import { ProgressPage } from './ProgressPage';
@@ -88,11 +88,11 @@ export function App() {
     return m;
   }, [settings, teacher, preview]);
 
-  const updateActivity = (id: string, patch: Partial<Progress['activities'][string]>, addSteps = 0, addStamps = 0) => {
+  const updateActivity = (id: string, patch: Partial<Progress['activities'][string]>, addSteps = 0, addStamps = 0, sharp = false) => {
     const current = store.load();
     const prev = current.activities[id] ?? emptyActivity();
     const next = { ...prev, ...patch, steps: prev.steps | addSteps, stamps: (prev.stamps ?? 0) | addStamps, updated: today() };
-    next.stamps = autoStamps(next, (addSteps & STEP.check) !== 0 && patch.total !== undefined);
+    next.stamps = autoStamps(next, (addSteps & STEP.check) !== 0 && patch.total !== undefined, sharp);
     const fresh = newStampFlags(prev.stamps ?? 0, next.stamps);
     // Nothing new to save (for example, a goal stamp already earned): keep the saved date as it is.
     if (!fresh.length && next.steps === prev.steps && !Object.keys(patch).length && current.activities[id]) return;
@@ -128,8 +128,8 @@ export function App() {
           step={step}
           onStep={(s) => (location.hash = `#/a/${meta.id}/${s}`)}
           progress={progress.activities[meta.id]}
-          onProgress={(patch, add) => updateActivity(meta.id, patch, add)}
-          onGoal={() => updateActivity(meta.id, {}, STEP.try, STAMP.play)}
+          onProgress={(patch, add, sharp) => updateActivity(meta.id, patch, add, 0, sharp)}
+          onGoal={(level = 1) => updateActivity(meta.id, {}, STEP.try, levelFlag(level))}
           teacher={teacher}
           showHl={settings.showHlContent || teacher}
           scale={settings.scale}
@@ -206,7 +206,7 @@ export function App() {
       {toasts.length > 0 && (() => {
         const t = toasts[0];
         const meta = findActivity(t.activityId);
-        const def = meta?.goal ? stampsFor(meta.goal).find((d) => d.flag === t.flag) : undefined;
+        const def = meta?.goal ? stampsFor(meta).find((d) => d.flag === t.flag) : undefined;
         if (!meta || !def) {
           setTimeout(() => setToasts((all) => all.slice(1)), 0);
           return null;
@@ -216,6 +216,7 @@ export function App() {
             key={`${t.activityId}-${t.flag}`}
             name={def.name}
             icon={def.icon}
+            level={def.level}
             activity={meta.title}
             bookHref="#/stamps"
             onClose={() => setToasts((all) => all.slice(1))}

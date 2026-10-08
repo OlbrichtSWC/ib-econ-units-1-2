@@ -3,6 +3,7 @@ import { crc16, decodeProgress, encodeProgress, fromBase32, normalizeCode, toBas
 import { conflicts, mergeProgress } from '../src/shared/progress/merge';
 import { LocalProgressStore } from '../src/shared/progress/localStore';
 import { ActivityProgress, Progress, STAMP, STEP } from '../src/shared/progress/types';
+import { PROGRESS_ID_TABLE } from '../src/app/registry';
 
 const IDS = ['ppc-explorer', 'market-shock', 'surplus-shader', 'elasticity-cafe', 'ped-line'];
 
@@ -59,7 +60,7 @@ describe('Progress code: round trip', () => {
           applyTotal,
           applyCorrect: Math.floor(Math.random() * (applyTotal + 1)),
           rating: Math.floor(Math.random() * 9),
-          stamps: Math.floor(Math.random() * 8),
+          stamps: Math.floor(Math.random() * 32),
           updated: Math.floor(Math.random() * 20000),
         });
       }
@@ -162,6 +163,23 @@ describe('Progress code: versions', () => {
       act({ steps: 15, correct: 5, total: 6, hints: 1, applyCorrect: 1, applyTotal: 2, rating: 5, updated: 645 }),
     );
     expect(r.progress.activities['ped-line']).toEqual(act({ steps: 3, updated: 650 }));
+  });
+
+  it('a version 2 code (three stamps, before game levels) still loads with its stamps', () => {
+    // Made by the version 2 app (with the app's own id table): market-shock finished with all three stamps, ped-line started with one.
+    const r = decodeProgress('09G0-ZM5Y-SRGK-9910-3YG1-VVR', PROGRESS_ID_TABLE);
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(r.progress.activities['market-shock']).toEqual(
+      act({ steps: 15, correct: 7, total: 8, hints: 2, applyCorrect: 1, applyTotal: 2, rating: 6, stamps: 7, updated: 1011 }),
+    );
+    expect(r.progress.activities['ped-line']).toEqual(act({ steps: 2, stamps: 1, updated: 1012 }));
+  });
+
+  it('level 2 and level 3 stamps survive the round trip', () => {
+    const p: Progress = { activities: { 'ppc-explorer': act({ steps: 15, stamps: STAMP.play | STAMP.level2 | STAMP.level3 | STAMP.sharp, updated: 900 }) } };
+    const r = decodeProgress(encodeProgress(p, IDS), IDS);
+    expect(r.ok && r.progress).toEqual(p);
   });
 
   it('stamps survive the round trip', () => {

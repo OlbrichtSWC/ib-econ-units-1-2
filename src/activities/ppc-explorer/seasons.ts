@@ -49,3 +49,26 @@ export function workingPlans(seasons: Season[], index: number): number[] {
   }
   return plans;
 }
+
+/** One level of the Four seasons game. */
+export interface SeasonLevel {
+  title: string;
+  blurb: string;
+  /** Workers fishing when the year starts. Chosen so Spring is not already solved. */
+  startFishers: number;
+  /** Event predictions the student must get right (with every need met) to earn the level's stamp. */
+  minPredictions: number;
+  /** Level 3: some needs lie outside the PPC, and the student can say so. */
+  impossibleOption?: boolean;
+  seasons: Season[];
+}
+
+/** True when no plan can meet a season's need: the need lies outside the island's PPC. */
+export function needImpossible(seasons: Season[], index: number): boolean {
+  return workingPlans(seasons, index).length === 0;
+}
+
+/** Whether a finished year earns the level's stamp. */
+export function yearWon(level: SeasonLevel, seasonsMet: boolean[], predictionsRight: number): boolean {
+  return seasonsMet.length === level.seasons.length && seasonsMet.every(Boolean) && predictionsRight >= level.minPredictions;
+}

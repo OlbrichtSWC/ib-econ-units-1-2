@@ -31,7 +31,11 @@ export const ACTIVITIES: ActivityMeta[] = [
   {
     id: 'ppc-explorer', tag: '1.1 PPC', code: '1.1', unit: 1, title: 'PPC Explorer', style: 'Strategy missions',
     blurb: 'Run an island economy. Move workers between two goods, take on missions and react to events.',
-    goal: { name: 'Island Planner', how: 'Finish all four seasons on the island in PPC Explorer with the island still fed.', icon: 'island' },
+    goal: { name: 'Island Planner', how: 'Level 1 of Four seasons: finish the year with every need met and at least 2 of 3 predictions right.', icon: 'island' },
+    goals: [
+      { name: 'Storm Planner', how: 'Level 2 of Four seasons: tighter needs and four events. Meet every need and get 3 of 4 predictions right.', icon: 'island' },
+      { name: 'Island Council', how: 'Level 3 of Four seasons: spot the need that cannot be met, plan the rest, and get all 4 predictions right.', icon: 'island' },
+    ],
     load: () => import('../activities/ppc-explorer'),
   },
   { id: 'island-economy', tag: '1.1 Economic systems', code: '1.1', unit: 1, title: 'Island Economy', style: 'Story choices', blurb: 'Answer what, how and for whom under three economic systems.' },
@@ -40,26 +44,42 @@ export const ACTIVITIES: ActivityMeta[] = [
   {
     id: 'market-shock', tag: '2.1 to 2.3 Demand, supply, equilibrium', code: '2.1', unit: 2, hl: 'part', title: 'Market Shock Simulator', style: 'Prediction card game',
     blurb: 'Draw an event card, predict which curve shifts, then drag it and watch the market react.',
-    goal: { name: 'Market Mover', how: 'Play a full deck of 8 cards in Market Shock and get at least 6 right.', icon: 'shift' },
+    goal: { name: 'Market Mover', how: 'Level 1 of Market Shock: play a full deck of 8 cards and get at least 6 right.', icon: 'shift' },
+    goals: [
+      { name: 'Trap Spotter', how: 'Level 2 of Market Shock: trap cards and different shift sizes. Predict the curve and the new price and quantity.', icon: 'shift' },
+      { name: 'Double Shock', how: 'Level 3 of Market Shock: two events at once. Say what you can and cannot tell about price and quantity.', icon: 'shift' },
+    ],
     load: () => import('../activities/market-shock'),
   },
   {
     id: 'surplus-shader', tag: '2.3 Consumer and producer surplus', code: '2.3', unit: 2, hl: 'part', title: 'Surplus Shader', style: 'Price dial lab',
     blurb: 'Drag the price and watch consumer, producer and community surplus change. Find the welfare loss.',
-    goal: { name: 'Surplus Painter', how: 'Paint three surplus areas in Surplus Shader with a score of at least 85%.', icon: 'brush' },
+    goal: { name: 'Surplus Painter', how: 'Level 1 of Paint the surplus: paint three areas with a score of at least 85%.', icon: 'brush' },
+    goals: [
+      { name: 'Shift Painter', how: 'Level 2 of Paint the surplus: a curve shifts first. Paint three areas with 85% or more.', icon: 'brush' },
+      { name: 'Master Painter', how: 'Level 3 of Paint the surplus: community surplus and no markers. Paint three areas with 92% or more.', icon: 'brush' },
+    ],
     load: () => import('../activities/surplus-shader'),
   },
   { id: 'bias-lab', tag: '2.4 Behavioural economics', code: '2.4', unit: 2, hl: 'all', title: 'Bias Lab', style: 'Experiments', blurb: 'Take part in short experiments on anchoring, framing and defaults, then design a nudge.' },
   {
     id: 'elasticity-cafe', tag: '2.5 PED', code: '2.5', unit: 2, title: 'The Elasticity Café', style: 'Business simulation',
     blurb: 'Run a café for a week. Set prices, read your sales and discover the hidden PED.',
-    goal: { name: 'Café Tycoon', how: 'Finish the four-week campaign in the café and beat the revenue goal.', icon: 'cup' },
+    goal: { name: 'Café Tycoon', how: 'Level 1 of the café: in 3 of 4 weeks, grow revenue and say correctly whether demand is elastic or inelastic.', icon: 'cup' },
+    goals: [
+      { name: 'Sweet Spot Finder', how: 'Level 2 of the café: in 2 of 3 weeks, find the price that earns the most revenue.', icon: 'cup' },
+      { name: 'Number Cruncher', how: 'Level 3 of the café: work out each PED yourself and find the best price in 2 of 3 weeks.', icon: 'cup' },
+    ],
     load: () => import('../activities/elasticity-cafe'),
   },
   {
     id: 'ped-line', tag: '2.5 PED along a straight line', code: '2.5', unit: 2, hl: 'all', title: 'Same Slope, Different PED', style: 'Explorer',
     blurb: 'Slide along one demand curve and see PED and total revenue change.',
-    goal: { name: 'Point Hunter', how: 'Find three hidden points in the mystery mode.', icon: 'target' },
+    goal: { name: 'Point Hunter', how: 'Level 1 of the mystery mode: find three hidden points without using Show me.', icon: 'target' },
+    goals: [
+      { name: 'Sharp Shooter', how: 'Level 2 of the mystery mode: harder clues and only 4 checks. Find three hidden points.', icon: 'target' },
+      { name: 'Curve Master', how: 'Level 3 of the mystery mode: a new curve and only 3 checks. Find three hidden points.', icon: 'target' },
+    ],
     load: () => import('../activities/ped-line'),
   },
   { id: 'hints-yed', tag: '2.5 PED determinants and YED', code: '2.5', unit: 2, hl: 'part', title: 'HINTS Sorter and YED Lab', style: 'Sort and explore', blurb: 'Sort goods by PED using HINTS, then explore Engel curves.' },

@@ -6,7 +6,7 @@
     "caption": "Demand shifts right from D₁ to D₂. The equilibrium moves from P₁ and Q₁ to P₂ and Q₂: price rises and quantity rises."
   },
   "try": {
-    "intro": "**Welcome to Riverton** (an invented city). You run the market for **bags of roasted coffee beans**. Draw an event card. **Predict first**: which curve shifts, and which way? Then drag the curve on the diagram and watch the market react. Every card starts from the same market, at $5 and 50 bags (ceteris paribus). Play a round of 8 cards. Get 6 or more predictions right to earn the **Market Mover** stamp.",
+    "intro": "**Welcome to Riverton** (an invented city). You run the market for **bags of roasted coffee beans**. Every card starts from the same market, at $5 and 50 bags (ceteris paribus).\n\n1. Read the event card and **predict**: which curve shifts, and which way?\n2. **Drag the curve** on the diagram.\n3. Watch the shortage or surplus at the old price, then let the price adjust.\n4. Say which function of the price mechanism the card shows.\n\nThere are three levels. Each opens when you earn the stamp for the level before.",
     "marketName": "Market for coffee beans in Riverton",
     "options": [
       {
@@ -62,7 +62,7 @@
     },
     "feedback": {
       "right": "Your prediction was right.",
-      "wrong-direction": "Good start: you picked the right curve. The direction is the other way. Ask: at every price, do people now want to buy (or firms want to sell) more or less than before?",
+      "wrong-direction": "Good start: you picked the right curve. Check the direction. Ask: at every price, do people now want to buy (or firms want to sell) more or less than before?",
       "wrong-curve": "Good thinking, but it is the other curve. Ask: does this event change what **buyers** want (demand) or what **sellers** can or want to sell (supply)?",
       "missed-shift": "This one does shift a curve. Something other than the coffee's own price changed, so it is a non-price determinant. Ask: is it a determinant of demand or of supply?",
       "movement-not-shift": "This is the trap! Only the coffee's own price changed (or the other curve moved). A change in a good's own price causes a **movement along** the curve, not a shift."
@@ -374,7 +374,22 @@
         },
         "explain": "Demand shifted right, not supply. The higher price gives roasters an incentive to sell more, so they move **up along** the supply curve S. Supply only shifts when a non-price determinant of supply changes, and none did."
       }
-    ]
+    ],
+    "levels": [
+      {
+        "title": "Single shifts",
+        "blurb": "One curve shifts on each card. Get 6 of 8 right."
+      },
+      {
+        "title": "Shift or movement?",
+        "blurb": "Trap cards, shifts of different sizes, and you predict the new price and quantity. Get 6 of 8 right."
+      },
+      {
+        "title": "Double shocks",
+        "blurb": "Two events hit the market at once. Predict both shifts, then price and quantity. Get 4 of 6 right."
+      }
+    ],
+    "goal": "Read each event card and predict how the market reacts. Get 6 of 8 right to earn the **Market Mover** stamp."
   },
   "check": [
     {
@@ -670,6 +685,12 @@
       "This shifted the ___ curve to the ___ from ___ to ___.",
       "At the old price there was a ___ of ___, so the price ___.",
       "The new equilibrium price ___ and the new equilibrium quantity ___."
+    ],
+    "checklist": [
+      "I named the non-price determinant that changed.",
+      "I said which curve shifted and which way.",
+      "I explained the shortage or surplus at the old price and how the price moved to remove it.",
+      "I gave the new equilibrium price and quantity, and described a diagram with both curves labelled."
     ]
   },
   "teacherNotes": "Play the cards as a whole-class prediction game: students hold up D or S and point left or right before you reveal. The 17 shift cards cover every non-price determinant of demand and supply in the guide (2.1, 2.2). Turn on trap mode to practise shift versus movement along a curve; trap cards alternate with shift cards. After each shift, the gap at the old price shows excess demand or excess supply before the price adjusts (2.3 price mechanism), followed by a signalling, incentive or rationing question. The HL challenge and Check it question 8 cover income and substitution effects and diminishing marginal utility (HL 2.1). onComplete fires after 5 cards. Check it question 5 covers simultaneous shifts with an indeterminate outcome."

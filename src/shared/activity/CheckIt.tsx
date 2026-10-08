@@ -60,7 +60,30 @@ export function checkNumber(q: NumberQuestion, value: number): { ok: boolean; fe
   return { ok: false, feedback: 'Not yet. Check each step of your working, or take a hint.' };
 }
 
-export function CheckIt(props: { questions: Question[]; teacher: boolean; onFinish: (e: Evidence) => void; showHl: boolean }) {
+/** One hint per question is allowed without losing a first-try answer's place in the First-Try Star. */
+export const FREE_HINTS = 1;
+
+/**
+ * Evidence from one Check it attempt, plus whether it earns the First-Try Star:
+ * every question right on the first try, using at most one hint on each.
+ */
+export function attemptEvidence(questions: Question[], states: { attempts: number; hints: number; revealed: boolean; solved: boolean }[]): Evidence & { sharp: boolean } {
+  let correct = 0, hints = 0, applyCorrect = 0, applyTotal = 0, sharp = questions.length > 0;
+  states.forEach((s, i) => {
+    // Honest evidence: only answers right on the first try count. Retrying still helps learning.
+    const ok = s.solved && !s.revealed && s.attempts === 1;
+    if (ok) correct++;
+    hints += Math.min(s.hints, 3);
+    if (!ok || s.hints > FREE_HINTS) sharp = false;
+    if (questions[i].level === 'apply') {
+      applyTotal++;
+      if (ok && s.hints <= FREE_HINTS) applyCorrect++;
+    }
+  });
+  return { correct, total: questions.length, hints, applyCorrect, applyTotal, sharp };
+}
+
+export function CheckIt(props: { questions: Question[]; teacher: boolean; onFinish: (e: Evidence, sharp: boolean) => void; showHl: boolean }) {
   const questions = props.questions.filter((q) => props.showHl || !q.hl);
   const [index, setIndex] = useState(0);
   const [states, setStates] = useState<QState[]>(() => questions.map(fresh));
@@ -72,20 +95,7 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
   const st = states[index];
   const set = (patch: Partial<QState>) => setStates((all) => all.map((s, i) => (i === index ? { ...s, ...patch } : s)));
 
-  const evidence = (): Evidence => {
-    let correct = 0, hints = 0, applyCorrect = 0, applyTotal = 0;
-    states.forEach((s, i) => {
-      // Honest evidence: only answers right on the first try count. Retrying still helps learning.
-      const ok = s.solved && !s.revealed && s.attempts === 1;
-      if (ok) correct++;
-      hints += Math.min(s.hints, 3);
-      if (questions[i].level === 'apply') {
-        applyTotal++;
-        if (ok && s.hints === 0) applyCorrect++;
-      }
-    });
-    return { correct, total: questions.length, hints, applyCorrect, applyTotal };
-  };
+  const evidence = () => attemptEvidence(questions, states);
 
   const right = () => {
     play('correct');
@@ -132,7 +142,8 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
     } else {
       setFinished(true);
       play('win');
-      props.onFinish(evidence());
+      const { sharp, ...e } = evidence();
+      props.onFinish(e, sharp);
     }
   };
 
@@ -149,7 +160,7 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
             {e.applyTotal > 0 && (
               <>
                 {' '}
-                You solved {e.applyCorrect} of {e.applyTotal} "apply it" questions with no hints.
+                You solved {e.applyCorrect} of {e.applyTotal} "apply it" questions on the first try with no more than one hint.
               </>
             )}
           </p>
@@ -286,7 +297,11 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
           </button>
         )}
         {!done && st.hints < 3 && (
-          <button class="btn btn-secondary" onClick={() => set({ hints: st.hints + 1 })}>
+          <button
+            class="btn btn-secondary"
+            aria-describedby={st.hints === 0 ? 'free-hint-note' : undefined}
+            onClick={() => set({ hints: st.hints + 1 })}
+          >
             <InfoIcon /> {st.hints === 0 ? 'Get a hint' : st.hints === 1 ? 'Get another hint' : 'Show a worked example'}
           </button>
         )}
@@ -294,6 +309,9 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
           <button class="btn btn-quiet" onClick={() => set({ revealed: true })}>
             Show the answer
           </button>
+        )}
+        {!done && st.hints === 0 && (
+          <span id="free-hint-note" class="small muted">One hint still counts as a first try.</span>
         )}
         {done && (
           <button class="btn" onClick={next}>

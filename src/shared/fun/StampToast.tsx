@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { Stamp, StampIcon } from './Stamp';
 
-export function StampToast(props: { name: string; icon: StampIcon; activity: string; bookHref: string; onClose: () => void }) {
+export function StampToast(props: { name: string; icon: StampIcon; level?: number; activity: string; bookHref: string; onClose: () => void }) {
   const closeRef = useRef(props.onClose);
   closeRef.current = props.onClose;
   useEffect(() => {
@@ -12,7 +12,7 @@ export function StampToast(props: { name: string; icon: StampIcon; activity: str
   }, [props.name, props.activity]);
   return (
     <div class="toast" role="status" aria-live="polite">
-      <Stamp icon={props.icon} earned size={64} animate />
+      <Stamp icon={props.icon} level={props.level} earned size={64} animate />
       <div style={{ flex: 1 }}>
         <p class="small muted">New stamp: {props.activity}</p>
         <p>

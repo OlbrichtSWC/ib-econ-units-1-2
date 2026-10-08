@@ -1,7 +1,8 @@
 /**
  * Four seasons: plan Pinewood Island's year. Each season an event changes the island
  * (predict its effect first), then the student chooses how many workers fish to meet
- * the season's need for fish and timber. Meeting every need earns the Island Planner stamp.
+ * the season's need for fish and timber. Three levels, each harder than the last.
+ * A level's stamp needs every season met AND enough correct predictions, so the economics counts.
  */
 import { useMemo, useState } from 'preact/hooks';
 import { PpcSchedule, ppcPosition, round } from '../../econ/calc';
@@ -11,7 +12,8 @@ import { Area, Curve, Diagram, Dot, Guide } from '../../shared/diagrams/Diagram'
 import { celebrate } from '../../shared/fun/celebrate';
 import { play } from '../../shared/fun/sound';
 import { output, ppc } from './model';
-import { islandAt, meetsNeed, Season } from './seasons';
+import { LevelPicker } from '../../shared/activity/LevelPicker';
+import { islandAt, meetsNeed, needImpossible, SeasonLevel, yearWon } from './seasons';
 
 const MAX = 90;
 const toPts = (s: PpcSchedule) => s.map((p) => ({ q: p.x, p: p.y }));
@@ -37,15 +39,29 @@ function NeedBar(props: { label: string; have: number; need: number; unit: strin
   );
 }
 
-export function Seasons(props: { seasons: Season[]; outcomes: { id: string; text: string }[]; onGoal: () => void }) {
-  const { seasons } = props;
+const STAMP_NAMES = ['Island Planner', 'Storm Planner', 'Island Council'];
+
+export function Seasons(props: {
+  levels: SeasonLevel[];
+  outcomes: { id: string; text: string }[];
+  onGoal: (level: number) => void;
+  stamps: number;
+  teacher: boolean;
+}) {
+  const [levelNo, setLevelNo] = useState(1);
+  const level = props.levels[levelNo - 1];
+  const { seasons } = level;
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>(seasons[0].event ? 'predict' : 'plan');
   const [prediction, setPrediction] = useState<string | null>(null);
   const [eventShown, setEventShown] = useState(false);
-  const [fishers, setFishers] = useState(5);
+  const [fishers, setFishers] = useState(level.startFishers);
   const [results, setResults] = useState<boolean[]>([]);
+  const [predRight, setPredRight] = useState(0);
+  /** Level 3: the student said this season's need cannot be met. */
+  const [calledImpossible, setCalledImpossible] = useState(false);
   const [announce, setAnnounce] = useState('');
+  const events = seasons.filter((s) => s.event).length;
 
   const season = seasons[index];
   const before = islandAt(seasons, index - 1);
@@ -60,11 +76,13 @@ export function Seasons(props: { seasons: Season[]; outcomes: { id: string; text
   const where = ppcPosition(schedule, out.fish, out.timber);
   const ok = meetsNeed(out, season.need);
   const finished = results.length === seasons.length;
-  const allMet = finished && results.every(Boolean);
+  const won = finished && yearWon(level, results, predRight);
+  const impossible = needImpossible(seasons, index);
 
   const playEvent = () => {
     if (!season.event || !prediction) return;
     const right = prediction === season.event.correct;
+    if (right) setPredRight((n) => n + 1);
     play(right ? 'correct' : 'wrong');
     play('whoosh');
     setEventShown(true);
@@ -73,17 +91,29 @@ export function Seasons(props: { seasons: Season[]; outcomes: { id: string; text
     setAnnounce(`${right ? 'Your prediction was right.' : 'Not quite.'} ${season.event.explain}`);
   };
 
-  const endSeason = () => {
-    const next = [...results, ok];
+  /** @param sayImpossible true when the student says no plan can meet this season's need. */
+  const endSeason = (sayImpossible = false) => {
+    // A season goes well when the need is met, or (Level 3) when the student rightly spots an unattainable need.
+    const good = sayImpossible ? impossible : ok;
+    setCalledImpossible(sayImpossible);
+    const next = [...results, good];
     setResults(next);
     setPhase('result');
-    play(ok ? 'correct' : 'wrong');
-    setAnnounce(ok ? `${season.name}: the island had enough fish and timber.` : `${season.name}: the island went short.`);
-    if (next.length === seasons.length && next.every(Boolean)) {
+    play(good ? 'correct' : 'wrong');
+    setAnnounce(
+      sayImpossible
+        ? impossible
+          ? `Right. No plan can meet ${season.name}'s need: it lies outside the PPC.`
+          : `Not quite. A plan can meet ${season.name}'s need.`
+        : good
+          ? `${season.name}: the island had enough fish and timber.`
+          : `${season.name}: the island went short.`,
+    );
+    if (next.length === seasons.length && yearWon(level, next, predRight)) {
       setTimeout(() => {
         play('win');
         celebrate({ size: 'big' });
-        props.onGoal();
+        props.onGoal(levelNo);
       }, 500);
     }
   };
@@ -93,24 +123,47 @@ export function Seasons(props: { seasons: Season[]; outcomes: { id: string; text
     setIndex(n);
     setPrediction(null);
     setEventShown(false);
+    setCalledImpossible(false);
     setPhase(seasons[n].event ? 'predict' : 'plan');
     play('tap');
     setAnnounce(`${seasons[n].name} begins.`);
   };
 
-  const restart = () => {
+  const restart = (lv: SeasonLevel = level) => {
     setIndex(0);
     setResults([]);
+    setPredRight(0);
     setPrediction(null);
     setEventShown(false);
-    setFishers(5);
-    setPhase(seasons[0].event ? 'predict' : 'plan');
+    setCalledImpossible(false);
+    setFishers(lv.startFishers);
+    setPhase(lv.seasons[0].event ? 'predict' : 'plan');
+  };
+
+  const pickLevel = (n: number) => {
+    setLevelNo(n);
+    restart(props.levels[n - 1]);
+    play('tap');
+    setAnnounce(`Level ${n}: ${props.levels[n - 1].title}.`);
   };
 
   const need = season.need;
   return (
     <div class="stack">
       <LiveRegion text={announce} />
+      <LevelPicker
+        levels={props.levels}
+        level={levelNo}
+        onPick={pickLevel}
+        stamps={props.stamps}
+        teacher={props.teacher}
+        icon="island"
+        stampNames={STAMP_NAMES}
+      />
+      <p class="small" style={{ margin: 0 }}>
+        <strong>To earn the {STAMP_NAMES[levelNo - 1]} stamp:</strong> meet the need in all four seasons and get at least {level.minPredictions} of {events}{' '}
+        predictions right. Predictions right so far: {predRight}.
+      </p>
       <ol class="season-strip" aria-label="The island's year">
         {seasons.map((s, i) => {
           const state = i < results.length ? (results[i] ? 'met' : 'missed') : i === index ? 'now' : 'later';
@@ -128,7 +181,7 @@ export function Seasons(props: { seasons: Season[]; outcomes: { id: string; text
         })}
       </ol>
 
-      <div class="play">
+      <div class="play play-card-first">
         <div class="stack">
           <Diagram
             xMax={MAX}
@@ -144,7 +197,7 @@ export function Seasons(props: { seasons: Season[]; outcomes: { id: string; text
               points={[{ q: need.fish, p: need.timber }, { q: MAX, p: need.timber }, { q: MAX, p: MAX }, { q: need.fish, p: MAX }]}
               pattern="dots"
               tone="green"
-              label="Need met"
+              label={ok && phase !== 'predict' ? 'Need met' : 'Target'}
               labelAt={{ q: (need.fish + MAX) / 2 + 6, p: MAX - 6 }}
               opacity={0.55}
             />
@@ -162,7 +215,10 @@ export function Seasons(props: { seasons: Season[]; outcomes: { id: string; text
             <Guide at={{ q: out.fish, p: out.timber }} />
             <Dot at={{ q: out.fish, p: out.timber }} label="Island" tone="red" r={7} />
           </Diagram>
-          <p class="small muted">The dotted corner shows every mix of fish and timber that meets this season's need. Put the island's dot inside it.</p>
+          <p class="small muted">
+            The dotted Target corner shows every mix of fish and timber that meets this season's need. Put the island's dot inside it.
+            {level.impossibleOption && ' If the PPC never reaches the corner, the need cannot be met.'}
+          </p>
         </div>
 
         <section class="event-card stack" aria-labelledby="season-h">
@@ -218,36 +274,61 @@ export function Seasons(props: { seasons: Season[]; outcomes: { id: string; text
               </div>
               <NeedBar label="Fish" have={out.fish} need={need.fish} unit="tonnes" />
               <NeedBar label="Timber" have={out.timber} need={need.timber} unit="tonnes" />
-              {phase === 'plan' && <div><button class="btn" onClick={endSeason}>End the season</button></div>}
+              {phase === 'plan' && (
+                <div class="row">
+                  <button class="btn" onClick={() => endSeason()}>End the season</button>
+                  {level.impossibleOption && (
+                    <button class="btn btn-secondary" onClick={() => endSeason(true)}>
+                      No plan can meet this need
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           )}
 
-          {phase === 'result' && (
-            <div class={`callout ${ok ? 'callout-ok' : 'callout-try'} stack`} role="status">
-              <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center', margin: 0 }}>
-                {ok ? <MarkIcon /> : <CrossIcon />}
-                {ok ? `${season.name} went well. Everyone had enough.` : `The island went short in ${season.name}.`}
-              </p>
-              {!ok && (
-                <p style={{ margin: 0 }}>
-                  The island could only reach the need from a point in the dotted corner. Each extra worker fishing costs timber: that is the opportunity cost.
+          {phase === 'result' && (() => {
+            const good = results[results.length - 1];
+            return (
+              <div class={`callout ${good ? 'callout-ok' : 'callout-try'} stack`} role="status">
+                <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center', margin: 0 }}>
+                  {good ? <MarkIcon /> : <CrossIcon />}
+                  {calledImpossible
+                    ? impossible
+                      ? `Well spotted. No plan can meet ${season.name}'s need.`
+                      : `Not quite. A plan can meet ${season.name}'s need.`
+                    : good
+                      ? `${season.name} went well. Everyone had enough.`
+                      : `The island went short in ${season.name}.`}
                 </p>
-              )}
-              {!finished ? (
-                <div><button class="btn" onClick={nextSeason}>Start {seasons[index + 1].name}</button></div>
-              ) : (
-                <>
-                  <h4 style={{ margin: 0 }}>The year is over: needs met in {results.filter(Boolean).length} of {seasons.length} seasons</h4>
+                {impossible && (
                   <p style={{ margin: 0 }}>
-                    {allMet
-                      ? 'You planned a whole year. You earned the Island Planner stamp.'
-                      : 'Meet the need in every season to earn the Island Planner stamp. Watch how each event moves the PPC.'}
+                    The Target corner lies outside the island's PPC. With its resources and technology, the island cannot produce that combination: it is unattainable.
                   </p>
-                  <div><button class="btn" onClick={restart}>Play the year again</button></div>
-                </>
-              )}
-            </div>
-          )}
+                )}
+                {!good && !impossible && (
+                  <p style={{ margin: 0 }}>
+                    Some mix of workers reaches the dotted corner. Each extra worker fishing costs timber: that is the opportunity cost.
+                  </p>
+                )}
+                {!finished ? (
+                  <div><button class="btn" onClick={nextSeason}>Start {seasons[index + 1].name}</button></div>
+                ) : (
+                  <>
+                    <h4 style={{ margin: 0 }}>
+                      The year is over: {results.filter(Boolean).length} of {seasons.length} seasons went well, and {predRight} of {events} predictions were right
+                    </h4>
+                    <p style={{ margin: 0 }}>
+                      {won
+                        ? `You planned a whole year. You earned the ${STAMP_NAMES[levelNo - 1]} stamp.${levelNo < props.levels.length ? ` Level ${levelNo + 1} is now open.` : ''}`
+                        : `To earn the ${STAMP_NAMES[levelNo - 1]} stamp, every season must go well and at least ${level.minPredictions} predictions must be right. Read each event's explanation, then try again.`}
+                    </p>
+                    <div><button class="btn" onClick={() => restart()}>Play the year again</button></div>
+                  </>
+                )}
+              </div>
+            );
+          })()}
         </section>
       </div>
     </div>

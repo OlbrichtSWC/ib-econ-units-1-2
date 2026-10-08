@@ -15,14 +15,19 @@ import type { TryProps } from '../../shared/activity/types';
 import { DataTable } from '../../shared/activity/CheckIt';
 import { celebrate } from '../../shared/fun/celebrate';
 import { play } from '../../shared/fun/sound';
+import { LevelPicker } from '../../shared/activity/LevelPicker';
+import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import {
-  bestMove, CAMPAIGN, CAMPAIGN_GOAL, campaignMet, cupsSold, DayRow, fill, money, PRICE_STEP, pedText, rangeType, salesLog, Scenario, signedMoney,
-  signedPct, snapPrice, summarize, WeekResult, weekGrew, weekResult,
+  bestDay, bestMove, bestPrice, CAFE_LEVELS, CafeLevel, campaignMet, cupsSold, DayRow, fill, money, PRICE_STEP, pedText, pedTypedRight, rangeType,
+  salesLog, Scenario, signedMoney, signedPct, snapPrice, summarize, sweetShare, WeekResult, weekGrew, weekResult,
 } from './model';
 import { CampaignMap, ShopFront } from './ShopFront';
 
 type Side = 'elastic' | 'inelastic';
 type Move = 'raise' | 'lower';
+type Spot = 'elastic' | 'unit' | 'inelastic';
+
+const STAMP_NAMES = ['Café Tycoon', 'Sweet Spot Finder', 'Number Cruncher'];
 
 interface TryContent {
   intro: string;
@@ -35,6 +40,9 @@ interface TryContent {
     moveOptions: Record<Move, string>;
   };
   feedback: Record<string, string>;
+  levels: LevelInfo[];
+  sweet: Record<string, string> & { options: Record<Spot, string> };
+  nickname: string;
 }
 
 const rect = (q0: number, q1: number, p0: number, p1: number): Pt[] => [
@@ -139,27 +147,37 @@ function PullLabels(props: { q2: number; p1: number; p2: number; lines?: string[
   );
 }
 
-function Try({ content, onComplete, onGoal }: TryProps) {
+function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const fb = data.feedback;
+  const sw = data.sweet;
+  const [levelNo, setLevelNo] = useState(1);
+  const lv: CafeLevel = CAFE_LEVELS[levelNo - 1];
+  const days = lv.days;
   const [scenarioId, setScenarioId] = useState<string | null>(null);
   const [prices, setPrices] = useState<number[]>([]);
   const [price, setPrice] = useState(0);
   const [typeAns, setTypeAns] = useState<Side | null>(null);
   const [moveAns, setMoveAns] = useState<Move | null>(null);
+  const [spotAns, setSpotAns] = useState<Spot | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [announce, setAnnounce] = useState('');
+  /** Level 3: the PED the student worked out for each day (by day number), and whether it was right first time. */
+  const [typed, setTyped] = useState<Record<number, { value: number; first: boolean }>>({});
+  const [pedDraft, setPedDraft] = useState('');
+  const [pedTries, setPedTries] = useState(0);
   const completed = useRef(false);
   /** Campaign results so far, or null when playing a single café. */
   const [campaign, setCampaign] = useState<WeekResult[] | null>(null);
 
   const s = data.scenarios.find((x) => x.id === scenarioId) ?? null;
   const rows = useMemo(() => (s ? salesLog(s, prices) : []), [s, prices]);
-  const weekDone = rows.length >= data.days;
+  const weekDone = rows.length >= days;
+  const levelScenarios = data.scenarios.filter((x) => (x.level ?? 1) === levelNo);
 
   const startCampaign = () => {
     setCampaign([]);
-    choose(CAMPAIGN[0]);
+    choose(lv.campaign[0]);
   };
 
   const choose = (id: string) => {
@@ -169,23 +187,41 @@ function Try({ content, onComplete, onGoal }: TryProps) {
     setPrice(sc.startPrice);
     setTypeAns(null);
     setMoveAns(null);
+    setSpotAns(null);
+    setTyped({});
+    setPedDraft('');
+    setPedTries(0);
     setSubmitted(false);
     setAnnounce(`${sc.name}. Day 1. Choose a price and open the café.`);
   };
+
+  const pickLevel = (n: number) => {
+    setLevelNo(n);
+    setScenarioId(null);
+    setCampaign(null);
+    setAnnounce(`Level ${n}: ${data.levels[n - 1].title}.`);
+  };
+
+  const goalLine = [
+    `Run four cafés, one each week. Each week, grow your daily revenue **and** decide correctly whether demand is elastic or inelastic. Do both in 3 weeks to earn the **${STAMP_NAMES[0]}** stamp.`,
+    `Run three cafés. Each week, earn at least ${Math.round(CAFE_LEVELS[1].share * 100)}% of the most revenue possible on your best day, and answer the end-of-week question. Do both in 2 weeks to earn the **${STAMP_NAMES[1]}** stamp.`,
+    `Run three cafés with five days each. Work out each PED yourself (at least half right first time), earn at least ${Math.round(CAFE_LEVELS[2].share * 100)}% of the most revenue possible, and answer the end-of-week question. Do all three in 2 weeks to earn the **${STAMP_NAMES[2]}** stamp.`,
+  ][levelNo - 1];
 
   if (!s) {
     return (
       <div class="stack">
         <LiveRegion text={announce} />
+        <LevelPicker levels={data.levels} level={levelNo} onPick={pickLevel} stamps={stamps} teacher={teacher} icon="cup" stampNames={STAMP_NAMES} />
         <section class="panel stack" aria-labelledby="pick-h">
-          <h3 id="pick-h">Play the campaign</h3>
-          <p>Run four cafés, one each week. Finish 3 weeks with more daily revenue than on day 1 to earn the <strong>Café Tycoon</strong> stamp.</p>
+          <h3 id="pick-h">Level {levelNo}: play the campaign</h3>
+          <Md text={goalLine} />
           <div>
-            <button class="btn" onClick={startCampaign}>Start the 4-week campaign</button>
+            <button class="btn" onClick={startCampaign}>Start the {lv.campaign.length}-week campaign</button>
           </div>
           <h3>Or practise with one café</h3>
           <div class="choice-grid" role="group" aria-label="Café scenarios">
-            {data.scenarios.map((sc) => (
+            {levelScenarios.map((sc) => (
               <button key={sc.id} type="button" class="choice-btn" onClick={() => choose(sc.id)}>
                 <strong>{sc.name}</strong>
                 <br />
@@ -194,7 +230,7 @@ function Try({ content, onComplete, onGoal }: TryProps) {
             ))}
           </div>
           <div>
-            <button class="btn btn-secondary" onClick={() => choose(data.scenarios[Math.floor(Math.random() * data.scenarios.length)].id)}>
+            <button class="btn btn-secondary" onClick={() => choose(levelScenarios[Math.floor(Math.random() * levelScenarios.length)].id)}>
               Surprise me
             </button>
           </div>
@@ -210,8 +246,10 @@ function Try({ content, onComplete, onGoal }: TryProps) {
   const sum = summarize(rows);
 
   const setP = (v: number) => setPrice(snapPrice(s, v));
+  /** Level 3: today's PED still needs to be worked out before the next day. */
+  const pedPending = lv.typePed && changed && !!today && today.ped !== null && !typed[today.day];
   const open = () => {
-    if (weekDone) return;
+    if (weekDone || pedPending) return;
     const p = snapPrice(s, price);
     const cups = cupsSold(s, p);
     const next = [...prices, p];
@@ -221,31 +259,65 @@ function Try({ content, onComplete, onGoal }: TryProps) {
     const last = r[r.length - 1];
     let msg = `Day ${last.day}: at ${money(p)} you sold ${cups} cups. Total revenue ${money(last.revenue)}.`;
     if (last.changeTR !== null) msg += ` Change in total revenue ${signedMoney(last.changeTR)}.`;
-    if (next.length >= data.days) msg += ' The week is over. Make your decision below.';
+    if (lv.typePed && last.ped !== null) msg += ` Work out PED for Day ${last.day} before you go on.`;
+    else if (next.length >= days) msg += ' The week is over. Make your decision below.';
+    setPedDraft('');
+    setPedTries(0);
     setAnnounce(msg);
   };
 
+  const checkPed = () => {
+    if (!today || today.ped === null) return;
+    const v = Number(pedDraft.trim().replace('−', '-').replace(',', '.'));
+    if (pedDraft.trim() === '' || !Number.isFinite(v)) return;
+    if (pedTypedRight(v, today.ped)) {
+      play('correct');
+      setTyped({ ...typed, [today.day]: { value: v, first: pedTries === 0 } });
+      setAnnounce(fill(sw.pedRight, { ped: pedText(today.ped) }) + (rows.length >= days ? ' The week is over. Make your decision below.' : ''));
+    } else {
+      play('wrong');
+      setPedTries(pedTries + 1);
+      setAnnounce(sw.pedWrong);
+    }
+  };
+  const showPed = () => {
+    if (!today || today.ped === null) return;
+    setTyped({ ...typed, [today.day]: { value: today.ped, first: false } });
+    setAnnounce(fill(sw.pedShow, { pctQ: signedPct(today.pctQuantity!), pctP: signedPct(today.pctPrice!), ped: pedText(today.ped) }));
+  };
+
+  const sweet = lv.kind === 'sweet';
+  const decisionReady = sweet ? !!spotAns : !!typeAns && !!moveAns;
+  const decisionRight = sweet ? spotAns === 'unit' : typeAns === truth && moveAns === bestMove(truth);
+
   const submit = () => {
-    if (!typeAns || !moveAns) return;
+    if (!decisionReady || pedPending) return;
     setSubmitted(true);
-    play(typeAns === truth && moveAns === bestMove(truth) ? 'correct' : 'wrong');
+    play(decisionRight ? 'correct' : 'wrong');
     if (campaign) {
-      const results = [...campaign, weekResult(s.id, rows, typeAns === truth)];
+      const pedRows = Object.values(typed);
+      const result = weekResult(s.id, rows, sweet ? spotAns === 'unit' : typeAns === truth, {
+        level: lv, scenario: s, pedAsked: pedRows.length, pedFirstTry: pedRows.filter((t) => t.first).length,
+      });
+      const results = [...campaign, result];
       setCampaign(results);
-      if (campaignMet(results)) {
+      if (campaignMet(results, lv)) {
         setTimeout(() => {
           play('win');
           celebrate({ size: 'big' });
-          onGoal();
+          onGoal(levelNo);
         }, 600);
       }
     }
-    setAnnounce(typeAns === truth && moveAns === bestMove(truth) ? 'Both answers are right.' : 'Read the feedback to see what your data shows.');
+    setAnnounce(decisionRight ? 'Your answer is right.' : 'Read the feedback to see what your data shows.');
     if (!completed.current) {
       completed.current = true;
       onComplete();
     }
   };
+
+  /** Level 3 hides the % changes and PED of a day until the student has worked it out. */
+  const hidden = (r: DayRow) => lv.typePed && r.ped !== null && !typed[r.day];
 
   // ---------- Diagram ----------
   const yTop = s.pMax;
@@ -274,9 +346,9 @@ function Try({ content, onComplete, onGoal }: TryProps) {
     money(r.price),
     r.cups,
     money(r.revenue),
-    r.pctPrice === null ? 'none' : signedPct(r.pctPrice),
-    r.pctQuantity === null ? 'none' : signedPct(r.pctQuantity),
-    r.ped === null ? (r.day === 1 ? 'none' : 'no price change') : pedText(r.ped),
+    hidden(r) ? '?' : r.pctPrice === null ? 'none' : signedPct(r.pctPrice),
+    hidden(r) ? '?' : r.pctQuantity === null ? 'none' : signedPct(r.pctQuantity),
+    hidden(r) ? '?' : r.ped === null ? (r.day === 1 ? 'none' : 'no price change') : pedText(r.ped),
     r.changeTR === null ? 'none' : signedMoney(r.changeTR),
   ];
 
@@ -294,27 +366,43 @@ function Try({ content, onComplete, onGoal }: TryProps) {
     ? fill(fb.pattern, { mean: round(sum.meanAbsPed, 2).toFixed(2), opposite: sum.opposite, changes: sum.changes, same: sum.same })
     : '';
   const pedLow = pedAtPoint(s.demand, s.priceMin), pedHigh = pedAtPoint(s.demand, s.priceMax);
+  const top = bestPrice(s);
+  const bd = bestDay(rows);
+  const share = sweetShare(s, rows);
+  const reached = share >= lv.share - 1e-9;
+  const reachedText = bd
+    ? fill(sw.reached, {
+      day: bd.day, price: money(bd.price), best: money(bd.revenue), max: money(top.revenue), maxPrice: money(top.price),
+      pct: Math.floor(share * 1000) / 10, goal: Math.round(lv.share * 100),
+    })
+    : '';
 
   return (
     <div class="stack">
       <LiveRegion text={announce} />
       {campaign && (
         <CampaignMap
-          names={CAMPAIGN.map((id) => data.scenarios.find((x) => x.id === id)?.name ?? id)}
+          names={lv.campaign.map((id) => data.scenarios.find((x) => x.id === id)?.name ?? id)}
           week={campaign.length - (submitted ? 1 : 0)}
-          grew={campaign.map((r) => r.grew)}
+          grew={campaign.map((r) => r.met)}
         />
       )}
       <section class="callout stack">
-        <p style={{ margin: 0 }}><strong>{campaign ? `Week ${Math.min(CAMPAIGN.length, campaign.length + (submitted ? 0 : 1))}: ` : ''}{s.name}</strong></p>
+        <p style={{ margin: 0 }}><strong>{campaign ? `Level ${levelNo}, week ${Math.min(lv.campaign.length, campaign.length + (submitted ? 0 : 1))}: ` : ''}{s.name}</strong></p>
         <Md text={s.text} />
-        {campaign && (
+        {campaign && !sweet && (
           <p style={{ margin: 0 }}>
-            <strong>Goal this week:</strong> finish day {data.days} with a higher total revenue than day 1
-            {rows[0] ? ` (${money(rows[0].revenue)})` : ''}.
+            <strong>Goal this week:</strong> finish day {days} with a higher total revenue than day 1
+            {rows[0] ? ` (${money(rows[0].revenue)})` : ''}. Then decide correctly: elastic or inelastic?
             {rows.length > 1 && !weekDone && (
               <> Today you are {weekGrew(rows) ? 'ahead of' : 'not ahead of'} day 1.</>
             )}
+          </p>
+        )}
+        {campaign && sweet && (
+          <p style={{ margin: 0 }}>
+            <strong>Goal this week:</strong> on your best day, earn at least {Math.round(lv.share * 100)}% of the most revenue this café can earn.
+            {bd && !weekDone && <> Your best day so far: Day {bd.day}, {money(bd.revenue)}.</>}
           </p>
         )}
       </section>
@@ -376,12 +464,13 @@ function Try({ content, onComplete, onGoal }: TryProps) {
             <span><Swatch kind="cross" tone="navy" />Cross pattern: quantity pull</span>
             <span>Green and + mean a gain. Red and − mean a loss.</span>
           </div>
+          <p class="small muted">{data.nickname}</p>
           {!submitted && <p class="small muted">Each dot is one day's sales (red: today; solid: yesterday; hollow: earlier days). The demand curve stays hidden until the end of the week.</p>}
         </div>
 
         <div class="stack">
           <div class="panel stack">
-            <h3>{weekDone ? 'The week is over' : `Day ${rows.length + 1} of ${data.days}`}</h3>
+            <h3>{weekDone ? 'The week is over' : `Day ${rows.length + 1} of ${days}`}</h3>
             {!weekDone && (
               <>
                 <div>
@@ -403,12 +492,36 @@ function Try({ content, onComplete, onGoal }: TryProps) {
                   <p class="small muted">Prices from {money(s.priceMin)} to {money(s.priceMax)}.</p>
                 </div>
                 <div>
-                  <button class="btn" onClick={open}>Open the café</button>
+                  <button class="btn" onClick={open} disabled={pedPending}>Open the café</button>
                 </div>
                 {today && Math.abs(price - today.price) < 1e-9 && (
                   <p class="small muted">Tip: this is the same price as yesterday. Change the price to measure PED.</p>
                 )}
               </>
+            )}
+            {pedPending && today && (
+              <div class="event-card stack" role="group" aria-labelledby="ped-work-h">
+                <h4 id="ped-work-h" style={{ margin: 0 }}>{fill(sw.pedTitle, { day: today.day })}</h4>
+                <p class="small" style={{ margin: 0 }}>{fill(sw.pedHelp, { prev: today.day - 1 })}</p>
+                <p class="small" style={{ margin: 0 }}>
+                  Day {today.day - 1}: {money(yesterday!.price)} and {yesterday!.cups} cups. Day {today.day}: {money(today.price)} and {today.cups} cups.
+                </p>
+                <div class="row">
+                  <label for="ped-typed">PED =</label>
+                  <input
+                    id="ped-typed"
+                    type="text"
+                    inputMode="decimal"
+                    size={7}
+                    value={pedDraft}
+                    onInput={(e) => setPedDraft((e.target as HTMLInputElement).value)}
+                    onKeyDown={(e) => e.key === 'Enter' && checkPed()}
+                  />
+                  <button class="btn btn-sm" onClick={checkPed}>Check PED</button>
+                  {pedTries >= 2 && <button class="btn btn-quiet btn-sm" onClick={showPed}>Show me</button>}
+                </div>
+                {pedTries > 0 && <p class="small" style={{ margin: 0, display: 'flex', gap: 6, alignItems: 'center' }}><CrossIcon /> {sw.pedWrong}</p>}
+              </div>
             )}
             {today && (
               <ShopFront name={s.name} day={today.day} cups={today.cups} yesterdayCups={yesterday?.cups} revenue={today.revenue} />
@@ -423,7 +536,7 @@ function Try({ content, onComplete, onGoal }: TryProps) {
                   <>
                     <div class="stat"><span>Price pull: (P₂ − P₁) × smaller Q</span><b>{signedMoney(pricePull)}</b></div>
                     <div class="stat"><span>Quantity pull: lower P × (Q₂ − Q₁)</span><b>{signedMoney(qtyPull)}</b></div>
-                    <div class="stat"><span>PED from yesterday</span><b>{pedText(today.ped!)}</b></div>
+                    <div class="stat"><span>PED from yesterday</span><b>{hidden(today) ? 'work it out' : pedText(today.ped!)}</b></div>
                   </>
                 )}
               </div>
@@ -453,75 +566,117 @@ function Try({ content, onComplete, onGoal }: TryProps) {
         </section>
       )}
 
-      {weekDone && (
+      {weekDone && !pedPending && (
         <section class="event-card stack" aria-labelledby="decide-h">
           <h3 id="decide-h">End of the week: your decision</h3>
-          <p><strong>{data.decision.typeQuestion}</strong></p>
-          <div class="choice-grid" role="group" aria-label={data.decision.typeQuestion}>
-            {(['elastic', 'inelastic'] as Side[]).map((k) => (
-              <button key={k} type="button" class="choice-btn" aria-pressed={typeAns === k} disabled={submitted} onClick={() => setTypeAns(k)}>
-                {data.decision.typeOptions[k]}
-              </button>
-            ))}
-          </div>
-          <p><strong>{data.decision.moveQuestion}</strong></p>
-          <div class="choice-grid" role="group" aria-label={data.decision.moveQuestion}>
-            {(['raise', 'lower'] as Move[]).map((k) => (
-              <button key={k} type="button" class="choice-btn" aria-pressed={moveAns === k} disabled={submitted} onClick={() => setMoveAns(k)}>
-                {data.decision.moveOptions[k]}
-              </button>
-            ))}
-          </div>
+          {sweet ? (
+            <>
+              <p><strong>{sw.question}</strong></p>
+              <div class="choice-grid" role="group" aria-label={sw.question}>
+                {(['inelastic', 'unit', 'elastic'] as Spot[]).map((k) => (
+                  <button key={k} type="button" class="choice-btn" aria-pressed={spotAns === k} disabled={submitted} onClick={() => setSpotAns(k)}>
+                    {sw.options[k]}
+                  </button>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <p><strong>{data.decision.typeQuestion}</strong></p>
+              <div class="choice-grid" role="group" aria-label={data.decision.typeQuestion}>
+                {(['elastic', 'inelastic'] as Side[]).map((k) => (
+                  <button key={k} type="button" class="choice-btn" aria-pressed={typeAns === k} disabled={submitted} onClick={() => setTypeAns(k)}>
+                    {data.decision.typeOptions[k]}
+                  </button>
+                ))}
+              </div>
+              <p><strong>{data.decision.moveQuestion}</strong></p>
+              <div class="choice-grid" role="group" aria-label={data.decision.moveQuestion}>
+                {(['raise', 'lower'] as Move[]).map((k) => (
+                  <button key={k} type="button" class="choice-btn" aria-pressed={moveAns === k} disabled={submitted} onClick={() => setMoveAns(k)}>
+                    {data.decision.moveOptions[k]}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
           {!submitted ? (
             <div>
-              <button class="btn" disabled={!typeAns || !moveAns} onClick={submit}>Check my decision</button>
+              <button class="btn" disabled={!decisionReady} onClick={submit}>Check my decision</button>
             </div>
           ) : (
             <div class="stack">
-              <div class={`callout ${typeAns === truth ? 'callout-ok' : 'callout-try'}`}>
-                <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center' }}>
-                  {typeAns === truth ? <MarkIcon /> : <CrossIcon />}
-                  <span><Md text={fill(typeAns === truth ? fb.typeRight : fb.typeWrong, { type: truth })} inline /></span>
-                </p>
-                <Md text={exampleText} />
-                {patternText && <Md text={patternText} />}
-              </div>
-              <div class={`callout ${moveAns === bestMove(truth) ? 'callout-ok' : 'callout-try'}`}>
-                <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center' }}>
-                  {moveAns === bestMove(truth) ? <MarkIcon /> : <CrossIcon />}
-                  <span><Md text={fill(moveAns === bestMove(truth) ? fb.moveRight : fb.moveWrong, { move: bestMove(truth) })} inline /></span>
-                </p>
-                <Md text={truth === 'elastic' ? fb.whyElastic : fb.whyInelastic} />
-              </div>
-              <div class="callout">
-                <Md text={fb.reveal} />
-                <Md
-                  text={fill(fb.hl, {
-                    pedLow: pedText(pedLow), pLow: money(s.priceMin), pedHigh: pedText(pedHigh), pHigh: money(s.priceMax),
-                    side: truth === 'elastic' ? 'more than' : 'less than',
-                  })}
-                />
-              </div>
-              <div class="panel stack">
-                <h4 style={{ margin: 0 }}>{fb.hintsTitle}</h4>
-                <ul style={{ margin: 0, paddingLeft: 20 }}>
-                  {s.hints.map((h) => (
-                    <li key={h.letter}><strong>{h.letter}</strong>: <Md text={h.text} inline /></li>
-                  ))}
-                </ul>
-              </div>
+              {sweet ? (
+                <>
+                  <div class={`callout ${reached ? 'callout-ok' : 'callout-try'}`}>
+                    <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center' }}>
+                      {reached ? <MarkIcon /> : <CrossIcon />}
+                      <span>{reached ? 'You found the sweet spot.' : 'Not close enough to the sweet spot this time.'}</span>
+                    </p>
+                    <Md text={reachedText} />
+                  </div>
+                  <div class={`callout ${spotAns === 'unit' ? 'callout-ok' : 'callout-try'}`}>
+                    <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center' }}>
+                      {spotAns === 'unit' ? <MarkIcon /> : <CrossIcon />}
+                      <span>{spotAns === 'unit' ? sw.right : sw.wrong}</span>
+                    </p>
+                    <Md text={fill(sw.why, { maxPrice: money(top.price) })} />
+                  </div>
+                  <div class="callout">
+                    <Md text={fb.reveal} />
+                    <Md text={fill(sw.hl, { pedLow: pedText(pedLow), pLow: money(s.priceMin), pedHigh: pedText(pedHigh), pHigh: money(s.priceMax), maxPrice: money(top.price) })} />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div class={`callout ${typeAns === truth ? 'callout-ok' : 'callout-try'}`}>
+                    <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center' }}>
+                      {typeAns === truth ? <MarkIcon /> : <CrossIcon />}
+                      <span><Md text={fill(typeAns === truth ? fb.typeRight : fb.typeWrong, { type: truth })} inline /></span>
+                    </p>
+                    <Md text={exampleText} />
+                    {patternText && <Md text={patternText} />}
+                  </div>
+                  <div class={`callout ${moveAns === bestMove(truth) ? 'callout-ok' : 'callout-try'}`}>
+                    <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center' }}>
+                      {moveAns === bestMove(truth) ? <MarkIcon /> : <CrossIcon />}
+                      <span><Md text={fill(moveAns === bestMove(truth) ? fb.moveRight : fb.moveWrong, { move: bestMove(truth) })} inline /></span>
+                    </p>
+                    <Md text={truth === 'elastic' ? fb.whyElastic : fb.whyInelastic} />
+                  </div>
+                  <div class="callout">
+                    <Md text={fb.reveal} />
+                    <Md
+                      text={fill(fb.hl, {
+                        pedLow: pedText(pedLow), pLow: money(s.priceMin), pedHigh: pedText(pedHigh), pHigh: money(s.priceMax),
+                        side: truth === 'elastic' ? 'more than' : 'less than',
+                      })}
+                    />
+                  </div>
+                  <div class="panel stack">
+                    <h4 style={{ margin: 0 }}>{fb.hintsTitle}</h4>
+                    <ul style={{ margin: 0, paddingLeft: 20 }}>
+                      {s.hints.map((h) => (
+                        <li key={h.letter}><strong>{h.letter}</strong>: <Md text={h.text} inline /></li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              )}
               {campaign ? (
                 <CampaignWeekEnd
                   results={campaign}
-                  days={data.days}
+                  days={days}
+                  level={lv}
+                  stampName={STAMP_NAMES[levelNo - 1]}
                   names={Object.fromEntries(data.scenarios.map((x) => [x.id, x.name]))}
-                  onNext={() => choose(CAMPAIGN[campaign.length])}
+                  onNext={() => choose(lv.campaign[campaign.length])}
                   onRestart={startCampaign}
                   onLeave={() => { setCampaign(null); setScenarioId(null); }}
                 />
               ) : (
                 <div class="row">
-                  {data.scenarios.filter((x) => x.id !== s.id).map((x) => (
+                  {levelScenarios.filter((x) => x.id !== s.id).map((x) => (
                     <button key={x.id} class="btn btn-secondary" onClick={() => choose(x.id)}>Next week: {x.name}</button>
                   ))}
                   <button class="btn btn-quiet" onClick={() => choose(s.id)}>Run this café again</button>
@@ -535,35 +690,46 @@ function Try({ content, onComplete, onGoal }: TryProps) {
   );
 }
 
-/** End of a campaign week: did revenue grow, and what next. */
+/** End of a campaign week: was the goal met, and what next. */
 function CampaignWeekEnd(props: {
   results: WeekResult[];
   days: number;
+  level: CafeLevel;
+  stampName: string;
   names: Record<string, string>;
   onNext: () => void;
   onRestart: () => void;
   onLeave: () => void;
 }) {
+  const lv = props.level;
   const last = props.results[props.results.length - 1];
-  const finished = props.results.length >= CAMPAIGN.length;
-  const met = props.results.filter((r) => r.grew).length;
+  const finished = props.results.length >= lv.campaign.length;
+  const met = props.results.filter((r) => r.met).length;
+  let why: string;
+  if (lv.kind === 'classify') {
+    why = `Day 1 revenue: ${money(last.startTR)}. Day ${props.days} revenue: ${money(last.endTR)}. `;
+    if (last.met) why += 'Revenue grew and your elastic or inelastic call was right.';
+    else if (!last.grew) why += 'To grow revenue, move the price the way PED says: down if demand is elastic, up if it is inelastic.';
+    else why += 'Revenue grew, but the elastic or inelastic call was not right. The goal needs both.';
+  } else {
+    why = last.met
+      ? 'You found the sweet spot and answered the question correctly.'
+      : 'The goal needs the sweet spot, the right answer to the question' + (lv.typePed ? ', and at least half of your PEDs right first time.' : '.');
+  }
   return (
-    <div class={`callout ${last.grew ? 'callout-ok' : 'callout-try'} stack`} role="status">
+    <div class={`callout ${last.met ? 'callout-ok' : 'callout-try'} stack`} role="status">
       <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center', margin: 0 }}>
-        {last.grew ? <MarkIcon /> : <CrossIcon />}
-        {last.grew ? 'Weekly goal met.' : 'Weekly goal not met this time.'}
+        {last.met ? <MarkIcon /> : <CrossIcon />}
+        {last.met ? 'Weekly goal met.' : 'Weekly goal not met this time.'}
       </p>
-      <p style={{ margin: 0 }}>
-        Day 1 revenue: {money(last.startTR)}. Day {props.days} revenue: {money(last.endTR)}.
-        {last.grew ? ' You moved the price the right way for this demand.' : ' To grow revenue, move the price the way your PED says: down if demand is elastic, up if it is inelastic.'}
-      </p>
+      <p style={{ margin: 0 }}>{why}</p>
       {finished ? (
         <>
-          <h4 style={{ margin: 0 }}>Campaign complete: goal met in {met} of {CAMPAIGN.length} weeks</h4>
+          <h4 style={{ margin: 0 }}>Campaign complete: goal met in {met} of {lv.campaign.length} weeks</h4>
           <p style={{ margin: 0 }}>
-            {met >= CAMPAIGN_GOAL
-              ? 'You read your customers like a real café owner. You earned the Café Tycoon stamp.'
-              : `Meet the goal in ${CAMPAIGN_GOAL} weeks to earn the Café Tycoon stamp. Use what PED told you each week.`}
+            {met >= lv.goal
+              ? `You read your customers like a real café owner. You earned the ${props.stampName} stamp.`
+              : `Meet the goal in ${lv.goal} weeks to earn the ${props.stampName} stamp. Use what PED told you each week.`}
           </p>
           <div class="row">
             <button class="btn" onClick={props.onRestart}>Play the campaign again</button>
@@ -573,7 +739,7 @@ function CampaignWeekEnd(props: {
       ) : (
         <div>
           <button class="btn" onClick={props.onNext}>
-            Open your next café: {props.names[CAMPAIGN[props.results.length]]}
+            Open your next café: {props.names[lv.campaign[props.results.length]]}
           </button>
         </div>
       )}

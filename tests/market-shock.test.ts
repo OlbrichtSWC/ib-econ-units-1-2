@@ -4,6 +4,7 @@ import { equilibrium, priceAt } from '../src/econ/calc';
 import {
   BASE_D, BASE_S, buildDeck, checkPrediction, dragDirection, expectedOutcome, gapAtPrice, marketOutcome, outcomeWords,
   parseShift, priceStep, segment, Shift, shiftedMarket, SHIFT_SIZE, snapDrag, toShift,
+  buildPairs, doubleMarket, doubleOutcome, LEVEL2_SIZES, shiftSizeFor,
 } from '../src/activities/market-shock/model';
 
 describe('Market Shock: the base market', () => {
@@ -169,3 +170,52 @@ describe('Market Shock: content', () => {
     for (const t of content.try.traps) expect(t.answer).toBe('none');
   });
 });
+
+describe('Market Shock Level 2: shifts of different sizes', () => {
+  it('cycles through the sizes, also for negative card numbers', () => {
+    expect([0, 1, 2, 3].map(shiftSizeFor)).toEqual([...LEVEL2_SIZES, LEVEL2_SIZES[0]]);
+    expect(shiftSizeFor(-1)).toBe(LEVEL2_SIZES[2]);
+  });
+
+  it('a bigger demand increase gives a bigger rise in price and quantity', () => {
+    const outs = LEVEL2_SIZES.map((n) => {
+      const m = shiftedMarket('demand', n);
+      return marketOutcome(BASE_D, BASE_S, m.demand, m.supply).e2;
+    });
+    // Demand right by n bags: 9 - 0.1(q - 10 - n) = 1 + 0.1(q - 10), so q = 50 + n/2 and p = 5 + n/20.
+    LEVEL2_SIZES.forEach((n, i) => {
+      expect(outs[i].q).toBeCloseTo(50 + n / 2, 9);
+      expect(outs[i].p).toBeCloseTo(5 + n / 20, 9);
+    });
+  });
+});
+
+describe('Market Shock Level 3: two shifts at once', () => {
+  it('same-way pushes are certain; opposite pushes cannot be told', () => {
+    expect(doubleOutcome('right', 'right')).toEqual({ price: 'cannot tell', quantity: 'rises' });
+    expect(doubleOutcome('left', 'left')).toEqual({ price: 'cannot tell', quantity: 'falls' });
+    expect(doubleOutcome('right', 'left')).toEqual({ price: 'rises', quantity: 'cannot tell' });
+    expect(doubleOutcome('left', 'right')).toEqual({ price: 'falls', quantity: 'cannot tell' });
+  });
+
+  it('the "cannot tell" answer really depends on the sizes of the shifts', () => {
+    // Demand right and supply right: price falls when supply moves more, rises when demand moves more.
+    const e = (dD: number, dS: number) => { const m = doubleMarket(dD, dS); return equilibrium(m.demand, m.supply); };
+    expect(e(10, 30).p).toBeLessThan(5);
+    expect(e(30, 10).p).toBeGreaterThan(5);
+    expect(e(20, 20).p).toBeCloseTo(5, 9);
+    // Quantity rises in all three, as doubleOutcome says.
+    for (const [a, b] of [[10, 30], [30, 10], [20, 20]]) expect(e(a, b).q).toBeGreaterThan(50);
+  });
+
+  it('pairs one demand event with one supply event, and a new seed changes the pairs', () => {
+    const p0 = buildPairs(['d1', 'd2', 'd3'], ['s1', 's2', 's3', 's4'], 0);
+    expect(p0).toHaveLength(4);
+    for (const [d, s] of p0) {
+      expect(d.startsWith('d')).toBe(true);
+      expect(s.startsWith('s')).toBe(true);
+    }
+    expect(buildPairs(['d1', 'd2', 'd3'], ['s1', 's2', 's3', 's4'], 1)).not.toEqual(p0);
+  });
+});
+

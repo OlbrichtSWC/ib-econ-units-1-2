@@ -1,12 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { classifyPed, pedAtPoint, ped, percentChange } from '../src/econ/calc';
 import {
+  bestDay, bestPrice, CAFE_LEVELS, pedTypedRight, sweetShare,
   bestMove, CAMPAIGN, campaignMet, cupsSold, fill, money, pedText, rangeType, salesLog, Scenario, signedMoney, signedPct, snapPrice, summarize, WeekResult, weekGrew, weekResult,
 } from '../src/activities/elasticity-cafe/model';
 import content from '../public/content/activities/elasticity-cafe.json';
 
 const scenarios = (content.try as unknown as { scenarios: Scenario[] }).scenarios;
 const byId = (id: string) => scenarios.find((s) => s.id === id)!;
+/** Level 1 cafés: each price range lies on one side of |PED| = 1. */
+const level1 = scenarios.filter((s) => (s.level ?? 1) === 1);
 const latte = byId('latte');
 const lodge = byId('lodge');
 const fizz = byId('fizz');
@@ -37,7 +40,7 @@ describe('Elasticity Café scenarios (content JSON)', () => {
     expect(rangeType(latte)).toBe('elastic');
     expect(rangeType(lodge)).toBe('inelastic');
     expect(rangeType(fizz)).toBe('elastic');
-    for (const s of scenarios) expect(rangeType(s)).not.toBe('mixed');
+    for (const s of level1) expect(rangeType(s)).not.toBe('mixed');
   });
 
   it('start prices are inside the range and on the $0.25 grid', () => {
@@ -63,7 +66,7 @@ describe('Elasticity Café scenarios (content JSON)', () => {
   });
 
   it('ANY price change inside the range gives a PED on the expected side of 1 (from whole cups)', () => {
-    for (const s of scenarios) {
+    for (const s of level1) {
       const want = rangeType(s);
       for (const p1 of grid(s)) {
         for (const p2 of grid(s)) {
@@ -76,7 +79,7 @@ describe('Elasticity Café scenarios (content JSON)', () => {
   });
 
   it('total revenue always moves the way PED predicts', () => {
-    for (const s of scenarios) {
+    for (const s of level1) {
       const elastic = rangeType(s) === 'elastic';
       for (const p1 of grid(s)) {
         for (const p2 of grid(s)) {
@@ -244,11 +247,18 @@ describe('Elasticity Café campaign', () => {
     expect(weekGrew(salesLog(byId('lodge'), [4, 4, 4, 4, 4, 4]))).toBe(false);
   });
 
-  it('the stamp needs all four weeks played and revenue growth in at least 3', () => {
-    const w = (grew: boolean): WeekResult => ({ scenarioId: 'latte', startTR: 1, endTR: grew ? 2 : 0, grew, typeRight: true });
+  it('the Level 1 stamp needs all four weeks played and the goal met in at least 3', () => {
+    const w = (met: boolean): WeekResult => ({ scenarioId: 'latte', startTR: 1, endTR: 2, grew: true, typeRight: met, met });
     expect(campaignMet([w(true), w(true), w(true)])).toBe(false);
     expect(campaignMet([w(true), w(false), w(true), w(true)])).toBe(true);
     expect(campaignMet([w(true), w(false), w(false), w(true)])).toBe(false);
+  });
+
+  it('Level 1: growing revenue with the wrong elastic call does not meet the goal', () => {
+    const rows = salesLog(byId('lodge'), [4, 5, 6, 7, 8, 8]);
+    expect(weekResult('lodge', rows, true).met).toBe(true);
+    expect(weekResult('lodge', rows, false).met).toBe(false);
+    expect(weekResult('lodge', rows, false).grew).toBe(true);
   });
 
   it('records the start and end revenue of a week', () => {
@@ -256,5 +266,84 @@ describe('Elasticity Café campaign', () => {
     expect(r.startTR).toBe(4 * 256);
     expect(r.endTR).toBe(8 * 192);
     expect(r.grew).toBe(true);
+  });
+});
+
+describe('Elasticity Café Levels 2 and 3: the sweet spot', () => {
+  const sweetCafes = scenarios.filter((s) => (s.level ?? 1) > 1);
+
+  it('every level campaign uses cafés from that level', () => {
+    CAFE_LEVELS.forEach((lv, i) => {
+      for (const id of lv.campaign) expect(byId(id).level ?? 1).toBe(i + 1);
+    });
+    expect(CAFE_LEVELS[0].campaign).toEqual([...CAMPAIGN]);
+  });
+
+  it('each Level 2 and 3 price range crosses |PED| = 1', () => {
+    expect(sweetCafes.length).toBe(6);
+    for (const s of sweetCafes) expect(rangeType(s)).toBe('mixed');
+  });
+
+  it('the most revenue is at the midpoint of the demand curve, where |PED| = 1', () => {
+    for (const s of sweetCafes) {
+      const top = bestPrice(s);
+      const mid = s.demand.a.p / 2; // demand runs from (0, a) to (Q0, 0), so the midpoint price is a / 2
+      expect(top.price).toBe(mid);
+      expect(pedAtPoint(s.demand, top.price)).toBeCloseTo(-1, 10);
+      // Neighbouring prices on the grid earn less.
+      expect(top.revenue).toBeGreaterThan((mid - 0.25) * cupsSold(s, mid - 0.25));
+      expect(top.revenue).toBeGreaterThan((mid + 0.25) * cupsSold(s, mid + 0.25));
+    }
+    // Gym smoothies: 9 - 4.5 = 4.5 above the axis, 40 cups per $1, so 180 cups at $4.50 and TR = $810.
+    expect(bestPrice(byId('gym'))).toEqual({ price: 4.5, revenue: 810 });
+  });
+
+  it('the start price is not already the sweet spot', () => {
+    for (const s of sweetCafes) {
+      expect(sweetShare(s, salesLog(s, [s.startPrice]))).toBeLessThan(CAFE_LEVELS[1].share);
+    }
+  });
+
+  it('sweetShare uses the best day of the week', () => {
+    const gym = byId('gym');
+    const rows = salesLog(gym, [3, 4, 4.5, 6, 7, 8]);
+    expect(bestDay(rows)!.day).toBe(3);
+    expect(sweetShare(gym, rows)).toBe(1);
+    // $3: 240 cups, TR $720. 720 / 810 = 0.888...
+    expect(sweetShare(gym, salesLog(gym, [3]))).toBeCloseTo(720 / 810, 10);
+  });
+
+  it('Level 2 goal: the sweet spot and the right answer', () => {
+    const gym = byId('gym');
+    const good = salesLog(gym, [3, 3.5, 4, 4.5, 5, 4.5]);
+    const far = salesLog(gym, [3, 3, 3, 3, 3, 3.25]);
+    const lv = CAFE_LEVELS[1];
+    expect(weekResult('gym', good, true, { level: lv, scenario: gym }).met).toBe(true);
+    expect(weekResult('gym', good, false, { level: lv, scenario: gym }).met).toBe(false);
+    expect(weekResult('gym', far, true, { level: lv, scenario: gym }).met).toBe(false);
+  });
+
+  it('Level 3 goal also needs at least half the PEDs right first time', () => {
+    const ferry = byId('ferry');
+    const rows = salesLog(ferry, [10, 9, 8, 7, 7.25]);
+    const lv = CAFE_LEVELS[2];
+    expect(weekResult('ferry', rows, true, { level: lv, scenario: ferry, pedAsked: 4, pedFirstTry: 2 }).met).toBe(true);
+    expect(weekResult('ferry', rows, true, { level: lv, scenario: ferry, pedAsked: 4, pedFirstTry: 1 }).met).toBe(false);
+    expect(weekResult('ferry', rows, true, { level: lv, scenario: ferry, pedAsked: 0, pedFirstTry: 0 }).met).toBe(false);
+  });
+
+  it('a typed PED is accepted with either sign and within 0.05', () => {
+    expect(pedTypedRight(-1.22, -1.2222)).toBe(true);
+    expect(pedTypedRight(1.22, -1.2222)).toBe(true);
+    expect(pedTypedRight(1.18, -1.2222)).toBe(true);
+    expect(pedTypedRight(1.15, -1.2222)).toBe(false);
+    expect(pedTypedRight(NaN, -1)).toBe(false);
+  });
+
+  it('the stamp for Levels 2 and 3 needs 2 of 3 weeks', () => {
+    const w = (met: boolean): WeekResult => ({ scenarioId: 'gym', startTR: 1, endTR: 1, grew: false, typeRight: true, met });
+    expect(campaignMet([w(true), w(false), w(true)], CAFE_LEVELS[1])).toBe(true);
+    expect(campaignMet([w(true), w(true)], CAFE_LEVELS[1])).toBe(false);
+    expect(campaignMet([w(true), w(false), w(false)], CAFE_LEVELS[2])).toBe(false);
   });
 });

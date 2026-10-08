@@ -103,7 +103,7 @@ function Try(props: TryProps) {
         <button aria-pressed={mode === 'dial'} onClick={() => setMode('dial')}>Price dial lab</button>
         <button aria-pressed={mode === 'paint'} onClick={() => setMode('paint')}>Paint the surplus</button>
       </div>
-      {mode === 'dial' ? <DialLab {...props} /> : <PaintGame onGoal={props.onGoal} />}
+      {mode === 'dial' ? <DialLab {...props} /> : <PaintGame onGoal={props.onGoal} stamps={props.stamps} teacher={props.teacher} />}
     </div>
   );
 }

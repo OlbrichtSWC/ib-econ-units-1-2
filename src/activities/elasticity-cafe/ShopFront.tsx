@@ -75,7 +75,7 @@ export function ShopFront(props: { name: string; day: number; cups: number; yest
 /** The four cafés of the campaign as a row of shops: done, current or locked. */
 export function CampaignMap(props: { names: string[]; week: number; grew: boolean[] }) {
   return (
-    <ol class="campaign-map" aria-label="Campaign: four cafés">
+    <ol class="campaign-map" aria-label="Campaign: one café each week">
       {props.names.map((n, i) => {
         const state = i < props.grew.length ? (props.grew[i] ? 'met' : 'missed') : i === props.week ? 'now' : 'locked';
         const words = state === 'met' ? 'goal met' : state === 'missed' ? 'goal not met' : state === 'now' ? 'this week' : 'locked';

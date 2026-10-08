@@ -6,7 +6,7 @@
     "caption": "At equilibrium (Pₑ, Qₑ), demand (MB) meets supply (MC). Consumer surplus (CS, stripes) lies above the price and below demand. Producer surplus (PS, dots) lies below the price and above supply. Together they make community surplus."
   },
   "try": {
-    "intro": "**Welcome to Snowcap Ridge** (an invented ski hill). You control the price of a day pass. Drag the price line and watch the surplus areas change. The quantity traded is always the **smaller** of quantity demanded and quantity supplied. Complete any 3 challenges. ^HL^ students: check the dollar values and solve the Calculate it cards. Then switch to **Paint the surplus**: paint 3 areas with a match of 85% or more to earn the **Surplus Painter** stamp.",
+    "intro": "**Welcome to Snowcap Ridge** (an invented ski hill). You control the price of a day pass. Drag the price line and watch the surplus areas change. The quantity traded is always the **smaller** of quantity demanded and quantity supplied. Complete any 3 challenges. ^HL^ students: check the dollar values and solve the Calculate it cards. Then switch to **Paint the surplus**. In Level 1, paint 3 areas with a match of 85% or more to earn the **Surplus Painter** stamp. Levels 2 and 3 open after that.",
     "lossTarget": 3000,
     "challenges": [
       {
@@ -68,7 +68,8 @@
       "heightOther": "Check the height. Use the full gap between the demand curve and the supply curve at the quantity traded.",
       "wrongBase": "Check the base. The base of the welfare loss triangle is Qₑ minus the quantity traded.",
       "other": "Not yet. Find the base and the height on the diagram, then use ½ × base × height. Use the readings above."
-    }
+    },
+    "goal": "Explore the price dial, then **Paint the surplus**: three levels, each harder than the last."
   },
   "check": [
     {
@@ -358,6 +359,12 @@
       "Community surplus is the sum of ___ and ___.",
       "At $74, quantity demanded is ___ than quantity supplied, so only ___ passes are traded.",
       "The passes between ___ and ___ are no longer traded, so there is a welfare loss because ___."
+    ],
+    "checklist": [
+      "I said that at $50 the market is at equilibrium, where MB = MC.",
+      "I said that community surplus is consumer surplus plus producer surplus, and that it is greatest at equilibrium.",
+      "I said that at $74 the quantity traded is the quantity demanded, which is smaller than the quantity supplied.",
+      "I named the welfare loss and described where it is on the diagram."
     ]
   },
   "teacherNotes": "Project the dial and ask students to predict the shapes before you move the price: 'Will consumer surplus be a triangle or a trapezium at $38?' The quantity traded is always the short side of the market, which is the key idea behind welfare loss in 2.3 and later price controls (2.8). The dollar values, the working panel and the Calculate it cards are HL only (IB 2.3: calculating CS and PS from a diagram). SL students should still use the shaded areas to explain allocative efficiency (MB = MC) and welfare loss. Calculate it cards hide the panel values at that price until the student checks an answer; common slips (forgetting ½, the wrong height or base) get their own feedback."

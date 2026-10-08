@@ -6,7 +6,7 @@
     "caption": "A is on the PPC (efficient). B is inside (unemployed resources). C is outside (unattainable for now). The arrow shows growth in production possibilities: PPC₁ shifts out to PPC₂."
   },
   "try": {
-    "intro": "**Welcome to Pinewood Island** (an invented economy). Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber. **Free play:** move workers, complete the missions, then play the event cards. **Predict before you play each card.**\n\n**Four seasons:** plan the island's year. Each season has an event and a need for fish and timber. Meet the need in all four seasons to earn the **Island Planner** stamp.",
+    "intro": "**Welcome to Pinewood Island** (an invented economy). Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber.\n\n**Four seasons:** plan the island's year. Each season starts with an event: **predict** what it does to the PPC, then choose how many workers fish so the island meets that season's need. There are three levels. Each one opens when you earn the stamp for the level before.\n\n**Free play:** move workers, complete the missions, then play the event cards. Predict before you play each card.",
     "missions": [
       {
         "id": "efficient",
@@ -45,6 +45,14 @@
       {
         "id": "pivot-fish",
         "text": "The PPC pivots out along the fish axis only"
+      },
+      {
+        "id": "pivot-fish-in",
+        "text": "The PPC pivots in along the fish axis only"
+      },
+      {
+        "id": "pivot-timber-out",
+        "text": "The PPC pivots out along the timber axis only"
       },
       {
         "id": "pivot-timber-in",
@@ -111,77 +119,257 @@
         "explain": "More labour means the island can make more of both goods. The whole PPC shifts outward. This is growth in production possibilities."
       }
     ],
-    "seasons": [
+    "seasonLevels": [
       {
-        "id": "spring",
-        "name": "Spring",
-        "icon": "🌱",
-        "event": null,
-        "story": "The fishing boats are ready and the islanders need wood to repair their homes.",
-        "need": {
-          "fish": 30,
-          "timber": 35
-        }
+        "title": "A calm year",
+        "blurb": "Four seasons, three events. Get at least 2 of the 3 predictions right.",
+        "startFishers": 8,
+        "minPredictions": 2,
+        "seasons": [
+          {
+            "id": "spring",
+            "name": "Spring",
+            "icon": "🌱",
+            "event": null,
+            "story": "The fishing boats are ready and the islanders need wood to repair their homes. Last season most workers fished, so the island starts with too little timber.",
+            "need": {
+              "fish": 30,
+              "timber": 35
+            }
+          },
+          {
+            "id": "summer",
+            "name": "Summer",
+            "icon": "☀️",
+            "event": {
+              "title": "New fishing nets",
+              "text": "A local firm invents a stronger, lighter fishing net. Every worker can now catch 50% more fish.",
+              "effect": {
+                "fish": 1.5
+              },
+              "correct": "pivot-fish",
+              "explain": "Better fishing technology lets the island make more fish with the same workers, but no more timber. The PPC pivots outward along the fish axis."
+            },
+            "story": "Summer visitors arrive and want to eat fish. The island also needs timber for new jetties.",
+            "need": {
+              "fish": 50,
+              "timber": 40
+            }
+          },
+          {
+            "id": "autumn",
+            "name": "Autumn",
+            "icon": "🍂",
+            "event": {
+              "title": "Sawmill closes",
+              "text": "The sawmill closes for repairs. The 3 workers who are best at cutting timber lose their jobs this season.",
+              "effect": {
+                "jobs": -3
+              },
+              "correct": "move-inside",
+              "explain": "Resources and technology do not change, so the PPC stays where it is. With 3 workers unemployed, the island can only produce at a point inside the PPC."
+            },
+            "story": "The island stores food for winter and stacks firewood.",
+            "need": {
+              "fish": 40,
+              "timber": 20
+            }
+          },
+          {
+            "id": "winter",
+            "name": "Winter",
+            "icon": "❄️",
+            "event": {
+              "title": "Sawmill reopens, then an ice storm",
+              "text": "Everyone is back at work. Then an ice storm destroys part of the forest, so each worker can cut only 60% as much timber as before.",
+              "effect": {
+                "jobs": 3,
+                "timber": 0.6
+              },
+              "correct": "pivot-timber-in",
+              "explain": "The storm destroys a resource used only for timber, so the PPC pivots inward along the timber axis. The workers who are back at work move the island from inside the curve back onto it."
+            },
+            "story": "It is cold. The island needs firewood to stay warm and fish to stay fed.",
+            "need": {
+              "fish": 45,
+              "timber": 25
+            }
+          }
+        ]
       },
       {
-        "id": "summer",
-        "name": "Summer",
-        "icon": "☀️",
-        "event": {
-          "title": "New fishing nets",
-          "text": "A local firm invents a stronger, lighter fishing net. Every worker can now catch 50% more fish.",
-          "effect": {
-            "fish": 1.5
+        "title": "A stormy year",
+        "blurb": "Tighter needs and four events. Only one plan works each season. Get 3 of 4 predictions right.",
+        "startFishers": 2,
+        "minPredictions": 3,
+        "seasons": [
+          {
+            "id": "spring2",
+            "name": "Spring",
+            "icon": "🌱",
+            "event": {
+              "title": "Sharper saw blades",
+              "text": "A new saw blade lets every worker cut 30% more timber. Fishing does not change.",
+              "effect": {
+                "timber": 1.3
+              },
+              "correct": "pivot-timber-out",
+              "explain": "Better technology for timber only lets the island make more timber with the same workers, but no more fish. The PPC pivots outward along the timber axis."
+            },
+            "story": "The islanders want to build a new school, so they need a lot of timber.",
+            "need": {
+              "fish": 36,
+              "timber": 50
+            }
           },
-          "correct": "pivot-fish",
-          "explain": "Better fishing technology lets the island make more fish with the same workers, but no more timber. The PPC pivots outward along the fish axis."
-        },
-        "story": "Summer visitors arrive and want to eat fish. The island also needs timber for new jetties.",
-        "need": {
-          "fish": 50,
-          "timber": 40
-        }
+          {
+            "id": "summer2",
+            "name": "Summer",
+            "icon": "☀️",
+            "event": {
+              "title": "A summer fever",
+              "text": "Two workers who are best at cutting timber catch a fever and cannot work all summer.",
+              "effect": {
+                "jobs": -2
+              },
+              "correct": "move-inside",
+              "explain": "The island's resources and technology have not changed, so the PPC stays where it is. Two workers are not producing, so the island can only reach a point inside the PPC."
+            },
+            "story": "Visitors arrive. The island needs fish for them and timber for the school.",
+            "need": {
+              "fish": 26,
+              "timber": 38
+            }
+          },
+          {
+            "id": "autumn2",
+            "name": "Autumn",
+            "icon": "🍂",
+            "event": {
+              "title": "Everyone recovers",
+              "text": "The two sick workers are well again and go back to work.",
+              "effect": {
+                "jobs": 2
+              },
+              "correct": "move-toward",
+              "explain": "Nothing about the island's resources or technology has changed, so the PPC does not move. The workers who come back move the island from a point inside the PPC towards the curve."
+            },
+            "story": "The island stores food and wood before the cold weather.",
+            "need": {
+              "fish": 44,
+              "timber": 44
+            }
+          },
+          {
+            "id": "winter2",
+            "name": "Winter",
+            "icon": "❄️",
+            "event": {
+              "title": "A new island school",
+              "text": "The school opens. Every worker learns better methods and can catch 20% more fish and cut 20% more timber.",
+              "effect": {
+                "fish": 1.2,
+                "timber": 1.2
+              },
+              "correct": "shift-out",
+              "explain": "Better human capital raises output of both goods. The whole PPC shifts outward: the island can now produce more of both."
+            },
+            "story": "A long winter. The island needs plenty of firewood and some fish.",
+            "need": {
+              "fish": 46,
+              "timber": 60
+            }
+          }
+        ]
       },
       {
-        "id": "autumn",
-        "name": "Autumn",
-        "icon": "🍂",
-        "event": {
-          "title": "Sawmill closes",
-          "text": "The sawmill closes for repairs. The 3 workers who are best at cutting timber lose their jobs this season.",
-          "effect": {
-            "jobs": -3
+        "title": "The council's year",
+        "blurb": "Every plan is tight, and one need cannot be met at all. Spot it. Get all 4 predictions right.",
+        "startFishers": 9,
+        "minPredictions": 4,
+        "impossibleOption": true,
+        "seasons": [
+          {
+            "id": "spring3",
+            "name": "Spring",
+            "icon": "🌱",
+            "event": {
+              "title": "A tsunami",
+              "text": "A tsunami damages the boats and knocks down part of the forest. Every worker can now catch 20% fewer fish and cut 20% less timber.",
+              "effect": {
+                "fish": 0.8,
+                "timber": 0.8
+              },
+              "correct": "shift-in",
+              "explain": "Resources used for both goods are destroyed, so the island can make less of both. The whole PPC shifts inward."
+            },
+            "story": "The island must repair homes and still feed everyone.",
+            "need": {
+              "fish": 31,
+              "timber": 31
+            }
           },
-          "correct": "move-inside",
-          "explain": "Resources and technology do not change, so the PPC stays where it is. With 3 workers unemployed, the island can only produce at a point inside the PPC."
-        },
-        "story": "The island stores food for winter and stacks firewood.",
-        "need": {
-          "fish": 40,
-          "timber": 20
-        }
-      },
-      {
-        "id": "winter",
-        "name": "Winter",
-        "icon": "❄️",
-        "event": {
-          "title": "Sawmill reopens, then an ice storm",
-          "text": "Everyone is back at work. Then an ice storm destroys part of the forest, so each worker can cut only 60% as much timber as before.",
-          "effect": {
-            "jobs": 3,
-            "timber": 0.6
+          {
+            "id": "summer3",
+            "name": "Summer",
+            "icon": "☀️",
+            "event": {
+              "title": "Half the reef is closed",
+              "text": "To protect young fish, the council closes half the reef. Every worker can now catch only 60% as many fish. Timber does not change.",
+              "effect": {
+                "fish": 0.6
+              },
+              "correct": "pivot-fish-in",
+              "explain": "Fewer fishing grounds is a loss of a resource used only for fish. The PPC pivots inward along the fish axis."
+            },
+            "story": "The council asks for at least 24 tonnes of fish and 28 tonnes of timber. Can the island do it?",
+            "need": {
+              "fish": 24,
+              "timber": 28
+            }
           },
-          "correct": "pivot-timber-in",
-          "explain": "The storm destroys a resource used only for timber, so the PPC pivots inward along the timber axis. The workers who are back at work move the island from inside the curve back onto it."
-        },
-        "story": "It is cold. The island needs firewood to stay warm and fish to stay fed.",
-        "need": {
-          "fish": 45,
-          "timber": 25
-        }
+          {
+            "id": "autumn3",
+            "name": "Autumn",
+            "icon": "🍂",
+            "event": {
+              "title": "A harbour strike",
+              "text": "Four workers who are best at cutting timber go on strike and stop working.",
+              "effect": {
+                "jobs": -4
+              },
+              "correct": "move-inside",
+              "explain": "The island still has the same resources and technology, so the PPC does not move. With four workers not working, the island produces at a point inside the PPC."
+            },
+            "story": "With fewer workers, the island needs just enough to get by.",
+            "need": {
+              "fish": 12,
+              "timber": 12
+            }
+          },
+          {
+            "id": "winter3",
+            "name": "Winter",
+            "icon": "❄️",
+            "event": {
+              "title": "The strike ends",
+              "text": "The four workers return to work.",
+              "effect": {
+                "jobs": 4
+              },
+              "correct": "move-toward",
+              "explain": "The PPC stays where it is, because resources and technology are the same. Returning workers move the island from inside the PPC back towards the curve."
+            },
+            "story": "The coldest season. Every tonne counts.",
+            "need": {
+              "fish": 21,
+              "timber": 27
+            }
+          }
+        ]
       }
-    ]
+    ],
+    "goal": "Plan Pinewood Island's year in **Four seasons**, or explore freely and complete the missions."
   },
   "check": [
     {
@@ -404,12 +592,18 @@
     }
   ],
   "explain": {
-    "prompt": "Explain, using the PPC, what happened when the ice storm hit Pinewood Island.",
+    "prompt": "Choose one event you played (for example new fishing nets, the sawmill closing or an ice storm). Explain, using a PPC diagram, what the event did to the island.",
     "frames": [
-      "Before the storm, the island could produce ___.",
-      "The storm destroyed ___, so the PPC shifted ___.",
+      "Before the event, the island could produce ___.",
+      "The event changed ___, so the PPC ___.",
       "This means the opportunity cost of ___ changed because ___.",
       "This is different from unemployment because ___."
+    ],
+    "checklist": [
+      "I named the event and said which resource or technology changed.",
+      "I said whether the PPC shifted, pivoted, or did not move.",
+      "I explained the difference between a shift of the PPC and a point inside it.",
+      "I described a diagram with both axes labelled (fish and timber)."
     ]
   },
   "teacherNotes": "Use projector mode and play the event cards as a whole-class prediction game: students show 1 to 5 fingers for the outcome before you play each card. The opportunity cost counter makes increasing opportunity cost visible: bars rise as you move workers into fishing. Compare with constant mode for the straight-line PPC (1.1 diagram: increasing versus constant opportunity cost)."

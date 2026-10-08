@@ -2,15 +2,15 @@
   "id": "ped-line",
   "outcome": "I can explain why PED changes along a straight-line demand curve, and use this to predict what happens to total revenue when price changes.",
   "learn": {
-    "text": "^HL^ A straight-line demand curve has the **same slope** at every point: each $1 cut in price always adds the same number of units. But [[PED|price elasticity of demand]] is not the slope. PED compares [[percentage changes|percentage change]], and a $1 change is a small percentage of a high price but a big percentage of a low price.\n\nSo PED changes as you move down the line. In the **upper half** (high price, low quantity), demand is [[elastic|price elastic]] (PED > 1). At the **midpoint**, PED = 1 ([[unitary|unitary PED]]). In the **lower half** (low price, high quantity), demand is [[inelastic|price inelastic]] (PED < 1).\n\nThis matters for [[total revenue]] (TR = P × Q). In the elastic section, a price cut **raises** TR. In the inelastic section, a price cut **lowers** TR. TR is greatest at the midpoint, where PED = 1.\n\nSome special demand curves have the **same** PED at every point: a horizontal line is [[perfectly elastic]], a vertical line is [[perfectly inelastic]], and a rectangular hyperbola has PED = 1 everywhere.",
+    "text": "^HL^ A straight-line demand curve has the **same slope** at every point: each $1 cut in price always adds the same number of units. But [[PED|price elasticity of demand]] is not the slope. PED compares [[percentage changes|percentage change]], and a $1 change is a small percentage of a high price but a big percentage of a low price.\n\nSo PED changes as you move down the line. In the **upper half** (high price, low quantity), demand is [[elastic|price elastic]] (|PED| > 1). At the **midpoint**, |PED| = 1 ([[unitary|unitary PED]]). In the **lower half** (low price, high quantity), demand is [[inelastic|price inelastic]] (|PED| < 1).\n\nThis matters for [[total revenue]] (TR = P × Q). In the elastic section, a price cut **raises** TR. In the inelastic section, a price cut **lowers** TR. TR is greatest at the midpoint, where |PED| = 1.\n\nSome special demand curves have the **same** PED at every point: a horizontal line is [[perfectly elastic]], a vertical line is [[perfectly inelastic]], and a rectangular hyperbola has |PED| = 1 everywhere.",
     "caption": "One straight-line demand curve. Above the midpoint demand is elastic (solid bracket), at the midpoint it is unitary, and below the midpoint it is inelastic (dashed bracket)."
   },
   "try": {
-    "intro": "^HL^ **Welcome to Riverside Bikes** (an invented bike rental shop). Every $1 cut in the daily price adds 10 rentals. Slide the red point along the demand curve. Watch the shaded total revenue box, the TR curve below it, and PED in the panel. Then complete the discovery challenges. Then try **Mystery: hidden points**: find 3 hidden points to earn the **Point Hunter** stamp.",
+    "intro": "^HL^ **Welcome to Riverside Bikes** (an invented bike rental shop). Every $1 cut in the daily price adds 10 rentals. Slide the red point along the demand curve. Watch the shaded total revenue box, the TR curve below it, and PED in the panel. Then complete the discovery challenges. Then try **Mystery: hidden points**. It has three levels.",
     "challenges": [
       {
         "id": "unitary",
-        "text": "Find the point where **PED = 1**."
+        "text": "Find the point where **|PED| = 1**."
       },
       {
         "id": "cut-raises",
@@ -27,13 +27,13 @@
     ],
     "why": {
       "title": "Why the title? Same slope, different PED",
-      "text": "Look at the schedule: every $2 cut adds 20 rentals, all the way down. The slope never changes. But PED uses **percentage changes**.\n\n- Near the top, the price is high and the quantity is low. A $1 cut is a small % of the price, and 10 extra rentals is a big % of the quantity. So PED > 1.\n- Near the bottom, the price is low and the quantity is high. A $1 cut is a big % of the price, and 10 extra rentals is a small % of the quantity. So PED < 1.\n\nThe ratio of P to Q changes as you move along the line, so PED changes too."
+      "text": "Look at the schedule: every $2 cut adds 20 rentals, all the way down. The slope never changes. But PED uses **percentage changes**.\n\n- Near the top, the price is high and the quantity is low. A $1 cut is a small % of the price, and 10 extra rentals is a big % of the quantity. So |PED| > 1.\n- Near the bottom, the price is low and the quantity is high. A $1 cut is a big % of the price, and 10 extra rentals is a small % of the quantity. So |PED| < 1.\n\nThe ratio of P to Q changes as you move along the line, so PED changes too."
     },
     "special": {
       "title": "Special demand curves: the same PED at every point",
       "note": "These three diagrams are SL content. Unlike a straight downward line, each one has the **same** PED all along the curve.",
       "elastic": {
-        "title": "Perfectly elastic (PED = ∞)",
+        "title": "Perfectly elastic (|PED| = ∞)",
         "caption": "A horizontal line. At any price above this one, quantity demanded falls to zero."
       },
       "inelastic": {
@@ -41,62 +41,198 @@
         "caption": "A vertical line. Quantity demanded does not change when the price changes."
       },
       "unitary": {
-        "title": "Unitary PED (PED = 1)",
+        "title": "Unitary PED (|PED| = 1)",
         "caption": "A rectangular hyperbola. At A: $10 × 20 = $200 (hatched). At B: $5 × 40 = $200 (dotted). Spending (P × Q) is the same at every point, so a price change never changes total revenue."
       }
     },
-    "mystery": [
+    "mysteryHelp": "**Mystery mode:** PED and total revenue are hidden. You can only see the price and the quantity. Work it out yourself: TR = P × Q, and PED from a $1 price cut = % change in quantity ÷ % change in price. Move the point to where you think the hidden point is, then check. After a wrong guess, work out PED or TR at your point. Get it right and you learn which way to go.",
+    "mysteryLevels": [
       {
-        "id": "ped3",
-        "clue": "At the hidden point, **PED = −3**.",
-        "rule": {
-          "type": "ped",
-          "value": -3
-        }
+        "title": "Hidden points",
+        "blurb": "Find 3 hidden points. Work out PED or TR at a wrong guess to learn which way to go. 6 checks per case.",
+        "checks": 6,
+        "curve": "main",
+        "clues": [
+          {
+            "id": "ped3",
+            "clue": "At the hidden point, **PED = −3**.",
+            "rule": {
+              "type": "ped",
+              "value": -3
+            }
+          },
+          {
+            "id": "tr960",
+            "clue": "At the hidden point, total revenue is **$960** and demand is **price elastic**.",
+            "rule": {
+              "type": "tr",
+              "value": 960,
+              "zone": "elastic"
+            }
+          },
+          {
+            "id": "ped025",
+            "clue": "At the hidden point, **PED = −0.25**.",
+            "rule": {
+              "type": "ped",
+              "value": -0.25
+            }
+          },
+          {
+            "id": "trmax",
+            "clue": "At the hidden point, total revenue is **as big as it can be**.",
+            "rule": {
+              "type": "trmax"
+            }
+          },
+          {
+            "id": "tr510",
+            "clue": "At the hidden point, total revenue is **$510** and demand is **price inelastic**.",
+            "rule": {
+              "type": "tr",
+              "value": 510,
+              "zone": "inelastic"
+            }
+          },
+          {
+            "id": "ped4",
+            "clue": "At the hidden point, **PED = −4**.",
+            "rule": {
+              "type": "ped",
+              "value": -4
+            }
+          }
+        ]
       },
       {
-        "id": "tr960",
-        "clue": "At the hidden point, total revenue is **$960** and demand is **price elastic**.",
-        "rule": {
-          "type": "tr",
-          "value": 960,
-          "zone": "elastic"
-        }
+        "title": "Harder clues",
+        "blurb": "Harder clues, and only 4 checks per case. No values are shown for you.",
+        "checks": 4,
+        "curve": "main",
+        "clues": [
+          {
+            "id": "l2-ped15",
+            "clue": "At the hidden point, **PED = −1.5**.",
+            "rule": {
+              "type": "ped",
+              "value": -1.5
+            }
+          },
+          {
+            "id": "l2-tr910",
+            "clue": "At the hidden point, total revenue is **$910** and demand is **price elastic**.",
+            "rule": {
+              "type": "tr",
+              "value": 910,
+              "zone": "elastic"
+            }
+          },
+          {
+            "id": "l2-ped06",
+            "clue": "At the hidden point, **PED = −0.6**.",
+            "rule": {
+              "type": "ped",
+              "value": -0.6
+            }
+          },
+          {
+            "id": "l2-tr750",
+            "clue": "At the hidden point, total revenue is **$750** and demand is **price inelastic**.",
+            "rule": {
+              "type": "tr",
+              "value": 750,
+              "zone": "inelastic"
+            }
+          },
+          {
+            "id": "l2-ped9",
+            "clue": "At the hidden point, **PED = −9**.",
+            "rule": {
+              "type": "ped",
+              "value": -9
+            }
+          },
+          {
+            "id": "l2-tr640",
+            "clue": "At the hidden point, total revenue is **$640** and demand is **price elastic**.",
+            "rule": {
+              "type": "tr",
+              "value": 640,
+              "zone": "elastic"
+            }
+          }
+        ]
       },
       {
-        "id": "ped025",
-        "clue": "At the hidden point, **PED = −0.25**.",
-        "rule": {
-          "type": "ped",
-          "value": -0.25
-        }
-      },
-      {
-        "id": "trmax",
-        "clue": "At the hidden point, total revenue is **as big as it can be**.",
-        "rule": {
-          "type": "trmax"
-        }
-      },
-      {
-        "id": "tr510",
-        "clue": "At the hidden point, total revenue is **$510** and demand is **price inelastic**.",
-        "rule": {
-          "type": "tr",
-          "value": 510,
-          "zone": "inelastic"
-        }
-      },
-      {
-        "id": "ped4",
-        "clue": "At the hidden point, **PED = −4**.",
-        "rule": {
-          "type": "ped",
-          "value": -4
-        }
+        "title": "A new curve",
+        "blurb": "A new shop with a steeper curve. Only 3 checks per case.",
+        "checks": 3,
+        "curve": "skate",
+        "clues": [
+          {
+            "id": "l3-ped06",
+            "clue": "At the hidden point, **PED = −0.6**.",
+            "rule": {
+              "type": "ped",
+              "value": -0.6
+            }
+          },
+          {
+            "id": "l3-tr825",
+            "clue": "At the hidden point, total revenue is **$825** and demand is **price elastic**.",
+            "rule": {
+              "type": "tr",
+              "value": 825,
+              "zone": "elastic"
+            }
+          },
+          {
+            "id": "l3-ped7",
+            "clue": "At the hidden point, **PED = −7**.",
+            "rule": {
+              "type": "ped",
+              "value": -7
+            }
+          },
+          {
+            "id": "l3-tr720",
+            "clue": "At the hidden point, total revenue is **$720** and demand is **price inelastic**.",
+            "rule": {
+              "type": "tr",
+              "value": 720,
+              "zone": "inelastic"
+            }
+          },
+          {
+            "id": "l3-trmax",
+            "clue": "At the hidden point, a small price change in either direction **lowers** total revenue.",
+            "rule": {
+              "type": "trmax"
+            }
+          },
+          {
+            "id": "l3-tr720e",
+            "clue": "At the hidden point, total revenue is **$720** and a price cut would **raise** total revenue.",
+            "rule": {
+              "type": "tr",
+              "value": 720,
+              "zone": "elastic"
+            }
+          }
+        ]
       }
     ],
-    "mysteryHelp": "**Mystery mode:** PED and total revenue are hidden. You can only see the price and the quantity. Work it out yourself: TR = P × Q, and PED from a $1 price cut = % change in quantity ÷ % change in price. Move the point to where you think the hidden point is, then check. Find 3 hidden points to earn the **Point Hunter** stamp."
+    "curves": {
+      "main": {
+        "name": "Riverside Bikes",
+        "perDollar": "Every $1 cut in price adds 10 rentals."
+      },
+      "skate": {
+        "name": "Snowline Skates",
+        "perDollar": "Every $1 cut in price adds 15 rentals. Nobody rents at $16."
+      }
+    },
+    "goal": "Explore the curve and complete the challenges, then play **Mystery: hidden points** (three levels)."
   },
   "check": [
     {
@@ -121,7 +257,7 @@
         },
         {
           "text": "Only at the midpoint",
-          "feedback": "At the midpoint PED = 1, which is unitary, not elastic."
+          "feedback": "At the midpoint |PED| = 1, which is unitary, not elastic."
         }
       ],
       "hints": [
@@ -129,7 +265,7 @@
         "Elastic means the % change in quantity is bigger than the % change in price. Where is quantity small, so that a few extra units is a big %?"
       ],
       "worked": "Example: a ferry's demand curve runs from $30 (0 trips) to 300 trips ($0). At $25, Q = 50. A $1 cut is 4% of the price, and the 10 extra trips are 20% of the quantity. PED = 20 ÷ −4 = −5, so demand is elastic at this high price.",
-      "explanation": "Along a straight line, PED > 1 above the midpoint, PED = 1 at the midpoint, and PED < 1 below it. At high prices and low quantities, the same change in units is a large percentage of Q."
+      "explanation": "Along a straight line, |PED| > 1 above the midpoint, |PED| = 1 at the midpoint, and |PED| < 1 below it. At high prices and low quantities, the same change in units is a large percentage of Q."
     },
     {
       "id": "q2",
@@ -149,7 +285,7 @@
         },
         {
           "text": "PED is always 1 on a straight line",
-          "feedback": "PED = 1 only at the midpoint. It is greater than 1 above it and less than 1 below it."
+          "feedback": "|PED| = 1 only at the midpoint. It is greater than 1 above it and less than 1 below it."
         },
         {
           "text": "The student is right: a straight line always has a constant PED",
@@ -233,9 +369,9 @@
       "prompt": "A firm faces a straight-line demand curve. At which point is its **total revenue greatest**?",
       "options": [
         {
-          "text": "At the midpoint, where PED = 1",
+          "text": "At the midpoint, where |PED| = 1",
           "correct": true,
-          "feedback": "Yes. Above it, a price cut raises TR. Below it, a price cut lowers TR. So TR peaks where PED = 1."
+          "feedback": "Yes. Above it, a price cut raises TR. Below it, a price cut lowers TR. So TR peaks where |PED| = 1."
         },
         {
           "text": "At the highest price",
@@ -255,7 +391,7 @@
         "TR stops rising and starts falling at the point between the two sections."
       ],
       "worked": "Example: a theatre's demand runs from $40 (0 seats) to 400 seats ($0). At $30: 100 seats, TR = $3000. At $20 (midpoint): 200 seats, TR = $4000. At $10: 300 seats, TR = $3000. TR is greatest at the midpoint.",
-      "explanation": "In the elastic section a price cut raises TR; in the inelastic section it lowers TR. The changeover is at the midpoint, where PED = 1, so TR is greatest there."
+      "explanation": "In the elastic section a price cut raises TR; in the inelastic section it lowers TR. The changeover is at the midpoint, where |PED| = 1, so TR is greatest there."
     },
     {
       "id": "q5",
@@ -284,10 +420,10 @@
       ],
       "hints": [
         "First decide: is demand elastic or inelastic in the lower half?",
-        "If PED < 1, which is bigger: the % rise in price or the % fall in quantity?"
+        "If |PED| < 1, which is bigger: the % rise in price or the % fall in quantity?"
       ],
       "worked": "Example: Riverside Bikes is at $4 (160 rentals, TR = $640) and raises the price to $5 (150 rentals). TR = $750. The price rose 25% but quantity fell only 6.25%, so TR rose.",
-      "explanation": "In the lower half PED < 1 (inelastic). A price rise causes a smaller % fall in quantity, so P × Q rises. This works until the price reaches the midpoint, where TR is greatest."
+      "explanation": "In the lower half |PED| < 1 (inelastic). A price rise causes a smaller % fall in quantity, so P × Q rises. This works until the price reaches the midpoint, where TR is greatest."
     },
     {
       "id": "q6",
@@ -307,7 +443,7 @@
         },
         {
           "text": "Keep the price, because the slope of demand is constant",
-          "feedback": "A constant slope does not mean a constant PED. In the upper half PED > 1, so the price can change TR."
+          "feedback": "A constant slope does not mean a constant PED. In the upper half |PED| > 1, so the price can change TR."
         },
         {
           "text": "Cut the price as low as possible to sell the most seats",
@@ -319,18 +455,18 @@
         "In the elastic section, does a price cut raise or lower P × Q? How far should the cut go?"
       ],
       "worked": "Example: a ferry's demand runs from $30 (0 trips) to 300 trips ($0). At $25: 50 trips, TR = $1250. Cut to $20: 100 trips, TR = $2000. Cut to $15 (midpoint): 150 trips, TR = $2250. Cut to $10: 200 trips, TR = $2000, which is lower again.",
-      "explanation": "In the upper half PED > 1, so a price cut gives a bigger % rise in quantity and TR rises. TR keeps rising until the midpoint, where PED = 1 and TR is greatest. Cutting further lowers TR."
+      "explanation": "In the upper half |PED| > 1, so a price cut gives a bigger % rise in quantity and TR rises. TR keeps rising until the midpoint, where |PED| = 1 and TR is greatest. Cutting further lowers TR."
     },
     {
       "id": "q7",
       "type": "choice",
       "level": "core",
-      "prompt": "Which demand curve has the **same PED at every point**, with PED = 1, so total revenue does not change when price changes?",
+      "prompt": "Which demand curve has the **same PED at every point**, with |PED| = 1, so total revenue does not change when price changes?",
       "options": [
         {
           "text": "A rectangular hyperbola",
           "correct": true,
-          "feedback": "Yes. On a rectangular hyperbola P × Q is the same at every point, so PED = 1 everywhere and TR never changes."
+          "feedback": "Yes. On a rectangular hyperbola P × Q is the same at every point, so |PED| = 1 everywhere and TR never changes."
         },
         {
           "text": "A straight downward-sloping line",
@@ -338,7 +474,7 @@
         },
         {
           "text": "A horizontal line",
-          "feedback": "A horizontal demand curve is perfectly elastic (PED = ∞), not unitary."
+          "feedback": "A horizontal demand curve is perfectly elastic (|PED| = ∞), not unitary."
         },
         {
           "text": "A vertical line",
@@ -350,7 +486,7 @@
         "Which shape keeps P × Q the same: it is curved, and it gets flatter as quantity rises."
       ],
       "worked": "Example: a curve passes through ($8, 25), ($5, 40) and ($4, 50). P × Q = $200 at every point, so a price change never changes spending. This is a unitary PED curve.",
-      "explanation": "A rectangular hyperbola has P × Q equal at every point, so every % change in price causes an equal and opposite % change in quantity: PED = 1 everywhere. A horizontal line has PED = ∞ everywhere and a vertical line has PED = 0 everywhere."
+      "explanation": "A rectangular hyperbola has P × Q equal at every point, so every % change in price causes an equal and opposite % change in quantity: |PED| = 1 everywhere. A horizontal line has |PED| = ∞ everywhere and a vertical line has PED = 0 everywhere."
     }
   ],
   "explain": {
@@ -359,7 +495,13 @@
       "The slope of the demand curve is the same everywhere because ___.",
       "But PED changes because PED uses ___, and the ratio of P to Q ___.",
       "In the upper half demand is ___, so a price cut makes total revenue ___.",
-      "Total revenue is greatest at ___, where PED = ___."
+      "Total revenue is greatest at ___, where |PED| = ___."
+    ],
+    "checklist": [
+      "I said that the slope is the same at every point on a straight line.",
+      "I explained that PED uses percentage changes, so it changes as P and Q change.",
+      "I said where demand is elastic, unit elastic and inelastic on the line.",
+      "I said that total revenue is greatest at the midpoint, where |PED| = 1."
     ]
   },
   "teacherNotes": "HL 2.5: PED varies along a straight-line demand curve. Project the explorer and ask students to predict TR before each $1 cut. The IB formula check shows that PED at a point matches the % change formula for a $1 change from that point (this is exact for a straight line). The \"Show all three sections\" button skips the reveal. The special curves section (horizontal, vertical, rectangular hyperbola) is SL content from the 2.5 diagrams, so SL students can use it too. Common mistake to target: treating the slope as PED."

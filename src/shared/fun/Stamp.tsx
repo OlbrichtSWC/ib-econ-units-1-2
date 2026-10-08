@@ -54,7 +54,7 @@ const ICONS: Record<StampIcon, ComponentChildren> = {
   ),
 };
 
-export function Stamp(props: { icon: StampIcon; earned: boolean; size?: number; label?: string; animate?: boolean }) {
+export function Stamp(props: { icon: StampIcon; earned: boolean; size?: number; label?: string; animate?: boolean; level?: number }) {
   const size = props.size ?? 88;
   const cls = `stamp ${props.earned ? 'stamp-earned' : 'stamp-empty'} ${props.animate ? 'stamp-animate' : ''}`;
   return (
@@ -64,6 +64,15 @@ export function Stamp(props: { icon: StampIcon; earned: boolean; size?: number; 
       <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity={props.earned ? 1 : 0.45}>
         {ICONS[props.icon]}
       </g>
+      {props.level && props.level > 1 && (
+        // A small level number at the bottom of the stamp: the same picture, a harder level.
+        <g opacity={props.earned ? 1 : 0.6}>
+          <circle cx="76" cy="76" r="14" fill="var(--white, #fff)" stroke="currentColor" stroke-width="3" />
+          <text x="76" y="82" text-anchor="middle" font-size="18" font-weight="700" fill="currentColor" font-family="Calibri, Carlito, sans-serif">
+            {props.level}
+          </text>
+        </g>
+      )}
     </svg>
   );
 }

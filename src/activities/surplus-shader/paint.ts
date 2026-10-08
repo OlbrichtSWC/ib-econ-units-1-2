@@ -16,13 +16,18 @@ export const PASS_SCORE = 85;
 /** Different areas that must be painted well to earn the stamp. */
 export const PAINT_GOAL = 3;
 
+/** What to paint. Community surplus is consumer and producer surplus together. */
+export type PaintAsk = Ask | 'community';
+
 export interface PaintTask {
   id: string;
   price: number;
-  ask: Ask;
+  ask: PaintAsk;
+  /** Demand and supply shift steps (see shiftedMarket). Missing = the original market. */
+  shift?: [number, number];
 }
 
-/** The paint tasks, in order. Prices: $50 is equilibrium, $35 a maximum price, $70 a minimum price. */
+/** Level 1 tasks, in order. Prices: $50 is equilibrium, $35 a maximum price, $70 a minimum price. */
 export const PAINT_TASKS: PaintTask[] = [
   { id: 'cs-eq', price: 50, ask: 'cs' },
   { id: 'ps-eq', price: 50, ask: 'ps' },
@@ -31,6 +36,55 @@ export const PAINT_TASKS: PaintTask[] = [
   { id: 'ps-floor', price: 70, ask: 'ps' },
   { id: 'wl-ceiling', price: 35, ask: 'wl' },
 ];
+
+/**
+ * Level 2: the market has shifted first. Demand right one step: equilibrium $55 and 500 passes.
+ * Supply left one step: equilibrium $55 and 350 passes.
+ */
+export const PAINT_TASKS_2: PaintTask[] = [
+  { id: 'l2-cs-dright', price: 55, ask: 'cs', shift: [1, 0] },
+  { id: 'l2-ps-sleft', price: 55, ask: 'ps', shift: [0, -1] },
+  { id: 'l2-wl-floor-dright', price: 70, ask: 'wl', shift: [1, 0] },
+  { id: 'l2-cs-ceiling-sleft', price: 45, ask: 'cs', shift: [0, -1] },
+  { id: 'l2-ps-ceiling-dright', price: 45, ask: 'ps', shift: [1, 0] },
+  { id: 'l2-wl-floor-sleft', price: 70, ask: 'wl', shift: [0, -1] },
+];
+
+/** Level 3: community surplus, no Qd and Qs markers, and a stricter score. */
+export const PAINT_TASKS_3: PaintTask[] = [
+  { id: 'l3-community-ceiling', price: 35, ask: 'community' },
+  { id: 'l3-wl-ceiling-sleft', price: 45, ask: 'wl', shift: [0, -1] },
+  { id: 'l3-community-floor-dright', price: 70, ask: 'community', shift: [1, 0] },
+  { id: 'l3-cs-floor', price: 70, ask: 'cs' },
+  { id: 'l3-ps-ceiling-dright', price: 45, ask: 'ps', shift: [1, 0] },
+  { id: 'l3-community-eq-sleft', price: 55, ask: 'community', shift: [0, -1] },
+];
+
+export interface PaintLevel {
+  tasks: PaintTask[];
+  /** Score needed to count a painting. */
+  pass: number;
+  /** Show dots where the price line meets demand and supply. */
+  markers: boolean;
+  /** Wrong checks before the dashed outline and "Show me" appear. */
+  helpAfter: number;
+}
+
+export const PAINT_LEVELS: PaintLevel[] = [
+  { tasks: PAINT_TASKS, pass: PASS_SCORE, markers: true, helpAfter: 2 },
+  { tasks: PAINT_TASKS_2, pass: PASS_SCORE, markers: true, helpAfter: 2 },
+  { tasks: PAINT_TASKS_3, pass: 92, markers: false, helpAfter: 3 },
+];
+
+/** The cells of the area a task asks for. Community surplus joins consumer and producer surplus. */
+export function taskCells(shapes: { cs: Pt[]; ps: Pt[]; wl: Pt[] }, ask: PaintAsk, xMax: number, yMax: number): Set<number> {
+  if (ask === 'community') {
+    const out = targetCells(shapes.cs, xMax, yMax);
+    targetCells(shapes.ps, xMax, yMax).forEach((c) => out.add(c));
+    return out;
+  }
+  return targetCells(ask === 'cs' ? shapes.cs : ask === 'ps' ? shapes.ps : shapes.wl, xMax, yMax);
+}
 
 export function cellIndex(col: number, row: number): number {
   return row * GRID + col;
