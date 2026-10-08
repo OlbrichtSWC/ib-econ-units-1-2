@@ -6,7 +6,7 @@
 import { useRef, useState } from 'preact/hooks';
 import { round } from '../../econ/calc';
 import type { Pt } from '../../econ/calc';
-import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Curve, Diagram, Dot, Guide, HLine, TONE, useDiagram } from '../../shared/diagrams/Diagram';
 import { celebrate, celebrateAt } from '../../shared/fun/celebrate';
 import { play } from '../../shared/fun/sound';
@@ -283,7 +283,7 @@ export function PaintGame(props: { onGoal: (level: number) => void; stamps: numb
           <p class="small muted" style={{ margin: 0 }}>
             Level {levelNo}: areas painted well: {passed.size} of {PAINT_GOAL} for the {STAMP_NAMES[levelNo - 1]} stamp
           </p>
-          <h3 id="paint-h">Paint the {NAME[task.ask]}</h3>
+          <h3 id="paint-h"><StepNo n={2} /> Paint the {NAME[task.ask]}</h3>
           <p>
             {shiftStory(task.shift)}
             {priceStory(task.price, eqPrice)}

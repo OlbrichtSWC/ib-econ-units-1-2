@@ -8,7 +8,7 @@
 import { useMemo, useRef, useState } from 'preact/hooks';
 import { pedAtPoint, round } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Area, Curve, Diagram, Dot, Halo, TONE, useDiagram } from '../../shared/diagrams/Diagram';
 import type { Pt } from '../../econ/calc';
 import type { TryProps } from '../../shared/activity/types';
@@ -214,7 +214,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
         <LiveRegion text={announce} />
         <LevelPicker levels={data.levels} level={levelNo} onPick={pickLevel} stamps={stamps} teacher={teacher} icon="cup" stampNames={STAMP_NAMES} />
         <section class="panel stack" aria-labelledby="pick-h">
-          <h3 id="pick-h">Level {levelNo}: play the campaign</h3>
+          <h3 id="pick-h"><StepNo n={2} /> Level {levelNo}: play the campaign</h3>
           <Md text={goalLine} />
           <div>
             <button class="btn" onClick={startCampaign}>Start the {lv.campaign.length}-week campaign</button>
@@ -470,7 +470,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
 
         <div class="stack">
           <div class="panel stack">
-            <h3>{weekDone ? 'The week is over' : `Day ${rows.length + 1} of ${days}`}</h3>
+            <h3><StepNo n={1} /> {weekDone ? 'The week is over' : `Day ${rows.length + 1} of ${days}: set your price`}</h3>
             {!weekDone && (
               <>
                 <div>
@@ -555,7 +555,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
 
       {rows.length > 0 && (
         <section class="stack" aria-labelledby="log-h">
-          <h3 id="log-h">Sales log</h3>
+          <h3 id="log-h"><StepNo n={2} /> Read your sales log</h3>
           <p class="small muted">Each change is from the previous day (the original value). PED = % change in quantity ÷ % change in price.</p>
           <DataTable
             table={{
@@ -568,7 +568,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
 
       {weekDone && !pedPending && (
         <section class="event-card stack" aria-labelledby="decide-h">
-          <h3 id="decide-h">End of the week: your decision</h3>
+          <h3 id="decide-h"><StepNo n={3} /> End of the week: your decision</h3>
           {sweet ? (
             <>
               <p><strong>{sw.question}</strong></p>

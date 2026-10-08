@@ -6,7 +6,7 @@
     "caption": "The price rises from P₁ ($6) to P₂ ($7). Cups sold fall from Q₁ (160) to Q₂ (120). The price pull (hatched) adds $120. The quantity pull (cross pattern) loses $240. TR falls from $960 to $840, so demand is price elastic here."
   },
   "try": {
-    "intro": "**Welcome to your café** (an invented business). Each day, choose a price and open the café. Watch how many customers come in and your [[total revenue]]. The demand curve is **hidden** until the end of the week. Other things stay the same all week ([[ceteris paribus]]).\n\n**Level 1:** each week, finish with more daily revenue than on day 1 **and** decide correctly whether demand is price elastic or price inelastic. Do both in 3 of the 4 weeks to earn the **Café Tycoon** stamp.\n\n**Level 2:** these price ranges cross the point where |PED| = 1. Find the price that earns the most revenue.\n\n**Level 3:** only five days, and you work out each PED yourself before the sales log shows it.",
+    "intro": "**Welcome to your café**. Each day, choose a price and open the café. Watch how many customers come in and your [[total revenue]]. The demand curve is **hidden** until the end of the week. Other things stay the same all week ([[ceteris paribus]]).\n\n**Level 1:** each week, finish with more daily revenue than on day 1 **and** decide correctly whether demand is price elastic or price inelastic. Do both in 3 of the 4 weeks to earn the **Café Tycoon** stamp.\n\n**Level 2:** these price ranges cross the point where |PED| = 1. Find the price that earns the most revenue.\n\n**Level 3:** only five days, and you work out each PED yourself before the sales log shows it.",
     "days": 6,
     "scenarios": [
       {

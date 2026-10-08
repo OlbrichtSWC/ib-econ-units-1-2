@@ -6,7 +6,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import { opportunityCosts, PpcSchedule, ppcPosition, round } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Arrow, Curve, Diagram, Dot, Guide, Label } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { DataTable } from '../../shared/activity/CheckIt';
@@ -265,7 +265,7 @@ function FreePlay({ content, onComplete }: TryProps) {
 
         <div class="stack">
           <div class="panel stack">
-            <h3>Your workers</h3>
+            <h3><StepNo n={2} /> Your workers</h3>
             <div>
               <label for="fishers">Workers fishing: {fishers}</label>
               <div class="row" style={{ flexWrap: 'nowrap' }}>
@@ -311,8 +311,8 @@ function FreePlay({ content, onComplete }: TryProps) {
 
       <div>
         <section class="event-card stack" aria-labelledby="event-h">
-          <p class="small muted" style={{ margin: 0 }}>Event card {(eventIndex % data.events.length) + 1} of {data.events.length}</p>
-          <h3 id="event-h">{event.title}</h3>
+          <p class="small muted" style={{ margin: 0 }}>Scenario {(eventIndex % data.events.length) + 1} of {data.events.length}</p>
+          <h3 id="event-h"><StepNo n={3} /> {event.title}</h3>
           <Md text={event.text} />
           <p><strong>Predict first:</strong> what will this do?</p>
           <div class="choice-grid" role="group" aria-label="Your prediction">
@@ -324,7 +324,7 @@ function FreePlay({ content, onComplete }: TryProps) {
           </div>
           {!eventResult ? (
             <div>
-              <button class="btn" disabled={!prediction} onClick={playEvent}>Play the card</button>
+              <button class="btn" disabled={!prediction} onClick={playEvent}>See what happens</button>
             </div>
           ) : (
             <div class={`callout ${eventResult.correct ? 'callout-ok' : 'callout-try'}`} role="status">
@@ -334,7 +334,7 @@ function FreePlay({ content, onComplete }: TryProps) {
               </p>
               <Md text={event.explain} />
               <div class="row">
-                <button class="btn" onClick={nextEvent}>Next event card</button>
+                <button class="btn" onClick={nextEvent}>Next scenario</button>
               </div>
             </div>
           )}
@@ -356,7 +356,7 @@ function MissionCard(props: { missions: Mission[]; done: Set<string>; active: st
       <p class="small muted" style={{ margin: 0 }}>
         Mission {i + 1} of {missions.length}. {done.size} done.
       </p>
-      <h3 id="mission-h" style={{ margin: 0 }}>{m.title}</h3>
+      <h3 id="mission-h" style={{ margin: 0 }}><StepNo n={1} /> {m.title}</h3>
       <p style={{ margin: 0 }}>
         <Md text={m.text} inline />
       </p>

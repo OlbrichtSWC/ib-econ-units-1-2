@@ -24,7 +24,7 @@ The app works in Chrome, Edge, Safari and Firefox. Students do not sign in.
 
 | Folder | What it is | Do you edit it? |
 | --- | --- | --- |
-| `public/content/` | All the words students read: explanations, questions, hints, event cards, glossary | **Yes.** See [docs/EDITING-CONTENT.md](docs/EDITING-CONTENT.md) |
+| `public/content/` | All the words students read: explanations, questions, hints, event scenarios, glossary | **Yes.** See [docs/EDITING-CONTENT.md](docs/EDITING-CONTENT.md) |
 | `public/config/settings.json` | Teacher passcode, which activities are on, HL content, proficiency scale | **Yes.** See section 5 |
 | `docs/` | Teacher guide, student help sheet, content guide | Read and share |
 | `src/` | The app's code | No |
@@ -56,7 +56,7 @@ To publish an update later: open your site on Netlify, click **Deploys**, and dr
 After that, every time anyone saves a change on GitHub, the tests run automatically.
 If they pass, the app republishes in about 2 minutes. If a test fails, the old version stays online, so a broken calculation never reaches students.
 
-## 4. Change content (questions, hints, glossary, event cards)
+## 4. Change content (questions, hints, glossary, event scenarios)
 
 All student-facing text is in `public/content/`. Open [docs/EDITING-CONTENT.md](docs/EDITING-CONTENT.md) for a step-by-step guide with examples.
 

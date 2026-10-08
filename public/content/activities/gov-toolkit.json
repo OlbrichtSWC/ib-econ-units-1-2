@@ -27,7 +27,7 @@
         {
           "id": "rent",
           "title": "Rent in Lakeside",
-          "brief": "**The brief:** Rents in Lakeside (an invented city) have risen to $1,200 a month. Tenants are angry. **Goal:** rent must be **$1,000 a month or less**. The government will **not spend any money**.",
+          "brief": "**The brief:** Rents in Lakeside have risen to $1,200 a month. Tenants are angry. **Goal:** rent must be **$1,000 a month or less**. The government will **not spend any money**.",
           "tool": "ceiling",
           "wrongTool": {
             "floor": "A minimum price stops the price going **below** a level. It would keep rents high, not bring them down.",
@@ -1085,5 +1085,5 @@
       "I named one problem, such as a shortage, a surplus, a cost to the government or a welfare loss."
     ]
   },
-  "teacherNotes": "Level 1 checks that students can match a tool to a goal. Each brief rules out the other tools on purpose (for example \"no spending\" rules out a subsidy). Level 2 asks for four predictions before the reveal. Level 3 is HL: the calculations use the IB formulas for tax revenue, tax incidence, subsidy cost, shortage, surplus and welfare loss. All markets are invented. Discussion idea: the cigarette mission shows that with price inelastic demand, consumers pay most of a tax, and that a higher tax does not always raise more revenue."
+  "teacherNotes": "Level 1 checks that students can match a tool to a goal. Each brief rules out the other tools on purpose (for example \"no spending\" rules out a subsidy). Level 2 asks for four predictions before the reveal. Level 3 is HL: the calculations use the IB formulas for tax revenue, tax incidence, subsidy cost, shortage, surplus and welfare loss. Discussion idea: the cigarette mission shows that with price inelastic demand, consumers pay most of a tax, and that a higher tax does not always raise more revenue."
 }

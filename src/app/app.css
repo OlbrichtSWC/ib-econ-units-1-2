@@ -220,3 +220,11 @@ details.coming-later > summary { cursor: pointer; }
 .mission-steps li { margin: 4px 0; }
 .mission-dots { gap: 6px; }
 .mission-dots .btn[aria-pressed='true'] { outline: 2px solid var(--navy); outline-offset: 1px; font-weight: 700; }
+
+/* Numbered steps: show students the order to work in */
+.step-no {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 1.6em; height: 1.6em; margin-right: 6px; border-radius: 50%;
+  background: var(--navy); color: var(--white); font: 700 0.85em/1 var(--font-body, sans-serif); vertical-align: 0.1em;
+}
+.step-head { margin: 0; font-weight: 700; color: var(--navy); display: flex; align-items: center; }

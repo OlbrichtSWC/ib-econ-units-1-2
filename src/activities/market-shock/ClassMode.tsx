@@ -1,5 +1,5 @@
 /**
- * Class mode: the teacher puts Market Shock on the projector. Teams discuss each event card and
+ * Class mode: the teacher puts Market Shock on the projector. Teams discuss each scenario and
  * hold up their answer; the teacher taps each team's choice, then reveals the answer.
  *
  * Every right team answer adds to ONE shared class score, so teams help the whole class rather
@@ -102,7 +102,7 @@ export function ClassMode(props: { cards: ClassCard[]; traps: ClassCard[]; optio
     setRevealed(false);
     setScore(0);
     setPossible(0);
-    setAnnounce('Class mode started. Read the first card.');
+    setAnnounce('Class mode started. Read the first scenario.');
   };
 
   if (!teams) {
@@ -110,7 +110,7 @@ export function ClassMode(props: { cards: ClassCard[]; traps: ClassCard[]; optio
       <section class="panel stack" aria-labelledby="class-h">
         <h3 id="class-h">Class mode (for the projector)</h3>
         <p>
-          Teams discuss each event card and hold up their answer. You tap each team's answer, then reveal. Every right answer adds to <strong>one class score</strong>. There is no
+          Teams discuss each scenario and hold up their answer. You tap each team's answer, then reveal. Every right answer adds to <strong>one class score</strong>. There is no
           ranking of teams and nothing is saved.
         </p>
         <div class="stack">
@@ -130,7 +130,7 @@ export function ClassMode(props: { cards: ClassCard[]; traps: ClassCard[]; optio
           </div>
         </div>
         <div>
-          <button class="btn" onClick={start}>Start class mode ({CLASS_ROUND} cards)</button>
+          <button class="btn" onClick={start}>Start class mode ({CLASS_ROUND} scenarios)</button>
         </div>
       </section>
     );
@@ -145,7 +145,7 @@ export function ClassMode(props: { cards: ClassCard[]; traps: ClassCard[]; optio
         <p class="class-score">
           Class score: <strong>{score}</strong> of {possible}
         </p>
-        <p>Every team's right answers counted towards one shared score. Which card caused the most discussion? Ask a team to explain it using the determinant.</p>
+        <p>Every team's right answers counted towards one shared score. Which scenario caused the most discussion? Ask a team to explain it using the determinant.</p>
         <div class="row">
           <button
             class="btn"
@@ -183,7 +183,7 @@ export function ClassMode(props: { cards: ClassCard[]; traps: ClassCard[]; optio
     <div class="stack projector">
       <LiveRegion text={announce} />
       <p class="class-score" aria-live="polite">
-        Card {index + 1} of {deck.length}. Class score: <strong>{score}</strong> of {possible}
+        Scenario {index + 1} of {deck.length}. Class score: <strong>{score}</strong> of {possible}
       </p>
       <section class="event-card stack" aria-labelledby="class-card-h">
         <h3 id="class-card-h">{card.title}</h3>
@@ -261,10 +261,10 @@ export function ClassMode(props: { cards: ClassCard[]; traps: ClassCard[]; optio
                   setIndex(index + 1);
                   setVotes(teams.map(() => null));
                   setRevealed(false);
-                  setAnnounce('Next card.');
+                  setAnnounce('Next scenario.');
                 }}
               >
-                {index + 1 < deck.length ? 'Next card' : 'See the class score'}
+                {index + 1 < deck.length ? 'Next scenario' : 'See the class score'}
               </button>
             </div>
           </div>

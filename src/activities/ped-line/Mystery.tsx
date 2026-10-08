@@ -13,7 +13,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { priceAt, Pt, quantityAt, round, totalRevenue } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Curve, Diagram, Dot, Guide, Handle } from '../../shared/diagrams/Diagram';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import { celebrate, celebrateAt } from '../../shared/fun/celebrate';
@@ -279,6 +279,7 @@ export function Mystery(props: {
             {level.checks > 0 && ` Checks left in this case: ${Math.max(0, level.checks - checks)}.`}
           </p>
           <h3 id="case-h">
+            <StepNo n={2} />{' '}
             <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style={{ verticalAlign: '-4px', marginRight: 6 }}>
               <circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2.5" />
               <path d="M15 15l6 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" />

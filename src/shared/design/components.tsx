@@ -10,6 +10,17 @@ export function HlBadge() {
   );
 }
 
+/** A numbered step marker. Panels in a game carry these so students know the order to work in. */
+export function StepNo({ n }: { n: number }) {
+  return (
+    <span class="step-no">
+      <span class="sr-only">Step </span>
+      {n}
+      <span class="sr-only">:</span>
+    </span>
+  );
+}
+
 export function CodeBadge({ code }: { code: string }) {
   return <span class="badge badge-code">{code}</span>;
 }

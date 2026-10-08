@@ -6,7 +6,7 @@
     "caption": "At equilibrium (Pₑ, Qₑ), demand (MB) meets supply (MC). Consumer surplus (CS, stripes) lies above the price and below demand. Producer surplus (PS, dots) lies below the price and above supply. Together they make community surplus."
   },
   "try": {
-    "intro": "**Welcome to Snowcap Ridge** (an invented ski hill). You control the price of a day pass. Drag the price line and watch the surplus areas change. The quantity traded is always the **smaller** of quantity demanded and quantity supplied. Complete any 3 challenges. ^HL^ students: check the dollar values and solve the Calculate it cards. Then switch to **Paint the surplus**. In Level 1, paint 3 areas with a match of 85% or more to earn the **Surplus Painter** stamp. Levels 2 and 3 open after that.",
+    "intro": "**Welcome to Snowcap Ridge**. You control the price of a day pass. Drag the price line and watch the surplus areas change. The quantity traded is always the **smaller** of quantity demanded and quantity supplied. Complete any 3 challenges. ^HL^ students: check the dollar values and solve the Calculate it problems. Then switch to **Paint the surplus**. In Level 1, paint 3 areas with a match of 85% or more to earn the **Surplus Painter** stamp. Levels 2 and 3 open after that.",
     "lossTarget": 3000,
     "challenges": [
       {
@@ -27,7 +27,7 @@
       },
       {
         "id": "calc",
-        "text": "^HL^ Solve one **Calculate it** card before the app shows the answer."
+        "text": "^HL^ Solve one **Calculate it** problem before the app shows the answer."
       }
     ],
     "cards": [
@@ -59,7 +59,7 @@
     "slips": {
       "noHalf": "Your answer is too big. Did you forget the ½? The area of a triangle is ½ × base × height.",
       "heightFromZero": "Check the height. Measure the height of the triangle between two prices on the diagram, not from $0.",
-      "equilibrium": "That is the value at the equilibrium price. Use the price on this card instead.",
+      "equilibrium": "That is the value at the equilibrium price. Use the price in this problem instead.",
       "longSide": "Check the base. Only the **smaller** of quantity demanded and quantity supplied is traded. Use that quantity as the base.",
       "oneTriangle": "This shape is not one triangle. Below equilibrium, the demand curve stops at the quantity traded. Split the area into a rectangle and a triangle.",
       "rectOnly": "You found the rectangle. Now add the small triangle above it, up to where demand meets the price axis.",
@@ -203,7 +203,7 @@
       "hl": true,
       "prompt": "A market for phone cases is in equilibrium. Use the readings from its diagram to calculate **consumer surplus**.",
       "table": {
-        "caption": "Market for phone cases (invented numbers)",
+        "caption": "Market for phone cases",
         "headers": [
           "Reading",
           "Value"
@@ -265,7 +265,7 @@
       "hl": true,
       "prompt": "A market for bike helmets has an equilibrium of 600 helmets at $10. The price is set at **$15**, above the equilibrium. Use the readings to calculate the **welfare loss**.",
       "table": {
-        "caption": "Bike helmets at a price of $15 (invented numbers)",
+        "caption": "Bike helmets at a price of $15",
         "headers": [
           "Reading",
           "Value"
@@ -548,5 +548,5 @@
       "I named the welfare loss and described where it is on the diagram."
     ]
   },
-  "teacherNotes": "Project the dial and ask students to predict the shapes before you move the price: 'Will consumer surplus be a triangle or a trapezium at $38?' The quantity traded is always the short side of the market, which is the key idea behind welfare loss in 2.3 and later price controls (2.8). The dollar values, the working panel and the Calculate it cards are HL only (IB 2.3: calculating CS and PS from a diagram). SL students should still use the shaded areas to explain allocative efficiency (MB = MC) and welfare loss. Calculate it cards hide the panel values at that price until the student checks an answer; common slips (forgetting ½, the wrong height or base) get their own feedback."
+  "teacherNotes": "Project the dial and ask students to predict the shapes before you move the price: 'Will consumer surplus be a triangle or a trapezium at $38?' The quantity traded is always the short side of the market, which is the key idea behind welfare loss in 2.3 and later price controls (2.8). The dollar values, the working panel and the Calculate it problems are HL only (IB 2.3: calculating CS and PS from a diagram). SL students should still use the shaded areas to explain allocative efficiency (MB = MC) and welfare loss. Calculate it problems hide the panel values at that price until the student checks an answer; common slips (forgetting ½, the wrong height or base) get their own feedback."
 }

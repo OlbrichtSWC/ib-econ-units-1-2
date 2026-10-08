@@ -5,7 +5,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { loadJson } from '../content/loader';
 import { Md } from '../content/markdown';
-import { CodeBadge, HlBadge, MarkIcon } from '../design/components';
+import { CodeBadge, HlBadge, MarkIcon, StepNo } from '../design/components';
 import { ActivityProgress, STEP } from '../progress/types';
 import { CheckIt } from './CheckIt';
 import { ExplainBox } from './ExplainBox';
@@ -144,6 +144,9 @@ export function ActivityShell(props: ShellProps) {
               <div class="callout stack">
                 <p style={{ margin: 0 }}>
                   <strong>Your goal:</strong> <Md text={content.try.goal} inline />
+                </p>
+                <p class="small" style={{ margin: 0 }}>
+                  Follow the numbered steps in order: <StepNo n={1} /> first, then <StepNo n={2} />, and so on.
                 </p>
                 <details class="how-to-play">
                   <summary>How to play</summary>

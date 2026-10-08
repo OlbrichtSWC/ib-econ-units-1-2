@@ -42,11 +42,11 @@ export const ACTIVITIES: ActivityMeta[] = [
   { id: 'circular-flow', tag: '1.1 Circular flow', code: '1.1', unit: 1, title: 'Circular Flow Builder', style: 'Build and connect', blurb: 'Connect households, firms and more. Add leakages and injections.' },
   { id: 'positive-normative', tag: '1.2 Positive and normative', code: '1.2', unit: 1, title: 'Positive or Normative?', style: 'Quick sort', blurb: 'Sort statements, then rewrite a normative claim as a testable one.' },
   {
-    id: 'market-shock', tag: '2.1 to 2.3 Demand, supply, equilibrium', code: '2.1', unit: 2, hl: 'part', title: 'Market Shock Simulator', style: 'Prediction card game',
-    blurb: 'Draw an event card, predict which curve shifts, then drag it and watch the market react.',
-    goal: { name: 'Market Mover', how: 'Level 1 of Market Shock: play a full deck of 8 cards and get at least 6 right.', icon: 'shift' },
+    id: 'market-shock', tag: '2.1 to 2.3 Demand, supply, equilibrium', code: '2.1', unit: 2, hl: 'part', title: 'Market Shock Simulator', style: 'Prediction game',
+    blurb: 'Read a scenario, predict which curve shifts, then drag it and watch the market react.',
+    goal: { name: 'Market Mover', how: 'Level 1 of Market Shock: play a full round of 8 scenarios and get at least 6 right.', icon: 'shift' },
     goals: [
-      { name: 'Trap Spotter', how: 'Level 2 of Market Shock: trap cards and different shift sizes. Predict the curve and the new price and quantity.', icon: 'shift' },
+      { name: 'Trap Spotter', how: 'Level 2 of Market Shock: trap scenarios and different shift sizes. Predict the curve and the new price and quantity.', icon: 'shift' },
       { name: 'Double Shock', how: 'Level 3 of Market Shock: two events at once. Say what you can and cannot tell about price and quantity.', icon: 'shift' },
     ],
     load: () => import('../activities/market-shock'),
@@ -99,7 +99,7 @@ export const ACTIVITIES: ActivityMeta[] = [
   { id: 'streetlight-fund', tag: '2.9 Public goods', code: '2.9', unit: 2, title: 'Streetlight Fund', style: 'Contribution game', blurb: 'Fund a public good with computer players who may free ride.' },
   { id: 'used-car-lot', tag: '2.10 Asymmetric information', code: '2.10', unit: 2, hl: 'all', title: 'Used Car Lot', style: 'Trading game', blurb: 'Buy cars without seeing their quality. Watch good cars leave the market.' },
   { id: 'monopoly-game', tag: '2.11 Market power', code: '2.11', unit: 2, hl: 'all', title: 'Monopoly and Game Theory', style: 'Rival pricing game', blurb: 'Find MC = MR, then play a pricing game against a rival firm.' },
-  { id: 'fair-efficient', tag: '2.12 Equity', code: '2.12', unit: 2, hl: 'all', title: 'Fair or Efficient?', style: 'Judgement cards', blurb: 'Judge market outcomes as equitable, efficient, both or neither.' },
+  { id: 'fair-efficient', tag: '2.12 Equity', code: '2.12', unit: 2, hl: 'all', title: 'Fair or Efficient?', style: 'Judgement calls', blurb: 'Judge market outcomes as equitable, efficient, both or neither.' },
 ];
 
 /**

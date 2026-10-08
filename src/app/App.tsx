@@ -247,7 +247,7 @@ export function App() {
         );
       })()}
       <footer class="wrap small muted no-print" style={{ paddingBottom: 24 }}>
-        Made for IB Economics students. No accounts, no tracking: your progress stays in this browser. Numbers in activities are invented examples.
+        Made for IB Economics students. No accounts, no tracking: your progress stays in this browser.
       </footer>
     </GlossaryProvider>
   );
