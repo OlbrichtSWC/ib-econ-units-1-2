@@ -3,6 +3,9 @@
   "showHlContent": true,
   "modules": {
     "ppc-explorer": true,
+    "island-economy": true,
+    "circular-flow": true,
+    "positive-normative": true,
     "market-shock": true,
     "surplus-shader": true,
     "elasticity-cafe": true,

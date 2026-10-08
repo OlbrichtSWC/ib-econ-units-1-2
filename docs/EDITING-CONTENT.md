@@ -7,10 +7,14 @@ You can fix a typo, rewrite a hint or add a question without touching any code.
 | --- | --- |
 | `content/glossary.json` | Glossary terms and meanings |
 | `content/activities/ppc-explorer.json` | Everything in PPC Explorer |
+| `content/activities/island-economy.json` | Everything in Castaway Council |
+| `content/activities/circular-flow.json` | Everything in Money River |
+| `content/activities/positive-normative.json` | Everything in Fact Lab |
 | `content/activities/market-shock.json` | Everything in Market Shock Simulator |
 | `content/activities/surplus-shader.json` | Everything in Surplus Shader |
 | `content/activities/elasticity-cafe.json` | Everything in The Elasticity Café |
 | `content/activities/ped-line.json` | Everything in Same Slope, Different PED |
+| `content/activities/gov-toolkit.json` | Everything in Government Toolkit |
 
 ## Three rules for JSON files
 

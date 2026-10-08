@@ -1,0 +1,269 @@
+{
+  "id": "circular-flow",
+  "outcome": "I can explain the circular flow of income, including leakages and injections, and predict how national income changes.",
+  "learn": {
+    "text": "The **[[circular flow of income]]** model shows how money moves around an economy.\n\n- **Households** own the factors of production. They sell them to **firms**, and receive **factor incomes**: wages, rent, interest and profit.\n- Households spend their incomes on the **goods and services** firms make. This **consumer spending** becomes the firms' revenue.\n\nSo money flows one way around the circle, and real things (resources, goods and services) flow the other way. The decision-makers depend on each other: this is **interdependence**.\n\nSome money leaves the flow. These **[[leakages]]** (withdrawals) are **savings** (to banks and the financial sector), **taxes** (to the government) and **imports** (to the foreign sector).\n\nSome money enters the flow. These **[[injections]]** are **investment** (by firms, often through banks), **government spending** and **exports** (spending by the foreign sector).\n\nIf injections are greater than leakages, national income **rises**. If leakages are greater, it **falls**. If they are equal, income stays the same.",
+    "caption": "The circular flow with the banks and financial sector, the government and the foreign sector. Leakages drain money out; injections bring money in."
+  },
+  "try": {
+    "goal": "Build the economy as a river. Money flows along the channels you build. Then add the drains and springs, and forecast the river level.",
+    "intro": "**Level 1: Join the river.** Tap a label, then tap the channel it belongs on. When all four channels are right, the river flows. Then spot which flow each scenario shows.\n\n**Level 2: Drains and springs.** Add the banks, the government and the foreign sector. Each leakage is a drain and each injection is a spring. Place each one, then spot them in scenarios.\n\n**Level 3: River forecast.** Compare leakages and injections. Will national income rise, fall or stay the same?",
+    "levels": [
+      { "title": "Join the river", "blurb": "Build the two-sector flow, then spot 4 of 5 flows right first time." },
+      { "title": "Drains and springs", "blurb": "Place the leakages and injections, then spot 5 of 6 right first time." },
+      { "title": "River forecast", "blurb": "Predict national income from leakages and injections. Get 5 of 6 right first time." }
+    ],
+    "flowNames": {
+      "factors": "Factors of production",
+      "incomes": "Factor incomes",
+      "spending": "Consumer spending",
+      "goods": "Goods and services"
+    },
+    "flowDetails": {
+      "factors": "land, labour, capital, entrepreneurship",
+      "incomes": "wages, rent, interest, profit",
+      "spending": "money paid for goods and services",
+      "goods": "what firms make and sell"
+    },
+    "spots": [
+      { "id": "s1", "text": "Maria gets her monthly wage from the bakery where she works.", "answer": "incomes", "why": "A wage is a **factor income**: money from firms to households, paid for labour." },
+      { "id": "s2", "text": "The Lee family pays $900 for a new sofa.", "answer": "spending", "why": "Paying for a good is **consumer spending**: money from households to firms." },
+      { "id": "s3", "text": "Omar works 40 hours a week at a car factory.", "answer": "factors", "why": "Omar supplies **labour**, a factor of production, from his household to a firm." },
+      { "id": "s4", "text": "A furniture firm delivers the sofa to the Lee family.", "answer": "goods", "why": "The sofa itself is a **good**: a real flow from firms to households." },
+      { "id": "s5", "text": "A landowner receives rent from a supermarket.", "answer": "incomes", "why": "Rent is a **factor income**, paid for the use of land." }
+    ],
+    "pipeNames": {
+      "savings": "Savings",
+      "taxes": "Taxes",
+      "imports": "Imports",
+      "investment": "Investment",
+      "government": "Government spending",
+      "exports": "Exports"
+    },
+    "sectorNames": {
+      "banks": "Banks and financial sector",
+      "government": "Government",
+      "foreign": "Foreign sector"
+    },
+    "pipeWhy": {
+      "savings": "Savings are income households do not spend. The money goes to **banks**, so it leaks out of the flow.",
+      "taxes": "Taxes take income out of the flow and pass it to the **government**.",
+      "imports": "Spending on imports goes to firms in **other countries**, so it leaks out.",
+      "investment": "Firms spend on new capital, often with money borrowed from **banks**. This injects money into the flow.",
+      "government": "When the **government** spends (on schools, roads, salaries), money is injected into the flow.",
+      "exports": "When people in **other countries** buy goods made here, money flows in: an injection."
+    },
+    "leakSpots": [
+      { "id": "l1", "text": "The Patel family puts $200 a month into a savings account.", "answer": "savings" },
+      { "id": "l2", "text": "A furniture firm borrows from a bank to buy a new robot.", "answer": "investment" },
+      { "id": "l3", "text": "Tourists from abroad pay for hotel rooms in our city.", "answer": "exports" },
+      { "id": "l4", "text": "Workers pay income tax on their wages.", "answer": "taxes" },
+      { "id": "l5", "text": "Shoppers buy phones made in another country.", "answer": "imports" },
+      { "id": "l6", "text": "The government pays a building firm to build a new hospital.", "answer": "government" }
+    ],
+    "rounds": [
+      {
+        "id": "r1",
+        "story": "Here are this year's leakages and injections, in $ billion.",
+        "totals": { "savings": 40, "taxes": 50, "imports": 30, "investment": 50, "government": 50, "exports": 40 }
+      },
+      {
+        "id": "r2",
+        "story": "Households are saving more, and firms are investing less.",
+        "totals": { "savings": 60, "taxes": 50, "imports": 40, "investment": 40, "government": 50, "exports": 30 }
+      },
+      {
+        "id": "r3",
+        "story": "The leakages and injections are different sizes, but look at the totals.",
+        "totals": { "savings": 30, "taxes": 60, "imports": 30, "investment": 40, "government": 40, "exports": 40 }
+      },
+      {
+        "id": "r4",
+        "story": "The economy starts in balance. Then firms feel confident and **invest $20 billion more**.",
+        "totals": { "savings": 40, "taxes": 40, "imports": 40, "investment": 40, "government": 40, "exports": 40 },
+        "change": { "pipe": "investment", "by": 20 }
+      },
+      {
+        "id": "r5",
+        "story": "The economy starts in balance. Then households worry about their jobs and **save $15 billion more**.",
+        "totals": { "savings": 40, "taxes": 40, "imports": 40, "investment": 40, "government": 40, "exports": 40 },
+        "change": { "pipe": "savings", "by": 15 }
+      },
+      {
+        "id": "r6",
+        "story": "The economy starts in balance. Then the government **raises taxes by $10 billion** and **spends $10 billion more** on hospitals.",
+        "totals": { "savings": 50, "taxes": 40, "imports": 30, "investment": 30, "government": 50, "exports": 40 },
+        "change": { "pipe": "taxes", "by": 10 },
+        "change2": { "pipe": "government", "by": 10 }
+      }
+    ],
+    "changeNames": { "rise": "National income rises", "fall": "National income falls", "same": "National income stays the same" }
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "In the circular flow of income, what do **firms** pay to **households**?",
+      "options": [
+        { "text": "Factor incomes: wages, rent, interest and profit", "correct": true, "feedback": "Yes. Firms pay households for the factors of production they use." },
+        { "text": "Consumer spending", "feedback": "Consumer spending goes the other way: from households to firms." },
+        { "text": "Taxes", "feedback": "Taxes go to the government, not to households." },
+        { "text": "Exports", "feedback": "Exports are spending by the foreign sector on goods made here." }
+      ],
+      "hints": ["Households own the factors of production.", "What do firms pay for using land, labour, capital and entrepreneurship?"],
+      "worked": "Example: a café pays its barista a wage, and pays rent to the owner of the building. Both are factor incomes flowing to households.",
+      "explanation": "Firms pay **factor incomes** to households: **wages** for labour, **rent** for land, **interest** for capital and **profit** for entrepreneurship."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Which of these is a **leakage** (withdrawal) from the circular flow?",
+      "options": [
+        { "text": "Savings", "correct": true, "feedback": "Yes. Income that is saved is not spent, so it leaves the flow." },
+        { "text": "Investment", "feedback": "Investment is an injection: firms spend on new capital." },
+        { "text": "Exports", "feedback": "Exports are an injection: money comes in from abroad." },
+        { "text": "Government spending", "feedback": "Government spending is an injection." }
+      ],
+      "hints": ["A leakage is money that leaves the flow between households and firms.", "The three leakages are savings, taxes and imports."],
+      "worked": "Example: a household earns $1,000, saves $100, pays $200 in tax and spends $50 on imports. The $350 leaks out.",
+      "explanation": "The three **leakages** are **savings, taxes and imports**. The three **injections** are **investment, government spending and exports**."
+    },
+    {
+      "id": "q3",
+      "type": "label",
+      "level": "core",
+      "prompt": "Label the circular flow. Choose what each letter shows.",
+      "diagram": {
+        "xMax": 100,
+        "yMax": 70,
+        "xLabel": "",
+        "yLabel": "",
+        "noAxes": true,
+        "title": "Circular flow with banks",
+        "description": "Households on the left and firms on the right. One arrow goes from firms to households along the top, and one from households to firms lower down. From the lower arrow, an arrow drops down into a box for banks, and another arrow rises from the banks box back to firms. Each arrow has a letter.",
+        "boxes": [
+          { "at": { "q": 13, "p": 42 }, "w": 22, "h": 12, "text": "Households" },
+          { "at": { "q": 87, "p": 42 }, "w": 22, "h": 12, "text": "Firms" },
+          { "at": { "q": 50, "p": 8 }, "w": 22, "h": 10, "text": "Banks" }
+        ],
+        "arrows": [
+          { "from": { "q": 76, "p": 60 }, "to": { "q": 24, "p": 60 } },
+          { "from": { "q": 24, "p": 32 }, "to": { "q": 76, "p": 32 } },
+          { "from": { "q": 35, "p": 30 }, "to": { "q": 42, "p": 14 } },
+          { "from": { "q": 58, "p": 14 }, "to": { "q": 65, "p": 30 } }
+        ],
+        "tags": [
+          { "at": { "q": 50, "p": 64 }, "letter": "A" },
+          { "at": { "q": 50, "p": 36 }, "letter": "B" },
+          { "at": { "q": 33, "p": 21 }, "letter": "C" },
+          { "at": { "q": 67, "p": 21 }, "letter": "D" }
+        ]
+      },
+      "slots": [
+        { "letter": "A", "answer": "Factor incomes", "feedback": "A is money from firms to households: wages, rent, interest and profit." },
+        { "letter": "B", "answer": "Consumer spending", "feedback": "B is money from households to firms, paid for goods and services." },
+        { "letter": "C", "answer": "Savings", "feedback": "C drains money out of spending into the banks: savings, a leakage." },
+        { "letter": "D", "answer": "Investment", "feedback": "D brings money from the banks to firms: investment, an injection." }
+      ],
+      "choices": ["Factor incomes", "Consumer spending", "Savings", "Investment", "Taxes", "Exports"],
+      "hints": ["Follow the money: which way does each arrow point?", "The banks box connects one leakage and one injection."],
+      "worked": "Example: with a government box instead of banks, the arrow into it would be taxes (a leakage) and the arrow out of it to firms would be government spending (an injection).",
+      "explanation": "Firms pay **factor incomes** (A) to households, who spend (B) on goods and services. **Savings** (C) leak out to banks, and banks lend to firms for **investment** (D), an injection."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Which flow goes in the **same direction** as consumer spending?",
+      "options": [
+        { "text": "Factors of production, from households to firms", "correct": true, "feedback": "Yes. Both go from households to firms: one is money, the other is real resources." },
+        { "text": "Goods and services, from firms to households", "feedback": "Goods go from firms to households, the opposite way to consumer spending." },
+        { "text": "Factor incomes, from firms to households", "feedback": "Factor incomes go from firms to households, the opposite way." },
+        { "text": "Imports, from the foreign sector to households", "feedback": "Spending on imports leaks out to the foreign sector. It does not go from households to firms." }
+      ],
+      "hints": ["Consumer spending goes from households to firms.", "What else do households send to firms?"],
+      "worked": "Example: each morning a worker goes to the factory (labour, households to firms) and in the evening buys dinner (spending, households to firms).",
+      "explanation": "Households send firms both **factors of production** (real flow) and **consumer spending** (money flow). Firms send back **goods and services** and **factor incomes**."
+    },
+    {
+      "id": "q5",
+      "type": "number",
+      "level": "core",
+      "prompt": "Savings are $40 billion, taxes $60 billion and imports $30 billion. Investment is $50 billion, government spending $45 billion and exports $25 billion. By how much do **injections fall short of leakages**? (in $ billion)",
+      "answer": 10,
+      "prefix": "$",
+      "suffix": "billion",
+      "mistakes": [
+        { "value": -10, "feedback": "The size is right. The question asks how much injections fall short, so give a positive number." },
+        { "value": 130, "feedback": "$130 billion is total leakages. Now subtract total injections." },
+        { "value": 120, "feedback": "$120 billion is total injections. Subtract it from total leakages." }
+      ],
+      "hints": ["Add up the three leakages, then the three injections.", "Leakages are 40 + 60 + 30. Injections are 50 + 45 + 25."],
+      "worked": "Example: leakages 20 + 30 + 10 = 60, injections 25 + 20 + 5 = 50. Injections fall short by 60 − 50 = 10.",
+      "explanation": "Leakages = 40 + 60 + 30 = **$130 billion**. Injections = 50 + 45 + 25 = **$120 billion**. Injections fall short by **$10 billion**, so national income falls."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Firms become worried about the future and **cut investment**. Nothing else changes. What happens to national income?",
+      "options": [
+        { "text": "It falls, because injections are now smaller than leakages", "correct": true, "feedback": "Yes. Less money is injected, so less flows around the circle." },
+        { "text": "It rises, because firms are saving money", "feedback": "Investment is an injection. Cutting it means less money flows in." },
+        { "text": "It stays the same, because investment is not part of the flow", "feedback": "Investment is one of the three injections." },
+        { "text": "It falls, because leakages fall", "feedback": "Leakages did not change. Injections fell." }
+      ],
+      "hints": ["Is investment a leakage or an injection?", "If injections fall and leakages stay the same, compare the two totals."],
+      "worked": "Example: leakages and injections are both $100 billion. Government spending is cut by $10 billion. Injections are now $90 billion, less than leakages, so national income falls.",
+      "explanation": "Investment is an **injection**. If it falls and leakages stay the same, **injections < leakages**, so **national income falls**."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A country's households start buying many more goods made abroad. Which part of the circular flow does this change, and how?",
+      "options": [
+        { "text": "Imports rise: a bigger leakage, so national income tends to fall", "correct": true, "feedback": "Yes. Spending on imports goes to foreign firms and leaks out of the domestic flow." },
+        { "text": "Exports rise: a bigger injection, so national income rises", "feedback": "Exports are goods made here and sold abroad. This is the opposite." },
+        { "text": "Consumer spending on domestic firms rises", "feedback": "The spending goes to firms abroad, not to domestic firms." },
+        { "text": "Investment rises, because households are spending", "feedback": "Investment is spending by firms on capital, not household spending on goods." }
+      ],
+      "hints": ["Where do the goods come from?", "Money spent on foreign goods goes to the foreign sector."],
+      "worked": "Example: if Canadians buy more cars made in Japan, the money goes to Japanese firms. For Canada this is an import: a leakage.",
+      "explanation": "Buying goods made abroad means **more imports**, a **leakage**. With leakages higher, national income tends to fall unless injections rise too."
+    },
+    {
+      "id": "q8",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Which statement best describes **interdependence** in the circular flow?",
+      "options": [
+        { "text": "Households need firms for incomes and goods, and firms need households for factors and spending", "correct": true, "feedback": "Yes. Each decision-maker depends on the others." },
+        { "text": "Firms do not need households because they can borrow from banks", "feedback": "Firms still need households for labour and for spending." },
+        { "text": "Only the government links households and firms", "feedback": "Households and firms are linked directly through markets." },
+        { "text": "Each sector makes its own choices with no effect on the others", "feedback": "A change in one sector's spending changes the incomes of others." }
+      ],
+      "hints": ["What does each side get from the other?", "If households stop spending, what happens to firms' revenue and then to wages?"],
+      "worked": "Example: if households cut spending, firms sell less, so they hire fewer workers. Household incomes fall, so spending falls again. Each depends on the other.",
+      "explanation": "**Interdependence** means the decisions of households, firms, the government, banks and the foreign sector all affect each other through the flow of income."
+    }
+  ],
+  "explain": {
+    "prompt": "Explain, using the circular flow model, what happens to national income when households decide to save more. Include one leakage and one injection in your answer.",
+    "frames": [
+      "In the circular flow, households ___ and firms ___.",
+      "When households save more, ___ rises. This is a leakage because ___.",
+      "If injections such as ___ do not change, then ___.",
+      "So national income ___, because ___."
+    ],
+    "checklist": [
+      "I described the flow between households and firms.",
+      "I named savings as a leakage and said why.",
+      "I named at least one injection.",
+      "I compared leakages and injections to say what happens to national income."
+    ]
+  },
+  "teacherNotes": "Level 1 builds the two-sector model; the animation starts only when all four channels are right. Ask students to say aloud which flows are money and which are real. Level 2 adds the banks and financial sector, the government and the foreign sector, as the IB guide lists. The model shows leakages draining from consumer spending, which is a simplification: firms also pay taxes and buy imports. Level 3 uses totals only; it does not use the multiplier (a Unit 3 idea). Discussion idea: why does a rise in savings help one household but may lower national income (the paradox of thrift)?"
+}

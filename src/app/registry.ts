@@ -38,9 +38,36 @@ export const ACTIVITIES: ActivityMeta[] = [
     ],
     load: () => import('../activities/ppc-explorer'),
   },
-  { id: 'island-economy', tag: '1.1 Economic systems', code: '1.1', unit: 1, title: 'Island Economy', style: 'Story choices', blurb: 'Answer what, how and for whom under three economic systems.' },
-  { id: 'circular-flow', tag: '1.1 Circular flow', code: '1.1', unit: 1, title: 'Circular Flow Builder', style: 'Build and connect', blurb: 'Connect households, firms and more. Add leakages and injections.' },
-  { id: 'positive-normative', tag: '1.2 Positive and normative', code: '1.2', unit: 1, title: 'Positive or Normative?', style: 'Quick sort', blurb: 'Sort statements, then rewrite a normative claim as a testable one.' },
+  {
+    id: 'island-economy', tag: '1.1 Scarcity and economic systems', code: '1.1', unit: 1, title: 'Castaway Council', style: 'Island story',
+    blurb: 'Shipwrecked! Sort what washes ashore into the factors of production, then run a village three different ways.',
+    goal: { name: 'Beachcomber', how: 'Level 1 of Castaway Council: sort 10 finds right first time and name the opportunity cost first time.', icon: 'hut' },
+    goals: [
+      { name: 'Village Builder', how: 'Level 2 of Castaway Council: answer what, how and for whom in three villages, 8 of 9 right first time.', icon: 'hut' },
+      { name: 'System Detective', how: 'Level 3 of Castaway Council: name the economic system from clues, 5 of 6 with your first guess.', icon: 'hut' },
+    ],
+    load: () => import('../activities/island-economy'),
+  },
+  {
+    id: 'circular-flow', tag: '1.1 Circular flow', code: '1.1', unit: 1, title: 'Money River', style: 'River builder',
+    blurb: 'Build the economy as a river. Coins flow along your channels, drains leak money out and springs bring it back.',
+    goal: { name: 'River Builder', how: 'Level 1 of Money River: build the two-sector flow with no more than 2 mistakes and spot 4 of 5 flows first time.', icon: 'flow' },
+    goals: [
+      { name: 'Drain Spotter', how: 'Level 2 of Money River: place the leakages and injections with no more than 2 mistakes and spot 5 of 6 first time.', icon: 'flow' },
+      { name: 'Flow Forecaster', how: 'Level 3 of Money River: forecast national income from leakages and injections, 5 of 6 right first time.', icon: 'flow' },
+    ],
+    load: () => import('../activities/circular-flow'),
+  },
+  {
+    id: 'positive-normative', tag: '1.2 How economists approach the world', code: '1.2', unit: 1, title: 'Fact Lab', style: 'Lab conveyor belt',
+    blurb: 'Stamp statements positive or normative as they roll in, hunt for value words, then test ideas like an economist.',
+    goal: { name: 'Fact Finder', how: 'Level 1 of Fact Lab: stamp 10 of 12 statements right first time.', icon: 'flask' },
+    goals: [
+      { name: 'Value Spotter', how: 'Level 2 of Fact Lab: find the value word in 7 of 8 statements right first time.', icon: 'flask' },
+      { name: 'Lab Scientist', how: 'Level 3 of Fact Lab: order the method, make claims testable and build the timeline. Score 12 of 15.', icon: 'flask' },
+    ],
+    load: () => import('../activities/positive-normative'),
+  },
   {
     id: 'market-shock', tag: '2.1 to 2.3 Demand, supply, equilibrium', code: '2.1', unit: 2, hl: 'part', title: 'Market Shock Simulator', style: 'Prediction game',
     blurb: 'Read a scenario, predict which curve shifts, then drag it and watch the market react.',

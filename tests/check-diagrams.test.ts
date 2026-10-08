@@ -2,13 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { checkLabels } from '../src/shared/activity/CheckIt';
 import type { ActivityContent, LabelQuestion } from '../src/shared/activity/types';
 
-import ppc from '../public/content/activities/ppc-explorer.json';
-import market from '../public/content/activities/market-shock.json';
-import surplus from '../public/content/activities/surplus-shader.json';
-import cafe from '../public/content/activities/elasticity-cafe.json';
-import pedLine from '../public/content/activities/ped-line.json';
-
-const all = [ppc, market, surplus, cafe, pedLine] as unknown as ActivityContent[];
+const files = import.meta.glob('../public/content/activities/*.json', { eager: true, import: 'default' });
+const all = Object.values(files) as unknown as ActivityContent[];
 
 describe('Check it: diagram questions in the content files', () => {
   it('every built activity has at least one label-the-diagram question', () => {

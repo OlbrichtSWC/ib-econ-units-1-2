@@ -23,8 +23,28 @@ export interface DiagramSpec {
   arrows?: { from: Pt; to: Pt; label?: string; tone?: Tone }[];
   dots?: { at: Pt; label?: string; tone?: Tone }[];
   texts?: { at: Pt; text: string; tone?: Tone; anchor?: 'start' | 'middle' | 'end' }[];
+  /** Leave out the axes (flow charts). */
+  noAxes?: boolean;
+  /** Labelled boxes, for flow charts. Position and size are in data units. */
+  boxes?: { at: Pt; w: number; h: number; text?: string }[];
   /** Lettered markers for label questions. */
   tags?: { at: Pt; letter: string }[];
+}
+
+function Box(props: { at: Pt; w: number; h: number; text?: string }) {
+  const { sx, sy } = useDiagram();
+  const x = sx(props.at.q - props.w / 2), y = sy(props.at.p + props.h / 2);
+  const w = sx(props.at.q + props.w / 2) - x, h = sy(props.at.p - props.h / 2) - y;
+  return (
+    <g aria-hidden="true">
+      <rect x={x} y={y} width={w} height={h} rx="8" fill="#eef2f8" stroke={TONE.navy} stroke-width="2" />
+      {props.text && (
+        <text x={x + w / 2} y={y + h / 2 + 5} text-anchor="middle" font-size="15" font-weight="700" fill={TONE.navy}>
+          {props.text}
+        </text>
+      )}
+    </g>
+  );
 }
 
 function Tag(props: { at: Pt; letter: string }) {
@@ -42,7 +62,8 @@ function Tag(props: { at: Pt; letter: string }) {
 
 export function SpecDiagram({ spec }: { spec: DiagramSpec }) {
   return (
-    <Diagram xMax={spec.xMax} yMax={spec.yMax} xLabel={spec.xLabel} yLabel={spec.yLabel} title={spec.title} description={spec.description}>
+    <Diagram xMax={spec.xMax} yMax={spec.yMax} xLabel={spec.xLabel} yLabel={spec.yLabel} title={spec.title} description={spec.description} noAxes={spec.noAxes}>
+      {spec.boxes?.map((b, i) => <Box key={`b${i}`} {...b} />)}
       {spec.areas?.map((a, i) => <Area key={`a${i}`} points={a.points} tone={a.tone} pattern={a.pattern} label={a.label} labelAt={a.labelAt} />)}
       {spec.guides?.map((g, i) => <Guide key={`g${i}`} at={g.at} xText={g.xText} yText={g.yText} />)}
       {spec.hlines?.map((h, i) => <HLine key={`h${i}`} p={h.p} label={h.label} tone={h.tone} dashed={h.dashed} />)}

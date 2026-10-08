@@ -66,6 +66,8 @@ export interface DiagramProps {
   formatY?: (v: number) => string;
   /** Called with a data point when the student clicks or taps empty plot space. */
   onPlotClick?: (pt: Pt) => void;
+  /** Leave out the axes, for flow charts such as the circular flow. */
+  noAxes?: boolean;
   children?: ComponentChildren;
 }
 
@@ -134,7 +136,7 @@ export function Diagram(props: DiagramProps) {
         ))}
         {props.children}
         {/* Axes drawn last so they sit on top of shading */}
-        <g aria-hidden="true">
+        {!props.noAxes && <g aria-hidden="true">
           <line x1={plot.left} y1={plot.top - 12} x2={plot.left} y2={plot.bottom} stroke={TONE.ink} stroke-width="2" />
           <line x1={plot.left} y1={plot.bottom} x2={plot.right + 16} y2={plot.bottom} stroke={TONE.ink} stroke-width="2" />
           <text x={plot.left - 8} y={plot.top - 16} text-anchor="start" font-size="15" font-weight="700" fill={TONE.ink}>
@@ -146,7 +148,7 @@ export function Diagram(props: DiagramProps) {
           <text x={plot.left - 10} y={plot.bottom + 18} text-anchor="end" font-size="14" fill={TONE.ink}>
             0
           </text>
-        </g>
+        </g>}
       </svg>
     </DiagramCtx.Provider>
   );
