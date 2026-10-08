@@ -13,6 +13,10 @@
 Typing mistakes are fine to make: the app checks the code and tells you if a character is wrong. It ignores spaces, dashes and lower case.
 Your code changes as you work. Get a new one each time you switch devices.
 
+## Stamps and sound
+
+Earn up to three stamps in each activity: one for the game's goal, one for getting every Check it question right on the first try, and one for finishing all four steps. See them in **Stamps**. Stamps are just for you and are never taken away. Turn sound on or off with the button in the top bar.
+
 ## Hand in your progress summary
 
 1. Click **My progress**, then **Download summary (image)**.

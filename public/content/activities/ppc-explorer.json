@@ -6,7 +6,7 @@
     "caption": "A is on the PPC (efficient). B is inside (unemployed resources). C is outside (unattainable for now). The arrow shows growth in production possibilities: PPC₁ shifts out to PPC₂."
   },
   "try": {
-    "intro": "**Welcome to Pinewood Island** (an invented economy). Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber. Move workers, complete the missions, then play the event cards. **Predict before you play each card.**",
+    "intro": "**Welcome to Pinewood Island** (an invented economy). Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber. **Free play:** move workers, complete the missions, then play the event cards. **Predict before you play each card.**\n\n**Four seasons:** plan the island's year. Each season has an event and a need for fish and timber. Meet the need in all four seasons to earn the **Island Planner** stamp.",
     "missions": [
       {
         "id": "efficient",
@@ -109,6 +109,77 @@
         },
         "correct": "shift-out",
         "explain": "More labour means the island can make more of both goods. The whole PPC shifts outward. This is growth in production possibilities."
+      }
+    ],
+    "seasons": [
+      {
+        "id": "spring",
+        "name": "Spring",
+        "icon": "🌱",
+        "event": null,
+        "story": "The fishing boats are ready and the islanders need wood to repair their homes.",
+        "need": {
+          "fish": 30,
+          "timber": 35
+        }
+      },
+      {
+        "id": "summer",
+        "name": "Summer",
+        "icon": "☀️",
+        "event": {
+          "title": "New fishing nets",
+          "text": "A local firm invents a stronger, lighter fishing net. Every worker can now catch 50% more fish.",
+          "effect": {
+            "fish": 1.5
+          },
+          "correct": "pivot-fish",
+          "explain": "Better fishing technology lets the island make more fish with the same workers, but no more timber. The PPC pivots outward along the fish axis."
+        },
+        "story": "Summer visitors arrive and want to eat fish. The island also needs timber for new jetties.",
+        "need": {
+          "fish": 50,
+          "timber": 40
+        }
+      },
+      {
+        "id": "autumn",
+        "name": "Autumn",
+        "icon": "🍂",
+        "event": {
+          "title": "Sawmill closes",
+          "text": "The sawmill closes for repairs. The 3 workers who are best at cutting timber lose their jobs this season.",
+          "effect": {
+            "jobs": -3
+          },
+          "correct": "move-inside",
+          "explain": "Resources and technology do not change, so the PPC stays where it is. With 3 workers unemployed, the island can only produce at a point inside the PPC."
+        },
+        "story": "The island stores food for winter and stacks firewood.",
+        "need": {
+          "fish": 40,
+          "timber": 20
+        }
+      },
+      {
+        "id": "winter",
+        "name": "Winter",
+        "icon": "❄️",
+        "event": {
+          "title": "Sawmill reopens, then an ice storm",
+          "text": "Everyone is back at work. Then an ice storm destroys part of the forest, so each worker can cut only 60% as much timber as before.",
+          "effect": {
+            "jobs": 3,
+            "timber": 0.6
+          },
+          "correct": "pivot-timber-in",
+          "explain": "The storm destroys a resource used only for timber, so the PPC pivots inward along the timber axis. The workers who are back at work move the island from inside the curve back onto it."
+        },
+        "story": "It is cold. The island needs firewood to stay warm and fish to stay fed.",
+        "need": {
+          "fish": 45,
+          "timber": 25
+        }
       }
     ]
   },

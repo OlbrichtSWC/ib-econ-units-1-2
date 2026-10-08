@@ -1,5 +1,8 @@
 import { CodeBadge, HlBadge, MarkIcon } from '../shared/design/components';
 import { DEFAULT_LEVELS } from '../shared/activity/mastery';
+import { Stamp } from '../shared/fun/Stamp';
+import { stampsFor } from '../shared/fun/stampDefs';
+import { countStamps } from '../shared/progress/stamps';
 import { Progress, STEP } from '../shared/progress/types';
 import { ACTIVITIES, SUBTOPICS, UNITS } from './registry';
 
@@ -65,6 +68,13 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
                               )}
                             </span>
                             {p && p.rating > 0 && <span class="small muted">Self-rating: {DEFAULT_LEVELS[p.rating - 1]?.name}</span>}
+                            {a.goal && (
+                              <span class="mini-stamps" aria-label={`${countStamps(p?.stamps ?? 0)} of 3 stamps`} role="img">
+                                {stampsFor(a.goal).map((d) => (
+                                  <Stamp key={d.flag} icon={d.icon} earned={((p?.stamps ?? 0) & d.flag) !== 0} size={30} />
+                                ))}
+                              </span>
+                            )}
                             {props.teacher && !props.enabled[a.id] && <span class="badge badge-soon">Hidden from students</span>}
                           </div>
                         ) : (

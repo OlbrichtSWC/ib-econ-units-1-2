@@ -29,6 +29,8 @@ export interface ShellProps {
   progress: ActivityProgress | undefined;
   /** Merge a change into this activity's saved progress. */
   onProgress: (patch: Partial<ActivityProgress>, addSteps?: number) => void;
+  /** The student reached the Try it game's goal. */
+  onGoal: () => void;
   teacher: boolean;
   showHl: boolean;
   scale: { name: string; levels: ScaleLevel[] };
@@ -141,7 +143,7 @@ export function ActivityShell(props: ShellProps) {
             <div class="callout">
               <Md text={content.try.intro} />
             </div>
-            <mod.Try content={content} teacher={props.teacher} onComplete={() => props.onProgress({}, STEP.try)} />
+            <mod.Try content={content} teacher={props.teacher} onComplete={() => props.onProgress({}, STEP.try)} onGoal={props.onGoal} />
             {content.explain && <ExplainBox prompt={content.explain.prompt} frames={content.explain.frames} />}
             <div>
               <button

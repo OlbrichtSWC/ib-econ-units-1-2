@@ -6,6 +6,7 @@
  *   4. Self-rate  the student rates themselves on the proficiency scale
  */
 import type { ComponentType } from 'preact';
+import type { GoalStamp } from '../fun/stampDefs';
 
 export interface TableData {
   caption?: string;
@@ -75,6 +76,8 @@ export interface TryProps {
   content: ActivityContent;
   /** Call once the student has done enough of the game to move on. */
   onComplete: () => void;
+  /** Call when the student reaches the game's goal. Awards the activity's game stamp. */
+  onGoal: () => void;
   teacher: boolean;
 }
 
@@ -98,6 +101,8 @@ export interface ActivityMeta {
   /** What kind of game this is, shown on the home screen. */
   style: string;
   blurb: string;
+  /** The stamp for reaching this game's goal (built activities only). */
+  goal?: GoalStamp;
   /** Present when the activity is built. */
   load?: () => Promise<ActivityModule>;
 }

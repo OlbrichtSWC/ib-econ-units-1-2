@@ -12,6 +12,8 @@ import { CrossIcon, HlBadge, LiveRegion, MarkIcon } from '../../shared/design/co
 import { Area, Arrow, Curve, Diagram, Dot, Guide, Handle, HLine, Label } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { parseNumber } from '../../shared/activity/CheckIt';
+import { play } from '../../shared/fun/sound';
+import { PaintGame } from './PaintGame';
 import {
   Ask, checkAnswer, correctValue, DEMAND, Market, MAX_SHIFT, Piece, shiftedMarket, snapPrice, SUPPLY, sumPieces, surplusShapes, working,
 } from './model';
@@ -93,7 +95,20 @@ function Swatch({ kind }: { kind: 'cs' | 'ps' | 'wl' }) {
   return <span class="swatch" aria-hidden="true" style={{ background: bg }} />;
 }
 
-function Try({ content, onComplete }: TryProps) {
+function Try(props: TryProps) {
+  const [mode, setMode] = useState<'dial' | 'paint'>('dial');
+  return (
+    <div class="stack">
+      <div class="mode-switch" role="group" aria-label="Choose a game">
+        <button aria-pressed={mode === 'dial'} onClick={() => setMode('dial')}>Price dial lab</button>
+        <button aria-pressed={mode === 'paint'} onClick={() => setMode('paint')}>Paint the surplus</button>
+      </div>
+      {mode === 'dial' ? <DialLab {...props} /> : <PaintGame onGoal={props.onGoal} />}
+    </div>
+  );
+}
+
+function DialLab({ content, onComplete }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [dSteps, setDSteps] = useState(0);
   const [sSteps, setSSteps] = useState(0);
@@ -128,6 +143,7 @@ function Try({ content, onComplete }: TryProps) {
       if (d.has(id)) return d;
       const n = new Set(d);
       n.add(id);
+      play('correct');
       if (n.size === 3) onComplete();
       setAnnounce(`Challenge complete. ${n.size} of ${data.challenges.length} done.`);
       return n;

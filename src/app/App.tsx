@@ -2,11 +2,19 @@ import { useEffect, useMemo, useState } from 'preact/hooks';
 import { ActivityShell, StepName } from '../shared/activity/ActivityShell';
 import { GlossaryProvider } from '../shared/content/Glossary';
 import { loadJson } from '../shared/content/loader';
+import { celebrate } from '../shared/fun/celebrate';
+import { CelebrationLayer } from '../shared/fun/CelebrationLayer';
+import { play } from '../shared/fun/sound';
+import { SoundToggle } from '../shared/fun/SoundToggle';
+import { stampsFor } from '../shared/fun/stampDefs';
+import { StampToast } from '../shared/fun/StampToast';
 import { LocalProgressStore } from '../shared/progress/localStore';
-import { emptyActivity, Progress, today } from '../shared/progress/types';
+import { autoStamps, newStampFlags } from '../shared/progress/stamps';
+import { emptyActivity, Progress, STAMP, STEP, today } from '../shared/progress/types';
 import { GlossaryPage } from './GlossaryPage';
 import { Home } from './Home';
 import { ProgressPage } from './ProgressPage';
+import { StampBook } from './StampBook';
 import { ACTIVITIES, findActivity, PROGRESS_ID_TABLE } from './registry';
 import { DEFAULT_SETTINGS, loadSettings, Settings } from './settings';
 import { TeacherPage } from './TeacherPage';
@@ -37,6 +45,7 @@ export function App() {
   const [route, setRoute] = useState(readHash());
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
   const [progress, setProgress] = useState<Progress>(store.load());
+  const [toasts, setToasts] = useState<{ activityId: string; flag: number }[]>([]);
   const [teacher, setTeacher] = useState(session('teacher') === '1');
   const [projector, setProjector] = useState(session('projector') === '1');
   const [preview, setPreview] = useState<Record<string, boolean>>(() => {
@@ -79,11 +88,23 @@ export function App() {
     return m;
   }, [settings, teacher, preview]);
 
-  const updateActivity = (id: string, patch: Partial<Progress['activities'][string]>, addSteps = 0) => {
+  const updateActivity = (id: string, patch: Partial<Progress['activities'][string]>, addSteps = 0, addStamps = 0) => {
     const current = store.load();
     const prev = current.activities[id] ?? emptyActivity();
-    const next = { ...prev, ...patch, steps: prev.steps | addSteps, updated: today() };
+    const next = { ...prev, ...patch, steps: prev.steps | addSteps, stamps: (prev.stamps ?? 0) | addStamps, updated: today() };
+    next.stamps = autoStamps(next, (addSteps & STEP.check) !== 0 && patch.total !== undefined);
+    const fresh = newStampFlags(prev.stamps ?? 0, next.stamps);
+    // Nothing new to save (for example, a goal stamp already earned): keep the saved date as it is.
+    if (!fresh.length && next.steps === prev.steps && !Object.keys(patch).length && current.activities[id]) return;
     store.save({ activities: { ...current.activities, [id]: next } });
+    if (fresh.length) {
+      setToasts((t) => [...t, ...fresh.map((flag) => ({ activityId: id, flag }))]);
+      // Let a "correct" sound finish before the stamp lands.
+      setTimeout(() => {
+        play('stamp');
+        celebrate({ size: 'big' });
+      }, 350);
+    }
   };
 
   const parts = route.split('/');
@@ -108,6 +129,7 @@ export function App() {
           onStep={(s) => (location.hash = `#/a/${meta.id}/${s}`)}
           progress={progress.activities[meta.id]}
           onProgress={(patch, add) => updateActivity(meta.id, patch, add)}
+          onGoal={() => updateActivity(meta.id, {}, STEP.try, STAMP.play)}
           teacher={teacher}
           showHl={settings.showHlContent || teacher}
           scale={settings.scale}
@@ -116,6 +138,8 @@ export function App() {
     }
   } else if (parts[0] === 'progress') {
     page = <ProgressPage store={store} progress={progress} settings={settings} initialCode={parts[1] === 'load' ? decodeURIComponent(parts[2] ?? '') : ''} />;
+  } else if (parts[0] === 'stamps') {
+    page = <StampBook progress={progress} enabled={enabled} teacher={teacher} />;
   } else if (parts[0] === 'glossary') {
     page = <GlossaryPage />;
   } else if (parts[0] === 'teacher') {
@@ -163,8 +187,10 @@ export function App() {
           <nav aria-label="Main" class="row" style={{ gap: 4 }}>
             <a class="navlink" href="#/" aria-current={route === '' ? 'page' : undefined}>Activities</a>
             <a class="navlink" href="#/glossary" aria-current={route === 'glossary' ? 'page' : undefined}>Glossary</a>
+            <a class="navlink" href="#/stamps" aria-current={route === 'stamps' ? 'page' : undefined}>Stamps</a>
             <a class="navlink" href="#/progress" aria-current={route.startsWith('progress') ? 'page' : undefined}>My progress</a>
             <a class="navlink" href="#/teacher" aria-current={route === 'teacher' ? 'page' : undefined}>{teacher ? 'Teacher (on)' : 'Teacher'}</a>
+            <SoundToggle class="btn-sound" />
           </nav>
         </div>
       </header>
@@ -176,6 +202,26 @@ export function App() {
       <main id="main" tabIndex={-1} class="wrap" style={{ outline: 'none', paddingTop: 20, paddingBottom: 48 }}>
         {page}
       </main>
+      <CelebrationLayer />
+      {toasts.length > 0 && (() => {
+        const t = toasts[0];
+        const meta = findActivity(t.activityId);
+        const def = meta?.goal ? stampsFor(meta.goal).find((d) => d.flag === t.flag) : undefined;
+        if (!meta || !def) {
+          setTimeout(() => setToasts((all) => all.slice(1)), 0);
+          return null;
+        }
+        return (
+          <StampToast
+            key={`${t.activityId}-${t.flag}`}
+            name={def.name}
+            icon={def.icon}
+            activity={meta.title}
+            bookHref="#/stamps"
+            onClose={() => setToasts((all) => all.slice(1))}
+          />
+        );
+      })()}
       <footer class="wrap small muted no-print" style={{ paddingBottom: 24 }}>
         Made for IB Economics students. No accounts, no tracking: your progress stays in this browser. Numbers in activities are invented examples.
       </footer>

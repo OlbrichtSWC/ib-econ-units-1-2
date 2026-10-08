@@ -13,9 +13,13 @@ import { Area, Curve, Diagram, Dot, Halo, TONE, useDiagram } from '../../shared/
 import type { Pt } from '../../econ/calc';
 import type { TryProps } from '../../shared/activity/types';
 import { DataTable } from '../../shared/activity/CheckIt';
+import { celebrate } from '../../shared/fun/celebrate';
+import { play } from '../../shared/fun/sound';
 import {
-  bestMove, cupsSold, DayRow, fill, money, PRICE_STEP, pedText, rangeType, salesLog, Scenario, signedMoney, signedPct, snapPrice, summarize,
+  bestMove, CAMPAIGN, CAMPAIGN_GOAL, campaignMet, cupsSold, DayRow, fill, money, PRICE_STEP, pedText, rangeType, salesLog, Scenario, signedMoney,
+  signedPct, snapPrice, summarize, WeekResult, weekGrew, weekResult,
 } from './model';
+import { CampaignMap, ShopFront } from './ShopFront';
 
 type Side = 'elastic' | 'inelastic';
 type Move = 'raise' | 'lower';
@@ -135,7 +139,7 @@ function PullLabels(props: { q2: number; p1: number; p2: number; lines?: string[
   );
 }
 
-function Try({ content, onComplete }: TryProps) {
+function Try({ content, onComplete, onGoal }: TryProps) {
   const data = content.try as unknown as TryContent;
   const fb = data.feedback;
   const [scenarioId, setScenarioId] = useState<string | null>(null);
@@ -146,10 +150,17 @@ function Try({ content, onComplete }: TryProps) {
   const [submitted, setSubmitted] = useState(false);
   const [announce, setAnnounce] = useState('');
   const completed = useRef(false);
+  /** Campaign results so far, or null when playing a single café. */
+  const [campaign, setCampaign] = useState<WeekResult[] | null>(null);
 
   const s = data.scenarios.find((x) => x.id === scenarioId) ?? null;
   const rows = useMemo(() => (s ? salesLog(s, prices) : []), [s, prices]);
   const weekDone = rows.length >= data.days;
+
+  const startCampaign = () => {
+    setCampaign([]);
+    choose(CAMPAIGN[0]);
+  };
 
   const choose = (id: string) => {
     const sc = data.scenarios.find((x) => x.id === id)!;
@@ -167,7 +178,12 @@ function Try({ content, onComplete }: TryProps) {
       <div class="stack">
         <LiveRegion text={announce} />
         <section class="panel stack" aria-labelledby="pick-h">
-          <h3 id="pick-h">Choose your café</h3>
+          <h3 id="pick-h">Play the campaign</h3>
+          <p>Run four cafés, one each week. Finish 3 weeks with more daily revenue than on day 1 to earn the <strong>Café Tycoon</strong> stamp.</p>
+          <div>
+            <button class="btn" onClick={startCampaign}>Start the 4-week campaign</button>
+          </div>
+          <h3>Or practise with one café</h3>
           <div class="choice-grid" role="group" aria-label="Café scenarios">
             {data.scenarios.map((sc) => (
               <button key={sc.id} type="button" class="choice-btn" onClick={() => choose(sc.id)}>
@@ -200,6 +216,7 @@ function Try({ content, onComplete }: TryProps) {
     const cups = cupsSold(s, p);
     const next = [...prices, p];
     setPrices(next);
+    play('coin');
     const r = salesLog(s, next);
     const last = r[r.length - 1];
     let msg = `Day ${last.day}: at ${money(p)} you sold ${cups} cups. Total revenue ${money(last.revenue)}.`;
@@ -211,6 +228,18 @@ function Try({ content, onComplete }: TryProps) {
   const submit = () => {
     if (!typeAns || !moveAns) return;
     setSubmitted(true);
+    play(typeAns === truth && moveAns === bestMove(truth) ? 'correct' : 'wrong');
+    if (campaign) {
+      const results = [...campaign, weekResult(s.id, rows, typeAns === truth)];
+      setCampaign(results);
+      if (campaignMet(results)) {
+        setTimeout(() => {
+          play('win');
+          celebrate({ size: 'big' });
+          onGoal();
+        }, 600);
+      }
+    }
     setAnnounce(typeAns === truth && moveAns === bestMove(truth) ? 'Both answers are right.' : 'Read the feedback to see what your data shows.');
     if (!completed.current) {
       completed.current = true;
@@ -269,9 +298,25 @@ function Try({ content, onComplete }: TryProps) {
   return (
     <div class="stack">
       <LiveRegion text={announce} />
+      {campaign && (
+        <CampaignMap
+          names={CAMPAIGN.map((id) => data.scenarios.find((x) => x.id === id)?.name ?? id)}
+          week={campaign.length - (submitted ? 1 : 0)}
+          grew={campaign.map((r) => r.grew)}
+        />
+      )}
       <section class="callout stack">
-        <p style={{ margin: 0 }}><strong>{s.name}</strong></p>
+        <p style={{ margin: 0 }}><strong>{campaign ? `Week ${Math.min(CAMPAIGN.length, campaign.length + (submitted ? 0 : 1))}: ` : ''}{s.name}</strong></p>
         <Md text={s.text} />
+        {campaign && (
+          <p style={{ margin: 0 }}>
+            <strong>Goal this week:</strong> finish day {data.days} with a higher total revenue than day 1
+            {rows[0] ? ` (${money(rows[0].revenue)})` : ''}.
+            {rows.length > 1 && !weekDone && (
+              <> Today you are {weekGrew(rows) ? 'ahead of' : 'not ahead of'} day 1.</>
+            )}
+          </p>
+        )}
       </section>
       <div class="play">
         <div class="stack">
@@ -365,6 +410,9 @@ function Try({ content, onComplete }: TryProps) {
                 )}
               </>
             )}
+            {today && (
+              <ShopFront name={s.name} day={today.day} cups={today.cups} yesterdayCups={yesterday?.cups} revenue={today.revenue} />
+            )}
             {today ? (
               <div role="status">
                 <div class="stat"><span>Day {today.day} price</span><b>{money(today.price)}</b></div>
@@ -383,8 +431,10 @@ function Try({ content, onComplete }: TryProps) {
               <p class="small muted">Choose a price, then open the café to see how many cups you sell.</p>
             )}
             <div class="row">
-              <button class="btn btn-quiet btn-sm" onClick={() => choose(s.id)}>Restart this week</button>
-              <button class="btn btn-quiet btn-sm" onClick={() => { setScenarioId(null); setAnnounce('Choose your café.'); }}>Choose another café</button>
+              {!(campaign && submitted) && <button class="btn btn-quiet btn-sm" onClick={() => choose(s.id)}>Restart this week</button>}
+              <button class="btn btn-quiet btn-sm" onClick={() => { setScenarioId(null); setCampaign(null); setAnnounce('Choose your café.'); }}>
+                {campaign ? 'Leave the campaign' : 'Choose another café'}
+              </button>
             </div>
           </div>
         </div>
@@ -460,15 +510,72 @@ function Try({ content, onComplete }: TryProps) {
                   ))}
                 </ul>
               </div>
-              <div class="row">
-                {data.scenarios.filter((x) => x.id !== s.id).map((x) => (
-                  <button key={x.id} class="btn btn-secondary" onClick={() => choose(x.id)}>Next week: {x.name}</button>
-                ))}
-                <button class="btn btn-quiet" onClick={() => choose(s.id)}>Run this café again</button>
-              </div>
+              {campaign ? (
+                <CampaignWeekEnd
+                  results={campaign}
+                  days={data.days}
+                  names={Object.fromEntries(data.scenarios.map((x) => [x.id, x.name]))}
+                  onNext={() => choose(CAMPAIGN[campaign.length])}
+                  onRestart={startCampaign}
+                  onLeave={() => { setCampaign(null); setScenarioId(null); }}
+                />
+              ) : (
+                <div class="row">
+                  {data.scenarios.filter((x) => x.id !== s.id).map((x) => (
+                    <button key={x.id} class="btn btn-secondary" onClick={() => choose(x.id)}>Next week: {x.name}</button>
+                  ))}
+                  <button class="btn btn-quiet" onClick={() => choose(s.id)}>Run this café again</button>
+                </div>
+              )}
             </div>
           )}
         </section>
+      )}
+    </div>
+  );
+}
+
+/** End of a campaign week: did revenue grow, and what next. */
+function CampaignWeekEnd(props: {
+  results: WeekResult[];
+  days: number;
+  names: Record<string, string>;
+  onNext: () => void;
+  onRestart: () => void;
+  onLeave: () => void;
+}) {
+  const last = props.results[props.results.length - 1];
+  const finished = props.results.length >= CAMPAIGN.length;
+  const met = props.results.filter((r) => r.grew).length;
+  return (
+    <div class={`callout ${last.grew ? 'callout-ok' : 'callout-try'} stack`} role="status">
+      <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center', margin: 0 }}>
+        {last.grew ? <MarkIcon /> : <CrossIcon />}
+        {last.grew ? 'Weekly goal met.' : 'Weekly goal not met this time.'}
+      </p>
+      <p style={{ margin: 0 }}>
+        Day 1 revenue: {money(last.startTR)}. Day {props.days} revenue: {money(last.endTR)}.
+        {last.grew ? ' You moved the price the right way for this demand.' : ' To grow revenue, move the price the way your PED says: down if demand is elastic, up if it is inelastic.'}
+      </p>
+      {finished ? (
+        <>
+          <h4 style={{ margin: 0 }}>Campaign complete: goal met in {met} of {CAMPAIGN.length} weeks</h4>
+          <p style={{ margin: 0 }}>
+            {met >= CAMPAIGN_GOAL
+              ? 'You read your customers like a real café owner. You earned the Café Tycoon stamp.'
+              : `Meet the goal in ${CAMPAIGN_GOAL} weeks to earn the Café Tycoon stamp. Use what PED told you each week.`}
+          </p>
+          <div class="row">
+            <button class="btn" onClick={props.onRestart}>Play the campaign again</button>
+            <button class="btn btn-quiet" onClick={props.onLeave}>Back to the café list</button>
+          </div>
+        </>
+      ) : (
+        <div>
+          <button class="btn" onClick={props.onNext}>
+            Open your next café: {props.names[CAMPAIGN[props.results.length]]}
+          </button>
+        </div>
       )}
     </div>
   );

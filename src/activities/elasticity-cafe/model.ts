@@ -149,3 +149,41 @@ export const money = (v: number) => (v < 0 ? '−$' : '$') + Math.abs(v).toFixed
 export const signedMoney = (v: number) => (v > 0 ? '+$' : v < 0 ? '−$' : '$') + Math.abs(v).toFixed(2);
 export const signedPct = (v: number) => (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(round(v, 1)).toFixed(1) + '%';
 export const pedText = (v: number) => (v < 0 ? '−' : '') + Math.abs(round(v, 2)).toFixed(2);
+
+// ---------- Four-week campaign ----------
+
+/** The cafés in campaign order, one per week. */
+export const CAMPAIGN = ['latte', 'lodge', 'fizz', 'kiosk'] as const;
+/** Weeks where revenue must grow to earn the Café Tycoon stamp. */
+export const CAMPAIGN_GOAL = 3;
+
+export interface WeekResult {
+  scenarioId: string;
+  /** Day 1 and last-day total revenue. */
+  startTR: number;
+  endTR: number;
+  /** The week's goal: the last day's revenue is higher than day 1's. */
+  grew: boolean;
+  /** Elastic or inelastic chosen correctly at the end of the week. */
+  typeRight: boolean;
+}
+
+/** The goal for one week: finish with a higher daily total revenue than on day 1. */
+export function weekGrew(rows: DayRow[]): boolean {
+  return rows.length > 1 && rows[rows.length - 1].revenue > rows[0].revenue + 1e-9;
+}
+
+export function weekResult(scenarioId: string, rows: DayRow[], typeRight: boolean): WeekResult {
+  return {
+    scenarioId,
+    startTR: rows[0]?.revenue ?? 0,
+    endTR: rows[rows.length - 1]?.revenue ?? 0,
+    grew: weekGrew(rows),
+    typeRight,
+  };
+}
+
+/** True once all four weeks are played and revenue grew in at least CAMPAIGN_GOAL of them. */
+export function campaignMet(results: WeekResult[]): boolean {
+  return results.length >= CAMPAIGN.length && results.filter((r) => r.grew).length >= CAMPAIGN_GOAL;
+}

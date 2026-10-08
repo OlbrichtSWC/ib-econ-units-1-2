@@ -175,3 +175,33 @@ dialog::backdrop { background: rgba(20, 44, 82, 0.45); }
   .no-print { display: none !important; }
   body { background: var(--white); }
 }
+
+/* ---------- Fun: stamps, celebrations, toasts (src/shared/fun) ---------- */
+.celebration-layer { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 200; }
+.stamp { display: block; flex: none; }
+.stamp-earned { color: var(--red); transform: rotate(-8deg); }
+.stamp-empty { color: var(--ink-soft); }
+.stamp-animate { animation: stamp-in 0.45s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes stamp-in {
+  0% { transform: scale(2.2) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(0.92) rotate(-6deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-8deg); }
+}
+.toast {
+  position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 150;
+  display: flex; gap: 14px; align-items: center; width: min(440px, calc(100vw - 32px));
+  background: var(--white); border: 2px solid var(--navy); border-radius: var(--radius); box-shadow: 0 6px 24px rgba(20, 44, 82, 0.25);
+  padding: 12px 14px; animation: toast-up 0.3s ease-out both;
+}
+.toast p { margin: 0; }
+@keyframes toast-up { from { transform: translate(-50%, 30px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+.pulse { animation: pulse 0.5s ease-out; }
+@keyframes pulse { 0% { transform: scale(1); } 40% { transform: scale(1.08); } 100% { transform: scale(1); } }
+.shake { animation: shake 0.35s ease-in-out; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+.float-up { animation: float-up 1s ease-out both; }
+@keyframes float-up { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-28px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .stamp-animate, .toast, .pulse, .shake, .float-up { animation: none; }
+  .float-up { opacity: 0; }
+}

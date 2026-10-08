@@ -12,6 +12,16 @@ export const STEP = {
   rated: 8,
 } as const;
 
+/** Stamp flags, combined as a bitmask in ActivityProgress.stamps. Append only. */
+export const STAMP = {
+  /** Reached the goal of the Try it game. */
+  play: 1,
+  /** Check it: every question right on the first try, with no hints. */
+  sharp: 2,
+  /** All four steps done. */
+  complete: 4,
+} as const;
+
 export interface ActivityProgress {
   /** Which steps are complete (STEP bitmask). */
   steps: number;
@@ -27,6 +37,8 @@ export interface ActivityProgress {
   applyTotal: number;
   /** Self-rating on the proficiency scale: 0 = not rated, 1 = Beginning 1 ... 8 = Exemplary 2. */
   rating: number;
+  /** Stamps earned in this activity (STAMP bitmask). Stamps are never taken away. */
+  stamps: number;
   /** Day of the last change (days since 1 Jan 2024), used to keep the newer progress. */
   updated: number;
 }
@@ -40,7 +52,7 @@ export function emptyProgress(): Progress {
 }
 
 export function emptyActivity(): ActivityProgress {
-  return { steps: 0, correct: 0, total: 0, hints: 0, applyCorrect: 0, applyTotal: 0, rating: 0, updated: today() };
+  return { steps: 0, correct: 0, total: 0, hints: 0, applyCorrect: 0, applyTotal: 0, rating: 0, stamps: 0, updated: today() };
 }
 
 const EPOCH = Date.UTC(2024, 0, 1);

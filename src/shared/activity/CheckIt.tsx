@@ -7,6 +7,8 @@
 import { useState } from 'preact/hooks';
 import { Md } from '../content/markdown';
 import { CrossIcon, HlBadge, InfoIcon, LiveRegion, MarkIcon } from '../design/components';
+import { celebrateAt } from '../fun/celebrate';
+import { play } from '../fun/sound';
 import type { Evidence } from './mastery';
 import type { NumberQuestion, Question, TableData } from './types';
 
@@ -85,6 +87,11 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
     return { correct, total: questions.length, hints, applyCorrect, applyTotal };
   };
 
+  const right = () => {
+    play('correct');
+    celebrateAt(document.getElementById('check-submit'), 'small');
+  };
+
   const submit = () => {
     if (st.solved || st.revealed) return;
     if (q.type === 'choice') {
@@ -93,9 +100,11 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
       if (opt.correct) {
         set({ solved: true, attempts: st.attempts + 1, feedback: { kind: 'ok', text: opt.feedback } });
         setAnnounce('Correct.');
+        right();
       } else {
         set({ attempts: st.attempts + 1, feedback: { kind: 'try', text: opt.feedback } });
         setAnnounce('Not yet. ' + opt.feedback);
+        play('wrong');
       }
     } else {
       const v = parseNumber(st.value);
@@ -107,9 +116,11 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
       if (r.ok) {
         set({ solved: true, attempts: st.attempts + 1, feedback: { kind: 'ok', text: '' } });
         setAnnounce('Correct.');
+        right();
       } else {
         set({ attempts: st.attempts + 1, feedback: { kind: 'try', text: r.feedback } });
         setAnnounce('Not yet. ' + r.feedback);
+        play('wrong');
       }
     }
   };
@@ -120,6 +131,7 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
       setAnnounce('');
     } else {
       setFinished(true);
+      play('win');
       props.onFinish(evidence());
     }
   };
@@ -269,7 +281,7 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
 
       <div class="row">
         {!done && (
-          <button class="btn" onClick={submit} disabled={q.type === 'choice' ? st.choice === null : !st.value.trim()}>
+          <button id="check-submit" class="btn" onClick={submit} disabled={q.type === 'choice' ? st.choice === null : !st.value.trim()}>
             Check my answer
           </button>
         )}

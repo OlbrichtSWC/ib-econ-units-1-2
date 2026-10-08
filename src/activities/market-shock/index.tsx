@@ -10,6 +10,9 @@ import { Md } from '../../shared/content/markdown';
 import { CrossIcon, HlBadge, LiveRegion, MarkIcon } from '../../shared/design/components';
 import { Arrow, Curve, Diagram, Dot, Guide, Handle, Label, Tone } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
+import { celebrate } from '../../shared/fun/celebrate';
+import { play } from '../../shared/fun/sound';
+import { GapScene } from './GapScene';
 import {
   Answer, BASE_D, BASE_S, buildDeck, checkPrediction, dragDirection, gapAtPrice, HANDLE_P, marketOutcome, Mechanism,
   outcomeWords, parseShift, PredictionResult, priceStep, segment, Shift, shiftedMarket, SHIFT_SIZE, Side, snapDrag, X_MAX, Y_MAX,
@@ -39,6 +42,10 @@ interface TryContent {
 
 type Phase = 'predict' | 'drag' | 'gap' | 'adjust' | 'settled' | 'trap-done';
 
+/** Cards in one round, and how many right predictions earn the Market Mover stamp. */
+export const ROUND_SIZE = 8;
+export const ROUND_GOAL = 6;
+
 const isTrap = (c: Card): c is TrapCard => c.answer === 'none';
 const TONE_OF: Record<Side, Tone> = { demand: 'navy', supply: 'green' };
 const money = (p: number) => `$${round(p, 2).toFixed(2)}`;
@@ -64,7 +71,7 @@ function LearnDiagram() {
   );
 }
 
-function Try({ content, onComplete }: TryProps) {
+function Try({ content, onComplete, onGoal }: TryProps) {
   const data = content.try as unknown as TryContent;
   const byId = useMemo(() => {
     const m = new Map<string, Card>();
@@ -87,6 +94,10 @@ function Try({ content, onComplete }: TryProps) {
   const [correct, setCorrect] = useState(0);
   const completed = useRef(false);
   const [hlPick, setHlPick] = useState<number | null>(null);
+  /** This round's results: true = prediction right. */
+  const [results, setRound] = useState<boolean[]>([]);
+  const roundDone = results.length >= ROUND_SIZE;
+  const roundRight = results.filter(Boolean).length;
   const [announce, setAnnounce] = useState('');
 
   const deck = useMemo(() => buildDeck(data.cards.map((c) => c.id), data.traps.map((c) => c.id), trapMode, seed), [data, trapMode, seed]);
@@ -102,7 +113,21 @@ function Try({ content, onComplete }: TryProps) {
   const out = marketOutcome(BASE_D, BASE_S, market.demand, market.supply);
   const e1 = out.e1;
 
-  const finishCard = (wasRight: boolean) => {
+  const finishCard = (wasRight: boolean, addCorrect: boolean) => {
+    setRound((r) => {
+      const next = [...r, wasRight];
+      if (next.length === ROUND_SIZE) {
+        const n = next.filter(Boolean).length;
+        setTimeout(() => {
+          if (n >= ROUND_GOAL) {
+            play('win');
+            celebrate({ size: 'big' });
+            onGoal();
+          } else play('pop');
+        }, 300);
+      }
+      return next;
+    });
     setPlayed((n) => {
       const next = n + 1;
       if (next >= 5 && !completed.current) {
@@ -111,7 +136,7 @@ function Try({ content, onComplete }: TryProps) {
       }
       return next;
     });
-    if (wasRight) setCorrect((n) => n + 1);
+    if (wasRight && addCorrect) setCorrect((n) => n + 1);
   };
 
   const resetCard = () => {
@@ -146,9 +171,10 @@ function Try({ content, onComplete }: TryProps) {
     const r = checkPrediction(prediction, card.answer);
     setResult(r);
     const right = r === 'right';
+    play(right ? 'correct' : 'wrong');
     if (trap) {
       setPhase('trap-done');
-      finishCard(right);
+      finishCard(right, true);
     } else {
       setPhase('drag');
       if (right) setCorrect((n) => n + 1);
@@ -169,6 +195,7 @@ function Try({ content, onComplete }: TryProps) {
     setDq(final);
     setDragMsg(null);
     setPhase('gap');
+    play('whoosh');
     const after = shiftedMarket(side, final);
     const gap = gapAtPrice(after.demand, after.supply, e1.p);
     setAnnounce(`The ${curveName} shifted ${correctDir}. At the old price of ${money(e1.p)} there is a ${gap.kind} of ${bags(gap.size)}.`);
@@ -185,6 +212,7 @@ function Try({ content, onComplete }: TryProps) {
       );
       dqRef.current = 0;
       setDq(0);
+      play('wrong');
       setAnnounce('That is the other direction. Read the hint and try again.');
     }
   };
@@ -211,13 +239,17 @@ function Try({ content, onComplete }: TryProps) {
   }, [phase]);
 
   useEffect(() => {
-    if (phase === 'settled' && !trap) setAnnounce(`New equilibrium. ${outcomeWords(out)}`);
+    if (phase === 'settled' && !trap) {
+      setAnnounce(`New equilibrium. ${outcomeWords(out)}`);
+      play('pop');
+    }
   }, [phase]);
 
   const answerMech = (m: Mechanism) => {
     if (mech || trap) return;
     setMech(m);
-    finishCard(false);
+    play(m === card.mechanism.answer ? 'correct' : 'wrong');
+    finishCard(result === 'right', false);
     setAnnounce(m === card.mechanism.answer ? 'Right function.' : `Not quite. This sentence describes ${card.mechanism.answer}.`);
   };
 
@@ -343,6 +375,9 @@ function Try({ content, onComplete }: TryProps) {
               />
             )}
           </Diagram>
+          {!trap && phase !== 'predict' && phase !== 'drag' && (
+            <GapScene kind={gap ? gap.kind : 'none'} size={gap ? gap.size : 0} price={gapPrice ?? (showNew ? out.e2.p : e1.p)} />
+          )}
           {phase === 'drag' && (
             <div class="callout stack">
               <p>
@@ -383,22 +418,31 @@ function Try({ content, onComplete }: TryProps) {
               </div>
             )}
             <div class="stat"><span>Cards played this session</span><b>{played}</b></div>
-            <div class="stat"><span>Predictions right (only you see this)</span><b>{correct}</b></div>
+            <div class="stat"><span>Predictions right this session (only you see this)</span><b>{correct}</b></div>
             {played < 5 && <p class="small muted">Play {5 - played} more {5 - played === 1 ? 'card' : 'cards'} to finish this step.</p>}
           </div>
         </div>
 
-        <section class="event-card stack" aria-labelledby="ms-card-h">
-          <p class="small muted" style={{ margin: 0 }}>
-            Event card {(pos % deck.length) + 1} of {deck.length}{trapMode ? ' (trap mode)' : ''}
-          </p>
+        <section key={`${seed}-${pos}-${trapMode}`} class="event-card stack card-deal" aria-labelledby="ms-card-h">
+          <div class="row" style={{ justifyContent: 'space-between', gap: 8 }}>
+            <p class="small muted" style={{ margin: 0 }}>
+              Round: card {Math.min(results.length + 1, ROUND_SIZE)} of {ROUND_SIZE}{trapMode ? ' (trap mode)' : ''}
+            </p>
+            <ol class="round-track" aria-label={`This round: ${roundRight} right out of ${results.length} played`}>
+              {Array.from({ length: ROUND_SIZE }, (_, i) => (
+                <li key={i} class={`round-slot ${i < results.length ? (results[i] ? 'right' : 'miss') : i === results.length ? 'now' : ''}`} aria-hidden="true">
+                  {i < results.length ? (results[i] ? <MarkIcon size={14} /> : '•') : i + 1}
+                </li>
+              ))}
+            </ol>
+          </div>
           <h3 id="ms-card-h">{card.title}</h3>
           {!trap && card.market && <Md text={card.market} />}
           <Md text={card.text} />
           <p><strong>Predict first:</strong> {trap ? <Md inline text={card.question} /> : 'which curve shifts, and which way?'}</p>
           <div class="choice-grid" role="group" aria-label="Your prediction">
             {options.map((o) => (
-              <button key={o.id} type="button" class="choice-btn" aria-pressed={prediction === o.id} disabled={phase !== 'predict'} onClick={() => setPrediction(o.id)}>
+              <button key={o.id} type="button" class="choice-btn" aria-pressed={prediction === o.id} disabled={phase !== 'predict'} onClick={() => { play('tap'); setPrediction(o.id); }}>
                 {o.text}
               </button>
             ))}
@@ -468,8 +512,29 @@ function Try({ content, onComplete }: TryProps) {
             </div>
           )}
 
-          {((phase === 'settled' && mech) || phase === 'trap-done') && (
-            <div><button class="btn" onClick={nextCard}>Draw the next card</button></div>
+          {((phase === 'settled' && mech) || phase === 'trap-done') && roundDone && (
+            <div class={`callout ${roundRight >= ROUND_GOAL ? 'callout-ok' : ''} stack`} role="status">
+              <h3 style={{ margin: 0 }}>Round complete: {roundRight} of {ROUND_SIZE} predictions right</h3>
+              <p style={{ margin: 0 }}>
+                {roundRight >= ROUND_GOAL
+                  ? 'Great reading of the market. You earned the Market Mover stamp.'
+                  : `Get ${ROUND_GOAL} or more in a round to earn the Market Mover stamp. Each card teaches you something, so the next round gets easier.`}
+              </p>
+              <div>
+                <button
+                  class="btn"
+                  onClick={() => {
+                    setRound([]);
+                    nextCard();
+                  }}
+                >
+                  Start a new round
+                </button>
+              </div>
+            </div>
+          )}
+          {((phase === 'settled' && mech) || phase === 'trap-done') && !roundDone && (
+            <div><button class="btn" onClick={() => { play('tap'); nextCard(); }}>Draw the next card</button></div>
           )}
         </section>
       </div>

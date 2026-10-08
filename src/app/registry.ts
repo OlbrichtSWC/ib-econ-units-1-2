@@ -31,6 +31,7 @@ export const ACTIVITIES: ActivityMeta[] = [
   {
     id: 'ppc-explorer', tag: '1.1 PPC', code: '1.1', unit: 1, title: 'PPC Explorer', style: 'Strategy missions',
     blurb: 'Run an island economy. Move workers between two goods, take on missions and react to events.',
+    goal: { name: 'Island Planner', how: 'Finish all four seasons on the island in PPC Explorer with the island still fed.', icon: 'island' },
     load: () => import('../activities/ppc-explorer'),
   },
   { id: 'island-economy', tag: '1.1 Economic systems', code: '1.1', unit: 1, title: 'Island Economy', style: 'Story choices', blurb: 'Answer what, how and for whom under three economic systems.' },
@@ -39,22 +40,26 @@ export const ACTIVITIES: ActivityMeta[] = [
   {
     id: 'market-shock', tag: '2.1 to 2.3 Demand, supply, equilibrium', code: '2.1', unit: 2, hl: 'part', title: 'Market Shock Simulator', style: 'Prediction card game',
     blurb: 'Draw an event card, predict which curve shifts, then drag it and watch the market react.',
+    goal: { name: 'Market Mover', how: 'Play a full deck of 8 cards in Market Shock and get at least 6 right.', icon: 'shift' },
     load: () => import('../activities/market-shock'),
   },
   {
     id: 'surplus-shader', tag: '2.3 Consumer and producer surplus', code: '2.3', unit: 2, hl: 'part', title: 'Surplus Shader', style: 'Price dial lab',
     blurb: 'Drag the price and watch consumer, producer and community surplus change. Find the welfare loss.',
+    goal: { name: 'Surplus Painter', how: 'Paint three surplus areas in Surplus Shader with a score of at least 85%.', icon: 'brush' },
     load: () => import('../activities/surplus-shader'),
   },
   { id: 'bias-lab', tag: '2.4 Behavioural economics', code: '2.4', unit: 2, hl: 'all', title: 'Bias Lab', style: 'Experiments', blurb: 'Take part in short experiments on anchoring, framing and defaults, then design a nudge.' },
   {
     id: 'elasticity-cafe', tag: '2.5 PED', code: '2.5', unit: 2, title: 'The Elasticity Café', style: 'Business simulation',
     blurb: 'Run a café for a week. Set prices, read your sales and discover the hidden PED.',
+    goal: { name: 'Café Tycoon', how: 'Finish the four-week campaign in the café and beat the revenue goal.', icon: 'cup' },
     load: () => import('../activities/elasticity-cafe'),
   },
   {
     id: 'ped-line', tag: '2.5 PED along a straight line', code: '2.5', unit: 2, hl: 'all', title: 'Same Slope, Different PED', style: 'Explorer',
     blurb: 'Slide along one demand curve and see PED and total revenue change.',
+    goal: { name: 'Point Hunter', how: 'Find three hidden points in the mystery mode.', icon: 'target' },
     load: () => import('../activities/ped-line'),
   },
   { id: 'hints-yed', tag: '2.5 PED determinants and YED', code: '2.5', unit: 2, hl: 'part', title: 'HINTS Sorter and YED Lab', style: 'Sort and explore', blurb: 'Sort goods by PED using HINTS, then explore Engel curves.' },

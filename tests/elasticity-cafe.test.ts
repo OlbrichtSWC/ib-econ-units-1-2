@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { classifyPed, pedAtPoint, ped, percentChange } from '../src/econ/calc';
 import {
-  bestMove, cupsSold, fill, money, pedText, rangeType, salesLog, Scenario, signedMoney, signedPct, snapPrice, summarize,
+  bestMove, CAMPAIGN, campaignMet, cupsSold, fill, money, pedText, rangeType, salesLog, Scenario, signedMoney, signedPct, snapPrice, summarize, WeekResult, weekGrew, weekResult,
 } from '../src/activities/elasticity-cafe/model';
 import content from '../public/content/activities/elasticity-cafe.json';
 
@@ -216,5 +216,45 @@ describe('Check it answers (hand-checked)', () => {
     expect(content.check.length).toBeGreaterThanOrEqual(6);
     expect(content.check.length).toBeLessThanOrEqual(8);
     expect(content.check.filter((q) => q.level === 'apply').length).toBeGreaterThanOrEqual(2);
+  });
+});
+
+describe('Elasticity Café campaign', () => {
+  it('has four cafés in the campaign, all in the content file, with both kinds of demand', () => {
+    expect(CAMPAIGN.length).toBe(4);
+    const types = CAMPAIGN.map((id) => rangeType(byId(id)));
+    expect(types).toContain('elastic');
+    expect(types).toContain('inelastic');
+  });
+
+  it('the kiosk is inelastic: a price rise grows revenue, so the goal is met', () => {
+    const s = byId('kiosk');
+    expect(rangeType(s)).toBe('inelastic');
+    expect(weekGrew(salesLog(s, [3.5, 3.5, 4, 4.5, 4.75, 5]))).toBe(true);
+    expect(weekGrew(salesLog(s, [3.5, 3, 2.75, 2.5, 2.5, 2.5]))).toBe(false);
+  });
+
+  it('elastic latte: cutting the price by the end of the week meets the goal; raising it does not', () => {
+    const s = byId('latte');
+    expect(weekGrew(salesLog(s, [6, 6.5, 7, 6, 5.75, 5.5]))).toBe(true);
+    expect(weekGrew(salesLog(s, [6, 5.5, 6, 6.5, 7, 7.5]))).toBe(false);
+  });
+
+  it('keeping the same price all week does not meet the goal', () => {
+    expect(weekGrew(salesLog(byId('lodge'), [4, 4, 4, 4, 4, 4]))).toBe(false);
+  });
+
+  it('the stamp needs all four weeks played and revenue growth in at least 3', () => {
+    const w = (grew: boolean): WeekResult => ({ scenarioId: 'latte', startTR: 1, endTR: grew ? 2 : 0, grew, typeRight: true });
+    expect(campaignMet([w(true), w(true), w(true)])).toBe(false);
+    expect(campaignMet([w(true), w(false), w(true), w(true)])).toBe(true);
+    expect(campaignMet([w(true), w(false), w(false), w(true)])).toBe(false);
+  });
+
+  it('records the start and end revenue of a week', () => {
+    const r = weekResult('lodge', salesLog(byId('lodge'), [4, 5, 6, 7, 8, 8]), true);
+    expect(r.startTR).toBe(4 * 256);
+    expect(r.endTR).toBe(8 * 192);
+    expect(r.grew).toBe(true);
   });
 });

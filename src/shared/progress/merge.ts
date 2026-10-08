@@ -36,6 +36,8 @@ export function mergeProgress(current: Progress, incoming: Progress, choice: Mer
   for (const [id, inc] of Object.entries(incoming.activities)) {
     const cur = out.activities[id];
     if (!cur || isNewer(inc, cur)) out.activities[id] = { ...inc };
+    // Stamps are never lost: keep every stamp earned on either device.
+    if (cur) out.activities[id].stamps = (cur.stamps ?? 0) | (inc.stamps ?? 0);
   }
   return out;
 }

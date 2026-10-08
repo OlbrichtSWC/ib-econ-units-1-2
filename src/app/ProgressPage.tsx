@@ -178,7 +178,7 @@ export function ProgressPage(props: { store: ProgressStore; progress: Progress; 
               drawSummary(c, {
                 appTitle: 'IB Economics: Units 1 and 2',
                 levelNames,
-                rows: built.map((a) => ({ tag: a.tag, title: a.title, progress: props.progress.activities[a.id] })),
+                rows: built.map((a) => ({ tag: a.tag, title: a.title, progress: props.progress.activities[a.id], stampTotal: 3 })),
                 code: props.store.exportCode(),
               });
               downloadCanvas(c, `ib-econ-progress-${new Date().toISOString().slice(0, 10)}.png`);

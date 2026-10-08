@@ -60,7 +60,7 @@ export class LocalProgressStore implements ProgressStore {
   }
 }
 
-const FIELDS: (keyof ActivityProgress)[] = ['steps', 'correct', 'total', 'hints', 'applyCorrect', 'applyTotal', 'rating', 'updated'];
+const FIELDS: (keyof ActivityProgress)[] = ['steps', 'correct', 'total', 'hints', 'applyCorrect', 'applyTotal', 'rating', 'stamps', 'updated'];
 
 /** Keeps only well-formed numeric progress fields, so damaged storage cannot break the app. */
 function sanitize(raw: unknown): Progress {

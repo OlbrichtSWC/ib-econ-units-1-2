@@ -6,7 +6,7 @@
     "caption": "One straight-line demand curve. Above the midpoint demand is elastic (solid bracket), at the midpoint it is unitary, and below the midpoint it is inelastic (dashed bracket)."
   },
   "try": {
-    "intro": "^HL^ **Welcome to Riverside Bikes** (an invented bike rental shop). Every $1 cut in the daily price adds 10 rentals. Slide the red point along the demand curve. Watch the shaded total revenue box, the TR curve below it, and PED in the panel. Then complete the discovery challenges.",
+    "intro": "^HL^ **Welcome to Riverside Bikes** (an invented bike rental shop). Every $1 cut in the daily price adds 10 rentals. Slide the red point along the demand curve. Watch the shaded total revenue box, the TR curve below it, and PED in the panel. Then complete the discovery challenges. Then try **Mystery: hidden points**: find 3 hidden points to earn the **Point Hunter** stamp.",
     "challenges": [
       {
         "id": "unitary",
@@ -44,7 +44,59 @@
         "title": "Unitary PED (PED = 1)",
         "caption": "A rectangular hyperbola. At A: $10 × 20 = $200 (hatched). At B: $5 × 40 = $200 (dotted). Spending (P × Q) is the same at every point, so a price change never changes total revenue."
       }
-    }
+    },
+    "mystery": [
+      {
+        "id": "ped3",
+        "clue": "At the hidden point, **PED = −3**.",
+        "rule": {
+          "type": "ped",
+          "value": -3
+        }
+      },
+      {
+        "id": "tr960",
+        "clue": "At the hidden point, total revenue is **$960** and demand is **price elastic**.",
+        "rule": {
+          "type": "tr",
+          "value": 960,
+          "zone": "elastic"
+        }
+      },
+      {
+        "id": "ped025",
+        "clue": "At the hidden point, **PED = −0.25**.",
+        "rule": {
+          "type": "ped",
+          "value": -0.25
+        }
+      },
+      {
+        "id": "trmax",
+        "clue": "At the hidden point, total revenue is **as big as it can be**.",
+        "rule": {
+          "type": "trmax"
+        }
+      },
+      {
+        "id": "tr510",
+        "clue": "At the hidden point, total revenue is **$510** and demand is **price inelastic**.",
+        "rule": {
+          "type": "tr",
+          "value": 510,
+          "zone": "inelastic"
+        }
+      },
+      {
+        "id": "ped4",
+        "clue": "At the hidden point, **PED = −4**.",
+        "rule": {
+          "type": "ped",
+          "value": -4
+        }
+      }
+    ],
+    "mysteryHelp": "**Mystery mode:** PED and total revenue are hidden. You can only see the price and the quantity. Work it out yourself: TR = P × Q, and PED from a $1 price cut = % change in quantity ÷ % change in price. Move the point to where you think the hidden point is, then check. Find 3 hidden points to earn the **Point Hunter** stamp."
   },
   "check": [
     {

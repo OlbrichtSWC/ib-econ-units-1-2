@@ -1,8 +1,8 @@
 # Test report
 
-Run on 2026-10-07.
+Run on 2026-10-08.
 
-**164 of 164 tests passed.**
+**196 of 196 tests passed.**
 
 Each line is one automated check. A checkmark (✓) means the app calculated the expected answer.
 
@@ -133,6 +133,15 @@ Each line is one automated check. A checkmark (✓) means the app calculated the
 - ✓ q7: new TR after a 10% rise with PED -1.5 is $1,402.50
 - ✓ every check question has the required parts
 
+**Elasticity Café campaign**
+
+- ✓ has four cafés in the campaign, all in the content file, with both kinds of demand
+- ✓ the kiosk is inelastic: a price rise grows revenue, so the goal is met
+- ✓ elastic latte: cutting the price by the end of the week meets the goal; raising it does not
+- ✓ keeping the same price all week does not meet the goal
+- ✓ the stamp needs all four weeks played and revenue growth in at least 3
+- ✓ records the start and end revenue of a week
+
 ## tests/market-shock.test.ts
 
 **Market Shock: the base market**
@@ -216,6 +225,15 @@ Each line is one automated check. A checkmark (✓) means the app calculated the
 - ✓ the schedule lists P, Q and TR every $2
 - ✓ checks the discovery challenges
 
+## tests/ped-mystery.test.ts
+
+**Same Slope: mystery mode**
+
+- ✓ every clue in the content file has exactly one hidden point on the line
+- ✓ the hidden points are where the clues say (worked by hand)
+- ✓ PED in the clues uses the IB formula from the point
+- ✓ a wrong guess says which way to move
+
 ## tests/ppc-model.test.ts
 
 **PPC Explorer island model**
@@ -226,6 +244,17 @@ Each line is one automated check. A checkmark (✓) means the app calculated the
 - ✓ unemployed workers put the economy inside the PPC
 - ✓ full employment puts the economy on the PPC
 - ✓ better fishing technology lets the economy reach points outside the old PPC
+
+## tests/ppc-seasons.test.ts
+
+**PPC Explorer: four seasons**
+
+- ✓ has four seasons
+- ✓ every season can be won, but not with every plan (the student has to think)
+- ✓ summer’s need is only possible because of the new nets
+- ✓ autumn: 3 workers lose their jobs, so the island produces inside its PPC
+- ✓ winter: jobs come back and timber productivity falls to 60%
+- ✓ each event card answer is one of the outcomes students can pick
 
 ## tests/progress.test.ts
 
@@ -249,6 +278,8 @@ Each line is one automated check. A checkmark (✓) means the app calculated the
 
 - ✓ a code from a newer app version gives a clear message
 - ✓ codes still load after new activities are added to the end of the id table
+- ✓ a version 1 code (made before stamps existed) still loads, with no stamps
+- ✓ stamps survive the round trip
 - ✓ base32 round-trips bytes
 
 **Loading a code on a device that already has progress**
@@ -256,12 +287,36 @@ Each line is one automated check. A checkmark (✓) means the app calculated the
 - ✓ lists the activities that differ
 - ✓ replace: the device ends up with exactly the code's progress
 - ✓ keep newer: each activity keeps whichever side changed more recently
+- ✓ keep newer: stamps earned on either device are kept
 
 **Local storage**
 
 - ✓ reset clears all progress
 - ✓ ignores damaged saved data instead of crashing
 - ✓ works when the browser blocks storage
+
+## tests/stamps.test.ts
+
+**Stamps**
+
+- ✓ First-Try Star: every question right on the first try with no hints
+- ✓ no First-Try Star with a hint or a miss
+- ✓ First-Try Star is only judged when Check it has just finished
+- ✓ Full Circle: all four steps done
+- ✓ stamps are never taken away by a weaker attempt
+- ✓ reports only newly earned stamps, and counts them
+
+## tests/surplus-paint.test.ts
+
+**Paint the surplus**
+
+- ✓ finds points inside and outside a triangle
+- ✓ the target cells cover about the same area as the true shape (within 15%, the grid is coarse)
+- ✓ a perfect painting scores 100, nothing scores 0
+- ✓ painting too much lowers the score as much as painting too little
+- ✓ painting the whole plot does not pass
+- ✓ maps points to cells and keeps the brush inside the grid
+- ✓ there are enough different tasks to earn the stamp
 
 ## tests/surplus-shader.test.ts
 

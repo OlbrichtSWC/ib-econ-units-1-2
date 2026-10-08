@@ -1,7 +1,7 @@
 /**
  * The bike rental market behind "Same Slope, Different PED" (invented numbers).
  * One straight-line demand curve: at $20 a day nobody rents, and every $1 cut in the
- * daily price adds 5 rentals, up to 100 rentals at a price of $0.
+ * daily price adds 10 rentals, up to 200 rentals at a price of $0.
  * The slope never changes, but PED does, because P / Q changes along the line.
  */
 import { classifyPed, Line, ped, pedAtPoint, percentChange, Pt, quantityAt, round, totalRevenue } from '../../econ/calc';
@@ -105,4 +105,34 @@ export function challengesForMove(from: number, to: number, seenAbove: boolean, 
     if (seenAbove && seenBelow) out.push('tr-max');
   }
   return out;
+}
+
+// ---------- Mystery mode: find the hidden point ----------
+
+export type MysteryRule =
+  | { type: 'ped'; value: number }
+  | { type: 'tr'; value: number; zone: 'elastic' | 'inelastic' }
+  | { type: 'trmax' };
+
+/** Every playable price ($0.50 steps) where the rule is true. A good clue has exactly one. */
+export function mysteryAnswers(rule: MysteryRule, line: Line = DEMAND): number[] {
+  const out: number[] = [];
+  for (let p = P_MIN; p <= P_MAX + 1e-9; p += P_STEP) {
+    if (mysteryHolds(rule, p, line)) out.push(round(p, 2));
+  }
+  return out;
+}
+
+export function mysteryHolds(rule: MysteryRule, p: number, line: Line = DEMAND): boolean {
+  const q = quantityAt(line, p);
+  if (rule.type === 'ped') return Math.abs(ibCheck(p, line).ped - rule.value) < 1e-6;
+  if (rule.type === 'tr') return Math.abs(totalRevenue(p, q) - rule.value) < 1e-6 && zoneAt(p, line) === rule.zone;
+  return zoneAt(p, line) === 'unitary';
+}
+
+/** Which way to move after a wrong guess: towards a higher or a lower price. */
+export function mysteryDirection(rule: MysteryRule, guess: number, line: Line = DEMAND): 'higher' | 'lower' | null {
+  const answers = mysteryAnswers(rule, line);
+  if (!answers.length || answers.includes(round(guess, 2))) return null;
+  return answers[0] > guess ? 'higher' : 'lower';
 }

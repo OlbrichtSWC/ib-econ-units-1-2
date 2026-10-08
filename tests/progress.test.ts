@@ -2,19 +2,19 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { crc16, decodeProgress, encodeProgress, fromBase32, normalizeCode, toBase32 } from '../src/shared/progress/code';
 import { conflicts, mergeProgress } from '../src/shared/progress/merge';
 import { LocalProgressStore } from '../src/shared/progress/localStore';
-import { ActivityProgress, Progress, STEP } from '../src/shared/progress/types';
+import { ActivityProgress, Progress, STAMP, STEP } from '../src/shared/progress/types';
 
 const IDS = ['ppc-explorer', 'market-shock', 'surplus-shader', 'elasticity-cafe', 'ped-line'];
 
 function act(over: Partial<ActivityProgress> = {}): ActivityProgress {
-  return { steps: 0, correct: 0, total: 0, hints: 0, applyCorrect: 0, applyTotal: 0, rating: 0, updated: 640, ...over };
+  return { steps: 0, correct: 0, total: 0, hints: 0, applyCorrect: 0, applyTotal: 0, rating: 0, stamps: 0, updated: 640, ...over };
 }
 
 const sample: Progress = {
   activities: {
     'ppc-explorer': act({ steps: STEP.learn | STEP.try | STEP.check | STEP.rated, correct: 5, total: 6, hints: 1, applyCorrect: 1, applyTotal: 2, rating: 5, updated: 645 }),
     'elasticity-cafe': act({ steps: STEP.learn | STEP.try, updated: 650 }),
-    'surplus-shader': act({ steps: 15, correct: 8, total: 8, applyCorrect: 3, applyTotal: 3, rating: 8, updated: 700 }),
+    'surplus-shader': act({ steps: 15, correct: 8, total: 8, applyCorrect: 3, applyTotal: 3, rating: 8, stamps: STAMP.play | STAMP.sharp | STAMP.complete, updated: 700 }),
   },
 };
 
@@ -59,6 +59,7 @@ describe('Progress code: round trip', () => {
           applyTotal,
           applyCorrect: Math.floor(Math.random() * (applyTotal + 1)),
           rating: Math.floor(Math.random() * 9),
+          stamps: Math.floor(Math.random() * 8),
           updated: Math.floor(Math.random() * 20000),
         });
       }
@@ -152,6 +153,22 @@ describe('Progress code: versions', () => {
     expect(r.ok && r.progress).toEqual(sample);
   });
 
+  it('a version 1 code (made before stamps existed) still loads, with no stamps', () => {
+    // Made by the version 1 app: ppc-explorer finished with a self-rating, ped-line started.
+    const r = decodeProgress('05G0-M6ZA-CJ99-1GZ6-HER0', IDS);
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(r.progress.activities['ppc-explorer']).toEqual(
+      act({ steps: 15, correct: 5, total: 6, hints: 1, applyCorrect: 1, applyTotal: 2, rating: 5, updated: 645 }),
+    );
+    expect(r.progress.activities['ped-line']).toEqual(act({ steps: 3, updated: 650 }));
+  });
+
+  it('stamps survive the round trip', () => {
+    const r = decodeProgress(encodeProgress(sample, IDS), IDS);
+    expect(r.ok && r.progress.activities['surplus-shader'].stamps).toBe(STAMP.play | STAMP.sharp | STAMP.complete);
+  });
+
   it('base32 round-trips bytes', () => {
     const bytes = [0, 1, 2, 250, 255, 128, 64];
     expect(fromBase32(toBase32(bytes))).toEqual(bytes);
@@ -181,6 +198,15 @@ describe('Loading a code on a device that already has progress', () => {
     expect(m.activities['surplus-shader']).toEqual(sample.activities['surplus-shader']);
     expect(m.activities['market-shock']).toEqual(current.activities['market-shock']);
     expect(m.activities['elasticity-cafe']).toEqual(sample.activities['elasticity-cafe']);
+  });
+
+  it('keep newer: stamps earned on either device are kept', () => {
+    const here: Progress = { activities: { 'ppc-explorer': act({ steps: 3, stamps: STAMP.play, updated: 700 }) } };
+    const code: Progress = { activities: { 'ppc-explorer': act({ steps: 15, stamps: STAMP.sharp, updated: 600 }) } };
+    const m = mergeProgress(here, code, 'keep-newer');
+    expect(m.activities['ppc-explorer'].steps).toBe(3);
+    expect(m.activities['ppc-explorer'].stamps).toBe(STAMP.play | STAMP.sharp);
+    expect(here.activities['ppc-explorer'].stamps).toBe(STAMP.play); // the original is not changed
   });
 });
 

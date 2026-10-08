@@ -6,7 +6,7 @@
     "caption": "The price rises from P₁ ($6) to P₂ ($7). Cups sold fall from Q₁ (160) to Q₂ (120). The price pull (hatched) adds $120. The quantity pull (cross pattern) loses $240. TR falls from $960 to $840, so demand is price elastic here."
   },
   "try": {
-    "intro": "**Welcome to your café** (an invented business). You will run it for one week. Each day, choose a price and open the café. Watch how many cups you sell and your [[total revenue]]. The demand curve is **hidden**. At the end of the week, use your own sales data to decide: is demand price elastic or price inelastic? Other things stay the same all week ([[ceteris paribus]]).",
+    "intro": "**Welcome to your café** (an invented business). Each week has six days. Each day, choose a price and open the café. Watch how many customers come in and your [[total revenue]]. The demand curve is **hidden**. At the end of the week, use your own sales data to decide: is demand price elastic or price inelastic? Other things stay the same all week ([[ceteris paribus]]).\n\n**Campaign:** run four cafés, one each week. The goal each week is to finish with a higher daily revenue than on day 1. Meet the goal in 3 of the 4 weeks to earn the **Café Tycoon** stamp.",
     "days": 6,
     "scenarios": [
       {
@@ -133,6 +133,49 @@
           {
             "letter": "S",
             "text": "The market has many drink stalls with juice, lemonade and water. Many substitutes make demand price elastic."
+          }
+        ]
+      },
+      {
+        "id": "kiosk",
+        "name": "Mystery: the platform kiosk",
+        "text": "You run the **only coffee kiosk** on a busy train platform. It is 6:30 in the morning and the next train leaves in five minutes. Is demand elastic or inelastic? Find out from your sales.",
+        "mystery": true,
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 12
+          },
+          "b": {
+            "q": 300,
+            "p": 0
+          }
+        },
+        "priceMin": 2.5,
+        "priceMax": 5,
+        "startPrice": 3.5,
+        "qMax": 300,
+        "pMax": 12,
+        "hints": [
+          {
+            "letter": "H",
+            "text": "Many commuters buy a coffee every morning. It is a strong habit."
+          },
+          {
+            "letter": "I",
+            "text": "One coffee is a small part of a commuter's income."
+          },
+          {
+            "letter": "N",
+            "text": "Tired commuters feel they need a coffee to start the day."
+          },
+          {
+            "letter": "T",
+            "text": "The train leaves in five minutes. There is no time to look for another seller."
+          },
+          {
+            "letter": "S",
+            "text": "There is no other coffee on the platform, so there are no close substitutes. Demand is price inelastic."
           }
         ]
       }

@@ -2,12 +2,12 @@
  * Progress codes: turn saved progress into a short code a student can copy or photograph,
  * and turn the code back into progress on another device.
  *
- * Format (version 1), before encoding as text:
- *   8 bits          format version (1)
+ * Format (version 2), before encoding as text:
+ *   8 bits          format version (2)
  *   number          how many activities
  *   number          earliest "updated" day (only if there is at least one activity)
  *   per activity:   gap in activity number since the previous one (position in the id table)
- *                   4 bits steps, 4 bits rating
+ *                   4 bits steps, 4 bits rating, 4 bits stamps (version 1 codes have no stamps)
  *                   numbers: correct, wrong, hints, applyCorrect, applyWrong, days after the earliest day
  *   zero padding to a whole byte, then a 2-byte CRC-16 checksum of everything before it
  *
@@ -20,7 +20,7 @@
  */
 import { ActivityProgress, ImportResult, Progress } from './types';
 
-export const CODE_VERSION = 1;
+export const CODE_VERSION = 2;
 const ALPHABET = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
 
 // ---------- CRC-16/CCITT-FALSE ----------
@@ -162,6 +162,7 @@ export function encodeProgress(progress: Progress, idTable: readonly string[]): 
     prev = n;
     w.fixed(a.steps & 15, 4);
     w.fixed(Math.min(8, a.rating), 4);
+    w.fixed((a.stamps ?? 0) & 15, 4);
     w.gamma(a.correct);
     w.gamma(a.total - a.correct);
     w.gamma(a.hints);
@@ -188,13 +189,13 @@ export function decodeProgress(input: string, idTable: readonly string[]): Impor
   if (version > CODE_VERSION) return { ok: false, reason: 'newer-version' };
   if (version < 1) return { ok: false, reason: 'typo' };
   try {
-    return decodeV1(body, idTable);
+    return decodeBody(body, version, idTable);
   } catch {
     return { ok: false, reason: 'typo' };
   }
 }
 
-function decodeV1(body: number[], idTable: readonly string[]): ImportResult {
+function decodeBody(body: number[], version: number, idTable: readonly string[]): ImportResult {
   const r = new BitReader(body);
   r.fixed(8); // version
   const count = r.gamma();
@@ -208,13 +209,14 @@ function decodeV1(body: number[], idTable: readonly string[]): ImportResult {
     const steps = r.fixed(4);
     const rating = r.fixed(4);
     if (rating > 8) throw new Error('bad rating');
+    const stamps = version >= 2 ? r.fixed(4) : 0;
     const correct = r.gamma();
     const total = correct + r.gamma();
     const hints = r.gamma();
     const applyCorrect = r.gamma();
     const applyTotal = applyCorrect + r.gamma();
     const updated = baseDay + r.gamma();
-    const a: ActivityProgress = { steps, correct, total, hints, applyCorrect, applyTotal, rating, updated };
+    const a: ActivityProgress = { steps, correct, total, hints, applyCorrect, applyTotal, rating, stamps, updated };
     const id = idTable[n];
     if (id) progress.activities[id] = a;
     else unknown++;

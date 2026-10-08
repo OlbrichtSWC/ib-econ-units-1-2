@@ -10,7 +10,10 @@ import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components'
 import { Arrow, Curve, Diagram, Dot, Guide, Label } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { DataTable } from '../../shared/activity/CheckIt';
+import { play } from '../../shared/fun/sound';
 import { CONSTANT, INCREASING, output, ppc, scale, Worker } from './model';
+import { Season } from './seasons';
+import { Seasons } from './Seasons';
 
 const MAX = 90;
 const toPts = (s: PpcSchedule) => s.map((p) => ({ q: p.x, p: p.y }));
@@ -30,6 +33,7 @@ interface TryContent {
   missions: { id: string; text: string }[];
   outcomes: { id: string; text: string }[];
   events: EventCard[];
+  seasons: Season[];
 }
 
 /** Learn it: a PPC with points inside, on and outside, and an outward shift. */
@@ -68,7 +72,21 @@ function costBars(costs: number[], current: number | null) {
   );
 }
 
-function Try({ content, onComplete }: TryProps) {
+function Try(props: TryProps) {
+  const data = props.content.try as unknown as TryContent;
+  const [mode, setMode] = useState<'free' | 'seasons'>('free');
+  return (
+    <div class="stack">
+      <div class="mode-switch" role="group" aria-label="Choose a game">
+        <button aria-pressed={mode === 'free'} onClick={() => setMode('free')}>Free play and missions</button>
+        <button aria-pressed={mode === 'seasons'} onClick={() => setMode('seasons')}>Four seasons</button>
+      </div>
+      {mode === 'free' ? <FreePlay {...props} /> : <Seasons seasons={data.seasons} outcomes={data.outcomes} onGoal={props.onGoal} />}
+    </div>
+  );
+}
+
+function FreePlay({ content, onComplete }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [mode, setMode] = useState<'increasing' | 'constant'>('increasing');
   const [workers, setWorkers] = useState<Worker[]>(INCREASING);
@@ -95,6 +113,7 @@ function Try({ content, onComplete }: TryProps) {
       if (d.has(id)) return d;
       const n = new Set(d);
       n.add(id);
+      play('correct');
       if (n.size >= 4) onComplete();
       setAnnounce('Mission complete.');
       return n;
@@ -141,6 +160,7 @@ function Try({ content, onComplete }: TryProps) {
     const e = event.effect;
     const correct = prediction === event.correct;
     setEventResult({ correct });
+    play(correct ? 'correct' : 'wrong');
     if (e.fish || e.timber || e.addWorkers) {
       setOldPpc(schedule);
       let w = scale(workers, e.fish ?? 1, e.timber ?? 1);

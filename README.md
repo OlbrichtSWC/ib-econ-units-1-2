@@ -14,7 +14,9 @@ This guide is written for teachers. You do not need to know how to code.
 
 ## 1. Open the app
 
-Use the link your app is published at (see section 3). That is all students need.
+The app is live at **https://olbrichtswc.github.io/ib-econ-units-1-2/**. That is all students need.
+
+Every change saved to this repository on GitHub is tested and published automatically, usually within a minute or two. If a test fails, the change is not published, so a broken calculation never reaches students.
 
 The app works in Chrome, Edge, Safari and Firefox. Students do not sign in.
 
@@ -98,6 +100,8 @@ The passcode keeps answers out of casual view. It is not a real lock: because th
 - A progress code contains only that progress data. No names and no written answers. Students choose whether to copy it.
 - The progress summary image is made in the browser. Students choose whether to hand it in. The app never sends it.
 - Written answers in "Explain it in writing" are never saved or sent.
+- Stamps are saved with progress, on the device only. They are never compared between students, and there is no leaderboard.
+- The **Sound on / Sound off** choice is saved in the browser. Sounds are made in the browser; there are no sound files and nothing is downloaded.
 
 ## 9. For the technical helper (optional)
 

@@ -8,6 +8,8 @@ export interface SummaryRow {
   tag: string;
   title: string;
   progress?: ActivityProgress;
+  /** How many stamps the activity has (0 hides the stamp line). */
+  stampTotal?: number;
 }
 
 export interface SummaryOptions {
@@ -94,14 +96,20 @@ export function drawSummary(canvas: HTMLCanvasElement, o: SummaryOptions) {
       g.font = `18px ${BODY}`;
       g.fillText(`Updated ${dayToDate(p.updated).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}`, cols[3], y + 30);
     }
-    y += 52;
+    if (r.stampTotal) {
+      const earned = bitCount(p?.stamps ?? 0);
+      g.fillStyle = earned ? RED : SOFT;
+      g.font = `20px ${BODY}`;
+      g.fillText(`Stamps: ${earned} of ${r.stampTotal}`, cols[0], y + 56);
+    }
+    y += 72;
     g.strokeStyle = '#c9d1de';
     g.lineWidth = 1;
     g.beginPath();
     g.moveTo(50, y);
     g.lineTo(W - 50, y);
     g.stroke();
-    y += 42;
+    y += 40;
     if (y > H - 220) break;
   }
 
@@ -114,6 +122,12 @@ export function drawSummary(canvas: HTMLCanvasElement, o: SummaryOptions) {
   g.fillStyle = SOFT;
   g.font = `18px ${BODY}`;
   g.fillText('Made in the student’s browser. The app did not send this information anywhere.', 70, H - 30);
+}
+
+function bitCount(n: number) {
+  let c = 0;
+  for (let v = n; v; v >>= 1) c += v & 1;
+  return c;
 }
 
 function drawMark(g: CanvasRenderingContext2D, x: number, y: number, done: boolean) {

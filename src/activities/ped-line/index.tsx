@@ -10,6 +10,8 @@ import { Md } from '../../shared/content/markdown';
 import { HlBadge, LiveRegion, MarkIcon } from '../../shared/design/components';
 import { Area, Curve, Diagram, Dot, Guide, Halo, Handle, Label, TONE, useDiagram } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
+import { play } from '../../shared/fun/sound';
+import { Clue, Mystery } from './Mystery';
 import { ChallengeId, challengesForMove, DEMAND, ibCheck, MID, priceFromDrag, schedule, snapPrice, trCurve, unitaryCurve, Zone, zoneAt } from './model';
 
 const QMAX = 210;
@@ -19,6 +21,8 @@ const Q_LABEL = 'Quantity (rentals per day)';
 
 interface TryContent {
   intro: string;
+  mystery: Clue[];
+  mysteryHelp: string;
   challenges: { id: ChallengeId; text: string }[];
   why: { title: string; text: string };
   special: {
@@ -99,7 +103,21 @@ function LearnDiagram() {
   );
 }
 
-function Try({ content, onComplete }: TryProps) {
+function Try(props: TryProps) {
+  const data = props.content.try as unknown as TryContent;
+  const [mode, setMode] = useState<'explore' | 'mystery'>('explore');
+  return (
+    <div class="stack">
+      <div class="mode-switch" role="group" aria-label="Choose a game">
+        <button aria-pressed={mode === 'explore'} onClick={() => setMode('explore')}>Explore the curve</button>
+        <button aria-pressed={mode === 'mystery'} onClick={() => setMode('mystery')}>Mystery: hidden points</button>
+      </div>
+      {mode === 'explore' ? <Explore {...props} /> : <Mystery clues={data.mystery} help={data.mysteryHelp} onGoal={props.onGoal} />}
+    </div>
+  );
+}
+
+function Explore({ content, onComplete }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [price, setPriceState] = useState(16);
   const priceRef = useRef(16);
@@ -150,6 +168,7 @@ function Try({ content, onComplete }: TryProps) {
       fresh.forEach((id) => n.add(id));
       doneRef.current = n;
       setDone(n);
+      play('correct');
       msg += ` Challenge complete: ${fresh.map((id) => data.challenges.find((c) => c.id === id)?.text.replace(/\*/g, '')).join(' ')}`;
       if (n.size >= 3 && !completed.current) {
         completed.current = true;
