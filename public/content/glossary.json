@@ -1,0 +1,477 @@
+{
+  "terms": [
+    {
+      "term": "Scarcity",
+      "meaning": "Needs and wants are unlimited, but the resources to meet them are limited. So we must choose.",
+      "code": "1.1",
+      "example": "There is not enough land in a city for every use people want."
+    },
+    {
+      "term": "Choice",
+      "meaning": "Because of scarcity, people, firms and governments must decide how to use limited resources.",
+      "code": "1.1"
+    },
+    {
+      "term": "Opportunity cost",
+      "meaning": "The value of the next best thing you give up when you make a choice.",
+      "code": "1.1",
+      "example": "If you spend Saturday working, the opportunity cost might be a day skiing."
+    },
+    {
+      "term": "Free good",
+      "meaning": "A good with no opportunity cost, because using it takes nothing away from anyone else.",
+      "code": "1.1",
+      "example": "Air to breathe."
+    },
+    {
+      "term": "Factors of production",
+      "meaning": "The resources used to make goods and services: land, labour, capital and entrepreneurship.",
+      "code": "1.1",
+      "aliases": [
+        "FOPs",
+        "factor of production"
+      ]
+    },
+    {
+      "term": "Land",
+      "meaning": "Natural resources used in production, such as soil, water, forests and minerals.",
+      "code": "1.1"
+    },
+    {
+      "term": "Labour",
+      "meaning": "The physical and mental effort people put into producing goods and services.",
+      "code": "1.1"
+    },
+    {
+      "term": "Capital",
+      "meaning": "Man-made goods used to produce other goods, such as machines, tools and buildings.",
+      "code": "1.1"
+    },
+    {
+      "term": "Entrepreneurship",
+      "meaning": "Organising the other factors of production and taking risks to start or run a business.",
+      "code": "1.1"
+    },
+    {
+      "term": "Production possibilities curve",
+      "meaning": "A diagram showing the maximum combinations of two goods an economy can produce with all its resources used fully and efficiently, with given technology.",
+      "code": "1.1",
+      "aliases": [
+        "PPC",
+        "production possibilities curve (PPC)"
+      ]
+    },
+    {
+      "term": "Unemployment of resources",
+      "meaning": "Some resources, such as workers or machines, are not being used. The economy produces at a point inside its PPC.",
+      "code": "1.1",
+      "aliases": [
+        "unemployed resources"
+      ]
+    },
+    {
+      "term": "Efficiency",
+      "meaning": "Using all resources fully, with no waste. On a PPC, every point on the curve is efficient.",
+      "code": "1.1",
+      "aliases": [
+        "productive efficiency"
+      ]
+    },
+    {
+      "term": "Actual growth",
+      "meaning": "An increase in output from using unemployed resources. On a PPC it is a movement from a point inside the curve towards the curve.",
+      "code": "1.1"
+    },
+    {
+      "term": "Growth in production possibilities",
+      "meaning": "An increase in what the economy is able to produce, from more or better resources or technology. The PPC shifts outward.",
+      "code": "1.1",
+      "aliases": [
+        "potential growth"
+      ]
+    },
+    {
+      "term": "Increasing opportunity cost",
+      "meaning": "Each extra unit of one good costs more and more of the other good, because resources are not equally good at making both. The PPC bows outward.",
+      "code": "1.1"
+    },
+    {
+      "term": "Constant opportunity cost",
+      "meaning": "Each extra unit of one good always costs the same amount of the other good. The PPC is a straight line.",
+      "code": "1.1"
+    },
+    {
+      "term": "Ceteris paribus",
+      "meaning": "Latin for “all other things being equal”. We change one thing at a time and assume everything else stays the same.",
+      "code": "1.2"
+    },
+    {
+      "term": "Positive economics",
+      "meaning": "Statements about what is, was or will be. They can be tested with evidence.",
+      "code": "1.2",
+      "aliases": [
+        "positive statement"
+      ],
+      "example": "“A higher bus fare reduced the number of riders.”"
+    },
+    {
+      "term": "Normative economics",
+      "meaning": "Statements about what ought to be. They are based on value judgments and cannot be tested.",
+      "code": "1.2",
+      "aliases": [
+        "normative statement",
+        "value judgment"
+      ],
+      "example": "“Bus fares should be free.”"
+    },
+    {
+      "term": "Demand",
+      "meaning": "The quantities of a good that consumers are willing and able to buy at different prices in a given time period, ceteris paribus.",
+      "code": "2.1"
+    },
+    {
+      "term": "Law of demand",
+      "meaning": "As the price of a good falls, the quantity demanded rises, ceteris paribus. Price and quantity demanded are inversely related.",
+      "code": "2.1"
+    },
+    {
+      "term": "Quantity demanded",
+      "meaning": "The amount consumers are willing and able to buy at one particular price.",
+      "code": "2.1"
+    },
+    {
+      "term": "Movement along the curve",
+      "meaning": "A change in quantity demanded or supplied caused only by a change in the good’s own price.",
+      "code": "2.1",
+      "aliases": [
+        "movement along",
+        "movement along the demand curve",
+        "movement along the supply curve"
+      ]
+    },
+    {
+      "term": "Shift of the curve",
+      "meaning": "The whole curve moves because a non-price determinant changed. More or less is demanded or supplied at every price.",
+      "code": "2.1",
+      "aliases": [
+        "shift",
+        "shifts",
+        "shift of the demand curve",
+        "shift of the supply curve"
+      ]
+    },
+    {
+      "term": "Non-price determinants of demand",
+      "meaning": "Things other than the good’s own price that shift demand: income, tastes and preferences, future price expectations, prices of related goods, and the number of consumers.",
+      "code": "2.1",
+      "aliases": [
+        "determinants of demand"
+      ]
+    },
+    {
+      "term": "Normal good",
+      "meaning": "A good whose demand rises when income rises. Its YED is positive.",
+      "code": "2.1"
+    },
+    {
+      "term": "Inferior good",
+      "meaning": "A good whose demand falls when income rises, because people switch to better alternatives. Its YED is negative.",
+      "code": "2.1",
+      "example": "Instant noodles for some consumers."
+    },
+    {
+      "term": "Substitutes",
+      "meaning": "Goods that can be used in place of each other. If the price of one rises, demand for the other rises.",
+      "code": "2.1",
+      "aliases": [
+        "substitute"
+      ],
+      "example": "Tea and coffee."
+    },
+    {
+      "term": "Complements",
+      "meaning": "Goods used together. If the price of one rises, demand for the other falls.",
+      "code": "2.1",
+      "aliases": [
+        "complement"
+      ],
+      "example": "Skis and lift tickets."
+    },
+    {
+      "term": "Income effect",
+      "meaning": "When price falls, a consumer’s real income (buying power) rises, so they can buy more.",
+      "code": "2.1",
+      "hl": true
+    },
+    {
+      "term": "Substitution effect",
+      "meaning": "When a good’s price falls, it becomes cheaper compared with other goods, so consumers switch towards it.",
+      "code": "2.1",
+      "hl": true
+    },
+    {
+      "term": "Law of diminishing marginal utility",
+      "meaning": "As a person consumes more units of a good, the extra satisfaction from each additional unit falls.",
+      "code": "2.1",
+      "aliases": [
+        "diminishing marginal utility"
+      ],
+      "hl": true
+    },
+    {
+      "term": "Supply",
+      "meaning": "The quantities of a good that producers are willing and able to sell at different prices in a given time period, ceteris paribus.",
+      "code": "2.2"
+    },
+    {
+      "term": "Law of supply",
+      "meaning": "As the price of a good rises, the quantity supplied rises, ceteris paribus.",
+      "code": "2.2"
+    },
+    {
+      "term": "Quantity supplied",
+      "meaning": "The amount producers are willing and able to sell at one particular price.",
+      "code": "2.2"
+    },
+    {
+      "term": "Non-price determinants of supply",
+      "meaning": "Things other than the good’s own price that shift supply: costs of factors of production, prices of related goods (joint and competitive supply), indirect taxes and subsidies, future price expectations, technology, and the number of firms.",
+      "code": "2.2",
+      "aliases": [
+        "determinants of supply"
+      ]
+    },
+    {
+      "term": "Joint supply",
+      "meaning": "Two goods produced together from the same process, so more of one means more of the other.",
+      "code": "2.2",
+      "example": "Beef and leather."
+    },
+    {
+      "term": "Competitive supply",
+      "meaning": "Two goods that compete for the same resources, so making more of one means making less of the other.",
+      "code": "2.2",
+      "example": "A farmer choosing between wheat and canola."
+    },
+    {
+      "term": "Indirect tax",
+      "meaning": "A tax on spending on goods and services, paid to the government by the seller. It raises firms’ costs, so supply shifts left (up).",
+      "code": "2.2",
+      "aliases": [
+        "indirect taxes"
+      ]
+    },
+    {
+      "term": "Subsidy",
+      "meaning": "A payment from the government to producers for each unit. It lowers firms’ costs, so supply shifts right (down).",
+      "code": "2.2",
+      "aliases": [
+        "subsidies"
+      ]
+    },
+    {
+      "term": "Equilibrium",
+      "meaning": "The price and quantity where quantity demanded equals quantity supplied. There is no pressure for the price to change.",
+      "code": "2.3",
+      "aliases": [
+        "market equilibrium"
+      ]
+    },
+    {
+      "term": "Excess demand",
+      "meaning": "At a price below equilibrium, quantity demanded is greater than quantity supplied.",
+      "code": "2.3",
+      "aliases": [
+        "shortage"
+      ]
+    },
+    {
+      "term": "Excess supply",
+      "meaning": "At a price above equilibrium, quantity supplied is greater than quantity demanded.",
+      "code": "2.3",
+      "aliases": [
+        "surplus (excess supply)"
+      ]
+    },
+    {
+      "term": "Price mechanism",
+      "meaning": "The way prices change to allocate resources in a market, through signalling, incentive and rationing.",
+      "code": "2.3",
+      "aliases": [
+        "price system"
+      ]
+    },
+    {
+      "term": "Signalling",
+      "meaning": "A change in price sends information to buyers and sellers about where resources are wanted.",
+      "code": "2.3",
+      "aliases": [
+        "signalling function"
+      ]
+    },
+    {
+      "term": "Incentive",
+      "meaning": "A change in price motivates buyers and sellers to change what they do, for example producing more when the price rises.",
+      "code": "2.3",
+      "aliases": [
+        "incentive function"
+      ]
+    },
+    {
+      "term": "Rationing",
+      "meaning": "A higher price limits who buys a scarce good to those willing and able to pay it.",
+      "code": "2.3",
+      "aliases": [
+        "rationing function"
+      ]
+    },
+    {
+      "term": "Consumer surplus",
+      "meaning": "The difference between the highest price consumers are willing to pay and the price they do pay. It is the area below the demand curve and above the price.",
+      "code": "2.3",
+      "aliases": [
+        "CS"
+      ]
+    },
+    {
+      "term": "Producer surplus",
+      "meaning": "The difference between the price producers receive and the lowest price they would accept. It is the area above the supply curve and below the price.",
+      "code": "2.3",
+      "aliases": [
+        "PS"
+      ]
+    },
+    {
+      "term": "Community surplus",
+      "meaning": "Consumer surplus plus producer surplus. It is greatest at the competitive market equilibrium.",
+      "code": "2.3",
+      "aliases": [
+        "social surplus",
+        "social/community surplus"
+      ]
+    },
+    {
+      "term": "Allocative efficiency",
+      "meaning": "Resources are used to make the goods society values most. It happens where marginal benefit equals marginal cost (MB = MC), and community surplus is maximized.",
+      "code": "2.3"
+    },
+    {
+      "term": "Marginal benefit",
+      "meaning": "The extra benefit from consuming one more unit. The demand curve shows marginal benefit.",
+      "code": "2.3",
+      "aliases": [
+        "MB"
+      ]
+    },
+    {
+      "term": "Marginal cost",
+      "meaning": "The extra cost of producing one more unit. The supply curve shows marginal cost.",
+      "code": "2.3",
+      "aliases": [
+        "MC"
+      ]
+    },
+    {
+      "term": "Welfare loss",
+      "meaning": "Community surplus that is lost because the market is not at the allocatively efficient quantity.",
+      "code": "2.3",
+      "aliases": [
+        "deadweight loss"
+      ]
+    },
+    {
+      "term": "Price elasticity of demand",
+      "meaning": "How much quantity demanded responds to a change in price. PED = %change in quantity demanded ÷ %change in price.",
+      "code": "2.5",
+      "aliases": [
+        "PED"
+      ]
+    },
+    {
+      "term": "Price elastic",
+      "meaning": "PED is greater than 1 (ignoring the minus sign). Quantity demanded changes by a larger percentage than price.",
+      "code": "2.5",
+      "aliases": [
+        "elastic"
+      ]
+    },
+    {
+      "term": "Price inelastic",
+      "meaning": "PED is between 0 and 1 (ignoring the minus sign). Quantity demanded changes by a smaller percentage than price.",
+      "code": "2.5",
+      "aliases": [
+        "inelastic"
+      ]
+    },
+    {
+      "term": "Unitary PED",
+      "meaning": "PED equals 1. Quantity demanded changes by the same percentage as price, so total revenue does not change.",
+      "code": "2.5",
+      "aliases": [
+        "unitary",
+        "unit elastic"
+      ]
+    },
+    {
+      "term": "Perfectly elastic",
+      "meaning": "PED is infinite. The demand curve is horizontal.",
+      "code": "2.5"
+    },
+    {
+      "term": "Perfectly inelastic",
+      "meaning": "PED is zero. Quantity demanded does not change when price changes. The demand curve is vertical.",
+      "code": "2.5"
+    },
+    {
+      "term": "Total revenue",
+      "meaning": "The money a firm receives from sales: price × quantity sold (P × Q).",
+      "code": "2.5",
+      "aliases": [
+        "TR"
+      ]
+    },
+    {
+      "term": "Percentage change",
+      "meaning": "(new value − original value) ÷ original value × 100.",
+      "code": "2.5",
+      "aliases": [
+        "% change"
+      ]
+    },
+    {
+      "term": "HINTS",
+      "meaning": "A way to remember what makes PED high or low: Habits, Income share, Necessity, Time, Substitutes.",
+      "code": "2.5"
+    },
+    {
+      "term": "Determinants of PED",
+      "meaning": "Number and closeness of substitutes, degree of necessity, proportion of income spent on the good, and time. Many classes also add habits (HINTS).",
+      "code": "2.5"
+    },
+    {
+      "term": "Income elasticity of demand",
+      "meaning": "How much demand responds to a change in income. YED = %change in quantity demanded ÷ %change in income.",
+      "code": "2.5",
+      "aliases": [
+        "YED"
+      ]
+    },
+    {
+      "term": "Primary commodities",
+      "meaning": "Raw materials from farming, fishing, forestry and mining, such as coffee beans, wheat or copper.",
+      "code": "2.5",
+      "aliases": [
+        "primary commodity"
+      ],
+      "hl": true
+    },
+    {
+      "term": "Price elasticity of supply",
+      "meaning": "How much quantity supplied responds to a change in price. PES = %change in quantity supplied ÷ %change in price.",
+      "code": "2.6",
+      "aliases": [
+        "PES"
+      ]
+    }
+  ]
+}

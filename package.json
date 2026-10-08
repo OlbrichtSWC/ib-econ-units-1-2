@@ -1,0 +1,27 @@
+{
+  "name": "ib-econ-units-1-2",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interactive games and simulations for IB Economics Units 1 and 2. Static site, no tracking.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:report": "vitest run --reporter=verbose --reporter=json --outputFile=test-report/results.json && node scripts/test-report.mjs"
+  },
+  "dependencies": {
+    "preact": "10.29.8",
+    "qrcode-generator": "2.0.4"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "2.10.6",
+    "axe-core": "^4.10.3",
+    "playwright-core": "^1.56.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vite-plugin-pwa": "1.3.0",
+    "vitest": "3.2.7"
+  }
+}

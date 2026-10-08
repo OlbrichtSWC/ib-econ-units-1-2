@@ -1,0 +1,314 @@
+{
+  "id": "ped-line",
+  "outcome": "I can explain why PED changes along a straight-line demand curve, and use this to predict what happens to total revenue when price changes.",
+  "learn": {
+    "text": "^HL^ A straight-line demand curve has the **same slope** at every point: each $1 cut in price always adds the same number of units. But [[PED|price elasticity of demand]] is not the slope. PED compares [[percentage changes|percentage change]], and a $1 change is a small percentage of a high price but a big percentage of a low price.\n\nSo PED changes as you move down the line. In the **upper half** (high price, low quantity), demand is [[elastic|price elastic]] (PED > 1). At the **midpoint**, PED = 1 ([[unitary|unitary PED]]). In the **lower half** (low price, high quantity), demand is [[inelastic|price inelastic]] (PED < 1).\n\nThis matters for [[total revenue]] (TR = P × Q). In the elastic section, a price cut **raises** TR. In the inelastic section, a price cut **lowers** TR. TR is greatest at the midpoint, where PED = 1.\n\nSome special demand curves have the **same** PED at every point: a horizontal line is [[perfectly elastic]], a vertical line is [[perfectly inelastic]], and a rectangular hyperbola has PED = 1 everywhere.",
+    "caption": "One straight-line demand curve. Above the midpoint demand is elastic (solid bracket), at the midpoint it is unitary, and below the midpoint it is inelastic (dashed bracket)."
+  },
+  "try": {
+    "intro": "^HL^ **Welcome to Riverside Bikes** (an invented bike rental shop). Every $1 cut in the daily price adds 10 rentals. Slide the red point along the demand curve. Watch the shaded total revenue box, the TR curve below it, and PED in the panel. Then complete the discovery challenges.",
+    "challenges": [
+      {
+        "id": "unitary",
+        "text": "Find the point where **PED = 1**."
+      },
+      {
+        "id": "cut-raises",
+        "text": "Find a point where a **price cut raises** total revenue."
+      },
+      {
+        "id": "cut-lowers",
+        "text": "Find a point where a **price cut lowers** total revenue."
+      },
+      {
+        "id": "tr-max",
+        "text": "Visit prices **above and below** the midpoint, then find where **total revenue is greatest**."
+      }
+    ],
+    "why": {
+      "title": "Why the title? Same slope, different PED",
+      "text": "Look at the schedule: every $2 cut adds 20 rentals, all the way down. The slope never changes. But PED uses **percentage changes**.\n\n- Near the top, the price is high and the quantity is low. A $1 cut is a small % of the price, and 10 extra rentals is a big % of the quantity. So PED > 1.\n- Near the bottom, the price is low and the quantity is high. A $1 cut is a big % of the price, and 10 extra rentals is a small % of the quantity. So PED < 1.\n\nThe ratio of P to Q changes as you move along the line, so PED changes too."
+    },
+    "special": {
+      "title": "Special demand curves: the same PED at every point",
+      "note": "These three diagrams are SL content. Unlike a straight downward line, each one has the **same** PED all along the curve.",
+      "elastic": {
+        "title": "Perfectly elastic (PED = ∞)",
+        "caption": "A horizontal line. At any price above this one, quantity demanded falls to zero."
+      },
+      "inelastic": {
+        "title": "Perfectly inelastic (PED = 0)",
+        "caption": "A vertical line. Quantity demanded does not change when the price changes."
+      },
+      "unitary": {
+        "title": "Unitary PED (PED = 1)",
+        "caption": "A rectangular hyperbola. At A: $10 × 20 = $200 (hatched). At B: $5 × 40 = $200 (dotted). Spending (P × Q) is the same at every point, so a price change never changes total revenue."
+      }
+    }
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "hl": true,
+      "prompt": "On a straight-line, downward-sloping demand curve, where is demand **price elastic**?",
+      "options": [
+        {
+          "text": "On the upper half, above the midpoint",
+          "correct": true,
+          "feedback": "Yes. Up there the price is high and the quantity is low, so a price change is a small % of P but causes a big % change in Q."
+        },
+        {
+          "text": "On the lower half, below the midpoint",
+          "feedback": "That section is inelastic. There the price is low and the quantity is high, so the % change in Q is small compared with the % change in P."
+        },
+        {
+          "text": "Everywhere, because the curve is a straight line",
+          "feedback": "A straight line has the same slope everywhere, but not the same PED. PED uses percentage changes, which depend on where you start."
+        },
+        {
+          "text": "Only at the midpoint",
+          "feedback": "At the midpoint PED = 1, which is unitary, not elastic."
+        }
+      ],
+      "hints": [
+        "Think about whether the price is high or low in each half, and what a $1 change is as a percentage.",
+        "Elastic means the % change in quantity is bigger than the % change in price. Where is quantity small, so that a few extra units is a big %?"
+      ],
+      "worked": "Example: a ferry's demand curve runs from $30 (0 trips) to 300 trips ($0). At $25, Q = 50. A $1 cut is 4% of the price, and the 10 extra trips are 20% of the quantity. PED = 20 ÷ −4 = −5, so demand is elastic at this high price.",
+      "explanation": "Along a straight line, PED > 1 above the midpoint, PED = 1 at the midpoint, and PED < 1 below it. At high prices and low quantities, the same change in units is a large percentage of Q."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "hl": true,
+      "prompt": "A student says: \"The demand curve is a straight line, so PED is the same at every point.\" Why is the student wrong?",
+      "options": [
+        {
+          "text": "The slope is constant, but PED depends on percentage changes, and the ratio of P to Q changes along the line",
+          "correct": true,
+          "feedback": "Yes. The same change in units is a different percentage at each point, so PED changes even though the slope does not."
+        },
+        {
+          "text": "The slope of a straight line changes as you move along it",
+          "feedback": "A straight line has the same slope everywhere. The slope is not what changes."
+        },
+        {
+          "text": "PED is always 1 on a straight line",
+          "feedback": "PED = 1 only at the midpoint. It is greater than 1 above it and less than 1 below it."
+        },
+        {
+          "text": "The student is right: a straight line always has a constant PED",
+          "feedback": "Try the Riverside Bikes curve: PED is −4 at $16 but −0.25 at $4. Same slope, different PED."
+        }
+      ],
+      "hints": [
+        "What does PED measure: changes in units, or percentage changes?",
+        "Is a $1 change the same percentage of $18 as of $2?"
+      ],
+      "worked": "Example: on a straight line, every $1 cut adds 10 units. From $18 to $17 that is −5.6% in price; from $3 to $2 it is −33.3%. The unit changes are the same, but the percentages are very different.",
+      "explanation": "Slope measures the change in units (for example 10 rentals per $1). PED measures the % change in quantity over the % change in price. Because P and Q are different at each point, the same unit changes give different percentages, so PED changes along the line."
+    },
+    {
+      "id": "q3",
+      "type": "number",
+      "level": "core",
+      "hl": true,
+      "prompt": "Use the demand schedule for kayak hire. Calculate PED when the price **falls from $10 to $8**. Give the size of PED (ignore the minus sign), to 2 decimal places.",
+      "table": {
+        "caption": "Lakeside kayak hire (invented numbers)",
+        "headers": [
+          "Price ($)",
+          "Kayaks hired per day"
+        ],
+        "rows": [
+          [
+            12,
+            20
+          ],
+          [
+            10,
+            30
+          ],
+          [
+            8,
+            40
+          ],
+          [
+            6,
+            50
+          ],
+          [
+            4,
+            60
+          ]
+        ]
+      },
+      "answer": 1.67,
+      "tolerance": 0.01,
+      "mistakes": [
+        {
+          "value": 0.6,
+          "feedback": "You divided the % change in price by the % change in quantity. PED = % change in quantity ÷ % change in price."
+        },
+        {
+          "value": 1,
+          "feedback": "You used the new values ($8 and 40) as the base. The IB formula divides by the original values: $10 and 30."
+        },
+        {
+          "value": 5,
+          "feedback": "That is the change in units (10 kayaks ÷ $2), which is the slope. PED needs percentage changes."
+        },
+        {
+          "value": 0.5,
+          "feedback": "You used the change in kayaks (10) as if it were a percentage. Find the % change: (40 − 30) ÷ 30 × 100 = 33.33%."
+        }
+      ],
+      "hints": [
+        "Find the % change in quantity and the % change in price, each from the original value.",
+        "% change in price = (8 − 10) ÷ 10 × 100 = −20%. Now find the % change in quantity from 30 to 40."
+      ],
+      "worked": "Example with different rows: price falls from $6 to $4. % change in P = (4 − 6) ÷ 6 × 100 = −33.33%. % change in Q = (60 − 50) ÷ 50 × 100 = +20%. PED = 20 ÷ −33.33 = −0.60, so its size is 0.60 (inelastic, lower part of the line).",
+      "explanation": "% change in P = (8 − 10) ÷ 10 × 100 = −20%. % change in Q = (40 − 30) ÷ 30 × 100 = +33.33%. PED = 33.33 ÷ −20 = −1.67. The size is **1.67**: demand is elastic here, because $10 is in the upper half of this line."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "core",
+      "hl": true,
+      "prompt": "A firm faces a straight-line demand curve. At which point is its **total revenue greatest**?",
+      "options": [
+        {
+          "text": "At the midpoint, where PED = 1",
+          "correct": true,
+          "feedback": "Yes. Above it, a price cut raises TR. Below it, a price cut lowers TR. So TR peaks where PED = 1."
+        },
+        {
+          "text": "At the highest price",
+          "feedback": "At a very high price the firm sells very few units, so P × Q is small."
+        },
+        {
+          "text": "At the greatest quantity",
+          "feedback": "At the greatest quantity the price is close to zero, so P × Q is small."
+        },
+        {
+          "text": "Where demand is most inelastic",
+          "feedback": "In the inelastic section the firm can raise TR by raising the price, so TR is not at its peak there."
+        }
+      ],
+      "hints": [
+        "What happens to TR when you cut the price in the elastic section? And in the inelastic section?",
+        "TR stops rising and starts falling at the point between the two sections."
+      ],
+      "worked": "Example: a theatre's demand runs from $40 (0 seats) to 400 seats ($0). At $30: 100 seats, TR = $3000. At $20 (midpoint): 200 seats, TR = $4000. At $10: 300 seats, TR = $3000. TR is greatest at the midpoint.",
+      "explanation": "In the elastic section a price cut raises TR; in the inelastic section it lowers TR. The changeover is at the midpoint, where PED = 1, so TR is greatest there."
+    },
+    {
+      "id": "q5",
+      "type": "choice",
+      "level": "apply",
+      "hl": true,
+      "prompt": "A city swimming pool faces a straight-line demand curve. Its current entry price is on the **lower half** of the curve. The pool raises the price a little, staying in the lower half. What happens to total revenue?",
+      "options": [
+        {
+          "text": "TR rises, because demand is inelastic there, so quantity falls by a smaller % than price rises",
+          "correct": true,
+          "feedback": "Yes. In the inelastic section, the gain from a higher price on each visit is bigger than the loss from fewer visits."
+        },
+        {
+          "text": "TR falls, because fewer people visit",
+          "feedback": "Fewer people visit, but in the inelastic section quantity falls by a smaller % than price rises, so TR goes up."
+        },
+        {
+          "text": "TR stays the same, because the slope is the same everywhere",
+          "feedback": "The slope does not decide what happens to TR. PED does, and PED is less than 1 in the lower half."
+        },
+        {
+          "text": "TR falls, because demand is elastic in the lower half",
+          "feedback": "The lower half of a straight-line demand curve is inelastic, not elastic."
+        }
+      ],
+      "hints": [
+        "First decide: is demand elastic or inelastic in the lower half?",
+        "If PED < 1, which is bigger: the % rise in price or the % fall in quantity?"
+      ],
+      "worked": "Example: Riverside Bikes is at $4 (160 rentals, TR = $640) and raises the price to $5 (150 rentals). TR = $750. The price rose 25% but quantity fell only 6.25%, so TR rose.",
+      "explanation": "In the lower half PED < 1 (inelastic). A price rise causes a smaller % fall in quantity, so P × Q rises. This works until the price reaches the midpoint, where TR is greatest."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "hl": true,
+      "prompt": "A cinema's price is on the **upper half** of its straight-line demand curve. The manager wants more total revenue. What should the cinema do, and why?",
+      "options": [
+        {
+          "text": "Cut the price, because demand is elastic there, so quantity rises by a bigger % than price falls",
+          "correct": true,
+          "feedback": "Yes. In the elastic section, a price cut raises TR. The cinema should not cut below the midpoint, where TR is greatest."
+        },
+        {
+          "text": "Raise the price, because a higher price always means more revenue",
+          "feedback": "That is only true when demand is inelastic. In the upper half demand is elastic, so a price rise lowers TR."
+        },
+        {
+          "text": "Keep the price, because the slope of demand is constant",
+          "feedback": "A constant slope does not mean a constant PED. In the upper half PED > 1, so the price can change TR."
+        },
+        {
+          "text": "Cut the price as low as possible to sell the most seats",
+          "feedback": "Cutting below the midpoint moves into the inelastic section, where further cuts lower TR."
+        }
+      ],
+      "hints": [
+        "Which section is the upper half: elastic or inelastic?",
+        "In the elastic section, does a price cut raise or lower P × Q? How far should the cut go?"
+      ],
+      "worked": "Example: a ferry's demand runs from $30 (0 trips) to 300 trips ($0). At $25: 50 trips, TR = $1250. Cut to $20: 100 trips, TR = $2000. Cut to $15 (midpoint): 150 trips, TR = $2250. Cut to $10: 200 trips, TR = $2000, which is lower again.",
+      "explanation": "In the upper half PED > 1, so a price cut gives a bigger % rise in quantity and TR rises. TR keeps rising until the midpoint, where PED = 1 and TR is greatest. Cutting further lowers TR."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Which demand curve has the **same PED at every point**, with PED = 1, so total revenue does not change when price changes?",
+      "options": [
+        {
+          "text": "A rectangular hyperbola",
+          "correct": true,
+          "feedback": "Yes. On a rectangular hyperbola P × Q is the same at every point, so PED = 1 everywhere and TR never changes."
+        },
+        {
+          "text": "A straight downward-sloping line",
+          "feedback": "On a straight line PED changes: elastic above the midpoint, inelastic below. It is unitary only at the midpoint."
+        },
+        {
+          "text": "A horizontal line",
+          "feedback": "A horizontal demand curve is perfectly elastic (PED = ∞), not unitary."
+        },
+        {
+          "text": "A vertical line",
+          "feedback": "A vertical demand curve is perfectly inelastic (PED = 0), not unitary."
+        }
+      ],
+      "hints": [
+        "If TR never changes, then P × Q is the same at every point on the curve.",
+        "Which shape keeps P × Q the same: it is curved, and it gets flatter as quantity rises."
+      ],
+      "worked": "Example: a curve passes through ($8, 25), ($5, 40) and ($4, 50). P × Q = $200 at every point, so a price change never changes spending. This is a unitary PED curve.",
+      "explanation": "A rectangular hyperbola has P × Q equal at every point, so every % change in price causes an equal and opposite % change in quantity: PED = 1 everywhere. A horizontal line has PED = ∞ everywhere and a vertical line has PED = 0 everywhere."
+    }
+  ],
+  "explain": {
+    "prompt": "Explain why PED changes along Riverside Bikes' straight-line demand curve, and what this means for total revenue.",
+    "frames": [
+      "The slope of the demand curve is the same everywhere because ___.",
+      "But PED changes because PED uses ___, and the ratio of P to Q ___.",
+      "In the upper half demand is ___, so a price cut makes total revenue ___.",
+      "Total revenue is greatest at ___, where PED = ___."
+    ]
+  },
+  "teacherNotes": "HL 2.5: PED varies along a straight-line demand curve. Project the explorer and ask students to predict TR before each $1 cut. The IB formula check shows that PED at a point matches the % change formula for a $1 change from that point (this is exact for a straight line). The \"Show all three sections\" button skips the reveal. The special curves section (horizontal, vertical, rectangular hyperbola) is SL content from the 2.5 diagrams, so SL students can use it too. Common mistake to target: treating the slope as PED."
+}

@@ -1,0 +1,41 @@
+import { defineConfig } from 'vite';
+import preact from '@preact/preset-vite';
+import { VitePWA } from 'vite-plugin-pwa';
+
+// base: './' makes the built site work from any folder or link
+// (GitHub Pages, Netlify, or a USB stick).
+export default defineConfig({
+  base: './',
+  plugins: [
+    preact(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      injectRegister: 'script-defer',
+      includeAssets: ['icon.svg'],
+      manifest: {
+        name: 'IB Economics: Units 1 and 2',
+        short_name: 'IB Econ 1-2',
+        description: 'Games and simulations for IB Economics Units 1 and 2.',
+        theme_color: '#1B3A6B',
+        background_color: '#ffffff',
+        display: 'standalone',
+        start_url: './',
+        icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml' }],
+      },
+      workbox: {
+        // App code is stored for offline use. Content and settings are NOT in this list,
+        // so a teacher's edits show up on the next visit instead of being stuck in the cache.
+        globPatterns: ['**/*.{js,css,html,svg}'],
+        globIgnores: ['content/**', 'config/**'],
+        // Content and settings: use the newest copy when online, the saved copy when offline.
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.includes('/content/') || url.pathname.includes('/config/'),
+            handler: 'NetworkFirst',
+            options: { cacheName: 'content' },
+          },
+        ],
+      },
+    }),
+  ],
+});

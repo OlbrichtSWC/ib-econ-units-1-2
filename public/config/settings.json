@@ -1,0 +1,24 @@
+{
+  "teacherPasscode": "change-me",
+  "showHlContent": true,
+  "modules": {
+    "ppc-explorer": true,
+    "market-shock": true,
+    "surplus-shader": true,
+    "elasticity-cafe": true,
+    "ped-line": true
+  },
+  "scale": {
+    "name": "CBE High School Proficiency Scale",
+    "levels": [
+      { "name": "Beginning 1", "group": "Beginning", "description": "I am starting to understand this. I need a lot of help." },
+      { "name": "Beginning 2", "group": "Beginning" },
+      { "name": "Developing 1", "group": "Developing", "description": "I understand parts of this. I need some help." },
+      { "name": "Developing 2", "group": "Developing" },
+      { "name": "Proficient 1", "group": "Proficient", "description": "I understand this and can do it on my own." },
+      { "name": "Proficient 2", "group": "Proficient" },
+      { "name": "Exemplary 1", "group": "Exemplary", "description": "I can apply this to new situations and explain why." },
+      { "name": "Exemplary 2", "group": "Exemplary" }
+    ]
+  }
+}

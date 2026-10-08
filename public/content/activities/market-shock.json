@@ -1,0 +1,676 @@
+{
+  "id": "market-shock",
+  "outcome": "I can explain how changes in the determinants of demand and supply shift the curves, how the price mechanism moves the market to a new equilibrium, and the difference between a shift and a movement along a curve.",
+  "learn": {
+    "text": "[[Demand]] is the quantity of a good that buyers are willing and able to buy at each price. [[Supply]] is the quantity that firms are willing and able to sell at each price. Where the two curves cross, the market is in [[equilibrium]]: quantity demanded equals quantity supplied.\n\nA change in the good's own price causes a [[movement along the curve]]. A change in anything else, a [[non-price determinant of demand|non-price determinants of demand]] or a [[non-price determinant of supply|non-price determinants of supply]], causes a [[shift of the curve]]. We assume everything else stays the same: [[ceteris paribus]].\n\nAfter a shift, the old price no longer clears the market. There is [[excess demand]] (a shortage) or [[excess supply]] (a surplus). The [[price mechanism]] fixes this: the price changes, which works as a [[signal|signalling]], an [[incentive]] and a way of [[rationing]] scarce goods, until the market reaches a new equilibrium.",
+    "caption": "Demand shifts right from D₁ to D₂. The equilibrium moves from P₁ and Q₁ to P₂ and Q₂: price rises and quantity rises."
+  },
+  "try": {
+    "intro": "**Welcome to Riverton** (an invented city). You run the market for **bags of roasted coffee beans**. Draw an event card. **Predict first**: which curve shifts, and which way? Then drag the curve on the diagram and watch the market react. Every card starts from the same market, at $5 and 50 bags (ceteris paribus).",
+    "marketName": "Market for coffee beans in Riverton",
+    "options": [
+      {
+        "id": "D-left",
+        "text": "Demand shifts left"
+      },
+      {
+        "id": "D-right",
+        "text": "Demand shifts right"
+      },
+      {
+        "id": "S-left",
+        "text": "Supply shifts left"
+      },
+      {
+        "id": "S-right",
+        "text": "Supply shifts right"
+      },
+      {
+        "id": "none",
+        "text": "No shift: a movement along a curve"
+      }
+    ],
+    "focusOptions": {
+      "demand": [
+        {
+          "id": "D-left",
+          "text": "The demand curve shifts left"
+        },
+        {
+          "id": "D-right",
+          "text": "The demand curve shifts right"
+        },
+        {
+          "id": "none",
+          "text": "No shift: a movement along the demand curve"
+        }
+      ],
+      "supply": [
+        {
+          "id": "S-left",
+          "text": "The supply curve shifts left"
+        },
+        {
+          "id": "S-right",
+          "text": "The supply curve shifts right"
+        },
+        {
+          "id": "none",
+          "text": "No shift: a movement along the supply curve"
+        }
+      ]
+    },
+    "feedback": {
+      "right": "Your prediction was right.",
+      "wrong-direction": "Good start: you picked the right curve. The direction is the other way. Ask: at every price, do people now want to buy (or firms want to sell) more or less than before?",
+      "wrong-curve": "Good thinking, but it is the other curve. Ask: does this event change what **buyers** want (demand) or what **sellers** can or want to sell (supply)?",
+      "missed-shift": "This one does shift a curve. Something other than the coffee's own price changed, so it is a non-price determinant. Ask: is it a determinant of demand or of supply?",
+      "movement-not-shift": "This is the trap! Only the coffee's own price changed (or the other curve moved). A change in a good's own price causes a **movement along** the curve, not a shift."
+    },
+    "mechanismInfo": {
+      "signalling": "**Signalling**: a price change sends information. It shows buyers and sellers where resources are wanted and where they are not.",
+      "incentive": "**Incentive**: a price change gives buyers and sellers a reason to change what they do. For example, a higher price means more profit, so firms produce more.",
+      "rationing": "**Rationing**: price decides who gets a scarce good. When price rises, only buyers willing and able to pay the higher price still buy."
+    },
+    "hlQuestion": {
+      "prompt": "**HL challenge.** In the trap cards, a lower coffee price makes quantity demanded rise. Which explanation is correct?",
+      "options": [
+        {
+          "text": "Roasters want to sell more at a lower price",
+          "feedback": "That is about sellers, and it is the wrong way round: the law of supply says firms sell **less** at a lower price."
+        },
+        {
+          "text": "Each extra bag gives more satisfaction than the one before",
+          "feedback": "It is the other way round. The law of diminishing marginal utility says each extra unit gives **less** extra satisfaction."
+        },
+        {
+          "text": "Coffee is now cheaper than tea, so some people switch to coffee, and their income now buys more",
+          "correct": true,
+          "feedback": "Yes. These are the **substitution effect** (coffee is cheaper compared with substitutes) and the **income effect** (the same income buys more). Diminishing marginal utility also helps: each extra bag gives less extra satisfaction, so people buy more only when the price falls."
+        },
+        {
+          "text": "The lower price shifts the demand curve to the right",
+          "feedback": "A change in the good's own price never shifts its demand curve. It causes a movement along it."
+        }
+      ]
+    },
+    "cards": [
+      {
+        "id": "income-normal",
+        "determinant": "Demand: income (normal good)",
+        "title": "Pay rise in Riverton",
+        "text": "Most workers in Riverton get a 10% pay rise. Coffee beans are a **normal good**.",
+        "answer": "D-right",
+        "explain": "Coffee beans are a [[normal good]], so higher income means people want to buy more at every price. Demand shifts right from D₁ to D₂.",
+        "mechanism": {
+          "sentence": "The higher price tells roasters that buyers now want more coffee beans.",
+          "answer": "signalling"
+        }
+      },
+      {
+        "id": "income-inferior",
+        "determinant": "Demand: income (inferior good)",
+        "title": "Pay rise, goodbye instant coffee",
+        "market": "For this card the market is **store-brand instant coffee**, an **inferior good** in Riverton.",
+        "text": "Incomes rise across Riverton. Many people stop buying cheap instant coffee and buy better beans instead.",
+        "answer": "D-left",
+        "explain": "For an [[inferior good]], higher income means people buy **less** at every price. Demand for instant coffee shifts left from D₁ to D₂.",
+        "mechanism": {
+          "sentence": "The lower price of instant coffee tells its makers that buyers want less of it, so resources can move to other goods.",
+          "answer": "signalling"
+        }
+      },
+      {
+        "id": "tastes-up",
+        "determinant": "Demand: tastes and preferences",
+        "title": "Health study",
+        "text": "A popular health study says two cups of coffee a day are good for you. People in Riverton want more coffee.",
+        "answer": "D-right",
+        "explain": "A change in tastes and preferences in favour of coffee raises the quantity people want at every price. Demand shifts right.",
+        "mechanism": {
+          "sentence": "As the price rises, some buyers decide coffee is no longer worth it, so the limited beans go to the buyers who value them most.",
+          "answer": "rationing"
+        }
+      },
+      {
+        "id": "tastes-down",
+        "determinant": "Demand: tastes and preferences",
+        "title": "Sleep worries",
+        "text": "A viral video says coffee ruins your sleep. Many people in Riverton decide to drink less coffee.",
+        "answer": "D-left",
+        "explain": "Tastes and preferences move away from coffee, so people want less at every price. Demand shifts left.",
+        "mechanism": {
+          "sentence": "The lower price means roasting coffee earns less profit, so some roasters roast fewer beans.",
+          "answer": "incentive"
+        }
+      },
+      {
+        "id": "expect-demand",
+        "determinant": "Demand: future price expectations",
+        "title": "Stock up now!",
+        "text": "News reports say coffee prices will rise next month. Shoppers buy extra bags today to beat the price rise.",
+        "answer": "D-right",
+        "explain": "When buyers expect a higher price in the future, they buy more **now**. Demand today shifts right.",
+        "mechanism": {
+          "sentence": "The higher price makes roasting more profitable, so roasters add extra shifts.",
+          "answer": "incentive"
+        }
+      },
+      {
+        "id": "substitute",
+        "determinant": "Demand: price of a substitute",
+        "title": "Cheap tea",
+        "text": "A huge tea harvest makes tea much cheaper in Riverton. Tea and coffee are [[substitutes]].",
+        "answer": "D-left",
+        "explain": "Tea is a substitute for coffee. When tea becomes cheaper, some people switch from coffee to tea, so demand for coffee shifts left at every price.",
+        "mechanism": {
+          "sentence": "The falling coffee price shows roasters that buyers want less coffee than before.",
+          "answer": "signalling"
+        }
+      },
+      {
+        "id": "complement",
+        "determinant": "Demand: price of a complement",
+        "title": "Coffee machine sale",
+        "text": "The price of home coffee machines falls by half. Coffee machines and coffee beans are [[complements]].",
+        "answer": "D-right",
+        "explain": "Coffee machines and beans are used together. Cheaper machines mean more people make coffee at home, so demand for beans shifts right.",
+        "mechanism": {
+          "sentence": "At the higher price, only buyers who are willing and able to pay it get the coffee beans.",
+          "answer": "rationing"
+        }
+      },
+      {
+        "id": "consumers",
+        "determinant": "Demand: number of consumers",
+        "title": "New university",
+        "text": "A new university opens in Riverton. 5,000 students move to the city, and many of them drink coffee.",
+        "answer": "D-right",
+        "explain": "More consumers in the market means more coffee is wanted at every price. Demand shifts right.",
+        "mechanism": {
+          "sentence": "Roasters see a chance of higher profit, so they roast more beans.",
+          "answer": "incentive"
+        }
+      },
+      {
+        "id": "frost",
+        "determinant": "Supply: costs of factors of production",
+        "title": "Frost on the farms",
+        "text": "A frost damages coffee farms abroad. Green coffee beans, the roasters' main raw material, now cost much more.",
+        "answer": "S-left",
+        "explain": "Higher costs of [[factors of production]] (here, raw materials) make roasting each bag more costly. Roasters supply less at every price. Supply shifts left.",
+        "mechanism": {
+          "sentence": "With fewer beans for sale, the higher price makes some buyers cut back, so the scarce beans go to those most willing to pay.",
+          "answer": "rationing"
+        }
+      },
+      {
+        "id": "wages",
+        "determinant": "Supply: costs of factors of production",
+        "title": "Higher wages",
+        "text": "Workers at Riverton's roasteries win a higher wage. Each bag now costs more to make.",
+        "answer": "S-left",
+        "explain": "Wages are the cost of labour, a factor of production. Higher costs mean firms supply less at every price. Supply shifts left.",
+        "mechanism": {
+          "sentence": "The higher price tells everyone in the market that coffee beans have become scarcer.",
+          "answer": "signalling"
+        }
+      },
+      {
+        "id": "tax",
+        "determinant": "Supply: indirect tax",
+        "title": "Coffee tax",
+        "text": "The government puts an [[indirect tax]] of $1 on every bag of coffee beans sold.",
+        "answer": "S-left",
+        "explain": "An indirect tax is like an extra cost for firms on each unit. They supply less at every price, so supply shifts left (up by the tax).",
+        "mechanism": {
+          "sentence": "Buyers who value coffee less than the new, higher price stop buying it.",
+          "answer": "rationing"
+        }
+      },
+      {
+        "id": "subsidy",
+        "determinant": "Supply: subsidy",
+        "title": "Roaster subsidy",
+        "text": "The government pays roasters a [[subsidy]] of $1 for every bag they sell.",
+        "answer": "S-right",
+        "explain": "A subsidy lowers firms' costs, so they supply more at every price. Supply shifts right (down by the subsidy).",
+        "mechanism": {
+          "sentence": "The lower price gives buyers a reason to buy more coffee beans.",
+          "answer": "incentive"
+        }
+      },
+      {
+        "id": "technology",
+        "determinant": "Supply: technology",
+        "title": "Faster roasters",
+        "text": "A new roasting machine roasts twice as many beans per hour with the same workers.",
+        "answer": "S-right",
+        "explain": "Better technology lowers the cost of making each bag. Firms supply more at every price. Supply shifts right.",
+        "mechanism": {
+          "sentence": "The lower price tells buyers that coffee beans are now more plentiful.",
+          "answer": "signalling"
+        }
+      },
+      {
+        "id": "firms",
+        "determinant": "Supply: number of firms",
+        "title": "New roasteries",
+        "text": "Three new roasteries open in Riverton.",
+        "answer": "S-right",
+        "explain": "More firms in the market means more coffee is offered at every price. Supply shifts right.",
+        "mechanism": {
+          "sentence": "The lower price encourages bakeries to use more coffee in their cakes.",
+          "answer": "incentive"
+        }
+      },
+      {
+        "id": "expect-supply",
+        "determinant": "Supply: future price expectations",
+        "title": "Holding stock",
+        "text": "Roasters expect coffee prices to be much higher next month. They keep some bags in storage to sell later.",
+        "answer": "S-left",
+        "explain": "When firms expect a higher price in the future, they offer less for sale **now**. Supply today shifts left.",
+        "mechanism": {
+          "sentence": "Fewer bags are on the shelves today, and the higher price decides which buyers get them.",
+          "answer": "rationing"
+        }
+      },
+      {
+        "id": "joint",
+        "determinant": "Supply: price of a good in joint supply",
+        "title": "Caffeine boom",
+        "market": "For this card the market is **decaf coffee beans**.",
+        "text": "Energy drink makers pay much more for caffeine. Taking the caffeine out of coffee beans makes two products at once: caffeine and decaf beans.",
+        "answer": "S-right",
+        "explain": "Caffeine and decaf beans are in [[joint supply]]: making one also makes the other. The higher price of caffeine makes firms decaffeinate more beans, so the supply of decaf beans shifts right.",
+        "mechanism": {
+          "sentence": "The falling price of decaf beans tells decaf buyers that more is now available.",
+          "answer": "signalling"
+        }
+      },
+      {
+        "id": "competitive",
+        "determinant": "Supply: price of a good in competitive supply",
+        "title": "Cocoa price jumps",
+        "market": "For this card the market is **green coffee beans from Riverton's hill farms**.",
+        "text": "The price of cocoa rises sharply. Hill farmers can grow coffee or cocoa on the same land.",
+        "answer": "S-left",
+        "explain": "Coffee and cocoa are in [[competitive supply]]: they compete for the same land. Cocoa is now more profitable, so farmers grow more cocoa and less coffee. Supply of coffee shifts left.",
+        "mechanism": {
+          "sentence": "Farmers moved land to cocoa because the higher cocoa price meant more profit.",
+          "answer": "incentive"
+        }
+      }
+    ],
+    "traps": [
+      {
+        "id": "trap-price-up",
+        "determinant": "Trap: the good's own price",
+        "title": "Roasters raise prices",
+        "text": "Roasters raise the price of a bag from $5 to $7. Nothing else changes.",
+        "focus": "demand",
+        "question": "What happens to the **demand curve** for coffee beans?",
+        "answer": "none",
+        "move": {
+          "along": "demand",
+          "price": 7
+        },
+        "explain": "Only the coffee's own price changed. Buyers move **up along** D₁: quantity demanded falls from 50 to 30 bags. The demand curve does not shift."
+      },
+      {
+        "id": "trap-sale",
+        "determinant": "Trap: the good's own price",
+        "title": "Big coffee sale",
+        "text": "Roasters cut the price of a bag from $5 to $3 for a sale. Nothing else changes.",
+        "focus": "demand",
+        "question": "What happens to the **demand curve** for coffee beans?",
+        "answer": "none",
+        "move": {
+          "along": "demand",
+          "price": 3
+        },
+        "explain": "Only the coffee's own price changed. Buyers move **down along** D₁: quantity demanded rises from 50 to 70 bags. The demand curve does not shift. ^HL^ Why do people buy more? Try the HL challenge below."
+      },
+      {
+        "id": "trap-supply-price",
+        "determinant": "Trap: the good's own price",
+        "title": "Better price for roasters",
+        "text": "The price of a bag rises from $5 to $7, so roasters offer more bags for sale.",
+        "focus": "supply",
+        "question": "What happens to the **supply curve** of coffee beans?",
+        "answer": "none",
+        "move": {
+          "along": "supply",
+          "price": 7
+        },
+        "explain": "Only the coffee's own price changed. Roasters move **up along** S₁: quantity supplied rises from 50 to 70 bags. The supply curve does not shift."
+      },
+      {
+        "id": "trap-frost-demand",
+        "determinant": "Trap: the other curve shifts",
+        "title": "Frost again",
+        "text": "A frost cuts the supply of coffee beans, and the price of coffee rises.",
+        "focus": "demand",
+        "question": "What happens to the **demand curve** for coffee beans?",
+        "answer": "none",
+        "move": {
+          "along": "demand",
+          "cause": "S-left"
+        },
+        "explain": "Supply shifted left, not demand. The higher price makes buyers move **up along** the demand curve D, so quantity demanded falls. Demand only shifts when a non-price determinant of demand changes, and none did."
+      },
+      {
+        "id": "trap-uni-supply",
+        "determinant": "Trap: the other curve shifts",
+        "title": "Students arrive",
+        "text": "A new university brings thousands of coffee drinkers to Riverton, and the price of coffee rises.",
+        "focus": "supply",
+        "question": "What happens to the **supply curve** of coffee beans?",
+        "answer": "none",
+        "move": {
+          "along": "supply",
+          "cause": "D-right"
+        },
+        "explain": "Demand shifted right, not supply. The higher price gives roasters an incentive to sell more, so they move **up along** the supply curve S. Supply only shifts when a non-price determinant of supply changes, and none did."
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "A bakery raises the price of its croissants. Nothing else changes. What happens in the market for the bakery's croissants?",
+      "options": [
+        {
+          "text": "The supply curve shifts left",
+          "feedback": "The bakery's costs and technology did not change, so supply does not shift. The price change is a movement along the curves."
+        },
+        {
+          "text": "A movement up along the demand curve: quantity demanded falls",
+          "correct": true,
+          "feedback": "Yes. A change in the good's own price causes a movement along the demand curve, not a shift."
+        },
+        {
+          "text": "The demand curve shifts left",
+          "feedback": "A shift needs a change in a non-price determinant, such as income or tastes. Here only the croissant's own price changed."
+        },
+        {
+          "text": "The demand curve shifts right",
+          "feedback": "A higher price does not make people want more at every price. And a change in the good's own price never shifts its demand curve."
+        }
+      ],
+      "hints": [
+        "Is the thing that changed the good's own price, or something else?",
+        "A change in the good's own price moves you along a curve. A change in anything else shifts it."
+      ],
+      "worked": "Example: a cinema raises the price of a film from $10 to $12. Fewer people buy seats. On the diagram we move up along the same demand curve, from one point to another. The curve stays where it is.",
+      "explanation": "Demand shows the quantity bought at **every** price. When only the price changes, we read a different point on the same curve: a movement along it, called a change in quantity demanded."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "The price of tea rises. Tea and coffee are substitutes. What happens to the equilibrium in the **coffee** market?",
+      "options": [
+        {
+          "text": "Supply of coffee shifts left: price rises and quantity falls",
+          "feedback": "The price of tea affects coffee buyers, not coffee sellers' costs. So it is a demand change."
+        },
+        {
+          "text": "Movement along the coffee demand curve, no shift",
+          "feedback": "The price of a **related good** changed, not the price of coffee itself. That is a non-price determinant, so the coffee demand curve shifts."
+        },
+        {
+          "text": "Demand for coffee shifts right: price rises and quantity rises",
+          "correct": true,
+          "feedback": "Yes. Some tea drinkers switch to coffee, so demand for coffee rises at every price."
+        },
+        {
+          "text": "Demand for coffee shifts left: price falls and quantity falls",
+          "feedback": "That would happen if tea became **cheaper**. Dearer tea pushes people towards coffee."
+        }
+      ],
+      "hints": [
+        "Does this change affect coffee buyers or coffee sellers?",
+        "If tea is dearer, what do some tea drinkers do instead?"
+      ],
+      "worked": "Example: bus fares rise. Bus and train travel are substitutes. Some people switch to the train, so demand for train travel shifts right. Train fares and the number of train trips both rise.",
+      "explanation": "For substitutes, a higher price of one good raises demand for the other. Demand for coffee shifts right, so the equilibrium price and quantity of coffee both rise."
+    },
+    {
+      "id": "q3",
+      "type": "choice",
+      "level": "core",
+      "prompt": "The government puts an indirect tax on each bottle of juice sold. What happens in the juice market?",
+      "options": [
+        {
+          "text": "Demand shifts left: price falls and quantity falls",
+          "feedback": "The tax is paid by firms to the government, so it changes their costs: a supply change. Buyers' tastes and incomes did not change."
+        },
+        {
+          "text": "Supply shifts right: price falls and quantity rises",
+          "feedback": "That is what a **subsidy** does. A tax raises firms' costs, so supply shifts the other way."
+        },
+        {
+          "text": "Nothing changes, because the tax is paid by firms",
+          "feedback": "Firms supply less when their costs rise. That changes the market equilibrium."
+        },
+        {
+          "text": "Supply shifts left: price rises and quantity falls",
+          "correct": true,
+          "feedback": "Yes. The tax acts like a higher cost per bottle, so firms supply less at every price."
+        }
+      ],
+      "hints": [
+        "Who pays the tax to the government, buyers or firms?",
+        "A tax per unit works like an extra cost of production."
+      ],
+      "worked": "Example: wages for drivers rise. Each taxi ride now costs more to provide, so taxi firms offer fewer rides at every price. Supply shifts left: fares rise and fewer rides are taken.",
+      "explanation": "An [[indirect tax]] raises the cost of supplying each unit. Supply shifts left (up by the tax), so equilibrium price rises and equilibrium quantity falls."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Concert seats are scarce. \"Because the price is high, only fans who are willing and able to pay it get seats.\" Which function of the price mechanism does this sentence describe?",
+      "options": [
+        {
+          "text": "Allocative efficiency",
+          "feedback": "Allocative efficiency is a result of a working market, not one of the three functions of the price mechanism."
+        },
+        {
+          "text": "Rationing",
+          "correct": true,
+          "feedback": "Yes. The price decides who gets the scarce good."
+        },
+        {
+          "text": "Signalling",
+          "feedback": "Signalling is about the **information** a price change sends to buyers and sellers. This sentence is about who gets the seats."
+        },
+        {
+          "text": "Incentive",
+          "feedback": "Incentive is about price giving people a **reason to change** what they do, such as making more. This sentence is about sharing out a scarce good."
+        }
+      ],
+      "hints": [
+        "The three functions are signalling, incentive and rationing.",
+        "The sentence is about **who gets** the good."
+      ],
+      "worked": "Example: \"A higher price for avocados tells farmers that buyers want more avocados.\" This is about information, so it is signalling. \"The higher price makes avocado farming more profitable, so farmers plant more trees.\" That is incentive.",
+      "explanation": "Rationing means price shares out scarce goods. When price is high, only buyers who are willing and able to pay it buy. Others drop out."
+    },
+    {
+      "id": "q5",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Two things happen at once in the market for bicycles: incomes rise (bicycles are a normal good), and a new technology makes bicycles cheaper to build. What can we say for sure about the new equilibrium?",
+      "options": [
+        {
+          "text": "Price falls and quantity rises",
+          "feedback": "This happens only if the supply shift is bigger than the demand shift. We are not told the sizes."
+        },
+        {
+          "text": "Price and quantity are both indeterminate",
+          "feedback": "Look again at quantity: both shifts push quantity up, so quantity rises for sure."
+        },
+        {
+          "text": "Quantity rises, but the change in price is indeterminate",
+          "correct": true,
+          "feedback": "Yes. Both shifts raise quantity. Demand pushes price up and supply pushes it down, so the price change depends on which shift is bigger."
+        },
+        {
+          "text": "Price rises and quantity rises",
+          "feedback": "Demand shifting right pushes price up, but supply shifting right pushes price down. Without knowing the sizes, we cannot say price rises."
+        }
+      ],
+      "hints": [
+        "Take one shift at a time: what does each do to price and to quantity?",
+        "When the two shifts push a variable the same way, we know its direction. When they push opposite ways, we do not."
+      ],
+      "worked": "Example: in the market for apples, tastes move away from apples (demand left) and a storm destroys orchards (supply left). Both shifts lower quantity, so quantity falls. Demand left lowers price, supply left raises it, so the price change is indeterminate.",
+      "explanation": "Demand right: price up, quantity up. Supply right: price down, quantity up. Together, quantity rises for sure, but the price could rise, fall or stay the same. It is **indeterminate** without knowing the size of each shift."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Beef and leather are in joint supply (both come from cattle). Demand for beef rises strongly. What happens in the **leather** market?",
+      "options": [
+        {
+          "text": "Demand for leather shifts right: leather price rises",
+          "feedback": "Beef buyers do not need more leather. The link is on the production side, through the cattle."
+        },
+        {
+          "text": "Supply of leather shifts left: leather price rises",
+          "feedback": "That would fit **competitive** supply, where goods compete for the same resources. In joint supply, more of one means more of the other."
+        },
+        {
+          "text": "Nothing changes in the leather market",
+          "feedback": "Making more beef also makes more hides. That changes the supply of leather."
+        },
+        {
+          "text": "Supply of leather shifts right: leather price falls and quantity rises",
+          "correct": true,
+          "feedback": "Yes. Farmers raise more cattle for beef, which also produces more hides, so more leather is supplied at every price."
+        }
+      ],
+      "hints": [
+        "What does making more beef also produce?",
+        "Joint supply: producing more of one good means producing more of the other."
+      ],
+      "worked": "Example: demand for petrol rises, so refineries process more crude oil. This also produces more diesel, a jointly supplied good. Supply of diesel shifts right, so diesel's price falls.",
+      "explanation": "In [[joint supply]], two goods come from one process. Higher beef demand raises beef output and so the number of hides. Leather supply shifts right: its price falls and quantity rises."
+    },
+    {
+      "id": "q7",
+      "type": "number",
+      "level": "apply",
+      "prompt": "A smoothie stand market starts in equilibrium at $5. Then a heatwave raises demand. Use the schedule. At the **old price of $5**, what is the excess demand (shortage)?",
+      "table": {
+        "caption": "Smoothies per day (invented numbers)",
+        "headers": [
+          "Price ($)",
+          "Quantity demanded before",
+          "Quantity demanded after the heatwave",
+          "Quantity supplied"
+        ],
+        "rows": [
+          [
+            7,
+            30,
+            50,
+            70
+          ],
+          [
+            6,
+            40,
+            60,
+            60
+          ],
+          [
+            5,
+            50,
+            70,
+            50
+          ],
+          [
+            4,
+            60,
+            80,
+            40
+          ]
+        ]
+      },
+      "answer": 20,
+      "suffix": "smoothies",
+      "mistakes": [
+        {
+          "value": 70,
+          "feedback": "70 is the new quantity demanded at $5. Excess demand is the **gap**: quantity demanded minus quantity supplied."
+        },
+        {
+          "value": 50,
+          "feedback": "50 is the quantity supplied at $5 (and the old quantity demanded). Subtract it from the new quantity demanded."
+        },
+        {
+          "value": 0,
+          "feedback": "There was no shortage **before** the heatwave. Use the quantity demanded **after** the heatwave."
+        },
+        {
+          "value": 10,
+          "feedback": "Check the row: use the $5 row, not the new equilibrium at $6."
+        }
+      ],
+      "hints": [
+        "Excess demand = quantity demanded minus quantity supplied, at one price.",
+        "Use the $5 row and the column for demand after the heatwave."
+      ],
+      "worked": "Example with a different price: at $4 after the heatwave, quantity demanded is 80 and quantity supplied is 40. Excess demand = 80 − 40 = 40 smoothies.",
+      "explanation": "At $5 after the heatwave: quantity demanded = 70 and quantity supplied = 50. Excess demand = 70 − 50 = **20 smoothies**. This shortage pushes the price up to the new equilibrium at $6, where 60 are bought and sold."
+    },
+    {
+      "id": "q8",
+      "type": "choice",
+      "level": "core",
+      "hl": true,
+      "prompt": "^HL^ The price of strawberries falls and people buy more. Which explanation of the downward-sloping demand curve is correct?",
+      "options": [
+        {
+          "text": "Farmers supply more strawberries at a lower price",
+          "feedback": "This is about sellers, and the law of supply says they supply **less** at a lower price. The question asks why buyers buy more."
+        },
+        {
+          "text": "Income effect: the same income now buys more. Substitution effect: strawberries are cheaper than other fruit, so people switch to them",
+          "correct": true,
+          "feedback": "Yes. Both effects make quantity demanded rise when price falls."
+        },
+        {
+          "text": "Diminishing marginal utility: each extra punnet gives more satisfaction, so people want more",
+          "feedback": "Diminishing marginal utility says each extra unit gives **less** extra satisfaction. That is why people buy more only at a lower price."
+        },
+        {
+          "text": "The fall in price shifts demand to the right",
+          "feedback": "A change in the good's own price causes a movement along the curve, not a shift."
+        }
+      ],
+      "hints": [
+        "Think about two effects of a lower price: on what your money can buy, and on how the good compares with other goods.",
+        "One effect is about real income. The other is about switching from substitutes."
+      ],
+      "worked": "Example: bus fares fall. A student's weekly pocket money now pays for more trips (income effect). The bus is now cheaper compared with a taxi, so some taxi trips become bus trips (substitution effect).",
+      "explanation": "At HL, demand slopes down because of the **income effect**, the **substitution effect** and the law of **diminishing marginal utility**: each extra unit adds less satisfaction, so consumers buy more only if the price falls."
+    }
+  ],
+  "explain": {
+    "prompt": "Choose one event card you played. Explain, using a demand and supply diagram, how the market moved to its new equilibrium.",
+    "frames": [
+      "The event changed ___, which is a non-price determinant of ___.",
+      "This shifted the ___ curve to the ___ from ___ to ___.",
+      "At the old price there was a ___ of ___, so the price ___.",
+      "The new equilibrium price ___ and the new equilibrium quantity ___."
+    ]
+  },
+  "teacherNotes": "Play the cards as a whole-class prediction game: students hold up D or S and point left or right before you reveal. The 17 shift cards cover every non-price determinant of demand and supply in the guide (2.1, 2.2). Turn on trap mode to practise shift versus movement along a curve; trap cards alternate with shift cards. After each shift, the gap at the old price shows excess demand or excess supply before the price adjusts (2.3 price mechanism), followed by a signalling, incentive or rationing question. The HL challenge and Check it question 8 cover income and substitution effects and diminishing marginal utility (HL 2.1). onComplete fires after 5 cards. Check it question 5 covers simultaneous shifts with an indeterminate outcome."
+}

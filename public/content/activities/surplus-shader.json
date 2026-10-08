@@ -1,0 +1,364 @@
+{
+  "id": "surplus-shader",
+  "outcome": "I can show consumer, producer and community surplus on a diagram, explain why a competitive market at equilibrium is allocatively efficient, and (HL) calculate surplus and welfare loss.",
+  "learn": {
+    "text": "[[Consumer surplus]] is the extra benefit buyers get when they pay less than the most they were willing to pay. On a diagram it is the area **below the demand curve and above the price**. [[Producer surplus]] is the extra benefit sellers get when they receive more than the lowest price they would accept. It is the area **above the supply curve and below the price**.\n\nThe demand curve shows [[marginal benefit]] (MB) and the supply curve shows [[marginal cost]] (MC). At the competitive equilibrium, MB = MC. Here [[community surplus]] (consumer surplus + producer surplus) is as big as it can be, so the market is [[allocatively efficient|allocative efficiency]].\n\nAt any other price, fewer units are traded: the short side of the market decides the quantity. Some units that are worth more to buyers than they cost to make are not produced. The community surplus lost is a [[welfare loss]].\n\n^HL^ To calculate surplus, use the area of a triangle: ½ × base × height. Away from equilibrium, some areas are a rectangle plus a triangle.",
+    "caption": "At equilibrium (Pₑ, Qₑ), demand (MB) meets supply (MC). Consumer surplus (CS, stripes) lies above the price and below demand. Producer surplus (PS, dots) lies below the price and above supply. Together they make community surplus."
+  },
+  "try": {
+    "intro": "**Welcome to Snowcap Ridge** (an invented ski hill). You control the price of a day pass. Drag the price line and watch the surplus areas change. The quantity traded is always the **smaller** of quantity demanded and quantity supplied. Complete any 3 challenges. ^HL^ students: check the dollar values and solve the Calculate it cards.",
+    "lossTarget": 3000,
+    "challenges": [
+      {
+        "id": "max",
+        "text": "Find the price that makes **community surplus** as big as possible."
+      },
+      {
+        "id": "csBigger",
+        "text": "Set a price where **consumer surplus** is bigger than **producer surplus**."
+      },
+      {
+        "id": "loss",
+        "text": "Create a **welfare loss** of at least **$3,000**. Is there a shortage or a surplus?"
+      },
+      {
+        "id": "shift",
+        "text": "Shift demand or supply, then find the **new** price with no welfare loss."
+      },
+      {
+        "id": "calc",
+        "text": "^HL^ Solve one **Calculate it** card before the app shows the answer."
+      }
+    ],
+    "cards": [
+      {
+        "id": "cs-above",
+        "price": 74,
+        "ask": "cs",
+        "prompt": "The ski hill sets the price at **$74**, above equilibrium. Calculate **consumer surplus**. Type your answer, then check it."
+      },
+      {
+        "id": "cs-below",
+        "price": 38,
+        "ask": "cs",
+        "prompt": "Now the price is **$38**, below equilibrium. There is a shortage, so only the quantity supplied is traded. Calculate **consumer surplus**. Tip: this area is a rectangle plus a triangle."
+      },
+      {
+        "id": "wl-below",
+        "price": 38,
+        "ask": "wl",
+        "prompt": "At **$38**, calculate the **welfare loss**. It is the triangle between demand and supply, from the quantity traded to the equilibrium quantity."
+      },
+      {
+        "id": "ps-above",
+        "price": 74,
+        "ask": "ps",
+        "prompt": "At **$74**, calculate **producer surplus**. Tip: this area is a rectangle plus a triangle."
+      }
+    ],
+    "slips": {
+      "noHalf": "Your answer is too big. Did you forget the ½? The area of a triangle is ½ × base × height.",
+      "heightFromZero": "Check the height. Measure the height of the triangle between two prices on the diagram, not from $0.",
+      "equilibrium": "That is the value at the equilibrium price. Use the price on this card instead.",
+      "longSide": "Check the base. Only the **smaller** of quantity demanded and quantity supplied is traded. Use that quantity as the base.",
+      "oneTriangle": "This shape is not one triangle. Below equilibrium, the demand curve stops at the quantity traded. Split the area into a rectangle and a triangle.",
+      "rectOnly": "You found the rectangle. Now add the small triangle above it, up to where demand meets the price axis.",
+      "triOnly": "You found the triangle. Now add the rectangle between the price and the demand curve at the quantity traded.",
+      "heightToPe": "Check the height. The height of the welfare loss triangle is the gap between the demand curve and the supply curve at the quantity traded, not the gap to Pₑ.",
+      "heightOther": "Check the height. Use the full gap between the demand curve and the supply curve at the quantity traded.",
+      "wrongBase": "Check the base. The base of the welfare loss triangle is Qₑ minus the quantity traded.",
+      "other": "Not yet. Find the base and the height on the diagram, then use ½ × base × height. Use the readings above."
+    }
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "A competitive market is in equilibrium at price P₁ and quantity Q₁. Which area shows **consumer surplus**?",
+      "options": [
+        {
+          "text": "The area below the demand curve and above P₁, from 0 to Q₁",
+          "correct": true,
+          "feedback": "Yes. Buyers were willing to pay the amounts on the demand curve, but they only paid P₁. The gap is their surplus."
+        },
+        {
+          "text": "The area above the supply curve and below P₁, from 0 to Q₁",
+          "feedback": "That is **producer surplus**: the gap between the price sellers receive and the lowest price they would accept."
+        },
+        {
+          "text": "The whole area below the demand curve, from 0 to Q₁",
+          "feedback": "That area includes what consumers paid (P₁ × Q₁). Consumer surplus is only the part **above** the price."
+        },
+        {
+          "text": "The area between demand and supply to the right of Q₁",
+          "feedback": "Units to the right of Q₁ are not traded, and there MC is above MB. No surplus is made there."
+        }
+      ],
+      "hints": [
+        "Consumer surplus = what buyers are willing to pay minus what they pay.",
+        "Willingness to pay is shown by the demand curve. What they pay is the price."
+      ],
+      "worked": "Example: at a cinema, one person would pay $15 for a seat but the price is $9. Their consumer surplus is $15 − $9 = $6. Add this up for every seat sold and you get the area under demand and above the price.",
+      "explanation": "Consumer surplus is the area below the demand curve (willingness to pay) and above the price, for the units bought (0 to Q₁)."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Why is **community surplus** as big as possible at the competitive equilibrium?",
+      "options": [
+        {
+          "text": "Because MB = MC: every unit worth more to buyers than it costs to make is produced, and no unit costing more than it is worth is made",
+          "correct": true,
+          "feedback": "Yes. This is allocative efficiency. Producing one more or one less unit would lower community surplus."
+        },
+        {
+          "text": "Because consumer surplus is equal to producer surplus",
+          "feedback": "CS and PS are usually **not** equal at equilibrium. In Snowcap Ridge, CS was $8,000 and PS was $4,000. What matters is MB = MC."
+        },
+        {
+          "text": "Because the price is as low as possible",
+          "feedback": "A lower price makes a shortage. Fewer units are traded, so community surplus falls."
+        },
+        {
+          "text": "Because producers make the biggest possible profit",
+          "feedback": "A higher price could give producers more surplus, but community surplus would fall. Efficiency is about the whole community, not one group."
+        }
+      ],
+      "hints": [
+        "Think about what the demand and supply curves show: MB and MC.",
+        "For a unit to the left of Qₑ, which is bigger: MB or MC?"
+      ],
+      "worked": "Example: a bakery market. For the 50th loaf, MB is $4 and MC is $2, so making it adds $2 to community surplus. For the 90th loaf, MB is $1 and MC is $3, so making it would lower community surplus by $2. Equilibrium is where MB = MC, and every gain is used up.",
+      "explanation": "Demand shows marginal benefit and supply shows marginal cost. Up to Qₑ, MB > MC, so each unit adds to community surplus. After Qₑ, MC > MB. Output at MB = MC gives the largest community surplus: allocative efficiency."
+    },
+    {
+      "id": "q3",
+      "type": "choice",
+      "level": "core",
+      "prompt": "The price is held **above** the equilibrium price. What happens?",
+      "options": [
+        {
+          "text": "Quantity demanded falls below quantity supplied, so fewer units are traded and there is a welfare loss",
+          "correct": true,
+          "feedback": "Yes. Only Qd is bought, so some units with MB > MC are no longer traded. That lost community surplus is the welfare loss."
+        },
+        {
+          "text": "More units are traded, so community surplus rises",
+          "feedback": "Sellers want to sell more, but buyers buy less. The quantity traded is the **smaller** of Qd and Qs, so it falls."
+        },
+        {
+          "text": "Producer surplus must fall to zero",
+          "feedback": "Producers get a higher price on the units they sell, so producer surplus can even rise. Community surplus still falls."
+        },
+        {
+          "text": "There is a shortage, but no welfare loss",
+          "feedback": "A price above equilibrium makes a **surplus** (excess supply), not a shortage. And fewer units are traded, so there is a welfare loss."
+        }
+      ],
+      "hints": [
+        "At a high price, compare quantity demanded and quantity supplied.",
+        "Which one decides how many units are bought and sold?"
+      ],
+      "worked": "Example: if a ski pass is $74 instead of $50, skiers want only 160 passes but the hill would supply 880. Only 160 are sold. The 240 passes between 160 and 400 would have given more benefit than they cost, so their surplus is lost.",
+      "explanation": "Above equilibrium, Qd < Qs, so there is excess supply and only Qd is traded. Units between Qd and Qₑ are lost even though MB > MC for them. Community surplus falls: this is a welfare loss."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "core",
+      "prompt": "What does **producer surplus** measure?",
+      "options": [
+        {
+          "text": "The difference between the price producers receive and the lowest price they would accept to supply each unit",
+          "correct": true,
+          "feedback": "Yes. The supply curve shows the lowest acceptable price (MC). The gap up to the price is the producer's extra benefit."
+        },
+        {
+          "text": "The total revenue firms earn",
+          "feedback": "Total revenue is P × Q. Producer surplus is only the part of revenue above the supply curve."
+        },
+        {
+          "text": "The extra units firms supply when there is excess supply",
+          "feedback": "Excess supply is a quantity, not a surplus measured in dollars. Producer surplus is an area, measured in dollars."
+        },
+        {
+          "text": "The difference between what consumers would pay and what they do pay",
+          "feedback": "That is **consumer surplus**."
+        }
+      ],
+      "hints": [
+        "The supply curve shows the lowest price a producer would accept.",
+        "Surplus is always a gap between two values. Which two values for a producer?"
+      ],
+      "worked": "Example: a farmer would sell a box of apples for $6 (their marginal cost), but the market price is $10. Their producer surplus on that box is $10 − $6 = $4.",
+      "explanation": "Producer surplus is the extra benefit producers get by receiving a price above the lowest price they would accept. On a diagram it is the area above supply and below the price."
+    },
+    {
+      "id": "q5",
+      "type": "number",
+      "level": "core",
+      "hl": true,
+      "prompt": "A market for phone cases is in equilibrium. Use the readings from its diagram to calculate **consumer surplus**.",
+      "table": {
+        "caption": "Market for phone cases (invented numbers)",
+        "headers": [
+          "Reading",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Price where demand meets the price axis",
+            "$24"
+          ],
+          [
+            "Price where supply meets the price axis",
+            "$4"
+          ],
+          [
+            "Equilibrium price",
+            "$10"
+          ],
+          [
+            "Equilibrium quantity",
+            "600 cases"
+          ]
+        ]
+      },
+      "answer": 4200,
+      "prefix": "$",
+      "mistakes": [
+        {
+          "value": 8400,
+          "feedback": "This is twice the answer. Did you forget the ½? The area of a triangle is ½ × base × height."
+        },
+        {
+          "value": 7200,
+          "feedback": "Check the height. Consumer surplus starts at the price ($10), not at $0. The height is $24 − $10."
+        },
+        {
+          "value": 1800,
+          "feedback": "That is **producer surplus** (½ × 600 × (10 − 4)). Consumer surplus is the triangle **above** the price."
+        },
+        {
+          "value": 3000,
+          "feedback": "You used the price ($10) as the height. The height is the gap from the price up to where demand meets the price axis."
+        },
+        {
+          "value": 6000,
+          "feedback": "That is community surplus (CS + PS). The question asks only for consumer surplus."
+        }
+      ],
+      "hints": [
+        "Consumer surplus is a triangle: ½ × base × height.",
+        "The base is the equilibrium quantity. The height is from the price ($10) up to where demand meets the price axis ($24)."
+      ],
+      "worked": "Example with different numbers: demand meets the price axis at $30, the equilibrium price is $18 and the equilibrium quantity is 500. CS = ½ × 500 × (30 − 18) = ½ × 500 × 12 = $3,000.",
+      "explanation": "CS = ½ × base × height = ½ × 600 × (24 − 10) = ½ × 600 × 14 = **$4,200**."
+    },
+    {
+      "id": "q6",
+      "type": "number",
+      "level": "apply",
+      "hl": true,
+      "prompt": "A market for bike helmets has an equilibrium of 600 helmets at $10. The price is set at **$15**, above the equilibrium. Use the readings to calculate the **welfare loss**.",
+      "table": {
+        "caption": "Bike helmets at a price of $15 (invented numbers)",
+        "headers": [
+          "Reading",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Equilibrium",
+            "600 helmets at $10"
+          ],
+          [
+            "Quantity demanded at $15",
+            "400 helmets"
+          ],
+          [
+            "Quantity supplied at $15",
+            "1,000 helmets"
+          ],
+          [
+            "Supply curve at 400 helmets",
+            "$7.50"
+          ]
+        ]
+      },
+      "answer": 750,
+      "prefix": "$",
+      "mistakes": [
+        {
+          "value": 1500,
+          "feedback": "This is twice the answer. Did you forget the ½? Or did you use 400 as the base? The base is 600 − 400 = 200."
+        },
+        {
+          "value": 500,
+          "feedback": "Check the height. You used $15 − $10. The height is the full gap between demand ($15) and supply ($7.50) at 400 helmets."
+        },
+        {
+          "value": 250,
+          "feedback": "Check the height. You used $10 − $7.50. The height is the full gap between demand ($15) and supply ($7.50) at 400 helmets."
+        },
+        {
+          "value": 2250,
+          "feedback": "Check the base. The surplus of 600 helmets (1,000 − 400) is not the base. The lost units are from 400 to the equilibrium, 600. The base is 200."
+        },
+        {
+          "value": 3750,
+          "feedback": "Check the base. Quantity supplied (1,000) is not traded, because buyers only want 400. The base is 600 − 400 = 200."
+        }
+      ],
+      "hints": [
+        "The welfare loss triangle lies between demand and supply, from the quantity traded to the equilibrium quantity.",
+        "Base = 600 − 400. Height = the gap between demand and supply at 400 helmets: $15 − $7.50."
+      ],
+      "worked": "Example with different numbers: Qₑ = 500. At a price above equilibrium, 300 units are traded. At 300 units, demand is at $20 and supply is at $12. Welfare loss = ½ × (500 − 300) × (20 − 12) = ½ × 200 × 8 = $800.",
+      "explanation": "Only 400 helmets are traded (the smaller of Qd and Qs). Welfare loss = ½ × (600 − 400) × (15 − 7.50) = ½ × 200 × 7.50 = **$750**."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A city sets the price of concert seats **below** the equilibrium price. Which statement is correct?",
+      "options": [
+        {
+          "text": "Producer surplus falls, consumers who get seats gain some of it, and community surplus falls because fewer seats are sold",
+          "correct": true,
+          "feedback": "Yes. Part of the old producer surplus moves to consumers as a rectangle. The units between Qs and Qₑ are lost, which is the welfare loss."
+        },
+        {
+          "text": "Consumer surplus must fall, because there is a shortage",
+          "feedback": "Consumers who get a seat pay less, so they gain a rectangle of surplus. Consumer surplus can rise or fall, depending on the size of the lost triangle."
+        },
+        {
+          "text": "Community surplus rises, because seats are cheaper",
+          "feedback": "A lower price only moves surplus from producers to consumers. Fewer seats are sold, so community surplus falls."
+        },
+        {
+          "text": "There is no welfare loss, because every seat offered is sold",
+          "feedback": "Every seat offered is sold, but fewer are offered than at equilibrium. The seats that are no longer offered had MB > MC, so their surplus is lost."
+        }
+      ],
+      "hints": [
+        "Below equilibrium, which is smaller: Qd or Qs? That decides the quantity traded.",
+        "Compare the surplus areas with the equilibrium ones. Which area moves from producers to consumers, and which is lost?"
+      ],
+      "worked": "Example: at Snowcap Ridge, a $38 day pass means only 160 passes are supplied. Producer surplus falls from $4,000 to $640. Consumer surplus changes from $8,000 to $7,040: consumers gain a rectangle but lose a triangle. Community surplus falls by $4,320, the welfare loss.",
+      "explanation": "Below equilibrium, Qs < Qd, so only Qs is traded. Producers lose surplus. Some of it moves to the consumers who still buy (they pay less). The surplus on units between Qs and Qₑ is lost: community surplus falls and there is a welfare loss, so the market is no longer allocatively efficient."
+    }
+  ],
+  "explain": {
+    "prompt": "Explain why the Snowcap Ridge market is allocatively efficient at a price of $50, and what happens to community surplus at a price of $74.",
+    "frames": [
+      "At $50, the demand curve (MB) and the supply curve (MC) ___.",
+      "Community surplus is the sum of ___ and ___.",
+      "At $74, quantity demanded is ___ than quantity supplied, so only ___ passes are traded.",
+      "The passes between ___ and ___ are no longer traded, so there is a welfare loss because ___."
+    ]
+  },
+  "teacherNotes": "Project the dial and ask students to predict the shapes before you move the price: 'Will consumer surplus be a triangle or a trapezium at $38?' The quantity traded is always the short side of the market, which is the key idea behind welfare loss in 2.3 and later price controls (2.8). The dollar values, the working panel and the Calculate it cards are HL only (IB 2.3: calculating CS and PS from a diagram). SL students should still use the shaded areas to explain allocative efficiency (MB = MC) and welfare loss. Calculate it cards hide the panel values at that price until the student checks an answer; common slips (forgetting ½, the wrong height or base) get their own feedback."
+}

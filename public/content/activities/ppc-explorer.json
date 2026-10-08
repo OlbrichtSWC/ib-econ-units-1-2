@@ -1,0 +1,345 @@
+{
+  "id": "ppc-explorer",
+  "outcome": "I can use a PPC to explain scarcity, choice, opportunity cost, unemployment of resources and economic growth.",
+  "learn": {
+    "text": "Every economy faces [[scarcity]]: resources are limited, so it must choose what to produce. A [[production possibilities curve|PPC]] shows the maximum combinations of two goods an economy can make when it uses all its resources fully and efficiently, with given technology.\n\nPoints on the curve are efficient. A point inside the curve means [[unemployment of resources|unemployed resources]], and a point outside cannot be reached yet. Moving along the curve shows [[opportunity cost]]: to make more of one good, you give up some of the other.\n\nWhen resources are not equally good at making both goods, the PPC bows outward and shows [[increasing opportunity cost]]. More or better resources, or new technology, shift the PPC outward. This is [[growth in production possibilities]]. Using unemployed resources moves the economy from inside towards the curve. This is [[actual growth]].",
+    "caption": "A is on the PPC (efficient). B is inside (unemployed resources). C is outside (unattainable for now). The arrow shows growth in production possibilities: PPC₁ shifts out to PPC₂."
+  },
+  "try": {
+    "intro": "**Welcome to Pinewood Island** (an invented economy). Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber. Move workers, complete the missions, then play the event cards. **Predict before you play each card.**",
+    "missions": [
+      {
+        "id": "efficient",
+        "text": "Produce **on** the PPC with at least 30 tonnes of fish."
+      },
+      {
+        "id": "inside",
+        "text": "Show **unemployment of resources**: make the island produce at a point **inside** the PPC."
+      },
+      {
+        "id": "outside",
+        "text": "Tap the diagram to find a point **outside** the PPC. Why can the island not produce there?"
+      },
+      {
+        "id": "rising-cost",
+        "text": "With every worker employed, move one worker into fishing where each extra fish costs **more than 2 tonnes** of timber."
+      },
+      {
+        "id": "constant",
+        "text": "Switch to **constant opportunity cost** and compare the shape of the PPC."
+      },
+      {
+        "id": "event",
+        "text": "Predict and play at least one **event card**."
+      }
+    ],
+    "outcomes": [
+      {
+        "id": "shift-out",
+        "text": "The PPC shifts outward"
+      },
+      {
+        "id": "shift-in",
+        "text": "The PPC shifts inward"
+      },
+      {
+        "id": "pivot-fish",
+        "text": "The PPC pivots out along the fish axis only"
+      },
+      {
+        "id": "pivot-timber-in",
+        "text": "The PPC pivots in along the timber axis only"
+      },
+      {
+        "id": "move-inside",
+        "text": "The island moves to a point inside the PPC"
+      },
+      {
+        "id": "move-toward",
+        "text": "The island moves from inside towards the PPC"
+      }
+    ],
+    "events": [
+      {
+        "id": "nets",
+        "title": "New fishing nets",
+        "text": "A local firm invents a stronger, lighter fishing net. Every worker can now catch 50% more fish. Timber cutting does not change.",
+        "effect": {
+          "fish": 1.5
+        },
+        "correct": "pivot-fish",
+        "explain": "Better technology in fishing lets the island make more fish with the same workers, but no more timber. The PPC pivots outward along the fish axis. The timber end stays where it was. This is growth in production possibilities for fish."
+      },
+      {
+        "id": "recession",
+        "title": "Sawmill closes",
+        "text": "The island's sawmill closes for repairs, and 3 workers lose their jobs. The workers and their skills are still on the island.",
+        "effect": {
+          "jobs": -3
+        },
+        "correct": "move-inside",
+        "explain": "The island still has the same resources and technology, so the PPC does not move. But some workers are unemployed, so the island produces at a point inside the PPC. Inside the curve means unemployment of resources."
+      },
+      {
+        "id": "reopen",
+        "title": "Sawmill reopens",
+        "text": "The sawmill reopens and hires back unemployed workers.",
+        "effect": {
+          "jobs": 3
+        },
+        "correct": "move-toward",
+        "explain": "Putting unemployed workers back to work increases output without any change in resources or technology. The point moves from inside the PPC towards the curve. This is actual growth. The PPC itself does not shift."
+      },
+      {
+        "id": "storm",
+        "title": "Ice storm",
+        "text": "An ice storm destroys a large part of the island's forest. Each worker can now cut only 60% as much timber as before.",
+        "effect": {
+          "timber": 0.6
+        },
+        "correct": "pivot-timber-in",
+        "explain": "A natural disaster that destroys resources reduces what the island can produce. Only timber was harmed, so the timber end of the PPC moves in and the fish end stays where it was. The PPC pivots inward along the timber axis. If the storm had harmed both goods, the whole PPC would shift inward."
+      },
+      {
+        "id": "workers",
+        "title": "New families arrive",
+        "text": "Two new families move to the island, adding 2 workers who are average at both jobs.",
+        "effect": {
+          "addWorkers": 2
+        },
+        "correct": "shift-out",
+        "explain": "More labour means the island can make more of both goods. The whole PPC shifts outward. This is growth in production possibilities."
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "An economy produces at a point **inside** its PPC. What does this show?",
+      "options": [
+        {
+          "text": "Unemployment of resources",
+          "correct": true,
+          "feedback": "Yes. Some resources are not being used, so output is less than the economy could make."
+        },
+        {
+          "text": "The economy is efficient",
+          "feedback": "Efficient points are **on** the curve, where all resources are fully used. A point inside is below the maximum."
+        },
+        {
+          "text": "The combination cannot be produced",
+          "feedback": "That describes a point **outside** the PPC. A point inside can be produced; it is just less than the maximum."
+        },
+        {
+          "text": "Growth in production possibilities",
+          "feedback": "Growth in production possibilities is shown by the whole PPC shifting outward, not by a point inside it."
+        }
+      ],
+      "hints": [
+        "Think about what is different between a point on the curve and a point below it.",
+        "Points on the curve use all resources fully. What is happening to some resources at a point below?"
+      ],
+      "worked": "Example: Pinewood Island can make 55 tonnes of timber with all 10 workers. It makes only 40 tonnes because 3 workers have no job. Output is inside the PPC because resources (labour) are unemployed.",
+      "explanation": "A point inside the PPC means the economy is not using all its resources, or not using them efficiently. Output could rise with no new resources, just by employing the idle ones."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Why does a PPC usually **bow outward** (concave to the origin)?",
+      "options": [
+        {
+          "text": "Resources are not equally suited to making both goods, so opportunity cost increases",
+          "correct": true,
+          "feedback": "Yes. Moving more resources into one good means using resources that are worse at it, so each extra unit costs more of the other good."
+        },
+        {
+          "text": "Opportunity cost is the same for every unit",
+          "feedback": "Constant opportunity cost gives a **straight-line** PPC, not a bowed one."
+        },
+        {
+          "text": "The economy has unemployed resources",
+          "feedback": "Unemployment shows as a point inside the PPC. It does not change the curve's shape."
+        },
+        {
+          "text": "Technology improves over time",
+          "feedback": "Better technology shifts the PPC outward. It does not explain why the curve bows."
+        }
+      ],
+      "hints": [
+        "Remember the bars in the opportunity cost counter. What happened to them as you moved more workers into fishing?",
+        "Were all ten workers equally good at fishing?"
+      ],
+      "worked": "On Pinewood Island the first worker moved into fishing gave up 1 tonne of timber for 10 tonnes of fish (0.1 timber per fish). The last worker gave up 10 tonnes of timber for just 1 tonne of fish (10 timber per fish). The cost of fish rises, so the curve bows outward.",
+      "explanation": "The PPC bows outward because of increasing opportunity cost. Resources are specialised, so the first units of a good use the resources best at making it, and later units use resources better suited to the other good."
+    },
+    {
+      "id": "q3",
+      "type": "number",
+      "level": "core",
+      "prompt": "Use the PPC schedule. The economy moves from point B to point C. What is the **opportunity cost of each extra unit of capital goods**, in consumer goods?",
+      "table": {
+        "caption": "A café-supply economy (invented numbers)",
+        "headers": [
+          "Point",
+          "Capital goods",
+          "Consumer goods"
+        ],
+        "rows": [
+          [
+            "A",
+            0,
+            100
+          ],
+          [
+            "B",
+            10,
+            90
+          ],
+          [
+            "C",
+            20,
+            70
+          ],
+          [
+            "D",
+            30,
+            40
+          ],
+          [
+            "E",
+            40,
+            0
+          ]
+        ]
+      },
+      "answer": 2,
+      "suffix": "consumer goods",
+      "mistakes": [
+        {
+          "value": 20,
+          "feedback": "20 is the total consumer goods given up. Divide by the 10 extra capital goods to find the cost of **each** one."
+        },
+        {
+          "value": 0.5,
+          "feedback": "That is capital goods per consumer good. The question asks how many **consumer goods** are given up per extra capital good."
+        },
+        {
+          "value": 70,
+          "feedback": "70 is the amount of consumer goods made at C, not the amount given up."
+        }
+      ],
+      "hints": [
+        "Opportunity cost = what you give up ÷ what you gain.",
+        "From B to C, consumer goods fall from 90 to 70, and capital goods rise from 10 to 20."
+      ],
+      "worked": "Example with different points: from A to B, consumer goods fall by 100 − 90 = 10 and capital goods rise by 10 − 0 = 10. Opportunity cost = 10 ÷ 10 = 1 consumer good per capital good.",
+      "explanation": "From B to C: consumer goods given up = 90 − 70 = 20. Capital goods gained = 20 − 10 = 10. Opportunity cost = 20 ÷ 10 = **2 consumer goods** per extra capital good."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "core",
+      "prompt": "A country with high unemployment creates jobs for idle workers. Resources and technology do not change. How is this shown on a PPC diagram?",
+      "options": [
+        {
+          "text": "A movement from a point inside the PPC towards the curve (actual growth)",
+          "correct": true,
+          "feedback": "Yes. Output rises because idle resources are used, but the maximum the economy can make has not changed."
+        },
+        {
+          "text": "An outward shift of the PPC",
+          "feedback": "An outward shift needs more or better resources or technology. Here those did not change."
+        },
+        {
+          "text": "A movement along the PPC",
+          "feedback": "A movement along the curve shows reallocating fully employed resources between goods, not using idle resources."
+        },
+        {
+          "text": "An inward shift of the PPC",
+          "feedback": "An inward shift means the economy lost resources, for example from a disaster."
+        }
+      ],
+      "hints": [
+        "Did the economy's resources or technology change?",
+        "If the PPC did not move, what moved?"
+      ],
+      "worked": "Example: after the Pinewood sawmill reopened, 3 workers went back to work. Fish and timber output rose, but the PPC stayed in the same place. The island's point moved from inside towards the curve.",
+      "explanation": "Using unemployed resources is **actual growth**: a movement from inside the PPC towards it. The PPC only shifts outward when the quantity or quality of resources rises or technology improves."
+    },
+    {
+      "id": "q5",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A country can produce robots and wheat. A new robot-making technology is invented. Farming does not change. Which diagram describes the change?",
+      "options": [
+        {
+          "text": "The PPC pivots outward along the robot axis; the wheat end stays the same",
+          "correct": true,
+          "feedback": "Yes. The country can make more robots with the same resources, but the most wheat it can make has not changed."
+        },
+        {
+          "text": "The whole PPC shifts outward equally",
+          "feedback": "An equal outward shift would need better resources for **both** goods. Only robot technology improved."
+        },
+        {
+          "text": "The country moves along its PPC towards robots",
+          "feedback": "A movement along the curve is a choice to reallocate resources. New technology changes the curve itself."
+        },
+        {
+          "text": "Nothing changes until the country chooses to make more robots",
+          "feedback": "The PPC shows what is **possible**. New technology changes what is possible, even before anyone changes what they make."
+        }
+      ],
+      "hints": [
+        "Ask: which maximum changes, the most robots or the most wheat?",
+        "If every resource went to wheat, would the country make more wheat than before?"
+      ],
+      "worked": "Example: on Pinewood Island, new fishing nets raised fish output by 50%. If every worker fished, the island could make more fish. If every worker cut timber, timber output was the same. So only the fish end of the PPC moved out.",
+      "explanation": "New technology for one good raises the maximum of that good only. The PPC pivots outward from the other good's axis. This is growth in production possibilities, mainly for robots."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A government must choose between building more hospitals (capital goods) and producing more consumer goods today. Which statement uses the PPC model correctly?",
+      "options": [
+        {
+          "text": "Choosing more capital goods now means fewer consumer goods today, but it can shift the PPC outward in the future",
+          "correct": true,
+          "feedback": "Yes. The opportunity cost today is consumer goods, but more capital raises the economy's future productive capacity."
+        },
+        {
+          "text": "More capital goods have no opportunity cost because they help the economy grow",
+          "feedback": "Every choice on the PPC has an opportunity cost. On the curve, more capital goods means fewer consumer goods **now**."
+        },
+        {
+          "text": "Producing more capital goods moves the economy inside the PPC",
+          "feedback": "If resources stay fully employed, the economy moves **along** the curve, not inside it."
+        },
+        {
+          "text": "The PPC shifts outward as soon as the hospitals are chosen",
+          "feedback": "The choice itself is a movement along today's PPC. The outward shift comes later, once the new capital adds to productive capacity."
+        }
+      ],
+      "hints": [
+        "Separate what happens today from what may happen in the future.",
+        "Today: is the economy moving along the curve or shifting it? Later: what do more capital goods do to productive capacity?"
+      ],
+      "worked": "Example: a ski hill spends this year building a new chairlift instead of running more lessons. This year it gives up lesson income (opportunity cost). Next year the chairlift lets it serve more skiers, so its possibilities grow.",
+      "explanation": "Today the choice is a movement along the PPC with an opportunity cost in consumer goods. Because capital goods increase future productive capacity, the PPC can shift outward later. This is the trade-off between consumption now and growth in the future."
+    }
+  ],
+  "explain": {
+    "prompt": "Explain, using the PPC, what happened when the ice storm hit Pinewood Island.",
+    "frames": [
+      "Before the storm, the island could produce ___.",
+      "The storm destroyed ___, so the PPC shifted ___.",
+      "This means the opportunity cost of ___ changed because ___.",
+      "This is different from unemployment because ___."
+    ]
+  },
+  "teacherNotes": "Use projector mode and play the event cards as a whole-class prediction game: students show 1 to 5 fingers for the outcome before you play each card. The opportunity cost counter makes increasing opportunity cost visible: bars rise as you move workers into fishing. Compare with constant mode for the straight-line PPC (1.1 diagram: increasing versus constant opportunity cost)."
+}

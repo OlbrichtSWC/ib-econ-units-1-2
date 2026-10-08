@@ -1,0 +1,440 @@
+{
+  "id": "elasticity-cafe",
+  "outcome": "I can calculate PED from data, explain how PED affects total revenue, and use HINTS to explain why demand is elastic or inelastic.",
+  "learn": {
+    "text": "[[Price elasticity of demand]] (PED) measures how much quantity demanded responds to a change in price.\n\n**PED = % change in quantity demanded ÷ % change in price**, where [[percentage change]] = (new − original) ÷ original × 100.\n\nPED is usually negative, because price and quantity demanded move in opposite directions. We judge its size without the minus sign. More than 1 is [[price elastic]]. Less than 1 is [[price inelastic]]. Exactly 1 is [[unitary PED]].\n\n[[Total revenue]] (TR) = price × quantity. When a firm raises its price, two forces pull on TR. The **price pull**: every cup still sold earns more. The **quantity pull**: cups no longer sold earn nothing. If demand is elastic, the quantity pull is bigger, so a price rise **lowers** TR. If demand is inelastic, the price pull is bigger, so a price rise **raises** TR.\n\nHow elastic demand is depends on the [[determinants of PED]]. We use [[HINTS]]: **H**abits, **I**ncome share, **N**ecessity, **T**ime and **S**ubstitutes.",
+    "caption": "The price rises from P₁ ($6) to P₂ ($7). Cups sold fall from Q₁ (160) to Q₂ (120). The price pull (hatched) adds $120. The quantity pull (cross pattern) loses $240. TR falls from $960 to $840, so demand is price elastic here."
+  },
+  "try": {
+    "intro": "**Welcome to your café** (an invented business). You will run it for one week. Each day, choose a price and open the café. Watch how many cups you sell and your [[total revenue]]. The demand curve is **hidden**. At the end of the week, use your own sales data to decide: is demand price elastic or price inelastic? Other things stay the same all week ([[ceteris paribus]]).",
+    "days": 6,
+    "scenarios": [
+      {
+        "id": "latte",
+        "name": "Latte on Market Street",
+        "text": "You sell lattes on a busy street. There are **five other cafés** within one block.",
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 10
+          },
+          "b": {
+            "q": 400,
+            "p": 0
+          }
+        },
+        "priceMin": 5.5,
+        "priceMax": 8.5,
+        "startPrice": 6,
+        "qMax": 250,
+        "pMax": 10,
+        "hints": [
+          {
+            "letter": "H",
+            "text": "Some customers have a daily latte habit, which makes demand a little less elastic."
+          },
+          {
+            "letter": "I",
+            "text": "One latte is a small part of income. On its own, this makes demand less elastic."
+          },
+          {
+            "letter": "N",
+            "text": "A latte is a want, not a need. People can easily go without one."
+          },
+          {
+            "letter": "T",
+            "text": "Customers can switch café right away. It takes no time to walk next door."
+          },
+          {
+            "letter": "S",
+            "text": "Five other cafés sell lattes nearby. Many close substitutes is the strongest factor here, so demand is price elastic."
+          }
+        ]
+      },
+      {
+        "id": "lodge",
+        "name": "Hot chocolate at the ski lodge",
+        "text": "You sell hot chocolate in the **only lodge** at the top of a ski hill. The next café is at the bottom, 20 minutes away by chairlift.",
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 20
+          },
+          "b": {
+            "q": 320,
+            "p": 0
+          }
+        },
+        "priceMin": 3,
+        "priceMax": 8,
+        "startPrice": 4,
+        "qMax": 400,
+        "pMax": 10,
+        "hints": [
+          {
+            "letter": "H",
+            "text": "A hot chocolate after a cold run is a habit for many skiers."
+          },
+          {
+            "letter": "I",
+            "text": "It is a small part of what skiers spend that day. The lift pass costs far more."
+          },
+          {
+            "letter": "N",
+            "text": "Cold, tired skiers feel it is close to a need at that moment."
+          },
+          {
+            "letter": "T",
+            "text": "Skiers want a drink now. They have no time to look for something else."
+          },
+          {
+            "letter": "S",
+            "text": "There are no close substitutes at the top of the hill. So demand is price inelastic."
+          }
+        ]
+      },
+      {
+        "id": "fizz",
+        "name": "Mystery: the Cloud Fizz",
+        "text": "You sell a new sparkling fruit drink called the **Cloud Fizz** at a weekend market. Is demand elastic or inelastic? Find out from your sales.",
+        "mystery": true,
+        "demand": {
+          "a": {
+            "q": 0,
+            "p": 12
+          },
+          "b": {
+            "q": 240,
+            "p": 0
+          }
+        },
+        "priceMin": 6.5,
+        "priceMax": 10,
+        "startPrice": 7.5,
+        "qMax": 150,
+        "pMax": 12,
+        "hints": [
+          {
+            "letter": "H",
+            "text": "The drink is new, so nobody has a habit of buying it yet."
+          },
+          {
+            "letter": "I",
+            "text": "One drink is a small part of income, but this alone does not make demand inelastic."
+          },
+          {
+            "letter": "N",
+            "text": "A fancy fruit drink is a luxury, not a necessity."
+          },
+          {
+            "letter": "T",
+            "text": "Shoppers can walk to another stall in a minute."
+          },
+          {
+            "letter": "S",
+            "text": "The market has many drink stalls with juice, lemonade and water. Many substitutes make demand price elastic."
+          }
+        ]
+      }
+    ],
+    "decision": {
+      "typeQuestion": "In this price range, is demand for your drink price elastic or price inelastic?",
+      "typeOptions": {
+        "elastic": "Price elastic (|PED| more than 1)",
+        "inelastic": "Price inelastic (|PED| less than 1)"
+      },
+      "moveQuestion": "To raise total revenue, should the café raise or lower its price?",
+      "moveOptions": {
+        "raise": "Raise the price",
+        "lower": "Lower the price"
+      }
+    },
+    "feedback": {
+      "typeRight": "Yes. Demand is **price {type}** in this price range.",
+      "typeWrong": "Not this time. Demand is **price {type}** in this price range. Look at your own data below to see why.",
+      "example": "On Day {day} you changed the price from {p1} to {p2} ({pctP}). Cups sold changed from {q1} to {q2} ({pctQ}). PED = {pctQ} ÷ {pctP} = **{ped}**. The size of PED is **{compare} 1**, so quantity demanded changed by a {bigger} percentage than price.",
+      "pattern": "Across the week, your PED values averaged **{mean}** (without the minus sign). In {opposite} of your {changes} price changes, total revenue moved the **opposite** way to price. In {same}, it moved the **same** way as price.",
+      "noData": "You kept the same price all week, so there is no PED to calculate from your data. Next week, change the price on some days and compare.",
+      "moveRight": "Yes. To raise total revenue, the café should **{move}** its price.",
+      "moveWrong": "Not this time. To raise total revenue, the café should **{move}** its price.",
+      "whyElastic": "Demand is elastic, so when the price rises, the quantity pull (revenue lost on cups no longer sold) is bigger than the price pull (extra revenue on cups still sold). A price cut works the other way: the extra cups sold add more revenue than the lower price takes away.",
+      "whyInelastic": "Demand is inelastic, so when the price rises, the price pull (extra revenue on cups still sold) is bigger than the quantity pull (revenue lost on cups no longer sold). Customers keep buying, so a higher price brings in more revenue.",
+      "reveal": "Here is the hidden demand curve D. Your dots all lie on it.",
+      "hl": "^HL^ PED changes as you move along a straight demand curve. In this price range it goes from {pedLow} at {pLow} to {pedHigh} at {pHigh}, but it stays {side} 1 the whole time.",
+      "hintsTitle": "Why? Use HINTS"
+    }
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "number",
+      "level": "core",
+      "prompt": "A food truck raises the price of a taco from **$4.00 to $5.00**. Quantity demanded falls from **200 to 170** tacos a day. Calculate the PED. Give your answer to 2 decimal places.",
+      "answer": -0.6,
+      "tolerance": 0.011,
+      "mistakes": [
+        {
+          "value": -1.67,
+          "feedback": "You divided % change in price by % change in quantity. The formula is the other way up: PED = % change in **quantity demanded** ÷ % change in **price**."
+        },
+        {
+          "value": -0.88,
+          "feedback": "You used the new values ($5.00 and 170) as the base. Percentage change uses the **original** values: (new − original) ÷ original × 100."
+        },
+        {
+          "value": -30,
+          "feedback": "You divided the change in quantity (−30) by the change in price ($1). PED uses **percentage** changes, not the raw changes."
+        },
+        {
+          "value": 0.6,
+          "feedback": "The size is right, but price and quantity demanded moved in opposite directions, so PED is **negative**."
+        }
+      ],
+      "hints": [
+        "Work out the two percentage changes first, then divide.",
+        "% change in price = (5 − 4) ÷ 4 × 100. % change in quantity = (170 − 200) ÷ 200 × 100."
+      ],
+      "worked": "Example with different numbers: price rises from $2.00 to $2.50, so % change in price = 0.50 ÷ 2.00 × 100 = +25%. Quantity falls from 100 to 90, so % change in quantity = −10 ÷ 100 × 100 = −10%. PED = −10 ÷ 25 = −0.4.",
+      "explanation": "% change in price = (5 − 4) ÷ 4 × 100 = +25%. % change in quantity demanded = (170 − 200) ÷ 200 × 100 = −15%. PED = −15 ÷ 25 = **−0.6**. Its size is less than 1, so demand is price inelastic."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "The PED for school bus passes is **−0.3**. What does this tell you?",
+      "options": [
+        {
+          "text": "Demand is price inelastic: a 10% price rise lowers quantity demanded by about 3%",
+          "correct": true,
+          "feedback": "Yes. The minus sign shows price and quantity move in opposite directions. The size, 0.3, is less than 1, so quantity responds by a smaller percentage than price."
+        },
+        {
+          "text": "Demand is price elastic, because PED is negative",
+          "feedback": "The minus sign only shows direction. Almost every PED is negative. To judge elastic or inelastic, look at the size: 0.3 is less than 1."
+        },
+        {
+          "text": "A 10% price rise lowers quantity demanded by 30%",
+          "feedback": "That would be a PED of −3. Use the rearranged formula: % change in quantity = PED × % change in price = −0.3 × 10 = −3%."
+        },
+        {
+          "text": "A 10% price rise raises quantity demanded by 3%",
+          "feedback": "The size is right, but the sign is negative. A higher price means a **lower** quantity demanded."
+        }
+      ],
+      "hints": [
+        "Read the sign and the size separately.",
+        "Is 0.3 bigger or smaller than 1? What does the minus sign show?"
+      ],
+      "worked": "Example: PED for phone cases is −2. The size, 2, is more than 1, so demand is price elastic. A 5% price rise lowers quantity demanded by 2 × 5 = 10%.",
+      "explanation": "The sign shows direction (opposite ways). The size shows how strongly quantity responds. |−0.3| = 0.3 is less than 1, so demand is price inelastic: a 10% price rise gives about a 3% fall in quantity demanded."
+    },
+    {
+      "id": "q3",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Demand for films at a cinema has a PED of **−1.8**. The cinema raises its price. What happens to its [[total revenue]]?",
+      "options": [
+        {
+          "text": "Total revenue falls",
+          "correct": true,
+          "feedback": "Yes. Demand is elastic, so quantity falls by a bigger percentage than price rises. The quantity pull is bigger than the price pull."
+        },
+        {
+          "text": "Total revenue rises",
+          "feedback": "That happens when demand is **inelastic**. Here |PED| = 1.8, which is more than 1, so the lost sales cost more revenue than the higher price brings in."
+        },
+        {
+          "text": "Total revenue stays the same",
+          "feedback": "TR stays the same only when PED is unitary (exactly 1 in size). Here it is 1.8."
+        },
+        {
+          "text": "You cannot tell without knowing the cinema's costs",
+          "feedback": "Total revenue is price × quantity. It does not depend on costs, so PED is enough to answer."
+        }
+      ],
+      "hints": [
+        "Is |−1.8| more or less than 1?",
+        "When demand is elastic, which pull is bigger: the price pull or the quantity pull?"
+      ],
+      "worked": "Example: a gym has PED = −0.5 and raises its fee by 10%. Members fall by only 5%, so the price pull is bigger and total revenue rises.",
+      "explanation": "|PED| = 1.8 is more than 1, so demand is price elastic. A price rise lowers quantity demanded by a bigger percentage, so total revenue falls. To raise revenue, the cinema should lower its price instead."
+    },
+    {
+      "id": "q4",
+      "type": "number",
+      "level": "core",
+      "prompt": "The PED for bread in a town is **−0.4**. A bakery raises its price by **10%**. Calculate the percentage change in quantity demanded.",
+      "answer": -4,
+      "tolerance": 0.01,
+      "suffix": "%",
+      "mistakes": [
+        {
+          "value": -25,
+          "feedback": "You divided 10 by 0.4. Rearrange the formula: % change in quantity = PED × % change in price."
+        },
+        {
+          "value": 25,
+          "feedback": "You divided 10 by 0.4. Rearrange the formula: % change in quantity = PED × % change in price."
+        },
+        {
+          "value": -0.04,
+          "feedback": "Your working is right, but the answer is a percentage. −0.4 × 10 = −4, so the answer is −4%, not −0.04."
+        },
+        {
+          "value": 4,
+          "feedback": "The size is right, but a higher price means quantity demanded **falls**. The answer should be negative."
+        }
+      ],
+      "hints": [
+        "Rearrange PED = % change in Qd ÷ % change in P.",
+        "% change in Qd = PED × % change in P."
+      ],
+      "worked": "Example: PED for concert seats is −2. The price falls by 5%. % change in Qd = −2 × −5 = +10%. Quantity demanded rises by 10%.",
+      "explanation": "% change in quantity demanded = PED × % change in price = −0.4 × 10 = **−4%**. Demand for bread is inelastic, so quantity falls by less than price rises."
+    },
+    {
+      "id": "q5",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Use [[HINTS]]. Which product is likely to have the **most price inelastic** demand?",
+      "options": [
+        {
+          "text": "Insulin for a person with diabetes",
+          "correct": true,
+          "feedback": "Yes. It is a necessity (N) with no close substitutes (S), so people keep buying it even when the price rises."
+        },
+        {
+          "text": "One brand of sports drink",
+          "feedback": "There are many other brands of sports drink. Many close substitutes (S) make demand for one brand elastic."
+        },
+        {
+          "text": "A holiday cruise",
+          "feedback": "A cruise is a luxury, not a necessity (N), and it takes a big share of income (I). Both make demand more elastic."
+        },
+        {
+          "text": "A film at the cinema on a Friday night",
+          "feedback": "People can watch a film at home, go bowling or see friends. Many substitutes (S) make demand fairly elastic."
+        }
+      ],
+      "hints": [
+        "Go through H, I, N, T, S for each product.",
+        "Which product is a necessity and has no close substitute?"
+      ],
+      "worked": "Example: compare petrol for a commuter with no bus service, and one brand of chocolate bar. Petrol is a necessity with no close substitutes for that person, so its demand is more inelastic than one brand of chocolate.",
+      "explanation": "Insulin is a necessity with no close substitutes. People with diabetes need it whatever the price. So its demand is very price inelastic. The other products all have substitutes or are luxuries."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Fuel prices rise. In the first month, drivers buy almost the same amount of fuel. After two years, many have switched to electric bikes and buses, and fuel sales have fallen a lot. Which HINTS determinant explains this best?",
+      "options": [
+        {
+          "text": "Time",
+          "correct": true,
+          "feedback": "Yes. Over a longer time, people find and switch to substitutes, so demand becomes more price elastic."
+        },
+        {
+          "text": "Habits",
+          "feedback": "Habits make demand **less** elastic. The key change here is that people had **time** to find alternatives."
+        },
+        {
+          "text": "Income share",
+          "feedback": "The share of income spent on fuel did not change much between the first month and two years later. What changed was the time to adjust."
+        },
+        {
+          "text": "Necessity",
+          "feedback": "Fuel was a necessity in both periods. The difference is that, given time, people found other ways to travel."
+        }
+      ],
+      "hints": [
+        "What is different between the first month and two years later?",
+        "Think about how long people need to find another way to travel."
+      ],
+      "worked": "Example: when the price of home heating oil rises, families cannot change their heating system in a week. After a few years, many install heat pumps. Demand for oil is more elastic in the long run.",
+      "explanation": "The longer the time period, the more price elastic demand becomes, because consumers have time to find substitutes and change their behaviour."
+    },
+    {
+      "id": "q7",
+      "type": "number",
+      "level": "apply",
+      "prompt": "A café sells **300 cups** of tea a week at **$5.00**. PED for its tea is **−1.5**. The café raises its price by **10%** to **$5.50**. Calculate its **new total revenue**.",
+      "answer": 1402.5,
+      "tolerance": 0.5,
+      "prefix": "$",
+      "mistakes": [
+        {
+          "value": 1897.5,
+          "feedback": "You made quantity **rise** by 15%. A price rise lowers quantity demanded: −1.5 × 10 = −15%."
+        },
+        {
+          "value": 1540,
+          "feedback": "You divided 10 by 1.5. Use % change in Qd = PED × % change in P = −1.5 × 10 = −15%."
+        },
+        {
+          "value": 1625.25,
+          "feedback": "You used a 1.5% fall in quantity. PED × % change in price = −1.5 × 10 = −15%, so quantity falls by 15%, not 1.5%."
+        },
+        {
+          "value": 1275,
+          "feedback": "You found the new quantity (255), but multiplied it by the old price. Use the new price, $5.50."
+        },
+        {
+          "value": -97.5,
+          "feedback": "That is the **change** in total revenue. The question asks for the **new** total revenue."
+        },
+        {
+          "value": 1500,
+          "feedback": "$1,500 is the old total revenue (300 × $5.00). Find the new quantity first."
+        }
+      ],
+      "hints": [
+        "First find the % change in quantity demanded, then the new quantity.",
+        "% change in Qd = −1.5 × 10 = −15%. New quantity = 300 × 0.85. New TR = new price × new quantity."
+      ],
+      "worked": "Example with different numbers: 200 cups at $4.00, PED = −0.5, price rises 20% to $4.80. % change in Qd = −0.5 × 20 = −10%, so 180 cups. New TR = $4.80 × 180 = $864 (up from $800).",
+      "explanation": "% change in Qd = −1.5 × 10 = −15%. New quantity = 300 × 0.85 = 255 cups. New TR = $5.50 × 255 = **$1,402.50**. Old TR was $1,500, so TR fell by $97.50, as expected for elastic demand."
+    },
+    {
+      "id": "q8",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A government wants to put an [[indirect tax]] on one product to **raise as much tax revenue as possible**. Which product should it choose, and why?",
+      "options": [
+        {
+          "text": "Cigarettes, because demand is price inelastic, so quantity falls only a little and the tax is collected on many units",
+          "correct": true,
+          "feedback": "Yes. Smokers have strong habits (H) and few substitutes (S), so sales stay high and the government collects tax on most of them."
+        },
+        {
+          "text": "Restaurant meals, because demand is price elastic, so the price rises a lot",
+          "feedback": "With elastic demand, quantity falls a lot when the tax raises the price. Fewer units are sold, so the government collects less tax."
+        },
+        {
+          "text": "Any product, because PED does not affect tax revenue",
+          "feedback": "Tax revenue = tax per unit × units sold. PED decides how far units sold fall, so it matters a lot."
+        },
+        {
+          "text": "One brand of bottled water, because it is a necessity",
+          "feedback": "Water is a necessity, but **one brand** has many close substitutes. Buyers switch to other brands, so demand for it is elastic."
+        }
+      ],
+      "hints": [
+        "Tax revenue = tax per unit × number of units sold.",
+        "For which product will the number of units sold fall the least when the price rises?"
+      ],
+      "worked": "Example: a $1 tax on a good with inelastic demand cuts sales from 1,000 to 950 units, so tax revenue = $950. The same tax on a good with elastic demand cuts sales from 1,000 to 600, so tax revenue = $600.",
+      "explanation": "Governments raise more tax revenue from goods with price inelastic demand, because quantity falls only a little after the tax. This is why many governments tax cigarettes, alcohol and fuel. Firms use PED in the same way when they set prices."
+    }
+  ],
+  "explain": {
+    "prompt": "Explain, using your sales log, whether demand for your café's drink was price elastic or price inelastic, and what the café should do to raise its total revenue.",
+    "frames": [
+      "On Day ___, I changed the price from ___ to ___, and cups sold changed from ___ to ___.",
+      "The PED was ___, which is ___ than 1 in size, so demand is price ___.",
+      "When I raised the price, total revenue ___ because the ___ pull was bigger.",
+      "Demand was ___ because of HINTS, especially ___."
+    ]
+  },
+  "teacherNotes": "Each scenario has a hidden straight-line demand curve. Its playable price range lies wholly on the elastic part (latte, Cloud Fizz) or wholly on the inelastic part (ski lodge) of the line, so every price change the student makes gives the same answer. Cups sold are whole numbers and every PED in the sales log is worked out from them, using the previous day as the original value. The price pull is the price change on the units sold at both prices: (P₂ − P₁) × the smaller quantity. The quantity pull is the units gained or lost, valued at the lower price: lower price × (Q₂ − Q₁). The two areas never overlap, and together they equal the change in TR. In class: give half the room the latte and half the ski lodge, then compare their sales logs and link the results to HINTS. You can edit the scenarios (demand points, price range, start price, axes and HINTS text) in this file; keep each price range on one side of the unitary point, which the automated tests check. PED changing along a straight line is HL, and is labelled HL in the reveal."
+}
