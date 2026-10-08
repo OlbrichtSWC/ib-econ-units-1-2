@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { equilibrium, priceAt, round, welfareAtPrice } from '../../econ/calc';
 import type { Pt } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { CrossIcon, HlBadge, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, HlBadge, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Area, Arrow, Curve, Diagram, Dot, Guide, Handle, HLine, Label } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { parseNumber } from '../../shared/activity/CheckIt';
@@ -348,7 +348,7 @@ function DialLab({ content, onComplete }: TryProps) {
 
         <div class="stack">
           <div class="panel stack">
-            <h3>At this price</h3>
+            <h3><StepNo n={1} /> Set the price</h3>
             <div>
               <label for="ss-price">Price of a day pass: ${num(price)}</label>
               <div class="row" style={{ flexWrap: 'nowrap' }}>
@@ -405,7 +405,7 @@ function DialLab({ content, onComplete }: TryProps) {
 
       <div class="play">
         <section class="panel stack" aria-labelledby="ss-challenges-h">
-          <h3 id="ss-challenges-h">Challenges ({done.size} of {data.challenges.length})</h3>
+          <h3 id="ss-challenges-h"><StepNo n={2} /> Challenges ({done.size} of {data.challenges.length})</h3>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }} class="stack">
             {data.challenges.map((c) => (
               <li key={c.id} class="row" style={{ flexWrap: 'nowrap', alignItems: 'flex-start' }}>
@@ -423,8 +423,8 @@ function DialLab({ content, onComplete }: TryProps) {
         </section>
 
         <section class="event-card stack" aria-labelledby="ss-card-h">
-          <p class="small muted row" style={{ margin: 0, gap: 8 }}><HlBadge /> Card {(cardIndex % data.cards.length) + 1} of {data.cards.length}</p>
-          <h3 id="ss-card-h">Calculate it: {ASK_NAME[card.ask]} at ${card.price}</h3>
+          <p class="small muted row" style={{ margin: 0, gap: 8 }}><HlBadge /> Problem {(cardIndex % data.cards.length) + 1} of {data.cards.length}</p>
+          <h3 id="ss-card-h"><StepNo n={3} /> Calculate it: {ASK_NAME[card.ask]} at ${card.price}</h3>
           <Md text={card.prompt} />
           <div>
             <p style={{ marginBottom: 4 }}><strong>Readings from the diagram (D₁ and S₁):</strong></p>
@@ -476,7 +476,7 @@ function DialLab({ content, onComplete }: TryProps) {
           )}
           <div class="row">
             {cardOpen && cardTries >= 2 && <button class="btn btn-quiet btn-sm" onClick={revealCard}>Show me the answer</button>}
-            {!cardOpen && <button class="btn" onClick={nextCard}>Next card</button>}
+            {!cardOpen && <button class="btn" onClick={nextCard}>Next problem</button>}
           </div>
         </section>
       </div>

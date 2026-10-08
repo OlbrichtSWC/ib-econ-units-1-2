@@ -8,7 +8,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import { equilibrium, round } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Curve, Diagram, Dot, Guide } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { celebrate } from '../../shared/fun/celebrate';
@@ -173,7 +173,7 @@ export function DoubleShock({ content, onGoal, onComplete }: TryProps) {
         <section key={`${seed}-${pos}`} class="event-card stack card-deal" aria-labelledby="ds-h">
           <div class="row" style={{ justifyContent: 'space-between', gap: 8 }}>
             <p class="small muted" style={{ margin: 0 }}>
-              Level 3: card {Math.min(results.length + (locked ? 0 : 1), DOUBLE_ROUND)} of {DOUBLE_ROUND}
+              Level 3: scenario {Math.min(results.length + (locked ? 0 : 1), DOUBLE_ROUND)} of {DOUBLE_ROUND}
             </p>
             <ol class="round-track" aria-label={`This round: ${roundRight} right out of ${results.length} played`}>
               {Array.from({ length: DOUBLE_ROUND }, (_, i) => (
@@ -183,7 +183,7 @@ export function DoubleShock({ content, onGoal, onComplete }: TryProps) {
               ))}
             </ol>
           </div>
-          <h3 id="ds-h">Double shock</h3>
+          <h3 id="ds-h"><StepNo n={2} /> Double shock</h3>
           <div class="double-events">
             <div class="callout">
               <p style={{ margin: 0 }}><strong>Event 1: {dCard.title}</strong></p>
@@ -234,7 +234,7 @@ export function DoubleShock({ content, onGoal, onComplete }: TryProps) {
                   <div><button class="btn" onClick={nextCard}>Start a new round</button></div>
                 </>
               ) : (
-                <div><button class="btn" onClick={nextCard}>Draw the next pair</button></div>
+                <div><button class="btn" onClick={nextCard}>Next pair</button></div>
               )}
             </div>
           )}

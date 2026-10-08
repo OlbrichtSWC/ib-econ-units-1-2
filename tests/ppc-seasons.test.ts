@@ -88,3 +88,22 @@ describe('PPC Explorer: season levels get harder', () => {
     expect(yearWon(l, [true, true, true], 3)).toBe(false);
   });
 });
+
+describe('PPC Explorer: missions', () => {
+  const missions = (content.try as unknown as { missions: { id: string; title: string; text: string; how: string[]; done: string }[] }).missions;
+  it('every mission says what to do, how to do it, and why it matters', () => {
+    expect(missions).toHaveLength(6);
+    missions.forEach((m) => {
+      expect(m.title, m.id).toBeTruthy();
+      expect(m.how.length, m.id).toBeGreaterThanOrEqual(2);
+      expect(m.done, m.id).toBeTruthy();
+    });
+  });
+
+  it('the rising-cost mission can be done: one move into fishing costs more than 2 tonnes of timber per fish', () => {
+    const w = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+    const costs = w.map((f) => (11 - f) / f);
+    expect(costs.some((c) => c > 2)).toBe(true);
+    expect(costs[7]).toBeCloseTo(8 / 3, 5);
+  });
+});

@@ -7,7 +7,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { classifyPed, pedAtPoint, priceAt, Pt, quantityAt, round, totalRevenue } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { HlBadge, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { HlBadge, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Area, Curve, Diagram, Dot, Guide, Halo, Handle, Label, TONE, useDiagram } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { play } from '../../shared/fun/sound';
@@ -261,7 +261,7 @@ function Explore({ content, onComplete }: TryProps) {
 
         <div class="stack">
           <div class="panel stack">
-            <h3>Your rental price</h3>
+            <h3><StepNo n={1} /> Set your rental price</h3>
             <div class="row" role="group" aria-label="Change the price">
               <button class="btn btn-secondary btn-sm" aria-label="Cut the price by $1" disabled={price <= 1} onClick={() => setPrice(price - 1, true)}>− $1</button>
               <button class="btn btn-secondary btn-sm" aria-label="Cut the price by 50 cents" disabled={price <= 1} onClick={() => setPrice(price - 0.5, true)}>− $0.50</button>
@@ -292,7 +292,7 @@ function Explore({ content, onComplete }: TryProps) {
           </div>
 
           <section class="panel stack" aria-labelledby="challenges-h">
-            <h3 id="challenges-h">Discovery challenges ({done.size} of {data.challenges.length})</h3>
+            <h3 id="challenges-h"><StepNo n={2} /> Discovery challenges ({done.size} of {data.challenges.length})</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }} class="stack">
               {data.challenges.map((c) => (
                 <li key={c.id} class="row" style={{ flexWrap: 'nowrap', alignItems: 'flex-start' }}>
@@ -318,7 +318,7 @@ function Explore({ content, onComplete }: TryProps) {
             <h3 id="schedule-h">Demand schedule</h3>
             <div class="table-scroll">
               <table class="table">
-                <caption class="muted small" style={{ textAlign: 'left', paddingBottom: 4 }}>Riverside Bikes (invented numbers)</caption>
+                <caption class="muted small" style={{ textAlign: 'left', paddingBottom: 4 }}>Riverside Bikes</caption>
                 <thead>
                   <tr>
                     <th scope="col">Price ($)</th>
@@ -346,7 +346,7 @@ function Explore({ content, onComplete }: TryProps) {
       </div>
 
       <section class="panel stack" aria-labelledby="why-h">
-        <h3 id="why-h">{data.why.title} <HlBadge /></h3>
+        <h3 id="why-h"><StepNo n={3} /> {data.why.title} <HlBadge /></h3>
         <Md text={data.why.text} />
         <p style={{ margin: 0 }}>
           <strong>At your point:</strong> a $1 change is {Math.abs(check.pctP).toFixed(2)}% of the price, and the 10 rentals that follow are{' '}
@@ -365,7 +365,7 @@ function SpecialCurves({ data }: { data: TryContent['special'] }) {
   const hyper = unitaryCurve(200, 9.5, 95, 40);
   return (
     <section class="panel stack" aria-labelledby="special-h">
-      <h3 id="special-h">{data.title}</h3>
+      <h3 id="special-h"><StepNo n={4} /> {data.title}</h3>
       <Md text={data.note} />
       <div style={{ display: 'grid', gap: 16, gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
         <figure style={{ margin: 0 }}>

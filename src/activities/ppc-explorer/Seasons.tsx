@@ -7,7 +7,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import { PpcSchedule, ppcPosition, round } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Area, Curve, Diagram, Dot, Guide } from '../../shared/diagrams/Diagram';
 import { celebrate } from '../../shared/fun/celebrate';
 import { play } from '../../shared/fun/sound';
@@ -226,7 +226,7 @@ export function Seasons(props: {
             Season {index + 1} of {seasons.length}
           </p>
           <h3 id="season-h">
-            <span aria-hidden="true">{season.icon}</span> {season.name}
+            <StepNo n={2} /> <span aria-hidden="true">{season.icon}</span> {season.name}
           </h3>
 
           {season.event && (

@@ -6,7 +6,7 @@
     "caption": "Demand shifts right from D₁ to D₂. The equilibrium moves from P₁ and Q₁ to P₂ and Q₂: price rises and quantity rises."
   },
   "try": {
-    "intro": "**Welcome to Riverton** (an invented city). You run the market for **bags of roasted coffee beans**. Every card starts from the same market, at $5 and 50 bags (ceteris paribus).\n\n1. Read the event card and **predict**: which curve shifts, and which way?\n2. **Drag the curve** on the diagram.\n3. Watch the shortage or surplus at the old price, then let the price adjust.\n4. Say which function of the price mechanism the card shows.\n\nThere are three levels. Each opens when you earn the stamp for the level before.",
+    "intro": "**Welcome to Riverton**. You run the market for **bags of roasted coffee beans**. Every scenario starts from the same market, at $5 and 50 bags (ceteris paribus).\n\n1. Read the event scenario and **predict**: which curve shifts, and which way?\n2. **Drag the curve** on the diagram.\n3. Watch the shortage or surplus at the old price, then let the price adjust.\n4. Say which function of the price mechanism the scenario shows.\n\nThere are three levels. Each opens when you earn the stamp for the level before.",
     "marketName": "Market for coffee beans in Riverton",
     "options": [
       {
@@ -73,7 +73,7 @@
       "rationing": "**Rationing**: price decides who gets a scarce good. When price rises, only buyers willing and able to pay the higher price still buy."
     },
     "hlQuestion": {
-      "prompt": "**HL challenge.** In the trap cards, a lower coffee price makes quantity demanded rise. Which explanation is correct?",
+      "prompt": "**HL challenge.** In the trap scenarios, a lower coffee price makes quantity demanded rise. Which explanation is correct?",
       "options": [
         {
           "text": "Roasters want to sell more at a lower price",
@@ -111,7 +111,7 @@
         "id": "income-inferior",
         "determinant": "Demand: income (inferior good)",
         "title": "Pay rise, goodbye instant coffee",
-        "market": "For this card the market is **store-brand instant coffee**, an **inferior good** in Riverton.",
+        "market": "In this scenario the market is **store-brand instant coffee**, an **inferior good** in Riverton.",
         "text": "Incomes rise across Riverton. Many people stop buying cheap instant coffee and buy better beans instead.",
         "answer": "D-left",
         "explain": "For an [[inferior good]], higher income means people buy **less** at every price. Demand for instant coffee shifts left from D₁ to D₂.",
@@ -280,7 +280,7 @@
         "id": "joint",
         "determinant": "Supply: price of a good in joint supply",
         "title": "Caffeine boom",
-        "market": "For this card the market is **decaf coffee beans**.",
+        "market": "In this scenario the market is **decaf coffee beans**.",
         "text": "Energy drink makers pay much more for caffeine. Taking the caffeine out of coffee beans makes two products at once: caffeine and decaf beans.",
         "answer": "S-right",
         "explain": "Caffeine and decaf beans are in [[joint supply]]: making one also makes the other. The higher price of caffeine makes firms decaffeinate more beans, so the supply of decaf beans shifts right.",
@@ -293,7 +293,7 @@
         "id": "competitive",
         "determinant": "Supply: price of a good in competitive supply",
         "title": "Cocoa price jumps",
-        "market": "For this card the market is **green coffee beans from Riverton's hill farms**.",
+        "market": "In this scenario the market is **green coffee beans from Riverton's hill farms**.",
         "text": "The price of cocoa rises sharply. Hill farmers can grow coffee or cocoa on the same land.",
         "answer": "S-left",
         "explain": "Coffee and cocoa are in [[competitive supply]]: they compete for the same land. Cocoa is now more profitable, so farmers grow more cocoa and less coffee. Supply of coffee shifts left.",
@@ -378,18 +378,18 @@
     "levels": [
       {
         "title": "Single shifts",
-        "blurb": "One curve shifts on each card. Get 6 of 8 right."
+        "blurb": "One curve shifts in each scenario. Get 6 of 8 right."
       },
       {
         "title": "Shift or movement?",
-        "blurb": "Trap cards, shifts of different sizes, and you predict the new price and quantity. Get 6 of 8 right."
+        "blurb": "Trap scenarios, shifts of different sizes, and you predict the new price and quantity. Get 6 of 8 right."
       },
       {
         "title": "Double shocks",
         "blurb": "Two events hit the market at once. Predict both shifts, then price and quantity. Get 4 of 6 right."
       }
     ],
-    "goal": "Read each event card and predict how the market reacts. Get 6 of 8 right to earn the **Market Mover** stamp."
+    "goal": "Read each scenario and predict how the market reacts. Get 6 of 8 right to earn the **Market Mover** stamp."
   },
   "check": [
     {
@@ -584,7 +584,7 @@
       "level": "apply",
       "prompt": "A smoothie stand market starts in equilibrium at $5. Then a heatwave raises demand. Use the schedule. At the **old price of $5**, what is the excess demand (shortage)?",
       "table": {
-        "caption": "Smoothies per day (invented numbers)",
+        "caption": "Smoothies per day",
         "headers": [
           "Price ($)",
           "Quantity demanded before",
@@ -938,7 +938,7 @@
     }
   ],
   "explain": {
-    "prompt": "Choose one event card you played. Explain, using a demand and supply diagram, how the market moved to its new equilibrium.",
+    "prompt": "Choose one scenario you played. Explain, using a demand and supply diagram, how the market moved to its new equilibrium.",
     "frames": [
       "The event changed ___, which is a non-price determinant of ___.",
       "This shifted the ___ curve to the ___ from ___ to ___.",
@@ -952,5 +952,5 @@
       "I gave the new equilibrium price and quantity, and described a diagram with both curves labelled."
     ]
   },
-  "teacherNotes": "Play the cards as a whole-class prediction game: students hold up D or S and point left or right before you reveal. The 17 shift cards cover every non-price determinant of demand and supply in the guide (2.1, 2.2). Turn on trap mode to practise shift versus movement along a curve; trap cards alternate with shift cards. After each shift, the gap at the old price shows excess demand or excess supply before the price adjusts (2.3 price mechanism), followed by a signalling, incentive or rationing question. The HL challenge and Check it question 8 cover income and substitution effects and diminishing marginal utility (HL 2.1). onComplete fires after 5 cards. Check it question 5 covers simultaneous shifts with an indeterminate outcome."
+  "teacherNotes": "Play the scenarios as a whole-class prediction game: students hold up D or S and point left or right before you reveal. The 17 shift scenarios cover every non-price determinant of demand and supply in the guide (2.1, 2.2). Turn on trap mode to practise shift versus movement along a curve; trap scenarios alternate with shift scenarios. After each shift, the gap at the old price shows excess demand or excess supply before the price adjusts (2.3 price mechanism), followed by a signalling, incentive or rationing question. The HL challenge and Check it question 8 cover income and substitution effects and diminishing marginal utility (HL 2.1). onComplete fires after 5 scenarios. Check it question 5 covers simultaneous shifts with an indeterminate outcome."
 }

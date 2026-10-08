@@ -6,31 +6,73 @@
     "caption": "A is on the PPC (efficient). B is inside (unemployed resources). C is outside (unattainable for now). The arrow shows growth in production possibilities: PPC₁ shifts out to PPC₂."
   },
   "try": {
-    "intro": "**Welcome to Pinewood Island** (an invented economy). Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber.\n\n**Four seasons:** plan the island's year. Each season starts with an event: **predict** what it does to the PPC, then choose how many workers fish so the island meets that season's need. There are three levels. Each one opens when you earn the stamp for the level before.\n\n**Free play:** move workers, complete the missions, then play the event cards. Predict before you play each card.",
+    "intro": "**Welcome to Pinewood Island**. Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber.\n\n**Four seasons:** plan the island's year. Each season starts with an event: **predict** what it does to the PPC, then choose how many workers fish so the island meets that season's need. There are three levels. Each one opens when you earn the stamp for the level before.\n\n**Missions:** six short tasks, one at a time. Each mission tells you what to do and how to do it. They teach the controls and the key ideas. Then try the event scenarios: predict before you play each scenario.",
     "missions": [
       {
         "id": "efficient",
-        "text": "Produce **on** the PPC with at least 30 tonnes of fish."
+        "text": "Produce **on** the PPC with at least 30 tonnes of fish.",
+        "title": "Use every worker well",
+        "how": [
+          "Check that **Workers with jobs** shows 10 of 10.",
+          "Use **−** and **+** next to **Workers fishing** to move workers.",
+          "Stop when **Position** says **On the PPC** and **Fish** is 30 tonnes or more."
+        ],
+        "done": "Every worker has a job and the island makes as much as it can. That is **productive efficiency**: a point **on** the PPC."
       },
       {
         "id": "inside",
-        "text": "Show **unemployment of resources**: make the island produce at a point **inside** the PPC."
+        "text": "Show **unemployment of resources**: make the island produce at a point **inside** the PPC.",
+        "title": "Show unemployment",
+        "how": [
+          "Find the **Workers with jobs** slider.",
+          "Move it to the left so some workers have no job.",
+          "Watch the red dot move **inside** the PPC."
+        ],
+        "done": "Some workers have no job, so the island makes less than it could. A point **inside** the PPC shows **unemployment of resources**."
       },
       {
         "id": "outside",
-        "text": "Tap the diagram to find a point **outside** the PPC. Why can the island not produce there?"
+        "text": "Tap the diagram to find a point **outside** the PPC. Why can the island not produce there?",
+        "title": "Find an impossible point",
+        "how": [
+          "Tap or click the diagram **above and to the right** of the curve.",
+          "A label appears to say if your point is inside, on or outside the PPC.",
+          "Try again until it says **outside**."
+        ],
+        "done": "The island cannot make this much with its workers and technology. Points **outside** the PPC are **unattainable** today. Only **growth in production possibilities** (more or better resources, or better technology) could reach them."
       },
       {
         "id": "rising-cost",
-        "text": "With every worker employed, move one worker into fishing where each extra fish costs **more than 2 tonnes** of timber."
+        "text": "With every worker employed, move one worker into fishing where each extra fish costs **more than 2 tonnes** of timber.",
+        "title": "Watch the cost rise",
+        "how": [
+          "Check that **Increasing opportunity cost** is on and **Workers with jobs** shows 10 of 10.",
+          "Press **+** next to **Workers fishing** one worker at a time.",
+          "Read the **Opportunity cost counter** after each move. Keep going until one extra tonne of fish costs **more than 2** tonnes of timber."
+        ],
+        "done": "The last workers to move are great at timber and poor at fishing. So each extra tonne of fish costs more timber. This is **increasing opportunity cost**, and it makes the PPC bow outward."
       },
       {
         "id": "constant",
-        "text": "Switch to **constant opportunity cost** and compare the shape of the PPC."
+        "text": "Switch to **constant opportunity cost** and compare the shape of the PPC.",
+        "title": "Compare a straight PPC",
+        "how": [
+          "Click **Constant opportunity cost** (under the diagram).",
+          "Look at the new shape of the PPC.",
+          "Move workers with **+** and look at the opportunity cost bars."
+        ],
+        "done": "Now every worker is equally good at both jobs. Each extra tonne of fish always costs the same timber, so the PPC is a **straight line**."
       },
       {
         "id": "event",
-        "text": "Predict and play at least one **event card**."
+        "text": "Predict and play at least one **event scenario**.",
+        "title": "Predict an event",
+        "how": [
+          "Scroll down to the **event scenario** (step 3).",
+          "Read it and choose what you think it will do to the PPC.",
+          "Click **See what happens** to see if you were right."
+        ],
+        "done": "Events can **shift** the PPC (resources or technology change) or **move** the island inside or back onto it (jobs change). Try the other scenarios too."
       }
     ],
     "outcomes": [
@@ -369,7 +411,7 @@
         ]
       }
     ],
-    "goal": "Plan Pinewood Island's year in **Four seasons**, or explore freely and complete the missions."
+    "goal": "Plan Pinewood Island's year in **Four seasons**. New to PPCs? Start with **Missions**: six short tasks, one at a time."
   },
   "check": [
     {
@@ -440,7 +482,7 @@
       "level": "core",
       "prompt": "Use the PPC schedule. The economy moves from point B to point C. What is the **opportunity cost of each extra unit of capital goods**, in consumer goods?",
       "table": {
-        "caption": "A café-supply economy (invented numbers)",
+        "caption": "A café-supply economy",
         "headers": [
           "Point",
           "Capital goods",
@@ -1000,5 +1042,5 @@
       "I described a diagram with both axes labelled (fish and timber)."
     ]
   },
-  "teacherNotes": "Use projector mode and play the event cards as a whole-class prediction game: students show 1 to 5 fingers for the outcome before you play each card. The opportunity cost counter makes increasing opportunity cost visible: bars rise as you move workers into fishing. Compare with constant mode for the straight-line PPC (1.1 diagram: increasing versus constant opportunity cost)."
+  "teacherNotes": "Use projector mode and play the event scenarios as a whole-class prediction game: students show 1 to 5 fingers for the outcome before you play each scenario. The opportunity cost counter makes increasing opportunity cost visible: bars rise as you move workers into fishing. Compare with constant mode for the straight-line PPC (1.1 diagram: increasing versus constant opportunity cost)."
 }

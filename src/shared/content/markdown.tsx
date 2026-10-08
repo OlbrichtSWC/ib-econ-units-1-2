@@ -43,14 +43,14 @@ const TOKEN = /(\*\*[^*]+\*\*|\*[^*]+\*|\[\[[^\]]+\]\]|\^HL\^)/g;
 export function renderInline(text: string): ComponentChildren {
   const parts = text.split(TOKEN).filter((p) => p !== '');
   return parts.map((part, i) => {
-    if (part.startsWith('**')) return <strong key={i}>{part.slice(2, -2)}</strong>;
+    if (part.startsWith('**')) return <strong key={i}>{renderInline(part.slice(2, -2))}</strong>;
     if (part.startsWith('[[')) {
       const inner = part.slice(2, -2);
       const [shown, term] = inner.includes('|') ? inner.split('|') : [inner, inner];
       return <GlossaryTerm key={i} term={term.trim()} shown={shown.trim()} />;
     }
     if (part === '^HL^') return <HlBadge key={i} />;
-    if (part.startsWith('*') && part.length > 2) return <em key={i}>{part.slice(1, -1)}</em>;
+    if (part.startsWith('*') && part.length > 2) return <em key={i}>{renderInline(part.slice(1, -1))}</em>;
     return <Fragment key={i}>{part}</Fragment>;
   });
 }

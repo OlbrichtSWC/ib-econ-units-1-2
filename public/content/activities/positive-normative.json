@@ -1,0 +1,741 @@
+{
+ "id": "positive-normative",
+ "outcome": "I can tell positive statements from normative ones, explain how economists test their theories, and place key economic ideas in their century.",
+ "learn": {
+  "text": "Economists study the world in two ways.\n\n**[[Positive economics]]** describes what **is**, was or will be. A positive statement can be tested with **[[empirical evidence]]**. It does not have to be true. It only has to be testable.\n\n**[[Normative economics]]** says what **ought to be**. It contains a **[[value judgement]]**, with words like *should*, *fair*, *better* or *too much*. Evidence cannot settle it, because people hold different values. Policy makers use normative judgements, for example about **[[equity]]** (fairness) and **[[equality]]** (everyone having the same).\n\nPositive economics follows a method. Economists observe the world, make a **[[hypothesis]]**, and build a model. A model holds other things constant: **[[ceteris paribus]]**. They test the model with evidence. If the evidence goes against it, the theory is refuted (**[[refutation]]**) and they try a new hypothesis.\n\nEconomic ideas grew over time. Adam Smith argued for **[[laissez faire]]** in the 18th century. Later came the margin and utility, Say's law and Marx's critique (19th century), Keynes and the monetarists (20th century), and behavioural economics and the circular economy (21st century).",
+  "caption": "The method of positive economics. If the evidence refutes the model, economists go back and try a new hypothesis."
+ },
+ "try": {
+  "goal": "Run the Fact Lab. Sort statements as they roll in, hunt for value words, then test like an economist.",
+  "intro": "**Level 1: The sorting belt.** Statements roll in on the belt. Stamp each one positive (testable) or normative (a value judgement). Watch for traps.\n\n**Level 2: Value word hunt.** Tap the word that makes a statement normative. If there is none, tap **No value word**.\n\n**Level 3: Lab scientist.** Put the steps of the economic method in order, rewrite opinions as testable claims, and place big ideas on the timeline.",
+  "levels": [
+   {
+    "title": "The sorting belt",
+    "blurb": "Stamp 12 statements positive or normative. Get 10 right first time."
+   },
+   {
+    "title": "Value word hunt",
+    "blurb": "Find the value word in 8 statements. Get 7 right first time."
+   },
+   {
+    "title": "Lab scientist",
+    "blurb": "Method, rewrites and timeline. Score 12 of 15 first-try points."
+   }
+  ],
+  "kindNames": {
+   "positive": "Positive",
+   "normative": "Normative"
+  },
+  "kindHints": {
+   "positive": "Can be tested with evidence",
+   "normative": "Contains a value judgement"
+  },
+  "statements": [
+   {
+    "id": "s1",
+    "text": "If the price of coffee rises, people will buy less coffee.",
+    "kind": "positive",
+    "trap": false,
+    "why": "It makes a claim we can check with evidence: watch what happens to coffee sales after a price rise. No value judgement."
+   },
+   {
+    "id": "s2",
+    "text": "The government should make public transport free.",
+    "kind": "normative",
+    "trap": false,
+    "why": "\"Should\" is a value judgement. Evidence cannot prove what the government should do."
+   },
+   {
+    "id": "s3",
+    "text": "Raising the minimum wage will increase unemployment among young workers.",
+    "kind": "positive",
+    "trap": false,
+    "why": "It predicts something we can test with data on jobs before and after a rise. It may be right or wrong, but it is testable."
+   },
+   {
+    "id": "s4",
+    "text": "Every student in this school owns a private jet.",
+    "kind": "positive",
+    "trap": true,
+    "why": "Trap! This is almost certainly false, but it is still **positive**. We can check it with evidence. Positive means testable, not true."
+   },
+   {
+    "id": "s5",
+    "text": "It is unfair that bosses earn far more than their workers.",
+    "kind": "normative",
+    "trap": false,
+    "why": "\"Unfair\" is a value judgement. People with different values will disagree, and no data can settle it."
+   },
+   {
+    "id": "s6",
+    "text": "A tax on sugary drinks will reduce the quantity of sugary drinks bought.",
+    "kind": "positive",
+    "trap": false,
+    "why": "We can test it: compare sales before and after the tax, ceteris paribus."
+   },
+   {
+    "id": "s7",
+    "text": "Sugary drinks ought to be taxed.",
+    "kind": "normative",
+    "trap": false,
+    "why": "\"Ought to\" is a value judgement about what is good. Compare it with the testable claim about sales."
+   },
+   {
+    "id": "s8",
+    "text": "Lower interest rates lead households to borrow more.",
+    "kind": "positive",
+    "trap": false,
+    "why": "A cause and effect claim we can check with data on borrowing. No value word."
+   },
+   {
+    "id": "s9",
+    "text": "The best way to help poor families is to give them cash.",
+    "kind": "normative",
+    "trap": false,
+    "why": "\"Best\" is a value judgement. Best for whom, and by which standard?"
+   },
+   {
+    "id": "s10",
+    "text": "Free trade makes every person in every country richer.",
+    "kind": "positive",
+    "trap": true,
+    "why": "Trap! Most economists would say this is false, because some people lose from free trade. But it is still **positive**: we can test it with evidence."
+   },
+   {
+    "id": "s11",
+    "text": "Too many young people go to university.",
+    "kind": "normative",
+    "trap": false,
+    "why": "\"Too many\" is a value judgement. Data can tell us how many go, but not how many is right."
+   },
+   {
+    "id": "s12",
+    "text": "An inflation rate of 5% is too high.",
+    "kind": "normative",
+    "trap": true,
+    "why": "Trap! It has a number, but \"too high\" is a value judgement. A number does not make a statement positive."
+   }
+  ],
+  "valueRounds": [
+   {
+    "id": "v1",
+    "text": "The government should spend more on schools.",
+    "values": [
+     "should"
+    ],
+    "why": "\"Should\" tells us what someone thinks is right. That is a value judgement."
+   },
+   {
+    "id": "v2",
+    "text": "Petrol is too expensive for families.",
+    "values": [
+     "too"
+    ],
+    "why": "\"Too\" expensive judges the price. We can measure the price, but \"too expensive\" is an opinion."
+   },
+   {
+    "id": "v3",
+    "text": "It is unfair that rent takes half of a nurse's pay.",
+    "values": [
+     "unfair"
+    ],
+    "why": "\"Unfair\" is about fairness, which is a normative idea. The share of pay spent on rent is a fact we could check."
+   },
+   {
+    "id": "v4",
+    "text": "When bus tickets get cheaper, more people take the bus.",
+    "values": [],
+    "why": "No value word. This is a positive statement: we can count bus trips before and after."
+   },
+   {
+    "id": "v5",
+    "text": "Firms ought to pay every worker a living wage.",
+    "values": [
+     "ought"
+    ],
+    "why": "\"Ought\" is a value judgement about what firms must do."
+   },
+   {
+    "id": "v6",
+    "text": "A fairer tax system would take more from the rich.",
+    "values": [
+     "fairer"
+    ],
+    "why": "\"Fairer\" is about equity. People disagree about what is fair, so it is normative."
+   },
+   {
+    "id": "v7",
+    "text": "If income tax rises, households will have less money to spend.",
+    "values": [],
+    "why": "No value word. \"Less\" here is a measurable amount, not a judgement. This is positive."
+   },
+   {
+    "id": "v8",
+    "text": "Cities need more parks and green spaces.",
+    "values": [
+     "need"
+    ],
+    "why": "\"Need\" here is a value judgement: it says what is good for cities. Evidence can show the benefits of parks, but not that cities need them."
+   }
+  ],
+  "methodSteps": [
+   {
+    "id": "observe",
+    "icon": "🔭",
+    "text": "Observe the world and ask a question"
+   },
+   {
+    "id": "hypothesis",
+    "icon": "💡",
+    "text": "Make a hypothesis"
+   },
+   {
+    "id": "model",
+    "icon": "🧩",
+    "text": "Build a model, holding other things constant (ceteris paribus)"
+   },
+   {
+    "id": "test",
+    "icon": "📊",
+    "text": "Test the model against empirical evidence"
+   },
+   {
+    "id": "verdict",
+    "icon": "⚖️",
+    "text": "Accept the theory for now, or refute it"
+   }
+  ],
+  "methodWrong": "Not yet. Think about what a scientist must have before this step.",
+  "rewrites": [
+   {
+    "id": "r1",
+    "claim": "The minimum wage is too low.",
+    "options": [
+     {
+      "text": "A 10% rise in the minimum wage will reduce the number of jobs for young workers.",
+      "correct": true,
+      "feedback": "Yes. This predicts something we can measure, so it is testable."
+     },
+     {
+      "text": "The minimum wage should rise.",
+      "feedback": "\"Should\" is still a value judgement. This is not testable."
+     },
+     {
+      "text": "Young workers deserve better pay.",
+      "feedback": "\"Deserve\" is a value judgement. Evidence cannot prove what people deserve."
+     }
+    ]
+   },
+   {
+    "id": "r2",
+    "claim": "Plastic bags should be banned.",
+    "options": [
+     {
+      "text": "Banning plastic bags is the right thing to do.",
+      "feedback": "\"The right thing\" is a value judgement."
+     },
+     {
+      "text": "A ban on plastic bags will reduce the number of bags found on beaches.",
+      "correct": true,
+      "feedback": "Yes. We can count bags on beaches before and after a ban."
+     },
+     {
+      "text": "Plastic bags are terrible for the planet.",
+      "feedback": "\"Terrible\" is a judgement. A testable version would say what we can measure."
+     }
+    ]
+   },
+   {
+    "id": "r3",
+    "claim": "Public transport ought to be free.",
+    "options": [
+     {
+      "text": "Free public transport would be fairer.",
+      "feedback": "\"Fairer\" is about equity, which is a value judgement."
+     },
+     {
+      "text": "Everyone would love free buses.",
+      "feedback": "This sounds testable, but it is really an opinion about feelings. A testable claim names something we can measure."
+     },
+     {
+      "text": "Making buses free will increase the number of bus trips per week.",
+      "correct": true,
+      "feedback": "Yes. We can count bus trips before and after, ceteris paribus."
+     }
+    ]
+   }
+  ],
+  "ideas": [
+   {
+    "id": "smith",
+    "icon": "🖐️",
+    "text": "Adam Smith and laissez faire: let markets work with little government",
+    "century": "18"
+   },
+   {
+    "id": "margin",
+    "icon": "➕",
+    "text": "Utility and the concept of the margin",
+    "century": "19"
+   },
+   {
+    "id": "marx",
+    "icon": "✊",
+    "text": "Marx's critique of classical economics",
+    "century": "19"
+   },
+   {
+    "id": "keynes",
+    "icon": "🏛️",
+    "text": "The Keynesian revolution and the rise of macroeconomic policy",
+    "century": "20"
+   },
+   {
+    "id": "monetarist",
+    "icon": "🪙",
+    "text": "The monetarist and new classical counter revolution",
+    "century": "20"
+   },
+   {
+    "id": "behaviour",
+    "icon": "🧠",
+    "text": "Behavioural economics: economics meets psychology",
+    "century": "21"
+   },
+   {
+    "id": "circular",
+    "icon": "♻️",
+    "text": "The move toward a circular economy",
+    "century": "21"
+   }
+  ],
+  "centuryNames": {
+   "18": "18th century",
+   "19": "19th century",
+   "20": "20th century",
+   "21": "21st century"
+  },
+  "ideaWrong": "Not this century. Think about which idea had to come first."
+ },
+ "check": [
+  {
+   "id": "q1",
+   "type": "choice",
+   "level": "core",
+   "prompt": "Which statement is **positive**?",
+   "options": [
+    {
+     "text": "Higher bus fares will reduce the number of bus trips.",
+     "feedback": "Yes. We can test it by counting bus trips before and after a fare rise.",
+     "correct": true
+    },
+    {
+     "text": "Bus fares are too high.",
+     "feedback": "\"Too high\" is a value judgement, so this is normative."
+    },
+    {
+     "text": "The council should cut bus fares.",
+     "feedback": "\"Should\" makes this normative."
+    },
+    {
+     "text": "Cheap buses are better for the city.",
+     "feedback": "\"Better\" is a value judgement."
+    }
+   ],
+   "hints": [
+    "Look for a statement with no value word.",
+    "Which statement could you check by collecting data?"
+   ],
+   "worked": "Example: \"A sugar tax will reduce sales of fizzy drinks\" is positive (testable). \"Fizzy drinks should be taxed\" is normative (\"should\").",
+   "explanation": "A **positive** statement can be tested with evidence. It contains no value judgement."
+  },
+  {
+   "id": "q2",
+   "type": "choice",
+   "level": "core",
+   "prompt": "\"All countries that trade grow by 50% a year.\" This statement is almost certainly false. Is it positive or normative?",
+   "options": [
+    {
+     "text": "Positive: it is false, but we can test it with evidence.",
+     "feedback": "Yes. Positive means testable, not true.",
+     "correct": true
+    },
+    {
+     "text": "Normative, because it is false.",
+     "feedback": "False does not mean normative. A normative statement contains a value judgement, and this one does not."
+    },
+    {
+     "text": "Neither: false statements are not economics.",
+     "feedback": "Every statement we can test is positive, even a false one. Testing is how we find out it is false."
+    },
+    {
+     "text": "Normative, because it has a number in it.",
+     "feedback": "Numbers do not decide it. Look for a value word: there is none."
+    }
+   ],
+   "hints": [
+    "Does the statement contain a value word such as should, fair or better?",
+    "Could we check it with data, even if the data would prove it wrong?"
+   ],
+   "worked": "Example: \"The Moon is made of cheese\" is false, but it is a positive statement: we can test it.",
+   "explanation": "A positive statement is **testable**. It can be true or false. Evidence decides."
+  },
+  {
+   "id": "q3",
+   "type": "choice",
+   "level": "core",
+   "prompt": "Which word makes this statement normative? \"Governments ought to protect local farmers from cheap imports.\"",
+   "options": [
+    {
+     "text": "ought",
+     "feedback": "Yes. \"Ought\" is a value judgement about what governments must do.",
+     "correct": true
+    },
+    {
+     "text": "cheap",
+     "feedback": "\"Cheap\" describes a price we can measure. The judgement is in another word."
+    },
+    {
+     "text": "protect",
+     "feedback": "Protecting is an action. The judgement is about whether it is right to do it."
+    },
+    {
+     "text": "imports",
+     "feedback": "Imports are goods bought from other countries. That is a fact, not a judgement."
+    }
+   ],
+   "hints": [
+    "Look for the word that tells us what is right or wrong.",
+    "It is a word like should."
+   ],
+   "worked": "Example: in \"Firms should pay more tax\", the value word is \"should\".",
+   "explanation": "Value words include **should**, **ought**, **fair**, **better**, **too much** and **need**. They make a statement **normative**."
+  },
+  {
+   "id": "q4",
+   "type": "label",
+   "level": "core",
+   "prompt": "This chart shows the method of positive economics. Choose the label for each letter.",
+   "diagram": {
+    "xMax": 100,
+    "yMax": 60,
+    "xLabel": "",
+    "yLabel": "",
+    "noAxes": true,
+    "title": "The method of positive economics",
+    "description": "Five boxes joined by arrows in a loop. The first box says Observe. The others have letters A to D. An arrow from D goes back up to A.",
+    "boxes": [
+     {
+      "at": {
+       "q": 14,
+       "p": 48
+      },
+      "w": 22,
+      "h": 11,
+      "text": "Observe"
+     },
+     {
+      "at": {
+       "q": 50,
+       "p": 48
+      },
+      "w": 24,
+      "h": 11
+     },
+     {
+      "at": {
+       "q": 85,
+       "p": 48
+      },
+      "w": 22,
+      "h": 11
+     },
+     {
+      "at": {
+       "q": 80,
+       "p": 12
+      },
+      "w": 32,
+      "h": 11
+     },
+     {
+      "at": {
+       "q": 35,
+       "p": 12
+      },
+      "w": 32,
+      "h": 11
+     }
+    ],
+    "arrows": [
+     {
+      "from": {
+       "q": 26,
+       "p": 48
+      },
+      "to": {
+       "q": 37,
+       "p": 48
+      }
+     },
+     {
+      "from": {
+       "q": 63,
+       "p": 48
+      },
+      "to": {
+       "q": 73,
+       "p": 48
+      }
+     },
+     {
+      "from": {
+       "q": 88,
+       "p": 42
+      },
+      "to": {
+       "q": 88,
+       "p": 18.5
+      }
+     },
+     {
+      "from": {
+       "q": 63,
+       "p": 12
+      },
+      "to": {
+       "q": 52,
+       "p": 12
+      }
+     },
+     {
+      "from": {
+       "q": 40,
+       "p": 18.5
+      },
+      "to": {
+       "q": 48,
+       "p": 42
+      }
+     }
+    ],
+    "texts": [
+     {
+      "at": {
+       "q": 30,
+       "p": 30
+      },
+      "text": "if refuted",
+      "anchor": "end"
+     }
+    ],
+    "tags": [
+     {
+      "at": {
+       "q": 50,
+       "p": 48
+      },
+      "letter": "A"
+     },
+     {
+      "at": {
+       "q": 85,
+       "p": 48
+      },
+      "letter": "B"
+     },
+     {
+      "at": {
+       "q": 80,
+       "p": 12
+      },
+      "letter": "C"
+     },
+     {
+      "at": {
+       "q": 35,
+       "p": 12
+      },
+      "letter": "D"
+     }
+    ]
+   },
+   "slots": [
+    {
+     "letter": "A",
+     "answer": "Hypothesis",
+     "feedback": "After observing, economists make a hypothesis: a possible explanation."
+    },
+    {
+     "letter": "B",
+     "answer": "Model (ceteris paribus)",
+     "feedback": "The model holds other things constant: ceteris paribus."
+    },
+    {
+     "letter": "C",
+     "answer": "Test with empirical evidence",
+     "feedback": "The model is tested against real-world data."
+    },
+    {
+     "letter": "D",
+     "answer": "Accept or refute",
+     "feedback": "The evidence supports the theory for now, or refutes it. If refuted, economists go back to a new hypothesis."
+    }
+   ],
+   "choices": [
+    "Hypothesis",
+    "Model (ceteris paribus)",
+    "Test with empirical evidence",
+    "Accept or refute",
+    "Value judgement",
+    "Laissez faire"
+   ],
+   "hints": [
+    "A is the first idea after observing the world.",
+    "The arrow from D goes back to A: if the theory is refuted, economists try a new hypothesis."
+   ],
+   "worked": "Example: an economist sees that cinema visits fell (observe). Hypothesis: higher ticket prices caused it. Model: holding incomes and other things constant (ceteris paribus), a higher price lowers quantity demanded. Test: look at ticket data. Accept or refute.",
+   "explanation": "Observe, then make a **hypothesis**, build a **model** with ceteris paribus, **test** it with empirical evidence, then **accept or refute** it."
+  },
+  {
+   "id": "q5",
+   "type": "choice",
+   "level": "core",
+   "prompt": "What does **ceteris paribus** mean in an economic model?",
+   "options": [
+    {
+     "text": "Other things being equal: we change one variable and hold the rest constant.",
+     "feedback": "Yes. It lets us see the effect of one change on its own.",
+     "correct": true
+    },
+    {
+     "text": "Everyone is treated equally.",
+     "feedback": "That is closer to equality. Ceteris paribus is about holding variables constant."
+    },
+    {
+     "text": "The model is always true.",
+     "feedback": "No model is always true. It must be tested with evidence."
+    },
+    {
+     "text": "The government should not intervene.",
+     "feedback": "That describes laissez faire, a normative view."
+    }
+   ],
+   "hints": [
+    "It is Latin. Think about what stays the same in a model.",
+    "We change one thing and keep everything else ..."
+   ],
+   "worked": "Example: \"If the price of tea rises, ceteris paribus, people buy less tea.\" Income, tastes and the price of coffee stay the same.",
+   "explanation": "**Ceteris paribus** means other things being equal. A model changes one variable and holds the others constant."
+  },
+  {
+   "id": "q6",
+   "type": "choice",
+   "level": "apply",
+   "prompt": "Two people agree that a rise in a tax on cigarettes will reduce smoking. One says the tax should rise. The other says it should not. Why can evidence not settle their argument?",
+   "options": [
+    {
+     "text": "Because whether the tax should rise is a value judgement. They hold different values.",
+     "feedback": "Yes. They agree on the positive claim, but disagree on the normative one.",
+     "correct": true
+    },
+    {
+     "text": "Because nobody can measure smoking.",
+     "feedback": "Smoking can be measured. They already agree on what will happen."
+    },
+    {
+     "text": "Because one of them must be lying.",
+     "feedback": "Both can be honest. They weigh the effects differently."
+    },
+    {
+     "text": "Because the tax will not change anything.",
+     "feedback": "They both agree it will reduce smoking."
+    }
+   ],
+   "hints": [
+    "They agree on what will happen. What do they disagree about?",
+    "Is \"should\" testable?"
+   ],
+   "worked": "Example: two friends agree that a later school start means more sleep (positive). They disagree on whether school should start later (normative).",
+   "explanation": "Evidence settles **positive** questions. **Normative** questions depend on value judgements, so people with different values can disagree."
+  },
+  {
+   "id": "q7",
+   "type": "choice",
+   "level": "core",
+   "prompt": "In which century did Adam Smith argue for **laissez faire**?",
+   "options": [
+    {
+     "text": "18th century",
+     "feedback": "Yes. Adam Smith wrote in the 18th century.",
+     "correct": true
+    },
+    {
+     "text": "19th century",
+     "feedback": "The 19th century brought the margin, utility, Say's law and Marx's critique."
+    },
+    {
+     "text": "20th century",
+     "feedback": "The 20th century brought the Keynesian revolution and the monetarist counter revolution."
+    },
+    {
+     "text": "21st century",
+     "feedback": "The 21st century brought behavioural economics and the circular economy."
+    }
+   ],
+   "hints": [
+    "He came before Marx and Keynes.",
+    "He is often called the founder of modern economics."
+   ],
+   "worked": "Example timeline: Smith (18th), Marx (19th), Keynes (20th), behavioural economics (21st).",
+   "explanation": "**Adam Smith** (18th century) argued that markets work best with little government intervention: **laissez faire**."
+  },
+  {
+   "id": "q8",
+   "type": "choice",
+   "level": "apply",
+   "prompt": "Which idea best shows economics working with other subjects in the 21st century?",
+   "options": [
+    {
+     "text": "Behavioural economics, which uses psychology to explain real choices.",
+     "feedback": "Yes. It brings psychology into economics.",
+     "correct": true
+    },
+    {
+     "text": "Say's law",
+     "feedback": "Say's law is classical macroeconomics from the 19th century."
+    },
+    {
+     "text": "Laissez faire",
+     "feedback": "Laissez faire comes from the 18th century."
+    },
+    {
+     "text": "The Keynesian revolution",
+     "feedback": "The Keynesian revolution came in the 20th century."
+    }
+   ],
+   "hints": [
+    "Which idea links economics with how the mind works?",
+    "Its name includes the word behaviour."
+   ],
+   "worked": "Example: people often stay with a default option, even when another option is better for them. Psychology helps explain why.",
+   "explanation": "In the 21st century, economics talks more with other subjects. **Behavioural economics** uses psychology, and the **circular economy** links the economy, society and the environment."
+  }
+ ],
+ "explain": {
+  "prompt": "Choose one statement from the game. Say whether it is positive or normative, and explain how you know. Then write a positive version of a normative statement.",
+  "frames": [
+   "The statement \"___\" is ___, because ___.",
+   "The word ___ shows a value judgement.",
+   "We could test this statement by ___.",
+   "A positive version of \"___\" would be \"___\"."
+  ],
+  "checklist": [
+   "I said whether the statement is positive or normative.",
+   "I explained that positive means testable, not true.",
+   "I named the value word, or said how we could test the claim.",
+   "My positive version can be checked with evidence."
+  ]
+ },
+ "teacherNotes": "Level 1 works well projected: read each statement aloud and ask for a thumbs up (positive) or thumbs down (normative) before a student stamps it. The three traps (a false positive statement, a sweeping false claim, and a normative claim with a number) cause the best discussions. Level 2 shows that one word can carry the judgement; ask students to remove the value word and see if the sentence becomes testable. Level 3 covers the method of positive economics and the history of economic thought from the 1.2 syllabus. Link to TOK: to what extent does the positive and normative distinction exist in other subjects?"
+}

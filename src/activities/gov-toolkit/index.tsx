@@ -9,7 +9,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import { equilibrium, Line, priceAt, Pt, round } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { CrossIcon, HlBadge, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, HlBadge, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Area, Arrow, Curve, Diagram, Dot, Guide, HLine, Label } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
@@ -308,7 +308,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
 
         <div class="stack">
           <section class="event-card stack memo" aria-labelledby="brief-h">
-            <h3 id="brief-h">Mission: {m.title}</h3>
+            <h3 id="brief-h"><StepNo n={2} /> Read the brief: {m.title}</h3>
             <Md text={m.brief} />
             <p style={{ margin: 0 }}>
               <strong>Target:</strong> {targetText(m)}.
@@ -317,7 +317,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
 
           {phase === 'tool' && (
             <section class="stack" aria-labelledby="tools-h">
-              <h3 id="tools-h">Choose your tool</h3>
+              <h3 id="tools-h"><StepNo n={3} /> Choose your tool</h3>
               <div class="tool-grid" role="group" aria-label="Policy tools">
                 {TOOLS.map((t) => (
                   <button key={t} type="button" class="choice-btn tool-card" onClick={() => chooseTool(t)}>
@@ -340,7 +340,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
 
           {phase === 'predict' && tool && (
             <section class="stack" aria-labelledby="pred-h">
-              <h3 id="pred-h">Predict: what will the {data.toolNames[tool].toLowerCase()} do?</h3>
+              <h3 id="pred-h"><StepNo n={4} /> Predict: what will the {data.toolNames[tool].toLowerCase()} do?</h3>
               {PRED_OPTIONS.map((p) => (
                 <div key={p.key} class="stack" style={{ gap: 4 }}>
                   <p style={{ margin: 0 }}><strong>{p.label}</strong></p>
@@ -369,7 +369,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
 
           {live && tool && o && (
             <section class="panel stack" aria-labelledby="set-h">
-              <h3 id="set-h">{data.toolNames[tool]}</h3>
+              <h3 id="set-h"><StepNo n={levelNo >= 2 ? 5 : 4} /> Set the {data.toolNames[tool].toLowerCase()}</h3>
               <div>
                 <label for="policy-size">{sizeText(tool, size, m.per)}</label>
                 <div class="row" style={{ flexWrap: 'nowrap' }}>
@@ -428,7 +428,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
 
           {phase === 'calc' && o && m.calc && (
             <section class="stack" aria-labelledby="calc-h">
-              <h3 id="calc-h">Run the numbers <HlBadge /></h3>
+              <h3 id="calc-h"><StepNo n={6} /> Run the numbers <HlBadge /></h3>
               <p class="small" style={{ margin: 0 }}>Use the diagram and the stakeholder panel. Round to 2 decimal places if you need to.</p>
               {m.calc.map((c, i) => (
                 <div key={c.ask} class="stack" style={{ gap: 4 }}>

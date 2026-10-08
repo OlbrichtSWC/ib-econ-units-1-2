@@ -2,6 +2,7 @@
  * Level 1, 2 and 3 of a game. Each level is harder than the one before, and opens when the
  * student earns the stamp for the level before it. Teacher view opens every level.
  */
+import { StepNo } from '../design/components';
 import { Stamp, StampIcon } from '../fun/Stamp';
 import { levelFlag, levelUnlocked } from '../progress/stamps';
 
@@ -23,6 +24,10 @@ export function LevelPicker(props: {
   stampNames: string[];
 }) {
   return (
+    <div class="stack" style={{ gap: 6 }}>
+    <p class="step-head">
+      <StepNo n={1} /> Choose a level
+    </p>
     <div class="level-picker" role="group" aria-label="Choose a level">
       {props.levels.map((l, i) => {
         const n = i + 1;
@@ -47,6 +52,7 @@ export function LevelPicker(props: {
           </button>
         );
       })}
+    </div>
     </div>
   );
 }

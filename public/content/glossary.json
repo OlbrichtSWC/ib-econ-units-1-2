@@ -503,6 +503,104 @@
       "code": "2.7",
       "hl": true,
       "example": "Demand for cigarettes is price inelastic, so smokers pay most of a cigarette tax."
+    },
+    {
+      "term": "Sustainability",
+      "meaning": "Meeting the needs of people today without reducing the ability of future generations to meet their own needs.",
+      "code": "1.1",
+      "example": "Catching fish no faster than they can breed keeps the fish stock sustainable."
+    },
+    {
+      "term": "Basic economic questions",
+      "meaning": "Every society must decide what and how much to produce, how to produce it, and for whom.",
+      "code": "1.1",
+      "example": "Should a village build houses or boats (what), with machines or by hand (how), and who gets them (for whom)?"
+    },
+    {
+      "term": "Free market economy",
+      "meaning": "An economic system where private owners and prices answer the basic economic questions, with very little government intervention.",
+      "code": "1.1",
+      "example": "Firms make whatever buyers are willing and able to pay for."
+    },
+    {
+      "term": "Planned economy",
+      "meaning": "An economic system where the government owns most resources and decides what, how and for whom to produce.",
+      "code": "1.1",
+      "example": "A planning office sets how many shoes each factory must make."
+    },
+    {
+      "term": "Mixed economy",
+      "meaning": "An economic system that uses both markets and government intervention to answer the basic economic questions. Almost all real economies are mixed.",
+      "code": "1.1",
+      "example": "Shops are private, but schools and hospitals are paid for by taxes."
+    },
+    {
+      "term": "Circular flow of income",
+      "meaning": "A model of the economy. Money flows from firms to households as incomes, and back to firms as spending. Goods, services and factors of production flow the other way.",
+      "code": "1.1",
+      "example": "You earn wages from a shop, then spend them at a café. The café pays its workers, and the money keeps flowing."
+    },
+    {
+      "term": "Leakages",
+      "meaning": "Money that leaves the circular flow of income: savings, taxes and spending on imports.",
+      "code": "1.1",
+      "example": "A family puts part of its pay in the bank. That money does not go straight back to firms as spending."
+    },
+    {
+      "term": "Injections",
+      "meaning": "Money that enters the circular flow of income from outside the household and firm loop: investment, government spending and exports.",
+      "code": "1.1",
+      "example": "A firm borrows to build a new factory. That investment adds spending to the economy."
+    },
+    {
+      "term": "Value judgement",
+      "aliases": [
+        "value judgment",
+        "value judgements"
+      ],
+      "meaning": "An opinion about what is good, right or fair. It cannot be proved or disproved with evidence.",
+      "code": "1.2",
+      "example": "\"Taxes on the rich should rise\" contains a value judgement: \"should\"."
+    },
+    {
+      "term": "Hypothesis",
+      "meaning": "A possible explanation or prediction that can be tested with evidence.",
+      "code": "1.2",
+      "example": "Hypothesis: when bus fares fall, more people take the bus."
+    },
+    {
+      "term": "Empirical evidence",
+      "meaning": "Information from observing or measuring the real world, used to test a theory.",
+      "code": "1.2",
+      "example": "Counting bus trips before and after a fare cut."
+    },
+    {
+      "term": "Refutation",
+      "aliases": [
+        "refuted",
+        "refute"
+      ],
+      "meaning": "Showing with evidence that a theory is wrong. A refuted theory is replaced or changed.",
+      "code": "1.2",
+      "example": "If bus trips do not rise after a fare cut, the hypothesis is refuted."
+    },
+    {
+      "term": "Equity",
+      "meaning": "Fairness. What is fair is a value judgement, so people disagree about it.",
+      "code": "1.2",
+      "example": "Some people think a fair tax system takes a bigger share from people with higher incomes."
+    },
+    {
+      "term": "Equality",
+      "meaning": "Everyone having the same, for example the same income or the same opportunities.",
+      "code": "1.2",
+      "example": "Equal pay for the same job is an example of equality."
+    },
+    {
+      "term": "Laissez faire",
+      "meaning": "The idea that markets work best with very little government intervention. Linked to Adam Smith in the 18th century.",
+      "code": "1.2",
+      "example": "Letting prices, not the government, decide what firms produce."
     }
   ]
 }

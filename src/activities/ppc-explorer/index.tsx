@@ -6,7 +6,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import { opportunityCosts, PpcSchedule, ppcPosition, round } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Arrow, Curve, Diagram, Dot, Guide, Label } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { DataTable } from '../../shared/activity/CheckIt';
@@ -28,9 +28,20 @@ interface EventCard {
   explain: string;
 }
 
+interface Mission {
+  id: string;
+  title: string;
+  /** The task, in markdown. */
+  text: string;
+  /** Step-by-step instructions that name the exact controls. */
+  how: string[];
+  /** The economics, shown once the mission is done. */
+  done: string;
+}
+
 interface TryContent {
   intro: string;
-  missions: { id: string; text: string }[];
+  missions: Mission[];
   outcomes: { id: string; text: string }[];
   events: EventCard[];
   seasonLevels: SeasonLevel[];
@@ -79,8 +90,13 @@ function Try(props: TryProps) {
     <div class="stack">
       <div class="mode-switch" role="group" aria-label="Choose a game">
         <button aria-pressed={mode === 'seasons'} onClick={() => setMode('seasons')}>Four seasons</button>
-        <button aria-pressed={mode === 'free'} onClick={() => setMode('free')}>Free play and missions</button>
+        <button aria-pressed={mode === 'free'} onClick={() => setMode('free')}>Missions</button>
       </div>
+      <p class="small muted" style={{ margin: 0 }}>
+        {mode === 'seasons'
+          ? 'Four seasons: plan the island through a year and earn a stamp at each level. New to PPCs? Try Missions first.'
+          : 'Missions: six short tasks, one at a time. Each one tells you how to do it.'}
+      </p>
       {mode === 'free' ? (
         <FreePlay {...props} />
       ) : (
@@ -99,6 +115,7 @@ function FreePlay({ content, onComplete }: TryProps) {
   const [fishers, setFishers] = useState(5);
   const [lastMove, setLastMove] = useState<{ dFish: number; dTimber: number; index: number } | null>(null);
   const [done, setDone] = useState<Set<string>>(new Set());
+  const [active, setActive] = useState(data.missions[0].id);
   const [tapped, setTapped] = useState<{ q: number; p: number; where: string } | null>(null);
   const [eventIndex, setEventIndex] = useState(0);
   const [prediction, setPrediction] = useState<string | null>(null);
@@ -119,7 +136,7 @@ function FreePlay({ content, onComplete }: TryProps) {
       n.add(id);
       play('correct');
       if (n.size >= 4) onComplete();
-      setAnnounce('Mission complete.');
+      setAnnounce(`Mission complete: ${data.missions.find((m) => m.id === id)?.title ?? ''}.`);
       return n;
     });
   };
@@ -195,6 +212,7 @@ function FreePlay({ content, onComplete }: TryProps) {
   return (
     <div class="stack">
       <LiveRegion text={announce} />
+      <MissionCard missions={data.missions} done={done} active={active} onPick={setActive} />
       <div class="play">
         <div class="stack">
           <Diagram
@@ -247,7 +265,7 @@ function FreePlay({ content, onComplete }: TryProps) {
 
         <div class="stack">
           <div class="panel stack">
-            <h3>Your workers</h3>
+            <h3><StepNo n={2} /> Your workers</h3>
             <div>
               <label for="fishers">Workers fishing: {fishers}</label>
               <div class="row" style={{ flexWrap: 'nowrap' }}>
@@ -291,27 +309,10 @@ function FreePlay({ content, onComplete }: TryProps) {
         </div>
       </div>
 
-      <div class="play">
-        <section class="panel stack" aria-labelledby="missions-h">
-          <h3 id="missions-h">Missions ({done.size} of {data.missions.length})</h3>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }} class="stack">
-            {data.missions.map((m) => (
-              <li key={m.id} class="row" style={{ flexWrap: 'nowrap', alignItems: 'flex-start' }}>
-                <span aria-hidden="true" style={{ color: done.has(m.id) ? 'var(--ok)' : 'var(--line)', flex: 'none' }}>
-                  {done.has(m.id) ? <MarkIcon size={22} /> : <span style={{ display: 'inline-block', width: 22, height: 22, border: '2px solid var(--line)', borderRadius: 4 }} />}
-                </span>
-                <span>
-                  <Md text={m.text} inline />
-                  {done.has(m.id) && <span class="sr-only"> (done)</span>}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
+      <div>
         <section class="event-card stack" aria-labelledby="event-h">
-          <p class="small muted" style={{ margin: 0 }}>Event card {(eventIndex % data.events.length) + 1} of {data.events.length}</p>
-          <h3 id="event-h">{event.title}</h3>
+          <p class="small muted" style={{ margin: 0 }}>Scenario {(eventIndex % data.events.length) + 1} of {data.events.length}</p>
+          <h3 id="event-h"><StepNo n={3} /> {event.title}</h3>
           <Md text={event.text} />
           <p><strong>Predict first:</strong> what will this do?</p>
           <div class="choice-grid" role="group" aria-label="Your prediction">
@@ -323,7 +324,7 @@ function FreePlay({ content, onComplete }: TryProps) {
           </div>
           {!eventResult ? (
             <div>
-              <button class="btn" disabled={!prediction} onClick={playEvent}>Play the card</button>
+              <button class="btn" disabled={!prediction} onClick={playEvent}>See what happens</button>
             </div>
           ) : (
             <div class={`callout ${eventResult.correct ? 'callout-ok' : 'callout-try'}`} role="status">
@@ -333,13 +334,77 @@ function FreePlay({ content, onComplete }: TryProps) {
               </p>
               <Md text={event.explain} />
               <div class="row">
-                <button class="btn" onClick={nextEvent}>Next event card</button>
+                <button class="btn" onClick={nextEvent}>Next scenario</button>
               </div>
             </div>
           )}
         </section>
       </div>
     </div>
+  );
+}
+
+/** One mission at a time: what to do, how to do it, then why it matters. */
+function MissionCard(props: { missions: Mission[]; done: Set<string>; active: string; onPick: (id: string) => void }) {
+  const { missions, done, active } = props;
+  const i = Math.max(0, missions.findIndex((m) => m.id === active));
+  const m = missions[i];
+  const finished = done.has(m.id);
+  const next = missions.slice(i + 1).concat(missions.slice(0, i)).find((x) => !done.has(x.id));
+  return (
+    <section class="panel stack mission-card" aria-labelledby="mission-h">
+      <p class="small muted" style={{ margin: 0 }}>
+        Mission {i + 1} of {missions.length}. {done.size} done.
+      </p>
+      <h3 id="mission-h" style={{ margin: 0 }}><StepNo n={1} /> {m.title}</h3>
+      <p style={{ margin: 0 }}>
+        <Md text={m.text} inline />
+      </p>
+      {finished ? (
+        <div class="callout callout-ok" role="status">
+          <p style={{ fontWeight: 700, display: 'flex', gap: 6, alignItems: 'center', margin: 0 }}>
+            <MarkIcon /> Mission complete
+          </p>
+          <Md text={m.done} />
+          {next ? (
+            <button class="btn" onClick={() => props.onPick(next.id)}>
+              Next mission
+            </button>
+          ) : (
+            <p style={{ margin: 0 }}>
+              <strong>All six missions done.</strong> Now try <strong>Four seasons</strong> at the top to earn a stamp.
+            </p>
+          )}
+        </div>
+      ) : (
+        <div>
+          <p style={{ margin: '0 0 4px' }}>
+            <strong>How to do it:</strong>
+          </p>
+          <ol class="mission-steps">
+            {m.how.map((step, k) => (
+              <li key={k}>
+                <Md text={step} inline />
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+      <div class="row mission-dots" role="group" aria-label="Choose a mission">
+        {missions.map((x, k) => (
+          <button
+            key={x.id}
+            type="button"
+            class="btn btn-quiet btn-sm"
+            aria-pressed={x.id === m.id}
+            aria-label={`Mission ${k + 1}: ${x.title}${done.has(x.id) ? ' (done)' : ''}`}
+            onClick={() => props.onPick(x.id)}
+          >
+            {done.has(x.id) ? <MarkIcon size={16} /> : null} {k + 1}
+          </button>
+        ))}
+      </div>
+    </section>
   );
 }
 

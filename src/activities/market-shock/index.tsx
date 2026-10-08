@@ -8,7 +8,7 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { equilibrium, Line, Pt, quantityAt, round } from '../../econ/calc';
 import { Md } from '../../shared/content/markdown';
-import { CrossIcon, HlBadge, LiveRegion, MarkIcon } from '../../shared/design/components';
+import { CrossIcon, HlBadge, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Arrow, Curve, Diagram, Dot, Guide, Handle, Label, Tone } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { celebrate } from '../../shared/fun/celebrate';
@@ -205,7 +205,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
       setSeed((s) => s + 1);
       setPos(0);
     } else setPos(pos + 1);
-    setAnnounce('New event card drawn.');
+    setAnnounce('New scenario.');
   };
 
 
@@ -251,7 +251,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
     else {
       const who = side === 'demand' ? 'buyers want to buy' : 'firms want to sell';
       setDragMsg(
-        `You dragged the ${curveName} to the ${dir}. A shift ${dir} means ${who} ${dir === 'left' ? 'less' : 'more'} at every price. On this card, ${who} ${dir === 'left' ? 'more' : 'less'}. Try dragging it the other way.`,
+        `You dragged the ${curveName} to the ${dir}. A shift ${dir} means ${who} ${dir === 'left' ? 'less' : 'more'} at every price. In this scenario, ${who} ${dir === 'left' ? 'more' : 'less'}. Try dragging it the other way.`,
       );
       dqRef.current = 0;
       setDq(0);
@@ -457,16 +457,16 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
                 <b>{bags(trapPoint.q)}</b>
               </div>
             )}
-            <div class="stat"><span>Cards played this session</span><b>{played}</b></div>
+            <div class="stat"><span>Scenarios played this session</span><b>{played}</b></div>
             <div class="stat"><span>Predictions right this session (only you see this)</span><b>{correct}</b></div>
-            {played < 5 && <p class="small muted">Play {5 - played} more {5 - played === 1 ? 'card' : 'cards'} to finish this step.</p>}
+            {played < 5 && <p class="small muted">Play {5 - played} more {5 - played === 1 ? 'scenario' : 'scenarios'} to finish this step.</p>}
           </div>
         </div>
 
         <section key={`${seed}-${pos}-${level}`} class="event-card stack card-deal" aria-labelledby="ms-card-h">
           <div class="row" style={{ justifyContent: 'space-between', gap: 8 }}>
             <p class="small muted" style={{ margin: 0 }}>
-              Level {level}: card {Math.min(results.length + 1, ROUND_SIZE)} of {ROUND_SIZE}
+              Level {level}: scenario {Math.min(results.length + 1, ROUND_SIZE)} of {ROUND_SIZE}
             </p>
             <ol class="round-track" aria-label={`This round: ${roundRight} right out of ${results.length} played`}>
               {Array.from({ length: ROUND_SIZE }, (_, i) => (
@@ -476,7 +476,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
               ))}
             </ol>
           </div>
-          <h3 id="ms-card-h">{card.title}</h3>
+          <h3 id="ms-card-h"><StepNo n={2} /> {card.title}</h3>
           {!trap && card.market && <Md text={card.market} />}
           <Md text={card.text} />
           <p><strong>Predict first:</strong> {trap ? <Md inline text={card.question} /> : 'which curve shifts, and which way?'}</p>
@@ -611,7 +611,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
               <p style={{ margin: 0 }}>
                 {roundRight >= ROUND_GOAL
                   ? `Great reading of the market. You earned the ${STAMP_NAMES[level - 1]} stamp.${level < 3 ? ` Level ${level + 1} is now open.` : ''}`
-                  : `Get ${ROUND_GOAL} or more in a round to earn the ${STAMP_NAMES[level - 1]} stamp. Each card teaches you something, so the next round gets easier.`}
+                  : `Get ${ROUND_GOAL} or more in a round to earn the ${STAMP_NAMES[level - 1]} stamp. Each scenario teaches you something, so the next round gets easier.`}
               </p>
               <div>
                 <button
@@ -627,7 +627,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
             </div>
           )}
           {((phase === 'settled' && mech) || phase === 'trap-done') && !roundDone && (
-            <div><button class="btn" onClick={() => { play('tap'); nextCard(); }}>Draw the next card</button></div>
+            <div><button class="btn" onClick={() => { play('tap'); nextCard(); }}>Next scenario</button></div>
           )}
         </section>
       </div>

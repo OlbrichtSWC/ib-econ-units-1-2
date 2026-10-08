@@ -1,7 +1,7 @@
 /** A rubber-stamp picture. Earned stamps are inked in red; stamps not yet earned are a dashed outline. */
 import { ComponentChildren } from 'preact';
 
-export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars';
+export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask';
 
 const ICONS: Record<StampIcon, ComponentChildren> = {
   // Palm tree on an island
@@ -50,6 +50,31 @@ const ICONS: Record<StampIcon, ComponentChildren> = {
       <path d="M30 40l20-12 20 12z" />
       <path d="M30 68h40M32 64h36" />
       <path d="M36 44v18M45 44v18M55 44v18M64 44v18" />
+    </g>
+  ),
+  // A hut with a pointed roof
+  hut: (
+    <g>
+      <path d="M28 50l22-18 22 18" />
+      <path d="M34 46v22h32V46" />
+      <path d="M46 68V56h8v12" />
+    </g>
+  ),
+  // Two arrows chasing each other: a circular flow
+  flow: (
+    <g>
+      <path d="M32 46a18 18 0 0132-8" />
+      <path d="M58 32l6 6-8 2" />
+      <path d="M68 54a18 18 0 01-32 8" />
+      <path d="M42 68l-6-6 8-2" />
+      <circle cx="50" cy="50" r="4" />
+    </g>
+  ),
+  // A lab flask
+  flask: (
+    <g>
+      <path d="M44 28h12M46 28v14L32 66c-1 2 0 4 3 4h30c3 0 4-2 3-4L54 42V28" />
+      <path d="M38 56h24" />
     </g>
   ),
   star: <path d="M50 28l6.5 13.5 14.5 2-10.5 10 2.5 14.5L50 61l-13 7 2.5-14.5-10.5-10 14.5-2z" />,

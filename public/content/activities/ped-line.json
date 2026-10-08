@@ -6,7 +6,7 @@
     "caption": "One straight-line demand curve. Above the midpoint demand is elastic (solid bracket), at the midpoint it is unitary, and below the midpoint it is inelastic (dashed bracket)."
   },
   "try": {
-    "intro": "^HL^ **Welcome to Riverside Bikes** (an invented bike rental shop). Every $1 cut in the daily price adds 10 rentals. Slide the red point along the demand curve. Watch the shaded total revenue box, the TR curve below it, and PED in the panel. Then complete the discovery challenges. Then try **Mystery: hidden points**. It has three levels.",
+    "intro": "^HL^ **Welcome to Riverside Bikes**. Every $1 cut in the daily price adds 10 rentals. Slide the red point along the demand curve. Watch the shaded total revenue box, the TR curve below it, and PED in the panel. Then complete the discovery challenges. Then try **Mystery: hidden points**. It has three levels.",
     "challenges": [
       {
         "id": "unitary",
@@ -306,7 +306,7 @@
       "hl": true,
       "prompt": "Use the demand schedule for kayak hire. Calculate PED when the price **falls from $10 to $8**. Give the size of PED (ignore the minus sign), to 2 decimal places.",
       "table": {
-        "caption": "Lakeside kayak hire (invented numbers)",
+        "caption": "Lakeside kayak hire",
         "headers": [
           "Price ($)",
           "Kayaks hired per day"
