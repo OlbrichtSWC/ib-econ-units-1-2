@@ -589,6 +589,400 @@
       ],
       "worked": "Example: a ski hill spends this year building a new chairlift instead of running more lessons. This year it gives up lesson income (opportunity cost). Next year the chairlift lets it serve more skiers, so its possibilities grow.",
       "explanation": "Today the choice is a movement along the PPC with an opportunity cost in consumer goods. Because capital goods increase future productive capacity, the PPC can shift outward later. This is the trade-off between consumption now and growth in the future."
+    },
+    {
+      "id": "dg1",
+      "type": "label",
+      "level": "core",
+      "prompt": "**Label the diagram.** Choose what each lettered point shows.",
+      "diagram": {
+        "xMax": 14,
+        "yMax": 14,
+        "xLabel": "Good X",
+        "yLabel": "Good Y",
+        "title": "A production possibilities curve with three lettered points",
+        "description": "A curved PPC bowed out from the origin. Point A is on the curve. Point B is inside the curve. Point C is outside the curve.",
+        "curves": [
+          {
+            "points": [
+              {
+                "q": 0.0,
+                "p": 10.0
+              },
+              {
+                "q": 0.872,
+                "p": 9.962
+              },
+              {
+                "q": 1.736,
+                "p": 9.848
+              },
+              {
+                "q": 2.588,
+                "p": 9.659
+              },
+              {
+                "q": 3.42,
+                "p": 9.397
+              },
+              {
+                "q": 4.226,
+                "p": 9.063
+              },
+              {
+                "q": 5.0,
+                "p": 8.66
+              },
+              {
+                "q": 5.736,
+                "p": 8.192
+              },
+              {
+                "q": 6.428,
+                "p": 7.66
+              },
+              {
+                "q": 7.071,
+                "p": 7.071
+              },
+              {
+                "q": 7.66,
+                "p": 6.428
+              },
+              {
+                "q": 8.192,
+                "p": 5.736
+              },
+              {
+                "q": 8.66,
+                "p": 5.0
+              },
+              {
+                "q": 9.063,
+                "p": 4.226
+              },
+              {
+                "q": 9.397,
+                "p": 3.42
+              },
+              {
+                "q": 9.659,
+                "p": 2.588
+              },
+              {
+                "q": 9.848,
+                "p": 1.736
+              },
+              {
+                "q": 9.962,
+                "p": 0.872
+              },
+              {
+                "q": 10.0,
+                "p": 0.0
+              }
+            ],
+            "label": "PPC",
+            "tone": "navy"
+          }
+        ],
+        "dots": [
+          {
+            "at": {
+              "q": 6,
+              "p": 8
+            }
+          },
+          {
+            "at": {
+              "q": 3,
+              "p": 4
+            }
+          },
+          {
+            "at": {
+              "q": 9,
+              "p": 8
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 6.9,
+              "p": 9.1
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 3.9,
+              "p": 5.1
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 9.9,
+              "p": 9.1
+            },
+            "letter": "C"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "Productively efficient: all resources fully used",
+          "feedback": "A is on the PPC. Every point on the curve uses all resources fully and efficiently."
+        },
+        {
+          "letter": "B",
+          "answer": "Unemployed or unused resources",
+          "feedback": "B is inside the PPC. The economy could make more of both goods, so some resources are unemployed or used inefficiently."
+        },
+        {
+          "letter": "C",
+          "answer": "Not possible with current resources and technology",
+          "feedback": "C is outside the PPC. The economy cannot reach it until it has more resources or better technology."
+        }
+      ],
+      "choices": [
+        "Productively efficient: all resources fully used",
+        "Unemployed or unused resources",
+        "Not possible with current resources and technology",
+        "Economic growth has already happened",
+        "Opportunity cost is zero"
+      ],
+      "hints": [
+        "Is each point on the curve, inside it, or outside it?",
+        "On the curve = all resources used. Inside = some resources unused. Outside = cannot be reached yet."
+      ],
+      "worked": "Example: a farm can grow 100 tonnes of wheat or 50 tonnes of corn, or combinations on its PPC. If it grows 40 wheat and 20 corn while that combination is inside the curve, some land or workers are idle. A combination outside the curve needs more land, workers or better technology.",
+      "explanation": "A point **on** the PPC shows productive efficiency: all resources are fully used. A point **inside** shows unemployed or inefficiently used resources. A point **outside** cannot be produced now. It needs more resources or better technology (economic growth)."
+    },
+    {
+      "id": "dg2",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "The PPC moves from PPC₁ to PPC₂. Which event could cause this?",
+      "diagram": {
+        "xMax": 14,
+        "yMax": 14,
+        "xLabel": "Good X",
+        "yLabel": "Good Y",
+        "title": "Two production possibilities curves",
+        "description": "PPC₁ is bowed out from the origin. PPC₂ is further from the origin at every point, so both maximum outputs are higher. An arrow points from PPC₁ to PPC₂.",
+        "curves": [
+          {
+            "points": [
+              {
+                "q": 0.0,
+                "p": 10.0
+              },
+              {
+                "q": 0.872,
+                "p": 9.962
+              },
+              {
+                "q": 1.736,
+                "p": 9.848
+              },
+              {
+                "q": 2.588,
+                "p": 9.659
+              },
+              {
+                "q": 3.42,
+                "p": 9.397
+              },
+              {
+                "q": 4.226,
+                "p": 9.063
+              },
+              {
+                "q": 5.0,
+                "p": 8.66
+              },
+              {
+                "q": 5.736,
+                "p": 8.192
+              },
+              {
+                "q": 6.428,
+                "p": 7.66
+              },
+              {
+                "q": 7.071,
+                "p": 7.071
+              },
+              {
+                "q": 7.66,
+                "p": 6.428
+              },
+              {
+                "q": 8.192,
+                "p": 5.736
+              },
+              {
+                "q": 8.66,
+                "p": 5.0
+              },
+              {
+                "q": 9.063,
+                "p": 4.226
+              },
+              {
+                "q": 9.397,
+                "p": 3.42
+              },
+              {
+                "q": 9.659,
+                "p": 2.588
+              },
+              {
+                "q": 9.848,
+                "p": 1.736
+              },
+              {
+                "q": 9.962,
+                "p": 0.872
+              },
+              {
+                "q": 10.0,
+                "p": 0.0
+              }
+            ],
+            "label": "PPC₁",
+            "tone": "grey",
+            "dashed": true,
+            "labelOffset": {
+              "dx": -34,
+              "dy": -8
+            }
+          },
+          {
+            "points": [
+              {
+                "q": 0.0,
+                "p": 12.5
+              },
+              {
+                "q": 1.09,
+                "p": 12.453
+              },
+              {
+                "q": 2.17,
+                "p": 12.31
+              },
+              {
+                "q": 3.235,
+                "p": 12.074
+              },
+              {
+                "q": 4.275,
+                "p": 11.746
+              },
+              {
+                "q": 5.282,
+                "p": 11.329
+              },
+              {
+                "q": 6.25,
+                "p": 10.825
+              },
+              {
+                "q": 7.17,
+                "p": 10.24
+              },
+              {
+                "q": 8.035,
+                "p": 9.575
+              },
+              {
+                "q": 8.839,
+                "p": 8.839
+              },
+              {
+                "q": 9.575,
+                "p": 8.035
+              },
+              {
+                "q": 10.24,
+                "p": 7.17
+              },
+              {
+                "q": 10.825,
+                "p": 6.25
+              },
+              {
+                "q": 11.329,
+                "p": 5.282
+              },
+              {
+                "q": 11.746,
+                "p": 4.275
+              },
+              {
+                "q": 12.074,
+                "p": 3.235
+              },
+              {
+                "q": 12.31,
+                "p": 2.17
+              },
+              {
+                "q": 12.453,
+                "p": 1.09
+              },
+              {
+                "q": 12.5,
+                "p": 0.0
+              }
+            ],
+            "label": "PPC₂",
+            "tone": "navy"
+          }
+        ],
+        "arrows": [
+          {
+            "from": {
+              "q": 7.3,
+              "p": 7.3
+            },
+            "to": {
+              "q": 8.6,
+              "p": 8.6
+            },
+            "tone": "red"
+          }
+        ]
+      },
+      "options": [
+        {
+          "text": "More workers join the labour force, and new technology helps make both goods",
+          "correct": true,
+          "feedback": "Yes. More resources and better technology raise the maximum output of both goods, so the whole PPC shifts outward."
+        },
+        {
+          "text": "Unemployed workers find jobs",
+          "feedback": "That moves the economy from a point inside the PPC towards the curve. The curve itself does not move."
+        },
+        {
+          "text": "People decide they want more of Good X and less of Good Y",
+          "feedback": "A change in what people want moves the economy along the same PPC. It does not change what the economy can produce."
+        },
+        {
+          "text": "New technology helps make Good X only",
+          "feedback": "Close. That would pivot the PPC outward on the Good X axis only. Here both ends have moved out."
+        }
+      ],
+      "hints": [
+        "Did both ends of the PPC move, or only one?",
+        "The PPC shows what can be produced. Only a change in resources or technology moves it."
+      ],
+      "worked": "Example: a country builds new roads and trains more workers. It can now make more of every good, so its PPC shifts outward. If only farming technology improves, only the farm-goods end moves out (a pivot).",
+      "explanation": "An **outward shift** of the whole PPC is **economic growth** in potential output. It comes from more or better resources (labour, capital, land) or better technology that helps both goods. Fuller use of existing resources is a movement towards the curve, not a shift."
     }
   ],
   "explain": {

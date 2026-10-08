@@ -84,7 +84,16 @@ export const ACTIVITIES: ActivityMeta[] = [
   },
   { id: 'hints-yed', tag: '2.5 PED determinants and YED', code: '2.5', unit: 2, hl: 'part', title: 'HINTS Sorter and YED Lab', style: 'Sort and explore', blurb: 'Sort goods by PED using HINTS, then explore Engel curves.' },
   { id: 'supply-speed', tag: '2.6 PES', code: '2.6', unit: 2, hl: 'part', title: 'Supply Speed', style: 'Producer game', blurb: 'React to a price rise as a producer. See how time and capacity change PES.' },
-  { id: 'gov-toolkit', tag: '2.7 Government intervention', code: '2.7', unit: 2, hl: 'part', title: 'Government Toolkit', style: 'Policy sandbox', blurb: 'Apply ceilings, floors, taxes and subsidies. See who wins and who loses.' },
+  {
+    id: 'gov-toolkit', tag: '2.7 Government intervention', code: '2.7', unit: 2, hl: 'part', title: 'Government Toolkit', style: "Minister's missions",
+    blurb: 'Read a mission brief, choose a maximum price, minimum price, tax or subsidy, and see who wins and who loses.',
+    goal: { name: 'Policy Maker', how: 'Level 1 of Government Toolkit: choose the right tool first time and meet the goal in 3 missions.', icon: 'pillars' },
+    goals: [
+      { name: 'Policy Predictor', how: 'Level 2 of Government Toolkit: also predict all four effects correctly in 3 missions.', icon: 'pillars' },
+      { name: 'Treasury Analyst', how: 'Level 3 of Government Toolkit (HL): also calculate the values correctly in 3 missions.', icon: 'pillars' },
+    ],
+    load: () => import('../activities/gov-toolkit'),
+  },
   { id: 'externality-fixer', tag: '2.8 Externalities', code: '2.8', unit: 2, hl: 'part', title: 'Externality Fixer', style: 'Policy puzzle', blurb: 'Choose a policy that moves output to the social optimum.' },
   { id: 'fish-pond', tag: '2.8 Common pool resources', code: '2.8', unit: 2, title: 'Fish Pond', style: 'Multiplayer simulation', blurb: 'Fish a shared pond with computer players. Can the stock survive?' },
   { id: 'streetlight-fund', tag: '2.9 Public goods', code: '2.9', unit: 2, title: 'Streetlight Fund', style: 'Contribution game', blurb: 'Fund a public good with computer players who may free ride.' },

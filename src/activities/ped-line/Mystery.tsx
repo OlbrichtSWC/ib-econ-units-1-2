@@ -64,7 +64,7 @@ export function Mystery(props: {
   const line = curve.line;
   const [index, setIndex] = useState(0);
   const [price, setPriceState] = useState(curve.pMax - 1);
-  const [result, setResult] = useState<null | { ok: boolean; text: string }>(null);
+  const [result, setResult] = useState<null | { ok: boolean; text: string; info?: boolean }>(null);
   /** Points found that count for the stamp, per level. */
   const [solved, setSolved] = useState<Record<number, Set<string>>>({});
   const [checks, setChecks] = useState(0);
@@ -184,7 +184,7 @@ export function Mystery(props: {
       const shown = askWhat === 'ped' ? `PED = ${pedText(val)}` : `TR = ${money(val)}`;
       const text = `Right: ${shown} at ${money(ask.at)}, so demand there is ${zoneAt(ask.at, line)}. ${direction(ask.at)}`;
       setAsk({ ...ask, done: true });
-      setResult({ ok: false, text });
+      setResult({ ok: false, text, info: true });
       setAnnounce(text);
     } else {
       play('wrong');
@@ -295,9 +295,9 @@ export function Mystery(props: {
             <div><button ref={checkRef} class="btn" onClick={check}>Is this the hidden point?</button></div>
           )}
           {result && (
-            <div class={`callout ${result.ok ? 'callout-ok' : 'callout-try'}`} role="status">
+            <div class={`callout ${result.ok ? 'callout-ok' : result.info ? '' : 'callout-try'}`} role="status">
               <p style={{ display: 'flex', gap: 6, alignItems: 'flex-start', margin: 0 }}>
-                {result.ok ? <MarkIcon /> : <CrossIcon />}
+                {result.ok || result.info ? <MarkIcon /> : <CrossIcon />}
                 <span>{result.text}</span>
               </p>
             </div>

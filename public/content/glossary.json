@@ -472,6 +472,37 @@
       "aliases": [
         "PES"
       ]
+    },
+    {
+      "term": "Maximum price",
+      "meaning": "A legal highest price, set by the government below the equilibrium price. Also called a price ceiling. It causes a shortage.",
+      "code": "2.7",
+      "example": "A limit on rents so that tenants pay less."
+    },
+    {
+      "term": "Minimum price",
+      "meaning": "A legal lowest price, set by the government above the equilibrium price. Also called a price floor. It causes a surplus.",
+      "code": "2.7",
+      "example": "A minimum price for wheat, or a minimum wage."
+    },
+    {
+      "term": "Minimum wage",
+      "meaning": "A minimum price for labour: the lowest wage firms may legally pay per hour. If it is above the equilibrium wage, it can cause a surplus of labour (unemployment).",
+      "code": "2.7",
+      "example": "A law that shop workers must earn at least $20 an hour."
+    },
+    {
+      "term": "Stakeholders",
+      "meaning": "People or groups affected by a decision or policy, such as consumers, producers, workers and the government.",
+      "code": "2.7",
+      "example": "A sugar tax affects drink buyers, drink makers and the government budget."
+    },
+    {
+      "term": "Tax incidence",
+      "meaning": "How the burden of an indirect tax is shared between consumers and producers. The side with the less elastic curve pays more of the tax.",
+      "code": "2.7",
+      "hl": true,
+      "example": "Demand for cigarettes is price inelastic, so smokers pay most of a cigarette tax."
     }
   ]
 }

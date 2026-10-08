@@ -79,9 +79,11 @@ Open `public/config/settings.json` (on Netlify: `site/config/settings.json`). Fi
 
 You can also preview changes in the app: open **Teacher**, enter the passcode, and use the checkboxes. Those checkboxes only change **your** device. The teacher view shows the exact text to copy into `settings.json`.
 
+**Quicker way for your class: the class link.** In **Teacher**, find **Class link**, choose the activities, then share the link or QR code with your class. Each student's app asks before using it. No file editing needed. Make a new link when you release more activities.
+
 ## 6. Teacher view
 
-Click **Teacher** in the top bar and enter the passcode. It shows answers in Check it, teacher notes in Learn it, hidden activities, and a **projector mode** with large text.
+Click **Teacher** in the top bar and enter the passcode. It shows answers in Check it, teacher notes in Learn it, hidden activities, a **projector mode** with large text, all three levels of every game open, the **Class link** maker, and **Class mode** in Market Shock (teams vote, one shared class score).
 
 **Change the passcode before you share the app.** It is the `"teacherPasscode"` line in `settings.json`. The default is `change-me`.
 
@@ -99,7 +101,8 @@ The passcode keeps answers out of casual view. It is not a real lock: because th
 - Progress (activities done, scores, self-ratings) is stored in the browser's local storage on that device. **Reset my progress** deletes it after asking "Are you sure?".
 - A progress code contains only that progress data. No names and no written answers. Students choose whether to copy it.
 - The progress summary image is made in the browser. Students choose whether to hand it in. The app never sends it.
-- Written answers in "Explain it in writing" are never saved or sent.
+- Written answers in "Explain it in writing" are saved in the browser on that device only, so students do not lose them. They are never sent and are not in the progress code. **Reset my progress** deletes them too.
+- A class link holds only which activities are on and whether HL content shows. The app asks before using it.
 - Stamps are saved with progress, on the device only. They are never compared between students, and there is no leaderboard.
 - The **Sound on / Sound off** choice is saved in the browser. Sounds are made in the browser; there are no sound files and nothing is downloaded.
 

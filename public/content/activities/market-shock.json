@@ -676,6 +676,265 @@
       ],
       "worked": "Example: bus fares fall. A student's weekly pocket money now pays for more trips (income effect). The bus is now cheaper compared with a taxi, so some taxi trips become bus trips (substitution effect).",
       "explanation": "At HL, demand slopes down because of the **income effect**, the **substitution effect** and the law of **diminishing marginal utility**: each extra unit adds less satisfaction, so consumers buy more only if the price falls."
+    },
+    {
+      "id": "dg1",
+      "type": "label",
+      "level": "core",
+      "prompt": "The diagram shows a market after one event. **Label it.** Choose what each letter shows.",
+      "diagram": {
+        "xMax": 120,
+        "yMax": 10,
+        "xLabel": "Quantity",
+        "yLabel": "Price ($)",
+        "title": "A demand and supply diagram with four lettered parts",
+        "description": "Two parallel downward-sloping lines and one upward-sloping line. Letter A is on the left downward line. Letter B is on the right downward line. Letter C is on the upward line. Letter D is where the right downward line meets the upward line.",
+        "curves": [
+          {
+            "line": {
+              "a": {
+                "q": 10,
+                "p": 9
+              },
+              "b": {
+                "q": 90,
+                "p": 1
+              }
+            },
+            "tone": "grey",
+            "dashed": true
+          },
+          {
+            "line": {
+              "a": {
+                "q": 30,
+                "p": 9
+              },
+              "b": {
+                "q": 110,
+                "p": 1
+              }
+            },
+            "tone": "navy"
+          },
+          {
+            "line": {
+              "a": {
+                "q": 10,
+                "p": 1
+              },
+              "b": {
+                "q": 90,
+                "p": 9
+              }
+            },
+            "tone": "red"
+          }
+        ],
+        "guides": [
+          {
+            "at": {
+              "q": 50,
+              "p": 5
+            },
+            "xText": "50",
+            "yText": "$5"
+          },
+          {
+            "at": {
+              "q": 60,
+              "p": 6
+            },
+            "xText": "60",
+            "yText": "$6"
+          }
+        ],
+        "dots": [
+          {
+            "at": {
+              "q": 50,
+              "p": 5
+            }
+          },
+          {
+            "at": {
+              "q": 60,
+              "p": 6
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 22,
+              "p": 8.6
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 48,
+              "p": 7.7
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 84,
+              "p": 7.4
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 66,
+              "p": 6.6
+            },
+            "letter": "D"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "D₁: demand before the event",
+          "feedback": "A is on the dashed downward-sloping line, the demand curve before the event."
+        },
+        {
+          "letter": "B",
+          "answer": "D₂: demand after the event",
+          "feedback": "B is on the solid downward-sloping line to the right. Demand has increased."
+        },
+        {
+          "letter": "C",
+          "answer": "S: supply",
+          "feedback": "C is on the upward-sloping line. Supply slopes up because firms supply more at higher prices."
+        },
+        {
+          "letter": "D",
+          "answer": "The new equilibrium",
+          "feedback": "D is where the new demand curve meets supply: the new equilibrium price and quantity."
+        }
+      ],
+      "choices": [
+        "D₁: demand before the event",
+        "D₂: demand after the event",
+        "S: supply",
+        "The new equilibrium",
+        "The original equilibrium",
+        "A shortage"
+      ],
+      "hints": [
+        "Demand slopes down and supply slopes up.",
+        "Which demand curve is to the right? Where does that curve cross supply?"
+      ],
+      "worked": "Example: incomes rise and pizza is a normal good. Demand shifts right from D₁ to D₂. The new equilibrium is where D₂ crosses S, at a higher price and quantity.",
+      "explanation": "Demand shifted **right** from D₁ to D₂. Supply did not move. The new equilibrium is where D₂ meets S: price rises from $5 to $6 and quantity rises from 50 to 60."
+    },
+    {
+      "id": "dg2",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Sam drew this diagram for the event: **\"The cost of coffee beans falls.\"** (The market is for roasted coffee.) What is wrong with it?",
+      "diagram": {
+        "xMax": 120,
+        "yMax": 10,
+        "xLabel": "Quantity",
+        "yLabel": "Price ($)",
+        "title": "Sam's diagram",
+        "description": "Sam drew a demand curve D₁ shifting left to D₂, with supply S unchanged.",
+        "curves": [
+          {
+            "line": {
+              "a": {
+                "q": 10,
+                "p": 9
+              },
+              "b": {
+                "q": 90,
+                "p": 1
+              }
+            },
+            "label": "D₁",
+            "tone": "grey",
+            "dashed": true,
+            "labelOffset": {
+              "dx": -6,
+              "dy": 18
+            }
+          },
+          {
+            "line": {
+              "a": {
+                "q": -10,
+                "p": 9
+              },
+              "b": {
+                "q": 70,
+                "p": 1
+              }
+            },
+            "label": "D₂",
+            "tone": "navy",
+            "labelOffset": {
+              "dx": -10,
+              "dy": 18
+            }
+          },
+          {
+            "line": {
+              "a": {
+                "q": 10,
+                "p": 1
+              },
+              "b": {
+                "q": 90,
+                "p": 9
+              }
+            },
+            "label": "S",
+            "tone": "red"
+          }
+        ],
+        "arrows": [
+          {
+            "from": {
+              "q": 40,
+              "p": 6
+            },
+            "to": {
+              "q": 24,
+              "p": 6
+            },
+            "tone": "navy"
+          }
+        ]
+      },
+      "options": [
+        {
+          "text": "Sam shifted demand. A fall in an input cost shifts **supply to the right**.",
+          "correct": true,
+          "feedback": "Yes. Cheaper inputs lower the cost of production, so firms supply more at every price. Demand does not change."
+        },
+        {
+          "text": "Demand is the right curve, but it should shift right",
+          "feedback": "A cost of production is a determinant of supply, not demand. Buyers do not want more coffee because beans are cheaper for roasters."
+        },
+        {
+          "text": "Supply should shift left",
+          "feedback": "Right curve, wrong direction. Lower costs mean firms can supply more at every price, so supply shifts right."
+        },
+        {
+          "text": "Nothing is wrong",
+          "feedback": "Check which curve moved. Is the cost of an input a determinant of demand or of supply?"
+        }
+      ],
+      "hints": [
+        "Is the cost of an input a determinant of demand or of supply?",
+        "Lower costs make producing cheaper. What do firms do at every price?"
+      ],
+      "worked": "Example: the price of flour falls. Bakeries can make bread more cheaply, so they supply more bread at every price. The supply curve for bread shifts right. The demand curve for bread does not move.",
+      "explanation": "The **cost of factors of production** is a non-price determinant of **supply**. When it falls, supply shifts **right**. The equilibrium price falls and the equilibrium quantity rises."
     }
   ],
   "explain": {

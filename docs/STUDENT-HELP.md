@@ -15,7 +15,15 @@ Your code changes as you work. Get a new one each time you switch devices.
 
 ## Stamps and sound
 
-Earn up to three stamps in each activity: one for the game's goal, one for getting every Check it question right on the first try, and one for finishing all four steps. See them in **Stamps**. Stamps are just for you and are never taken away. Turn sound on or off with the button in the top bar.
+Each game has three levels. Earn a level's stamp to open the next level. You can also earn a stamp for getting every Check it question right on the first try (using one hint is fine), and one for finishing all four steps. That is up to five stamps in each activity. See them in **Stamps**. Stamps are just for you and are never taken away. Turn sound on or off with the button in the top bar.
+
+## Your written answers
+
+What you type in "Explain it in writing" saves on this device as you type. Find it all in **My progress**, under **My writing**. It is not in your progress code, so copy it somewhere safe before you switch devices.
+
+## A link from your teacher
+
+Your teacher may give you a class link or QR code. Open it and choose to use it. It shows the activities your class is working on. It does not send anything.
 
 ## Hand in your progress summary
 

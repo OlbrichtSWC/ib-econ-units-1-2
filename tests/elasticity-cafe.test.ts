@@ -217,7 +217,7 @@ describe('Check it answers (hand-checked)', () => {
   });
   it('every check question has the required parts', () => {
     expect(content.check.length).toBeGreaterThanOrEqual(6);
-    expect(content.check.length).toBeLessThanOrEqual(8);
+    expect(content.check.length).toBeLessThanOrEqual(10);
     expect(content.check.filter((q) => q.level === 'apply').length).toBeGreaterThanOrEqual(2);
   });
 });

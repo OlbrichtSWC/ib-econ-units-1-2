@@ -10,7 +10,8 @@ import { CrossIcon, HlBadge, InfoIcon, LiveRegion, MarkIcon } from '../design/co
 import { celebrateAt } from '../fun/celebrate';
 import { play } from '../fun/sound';
 import type { Evidence } from './mastery';
-import type { NumberQuestion, Question, TableData } from './types';
+import type { LabelQuestion, NumberQuestion, Question, TableData } from './types';
+import { SpecDiagram } from '../diagrams/SpecDiagram';
 
 interface QState {
   attempts: number;
@@ -20,9 +21,17 @@ interface QState {
   feedback: { kind: 'ok' | 'try'; text: string } | null;
   choice: number | null;
   value: string;
+  /** Label questions: the label chosen for each tag letter. */
+  labels: Record<string, string>;
 }
 
-const fresh = (): QState => ({ attempts: 0, hints: 0, revealed: false, solved: false, feedback: null, choice: null, value: '' });
+const fresh = (): QState => ({ attempts: 0, hints: 0, revealed: false, solved: false, feedback: null, choice: null, value: '', labels: {} });
+
+/** Checks a label question. Returns the letters that are wrong, with their feedback. */
+export function checkLabels(q: LabelQuestion, labels: Record<string, string>): { ok: boolean; wrong: { letter: string; feedback: string }[] } {
+  const wrong = q.slots.filter((s) => labels[s.letter] !== s.answer).map((s) => ({ letter: s.letter, feedback: s.feedback }));
+  return { ok: wrong.length === 0, wrong };
+}
 
 export function DataTable({ table }: { table: TableData }) {
   return (
@@ -116,6 +125,19 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
         setAnnounce('Not yet. ' + opt.feedback);
         play('wrong');
       }
+    } else if (q.type === 'label') {
+      if (q.slots.some((sl) => !st.labels[sl.letter])) return;
+      const r = checkLabels(q, st.labels);
+      if (r.ok) {
+        set({ solved: true, attempts: st.attempts + 1, feedback: { kind: 'ok', text: '' } });
+        setAnnounce('Correct.');
+        right();
+      } else {
+        const text = r.wrong.map((w) => `**${w.letter}:** ${w.feedback}`).join('\n\n');
+        set({ attempts: st.attempts + 1, feedback: { kind: 'try', text } });
+        setAnnounce(`Not yet. Check ${r.wrong.map((w) => w.letter).join(', ')}.`);
+        play('wrong');
+      }
     } else {
       const v = parseNumber(st.value);
       if (v === null) {
@@ -181,7 +203,13 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
   }
 
   const done = st.solved || st.revealed;
-  const correctText = q.type === 'choice' ? q.options.find((o) => o.correct)?.text ?? '' : `${q.prefix ?? ''}${q.answer}${q.suffix ? ' ' + q.suffix : ''}`;
+  const correctText =
+    q.type === 'choice'
+      ? q.options.find((o) => o.correct)?.text ?? ''
+      : q.type === 'label'
+        ? q.slots.map((sl) => `${sl.letter}: ${sl.answer}`).join('. ')
+        : `${q.prefix ?? ''}${q.answer}${q.suffix ? ' ' + q.suffix : ''}`;
+  const canSubmit = q.type === 'choice' ? st.choice !== null : q.type === 'label' ? q.slots.every((sl) => !!st.labels[sl.letter]) : !!st.value.trim();
 
   return (
     <div class="stack">
@@ -199,8 +227,40 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
         <Md text={q.prompt} />
       </div>
       {q.table && <DataTable table={q.table} />}
+      {q.diagram && (
+        <div class="check-diagram">
+          <SpecDiagram spec={q.diagram} />
+        </div>
+      )}
 
-      {q.type === 'choice' ? (
+      {q.type === 'label' ? (
+        <fieldset class="label-slots" disabled={done}>
+          <legend class="sr-only">Choose a label for each letter</legend>
+          {q.slots.map((sl) => (
+            <div key={sl.letter} class={`label-slot ${done ? 'right' : ''}`}>
+              <label for={`slot-${q.id}-${sl.letter}`}>
+                <span class="slot-letter" aria-hidden="true">{sl.letter}</span>
+                <span class="sr-only">Letter {sl.letter}</span>
+              </label>
+              <select
+                id={`slot-${q.id}-${sl.letter}`}
+                value={st.labels[sl.letter] ?? ''}
+                onChange={(e) => set({ labels: { ...st.labels, [sl.letter]: (e.target as HTMLSelectElement).value }, feedback: null })}
+              >
+                <option value="">Choose a label</option>
+                {q.choices.map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+              {(props.teacher || done) && (
+                <span class="badge badge-done">
+                  <MarkIcon size={14} /> {sl.answer}
+                </span>
+              )}
+            </div>
+          ))}
+        </fieldset>
+      ) : q.type === 'choice' ? (
         <fieldset class="options" disabled={done}>
           <legend class="sr-only">Choose one answer</legend>
           {q.options.map((o, i) => (
@@ -292,7 +352,7 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
 
       <div class="row">
         {!done && (
-          <button id="check-submit" class="btn" onClick={submit} disabled={q.type === 'choice' ? st.choice === null : !st.value.trim()}>
+          <button id="check-submit" class="btn" onClick={submit} disabled={!canSubmit}>
             Check my answer
           </button>
         )}

@@ -219,3 +219,12 @@ describe('Market Shock Level 3: two shifts at once', () => {
   });
 });
 
+
+describe('Market Shock class mode', () => {
+  it('adds one point for each team that is right, to one shared score', async () => {
+    const { classPoints } = await import('../src/activities/market-shock/ClassMode');
+    expect(classPoints(['D-right', 'D-left', 'D-right', null], 'D-right')).toBe(2);
+    expect(classPoints([null, null], 'none')).toBe(0);
+    expect(classPoints(['none', 'none', 'none'], 'none')).toBe(3);
+  });
+});

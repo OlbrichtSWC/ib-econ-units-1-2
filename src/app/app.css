@@ -165,7 +165,7 @@ fieldset[disabled] .option { cursor: default; }
 .level-tile.on { border-color: var(--navy); box-shadow: 0 0 0 2px var(--navy-100); background: var(--navy-50); }
 .level-tile:disabled { cursor: not-allowed; background: var(--bg); color: var(--ink-soft); }
 /* On narrow screens, put the game card above the diagram so students see both while they choose. */
-@media (max-width: 899px) { .play-card-first > .event-card { order: -1; } }
+@media (max-width: 899px) { .play-card-first > .event-card, .play-card-first > .stack:has(> .memo) { order: -1; } }
 /* Market Shock Level 3: two events side by side */
 .double-events { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 .double-events .callout p { margin: 0 0 4px; }
@@ -187,3 +187,29 @@ fieldset.checklist { border: 1px solid var(--line, #c9d2e0); border-radius: 8px;
   .writing-entry { break-inside: avoid; }
 }
 details.coming-later > summary { cursor: pointer; }
+
+/* Check it: diagram questions */
+.check-diagram { max-width: 560px; }
+.label-slots { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; }
+.label-slot { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.label-slot select { min-height: 44px; font-size: 1rem; padding: 4px 8px; min-width: 220px; }
+.slot-letter {
+  display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
+  border: 2.5px solid var(--red); color: var(--red); font-weight: 700; background: #fff;
+}
+
+/* Class mode (projector): large, readable from the back of the room */
+.projector { font-size: 1.15rem; }
+.projector .event-card h3 { font-size: 1.6rem; }
+.class-score { font-size: 1.3rem; margin: 0; }
+.team-row { display: grid; gap: 6px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.team-name { font-size: 1.15rem; }
+.team-result { display: inline-flex; gap: 6px; align-items: center; font-weight: 700; }
+.choice-btn.chosen { outline: 3px solid var(--navy); outline-offset: 1px; }
+
+/* Government Toolkit */
+.memo { border-left: 6px solid var(--navy); }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.tool-card { display: grid; gap: 4px; justify-items: start; text-align: left; min-height: 110px; }
+.tool-glyph { font-size: 1.6rem; font-weight: 700; color: var(--red); line-height: 1; }
+.stakeholders .stat b { text-align: right; }

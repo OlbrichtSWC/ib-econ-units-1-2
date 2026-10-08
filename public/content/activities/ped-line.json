@@ -487,6 +487,114 @@
       ],
       "worked": "Example: a curve passes through ($8, 25), ($5, 40) and ($4, 50). P × Q = $200 at every point, so a price change never changes spending. This is a unitary PED curve.",
       "explanation": "A rectangular hyperbola has P × Q equal at every point, so every % change in price causes an equal and opposite % change in quantity: |PED| = 1 everywhere. A horizontal line has |PED| = ∞ everywhere and a vertical line has PED = 0 everywhere."
+    },
+    {
+      "id": "dg1",
+      "type": "label",
+      "level": "core",
+      "hl": true,
+      "prompt": "Points A, B and C are on one straight-line demand curve. B is at the midpoint. **Label each point.**",
+      "diagram": {
+        "xMax": 210,
+        "yMax": 22,
+        "xLabel": "Quantity",
+        "yLabel": "Price ($)",
+        "title": "A straight-line demand curve with three lettered points",
+        "description": "A straight demand line from $20 at 0 units to 200 units at $0. Point A is high on the line at $16. Point B is at the midpoint, $10 and 100 units. Point C is low on the line at $4.",
+        "curves": [
+          {
+            "line": {
+              "a": {
+                "q": 0,
+                "p": 20
+              },
+              "b": {
+                "q": 200,
+                "p": 0
+              }
+            },
+            "label": "D",
+            "tone": "navy",
+            "labelOffset": {
+              "dx": -22,
+              "dy": -10
+            }
+          }
+        ],
+        "dots": [
+          {
+            "at": {
+              "q": 40,
+              "p": 16
+            }
+          },
+          {
+            "at": {
+              "q": 100,
+              "p": 10
+            }
+          },
+          {
+            "at": {
+              "q": 160,
+              "p": 4
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 56,
+              "p": 18
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 116,
+              "p": 12
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 176,
+              "p": 6
+            },
+            "letter": "C"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "Price elastic: |PED| > 1",
+          "feedback": "A is in the upper half. Price is high and quantity is low, so a 1% price change causes more than a 1% change in quantity."
+        },
+        {
+          "letter": "B",
+          "answer": "Unit elastic: |PED| = 1",
+          "feedback": "B is the midpoint. Here |PED| = 1 and total revenue is greatest."
+        },
+        {
+          "letter": "C",
+          "answer": "Price inelastic: |PED| < 1",
+          "feedback": "C is in the lower half. Price is low and quantity is high, so a 1% price change causes less than a 1% change in quantity."
+        }
+      ],
+      "choices": [
+        "Price elastic: |PED| > 1",
+        "Unit elastic: |PED| = 1",
+        "Price inelastic: |PED| < 1",
+        "Perfectly elastic: |PED| = ∞",
+        "Perfectly inelastic: PED = 0"
+      ],
+      "hints": [
+        "PED changes along a straight demand line, even though the slope does not.",
+        "The midpoint has |PED| = 1. Above it, demand is more elastic. Below it, less elastic."
+      ],
+      "worked": "Example: demand runs from $10 at 0 units to 100 units at $0. At $8 (20 units), PED = −8 ÷ 2 = −4, so demand is elastic. At $5 (50 units), PED = −1. At $2 (80 units), PED = −0.25, so demand is inelastic.",
+      "explanation": "On a straight-line demand curve, **|PED| > 1 above the midpoint**, **|PED| = 1 at the midpoint**, and **|PED| < 1 below it**. At A ($16): PED = −16 ÷ 4 = −4. At B ($10): PED = −1. At C ($4): PED = −4 ÷ 16 = −0.25."
     }
   ],
   "explain": {

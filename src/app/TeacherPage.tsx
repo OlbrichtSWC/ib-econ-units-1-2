@@ -1,6 +1,8 @@
 import { useState } from 'preact/hooks';
 import { MarkIcon } from '../shared/design/components';
-import { ACTIVITIES } from './registry';
+import { qrSvg } from '../shared/progress/qr';
+import { ClassSettings, encodeClassLink } from './classLink';
+import { ACTIVITIES, PROGRESS_ID_TABLE } from './registry';
 import type { Settings } from './settings';
 
 export function TeacherPage(props: {
@@ -10,12 +12,18 @@ export function TeacherPage(props: {
   projector: boolean;
   onProjector: (on: boolean) => void;
   enabled: Record<string, boolean>;
+  showHl: boolean;
+  classSettings: ClassSettings | null;
+  onClearClass: () => void;
   preview: Record<string, boolean>;
   onPreview: (p: Record<string, boolean>) => void;
 }) {
   const [pass, setPass] = useState('');
   const [wrong, setWrong] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [linkHl, setLinkHl] = useState(props.showHl);
+  const [link, setLink] = useState('');
+  const [linkCopied, setLinkCopied] = useState(false);
 
   if (!props.unlocked) {
     return (
@@ -100,6 +108,47 @@ export function TeacherPage(props: {
           {copied && <span role="status"> Copied.</span>}
         </details>
         <button class="btn btn-quiet" onClick={() => props.onPreview({})}>Clear my preview changes</button>
+      </section>
+
+      <section class="card stack" aria-labelledby="h-classlink">
+        <h2 id="h-classlink">Class link</h2>
+        <p>
+          Release activities without editing files. Tick the activities above, then make a link. Students open it once on their device and tap "Use these class
+          settings". It is saved in their browser only, and their progress does not change.
+        </p>
+        <label class="row" style={{ gap: 8, fontWeight: 400 }}>
+          <input type="checkbox" style={{ width: 22, height: 22 }} checked={linkHl} onChange={(e) => setLinkHl((e.target as HTMLInputElement).checked)} />
+          Show HL content (turn off for an SL class)
+        </label>
+        <div>
+          <button
+            class="btn"
+            onClick={() => {
+              const code = encodeClassLink({ modules: Object.fromEntries(ACTIVITIES.filter((a) => a.load).map((a) => [a.id, props.enabled[a.id]])), showHl: linkHl }, PROGRESS_ID_TABLE);
+              setLink(`${location.origin}${location.pathname}#/class/${code}`);
+              setLinkCopied(false);
+            }}
+          >
+            Make a class link
+          </button>
+        </div>
+        {link && (
+          <div class="stack">
+            <p class="progress-code small" style={{ wordBreak: 'break-all' }}>{link}</p>
+            <div class="row">
+              <button class="btn btn-secondary btn-sm" onClick={() => navigator.clipboard?.writeText(link).then(() => setLinkCopied(true))}>Copy link</button>
+              {linkCopied && <span role="status">Copied.</span>}
+            </div>
+            <div class="qr" role="img" aria-label="QR code for the class link" dangerouslySetInnerHTML={{ __html: qrSvg(link) }} />
+            <p class="small muted">Show the QR code on the projector, or post the link on your learning platform.</p>
+          </div>
+        )}
+        {props.classSettings && (
+          <p class="small">
+            This device is using a class link.{' '}
+            <button class="btn btn-quiet btn-sm" onClick={props.onClearClass}>Stop using it on this device</button>
+          </p>
+        )}
       </section>
     </div>
   );

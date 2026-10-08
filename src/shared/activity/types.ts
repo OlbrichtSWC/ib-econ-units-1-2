@@ -7,6 +7,7 @@
  */
 import type { ComponentType } from 'preact';
 import type { GoalStamp } from '../fun/stampDefs';
+import type { DiagramSpec } from '../diagrams/SpecDiagram';
 
 export interface TableData {
   caption?: string;
@@ -22,6 +23,8 @@ interface QuestionBase {
   prompt: string;
   /** Optional schedule or data table shown with the question. */
   table?: TableData;
+  /** Optional diagram shown with the question (choose the area, spot the error, label it). */
+  diagram?: DiagramSpec;
   /** Hint 1 nudges, hint 2 narrows it down. */
   hints: [string, string];
   /** Worked example of a similar problem (shown after both hints). */
@@ -50,7 +53,17 @@ export interface NumberQuestion extends QuestionBase {
   mistakes?: { value: number; feedback: string }[];
 }
 
-export type Question = ChoiceQuestion | NumberQuestion;
+/** Label the diagram: choose what each lettered tag shows. Right only when every tag is right. */
+export interface LabelQuestion extends QuestionBase {
+  type: 'label';
+  diagram: DiagramSpec;
+  /** One per tag letter, in order. */
+  slots: { letter: string; answer: string; feedback: string }[];
+  /** The labels to choose from (include a few that do not fit). */
+  choices: string[];
+}
+
+export type Question = ChoiceQuestion | NumberQuestion | LabelQuestion;
 
 /** The shape of each content/activities/<id>.json file. */
 export interface ActivityContent {

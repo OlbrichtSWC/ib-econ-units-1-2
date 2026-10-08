@@ -6,7 +6,8 @@
     "market-shock": true,
     "surplus-shader": true,
     "elasticity-cafe": true,
-    "ped-line": true
+    "ped-line": true,
+    "gov-toolkit": true
   },
   "scale": {
     "name": "CBE High School Proficiency Scale",

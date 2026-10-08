@@ -18,6 +18,8 @@ import { StampBook } from './StampBook';
 import { ACTIVITIES, findActivity, PROGRESS_ID_TABLE } from './registry';
 import { DEFAULT_SETTINGS, loadSettings, Settings } from './settings';
 import { TeacherPage } from './TeacherPage';
+import { ClassLinkPage } from './ClassLinkPage';
+import { ClassSettings, loadClassSettings, saveClassSettings } from './classLink';
 
 export const store = new LocalProgressStore('ib-econ-1-2.progress', PROGRESS_ID_TABLE);
 
@@ -48,6 +50,8 @@ export function App() {
   const [toasts, setToasts] = useState<{ activityId: string; flag: number }[]>([]);
   const [teacher, setTeacher] = useState(session('teacher') === '1');
   const [projector, setProjector] = useState(session('projector') === '1');
+  /** Activities and HL choice from a teacher's class link, saved on this device. */
+  const [classSettings, setClassSettings] = useState<ClassSettings | null>(() => loadClassSettings());
   const [preview, setPreview] = useState<Record<string, boolean>>(() => {
     try {
       return JSON.parse(localStorage.getItem('ib-econ-1-2.teacher-modules') ?? '{}');
@@ -82,11 +86,13 @@ export function App() {
   const enabled = useMemo(() => {
     const m: Record<string, boolean> = {};
     for (const a of ACTIVITIES) {
-      const base = settings.modules[a.id] !== false;
+      // A class link from the teacher overrides the settings file on this device.
+      const base = classSettings && a.id in classSettings.modules ? classSettings.modules[a.id] : settings.modules[a.id] !== false;
       m[a.id] = teacher && a.id in preview ? preview[a.id] : base;
     }
     return m;
-  }, [settings, teacher, preview]);
+  }, [settings, teacher, preview, classSettings]);
+  const showHl = classSettings ? classSettings.showHl : settings.showHlContent;
 
   const updateActivity = (id: string, patch: Partial<Progress['activities'][string]>, addSteps = 0, addStamps = 0, sharp = false) => {
     const current = store.load();
@@ -131,7 +137,7 @@ export function App() {
           onProgress={(patch, add, sharp) => updateActivity(meta.id, patch, add, 0, sharp)}
           onGoal={(level = 1) => updateActivity(meta.id, {}, STEP.try, levelFlag(level))}
           teacher={teacher}
-          showHl={settings.showHlContent || teacher}
+          showHl={showHl || teacher}
           scale={settings.scale}
         />
       );
@@ -142,6 +148,17 @@ export function App() {
     page = <StampBook progress={progress} enabled={enabled} teacher={teacher} />;
   } else if (parts[0] === 'glossary') {
     page = <GlossaryPage />;
+  } else if (parts[0] === 'class' && parts[1]) {
+    page = (
+      <ClassLinkPage
+        code={decodeURIComponent(parts[1])}
+        current={classSettings}
+        onSave={(c) => {
+          setClassSettings(c);
+          saveClassSettings(c);
+        }}
+      />
+    );
   } else if (parts[0] === 'teacher') {
     page = (
       <TeacherPage
@@ -155,6 +172,12 @@ export function App() {
         projector={projector}
         onProjector={setProjector}
         enabled={enabled}
+        showHl={showHl}
+        classSettings={classSettings}
+        onClearClass={() => {
+          setClassSettings(null);
+          saveClassSettings(null);
+        }}
         preview={preview}
         onPreview={(p) => {
           setPreview(p);
@@ -167,7 +190,7 @@ export function App() {
       />
     );
   } else {
-    page = <Home progress={progress} enabled={enabled} teacher={teacher} showHl={settings.showHlContent} />;
+    page = <Home progress={progress} enabled={enabled} teacher={teacher} showHl={showHl} />;
   }
 
   return (

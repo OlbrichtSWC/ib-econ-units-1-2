@@ -1,7 +1,7 @@
 /** A rubber-stamp picture. Earned stamps are inked in red; stamps not yet earned are a dashed outline. */
 import { ComponentChildren } from 'preact';
 
-export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle';
+export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars';
 
 const ICONS: Record<StampIcon, ComponentChildren> = {
   // Palm tree on an island
@@ -42,6 +42,14 @@ const ICONS: Record<StampIcon, ComponentChildren> = {
       <circle cx="50" cy="50" r="18" />
       <circle cx="50" cy="50" r="10" />
       <circle cx="50" cy="50" r="2.5" fill="currentColor" />
+    </g>
+  ),
+  // A government building with pillars
+  pillars: (
+    <g>
+      <path d="M30 40l20-12 20 12z" />
+      <path d="M30 68h40M32 64h36" />
+      <path d="M36 44v18M45 44v18M55 44v18M64 44v18" />
     </g>
   ),
   star: <path d="M50 28l6.5 13.5 14.5 2-10.5 10 2.5 14.5L50 61l-13 7 2.5-14.5-10.5-10 14.5-2z" />,

@@ -18,6 +18,8 @@ for (const q of content.check) {
     await page.getByRole('button', { name: 'Check my answer' }).click();
     await page.getByText('Not yet.').first().waitFor();
     await page.locator('.option').nth(i).click();
+  } else if (q.type === 'label') {
+    for (const sl of q.slots) await page.locator(`#slot-${q.id}-${sl.letter}`).selectOption(sl.answer);
   } else {
     await page.getByRole('button', { name: 'Get a hint' }).click();
     await page.locator('input[inputmode=decimal]').fill(String(q.answer));

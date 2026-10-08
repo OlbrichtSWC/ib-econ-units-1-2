@@ -637,6 +637,193 @@
       ],
       "worked": "Example: a $1 tax on a good with inelastic demand cuts sales from 1,000 to 950 units, so tax revenue = $950. The same tax on a good with elastic demand cuts sales from 1,000 to 600, so tax revenue = $600.",
       "explanation": "Governments raise more tax revenue from goods with price inelastic demand, because quantity falls only a little after the tax. This is why many governments tax cigarettes, alcohol and fuel. Firms use PED in the same way when they set prices."
+    },
+    {
+      "id": "dg1",
+      "type": "label",
+      "level": "core",
+      "prompt": "A café raises its price from P₁ to P₂. **Label the revenue areas.** Choose what each letter shows.",
+      "diagram": {
+        "xMax": 250,
+        "yMax": 10,
+        "xLabel": "Quantity (cups)",
+        "yLabel": "Price ($)",
+        "title": "A demand curve with total revenue split into three lettered areas",
+        "description": "A demand curve. The price rises from $6 to $7 and quantity falls from 160 to 120 cups. Area A is the thin strip from $6 to $7 over 0 to 120 cups. Area B is the strip from 120 to 160 cups below $6. Area C is the rectangle from 0 to 120 cups below $6.",
+        "areas": [
+          {
+            "points": [
+              {
+                "q": 0,
+                "p": 6
+              },
+              {
+                "q": 120,
+                "p": 6
+              },
+              {
+                "q": 120,
+                "p": 7
+              },
+              {
+                "q": 0,
+                "p": 7
+              }
+            ],
+            "pattern": "hatch",
+            "tone": "green"
+          },
+          {
+            "points": [
+              {
+                "q": 120,
+                "p": 0
+              },
+              {
+                "q": 160,
+                "p": 0
+              },
+              {
+                "q": 160,
+                "p": 6
+              },
+              {
+                "q": 120,
+                "p": 6
+              }
+            ],
+            "pattern": "cross",
+            "tone": "red"
+          },
+          {
+            "points": [
+              {
+                "q": 0,
+                "p": 0
+              },
+              {
+                "q": 120,
+                "p": 0
+              },
+              {
+                "q": 120,
+                "p": 6
+              },
+              {
+                "q": 0,
+                "p": 6
+              }
+            ],
+            "pattern": "dots",
+            "tone": "navy"
+          }
+        ],
+        "curves": [
+          {
+            "line": {
+              "a": {
+                "q": 0,
+                "p": 10
+              },
+              "b": {
+                "q": 400,
+                "p": 0
+              }
+            },
+            "label": "D",
+            "tone": "navy",
+            "labelOffset": {
+              "dx": -24,
+              "dy": -10
+            }
+          }
+        ],
+        "guides": [
+          {
+            "at": {
+              "q": 160,
+              "p": 6
+            },
+            "xText": "Q₁",
+            "yText": "P₁"
+          },
+          {
+            "at": {
+              "q": 120,
+              "p": 7
+            },
+            "xText": "Q₂",
+            "yText": "P₂"
+          }
+        ],
+        "dots": [
+          {
+            "at": {
+              "q": 160,
+              "p": 6
+            }
+          },
+          {
+            "at": {
+              "q": 120,
+              "p": 7
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 60,
+              "p": 6.5
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 140,
+              "p": 3
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 60,
+              "p": 3
+            },
+            "letter": "C"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "Revenue gained: the higher price on cups still sold",
+          "feedback": "A is the price rise ($1) times the cups still sold (120). This is revenue gained."
+        },
+        {
+          "letter": "B",
+          "answer": "Revenue lost: cups no longer sold",
+          "feedback": "B is the 40 cups no longer sold, times the old price ($6). This is revenue lost."
+        },
+        {
+          "letter": "C",
+          "answer": "Revenue kept at both prices",
+          "feedback": "C is the 120 cups sold at both prices, times $6. The café earns this before and after the change."
+        }
+      ],
+      "choices": [
+        "Revenue gained: the higher price on cups still sold",
+        "Revenue lost: cups no longer sold",
+        "Revenue kept at both prices",
+        "Consumer surplus",
+        "Producer surplus"
+      ],
+      "hints": [
+        "Total revenue is a rectangle: price times quantity.",
+        "Compare the TR rectangle at P₁ with the one at P₂. Which part is in both? Which part is only in one?"
+      ],
+      "worked": "Example: a cinema raises tickets from $10 to $12 and sells 80 instead of 100. Revenue gained: $2 × 80 = $160. Revenue lost: 20 × $10 = $200. Revenue kept: $10 × 80 = $800. TR falls by $40, so demand is price elastic here.",
+      "explanation": "**A** = $1 × 120 = $120 gained. **B** = 40 × $6 = $240 lost. **C** = $6 × 120 = $720 kept. B is bigger than A, so total revenue falls by $120. Demand is **price elastic** over this range (in the app, A is the \"price pull\" and B is the \"quantity pull\")."
     }
   ],
   "explain": {

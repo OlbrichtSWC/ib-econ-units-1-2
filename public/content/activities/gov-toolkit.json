@@ -1,0 +1,1089 @@
+{
+  "id": "gov-toolkit",
+  "outcome": "I can explain how a maximum price, a minimum price, an indirect tax and a subsidy affect a market and its stakeholders, using a diagram.",
+  "learn": {
+    "text": "Governments step into markets to reach goals: lower prices for consumers, higher incomes for producers, less of a harmful good, or more of a good thing. They have four main tools.\n\n- A **[[maximum price]]** (price ceiling) is set **below** equilibrium. It lowers the price but creates a **shortage**.\n- A **[[minimum price]]** (price floor) is set **above** equilibrium. It raises the price but creates a **surplus**.\n- An **[[indirect tax]]** shifts supply **up** by the tax. Price rises, quantity falls, and the government gains revenue.\n- A **[[subsidy]]** shifts supply **down** by the subsidy. Price falls, quantity rises, and the government pays.\n\nEach tool helps some [[stakeholders]] and hurts others. Each one also moves the market away from the free market quantity, so it usually causes a **welfare loss**. ^HL^ HL students calculate tax revenue, tax burdens, subsidy costs and welfare loss.",
+    "caption": "An indirect tax shifts supply up from S to S + tax. Consumers pay more, producers keep less, and the shaded rectangle is the government’s tax revenue."
+  },
+  "try": {
+    "goal": "Read each brief, choose the right tool, and set it so the market meets the goal.",
+    "intro": "**You are the minister.** Each mission brief gives you a goal. Choose one of the four tools, then use the slider to set its size. The diagram and the stakeholder panel show what happens.\n\n**Level 1:** choose the right tool on your first try and meet the goal in 3 of 4 missions to earn the **Policy Maker** stamp.\n\n**Level 2:** also predict four effects before you see them.\n\n**Level 3** (^HL^): predict the effects, then also calculate two values from the diagram.",
+    "levels": [
+      {
+        "title": "Choose the tool",
+        "blurb": "Four briefs. Pick the right tool on your first try and meet the goal in 3 of 4."
+      },
+      {
+        "title": "Predict the effects",
+        "blurb": "Before you see the results, predict price, quantity, the budget and any shortage or surplus."
+      },
+      {
+        "title": "Run the numbers (HL)",
+        "blurb": "Predict the effects, then calculate tax revenue, burdens, subsidy costs, shortages or welfare loss."
+      }
+    ],
+    "missionLevels": [
+      [
+        {
+          "id": "rent",
+          "title": "Rent in Lakeside",
+          "brief": "**The brief:** Rents in Lakeside (an invented city) have risen to $1,200 a month. Tenants are angry. **Goal:** rent must be **$1,000 a month or less**. The government will **not spend any money**.",
+          "tool": "ceiling",
+          "wrongTool": {
+            "floor": "A minimum price stops the price going **below** a level. It would keep rents high, not bring them down.",
+            "tax": "A tax raises the price tenants pay. Rents would go up, not down.",
+            "subsidy": "A subsidy could lower rents, but it costs the government money on every flat. The brief says no spending."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 2000
+            },
+            "b": {
+              "q": 2000,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 400
+            },
+            "b": {
+              "q": 1600,
+              "p": 2000
+            }
+          },
+          "xMax": 1400,
+          "yMax": 2100,
+          "xLabel": "Quantity of flats",
+          "yLabel": "Rent ($ per month)",
+          "unit": "flats",
+          "min": 600,
+          "max": 1200,
+          "step": 50,
+          "target": {
+            "measure": "consumerPrice",
+            "op": "<=",
+            "value": 1000
+          },
+          "explain": "A **maximum price** below equilibrium lowers the rent tenants pay, at no cost to the government. But landlords supply fewer flats and more people want them, so there is a **shortage**. Some tenants pay less; others cannot find a flat at all.",
+          "rules": [
+            "no-spending"
+          ],
+          "per": "flat"
+        },
+        {
+          "id": "wheat",
+          "title": "Wheat on the prairie",
+          "brief": "**The brief:** Wheat sells for $250 a tonne. Farmers say they cannot cover their costs. **Goal:** farmers must receive **at least $280 a tonne**. The government will **not pay farmers for each tonne**.",
+          "tool": "floor",
+          "wrongTool": {
+            "ceiling": "A maximum price stops the price going **above** a level. It cannot raise the price farmers get.",
+            "tax": "With a tax, farmers keep **less** of the price, not more.",
+            "subsidy": "A subsidy raises what farmers receive, but the government pays for every tonne. The brief rules that out."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 400
+            },
+            "b": {
+              "q": 800,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 100
+            },
+            "b": {
+              "q": 600,
+              "p": 400
+            }
+          },
+          "xMax": 800,
+          "yMax": 450,
+          "xLabel": "Wheat (thousand tonnes)",
+          "yLabel": "Price ($ per tonne)",
+          "unit": "thousand tonnes",
+          "min": 250,
+          "max": 340,
+          "step": 10,
+          "target": {
+            "measure": "producerPrice",
+            "op": ">=",
+            "value": 280
+          },
+          "explain": "A **minimum price** above equilibrium raises the price farmers receive. Buyers want less wheat at the higher price, but farmers want to sell more, so there is a **surplus**. The government may have to buy the surplus or store it.",
+          "rules": [
+            "no-spending"
+          ],
+          "per": "tonne",
+          "moneyScale": "thousand"
+        },
+        {
+          "id": "soda",
+          "title": "Sugary drinks",
+          "brief": "**The brief:** Riverton sells 200 bottles of sugary drinks a day at its school canteens. **Goal:** cut sales to **150 bottles a day or fewer**, and **raise money** for school sports.",
+          "tool": "tax",
+          "wrongTool": {
+            "ceiling": "A maximum price lowers the price. Fewer bottles might be sold, but only because of a shortage. And it raises no money.",
+            "floor": "A minimum price can cut sales, but it raises no money for the government.",
+            "subsidy": "A subsidy lowers the price, so students would buy more sugary drinks."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 5
+            },
+            "b": {
+              "q": 500,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 1
+            },
+            "b": {
+              "q": 400,
+              "p": 5
+            }
+          },
+          "xMax": 450,
+          "yMax": 6,
+          "xLabel": "Bottles per day",
+          "yLabel": "Price ($ per bottle)",
+          "unit": "bottles",
+          "min": 0,
+          "max": 2,
+          "step": 0.25,
+          "target": {
+            "measure": "quantity",
+            "op": "<=",
+            "value": 150
+          },
+          "explain": "An **indirect tax** shifts supply up by the tax. The price buyers pay rises, so fewer bottles are sold, and the government gains **tax revenue**. Producers keep less of the price, so they share the burden.",
+          "rules": [
+            "needs-revenue"
+          ],
+          "per": "bottle"
+        },
+        {
+          "id": "bus",
+          "title": "Bus passes for students",
+          "brief": "**The brief:** 200 students buy a monthly bus pass. **Goal:** at least **260 students** buy a pass, **without a shortage**.",
+          "tool": "subsidy",
+          "wrongTool": {
+            "ceiling": "A maximum price makes passes cheaper, but the bus company would offer fewer passes. Fewer students get one, and there is a shortage.",
+            "floor": "A minimum price raises the price, so fewer students buy passes.",
+            "tax": "A tax raises the price, so fewer students buy passes."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 60
+            },
+            "b": {
+              "q": 600,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 20
+            },
+            "b": {
+              "q": 400,
+              "p": 60
+            }
+          },
+          "xMax": 450,
+          "yMax": 70,
+          "xLabel": "Passes per month",
+          "yLabel": "Price ($ per pass)",
+          "unit": "passes",
+          "min": 0,
+          "max": 20,
+          "step": 2,
+          "target": {
+            "measure": "quantity",
+            "op": ">=",
+            "value": 260
+          },
+          "explain": "A **subsidy** shifts supply down by the subsidy. Students pay less, the company receives more, and more passes are sold. It costs the government money, and producing beyond the free market quantity can cause a **welfare loss**.",
+          "rules": [
+            "no-shortage"
+          ],
+          "per": "pass"
+        }
+      ],
+      [
+        {
+          "id": "wage",
+          "title": "Minimum wage",
+          "brief": "**The brief:** Shop workers in Riverton earn $18 an hour. **Goal:** workers must earn **at least $20 an hour**. The government will **not pay any of the wage**.",
+          "tool": "floor",
+          "wrongTool": {
+            "ceiling": "A maximum wage would stop wages going **above** a level. It cannot raise pay.",
+            "tax": "A tax on hiring would lower the wage workers keep.",
+            "subsidy": "A wage subsidy raises pay, but the government pays part of every wage. The brief rules that out."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 30
+            },
+            "b": {
+              "q": 600,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 6
+            },
+            "b": {
+              "q": 480,
+              "p": 30
+            }
+          },
+          "xMax": 520,
+          "yMax": 32,
+          "xLabel": "Quantity of labour (workers)",
+          "yLabel": "Wage ($ per hour)",
+          "unit": "workers",
+          "min": 18,
+          "max": 26,
+          "step": 1,
+          "target": {
+            "measure": "producerPrice",
+            "op": ">=",
+            "value": 20
+          },
+          "explain": "A **minimum wage** is a minimum price in the labour market. Workers supply the labour, so they are the \"producers\". At a wage above equilibrium, firms hire fewer workers and more people want jobs, so there is a **surplus of labour** (unemployment).",
+          "rules": [
+            "no-spending"
+          ],
+          "per": "worker"
+        },
+        {
+          "id": "formula",
+          "title": "Baby formula",
+          "brief": "**The brief:** A tin of baby formula costs $30. Families on low incomes cannot afford it. **Goal:** formula costs **$26 a tin or less**. The government will **not spend any money**.",
+          "tool": "ceiling",
+          "wrongTool": {
+            "floor": "A minimum price would keep the price high.",
+            "tax": "A tax raises the price families pay.",
+            "subsidy": "A subsidy could lower the price, but it costs the government money. The brief says no spending."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 50
+            },
+            "b": {
+              "q": 500,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 10
+            },
+            "b": {
+              "q": 300,
+              "p": 40
+            }
+          },
+          "xMax": 400,
+          "yMax": 55,
+          "xLabel": "Tins per week",
+          "yLabel": "Price ($ per tin)",
+          "unit": "tins",
+          "min": 20,
+          "max": 30,
+          "step": 1,
+          "target": {
+            "measure": "consumerPrice",
+            "op": "<=",
+            "value": 26
+          },
+          "explain": "A **maximum price** makes formula cheaper for families who can buy it. Sellers offer fewer tins, so there is a **shortage**. The government may need to ration it or supply it directly.",
+          "rules": [
+            "no-spending"
+          ],
+          "per": "tin"
+        },
+        {
+          "id": "cigs",
+          "title": "Cigarettes",
+          "brief": "**The brief:** Smoking harms health. **Goal:** raise **at least $600 a day** for health care, and cut sales. Demand for cigarettes is **price inelastic**.",
+          "tool": "tax",
+          "wrongTool": {
+            "ceiling": "A maximum price lowers the price and raises no money. Any fall in sales would come from a shortage, not from fewer people wanting to smoke.",
+            "floor": "A minimum price can cut sales, but it raises no money.",
+            "subsidy": "A subsidy lowers the price and costs money. It does the opposite of the goal."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 20
+            },
+            "b": {
+              "q": 400,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 8
+            },
+            "b": {
+              "q": 400,
+              "p": 12
+            }
+          },
+          "xMax": 400,
+          "yMax": 22,
+          "xLabel": "Packs per day",
+          "yLabel": "Price ($ per pack)",
+          "unit": "packs",
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "target": {
+            "measure": "budget",
+            "op": ">=",
+            "value": 600
+          },
+          "explain": "An **indirect tax** raises money and cuts sales. Because demand is **price inelastic**, sales fall only a little, so revenue stays high, and consumers pay most of the tax. Too high a tax cuts sales so much that revenue falls again.",
+          "rules": [
+            "needs-revenue"
+          ],
+          "per": "pack"
+        },
+        {
+          "id": "solar",
+          "title": "Solar panels",
+          "brief": "**The brief:** 200 homes a year install solar panels. **Goal:** at least **250 homes** install panels, **without a shortage**.",
+          "tool": "subsidy",
+          "wrongTool": {
+            "ceiling": "A maximum price lowers the price, but installers would offer fewer panels, causing a shortage.",
+            "floor": "A minimum price raises the price, so fewer homes install panels.",
+            "tax": "A tax raises the price, so fewer homes install panels."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 1000
+            },
+            "b": {
+              "q": 500,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 200
+            },
+            "b": {
+              "q": 400,
+              "p": 1000
+            }
+          },
+          "xMax": 400,
+          "yMax": 1100,
+          "xLabel": "Homes installing panels per year",
+          "yLabel": "Price ($ per panel)",
+          "unit": "homes",
+          "min": 0,
+          "max": 400,
+          "step": 50,
+          "target": {
+            "measure": "quantity",
+            "op": ">=",
+            "value": 250
+          },
+          "explain": "A **subsidy** lowers the price homes pay and raises the price installers receive, so more panels are installed. The government pays the subsidy on every panel.",
+          "rules": [
+            "no-shortage"
+          ],
+          "per": "panel"
+        }
+      ],
+      [
+        {
+          "id": "petrol",
+          "title": "Petrol tax",
+          "brief": "**The brief:** The city wants fewer car trips. **Goal:** cut petrol sales to **300 thousand litres a week or fewer** and raise money for buses.",
+          "tool": "tax",
+          "wrongTool": {
+            "ceiling": "A maximum price lowers the price and raises no money. It would also cause a shortage of petrol.",
+            "floor": "A minimum price can cut sales, but it raises no money.",
+            "subsidy": "A subsidy lowers the price, so people would drive more."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 4
+            },
+            "b": {
+              "q": 800,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 1
+            },
+            "b": {
+              "q": 800,
+              "p": 3
+            }
+          },
+          "xMax": 900,
+          "yMax": 4.4,
+          "xLabel": "Petrol (thousand litres a week)",
+          "yLabel": "Price ($ per litre)",
+          "unit": "thousand litres",
+          "min": 0,
+          "max": 1.5,
+          "step": 0.25,
+          "target": {
+            "measure": "quantity",
+            "op": "<=",
+            "value": 300
+          },
+          "explain": "An **indirect tax** shifts supply up by the tax. Here demand is steeper than supply, so consumers pay the larger share of the tax.",
+          "calc": [
+            {
+              "ask": "budget",
+              "prompt": "Tax revenue per week (in $ thousands): tax per litre × quantity."
+            },
+            {
+              "ask": "consumerBurden",
+              "prompt": "The share of the tax paid by consumers (in $ thousands): rise in price paid × quantity."
+            }
+          ],
+          "rules": [
+            "needs-revenue"
+          ],
+          "per": "litre",
+          "moneyScale": "thousand"
+        },
+        {
+          "id": "milk",
+          "title": "Milk minimum price",
+          "brief": "**The brief:** Dairy farmers get $1.75 a litre. **Goal:** farmers must receive **at least $2.00 a litre**, without a per-litre payment. The government promises to **buy any surplus**.",
+          "tool": "floor",
+          "wrongTool": {
+            "ceiling": "A maximum price cannot raise the price farmers get.",
+            "tax": "With a tax, farmers keep less.",
+            "subsidy": "A subsidy is a payment on every litre. The brief rules that out."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 3
+            },
+            "b": {
+              "q": 300,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 0.5
+            },
+            "b": {
+              "q": 250,
+              "p": 3
+            }
+          },
+          "xMax": 330,
+          "yMax": 3.2,
+          "xLabel": "Milk (thousand litres a day)",
+          "yLabel": "Price ($ per litre)",
+          "unit": "thousand litres",
+          "min": 1.75,
+          "max": 2.5,
+          "step": 0.25,
+          "target": {
+            "measure": "producerPrice",
+            "op": ">=",
+            "value": 2
+          },
+          "explain": "A **minimum price** raises the price farmers receive. The surplus must be bought by the government, which costs the surplus × the minimum price.",
+          "calc": [
+            {
+              "ask": "surplus",
+              "prompt": "The surplus (thousand litres per day): quantity supplied − quantity demanded."
+            },
+            {
+              "ask": "buyUpCost",
+              "prompt": "The cost of buying the surplus (in $ thousands per day): surplus × minimum price."
+            }
+          ],
+          "rules": [
+            "no-spending"
+          ],
+          "per": "litre",
+          "moneyScale": "thousand"
+        },
+        {
+          "id": "laptops",
+          "title": "Laptops for students",
+          "brief": "**The brief:** 300 students a year buy a laptop. **Goal:** at least **350 students** buy one, **without a shortage**.",
+          "tool": "subsidy",
+          "wrongTool": {
+            "ceiling": "A maximum price lowers the price, but sellers would offer fewer laptops: a shortage.",
+            "floor": "A minimum price raises the price, so fewer students buy.",
+            "tax": "A tax raises the price, so fewer students buy."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 900
+            },
+            "b": {
+              "q": 900,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 300
+            },
+            "b": {
+              "q": 600,
+              "p": 900
+            }
+          },
+          "xMax": 700,
+          "yMax": 1000,
+          "xLabel": "Laptops per year",
+          "yLabel": "Price ($ per laptop)",
+          "unit": "laptops",
+          "min": 0,
+          "max": 200,
+          "step": 25,
+          "target": {
+            "measure": "quantity",
+            "op": ">=",
+            "value": 350
+          },
+          "explain": "A **subsidy** shifts supply down by the subsidy. Students pay less, sellers receive more, and the government pays subsidy × quantity.",
+          "calc": [
+            {
+              "ask": "budget",
+              "prompt": "Government spending on the subsidy ($): subsidy per laptop × quantity."
+            },
+            {
+              "ask": "consumerPrice",
+              "prompt": "The new price students pay ($)."
+            }
+          ],
+          "rules": [
+            "no-shortage"
+          ],
+          "per": "laptop"
+        },
+        {
+          "id": "bread",
+          "title": "Bread maximum price",
+          "brief": "**The brief:** A loaf costs $5. **Goal:** bread costs **$4 a loaf or less**. The government will **not spend any money**.",
+          "tool": "ceiling",
+          "wrongTool": {
+            "floor": "A minimum price would keep bread expensive.",
+            "tax": "A tax raises the price.",
+            "subsidy": "A subsidy costs the government money. The brief says no spending."
+          },
+          "demand": {
+            "a": {
+              "q": 0,
+              "p": 8
+            },
+            "b": {
+              "q": 400,
+              "p": 0
+            }
+          },
+          "supply": {
+            "a": {
+              "q": 0,
+              "p": 2
+            },
+            "b": {
+              "q": 300,
+              "p": 8
+            }
+          },
+          "xMax": 350,
+          "yMax": 9,
+          "xLabel": "Loaves per day",
+          "yLabel": "Price ($ per loaf)",
+          "unit": "loaves",
+          "min": 3,
+          "max": 5,
+          "step": 0.5,
+          "target": {
+            "measure": "consumerPrice",
+            "op": "<=",
+            "value": 4
+          },
+          "explain": "A **maximum price** lowers the price but causes a **shortage**: fewer loaves are made, and more people want them. The loaves no longer made are a welfare loss.",
+          "calc": [
+            {
+              "ask": "shortage",
+              "prompt": "The shortage (loaves per day): quantity demanded − quantity supplied."
+            },
+            {
+              "ask": "welfareLoss",
+              "prompt": "The welfare loss ($ per day): ½ × (Qe − Qs) × (price on D at Qs − price on S at Qs)."
+            }
+          ],
+          "rules": [
+            "no-spending"
+          ],
+          "per": "loaf"
+        }
+      ]
+    ],
+    "toolNames": {
+      "ceiling": "Maximum price",
+      "floor": "Minimum price",
+      "tax": "Indirect tax",
+      "subsidy": "Subsidy"
+    },
+    "toolBlurbs": {
+      "ceiling": "A legal highest price, set below equilibrium.",
+      "floor": "A legal lowest price, set above equilibrium.",
+      "tax": "A tax per unit, paid by producers.",
+      "subsidy": "A payment per unit, given to producers."
+    }
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "The government sets a **maximum price** for concert tickets **below** the equilibrium price. What happens?",
+      "options": [
+        {
+          "text": "A shortage: quantity demanded is more than quantity supplied",
+          "correct": true,
+          "feedback": "Yes. At the lower price, more people want tickets and sellers offer fewer."
+        },
+        {
+          "text": "A surplus: quantity supplied is more than quantity demanded",
+          "feedback": "A surplus happens with a minimum price above equilibrium. A maximum price below equilibrium does the opposite."
+        },
+        {
+          "text": "Nothing, because the market returns to equilibrium",
+          "feedback": "The law stops the price rising to equilibrium, so the gap stays."
+        },
+        {
+          "text": "The government gains tax revenue",
+          "feedback": "A maximum price is not a tax. It raises no money."
+        }
+      ],
+      "hints": [
+        "Below equilibrium, compare quantity demanded and quantity supplied.",
+        "A low price makes buyers want more and sellers offer less."
+      ],
+      "worked": "Example: equilibrium rent is $1,200. A maximum rent of $1,000 means landlords offer fewer flats, while more people want one. The gap is a shortage.",
+      "explanation": "A **maximum price** below equilibrium holds the price down. Quantity demanded rises and quantity supplied falls, so there is a **shortage** (excess demand). Some buyers cannot get the good. Problems include queues, rationing and black markets."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "The government wants **fewer people to buy energy drinks** and **more money for health care**. Which tool fits both goals?",
+      "options": [
+        {
+          "text": "An indirect tax on energy drinks",
+          "correct": true,
+          "feedback": "Yes. The price rises, so fewer are bought, and the government collects tax revenue."
+        },
+        {
+          "text": "A subsidy on energy drinks",
+          "feedback": "A subsidy lowers the price, so more would be bought, and it costs the government money."
+        },
+        {
+          "text": "A maximum price on energy drinks",
+          "feedback": "A maximum price lowers the price, so people would buy more. It raises no money."
+        },
+        {
+          "text": "A minimum price on energy drinks",
+          "feedback": "Close: a minimum price can cut sales. But it raises no money for the government."
+        }
+      ],
+      "hints": [
+        "Which tools raise money for the government?",
+        "Which tool both raises the price and raises money?"
+      ],
+      "worked": "Example: a city wants less plastic bag use and money to clean parks. A tax of 25 cents per bag raises the price and collects revenue.",
+      "explanation": "An **indirect tax** shifts supply up. The price buyers pay rises, so quantity falls, and the government gains **tax revenue**. A minimum price also cuts quantity, but the extra money goes to sellers, not the government."
+    },
+    {
+      "id": "q3",
+      "type": "label",
+      "level": "core",
+      "prompt": "A specific tax is placed on a good. **Label the diagram.** Choose what each letter shows.",
+      "diagram": {
+        "xMax": 450,
+        "yMax": 6,
+        "xLabel": "Quantity",
+        "yLabel": "Price ($)",
+        "title": "A diagram of a specific tax with four lettered parts",
+        "description": "A downward-sloping line, an upward-sloping line, and a second upward-sloping dashed line above it. Letter A is on the dashed line. Letter B is the rectangle between the two prices from 0 to the new quantity. Letter C is the small triangle between the new and old quantity. Letter D is the price buyers now pay.",
+        "areas": [
+          {
+            "points": [
+              {
+                "q": 0,
+                "p": 2.5
+              },
+              {
+                "q": 150,
+                "p": 2.5
+              },
+              {
+                "q": 150,
+                "p": 3.5
+              },
+              {
+                "q": 0,
+                "p": 3.5
+              }
+            ],
+            "pattern": "hatch",
+            "tone": "green"
+          },
+          {
+            "points": [
+              {
+                "q": 150,
+                "p": 3.5
+              },
+              {
+                "q": 200,
+                "p": 3
+              },
+              {
+                "q": 150,
+                "p": 2.5
+              }
+            ],
+            "pattern": "cross",
+            "tone": "grey"
+          }
+        ],
+        "curves": [
+          {
+            "line": {
+              "a": {
+                "q": 0,
+                "p": 5
+              },
+              "b": {
+                "q": 500,
+                "p": 0
+              }
+            },
+            "label": "D",
+            "tone": "navy"
+          },
+          {
+            "line": {
+              "a": {
+                "q": 0,
+                "p": 1
+              },
+              "b": {
+                "q": 400,
+                "p": 5
+              }
+            },
+            "label": "S",
+            "tone": "green"
+          },
+          {
+            "line": {
+              "a": {
+                "q": 0,
+                "p": 2
+              },
+              "b": {
+                "q": 400,
+                "p": 6
+              }
+            },
+            "tone": "green",
+            "dashed": true
+          }
+        ],
+        "guides": [
+          {
+            "at": {
+              "q": 150,
+              "p": 3.5
+            },
+            "xText": "150"
+          },
+          {
+            "at": {
+              "q": 200,
+              "p": 3
+            },
+            "xText": "200"
+          },
+          {
+            "at": {
+              "q": 150,
+              "p": 2.5
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 300,
+              "p": 5.4
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 60,
+              "p": 3
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 178,
+              "p": 3
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 150,
+              "p": 4.3
+            },
+            "letter": "D"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "S + tax",
+          "feedback": "A is on the dashed line above S. The tax shifts supply up by the amount of the tax."
+        },
+        {
+          "letter": "B",
+          "answer": "Government tax revenue",
+          "feedback": "B is the tax per unit (the gap between the two prices) times the quantity sold. That is tax revenue."
+        },
+        {
+          "letter": "C",
+          "answer": "Welfare loss",
+          "feedback": "C covers units between the new and old quantity. They are no longer traded, so their surplus is lost."
+        },
+        {
+          "letter": "D",
+          "answer": "The new price buyers pay",
+          "feedback": "D marks the point where demand meets S + tax. Buyers pay this higher price."
+        }
+      ],
+      "choices": [
+        "S + tax",
+        "Government tax revenue",
+        "Welfare loss",
+        "The new price buyers pay",
+        "The price sellers keep",
+        "Consumer surplus"
+      ],
+      "hints": [
+        "A tax shifts supply up by the tax.",
+        "Revenue = tax per unit × quantity. Which shape has that area?"
+      ],
+      "worked": "Example: a $2 tax on a good where 100 units are sold after the tax. Revenue = $2 × 100 = $200, a rectangle 100 wide and $2 tall between the two prices.",
+      "explanation": "The tax shifts supply from S to **S + tax** (A). Buyers pay a higher price (D), and sellers keep less. **Tax revenue** is the rectangle B. The triangle C is the **welfare loss** from units no longer traded."
+    },
+    {
+      "id": "q4",
+      "type": "number",
+      "level": "core",
+      "prompt": "At a maximum price of $4, quantity demanded is 200 loaves and quantity supplied is 120 loaves. What is the **shortage**?",
+      "answer": 80,
+      "suffix": "loaves",
+      "mistakes": [
+        {
+          "value": -80,
+          "feedback": "A shortage is a positive amount: quantity demanded minus quantity supplied."
+        },
+        {
+          "value": 320,
+          "feedback": "Do not add the quantities. The shortage is the gap between them."
+        }
+      ],
+      "hints": [
+        "Shortage = quantity demanded − quantity supplied.",
+        "200 − 120 = ?"
+      ],
+      "worked": "Example: at a maximum rent, 900 people want a flat and 700 flats are offered. Shortage = 900 − 700 = 200 flats.",
+      "explanation": "Shortage = Qd − Qs = 200 − 120 = **80 loaves**. Only 120 loaves are actually traded, because sellers decide how many to make."
+    },
+    {
+      "id": "q5",
+      "type": "number",
+      "level": "apply",
+      "hl": true,
+      "prompt": "^HL^ A tax of $2 per unit is placed on a good. After the tax, 300 units are sold, buyers pay $9, and sellers keep $7. Before the tax, the price was $8. What is the **government tax revenue**?",
+      "answer": 600,
+      "prefix": "$",
+      "mistakes": [
+        {
+          "value": 300,
+          "feedback": "That is the consumer share only ($1 × 300). Revenue is the whole tax per unit times quantity."
+        },
+        {
+          "value": 2700,
+          "feedback": "That is total spending by buyers ($9 × 300). Revenue is only the tax part."
+        }
+      ],
+      "hints": [
+        "Tax revenue = tax per unit × quantity after the tax.",
+        "$2 × 300 = ?"
+      ],
+      "worked": "Example: a $0.50 tax per litre and 1,000 litres sold after the tax. Revenue = $0.50 × 1,000 = $500.",
+      "explanation": "Tax revenue = tax per unit × quantity = $2 × 300 = **$600**. Consumers pay ($9 − $8) × 300 = $300 of it. Producers pay ($8 − $7) × 300 = $300."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A government sets a **minimum wage** above the equilibrium wage. Which is the most likely result?",
+      "options": [
+        {
+          "text": "Workers who keep their jobs earn more, but there is a surplus of labour (unemployment)",
+          "correct": true,
+          "feedback": "Yes. Firms demand less labour at the higher wage, and more people want to work."
+        },
+        {
+          "text": "Every worker is better off, with no downside",
+          "feedback": "Workers who keep their jobs gain. But firms hire fewer workers, so some lose out."
+        },
+        {
+          "text": "There is a shortage of workers",
+          "feedback": "A shortage happens with a maximum price below equilibrium. A minimum wage above equilibrium creates a surplus of labour."
+        },
+        {
+          "text": "The government gains tax revenue from the higher wages",
+          "feedback": "A minimum wage is a minimum price for labour, not a tax."
+        }
+      ],
+      "hints": [
+        "A minimum wage is a minimum price in the labour market. Who supplies labour, and who demands it?",
+        "Above equilibrium, compare the labour firms want with the labour workers offer."
+      ],
+      "worked": "Example: the equilibrium wage is $18. A minimum wage of $20 means firms want 200 workers but 280 people want jobs. 80 people cannot find work at that wage.",
+      "explanation": "In the labour market, **workers supply** labour and **firms demand** it. A **minimum wage** above equilibrium raises pay for those employed, but quantity of labour demanded falls and quantity supplied rises. The gap is a **surplus of labour** (unemployment)."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "apply",
+      "hl": true,
+      "prompt": "^HL^ Demand for cigarettes is **price inelastic**. Supply is price elastic. A tax is placed on cigarettes. Who pays most of the tax?",
+      "options": [
+        {
+          "text": "Consumers, because demand is less elastic than supply",
+          "correct": true,
+          "feedback": "Yes. Smokers keep buying even when the price rises, so most of the tax is passed on to them."
+        },
+        {
+          "text": "Producers, because they hand the tax to the government",
+          "feedback": "Producers pay the tax to the government, but they can pass most of it on in a higher price."
+        },
+        {
+          "text": "Consumers and producers always pay half each",
+          "feedback": "They share it equally only when demand and supply are equally steep."
+        },
+        {
+          "text": "Nobody, because quantity does not change",
+          "feedback": "With inelastic demand, quantity falls only a little, but the price still rises."
+        }
+      ],
+      "hints": [
+        "The less elastic side cannot easily avoid the tax.",
+        "Inelastic demand: buyers still buy at a higher price."
+      ],
+      "worked": "Example: demand for petrol is inelastic. A $0.30 tax raises the price drivers pay by $0.25, so drivers pay most of it. Producers keep $0.05 less.",
+      "explanation": "**Tax incidence** depends on elasticity. The side with the **less elastic** curve pays more of the tax. Demand for cigarettes is price inelastic, so **consumers** pay most of it, and quantity falls only a little."
+    },
+    {
+      "id": "q8",
+      "type": "choice",
+      "level": "core",
+      "prompt": "The government gives a **subsidy** to bus companies for each pass sold. Which stakeholder pays for it?",
+      "options": [
+        {
+          "text": "The government, so taxpayers pay in the end",
+          "correct": true,
+          "feedback": "Yes. The government pays subsidy × quantity. That money has an opportunity cost."
+        },
+        {
+          "text": "Bus passengers, through higher prices",
+          "feedback": "A subsidy lowers the price passengers pay."
+        },
+        {
+          "text": "Bus companies, through lower revenue",
+          "feedback": "Bus companies receive more per pass, so they gain."
+        },
+        {
+          "text": "Nobody: subsidies are free",
+          "feedback": "Subsidies cost money. The government could have spent it on something else."
+        }
+      ],
+      "hints": [
+        "Who hands over the money in a subsidy?",
+        "Government money comes from taxes, and it could be used elsewhere."
+      ],
+      "worked": "Example: a $10 subsidy per solar panel and 250 panels installed. Government spending = $10 × 250 = $2,500.",
+      "explanation": "With a **subsidy**, consumers pay less, producers receive more, and the **government** pays subsidy × quantity. That money has an **opportunity cost**: it could fund schools or hospitals. Producing more than the free market quantity can also cause a **welfare loss**."
+    }
+  ],
+  "explain": {
+    "prompt": "Choose one mission. Explain, using a diagram, how your policy met the goal, and which stakeholders gained and lost.",
+    "frames": [
+      "The goal was ___, so I chose ___.",
+      "On the diagram, the policy ___, so the price buyers pay ___ and the quantity ___.",
+      "___ gained because ___.",
+      "___ lost because ___.",
+      "A problem with this policy is ___."
+    ],
+    "checklist": [
+      "I named the tool and said why it fits the goal.",
+      "I described the diagram: which curve or line moved, and the new price and quantity.",
+      "I named at least two stakeholders and said who gains and who loses.",
+      "I named one problem, such as a shortage, a surplus, a cost to the government or a welfare loss."
+    ]
+  },
+  "teacherNotes": "Level 1 checks that students can match a tool to a goal. Each brief rules out the other tools on purpose (for example \"no spending\" rules out a subsidy). Level 2 asks for four predictions before the reveal. Level 3 is HL: the calculations use the IB formulas for tax revenue, tax incidence, subsidy cost, shortage, surplus and welfare loss. All markets are invented. Discussion idea: the cigarette mission shows that with price inelastic demand, consumers pay most of a tax, and that a higher tax does not always raise more revenue."
+}

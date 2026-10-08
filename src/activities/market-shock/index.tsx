@@ -14,6 +14,7 @@ import type { TryProps } from '../../shared/activity/types';
 import { celebrate } from '../../shared/fun/celebrate';
 import { play } from '../../shared/fun/sound';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
+import { ClassMode } from './ClassMode';
 import { DoubleShock } from './DoubleShock';
 import { GapScene } from './GapScene';
 import {
@@ -79,8 +80,19 @@ function LearnDiagram() {
 function Try(props: TryProps) {
   const data = props.content.try as unknown as TryContent;
   const [level, setLevel] = useState(1);
+  const [classMode, setClassMode] = useState(false);
   return (
     <div class="stack">
+      {props.teacher && (
+        <div class="mode-switch" role="group" aria-label="Choose how to play">
+          <button aria-pressed={!classMode} onClick={() => setClassMode(false)}>Student game</button>
+          <button aria-pressed={classMode} onClick={() => setClassMode(true)}>Class mode (projector)</button>
+        </div>
+      )}
+      {props.teacher && classMode ? (
+        <ClassMode cards={data.cards} traps={data.traps} options={data.options} />
+      ) : (
+        <>
       <LevelPicker
         levels={data.levels}
         level={level}
@@ -94,6 +106,8 @@ function Try(props: TryProps) {
         stampNames={STAMP_NAMES}
       />
       {level === 3 ? <DoubleShock {...props} /> : <Cards key={level} {...props} level={level} />}
+        </>
+      )}
     </div>
   );
 }
