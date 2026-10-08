@@ -16,6 +16,8 @@ export interface Scenario {
   text: string;
   /** True when the scenario should not hint at its PED in the picker. */
   mystery?: boolean;
+  /** Game level the café belongs to (1 when missing). */
+  level?: number;
   /** Two points on the hidden demand curve. */
   demand: Line;
   priceMin: number;
@@ -150,40 +152,122 @@ export const signedMoney = (v: number) => (v > 0 ? '+$' : v < 0 ? '−$' : '$') 
 export const signedPct = (v: number) => (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(round(v, 1)).toFixed(1) + '%';
 export const pedText = (v: number) => (v < 0 ? '−' : '') + Math.abs(round(v, 2)).toFixed(2);
 
-// ---------- Four-week campaign ----------
+// ---------- Campaigns and levels ----------
 
-/** The cafés in campaign order, one per week. */
+/** The cafés in Level 1 campaign order, one per week. */
 export const CAMPAIGN = ['latte', 'lodge', 'fizz', 'kiosk'] as const;
-/** Weeks where revenue must grow to earn the Café Tycoon stamp. */
+/** Level 1 weeks that must meet the goal to earn the Café Tycoon stamp. */
 export const CAMPAIGN_GOAL = 3;
+
+export interface CafeLevel {
+  /** Scenario ids, one per week. */
+  campaign: readonly string[];
+  /** Weeks that must meet the goal to earn the level's stamp. */
+  goal: number;
+  days: number;
+  /**
+   * classify: grow revenue and say whether demand is elastic or inelastic.
+   * sweet: find the price that earns the most revenue (the price range crosses |PED| = 1).
+   */
+  kind: 'classify' | 'sweet';
+  /** sweet: the best day must earn at least this share of the most revenue possible. */
+  share: number;
+  /** The student works out PED for each price change before the log shows it. */
+  typePed: boolean;
+}
+
+export const CAFE_LEVELS: CafeLevel[] = [
+  { campaign: CAMPAIGN, goal: CAMPAIGN_GOAL, days: 6, kind: 'classify', share: 0, typePed: false },
+  { campaign: ['gym', 'bubble', 'soup'], goal: 2, days: 6, kind: 'sweet', share: 0.97, typePed: false },
+  { campaign: ['ferry', 'rink', 'lemonade'], goal: 2, days: 5, kind: 'sweet', share: 0.98, typePed: true },
+];
+
+/** Every price the student can choose, from priceMin to priceMax in $0.25 steps. */
+export function priceGrid(s: Scenario): number[] {
+  const out: number[] = [];
+  for (let p = s.priceMin; p <= s.priceMax + 1e-9; p += PRICE_STEP) out.push(round(p, 2));
+  return out;
+}
+
+/** The price on the grid that earns the most total revenue, and that revenue. */
+export function bestPrice(s: Scenario): { price: number; revenue: number } {
+  let best = { price: s.priceMin, revenue: -1 };
+  for (const p of priceGrid(s)) {
+    const tr = round(p * cupsSold(s, p), 2);
+    if (tr > best.revenue + 1e-9) best = { price: p, revenue: tr };
+  }
+  return best;
+}
+
+/** The day in the log with the highest total revenue (the earliest, if tied). */
+export function bestDay(rows: DayRow[]): DayRow | null {
+  return rows.reduce<DayRow | null>((b, r) => (!b || r.revenue > b.revenue + 1e-9 ? r : b), null);
+}
+
+/** Share (0 to 1) of the most revenue possible that the week's best day earned. */
+export function sweetShare(s: Scenario, rows: DayRow[]): number {
+  const best = bestDay(rows);
+  const max = bestPrice(s).revenue;
+  return best && max > 0 ? best.revenue / max : 0;
+}
+
+/**
+ * Checks a PED the student worked out. Either sign is accepted, because the size of PED is
+ * what matters here, and the answer may be up to `tol` away (rounding along the way).
+ */
+export function pedTypedRight(typed: number, actual: number, tol = 0.05): boolean {
+  return Number.isFinite(typed) && Math.abs(Math.abs(typed) - Math.abs(actual)) <= tol + 1e-9;
+}
 
 export interface WeekResult {
   scenarioId: string;
   /** Day 1 and last-day total revenue. */
   startTR: number;
   endTR: number;
-  /** The week's goal: the last day's revenue is higher than day 1's. */
+  /** The last day's revenue is higher than day 1's. */
   grew: boolean;
-  /** Elastic or inelastic chosen correctly at the end of the week. */
+  /** The end-of-week question was answered correctly. */
   typeRight: boolean;
+  /** The week's goal for its level was met. */
+  met: boolean;
 }
 
-/** The goal for one week: finish with a higher daily total revenue than on day 1. */
+/** Level 1 revenue goal: finish with a higher daily total revenue than on day 1. */
 export function weekGrew(rows: DayRow[]): boolean {
   return rows.length > 1 && rows[rows.length - 1].revenue > rows[0].revenue + 1e-9;
 }
 
-export function weekResult(scenarioId: string, rows: DayRow[], typeRight: boolean): WeekResult {
+/**
+ * One week's result. Level 1: revenue grew AND the elastic or inelastic call was right.
+ * Levels 2 and 3: the best day reached the level's share of the most revenue possible AND the
+ * end-of-week question was right; Level 3 also needs at least half the typed PEDs right first time.
+ */
+export function weekResult(
+  scenarioId: string,
+  rows: DayRow[],
+  typeRight: boolean,
+  opts: { level?: CafeLevel; scenario?: Scenario; pedFirstTry?: number; pedAsked?: number } = {},
+): WeekResult {
+  const grew = weekGrew(rows);
+  const lv = opts.level ?? CAFE_LEVELS[0];
+  let met: boolean;
+  if (lv.kind === 'classify') met = grew && typeRight;
+  else {
+    const reached = !!opts.scenario && sweetShare(opts.scenario, rows) >= lv.share - 1e-9;
+    const pedOk = !lv.typePed || ((opts.pedAsked ?? 0) > 0 && (opts.pedFirstTry ?? 0) * 2 >= (opts.pedAsked ?? 0));
+    met = reached && typeRight && pedOk;
+  }
   return {
     scenarioId,
     startTR: rows[0]?.revenue ?? 0,
     endTR: rows[rows.length - 1]?.revenue ?? 0,
-    grew: weekGrew(rows),
+    grew,
     typeRight,
+    met,
   };
 }
 
-/** True once all four weeks are played and revenue grew in at least CAMPAIGN_GOAL of them. */
-export function campaignMet(results: WeekResult[]): boolean {
-  return results.length >= CAMPAIGN.length && results.filter((r) => r.grew).length >= CAMPAIGN_GOAL;
+/** True once every week of the level is played and the goal was met in enough of them. */
+export function campaignMet(results: WeekResult[], level: CafeLevel = CAFE_LEVELS[0]): boolean {
+  return results.length >= level.campaign.length && results.filter((r) => r.met).length >= level.goal;
 }

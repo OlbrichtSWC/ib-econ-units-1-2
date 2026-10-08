@@ -6,7 +6,7 @@
     "caption": "A is on the PPC (efficient). B is inside (unemployed resources). C is outside (unattainable for now). The arrow shows growth in production possibilities: PPC₁ shifts out to PPC₂."
   },
   "try": {
-    "intro": "**Welcome to Pinewood Island** (an invented economy). Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber. **Free play:** move workers, complete the missions, then play the event cards. **Predict before you play each card.**\n\n**Four seasons:** plan the island's year. Each season has an event and a need for fish and timber. Meet the need in all four seasons to earn the **Island Planner** stamp.",
+    "intro": "**Welcome to Pinewood Island** (an invented economy). Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber.\n\n**Four seasons:** plan the island's year. Each season starts with an event: **predict** what it does to the PPC, then choose how many workers fish so the island meets that season's need. There are three levels. Each one opens when you earn the stamp for the level before.\n\n**Free play:** move workers, complete the missions, then play the event cards. Predict before you play each card.",
     "missions": [
       {
         "id": "efficient",
@@ -45,6 +45,14 @@
       {
         "id": "pivot-fish",
         "text": "The PPC pivots out along the fish axis only"
+      },
+      {
+        "id": "pivot-fish-in",
+        "text": "The PPC pivots in along the fish axis only"
+      },
+      {
+        "id": "pivot-timber-out",
+        "text": "The PPC pivots out along the timber axis only"
       },
       {
         "id": "pivot-timber-in",
@@ -111,77 +119,257 @@
         "explain": "More labour means the island can make more of both goods. The whole PPC shifts outward. This is growth in production possibilities."
       }
     ],
-    "seasons": [
+    "seasonLevels": [
       {
-        "id": "spring",
-        "name": "Spring",
-        "icon": "🌱",
-        "event": null,
-        "story": "The fishing boats are ready and the islanders need wood to repair their homes.",
-        "need": {
-          "fish": 30,
-          "timber": 35
-        }
+        "title": "A calm year",
+        "blurb": "Four seasons, three events. Get at least 2 of the 3 predictions right.",
+        "startFishers": 8,
+        "minPredictions": 2,
+        "seasons": [
+          {
+            "id": "spring",
+            "name": "Spring",
+            "icon": "🌱",
+            "event": null,
+            "story": "The fishing boats are ready and the islanders need wood to repair their homes. Last season most workers fished, so the island starts with too little timber.",
+            "need": {
+              "fish": 30,
+              "timber": 35
+            }
+          },
+          {
+            "id": "summer",
+            "name": "Summer",
+            "icon": "☀️",
+            "event": {
+              "title": "New fishing nets",
+              "text": "A local firm invents a stronger, lighter fishing net. Every worker can now catch 50% more fish.",
+              "effect": {
+                "fish": 1.5
+              },
+              "correct": "pivot-fish",
+              "explain": "Better fishing technology lets the island make more fish with the same workers, but no more timber. The PPC pivots outward along the fish axis."
+            },
+            "story": "Summer visitors arrive and want to eat fish. The island also needs timber for new jetties.",
+            "need": {
+              "fish": 50,
+              "timber": 40
+            }
+          },
+          {
+            "id": "autumn",
+            "name": "Autumn",
+            "icon": "🍂",
+            "event": {
+              "title": "Sawmill closes",
+              "text": "The sawmill closes for repairs. The 3 workers who are best at cutting timber lose their jobs this season.",
+              "effect": {
+                "jobs": -3
+              },
+              "correct": "move-inside",
+              "explain": "Resources and technology do not change, so the PPC stays where it is. With 3 workers unemployed, the island can only produce at a point inside the PPC."
+            },
+            "story": "The island stores food for winter and stacks firewood.",
+            "need": {
+              "fish": 40,
+              "timber": 20
+            }
+          },
+          {
+            "id": "winter",
+            "name": "Winter",
+            "icon": "❄️",
+            "event": {
+              "title": "Sawmill reopens, then an ice storm",
+              "text": "Everyone is back at work. Then an ice storm destroys part of the forest, so each worker can cut only 60% as much timber as before.",
+              "effect": {
+                "jobs": 3,
+                "timber": 0.6
+              },
+              "correct": "pivot-timber-in",
+              "explain": "The storm destroys a resource used only for timber, so the PPC pivots inward along the timber axis. The workers who are back at work move the island from inside the curve back onto it."
+            },
+            "story": "It is cold. The island needs firewood to stay warm and fish to stay fed.",
+            "need": {
+              "fish": 45,
+              "timber": 25
+            }
+          }
+        ]
       },
       {
-        "id": "summer",
-        "name": "Summer",
-        "icon": "☀️",
-        "event": {
-          "title": "New fishing nets",
-          "text": "A local firm invents a stronger, lighter fishing net. Every worker can now catch 50% more fish.",
-          "effect": {
-            "fish": 1.5
+        "title": "A stormy year",
+        "blurb": "Tighter needs and four events. Only one plan works each season. Get 3 of 4 predictions right.",
+        "startFishers": 2,
+        "minPredictions": 3,
+        "seasons": [
+          {
+            "id": "spring2",
+            "name": "Spring",
+            "icon": "🌱",
+            "event": {
+              "title": "Sharper saw blades",
+              "text": "A new saw blade lets every worker cut 30% more timber. Fishing does not change.",
+              "effect": {
+                "timber": 1.3
+              },
+              "correct": "pivot-timber-out",
+              "explain": "Better technology for timber only lets the island make more timber with the same workers, but no more fish. The PPC pivots outward along the timber axis."
+            },
+            "story": "The islanders want to build a new school, so they need a lot of timber.",
+            "need": {
+              "fish": 36,
+              "timber": 50
+            }
           },
-          "correct": "pivot-fish",
-          "explain": "Better fishing technology lets the island make more fish with the same workers, but no more timber. The PPC pivots outward along the fish axis."
-        },
-        "story": "Summer visitors arrive and want to eat fish. The island also needs timber for new jetties.",
-        "need": {
-          "fish": 50,
-          "timber": 40
-        }
+          {
+            "id": "summer2",
+            "name": "Summer",
+            "icon": "☀️",
+            "event": {
+              "title": "A summer fever",
+              "text": "Two workers who are best at cutting timber catch a fever and cannot work all summer.",
+              "effect": {
+                "jobs": -2
+              },
+              "correct": "move-inside",
+              "explain": "The island's resources and technology have not changed, so the PPC stays where it is. Two workers are not producing, so the island can only reach a point inside the PPC."
+            },
+            "story": "Visitors arrive. The island needs fish for them and timber for the school.",
+            "need": {
+              "fish": 26,
+              "timber": 38
+            }
+          },
+          {
+            "id": "autumn2",
+            "name": "Autumn",
+            "icon": "🍂",
+            "event": {
+              "title": "Everyone recovers",
+              "text": "The two sick workers are well again and go back to work.",
+              "effect": {
+                "jobs": 2
+              },
+              "correct": "move-toward",
+              "explain": "Nothing about the island's resources or technology has changed, so the PPC does not move. The workers who come back move the island from a point inside the PPC towards the curve."
+            },
+            "story": "The island stores food and wood before the cold weather.",
+            "need": {
+              "fish": 44,
+              "timber": 44
+            }
+          },
+          {
+            "id": "winter2",
+            "name": "Winter",
+            "icon": "❄️",
+            "event": {
+              "title": "A new island school",
+              "text": "The school opens. Every worker learns better methods and can catch 20% more fish and cut 20% more timber.",
+              "effect": {
+                "fish": 1.2,
+                "timber": 1.2
+              },
+              "correct": "shift-out",
+              "explain": "Better human capital raises output of both goods. The whole PPC shifts outward: the island can now produce more of both."
+            },
+            "story": "A long winter. The island needs plenty of firewood and some fish.",
+            "need": {
+              "fish": 46,
+              "timber": 60
+            }
+          }
+        ]
       },
       {
-        "id": "autumn",
-        "name": "Autumn",
-        "icon": "🍂",
-        "event": {
-          "title": "Sawmill closes",
-          "text": "The sawmill closes for repairs. The 3 workers who are best at cutting timber lose their jobs this season.",
-          "effect": {
-            "jobs": -3
+        "title": "The council's year",
+        "blurb": "Every plan is tight, and one need cannot be met at all. Spot it. Get all 4 predictions right.",
+        "startFishers": 9,
+        "minPredictions": 4,
+        "impossibleOption": true,
+        "seasons": [
+          {
+            "id": "spring3",
+            "name": "Spring",
+            "icon": "🌱",
+            "event": {
+              "title": "A tsunami",
+              "text": "A tsunami damages the boats and knocks down part of the forest. Every worker can now catch 20% fewer fish and cut 20% less timber.",
+              "effect": {
+                "fish": 0.8,
+                "timber": 0.8
+              },
+              "correct": "shift-in",
+              "explain": "Resources used for both goods are destroyed, so the island can make less of both. The whole PPC shifts inward."
+            },
+            "story": "The island must repair homes and still feed everyone.",
+            "need": {
+              "fish": 31,
+              "timber": 31
+            }
           },
-          "correct": "move-inside",
-          "explain": "Resources and technology do not change, so the PPC stays where it is. With 3 workers unemployed, the island can only produce at a point inside the PPC."
-        },
-        "story": "The island stores food for winter and stacks firewood.",
-        "need": {
-          "fish": 40,
-          "timber": 20
-        }
-      },
-      {
-        "id": "winter",
-        "name": "Winter",
-        "icon": "❄️",
-        "event": {
-          "title": "Sawmill reopens, then an ice storm",
-          "text": "Everyone is back at work. Then an ice storm destroys part of the forest, so each worker can cut only 60% as much timber as before.",
-          "effect": {
-            "jobs": 3,
-            "timber": 0.6
+          {
+            "id": "summer3",
+            "name": "Summer",
+            "icon": "☀️",
+            "event": {
+              "title": "Half the reef is closed",
+              "text": "To protect young fish, the council closes half the reef. Every worker can now catch only 60% as many fish. Timber does not change.",
+              "effect": {
+                "fish": 0.6
+              },
+              "correct": "pivot-fish-in",
+              "explain": "Fewer fishing grounds is a loss of a resource used only for fish. The PPC pivots inward along the fish axis."
+            },
+            "story": "The council asks for at least 24 tonnes of fish and 28 tonnes of timber. Can the island do it?",
+            "need": {
+              "fish": 24,
+              "timber": 28
+            }
           },
-          "correct": "pivot-timber-in",
-          "explain": "The storm destroys a resource used only for timber, so the PPC pivots inward along the timber axis. The workers who are back at work move the island from inside the curve back onto it."
-        },
-        "story": "It is cold. The island needs firewood to stay warm and fish to stay fed.",
-        "need": {
-          "fish": 45,
-          "timber": 25
-        }
+          {
+            "id": "autumn3",
+            "name": "Autumn",
+            "icon": "🍂",
+            "event": {
+              "title": "A harbour strike",
+              "text": "Four workers who are best at cutting timber go on strike and stop working.",
+              "effect": {
+                "jobs": -4
+              },
+              "correct": "move-inside",
+              "explain": "The island still has the same resources and technology, so the PPC does not move. With four workers not working, the island produces at a point inside the PPC."
+            },
+            "story": "With fewer workers, the island needs just enough to get by.",
+            "need": {
+              "fish": 12,
+              "timber": 12
+            }
+          },
+          {
+            "id": "winter3",
+            "name": "Winter",
+            "icon": "❄️",
+            "event": {
+              "title": "The strike ends",
+              "text": "The four workers return to work.",
+              "effect": {
+                "jobs": 4
+              },
+              "correct": "move-toward",
+              "explain": "The PPC stays where it is, because resources and technology are the same. Returning workers move the island from inside the PPC back towards the curve."
+            },
+            "story": "The coldest season. Every tonne counts.",
+            "need": {
+              "fish": 21,
+              "timber": 27
+            }
+          }
+        ]
       }
-    ]
+    ],
+    "goal": "Plan Pinewood Island's year in **Four seasons**, or explore freely and complete the missions."
   },
   "check": [
     {
@@ -401,15 +589,415 @@
       ],
       "worked": "Example: a ski hill spends this year building a new chairlift instead of running more lessons. This year it gives up lesson income (opportunity cost). Next year the chairlift lets it serve more skiers, so its possibilities grow.",
       "explanation": "Today the choice is a movement along the PPC with an opportunity cost in consumer goods. Because capital goods increase future productive capacity, the PPC can shift outward later. This is the trade-off between consumption now and growth in the future."
+    },
+    {
+      "id": "dg1",
+      "type": "label",
+      "level": "core",
+      "prompt": "**Label the diagram.** Choose what each lettered point shows.",
+      "diagram": {
+        "xMax": 14,
+        "yMax": 14,
+        "xLabel": "Good X",
+        "yLabel": "Good Y",
+        "title": "A production possibilities curve with three lettered points",
+        "description": "A curved PPC bowed out from the origin. Point A is on the curve. Point B is inside the curve. Point C is outside the curve.",
+        "curves": [
+          {
+            "points": [
+              {
+                "q": 0.0,
+                "p": 10.0
+              },
+              {
+                "q": 0.872,
+                "p": 9.962
+              },
+              {
+                "q": 1.736,
+                "p": 9.848
+              },
+              {
+                "q": 2.588,
+                "p": 9.659
+              },
+              {
+                "q": 3.42,
+                "p": 9.397
+              },
+              {
+                "q": 4.226,
+                "p": 9.063
+              },
+              {
+                "q": 5.0,
+                "p": 8.66
+              },
+              {
+                "q": 5.736,
+                "p": 8.192
+              },
+              {
+                "q": 6.428,
+                "p": 7.66
+              },
+              {
+                "q": 7.071,
+                "p": 7.071
+              },
+              {
+                "q": 7.66,
+                "p": 6.428
+              },
+              {
+                "q": 8.192,
+                "p": 5.736
+              },
+              {
+                "q": 8.66,
+                "p": 5.0
+              },
+              {
+                "q": 9.063,
+                "p": 4.226
+              },
+              {
+                "q": 9.397,
+                "p": 3.42
+              },
+              {
+                "q": 9.659,
+                "p": 2.588
+              },
+              {
+                "q": 9.848,
+                "p": 1.736
+              },
+              {
+                "q": 9.962,
+                "p": 0.872
+              },
+              {
+                "q": 10.0,
+                "p": 0.0
+              }
+            ],
+            "label": "PPC",
+            "tone": "navy"
+          }
+        ],
+        "dots": [
+          {
+            "at": {
+              "q": 6,
+              "p": 8
+            }
+          },
+          {
+            "at": {
+              "q": 3,
+              "p": 4
+            }
+          },
+          {
+            "at": {
+              "q": 9,
+              "p": 8
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 6.9,
+              "p": 9.1
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 3.9,
+              "p": 5.1
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 9.9,
+              "p": 9.1
+            },
+            "letter": "C"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "Productively efficient: all resources fully used",
+          "feedback": "A is on the PPC. Every point on the curve uses all resources fully and efficiently."
+        },
+        {
+          "letter": "B",
+          "answer": "Unemployed or unused resources",
+          "feedback": "B is inside the PPC. The economy could make more of both goods, so some resources are unemployed or used inefficiently."
+        },
+        {
+          "letter": "C",
+          "answer": "Not possible with current resources and technology",
+          "feedback": "C is outside the PPC. The economy cannot reach it until it has more resources or better technology."
+        }
+      ],
+      "choices": [
+        "Productively efficient: all resources fully used",
+        "Unemployed or unused resources",
+        "Not possible with current resources and technology",
+        "Economic growth has already happened",
+        "Opportunity cost is zero"
+      ],
+      "hints": [
+        "Is each point on the curve, inside it, or outside it?",
+        "On the curve = all resources used. Inside = some resources unused. Outside = cannot be reached yet."
+      ],
+      "worked": "Example: a farm can grow 100 tonnes of wheat or 50 tonnes of corn, or combinations on its PPC. If it grows 40 wheat and 20 corn while that combination is inside the curve, some land or workers are idle. A combination outside the curve needs more land, workers or better technology.",
+      "explanation": "A point **on** the PPC shows productive efficiency: all resources are fully used. A point **inside** shows unemployed or inefficiently used resources. A point **outside** cannot be produced now. It needs more resources or better technology (economic growth)."
+    },
+    {
+      "id": "dg2",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "The PPC moves from PPC₁ to PPC₂. Which event could cause this?",
+      "diagram": {
+        "xMax": 14,
+        "yMax": 14,
+        "xLabel": "Good X",
+        "yLabel": "Good Y",
+        "title": "Two production possibilities curves",
+        "description": "PPC₁ is bowed out from the origin. PPC₂ is further from the origin at every point, so both maximum outputs are higher. An arrow points from PPC₁ to PPC₂.",
+        "curves": [
+          {
+            "points": [
+              {
+                "q": 0.0,
+                "p": 10.0
+              },
+              {
+                "q": 0.872,
+                "p": 9.962
+              },
+              {
+                "q": 1.736,
+                "p": 9.848
+              },
+              {
+                "q": 2.588,
+                "p": 9.659
+              },
+              {
+                "q": 3.42,
+                "p": 9.397
+              },
+              {
+                "q": 4.226,
+                "p": 9.063
+              },
+              {
+                "q": 5.0,
+                "p": 8.66
+              },
+              {
+                "q": 5.736,
+                "p": 8.192
+              },
+              {
+                "q": 6.428,
+                "p": 7.66
+              },
+              {
+                "q": 7.071,
+                "p": 7.071
+              },
+              {
+                "q": 7.66,
+                "p": 6.428
+              },
+              {
+                "q": 8.192,
+                "p": 5.736
+              },
+              {
+                "q": 8.66,
+                "p": 5.0
+              },
+              {
+                "q": 9.063,
+                "p": 4.226
+              },
+              {
+                "q": 9.397,
+                "p": 3.42
+              },
+              {
+                "q": 9.659,
+                "p": 2.588
+              },
+              {
+                "q": 9.848,
+                "p": 1.736
+              },
+              {
+                "q": 9.962,
+                "p": 0.872
+              },
+              {
+                "q": 10.0,
+                "p": 0.0
+              }
+            ],
+            "label": "PPC₁",
+            "tone": "grey",
+            "dashed": true,
+            "labelOffset": {
+              "dx": -34,
+              "dy": -8
+            }
+          },
+          {
+            "points": [
+              {
+                "q": 0.0,
+                "p": 12.5
+              },
+              {
+                "q": 1.09,
+                "p": 12.453
+              },
+              {
+                "q": 2.17,
+                "p": 12.31
+              },
+              {
+                "q": 3.235,
+                "p": 12.074
+              },
+              {
+                "q": 4.275,
+                "p": 11.746
+              },
+              {
+                "q": 5.282,
+                "p": 11.329
+              },
+              {
+                "q": 6.25,
+                "p": 10.825
+              },
+              {
+                "q": 7.17,
+                "p": 10.24
+              },
+              {
+                "q": 8.035,
+                "p": 9.575
+              },
+              {
+                "q": 8.839,
+                "p": 8.839
+              },
+              {
+                "q": 9.575,
+                "p": 8.035
+              },
+              {
+                "q": 10.24,
+                "p": 7.17
+              },
+              {
+                "q": 10.825,
+                "p": 6.25
+              },
+              {
+                "q": 11.329,
+                "p": 5.282
+              },
+              {
+                "q": 11.746,
+                "p": 4.275
+              },
+              {
+                "q": 12.074,
+                "p": 3.235
+              },
+              {
+                "q": 12.31,
+                "p": 2.17
+              },
+              {
+                "q": 12.453,
+                "p": 1.09
+              },
+              {
+                "q": 12.5,
+                "p": 0.0
+              }
+            ],
+            "label": "PPC₂",
+            "tone": "navy"
+          }
+        ],
+        "arrows": [
+          {
+            "from": {
+              "q": 7.3,
+              "p": 7.3
+            },
+            "to": {
+              "q": 8.6,
+              "p": 8.6
+            },
+            "tone": "red"
+          }
+        ]
+      },
+      "options": [
+        {
+          "text": "More workers join the labour force, and new technology helps make both goods",
+          "correct": true,
+          "feedback": "Yes. More resources and better technology raise the maximum output of both goods, so the whole PPC shifts outward."
+        },
+        {
+          "text": "Unemployed workers find jobs",
+          "feedback": "That moves the economy from a point inside the PPC towards the curve. The curve itself does not move."
+        },
+        {
+          "text": "People decide they want more of Good X and less of Good Y",
+          "feedback": "A change in what people want moves the economy along the same PPC. It does not change what the economy can produce."
+        },
+        {
+          "text": "New technology helps make Good X only",
+          "feedback": "Close. That would pivot the PPC outward on the Good X axis only. Here both ends have moved out."
+        }
+      ],
+      "hints": [
+        "Did both ends of the PPC move, or only one?",
+        "The PPC shows what can be produced. Only a change in resources or technology moves it."
+      ],
+      "worked": "Example: a country builds new roads and trains more workers. It can now make more of every good, so its PPC shifts outward. If only farming technology improves, only the farm-goods end moves out (a pivot).",
+      "explanation": "An **outward shift** of the whole PPC is **economic growth** in potential output. It comes from more or better resources (labour, capital, land) or better technology that helps both goods. Fuller use of existing resources is a movement towards the curve, not a shift."
     }
   ],
   "explain": {
-    "prompt": "Explain, using the PPC, what happened when the ice storm hit Pinewood Island.",
+    "prompt": "Choose one event you played (for example new fishing nets, the sawmill closing or an ice storm). Explain, using a PPC diagram, what the event did to the island.",
     "frames": [
-      "Before the storm, the island could produce ___.",
-      "The storm destroyed ___, so the PPC shifted ___.",
+      "Before the event, the island could produce ___.",
+      "The event changed ___, so the PPC ___.",
       "This means the opportunity cost of ___ changed because ___.",
       "This is different from unemployment because ___."
+    ],
+    "checklist": [
+      "I named the event and said which resource or technology changed.",
+      "I said whether the PPC shifted, pivoted, or did not move.",
+      "I explained the difference between a shift of the PPC and a point inside it.",
+      "I described a diagram with both axes labelled (fish and timber)."
     ]
   },
   "teacherNotes": "Use projector mode and play the event cards as a whole-class prediction game: students show 1 to 5 fingers for the outcome before you play each card. The opportunity cost counter makes increasing opportunity cost visible: bars rise as you move workers into fishing. Compare with constant mode for the straight-line PPC (1.1 diagram: increasing versus constant opportunity cost)."

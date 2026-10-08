@@ -28,9 +28,9 @@ export interface ShellProps {
   onStep: (s: StepName) => void;
   progress: ActivityProgress | undefined;
   /** Merge a change into this activity's saved progress. */
-  onProgress: (patch: Partial<ActivityProgress>, addSteps?: number) => void;
-  /** The student reached the Try it game's goal. */
-  onGoal: () => void;
+  onProgress: (patch: Partial<ActivityProgress>, addSteps?: number, sharp?: boolean) => void;
+  /** The student reached the goal of a Try it game level (1, 2 or 3). */
+  onGoal: (level?: number) => void;
   teacher: boolean;
   showHl: boolean;
   scale: { name: string; levels: ScaleLevel[] };
@@ -140,11 +140,31 @@ export function ActivityShell(props: ShellProps) {
 
         {props.step === 'try' && (
           <div class="stack">
-            <div class="callout">
-              <Md text={content.try.intro} />
-            </div>
-            <mod.Try content={content} teacher={props.teacher} onComplete={() => props.onProgress({}, STEP.try)} onGoal={props.onGoal} />
-            {content.explain && <ExplainBox prompt={content.explain.prompt} frames={content.explain.frames} />}
+            {typeof content.try.goal === 'string' ? (
+              <div class="callout stack">
+                <p style={{ margin: 0 }}>
+                  <strong>Your goal:</strong> <Md text={content.try.goal} inline />
+                </p>
+                <details class="how-to-play">
+                  <summary>How to play</summary>
+                  <Md text={content.try.intro} />
+                </details>
+              </div>
+            ) : (
+              <div class="callout">
+                <Md text={content.try.intro} />
+              </div>
+            )}
+            <mod.Try
+              content={content}
+              teacher={props.teacher}
+              stamps={props.progress?.stamps ?? 0}
+              onComplete={() => props.onProgress({}, STEP.try)}
+              onGoal={props.onGoal}
+            />
+            {content.explain && (
+              <ExplainBox activityId={meta.id} prompt={content.explain.prompt} frames={content.explain.frames} checklist={content.explain.checklist} />
+            )}
             <div>
               <button
                 class="btn"
@@ -164,7 +184,7 @@ export function ActivityShell(props: ShellProps) {
             questions={content.check}
             teacher={props.teacher}
             showHl={props.showHl}
-            onFinish={(e) => props.onProgress({ ...e }, STEP.check)}
+            onFinish={(e, sharp) => props.onProgress({ ...e }, STEP.check, sharp)}
           />
         )}
 

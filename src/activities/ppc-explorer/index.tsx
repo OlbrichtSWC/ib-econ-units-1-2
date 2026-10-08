@@ -12,7 +12,7 @@ import type { TryProps } from '../../shared/activity/types';
 import { DataTable } from '../../shared/activity/CheckIt';
 import { play } from '../../shared/fun/sound';
 import { CONSTANT, INCREASING, output, ppc, scale, Worker } from './model';
-import { Season } from './seasons';
+import { SeasonLevel } from './seasons';
 import { Seasons } from './Seasons';
 
 const MAX = 90;
@@ -33,7 +33,7 @@ interface TryContent {
   missions: { id: string; text: string }[];
   outcomes: { id: string; text: string }[];
   events: EventCard[];
-  seasons: Season[];
+  seasonLevels: SeasonLevel[];
 }
 
 /** Learn it: a PPC with points inside, on and outside, and an outward shift. */
@@ -74,14 +74,18 @@ function costBars(costs: number[], current: number | null) {
 
 function Try(props: TryProps) {
   const data = props.content.try as unknown as TryContent;
-  const [mode, setMode] = useState<'free' | 'seasons'>('free');
+  const [mode, setMode] = useState<'free' | 'seasons'>('seasons');
   return (
     <div class="stack">
       <div class="mode-switch" role="group" aria-label="Choose a game">
-        <button aria-pressed={mode === 'free'} onClick={() => setMode('free')}>Free play and missions</button>
         <button aria-pressed={mode === 'seasons'} onClick={() => setMode('seasons')}>Four seasons</button>
+        <button aria-pressed={mode === 'free'} onClick={() => setMode('free')}>Free play and missions</button>
       </div>
-      {mode === 'free' ? <FreePlay {...props} /> : <Seasons seasons={data.seasons} outcomes={data.outcomes} onGoal={props.onGoal} />}
+      {mode === 'free' ? (
+        <FreePlay {...props} />
+      ) : (
+        <Seasons levels={data.seasonLevels} outcomes={data.outcomes} onGoal={props.onGoal} stamps={props.stamps} teacher={props.teacher} />
+      )}
     </div>
   );
 }

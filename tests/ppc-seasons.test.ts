@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { output } from '../src/activities/ppc-explorer/model';
-import { islandAt, meetsNeed, Season, workingPlans } from '../src/activities/ppc-explorer/seasons';
+import { islandAt, meetsNeed, needImpossible, SeasonLevel, workingPlans, yearWon } from '../src/activities/ppc-explorer/seasons';
 import content from '../public/content/activities/ppc-explorer.json';
 
-const seasons = (content.try as unknown as { seasons: Season[] }).seasons;
+const levels = (content.try as unknown as { seasonLevels: SeasonLevel[] }).seasonLevels;
+const seasons = levels[0].seasons;
 const outcomes = (content.try as unknown as { outcomes: { id: string }[] }).outcomes.map((o) => o.id);
 
 describe('PPC Explorer: four seasons', () => {
@@ -44,6 +45,46 @@ describe('PPC Explorer: four seasons', () => {
   });
 
   it('each event card answer is one of the outcomes students can pick', () => {
-    for (const s of seasons) if (s.event) expect(outcomes).toContain(s.event.correct);
+    for (const l of levels) for (const s of l.seasons) if (s.event) expect(outcomes, s.id).toContain(s.event.correct);
+  });
+});
+
+describe('PPC Explorer: season levels get harder', () => {
+  it('has three levels that ask for more correct predictions each time', () => {
+    expect(levels).toHaveLength(3);
+    expect(levels.map((l) => l.minPredictions)).toEqual([2, 3, 4]);
+    expect(levels[2].impossibleOption).toBe(true);
+  });
+
+  it('Spring is never already solved by the starting plan', () => {
+    for (const l of levels) {
+      const plans = workingPlans(l.seasons, 0);
+      expect(plans, l.title).not.toContain(l.startFishers);
+    }
+  });
+
+  it('Level 2: every season has exactly one plan that works', () => {
+    levels[1].seasons.forEach((s, i) => expect(workingPlans(levels[1].seasons, i), s.id).toHaveLength(1));
+  });
+
+  it('Level 3: exactly one season need lies outside the PPC, and every other season can be met', () => {
+    const l = levels[2];
+    const impossible = l.seasons.map((_, i) => needImpossible(l.seasons, i));
+    expect(impossible.filter(Boolean)).toHaveLength(1);
+    l.seasons.forEach((s, i) => {
+      if (!impossible[i]) expect(workingPlans(l.seasons, i).length, s.id).toBeGreaterThan(0);
+    });
+  });
+
+  it('Levels 1 and 2 have no impossible season', () => {
+    for (const l of levels.slice(0, 2)) l.seasons.forEach((s, i) => expect(needImpossible(l.seasons, i), s.id).toBe(false));
+  });
+
+  it('a year is won only with every need met AND enough predictions right', () => {
+    const l = levels[0];
+    expect(yearWon(l, [true, true, true, true], 2)).toBe(true);
+    expect(yearWon(l, [true, true, true, true], 1)).toBe(false);
+    expect(yearWon(l, [true, false, true, true], 3)).toBe(false);
+    expect(yearWon(l, [true, true, true], 3)).toBe(false);
   });
 });

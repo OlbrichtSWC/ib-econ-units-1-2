@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { DEMAND, SUPPLY, surplusShapes, shoelace } from '../src/activities/surplus-shader/model';
+import { equilibrium } from '../src/econ/calc';
+import { DEMAND, shiftedMarket, SUPPLY, surplusShapes, shoelace } from '../src/activities/surplus-shader/model';
 import {
-  brushCells, cellAt, GRID, inside, PAINT_GOAL, PAINT_TASKS, paintMistakes, paintScore, PASS_SCORE, targetCells,
+  brushCells, cellAt, GRID, inside, PAINT_GOAL, PAINT_LEVELS, PAINT_TASKS, PAINT_TASKS_2, PAINT_TASKS_3, paintMistakes, paintScore, PASS_SCORE, targetCells,
+  taskCells,
 } from '../src/activities/surplus-shader/paint';
 
 const X = 900, Y = 110;
@@ -56,5 +58,48 @@ describe('Paint the surplus', () => {
 
   it('there are enough different tasks to earn the stamp', () => {
     expect(new Set(PAINT_TASKS.map((t) => t.id)).size).toBeGreaterThanOrEqual(PAINT_GOAL);
+  });
+});
+
+describe('Paint the surplus: Levels 2 and 3', () => {
+  it('three levels, with a stricter score and no markers in Level 3', () => {
+    expect(PAINT_LEVELS).toHaveLength(3);
+    expect(PAINT_LEVELS[0].tasks).toBe(PAINT_TASKS);
+    expect(PAINT_LEVELS[2].pass).toBeGreaterThan(PAINT_LEVELS[1].pass);
+    expect(PAINT_LEVELS[2].markers).toBe(false);
+    for (const lv of PAINT_LEVELS) expect(lv.tasks.length).toBeGreaterThanOrEqual(PAINT_GOAL);
+  });
+
+  it('Level 2 markets: demand right one step gives $55 and 500 passes; supply left one step gives $55 and 350', () => {
+    expect(equilibrium(shiftedMarket(1, 0).demand, shiftedMarket(1, 0).supply)).toEqual({ q: 500, p: 55 });
+    const s = shiftedMarket(0, -1);
+    const e = equilibrium(s.demand, s.supply);
+    expect(e.q).toBeCloseTo(350, 9);
+    expect(e.p).toBeCloseTo(55, 9);
+  });
+
+  it('every Level 2 and 3 task has an area big enough to paint, matching the true area', () => {
+    for (const t of [...PAINT_TASKS_2, ...PAINT_TASKS_3]) {
+      const mk = t.shift ? shiftedMarket(t.shift[0], t.shift[1]) : m;
+      const s = surplusShapes(mk, t.price);
+      const cells = taskCells(s, t.ask, X, Y);
+      const area = t.ask === 'community' ? shoelace(s.cs) + shoelace(s.ps) : shoelace(t.ask === 'cs' ? s.cs : t.ask === 'ps' ? s.ps : s.wl);
+      expect(cells.size, t.id).toBeGreaterThan(8);
+      expect(Math.abs(cells.size * cellArea - area) / area, t.id).toBeLessThan(0.15);
+    }
+  });
+
+  it('community surplus is consumer surplus and producer surplus together', () => {
+    const s = surplusShapes(m, 35);
+    const all = taskCells(s, 'community', X, Y);
+    const cs = targetCells(s.cs, X, Y), ps = targetCells(s.ps, X, Y);
+    cs.forEach((c) => expect(all.has(c)).toBe(true));
+    ps.forEach((c) => expect(all.has(c)).toBe(true));
+    expect(all.size).toBeLessThanOrEqual(cs.size + ps.size);
+  });
+
+  it('task ids are unique across all levels', () => {
+    const ids = PAINT_LEVELS.flatMap((l) => l.tasks.map((t) => t.id));
+    expect(new Set(ids).size).toBe(ids.length);
   });
 });

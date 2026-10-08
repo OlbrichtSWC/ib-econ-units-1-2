@@ -10,20 +10,34 @@ import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components'
 import { Curve, Diagram, Dot, Guide, HLine, TONE, useDiagram } from '../../shared/diagrams/Diagram';
 import { celebrate, celebrateAt } from '../../shared/fun/celebrate';
 import { play } from '../../shared/fun/sound';
-import { DEMAND, Market, SUPPLY, surplusShapes } from './model';
-import {
-  brushCells, cellAt, GRID, PAINT_GOAL, PAINT_TASKS, paintMistakes, paintScore, PASS_SCORE, targetCells,
-} from './paint';
+import { LevelPicker } from '../../shared/activity/LevelPicker';
+import { equilibrium } from '../../econ/calc';
+import { DEMAND, Market, shiftedMarket, SUPPLY, surplusShapes } from './model';
+import { brushCells, cellAt, GRID, PAINT_GOAL, PAINT_LEVELS, paintMistakes, paintScore, taskCells } from './paint';
 
 const X_MAX = 900;
 const Y_MAX = 110;
 const BASE: Market = { demand: DEMAND, supply: SUPPLY };
-const NAME = { cs: 'consumer surplus', ps: 'producer surplus', wl: 'welfare loss' } as const;
-const PAINT_TONE = { cs: TONE.navy, ps: TONE.red, wl: TONE.grey } as const;
+const NAME = { cs: 'consumer surplus', ps: 'producer surplus', wl: 'welfare loss', community: 'community surplus' } as const;
+const PAINT_TONE = { cs: TONE.navy, ps: TONE.red, wl: TONE.grey, community: TONE.green } as const;
+const STAMP_NAMES = ['Surplus Painter', 'Shift Painter', 'Master Painter'];
+const LEVELS = [
+  { title: 'Paint the areas', blurb: 'Equilibrium and price controls. Paint 3 areas with a match of 85% or more.' },
+  { title: 'After a shift', blurb: 'A curve has shifted first. Find the new equilibrium, then paint. 85% or more.' },
+  { title: 'Precision', blurb: 'Community surplus, no Qd and Qs markers, and you need 92% or more.' },
+];
 
-function priceStory(price: number) {
-  if (price === 50) return 'The market is at equilibrium: $50.';
-  if (price < 50) return `The government sets a maximum price of $${price}, below equilibrium.`;
+function shiftStory(shift?: [number, number]) {
+  if (!shift) return '';
+  if (shift[0] > 0) return 'More skiers visit this winter, so demand has shifted right. ';
+  if (shift[0] < 0) return 'Fewer skiers visit this winter, so demand has shifted left. ';
+  if (shift[1] < 0) return 'A new lift costs more to run, so supply has shifted left. ';
+  return 'A new lift lowers costs, so supply has shifted right. ';
+}
+
+function priceStory(price: number, eqPrice: number) {
+  if (Math.abs(price - eqPrice) < 1e-9) return `The market is at equilibrium: $${price}.`;
+  if (price < eqPrice) return `The government sets a maximum price of $${price}, below equilibrium.`;
   return `The government sets a minimum price of $${price}, above equilibrium.`;
 }
 
@@ -32,7 +46,7 @@ function PaintLayer(props: {
   painted: Set<number>;
   color: string;
   cursor: { col: number; row: number };
-  outline: Pt[] | null;
+  outlines: Pt[][] | null;
   onPaint: (cells: number[], erase: boolean) => void;
   onCursor: (c: { col: number; row: number }) => void;
   brush: 1 | 3;
@@ -82,16 +96,17 @@ function PaintLayer(props: {
   return (
     <g>
       <g aria-hidden="true">{cells}</g>
-      {props.outline && (
+      {props.outlines?.map((poly, i) => (
         <polygon
-          points={props.outline.map((p) => `${sx(p.q)},${sy(p.p)}`).join(' ')}
+          key={i}
+          points={poly.map((p) => `${sx(p.q)},${sy(p.p)}`).join(' ')}
           fill="none"
           stroke={TONE.ink}
           stroke-width="3"
           stroke-dasharray="7 4"
           aria-hidden="true"
         />
-      )}
+      ))}
       <rect
         class="paint-surface"
         x={plot.left}
@@ -129,7 +144,10 @@ function PaintLayer(props: {
   );
 }
 
-export function PaintGame(props: { onGoal: () => void }) {
+export function PaintGame(props: { onGoal: (level: number) => void; stamps: number; teacher: boolean }) {
+  const [levelNo, setLevelNo] = useState(1);
+  const level = PAINT_LEVELS[levelNo - 1];
+  const PASS_SCORE = level.pass;
   const [taskIndex, setTaskIndex] = useState(0);
   const [painted, setPainted] = useState<Set<number>>(new Set());
   const [brush, setBrush] = useState<1 | 3>(3);
@@ -141,11 +159,14 @@ export function PaintGame(props: { onGoal: () => void }) {
   const [announce, setAnnounce] = useState('');
   const checkRef = useRef<HTMLButtonElement>(null);
 
-  const task = PAINT_TASKS[taskIndex % PAINT_TASKS.length];
-  const s = surplusShapes(BASE, task.price);
-  const poly = task.ask === 'cs' ? s.cs : task.ask === 'ps' ? s.ps : s.wl;
-  const target = targetCells(poly, X_MAX, Y_MAX);
-  const atEq = task.price === 50;
+  const task = level.tasks[taskIndex % level.tasks.length];
+  const market: Market = task.shift ? shiftedMarket(task.shift[0], task.shift[1]) : BASE;
+  const s = surplusShapes(market, task.price);
+  // Community surplus is outlined as its two parts.
+  const polys = task.ask === 'community' ? [s.cs, s.ps] : [task.ask === 'cs' ? s.cs : task.ask === 'ps' ? s.ps : s.wl];
+  const target = taskCells(s, task.ask, X_MAX, Y_MAX);
+  const eqPrice = equilibrium(market.demand, market.supply).p;
+  const atEq = Math.abs(task.price - eqPrice) < 1e-9;
 
   const paint = (cells: number[], isErase: boolean) => {
     if (result?.shown) return;
@@ -173,7 +194,7 @@ export function PaintGame(props: { onGoal: () => void }) {
           setTimeout(() => {
             play('win');
             celebrate({ size: 'big' });
-            props.onGoal();
+            props.onGoal(levelNo);
           }, 500);
         }
         return n;
@@ -200,22 +221,36 @@ export function PaintGame(props: { onGoal: () => void }) {
     setAnnounce('New painting task.');
   };
 
+  const pickLevel = (n: number) => {
+    setLevelNo(n);
+    setTaskIndex(0);
+    setPainted(new Set());
+    setResult(null);
+    setTries(0);
+    setPassed(new Set());
+    play('tap');
+  };
+
   const color = PAINT_TONE[task.ask];
   const lo = Math.min(s.qd, s.qs), hi = Math.max(s.qd, s.qs);
-  const description = `Market for ski day passes. ${priceStory(task.price)} Quantity demanded ${round(s.qd, 0)}, quantity supplied ${round(s.qs, 0)}. ${painted.size} cells painted.`;
+  const help = !!result && (result.shown || result.score >= PASS_SCORE || tries >= level.helpAfter);
+  const description = `Market for ski day passes. ${shiftStory(task.shift)}${priceStory(task.price, eqPrice)} Quantity demanded ${round(s.qd, 0)}, quantity supplied ${round(s.qs, 0)}. ${painted.size} cells painted.`;
 
   return (
     <div class="stack">
       <LiveRegion text={announce} />
-      <div class="play">
+      <LevelPicker levels={LEVELS} level={levelNo} onPick={pickLevel} stamps={props.stamps} teacher={props.teacher} icon="brush" stampNames={STAMP_NAMES} />
+      <div class="play play-card-first">
         <div class="stack">
           <Diagram xMax={X_MAX} yMax={Y_MAX} xLabel="Day passes" yLabel="Price ($)" title="Paint the surplus" description={description} xTicks={[200, 400, 600, 800]} yTicks={[20, 40, 60, 80, 100]}>
-            <Curve line={DEMAND} label="D = MB" tone="navy" labelOffset={{ dx: -20, dy: -36 }} />
-            <Curve line={SUPPLY} label="S = MC" tone="red" labelOffset={{ dx: -66, dy: -10 }} />
+            {task.shift && task.shift[0] !== 0 && <Curve line={DEMAND} label="D₁" tone="navy" ghost labelOffset={{ dx: -20, dy: -36 }} />}
+            {task.shift && task.shift[1] !== 0 && <Curve line={SUPPLY} label="S₁" tone="red" ghost labelOffset={{ dx: -40, dy: 18 }} />}
+            <Curve line={market.demand} label={task.shift && task.shift[0] ? 'D₂ = MB' : 'D = MB'} tone="navy" labelOffset={{ dx: -20, dy: -36 }} />
+            <Curve line={market.supply} label={task.shift && task.shift[1] ? 'S₂ = MC' : 'S = MC'} tone="red" labelOffset={{ dx: -66, dy: -10 }} />
             <Guide at={s.eq} xText="Qₑ" yText="Pₑ" />
             <Dot at={s.eq} r={4} />
             <HLine p={task.price} tone="ink" label={`$${task.price}`} />
-            {!atEq && (
+            {!atEq && level.markers && (
               <>
                 <Guide at={{ q: lo, p: task.price }} toY={false} tone="ink" />
                 <Guide at={{ q: hi, p: task.price }} toY={false} tone="ink" />
@@ -227,7 +262,7 @@ export function PaintGame(props: { onGoal: () => void }) {
               painted={painted}
               color={color}
               cursor={cursor}
-              outline={result && (result.shown || result.score >= PASS_SCORE || tries >= 2) ? poly : null}
+              outlines={help ? polys : null}
               onPaint={paint}
               onCursor={setCursor}
               brush={brush}
@@ -246,19 +281,23 @@ export function PaintGame(props: { onGoal: () => void }) {
 
         <section class="event-card stack" aria-labelledby="paint-h">
           <p class="small muted" style={{ margin: 0 }}>
-            Areas painted well: {passed.size} of {PAINT_GOAL} for the Surplus Painter stamp
+            Level {levelNo}: areas painted well: {passed.size} of {PAINT_GOAL} for the {STAMP_NAMES[levelNo - 1]} stamp
           </p>
           <h3 id="paint-h">Paint the {NAME[task.ask]}</h3>
-          <p>{priceStory(task.price)}</p>
+          <p>
+            {shiftStory(task.shift)}
+            {priceStory(task.price, eqPrice)}
+          </p>
           <p class="small">
             {task.ask === 'cs' && 'Consumer surplus is the area below demand and above the price, up to the quantity traded.'}
             {task.ask === 'ps' && 'Producer surplus is the area above supply and below the price, up to the quantity traded.'}
             {task.ask === 'wl' && 'Welfare loss is the area between demand and supply, from the quantity traded to the equilibrium quantity.'}
+            {task.ask === 'community' && 'Community surplus is consumer surplus plus producer surplus: the whole area between demand and supply, up to the quantity traded.'}
             {!atEq && ' Remember: the quantity traded is the smaller of Qd and Qs.'}
           </p>
           <div class="row">
             <button ref={checkRef} class="btn" disabled={!painted.size || !!result} onClick={check}>Check my painting</button>
-            {tries >= 2 && !result?.shown && <button class="btn btn-quiet btn-sm" onClick={showMe}>Show me</button>}
+            {tries >= level.helpAfter && !result?.shown && <button class="btn btn-quiet btn-sm" onClick={showMe}>Show me</button>}
           </div>
           {result && !result.shown && (
             <div class={`callout ${result.score >= PASS_SCORE ? 'callout-ok' : 'callout-try'}`} role="status">
@@ -275,7 +314,7 @@ export function PaintGame(props: { onGoal: () => void }) {
                     ? `You painted ${result.extra} cells outside the area. Check where the area stops.`
                     : `${result.missed} cells of the area are not painted yet.`}{' '}
                   Fix your painting, then check again. You need {PASS_SCORE}%.
-                  {tries >= 2 && ' The dashed line now shows the exact area.'}
+                  {tries >= level.helpAfter && ' The dashed line now shows the exact area.'}
                 </p>
               )}
             </div>

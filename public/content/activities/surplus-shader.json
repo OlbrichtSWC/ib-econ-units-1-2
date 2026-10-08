@@ -6,7 +6,7 @@
     "caption": "At equilibrium (Pₑ, Qₑ), demand (MB) meets supply (MC). Consumer surplus (CS, stripes) lies above the price and below demand. Producer surplus (PS, dots) lies below the price and above supply. Together they make community surplus."
   },
   "try": {
-    "intro": "**Welcome to Snowcap Ridge** (an invented ski hill). You control the price of a day pass. Drag the price line and watch the surplus areas change. The quantity traded is always the **smaller** of quantity demanded and quantity supplied. Complete any 3 challenges. ^HL^ students: check the dollar values and solve the Calculate it cards. Then switch to **Paint the surplus**: paint 3 areas with a match of 85% or more to earn the **Surplus Painter** stamp.",
+    "intro": "**Welcome to Snowcap Ridge** (an invented ski hill). You control the price of a day pass. Drag the price line and watch the surplus areas change. The quantity traded is always the **smaller** of quantity demanded and quantity supplied. Complete any 3 challenges. ^HL^ students: check the dollar values and solve the Calculate it cards. Then switch to **Paint the surplus**. In Level 1, paint 3 areas with a match of 85% or more to earn the **Surplus Painter** stamp. Levels 2 and 3 open after that.",
     "lossTarget": 3000,
     "challenges": [
       {
@@ -68,7 +68,8 @@
       "heightOther": "Check the height. Use the full gap between the demand curve and the supply curve at the quantity traded.",
       "wrongBase": "Check the base. The base of the welfare loss triangle is Qₑ minus the quantity traded.",
       "other": "Not yet. Find the base and the height on the diagram, then use ½ × base × height. Use the readings above."
-    }
+    },
+    "goal": "Explore the price dial, then **Paint the surplus**: three levels, each harder than the last."
   },
   "check": [
     {
@@ -349,6 +350,187 @@
       ],
       "worked": "Example: at Snowcap Ridge, a $38 day pass means only 160 passes are supplied. Producer surplus falls from $4,000 to $640. Consumer surplus changes from $8,000 to $7,040: consumers gain a rectangle but lose a triangle. Community surplus falls by $4,320, the welfare loss.",
       "explanation": "Below equilibrium, Qs < Qd, so only Qs is traded. Producers lose surplus. Some of it moves to the consumers who still buy (they pay less). The surplus on units between Qs and Qₑ is lost: community surplus falls and there is a welfare loss, so the market is no longer allocatively efficient."
+    },
+    {
+      "id": "dg1",
+      "type": "label",
+      "level": "core",
+      "prompt": "The government sets a **maximum price** of $3. **Label the areas.** Choose what each letter shows.",
+      "diagram": {
+        "xMax": 100,
+        "yMax": 10,
+        "xLabel": "Quantity",
+        "yLabel": "Price ($)",
+        "title": "A market with a maximum price below equilibrium and three lettered areas",
+        "description": "Demand slopes down and supply slopes up. They cross at $5 and 50 units. A horizontal line marks a maximum price of $3. At $3, 30 units are supplied. Area A is above $3 and below demand, from 0 to 30 units. Area B is below $3 and above supply, from 0 to 30 units. Area C is the triangle between demand and supply from 30 to 50 units.",
+        "areas": [
+          {
+            "points": [
+              {
+                "q": 0,
+                "p": 10
+              },
+              {
+                "q": 30,
+                "p": 7
+              },
+              {
+                "q": 30,
+                "p": 3
+              },
+              {
+                "q": 0,
+                "p": 3
+              }
+            ],
+            "pattern": "hatch",
+            "tone": "navy"
+          },
+          {
+            "points": [
+              {
+                "q": 0,
+                "p": 0
+              },
+              {
+                "q": 30,
+                "p": 3
+              },
+              {
+                "q": 0,
+                "p": 3
+              }
+            ],
+            "pattern": "dots",
+            "tone": "red"
+          },
+          {
+            "points": [
+              {
+                "q": 30,
+                "p": 7
+              },
+              {
+                "q": 50,
+                "p": 5
+              },
+              {
+                "q": 30,
+                "p": 3
+              }
+            ],
+            "pattern": "cross",
+            "tone": "grey"
+          }
+        ],
+        "curves": [
+          {
+            "line": {
+              "a": {
+                "q": 0,
+                "p": 10
+              },
+              "b": {
+                "q": 100,
+                "p": 0
+              }
+            },
+            "label": "D",
+            "tone": "navy"
+          },
+          {
+            "line": {
+              "a": {
+                "q": 0,
+                "p": 0
+              },
+              "b": {
+                "q": 100,
+                "p": 10
+              }
+            },
+            "label": "S",
+            "tone": "red"
+          }
+        ],
+        "hlines": [
+          {
+            "p": 3,
+            "label": "Maximum price $3",
+            "tone": "ink"
+          }
+        ],
+        "guides": [
+          {
+            "at": {
+              "q": 30,
+              "p": 3
+            },
+            "xText": "30"
+          },
+          {
+            "at": {
+              "q": 50,
+              "p": 5
+            },
+            "xText": "50",
+            "yText": "$5"
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 12,
+              "p": 5.4
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 9,
+              "p": 2
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 37,
+              "p": 5
+            },
+            "letter": "C"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "Consumer surplus",
+          "feedback": "A lies below the demand curve and above the price paid ($3), for the units that are bought. That is consumer surplus."
+        },
+        {
+          "letter": "B",
+          "answer": "Producer surplus",
+          "feedback": "B lies above the supply curve and below the price received ($3). That is producer surplus."
+        },
+        {
+          "letter": "C",
+          "answer": "Welfare loss",
+          "feedback": "C covers the units from 30 to 50 that are no longer traded. Their benefit (D) is more than their cost (S), so this surplus is lost."
+        }
+      ],
+      "choices": [
+        "Consumer surplus",
+        "Producer surplus",
+        "Welfare loss",
+        "Government revenue",
+        "Shortage"
+      ],
+      "hints": [
+        "Only 30 units are traded at $3, because firms supply only 30.",
+        "Consumer surplus is between demand and the price. Producer surplus is between the price and supply."
+      ],
+      "worked": "Example: a ceiling of $40 on concert tickets where equilibrium is $60. Fewer tickets are supplied. Fans who get tickets keep the area between demand and $40. Sellers keep the area between $40 and supply. The tickets no longer sold are a welfare loss.",
+      "explanation": "With a maximum price of $3, only **30 units** are traded (quantity supplied). **A** is consumer surplus, **B** is producer surplus, and **C** is the **welfare loss**: units 30 to 50 would have given more benefit than they cost, but they are not produced."
     }
   ],
   "explain": {
@@ -358,6 +540,12 @@
       "Community surplus is the sum of ___ and ___.",
       "At $74, quantity demanded is ___ than quantity supplied, so only ___ passes are traded.",
       "The passes between ___ and ___ are no longer traded, so there is a welfare loss because ___."
+    ],
+    "checklist": [
+      "I said that at $50 the market is at equilibrium, where MB = MC.",
+      "I said that community surplus is consumer surplus plus producer surplus, and that it is greatest at equilibrium.",
+      "I said that at $74 the quantity traded is the quantity demanded, which is smaller than the quantity supplied.",
+      "I named the welfare loss and described where it is on the diagram."
     ]
   },
   "teacherNotes": "Project the dial and ask students to predict the shapes before you move the price: 'Will consumer surplus be a triangle or a trapezium at $38?' The quantity traded is always the short side of the market, which is the key idea behind welfare loss in 2.3 and later price controls (2.8). The dollar values, the working panel and the Calculate it cards are HL only (IB 2.3: calculating CS and PS from a diagram). SL students should still use the shaded areas to explain allocative efficiency (MB = MC) and welfare loss. Calculate it cards hide the panel values at that price until the student checks an answer; common slips (forgetting ½, the wrong height or base) get their own feedback."

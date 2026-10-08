@@ -42,11 +42,11 @@ export function SelfRate(props: {
           <p>
             {props.evidence.correct} of {props.evidence.total} correct on the first try, {props.evidence.hints}{' '}
             {props.evidence.hints === 1 ? 'hint' : 'hints'} used
-            {props.evidence.applyTotal > 0 && `, ${props.evidence.applyCorrect} of ${props.evidence.applyTotal} "apply it" questions with no hints`}.
+            {props.evidence.applyTotal > 0 && `, ${props.evidence.applyCorrect} of ${props.evidence.applyTotal} "apply it" questions on the first try with no more than one hint`}.
           </p>
           {suggestion && (
             <p>
-              Your answers suggest about <strong>{props.levels[suggestion - 1]?.name}</strong>. Exemplary needs every "apply it" question right with no hints.
+              Your answers suggest about <strong>{props.levels[suggestion - 1]?.name}</strong>. Exemplary needs every "apply it" question right on the first try, with no more than one hint.
             </p>
           )}
         </div>

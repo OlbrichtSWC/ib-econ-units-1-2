@@ -2,7 +2,7 @@
  * Same Slope, Different PED (HL 2.5): an explorer on one straight-line demand curve.
  * Slide a point along the demand curve for bike rentals. The panel shows PED at the point,
  * checked with the IB percentage-change formula, and the total revenue curve below shows
- * that TR is greatest where PED = 1. Discovery challenges reveal the three sections.
+ * that TR is greatest where |PED| = 1. Discovery challenges reveal the three sections.
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { classifyPed, pedAtPoint, priceAt, Pt, quantityAt, round, totalRevenue } from '../../econ/calc';
@@ -11,7 +11,7 @@ import { HlBadge, LiveRegion, MarkIcon } from '../../shared/design/components';
 import { Area, Curve, Diagram, Dot, Guide, Halo, Handle, Label, TONE, useDiagram } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { play } from '../../shared/fun/sound';
-import { Clue, Mystery } from './Mystery';
+import { Mystery, MysteryLevel } from './Mystery';
 import { ChallengeId, challengesForMove, DEMAND, ibCheck, MID, priceFromDrag, schedule, snapPrice, trCurve, unitaryCurve, Zone, zoneAt } from './model';
 
 const QMAX = 210;
@@ -21,7 +21,8 @@ const Q_LABEL = 'Quantity (rentals per day)';
 
 interface TryContent {
   intro: string;
-  mystery: Clue[];
+  mysteryLevels: MysteryLevel[];
+  curves: Record<string, { name: string; perDollar: string }>;
   mysteryHelp: string;
   challenges: { id: ChallengeId; text: string }[];
   why: { title: string; text: string };
@@ -40,9 +41,9 @@ const signed = (n: number) => `${n > 0 ? '+' : n < 0 ? '−' : ''}${Math.abs(n).
 const pedText = (v: number) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(2);
 
 const ZONE_TEXT: Record<Zone, string> = {
-  elastic: 'Elastic (PED > 1)',
-  unitary: 'Unitary (PED = 1)',
-  inelastic: 'Inelastic (PED < 1)',
+  elastic: 'Elastic (|PED| > 1)',
+  unitary: 'Unitary (|PED| = 1)',
+  inelastic: 'Inelastic (|PED| < 1)',
 };
 
 /**
@@ -69,7 +70,7 @@ function ZoneBracket(props: { from: Pt; to: Pt; text: string; dashed?: boolean; 
   );
 }
 
-/** A short mark across the curve at the midpoint, labelled "Unitary (PED = 1)". */
+/** A short mark across the curve at the midpoint, labelled "Unitary (|PED| = 1)". */
 function MidMark(props: { text: string; labelDx?: number; labelDy?: number }) {
   const { sx, sy } = useDiagram();
   const x = sx(MID.q), y = sy(MID.p);
@@ -112,7 +113,7 @@ function Try(props: TryProps) {
         <button aria-pressed={mode === 'explore'} onClick={() => setMode('explore')}>Explore the curve</button>
         <button aria-pressed={mode === 'mystery'} onClick={() => setMode('mystery')}>Mystery: hidden points</button>
       </div>
-      {mode === 'explore' ? <Explore {...props} /> : <Mystery clues={data.mystery} help={data.mysteryHelp} onGoal={props.onGoal} />}
+      {mode === 'explore' ? <Explore {...props} /> : <Mystery levels={data.mysteryLevels} curves={data.curves} help={data.mysteryHelp} onGoal={props.onGoal} stamps={props.stamps} teacher={props.teacher} />}
     </div>
   );
 }
@@ -238,7 +239,7 @@ function Explore({ content, onComplete }: TryProps) {
             xLabel={Q_LABEL}
             yLabel="Total revenue ($)"
             title="Total revenue curve for bike rentals"
-            description={`Total revenue at a quantity of ${q} is ${cash(tr)}. Total revenue is greatest, $1000, at a quantity of 100, where PED = 1.`}
+            description={`Total revenue at a quantity of ${q} is ${cash(tr)}. Total revenue is greatest, $1000, at a quantity of 100, where |PED| = 1.`}
             xTicks={X_TICKS}
             yTicks={[0, 200, 400, 600, 800, 1000]}
           >
@@ -248,7 +249,7 @@ function Explore({ content, onComplete }: TryProps) {
             {shown.has('elastic') && <Label at={{ q: 30, p: 110 }} text="TR rises as P falls" tone="navy" size={13} bold />}
             {shown.has('inelastic') && <Label at={{ q: 180, p: 110 }} text="TR falls as P falls" tone="red" size={13} bold anchor="end" />}
             <Dot at={{ q: MID.q, p: 1000 }} tone="green" r={6} />
-            <Label at={{ q: MID.q, p: 1000 }} text="TR is greatest where PED = 1" tone="green" anchor="middle" dy={-14} bold size={14} />
+            <Label at={{ q: MID.q, p: 1000 }} text="TR is greatest where |PED| = 1" tone="green" anchor="middle" dy={-14} bold size={14} />
             <Dot at={{ q, p: tr }} tone="red" r={7} />
           </Diagram>
           <div class="legend" aria-hidden="true">
@@ -371,7 +372,7 @@ function SpecialCurves({ data }: { data: TryContent['special'] }) {
           <h4 style={{ margin: '0 0 4px' }}>{data.elastic.title}</h4>
           <Diagram {...small} xMax={100} yMax={22} xLabel="Quantity" yLabel="Price ($)" title="Perfectly elastic demand: a horizontal line">
             <Curve points={[{ q: 0, p: 10 }, { q: 92, p: 10 }]} tone="navy" />
-            <Label at={{ q: 92, p: 10 }} text="D (PED = ∞)" anchor="end" dy={-12} bold tone="navy" size={16} />
+            <Label at={{ q: 92, p: 10 }} text="D (|PED| = ∞)" anchor="end" dy={-12} bold tone="navy" size={16} />
           </Diagram>
           <figcaption class="small muted"><Md text={data.elastic.caption} inline /></figcaption>
         </figure>
@@ -389,7 +390,7 @@ function SpecialCurves({ data }: { data: TryContent['special'] }) {
             <Area points={[{ q: 0, p: 0 }, { q: 20, p: 0 }, { q: 20, p: 10 }, { q: 0, p: 10 }]} pattern="hatch" tone="navy" />
             <Area points={[{ q: 0, p: 0 }, { q: 40, p: 0 }, { q: 40, p: 5 }, { q: 0, p: 5 }]} pattern="dots" tone="green" opacity={0.75} />
             <Curve points={hyper} tone="ink" />
-            <Label at={{ q: 95, p: 200 / 95 }} text="D (PED = 1)" anchor="end" dy={-14} bold size={16} />
+            <Label at={{ q: 95, p: 200 / 95 }} text="D (|PED| = 1)" anchor="end" dy={-14} bold size={16} />
             <Dot at={{ q: 20, p: 10 }} label="A" />
             <Dot at={{ q: 40, p: 5 }} label="B" />
           </Diagram>

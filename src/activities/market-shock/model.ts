@@ -24,6 +24,11 @@ export const BASE_D: Line = { a: { q: 10, p: 9 }, b: { q: 90, p: 1 } };
 export const BASE_S: Line = { a: { q: 10, p: 1 }, b: { q: 90, p: 9 } };
 /** Every correct shift is shown as a move of this many bags at every price. */
 export const SHIFT_SIZE = 20;
+/** Level 2 shift sizes (bags at every price), so the new equilibrium changes from card to card. */
+export const LEVEL2_SIZES = [12, 20, 28];
+export function shiftSizeFor(n: number): number {
+  return LEVEL2_SIZES[((n % LEVEL2_SIZES.length) + LEVEL2_SIZES.length) % LEVEL2_SIZES.length];
+}
 /** A drag smaller than this (in bags) does not count as a shift yet. */
 export const MIN_DRAG = 6;
 /** Largest drag allowed either way. */
@@ -162,4 +167,37 @@ export function buildDeck(shiftIds: string[], trapIds: string[], trapMode: boole
 export function outcomeWords(o: { price: Change; quantity: Change }): string {
   const w = (c: Change) => (c === 'no change' ? 'does not change' : c);
   return `Equilibrium price ${w(o.price)} and equilibrium quantity ${w(o.quantity)}.`;
+}
+
+/** Level 3: what can be said about price or quantity when both curves shift. */
+export type DoubleChange = 'rises' | 'falls' | 'cannot tell';
+
+/**
+ * Theory for two shifts at once. When demand and supply push price (or quantity) the same way,
+ * the direction is certain. When they push it opposite ways, the direction depends on which
+ * shift is bigger, so it cannot be told from the events alone.
+ */
+export function doubleOutcome(d: Dir, s: Dir): { price: DoubleChange; quantity: DoubleChange } {
+  const dSign = d === 'right' ? 1 : -1;
+  const sSign = s === 'right' ? 1 : -1;
+  // Demand right raises price and quantity. Supply right lowers price and raises quantity.
+  const price = dSign - sSign;
+  const quantity = dSign + sSign;
+  const word = (v: number): DoubleChange => (v > 0 ? 'rises' : v < 0 ? 'falls' : 'cannot tell');
+  return { price: word(price), quantity: word(quantity) };
+}
+
+/** Both curves shifted at once, by dD and dS bags (right is positive). */
+export function doubleMarket(dD: number, dS: number): { demand: Line; supply: Line } {
+  return { demand: shiftLine(BASE_D, dD, 0), supply: shiftLine(BASE_S, dS, 0) };
+}
+
+/** Level 3 deck: each card pairs one demand event with one supply event. `seed` changes the pairs. */
+export function buildPairs(demandIds: string[], supplyIds: string[], seed = 0): [string, string][] {
+  const out: [string, string][] = [];
+  const n = Math.max(demandIds.length, supplyIds.length);
+  for (let i = 0; i < n; i++) {
+    out.push([demandIds[(i + seed) % demandIds.length], supplyIds[(i * 3 + seed * 2) % supplyIds.length]]);
+  }
+  return out;
 }

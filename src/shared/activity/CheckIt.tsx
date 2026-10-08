@@ -10,7 +10,8 @@ import { CrossIcon, HlBadge, InfoIcon, LiveRegion, MarkIcon } from '../design/co
 import { celebrateAt } from '../fun/celebrate';
 import { play } from '../fun/sound';
 import type { Evidence } from './mastery';
-import type { NumberQuestion, Question, TableData } from './types';
+import type { LabelQuestion, NumberQuestion, Question, TableData } from './types';
+import { SpecDiagram } from '../diagrams/SpecDiagram';
 
 interface QState {
   attempts: number;
@@ -20,9 +21,17 @@ interface QState {
   feedback: { kind: 'ok' | 'try'; text: string } | null;
   choice: number | null;
   value: string;
+  /** Label questions: the label chosen for each tag letter. */
+  labels: Record<string, string>;
 }
 
-const fresh = (): QState => ({ attempts: 0, hints: 0, revealed: false, solved: false, feedback: null, choice: null, value: '' });
+const fresh = (): QState => ({ attempts: 0, hints: 0, revealed: false, solved: false, feedback: null, choice: null, value: '', labels: {} });
+
+/** Checks a label question. Returns the letters that are wrong, with their feedback. */
+export function checkLabels(q: LabelQuestion, labels: Record<string, string>): { ok: boolean; wrong: { letter: string; feedback: string }[] } {
+  const wrong = q.slots.filter((s) => labels[s.letter] !== s.answer).map((s) => ({ letter: s.letter, feedback: s.feedback }));
+  return { ok: wrong.length === 0, wrong };
+}
 
 export function DataTable({ table }: { table: TableData }) {
   return (
@@ -60,7 +69,30 @@ export function checkNumber(q: NumberQuestion, value: number): { ok: boolean; fe
   return { ok: false, feedback: 'Not yet. Check each step of your working, or take a hint.' };
 }
 
-export function CheckIt(props: { questions: Question[]; teacher: boolean; onFinish: (e: Evidence) => void; showHl: boolean }) {
+/** One hint per question is allowed without losing a first-try answer's place in the First-Try Star. */
+export const FREE_HINTS = 1;
+
+/**
+ * Evidence from one Check it attempt, plus whether it earns the First-Try Star:
+ * every question right on the first try, using at most one hint on each.
+ */
+export function attemptEvidence(questions: Question[], states: { attempts: number; hints: number; revealed: boolean; solved: boolean }[]): Evidence & { sharp: boolean } {
+  let correct = 0, hints = 0, applyCorrect = 0, applyTotal = 0, sharp = questions.length > 0;
+  states.forEach((s, i) => {
+    // Honest evidence: only answers right on the first try count. Retrying still helps learning.
+    const ok = s.solved && !s.revealed && s.attempts === 1;
+    if (ok) correct++;
+    hints += Math.min(s.hints, 3);
+    if (!ok || s.hints > FREE_HINTS) sharp = false;
+    if (questions[i].level === 'apply') {
+      applyTotal++;
+      if (ok && s.hints <= FREE_HINTS) applyCorrect++;
+    }
+  });
+  return { correct, total: questions.length, hints, applyCorrect, applyTotal, sharp };
+}
+
+export function CheckIt(props: { questions: Question[]; teacher: boolean; onFinish: (e: Evidence, sharp: boolean) => void; showHl: boolean }) {
   const questions = props.questions.filter((q) => props.showHl || !q.hl);
   const [index, setIndex] = useState(0);
   const [states, setStates] = useState<QState[]>(() => questions.map(fresh));
@@ -72,20 +104,7 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
   const st = states[index];
   const set = (patch: Partial<QState>) => setStates((all) => all.map((s, i) => (i === index ? { ...s, ...patch } : s)));
 
-  const evidence = (): Evidence => {
-    let correct = 0, hints = 0, applyCorrect = 0, applyTotal = 0;
-    states.forEach((s, i) => {
-      // Honest evidence: only answers right on the first try count. Retrying still helps learning.
-      const ok = s.solved && !s.revealed && s.attempts === 1;
-      if (ok) correct++;
-      hints += Math.min(s.hints, 3);
-      if (questions[i].level === 'apply') {
-        applyTotal++;
-        if (ok && s.hints === 0) applyCorrect++;
-      }
-    });
-    return { correct, total: questions.length, hints, applyCorrect, applyTotal };
-  };
+  const evidence = () => attemptEvidence(questions, states);
 
   const right = () => {
     play('correct');
@@ -104,6 +123,19 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
       } else {
         set({ attempts: st.attempts + 1, feedback: { kind: 'try', text: opt.feedback } });
         setAnnounce('Not yet. ' + opt.feedback);
+        play('wrong');
+      }
+    } else if (q.type === 'label') {
+      if (q.slots.some((sl) => !st.labels[sl.letter])) return;
+      const r = checkLabels(q, st.labels);
+      if (r.ok) {
+        set({ solved: true, attempts: st.attempts + 1, feedback: { kind: 'ok', text: '' } });
+        setAnnounce('Correct.');
+        right();
+      } else {
+        const text = r.wrong.map((w) => `**${w.letter}:** ${w.feedback}`).join('\n\n');
+        set({ attempts: st.attempts + 1, feedback: { kind: 'try', text } });
+        setAnnounce(`Not yet. Check ${r.wrong.map((w) => w.letter).join(', ')}.`);
         play('wrong');
       }
     } else {
@@ -132,7 +164,8 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
     } else {
       setFinished(true);
       play('win');
-      props.onFinish(evidence());
+      const { sharp, ...e } = evidence();
+      props.onFinish(e, sharp);
     }
   };
 
@@ -149,7 +182,7 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
             {e.applyTotal > 0 && (
               <>
                 {' '}
-                You solved {e.applyCorrect} of {e.applyTotal} "apply it" questions with no hints.
+                You solved {e.applyCorrect} of {e.applyTotal} "apply it" questions on the first try with no more than one hint.
               </>
             )}
           </p>
@@ -170,7 +203,13 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
   }
 
   const done = st.solved || st.revealed;
-  const correctText = q.type === 'choice' ? q.options.find((o) => o.correct)?.text ?? '' : `${q.prefix ?? ''}${q.answer}${q.suffix ? ' ' + q.suffix : ''}`;
+  const correctText =
+    q.type === 'choice'
+      ? q.options.find((o) => o.correct)?.text ?? ''
+      : q.type === 'label'
+        ? q.slots.map((sl) => `${sl.letter}: ${sl.answer}`).join('. ')
+        : `${q.prefix ?? ''}${q.answer}${q.suffix ? ' ' + q.suffix : ''}`;
+  const canSubmit = q.type === 'choice' ? st.choice !== null : q.type === 'label' ? q.slots.every((sl) => !!st.labels[sl.letter]) : !!st.value.trim();
 
   return (
     <div class="stack">
@@ -188,8 +227,40 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
         <Md text={q.prompt} />
       </div>
       {q.table && <DataTable table={q.table} />}
+      {q.diagram && (
+        <div class="check-diagram">
+          <SpecDiagram spec={q.diagram} />
+        </div>
+      )}
 
-      {q.type === 'choice' ? (
+      {q.type === 'label' ? (
+        <fieldset class="label-slots" disabled={done}>
+          <legend class="sr-only">Choose a label for each letter</legend>
+          {q.slots.map((sl) => (
+            <div key={sl.letter} class={`label-slot ${done ? 'right' : ''}`}>
+              <label for={`slot-${q.id}-${sl.letter}`}>
+                <span class="slot-letter" aria-hidden="true">{sl.letter}</span>
+                <span class="sr-only">Letter {sl.letter}</span>
+              </label>
+              <select
+                id={`slot-${q.id}-${sl.letter}`}
+                value={st.labels[sl.letter] ?? ''}
+                onChange={(e) => set({ labels: { ...st.labels, [sl.letter]: (e.target as HTMLSelectElement).value }, feedback: null })}
+              >
+                <option value="">Choose a label</option>
+                {q.choices.map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+              {(props.teacher || done) && (
+                <span class="badge badge-done">
+                  <MarkIcon size={14} /> {sl.answer}
+                </span>
+              )}
+            </div>
+          ))}
+        </fieldset>
+      ) : q.type === 'choice' ? (
         <fieldset class="options" disabled={done}>
           <legend class="sr-only">Choose one answer</legend>
           {q.options.map((o, i) => (
@@ -281,12 +352,16 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
 
       <div class="row">
         {!done && (
-          <button id="check-submit" class="btn" onClick={submit} disabled={q.type === 'choice' ? st.choice === null : !st.value.trim()}>
+          <button id="check-submit" class="btn" onClick={submit} disabled={!canSubmit}>
             Check my answer
           </button>
         )}
         {!done && st.hints < 3 && (
-          <button class="btn btn-secondary" onClick={() => set({ hints: st.hints + 1 })}>
+          <button
+            class="btn btn-secondary"
+            aria-describedby={st.hints === 0 ? 'free-hint-note' : undefined}
+            onClick={() => set({ hints: st.hints + 1 })}
+          >
             <InfoIcon /> {st.hints === 0 ? 'Get a hint' : st.hints === 1 ? 'Get another hint' : 'Show a worked example'}
           </button>
         )}
@@ -294,6 +369,9 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
           <button class="btn btn-quiet" onClick={() => set({ revealed: true })}>
             Show the answer
           </button>
+        )}
+        {!done && st.hints === 0 && (
+          <span id="free-hint-note" class="small muted">One hint still counts as a first try.</span>
         )}
         {done && (
           <button class="btn" onClick={next}>

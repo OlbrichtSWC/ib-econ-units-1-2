@@ -5,7 +5,9 @@ import { qrSvg } from '../shared/progress/qr';
 import { downloadCanvas, drawSummary } from '../shared/progress/summary';
 import { Progress, ProgressStore, STEP } from '../shared/progress/types';
 import { ACTIVITIES } from './registry';
+import { stampsFor } from '../shared/fun/stampDefs';
 import type { Settings } from './settings';
+import { allWriting, clearWriting } from '../shared/progress/writing';
 
 const ERRORS = {
   empty: 'Type or paste your progress code first.',
@@ -24,7 +26,8 @@ export function ProgressPage(props: { store: ProgressStore; progress: Progress; 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const levelNames = props.settings.scale.levels.map((l) => l.name);
   const built = ACTIVITIES.filter((a) => a.load);
-  const hasProgress = Object.keys(props.progress.activities).length > 0;
+  const writing = allWriting(built.map((a) => a.id));
+  const hasProgress = Object.keys(props.progress.activities).length > 0 || writing.length > 0;
 
   useEffect(() => {
     if (props.initialCode) tryLoad(props.initialCode);
@@ -167,6 +170,26 @@ export function ProgressPage(props: { store: ProgressStore; progress: Progress; 
         )}
       </section>
 
+      <section class="card stack" aria-labelledby="h-writing">
+        <h2 id="h-writing">My writing</h2>
+        {writing.length === 0 ? (
+          <p class="muted">No writing yet. At the end of each Try it step, open "When you finish: explain it in writing".</p>
+        ) : (
+          <>
+            <p class="small muted">Saved in this browser only. It is not part of your progress code. Print this page or save it as a PDF to keep it.</p>
+            {writing.map((w) => {
+              const a = built.find((x) => x.id === w.id)!;
+              return (
+                <div key={w.id} class="writing-entry">
+                  <h3 style={{ margin: 0 }}>{a.title}</h3>
+                  <p class="writing-text">{w.text}</p>
+                </div>
+              );
+            })}
+          </>
+        )}
+      </section>
+
       <section class="card stack" aria-labelledby="h-sum">
         <h2 id="h-sum">Download my progress summary</h2>
         <p>Make a one-page image of your progress. You can choose to hand it in on your school's learning platform. The app does not send it anywhere.</p>
@@ -178,7 +201,7 @@ export function ProgressPage(props: { store: ProgressStore; progress: Progress; 
               drawSummary(c, {
                 appTitle: 'IB Economics: Units 1 and 2',
                 levelNames,
-                rows: built.map((a) => ({ tag: a.tag, title: a.title, progress: props.progress.activities[a.id], stampTotal: 3 })),
+                rows: built.map((a) => ({ tag: a.tag, title: a.title, progress: props.progress.activities[a.id], stampTotal: stampsFor(a).length })),
                 code: props.store.exportCode(),
               });
               downloadCanvas(c, `ib-econ-progress-${new Date().toISOString().slice(0, 10)}.png`);
@@ -195,7 +218,7 @@ export function ProgressPage(props: { store: ProgressStore; progress: Progress; 
 
       <section class="card stack" aria-labelledby="h-reset">
         <h2 id="h-reset">Start over</h2>
-        <p>This deletes all progress saved in this browser. Get your progress code first if you might want it back.</p>
+        <p>This deletes all progress and writing saved in this browser. Get your progress code first if you might want it back.</p>
         <div>
           <button class="btn btn-danger" onClick={() => setConfirmReset(true)} disabled={!hasProgress}>
             Reset my progress
@@ -206,12 +229,13 @@ export function ProgressPage(props: { store: ProgressStore; progress: Progress; 
       <ConfirmDialog
         open={confirmReset}
         title="Are you sure?"
-        message={<p>All your progress on this device will be deleted. This cannot be undone.</p>}
+        message={<p>All your progress and writing on this device will be deleted. This cannot be undone.</p>}
         confirmLabel="Yes, reset my progress"
         danger
         onCancel={() => setConfirmReset(false)}
         onConfirm={() => {
           props.store.reset();
+          clearWriting(built.map((a) => a.id));
           setConfirmReset(false);
           setCode(null);
         }}

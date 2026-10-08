@@ -16,10 +16,14 @@ export const STEP = {
 export const STAMP = {
   /** Reached the goal of the Try it game. */
   play: 1,
-  /** Check it: every question right on the first try, with no hints. */
+  /** Check it: every question right on the first try, using at most one hint on each. */
   sharp: 2,
   /** All four steps done. */
   complete: 4,
+  /** Reached the goal of the game's Level 2. */
+  level2: 8,
+  /** Reached the goal of the game's Level 3. */
+  level3: 16,
 } as const;
 
 export interface ActivityProgress {

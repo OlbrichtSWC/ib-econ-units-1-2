@@ -10,7 +10,7 @@ export const DEMAND: Line = { a: { q: 0, p: 20 }, b: { q: 200, p: 0 } };
 export const P_MIN = 1;
 export const P_MAX = 19;
 export const P_STEP = 0.5;
-/** Price and quantity at the midpoint of the line, where PED = 1 and TR is greatest. */
+/** Price and quantity at the midpoint of the line, where |PED| = 1 and TR is greatest. */
 export const MID: Pt = { q: 100, p: 10 };
 
 export type Zone = 'elastic' | 'unitary' | 'inelastic';
@@ -114,11 +114,31 @@ export type MysteryRule =
   | { type: 'tr'; value: number; zone: 'elastic' | 'inelastic' }
   | { type: 'trmax' };
 
+/** The demand curve a mystery level is played on, and the prices the point can move between. */
+export interface MysteryCurve {
+  line: Line;
+  pMin: number;
+  pMax: number;
+}
+
+export const MAIN_CURVE: MysteryCurve = { line: DEMAND, pMin: P_MIN, pMax: P_MAX };
+/**
+ * Level 3: Snowline Skates (invented). Nobody rents at $16 a day, and every $1 cut adds 15 rentals,
+ * up to 240 rentals at $0.
+ */
+export const SKATE_CURVE: MysteryCurve = { line: { a: { q: 0, p: 16 }, b: { q: 240, p: 0 } }, pMin: 1, pMax: 15 };
+
+/** Snaps a price to $0.50 and keeps it on the curve's playable part. */
+export function snapOn(curve: MysteryCurve, p: number): number {
+  const s = Math.round(p / P_STEP) * P_STEP;
+  return Math.min(curve.pMax, Math.max(curve.pMin, s));
+}
+
 /** Every playable price ($0.50 steps) where the rule is true. A good clue has exactly one. */
-export function mysteryAnswers(rule: MysteryRule, line: Line = DEMAND): number[] {
+export function mysteryAnswers(rule: MysteryRule, curve: MysteryCurve = MAIN_CURVE): number[] {
   const out: number[] = [];
-  for (let p = P_MIN; p <= P_MAX + 1e-9; p += P_STEP) {
-    if (mysteryHolds(rule, p, line)) out.push(round(p, 2));
+  for (let p = curve.pMin; p <= curve.pMax + 1e-9; p += P_STEP) {
+    if (mysteryHolds(rule, p, curve.line)) out.push(round(p, 2));
   }
   return out;
 }
@@ -131,8 +151,28 @@ export function mysteryHolds(rule: MysteryRule, p: number, line: Line = DEMAND):
 }
 
 /** Which way to move after a wrong guess: towards a higher or a lower price. */
-export function mysteryDirection(rule: MysteryRule, guess: number, line: Line = DEMAND): 'higher' | 'lower' | null {
-  const answers = mysteryAnswers(rule, line);
+export function mysteryDirection(rule: MysteryRule, guess: number, curve: MysteryCurve = MAIN_CURVE): 'higher' | 'lower' | null {
+  const answers = mysteryAnswers(rule, curve);
   if (!answers.length || answers.includes(round(guess, 2))) return null;
   return answers[0] > guess ? 'higher' : 'lower';
+}
+
+/** What the student must work out at a wrong guess before they get a direction: PED clues ask for PED, the others for TR. */
+export function mysteryAsk(rule: MysteryRule): 'ped' | 'tr' {
+  return rule.type === 'ped' ? 'ped' : 'tr';
+}
+
+/** The true value of what mysteryAsk asks for, at price p. */
+export function mysteryValue(rule: MysteryRule, p: number, line: Line = DEMAND): number {
+  return mysteryAsk(rule) === 'ped' ? ibCheck(p, line).ped : totalRevenue(p, quantityAt(line, p));
+}
+
+/**
+ * Checks the value the student worked out. PED: either sign, within 0.02 (two decimal places).
+ * TR: within 50 cents.
+ */
+export function mysteryTypedRight(rule: MysteryRule, p: number, typed: number, line: Line = DEMAND): boolean {
+  if (!Number.isFinite(typed)) return false;
+  const v = mysteryValue(rule, p, line);
+  return mysteryAsk(rule) === 'ped' ? Math.abs(Math.abs(typed) - Math.abs(v)) <= 0.02 + 1e-9 : Math.abs(typed - v) <= 0.5 + 1e-9;
 }

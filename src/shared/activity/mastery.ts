@@ -5,7 +5,7 @@
  * Honest thresholds:
  *  - Fewer than 3 questions answered: no suggestion (not enough evidence).
  *  - Proficient needs at least 80% correct.
- *  - Exemplary needs every "apply it" question correct without hints (at least 2 of them)
+ *  - Exemplary needs every "apply it" question right on the first try with at most one hint (at least 2 of them)
  *    and at least 90% overall. Easy "core" questions alone can never reach Exemplary.
  *  - Exemplary 2 also needs a perfect score with no hints at all.
  *
@@ -31,7 +31,7 @@ export function suggestLevel(e: Evidence): number | null {
   if (acc >= 0.9 && applyAll) {
     return acc === 1 && e.hints === 0 ? 8 : 7;
   }
-  // Proficient 2: strong score, few hints, and at least half the apply questions without hints.
+  // Proficient 2: strong score, few hints, and at least half the apply questions on the first try with at most one hint.
   const applyHalf = e.applyTotal === 0 || e.applyCorrect / e.applyTotal >= 0.5;
   if (acc >= 0.9 && e.hints <= Math.floor(e.total / 4) && applyHalf) return 6;
   return 5;

@@ -7,6 +7,7 @@
  */
 import type { ComponentType } from 'preact';
 import type { GoalStamp } from '../fun/stampDefs';
+import type { DiagramSpec } from '../diagrams/SpecDiagram';
 
 export interface TableData {
   caption?: string;
@@ -22,6 +23,8 @@ interface QuestionBase {
   prompt: string;
   /** Optional schedule or data table shown with the question. */
   table?: TableData;
+  /** Optional diagram shown with the question (choose the area, spot the error, label it). */
+  diagram?: DiagramSpec;
   /** Hint 1 nudges, hint 2 narrows it down. */
   hints: [string, string];
   /** Worked example of a similar problem (shown after both hints). */
@@ -50,7 +53,17 @@ export interface NumberQuestion extends QuestionBase {
   mistakes?: { value: number; feedback: string }[];
 }
 
-export type Question = ChoiceQuestion | NumberQuestion;
+/** Label the diagram: choose what each lettered tag shows. Right only when every tag is right. */
+export interface LabelQuestion extends QuestionBase {
+  type: 'label';
+  diagram: DiagramSpec;
+  /** One per tag letter, in order. */
+  slots: { letter: string; answer: string; feedback: string }[];
+  /** The labels to choose from (include a few that do not fit). */
+  choices: string[];
+}
+
+export type Question = ChoiceQuestion | NumberQuestion | LabelQuestion;
 
 /** The shape of each content/activities/<id>.json file. */
 export interface ActivityContent {
@@ -64,10 +77,19 @@ export interface ActivityContent {
     caption?: string;
   };
   /** Activity-specific settings and text for the game. */
-  try: Record<string, unknown> & { intro: string };
+  try: Record<string, unknown> & {
+    intro: string;
+    /** One line shown above the game. When present, the intro is folded away under "How to play". */
+    goal?: string;
+  };
   check: Question[];
-  /** A short written task with sentence frames. Answers are never saved or sent. */
-  explain?: { prompt: string; frames: string[] };
+  /** A short written task with sentence frames. The draft is saved in this browser only, never sent. */
+  explain?: {
+    prompt: string;
+    frames: string[];
+    /** What a strong answer does, for the student to check their own writing against. */
+    checklist?: string[];
+  };
   /** Shown only in the teacher view. */
   teacherNotes?: string;
 }
@@ -76,8 +98,10 @@ export interface TryProps {
   content: ActivityContent;
   /** Call once the student has done enough of the game to move on. */
   onComplete: () => void;
-  /** Call when the student reaches the game's goal. Awards the activity's game stamp. */
-  onGoal: () => void;
+  /** Call when the student reaches a game level's goal (1, 2 or 3). Awards that level's stamp. */
+  onGoal: (level?: number) => void;
+  /** Stamps earned so far in this activity (STAMP bitmask). Levels 2 and 3 open with the stamp before them. */
+  stamps: number;
   teacher: boolean;
 }
 
@@ -101,8 +125,10 @@ export interface ActivityMeta {
   /** What kind of game this is, shown on the home screen. */
   style: string;
   blurb: string;
-  /** The stamp for reaching this game's goal (built activities only). */
+  /** The stamp for reaching this game's Level 1 goal (built activities only). */
   goal?: GoalStamp;
+  /** Stamps for the Level 2 and Level 3 goals. */
+  goals?: [GoalStamp, GoalStamp];
   /** Present when the activity is built. */
   load?: () => Promise<ActivityModule>;
 }
