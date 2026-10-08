@@ -213,3 +213,10 @@ details.coming-later > summary { cursor: pointer; }
 .tool-card { display: grid; gap: 4px; justify-items: start; text-align: left; min-height: 110px; }
 .tool-glyph { font-size: 1.6rem; font-weight: 700; color: var(--red); line-height: 1; }
 .stakeholders .stat b { text-align: right; }
+
+/* PPC Explorer: one mission at a time */
+.mission-card { border-left: 6px solid var(--navy); }
+.mission-steps { margin: 0; padding-left: 1.4em; }
+.mission-steps li { margin: 4px 0; }
+.mission-dots { gap: 6px; }
+.mission-dots .btn[aria-pressed='true'] { outline: 2px solid var(--navy); outline-offset: 1px; font-weight: 700; }
