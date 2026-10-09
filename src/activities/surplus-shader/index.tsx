@@ -88,7 +88,7 @@ function LearnDiagram() {
 function Swatch({ kind }: { kind: 'cs' | 'ps' | 'wl' }) {
   const bg =
     kind === 'cs'
-      ? 'repeating-linear-gradient(45deg, #c9d6ea 0 4px, #1B3A6B 4px 5.5px)'
+      ? 'repeating-linear-gradient(45deg, #c7d6fb 0 4px, #1D4ED8 4px 5.5px)'
       : kind === 'ps'
         ? 'radial-gradient(circle, #C8102E 1.4px, #f4c9d0 1.6px) 0 0 / 7px 7px'
         : 'linear-gradient(#5b6475, #5b6475) 50% 0 / 1.3px 100% no-repeat, linear-gradient(#5b6475, #5b6475) 0 50% / 100% 1.3px no-repeat, #dde1e8';

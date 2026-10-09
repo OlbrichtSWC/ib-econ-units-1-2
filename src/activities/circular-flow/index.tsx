@@ -101,7 +101,7 @@ function Movers(props: { d: string; kind: 'coin' | 'good'; n?: number; dur?: num
               <text y="4" text-anchor="middle" font-size="11" font-weight="700" fill="#5a4400">$</text>
             </g>
           ) : (
-            <rect x="-7" y="-7" width="14" height="14" rx="2" fill="#c9d6ea" stroke="#1B3A6B" stroke-width="1.5" />
+            <rect x="-7" y="-7" width="14" height="14" rx="2" fill="#c7d6fb" stroke="#1D4ED8" stroke-width="1.5" />
           )}
           <animateMotion dur={`${dur}s`} repeatCount="indefinite" begin={`${-(i * dur) / n}s`} {...({ path: props.d } as Record<string, string>)} />
         </g>
@@ -113,9 +113,9 @@ function Movers(props: { d: string; kind: 'coin' | 'good'; n?: number; dur?: num
 function SectorBox(props: { x: number; y: number; w: number; h: number; label: string; icon: string }) {
   return (
     <g>
-      <rect x={props.x} y={props.y} width={props.w} height={props.h} rx="12" fill="#eef2f8" stroke="#1B3A6B" stroke-width="2.5" />
+      <rect x={props.x} y={props.y} width={props.w} height={props.h} rx="12" fill="#eef3ff" stroke="#1D4ED8" stroke-width="2.5" />
       <text x={props.x + props.w / 2} y={props.y + props.h / 2 - 4} text-anchor="middle" font-size="24">{props.icon}</text>
-      <text x={props.x + props.w / 2} y={props.y + props.h / 2 + 20} text-anchor="middle" font-size="15" font-weight="700" fill="#1B3A6B">{props.label}</text>
+      <text x={props.x + props.w / 2} y={props.y + props.h / 2 + 20} text-anchor="middle" font-size="15" font-weight="700" fill="#1D4ED8">{props.label}</text>
     </g>
   );
 }
@@ -124,7 +124,7 @@ function Markers({ id }: { id: string }) {
   return (
     <defs>
       <marker id={`${id}-arrow`} viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-        <path d="M0 0L10 5L0 10z" fill="#1B3A6B" />
+        <path d="M0 0L10 5L0 10z" fill="#1D4ED8" />
       </marker>
     </defs>
   );
@@ -142,7 +142,7 @@ function TwoSector(props: { placed: Partial<Record<Flow, boolean>>; flowNames: R
           <path key={f} d={CHANNEL[f].d} fill="none" stroke={props.placed[f] ? '#5b9bd1' : '#aab6c8'} stroke-width={props.placed[f] ? 12 : 8} stroke-linejoin="round" class={props.placed[f] ? 'mr-water' : ''} />
         ))}
         {FLOWS.map((f) => (
-          <path key={`a${f}`} d={CHANNEL[f].d} fill="none" stroke="#1B3A6B" stroke-width="2" stroke-dasharray="1 0" marker-end="url(#mr1-arrow)" opacity="0.9" />
+          <path key={`a${f}`} d={CHANNEL[f].d} fill="none" stroke="#1D4ED8" stroke-width="2" stroke-dasharray="1 0" marker-end="url(#mr1-arrow)" opacity="0.9" />
         ))}
         <SectorBox x={20} y={150} w={130} h={80} label="Households" icon="🏠" />
         <SectorBox x={450} y={150} w={130} h={80} label="Firms" icon="🏭" />
@@ -200,15 +200,15 @@ export function FullFlow(props: {
         <Markers id={id} />
         <rect x="0" y="0" width={VB.w} height={VB.h} rx="14" fill="#eaf4fb" />
         <path d={incomes} fill="none" stroke="#5b9bd1" stroke-width="12" class="mr-water" />
-        <path d={incomes} fill="none" stroke="#1B3A6B" stroke-width="2" marker-end={`url(#${id}-arrow)`} />
+        <path d={incomes} fill="none" stroke="#1D4ED8" stroke-width="2" marker-end={`url(#${id}-arrow)`} />
         <path d={spend} fill="none" stroke="#5b9bd1" stroke-width="12" class="mr-water" />
-        <path d={spend} fill="none" stroke="#1B3A6B" stroke-width="2" marker-end={`url(#${id}-arrow)`} />
+        <path d={spend} fill="none" stroke="#1D4ED8" stroke-width="2" marker-end={`url(#${id}-arrow)`} />
         <text x="300" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f29">Factor incomes</text>
         <text x="300" y="104" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f29">Consumer spending</text>
         {PIPES.map((p) => (
           <g key={p}>
             <path d={pipePath(p)} fill="none" stroke={props.placed[p] ? (isLeakage(p) ? '#c98a8a' : '#6fbf8a') : '#aab6c8'} stroke-width={props.placed[p] ? 11 : 7} />
-            <path d={pipePath(p)} fill="none" stroke="#1B3A6B" stroke-width="2" marker-end={`url(#${id}-arrow)`} />
+            <path d={pipePath(p)} fill="none" stroke="#1D4ED8" stroke-width="2" marker-end={`url(#${id}-arrow)`} />
           </g>
         ))}
         <SectorBox x={20} y={80} w={130} h={70} label="Households" icon="🏠" />

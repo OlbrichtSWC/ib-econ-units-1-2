@@ -1,11 +1,18 @@
 /* Layout styles for this app. Shared component styles are in src/shared/design/tokens.css. */
-.topbar { background: var(--navy); color: var(--white); border-bottom: 4px solid var(--red); }
+.topbar {
+  position: relative; color: var(--white);
+  background: linear-gradient(120deg, var(--navy-900) 0%, var(--navy) 55%, #2f63e8 100%);
+  border-bottom: 5px solid var(--red); box-shadow: 0 3px 0 var(--white), 0 6px 0 var(--red);
+  margin-bottom: 6px;
+}
 .topbar .wrap { min-height: 64px; padding-top: 8px; padding-bottom: 8px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; }
 .brand-mark {
-  display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 8px;
+  display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 12px;
   background: var(--white); color: var(--navy); font-family: var(--font-head); font-weight: 700;
+  border: 3px solid var(--red); transform: rotate(-6deg); box-shadow: 2px 3px 0 var(--navy-900); transition: transform 0.2s;
 }
+.brand:hover .brand-mark { transform: rotate(6deg) scale(1.06); }
 .brand-title { display: block; font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; line-height: 1.1; }
 .brand-sub { display: block; font-size: 0.85rem; opacity: 0.9; }
 .navlink { color: var(--white); text-decoration: none; padding: 8px 10px; border-radius: 6px; font-weight: 700; min-height: 44px; display: inline-flex; align-items: center; }
@@ -13,14 +20,57 @@
 .navlink[aria-current='page'] { background: rgba(255, 255, 255, 0.18); text-decoration: underline; text-underline-offset: 4px; }
 .teacher-bar { background: var(--red-50); color: var(--red-700); border-bottom: 1px solid var(--red-100); font-weight: 700; padding: 6px 0; font-size: 0.95rem; }
 
-.hero { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; border-top: 6px solid var(--navy); }
-.unit-title { border-bottom: 3px solid var(--red); padding-bottom: 6px; margin-top: 12px; }
+/* Home page banner: royal blue with floating economics icons. */
+.hero {
+  position: relative; overflow: hidden; color: var(--white); border-radius: 22px; padding: 28px 24px;
+  background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy) 60%, #3b6ff0 100%);
+  box-shadow: 0 6px 0 var(--red), 0 12px 30px rgba(23, 50, 140, 0.25);
+}
+.hero > * { position: relative; z-index: 1; max-width: 640px; }
+.hero h1 { color: var(--white); font-size: 2.1rem; }
+.hero h1 .hl-word { color: var(--white); background: var(--red); padding: 0 8px; border-radius: 8px; display: inline-block; transform: rotate(-2deg); }
+.hero a { color: var(--white); }
+.hero-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.hero-stat { background: rgba(255, 255, 255, 0.14); border: 2px solid rgba(255, 255, 255, 0.45); border-radius: 999px; padding: 4px 14px; font-weight: 700; }
+.hero-go { background: var(--white); color: var(--navy) !important; border-color: var(--white); box-shadow: 0 4px 0 var(--red); text-decoration: none; }
+.hero-go:hover { background: var(--navy-50); border-color: var(--navy-50); box-shadow: 0 5px 0 var(--red); }
+.hero-go:active:not([disabled]) { box-shadow: 0 1px 0 var(--red); }
+.hero-icons { position: absolute; inset: 0; z-index: 0; max-width: none; pointer-events: none; }
+.hero-icons span { position: absolute; font-size: 2.4rem; opacity: 0.9; animation: bob 4s ease-in-out infinite; filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.15)); }
+.hero-icons span:nth-child(2n) { animation-delay: -1.3s; animation-duration: 5s; }
+.hero-icons span:nth-child(3n) { animation-delay: -2.4s; animation-duration: 4.6s; }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-10px) rotate(6deg); } }
+@media (max-width: 760px) { .hero-icons { opacity: 0.25; } .hero h1 { font-size: 1.7rem; } }
+
+/* Unit headings: a ribbon in the school colours. */
+.unit-title {
+  display: inline-block; color: var(--white); background: var(--navy); padding: 6px 18px; margin-top: 16px;
+  border-radius: 12px; box-shadow: 4px 4px 0 var(--red); transform: rotate(-1deg);
+}
+.unit-2 .unit-title { background: var(--red); box-shadow: 4px 4px 0 var(--navy); }
 .subtopic h3 { margin: 18px 0 10px; font-size: 1.05rem; color: var(--ink); font-family: var(--font-body); }
+/* Activity cards on the home page: a coloured top edge, a big icon and a Play button. */
+.game-card { position: relative; border-width: 2px; border-top: 6px solid var(--navy); padding-top: 16px; }
+.unit-2 .game-card { border-top-color: var(--red); }
+.game-icon {
+  float: right; display: grid; place-items: center; width: 54px; height: 54px; margin: -4px -4px 6px 10px; font-size: 1.8rem;
+  border-radius: 16px; background: var(--navy-50); border: 2px solid var(--navy-100); transform: rotate(4deg); transition: transform 0.2s;
+}
+.unit-2 .game-icon { background: var(--red-50); border-color: var(--red-100); }
+.card-link:hover .game-icon { transform: rotate(-8deg) scale(1.12); }
+.play-chip {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: var(--white); background: var(--navy);
+  border-radius: 999px; padding: 4px 14px; box-shadow: 0 3px 0 var(--navy-900);
+}
+.unit-2 .play-chip { background: var(--red); box-shadow: 0 3px 0 #7a0a1c; }
+.card-link:hover .play-chip { transform: translateY(-1px); }
 .card-muted { background: #f2f4f8; box-shadow: none; }
 .card-muted h3 { color: var(--ink-soft); }
 .card-foot { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
 .steps-meter { display: inline-flex; gap: 4px; }
 .pip { width: 18px; height: 8px; border-radius: 4px; border: 1.5px solid var(--navy); background: var(--white); }
+.unit-2 .pip { border-color: var(--red); }
+.unit-2 .pip.on { background: var(--red); }
 .pip.on { background: var(--navy); }
 
 .learn-grid { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); align-items: start; }
@@ -67,12 +117,13 @@ fieldset[disabled] .option { cursor: default; }
 .stat:last-child { border-bottom: none; }
 .stat b { font-variant-numeric: tabular-nums; }
 .event-card {
-  border: 2px solid var(--navy); border-radius: var(--radius); background: var(--white); padding: 16px; box-shadow: var(--shadow);
-  border-top-width: 8px;
+  border: 2px solid var(--navy); border-radius: var(--radius); background: var(--white); padding: 16px; box-shadow: 0 5px 0 var(--navy-100);
+  border-top: 8px solid var(--red);
 }
 .choice-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
 .choice-btn { font: inherit; text-align: left; border: 2px solid var(--line); background: var(--white); border-radius: var(--radius-sm); padding: 10px 12px; cursor: pointer; min-height: 44px; color: var(--ink); }
-.choice-btn:hover { border-color: var(--navy); }
+.choice-btn { transition: transform 0.1s, border-color 0.1s; }
+.choice-btn:hover:not(:disabled) { border-color: var(--navy); transform: translateY(-2px); box-shadow: 0 3px 0 var(--navy-100); }
 .choice-btn[aria-pressed='true'] { border-color: var(--navy); background: var(--navy-50); font-weight: 700; }
 .legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.9rem; }
 .swatch { display: inline-block; width: 22px; height: 14px; border: 1px solid var(--ink-soft); vertical-align: middle; margin-right: 4px; }
@@ -194,12 +245,12 @@ fieldset[disabled] .option { cursor: default; }
 /* Written explanations: folded away until the student wants them. */
 details.explain > summary { cursor: pointer; list-style-position: outside; }
 details.explain > summary h3 { font-size: 1.1rem; }
-details.how-to-play > summary { cursor: pointer; font-weight: 700; color: var(--navy, #1B3A6B); }
+details.how-to-play > summary { cursor: pointer; font-weight: 700; color: var(--navy, #1D4ED8); }
 details.how-to-play[open] > summary { margin-bottom: 8px; }
 fieldset.checklist { border: 1px solid var(--line, #c9d2e0); border-radius: 8px; padding: 10px 14px; display: grid; gap: 8px; }
 .check-row { display: flex; gap: 10px; align-items: flex-start; }
 .check-row input { margin-top: 4px; width: 20px; height: 20px; flex: none; }
-.writing-entry { border-left: 4px solid var(--navy, #1B3A6B); padding-left: 12px; }
+.writing-entry { border-left: 4px solid var(--navy, #1D4ED8); padding-left: 12px; }
 .writing-text { white-space: pre-wrap; margin: 4px 0 0; }
 @media print {
   details.explain, details.how-to-play { display: block; }

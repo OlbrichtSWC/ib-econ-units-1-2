@@ -6,10 +6,12 @@
  * Contrast: every text colour below meets WCAG AA (4.5:1) on the backgrounds it is used on.
  */
 :root {
-  --navy: #1b3a6b;
-  --navy-700: #142c52;
-  --navy-100: #d7e0ee;
-  --navy-50: #eef2f8;
+  /* School colours: royal blue, red and white. The variable names say "navy" for history; the colour is royal blue. */
+  --navy: #1d4ed8; /* royal blue, 6.7:1 with white */
+  --navy-700: #1e3a9e;
+  --navy-900: #172b6e;
+  --navy-100: #d6e2ff;
+  --navy-50: #eef3ff;
   --red: #c8102e;
   --red-700: #a00d25;
   --red-100: #f6d3d9;
@@ -17,8 +19,9 @@
   --white: #ffffff;
   --ink: #1a1f29;
   --ink-soft: #4a5263; /* 7.6:1 on white */
-  --line: #c9d1de;
-  --bg: #f7f9fc;
+  --line: #c8d3ee;
+  --bg: #f3f6ff;
+  --sun: #ffd23f; /* decoration only, never text */
   --ok: #1e6b3a; /* used with a checkmark icon, never alone */
   --ok-50: #e8f4ec;
   --warn: #8a5300;
@@ -28,9 +31,9 @@
   --font-head: Georgia, 'Times New Roman', serif;
   --font-body: Calibri, Carlito, 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
 
-  --radius: 10px;
-  --radius-sm: 6px;
-  --shadow: 0 1px 2px rgba(20, 44, 82, 0.08), 0 2px 8px rgba(20, 44, 82, 0.06);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 1px 2px rgba(23, 50, 140, 0.08), 0 2px 8px rgba(23, 50, 140, 0.06);
   --gap: 16px;
   --text: 1.0625rem;
   --maxw: 1100px;
@@ -40,7 +43,10 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  background: var(--bg);
+  /* Light blue with a soft dot pattern. */
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(29, 78, 216, 0.09) 1.2px, transparent 1.6px);
+  background-size: 22px 22px;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--text);
@@ -80,14 +86,19 @@ table { border-collapse: collapse; }
   border-radius: var(--radius-sm); border: 2px solid var(--navy);
   background: var(--navy); color: var(--white);
   cursor: pointer; text-decoration: none; touch-action: manipulation;
+  /* Chunky "press me" buttons: a darker edge underneath that squashes when pressed. */
+  box-shadow: 0 4px 0 var(--navy-900); transition: transform 0.08s, box-shadow 0.08s, background 0.15s;
 }
-.btn:hover { background: var(--navy-700); border-color: var(--navy-700); }
+.btn:hover { background: var(--navy-700); border-color: var(--navy-700); transform: translateY(-1px); box-shadow: 0 5px 0 var(--navy-900); }
+.btn:active:not([disabled]) { transform: translateY(3px); box-shadow: 0 1px 0 var(--navy-900); }
 .btn[disabled] { opacity: 0.55; cursor: not-allowed; }
-.btn-secondary { background: var(--white); color: var(--navy); }
+.btn-secondary { background: var(--white); color: var(--navy); box-shadow: 0 4px 0 var(--navy-100); }
+.btn-secondary:active:not([disabled]) { box-shadow: 0 1px 0 var(--navy-100); }
 .btn-secondary:hover { background: var(--navy-50); color: var(--navy); }
-.btn-danger { background: var(--red); border-color: var(--red); }
+.btn-danger { background: var(--red); border-color: var(--red); box-shadow: 0 4px 0 #7a0a1c; }
 .btn-danger:hover { background: var(--red-700); border-color: var(--red-700); }
-.btn-quiet { background: transparent; border-color: transparent; color: var(--navy); text-decoration: underline; padding-inline: 8px; }
+.btn-quiet { background: transparent; border-color: transparent; color: var(--navy); text-decoration: underline; padding-inline: 8px; box-shadow: none; }
+.btn-quiet:hover, .btn-quiet:active:not([disabled]) { transform: none; box-shadow: none; }
 .btn-quiet:hover { background: var(--navy-50); color: var(--navy); border-color: transparent; }
 .btn-sm { min-height: 36px; padding: 4px 12px; font-size: 0.95rem; }
 
@@ -97,8 +108,8 @@ table { border-collapse: collapse; }
   padding: 18px; box-shadow: var(--shadow);
 }
 .card h3 { margin-bottom: 0.25em; }
-.card-link { display: block; color: inherit; text-decoration: none; transition: transform 0.1s; }
-.card-link:hover { border-color: var(--navy); transform: translateY(-1px); }
+.card-link { display: block; color: inherit; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; }
+.card-link:hover { border-color: var(--navy); transform: translateY(-4px) rotate(-0.4deg); box-shadow: 0 10px 24px rgba(29, 78, 216, 0.18); }
 
 /* ---------- Badges ---------- */
 .badge {
@@ -125,7 +136,8 @@ table { border-collapse: collapse; }
   padding: 10px 14px; color: var(--ink-soft); border-bottom: 4px solid transparent; margin-bottom: -2px;
   min-height: 44px; white-space: nowrap; display: inline-flex; gap: 6px; align-items: center;
 }
-.tab[aria-selected='true'] { color: var(--navy); border-bottom-color: var(--red); }
+.tab:hover { color: var(--navy); }
+.tab[aria-selected='true'] { color: var(--navy); border-bottom-color: var(--red); background: var(--white); border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
 .tab .step-num {
   display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%;
   border: 2px solid currentColor; font-size: 0.8rem;
@@ -146,7 +158,7 @@ dialog {
   border: none; border-radius: var(--radius); padding: 24px; max-width: min(520px, calc(100vw - 32px));
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25); color: var(--ink);
 }
-dialog::backdrop { background: rgba(20, 44, 82, 0.45); }
+dialog::backdrop { background: rgba(23, 50, 140, 0.45); }
 
 /* ---------- Tables ---------- */
 .table { border-collapse: collapse; width: 100%; background: var(--white); }
@@ -190,7 +202,7 @@ dialog::backdrop { background: rgba(20, 44, 82, 0.45); }
 .toast {
   position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 150;
   display: flex; gap: 14px; align-items: center; width: min(440px, calc(100vw - 32px));
-  background: var(--white); border: 2px solid var(--navy); border-radius: var(--radius); box-shadow: 0 6px 24px rgba(20, 44, 82, 0.25);
+  background: var(--white); border: 2px solid var(--navy); border-radius: var(--radius); box-shadow: 0 6px 24px rgba(23, 50, 140, 0.25);
   padding: 12px 14px; animation: toast-up 0.3s ease-out both;
 }
 .toast p { margin: 0; }

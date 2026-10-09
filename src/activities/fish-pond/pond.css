@@ -49,7 +49,7 @@
 .fp-answers { display: grid; gap: 8px; }
 .fp-answers .choice-btn { width: 100%; text-align: left; }
 .fp-legend { display: flex; flex-wrap: wrap; gap: 4px 16px; }
-.fp-key { display: inline-block; width: 26px; height: 0; vertical-align: middle; border-top: 3px solid #1b3a6b; }
+.fp-key { display: inline-block; width: 26px; height: 0; vertical-align: middle; border-top: 3px solid #1d4ed8; }
 .fp-key-dash { border-top: 3px dashed #5b6475; }
 .fp-key-green { border-top: 2px dashed #1e6b3a; }
 

@@ -106,7 +106,7 @@ function Answer(props: { show: boolean }) {
 
 // ---------------- The car lot picture ----------------
 
-const PAINT = ['#C8102E', '#1B3A6B', '#2a8a7a', '#e0a000', '#6a4c93', '#d9622b', '#3d7fc4', '#7a8b2e'];
+const PAINT = ['#C8102E', '#1D4ED8', '#2a8a7a', '#e0a000', '#6a4c93', '#d9622b', '#3d7fc4', '#7a8b2e'];
 const SLOT_X = (i: number) => 22 + (i % 6) * 114;
 const SLOT_Y = (i: number) => 126 + Math.floor(i / 6) * 76;
 
@@ -148,10 +148,10 @@ function CarLot(props: { cars: LotCar[]; names: Record<Grade, string>; sign: str
       {Array.from({ length: 9 }, (_, i) => {
         const x = 112 + i * 36;
         const y = 70 + Math.sin(((i + 0.5) / 9) * Math.PI) * 10;
-        return <path key={i} class={`ucl-flag ucl-flag${i % 3}`} d={`M${x} ${y}l14 0-7 14z`} fill={i % 2 ? '#C8102E' : '#1B3A6B'} />;
+        return <path key={i} class={`ucl-flag ucl-flag${i % 3}`} d={`M${x} ${y}l14 0-7 14z`} fill={i % 2 ? '#C8102E' : '#1D4ED8'} />;
       })}
       {/* Price sign */}
-      <rect x="474" y="12" width="230" height="78" rx="10" fill="#1B3A6B" stroke="#0f2445" stroke-width="3" />
+      <rect x="474" y="12" width="230" height="78" rx="10" fill="#1D4ED8" stroke="#0f2445" stroke-width="3" />
       <rect x="586" y="90" width="6" height="22" fill="#556" />
       <text x="589" y="38" text-anchor="middle" font-size="15" fill="#fff" font-weight="700">{props.signTop}</text>
       <text key={props.sign} class="ucl-flip" x="589" y="74" text-anchor="middle" font-size="30" fill="#ffd23f" font-weight="700">{props.sign}</text>

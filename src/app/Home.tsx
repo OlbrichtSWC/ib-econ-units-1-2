@@ -6,6 +6,14 @@ import { countStamps } from '../shared/progress/stamps';
 import { Progress, STEP } from '../shared/progress/types';
 import { ACTIVITIES, SUBTOPICS, UNITS } from './registry';
 
+/** A big picture for each game's card. Decoration only: the title says what it is. */
+const ICONS: Record<string, string> = {
+  'ppc-explorer': '🏝️', 'island-economy': '🛶', 'circular-flow': '💸', 'positive-normative': '🔬',
+  'market-shock': '📈', 'surplus-shader': '🎨', 'bias-lab': '🧠', 'elasticity-cafe': '☕', 'ped-line': '📏',
+  'hints-yed': '🛒', 'supply-speed': '🚚', 'gov-toolkit': '🏛️', 'externality-fixer': '🌤️', 'fish-pond': '🐟',
+  'streetlight-fund': '💡', 'used-car-lot': '🚗', 'monopoly-game': '🎲', 'fair-efficient': '⚖️',
+};
+
 function stepsDone(steps: number) {
   return [STEP.learn, STEP.try, STEP.check, STEP.rated].filter((f) => steps & f).length;
 }
@@ -15,22 +23,47 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
   // Activities not built yet are folded into one line at the end, so the page shows only what can be played.
   const visible = allowed.filter((a) => a.load);
   const later = allowed.filter((a) => !a.load);
+  const withStamps = visible.filter((a) => a.goal);
+  const stampMax = withStamps.reduce((n, a) => n + stampsFor(a).length, 0);
+  const stampTotal = withStamps.reduce((n, a) => n + countStamps(props.progress.activities[a.id]?.stamps ?? 0), 0);
   return (
     <div class="stack">
       <section class="hero">
-        <h1>Learn economics by playing with it</h1>
+        <div class="hero-icons" aria-hidden="true">
+          <span style={{ right: '6%', top: '12%' }}>📈</span>
+          <span style={{ right: '20%', top: '48%' }}>🐟</span>
+          <span style={{ right: '4%', bottom: '10%' }}>☕</span>
+          <span style={{ right: '30%', top: '8%' }}>⚖️</span>
+          <span style={{ right: '14%', bottom: '4%' }}>🏝️</span>
+        </div>
+        <h1>
+          Learn economics by <span class="hl-word">playing</span> with it
+        </h1>
         <p>
-          Each activity has four steps: <strong>Learn it</strong>, <strong>Try it</strong>, <strong>Check it</strong> and <strong>Self-rate</strong>. There are no timers and
+          Each game has four steps: <strong>Learn it</strong>, <strong>Try it</strong>, <strong>Check it</strong> and <strong>Self-rate</strong>. There are no timers and
           no leaderboards. Your progress saves in this browser only.
         </p>
-        <p class="small">
-          Switching devices? Use <a href="#/progress">My progress</a> to get your progress code.
-        </p>
+        <div class="hero-stats">
+          <span class="hero-stat">{visible.length} games</span>
+          <span class="hero-stat">
+            {stampTotal} of {stampMax} stamps collected
+          </span>
+        </div>
+        <div class="row">
+          <a class="btn hero-go" href={`#unit-${UNITS[0].unit}`} onClick={(e) => { e.preventDefault(); const h = document.getElementById(`unit-${UNITS[0].unit}`); h?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); h?.focus({ preventScroll: true }); }}>
+            Pick a game
+          </a>
+          <span class="small">
+            Switching devices? Use <a href="#/progress">My progress</a> to get your progress code.
+          </span>
+        </div>
       </section>
 
       {UNITS.map((u) => (
-        <section key={u.unit} aria-labelledby={`unit-${u.unit}`} class="stack">
-          <h2 id={`unit-${u.unit}`} class="unit-title">{u.title}</h2>
+        <section key={u.unit} aria-labelledby={`unit-${u.unit}`} class={`stack unit-${u.unit}`}>
+          <div>
+            <h2 id={`unit-${u.unit}`} class="unit-title" tabIndex={-1}>{u.title}</h2>
+          </div>
           {SUBTOPICS.filter((s) => s.unit === u.unit).map((s) => {
             const acts = visible.filter((a) => a.code === s.code);
             if (!acts.length) return null;
@@ -46,6 +79,7 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
                     const open = !!a.load && (props.enabled[a.id] || props.teacher);
                     const body = (
                       <>
+                        {ICONS[a.id] && <span class="game-icon" aria-hidden="true">{ICONS[a.id]}</span>}
                         <div class="row" style={{ gap: 6, marginBottom: 8 }}>
                           <CodeBadge code={a.tag} />
                           {a.hl === 'all' && <HlBadge />}
@@ -79,6 +113,7 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
                               </span>
                             )}
                             {props.teacher && !props.enabled[a.id] && <span class="badge badge-soon">Hidden from students</span>}
+                            <span class="play-chip" aria-hidden="true">{n > 0 ? 'Continue' : 'Play'} ▶</span>
                           </div>
                         ) : (
                           <span class="badge badge-soon">{a.load ? 'Not open yet' : 'Coming in a later version'}</span>
@@ -86,11 +121,11 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
                       </>
                     );
                     return open ? (
-                      <a key={a.id} class="card card-link" href={`#/a/${a.id}/learn`}>
+                      <a key={a.id} class="card card-link game-card" href={`#/a/${a.id}/learn`}>
                         {body}
                       </a>
                     ) : (
-                      <div key={a.id} class="card card-muted" aria-disabled="true">
+                      <div key={a.id} class="card card-muted game-card" aria-disabled="true">
                         {body}
                       </div>
                     );

@@ -37,7 +37,7 @@ function Box(props: { at: Pt; w: number; h: number; text?: string }) {
   const w = sx(props.at.q + props.w / 2) - x, h = sy(props.at.p - props.h / 2) - y;
   return (
     <g aria-hidden="true">
-      <rect x={x} y={y} width={w} height={h} rx="8" fill="#eef2f8" stroke={TONE.navy} stroke-width="2" />
+      <rect x={x} y={y} width={w} height={h} rx="8" fill="#eef3ff" stroke={TONE.navy} stroke-width="2" />
       {props.text && (
         <text x={x + w / 2} y={y + h / 2 + 5} text-anchor="middle" font-size="15" font-weight="700" fill={TONE.navy}>
           {props.text}

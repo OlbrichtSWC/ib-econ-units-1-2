@@ -153,7 +153,7 @@ function Person(props: { tone: string; hat?: boolean }) {
       <circle cx="0" cy="-26" r="5" fill="#f1c9a5" stroke="#5b4636" stroke-width="1" />
       <rect x="-5" y="-20" width="10" height="13" rx="3" fill={props.tone} />
       <path class="rp-legs" d="M-3 -7l-2 7M3 -7l2 7" stroke="#3b3b3b" stroke-width="2.4" stroke-linecap="round" />
-      {props.hat && <path d="M-6 -30h12l-6-5z" fill="#1b3a6b" />}
+      {props.hat && <path d="M-6 -30h12l-6-5z" fill="#1d4ed8" />}
     </g>
   );
 }
@@ -162,7 +162,7 @@ const WALKER_TONES = ['#7a5aa0', '#1e6b3a', '#c27a1e', '#4a5263', '#b0476b', '#2
 
 function Cafe(props: { x: number; mine: boolean; board?: string; closed?: boolean; coins: number; loss?: boolean }) {
   const { x, mine } = props;
-  const main = mine ? '#1b3a6b' : '#c8102e';
+  const main = mine ? '#1d4ed8' : '#c8102e';
   const stripes = Array.from({ length: 8 }, (_, i) => i);
   return (
     <g transform={`translate(${x} 0)`}>

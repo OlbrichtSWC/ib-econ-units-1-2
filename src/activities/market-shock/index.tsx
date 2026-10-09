@@ -435,9 +435,9 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
           )}
 
           <div class="legend" aria-hidden="true">
-            <span><span class="swatch" style={{ background: '#1B3A6B' }} />D: demand</span>
+            <span><span class="swatch" style={{ background: '#1D4ED8' }} />D: demand</span>
             <span><span class="swatch" style={{ background: '#1e6b3a' }} />S: supply</span>
-            <span><span class="swatch" style={{ background: '#1B3A6B', opacity: 0.45 }} />faded: old curve</span>
+            <span><span class="swatch" style={{ background: '#1D4ED8', opacity: 0.45 }} />faded: old curve</span>
             <span><span class="swatch" style={{ background: '#C8102E' }} />red bar: shortage or surplus</span>
           </div>
 

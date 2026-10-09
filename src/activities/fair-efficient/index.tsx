@@ -472,7 +472,7 @@ function MoneyFlow(props: { households: Household[]; focus: number | null; solve
           </g>
         );
       })}
-      <rect x="262" y="128" width="88" height="64" rx="10" fill="#eef2f8" stroke="var(--navy)" stroke-width="2.5" />
+      <rect x="262" y="128" width="88" height="64" rx="10" fill="#eef3ff" stroke="var(--navy)" stroke-width="2.5" />
       <text x="306" y="158" text-anchor="middle" font-size="16" font-weight="700" fill="var(--navy)">Firms</text>
       <text x="306" y="176" text-anchor="middle" font-size="11" fill="var(--ink-soft)">pay incomes</text>
       {hs.map((h, i) => {

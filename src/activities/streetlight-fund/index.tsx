@@ -179,7 +179,7 @@ function Street(props: { lit: number; gifts?: number[]; banner?: string }) {
       {props.banner && (
         <g>
           <rect x="12" y="10" width={Math.min(420, props.banner.length * 8.4 + 24)} height="28" rx="8" fill="#ffffff" stroke="#c8102e" stroke-width="2" />
-          <text x="24" y="29" font-size="15" font-weight="700" fill="#1b3a6b">{props.banner}</text>
+          <text x="24" y="29" font-size="15" font-weight="700" fill="#1d4ed8">{props.banner}</text>
         </g>
       )}
       {/* Pavement and road */}
