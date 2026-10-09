@@ -19,7 +19,7 @@ import { ACTIVITIES, findActivity, PROGRESS_ID_TABLE } from './registry';
 import { DEFAULT_SETTINGS, loadSettings, Settings } from './settings';
 import { TeacherPage } from './TeacherPage';
 import { ClassLinkPage } from './ClassLinkPage';
-import { ClassSettings, loadClassSettings, saveClassSettings } from './classLink';
+import { classDecides, ClassSettings, loadClassSettings, saveClassSettings } from './classLink';
 
 export const store = new LocalProgressStore('ib-econ-1-2.progress', PROGRESS_ID_TABLE);
 
@@ -87,7 +87,7 @@ export function App() {
     const m: Record<string, boolean> = {};
     for (const a of ACTIVITIES) {
       // A class link from the teacher overrides the settings file on this device.
-      const base = classSettings && a.id in classSettings.modules ? classSettings.modules[a.id] : settings.modules[a.id] !== false;
+      const base = classSettings && classDecides(classSettings, a.id) ? classSettings.modules[a.id] : settings.modules[a.id] !== false;
       m[a.id] = teacher && a.id in preview ? preview[a.id] : base;
     }
     return m;
