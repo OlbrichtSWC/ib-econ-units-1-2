@@ -83,13 +83,11 @@ export interface ActivityContent {
     goal?: string;
   };
   check: Question[];
-  /** A short written task with sentence frames. The draft is saved in this browser only, never sent. */
-  explain?: {
-    prompt: string;
-    frames: string[];
-    /** What a strong answer does, for the student to check their own writing against. */
-    checklist?: string[];
-  };
+  /**
+   * Build an explanation: the student clicks the right ending for each sentence, and the
+   * sentences join into a paragraph. No blanks to fill in. Saved in this browser only, never sent.
+   */
+  explain?: ExplainTask;
   /** Shown only in the teacher view. */
   teacherNotes?: string;
 }
@@ -131,4 +129,23 @@ export interface ActivityMeta {
   goals?: [GoalStamp, GoalStamp];
   /** Present when the activity is built. */
   load?: () => Promise<ActivityModule>;
+}
+
+/** One sentence of an explanation. The student picks how it ends. */
+export interface ExplainStep {
+  /** The start of the sentence, shown before the options. Empty when each option is a whole sentence. */
+  lead: string;
+  options: { text: string; why: string }[];
+  /** Index of the right option. */
+  correct: number;
+}
+
+export interface ExplainTask {
+  /** The question the paragraph answers. */
+  prompt: string;
+  /** The facts and numbers the student needs, so nothing has to be remembered from the game. */
+  facts?: string;
+  steps: ExplainStep[];
+  /** An optional last sentence in the student's own words. */
+  own?: string;
 }

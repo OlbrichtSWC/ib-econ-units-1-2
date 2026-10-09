@@ -598,19 +598,119 @@
     }
   ],
   "explain": {
-    "prompt": "Explain why PED changes along Riverside Bikes' straight-line demand curve, and what this means for total revenue.",
-    "frames": [
-      "The slope of the demand curve is the same everywhere because ___.",
-      "But PED changes because PED uses ___, and the ratio of P to Q ___.",
-      "In the upper half demand is ___, so a price cut makes total revenue ___.",
-      "Total revenue is greatest at ___, where |PED| = ___."
+    "prompt": "(HL) Explain why PED changes along Riverside Bikes' straight-line demand curve, and what this means for total revenue.",
+    "facts": "- At **$20** a day nobody rents a bike. Every **$1 cut** in price adds **10 rentals**, up to **200** rentals at $0.\n- PED = % change in quantity demanded ÷ % change in price.\n\n| Price | Rentals | Total revenue |\n|---|---|---|\n| $15 | 50 | $750 |\n| $14 | 60 | $840 |\n| $10 | 100 | **$1,000** |\n| $5 | 150 | $750 |\n| $4 | 160 | $640 |",
+    "steps": [
+      {
+        "lead": "Riverside Bikes' demand curve is a straight line, so its slope",
+        "correct": 1,
+        "options": [
+          {
+            "text": "is the same as its PED, so PED is the same everywhere.",
+            "why": "Slope is not PED. Slope uses changes in units. PED uses percentage changes."
+          },
+          {
+            "text": "is the same everywhere: each $1 cut in price always adds 10 rentals.",
+            "why": "A straight line has a constant slope. The same $1 cut always adds the same 10 rentals."
+          },
+          {
+            "text": "gets flatter lower down, so demand becomes more elastic.",
+            "why": "A straight line does not get flatter. And lower down the line, demand becomes less elastic, not more."
+          }
+        ]
+      },
+      {
+        "lead": "But PED changes along the line, because PED",
+        "correct": 0,
+        "options": [
+          {
+            "text": "uses percentage changes, and the ratio of price to quantity changes as you move down the line.",
+            "why": "A $1 cut is a small % of a high price but a big % of a low price. 10 rentals is a big % of a small quantity."
+          },
+          {
+            "text": "depends on the slope, and the slope is steeper at low prices.",
+            "why": "The slope is the same everywhere on a straight line. PED changes for another reason."
+          },
+          {
+            "text": "changes only when the whole demand curve shifts.",
+            "why": "Here we stay on one curve, and PED still changes from point to point."
+          }
+        ]
+      },
+      {
+        "lead": "A $1 cut from $15 to $14 is a 6.7% fall in price, and rentals rise from 50 to 60, a 20% rise, so",
+        "correct": 2,
+        "options": [
+          {
+            "text": "PED = −6.7% ÷ 20% = −0.33, and demand is price inelastic.",
+            "why": "This is upside down. Quantity demanded goes on top of the formula."
+          },
+          {
+            "text": "PED = 10 ÷ −1 = −10, and demand is very elastic.",
+            "why": "PED uses percentage changes, not the raw changes in rentals and dollars."
+          },
+          {
+            "text": "PED = 20% ÷ −6.7% = −3, and demand is price elastic.",
+            "why": "20 ÷ 6.7 = 3. The size is more than 1, so demand is elastic in the upper half."
+          }
+        ]
+      },
+      {
+        "lead": "A $1 cut from $5 to $4 is a 20% fall in price, but rentals rise from 150 to 160, a 6.7% rise, so",
+        "correct": 1,
+        "options": [
+          {
+            "text": "PED = −3 again, because the slope has not changed.",
+            "why": "The slope is the same, but the percentages are different. Work out PED from the percentages."
+          },
+          {
+            "text": "PED = 6.7% ÷ −20% = −0.33, and demand is price inelastic.",
+            "why": "6.7 ÷ 20 = 0.33. The size is less than 1, so demand is inelastic in the lower half."
+          },
+          {
+            "text": "PED = 160 ÷ 4 = 40, and demand is very elastic.",
+            "why": "PED compares percentage changes. It is not quantity divided by price."
+          }
+        ]
+      },
+      {
+        "lead": "In the upper, elastic half, a price cut raises total revenue ($750 at $15 to $840 at $14), but in the lower, inelastic half,",
+        "correct": 0,
+        "options": [
+          {
+            "text": "a price cut lowers total revenue ($750 at $5 to $640 at $4).",
+            "why": "With inelastic demand, the extra rentals do not make up for the lower price on every rental."
+          },
+          {
+            "text": "a price cut also raises total revenue, because more bikes are rented.",
+            "why": "More bikes are rented, but each one earns less. Here TR falls from $750 to $640."
+          },
+          {
+            "text": "a price cut leaves total revenue the same, because the slope is the same.",
+            "why": "Total revenue changes: from $750 at $5 to $640 at $4."
+          }
+        ]
+      },
+      {
+        "lead": "So total revenue is greatest",
+        "correct": 2,
+        "options": [
+          {
+            "text": "at the lowest price, where the most bikes are rented.",
+            "why": "At low prices demand is inelastic, so a price rise would raise total revenue."
+          },
+          {
+            "text": "at the highest price, where each rental earns the most.",
+            "why": "At high prices demand is elastic, so a price cut would raise total revenue."
+          },
+          {
+            "text": "at the midpoint ($10 and 100 rentals, TR = $1,000), where |PED| = 1.",
+            "why": "Above the midpoint a cut raises TR, below it a cut lowers TR, so TR peaks where |PED| = 1."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I said that the slope is the same at every point on a straight line.",
-      "I explained that PED uses percentage changes, so it changes as P and Q change.",
-      "I said where demand is elastic, unit elastic and inelastic on the line.",
-      "I said that total revenue is greatest at the midpoint, where |PED| = 1."
-    ]
+    "own": "For example, describe your diagram: where the elastic, unit elastic and inelastic parts of the line are, and the shape of the total revenue curve below it."
   },
   "teacherNotes": "HL 2.5: PED varies along a straight-line demand curve. Project the explorer and ask students to predict TR before each $1 cut. The IB formula check shows that PED at a point matches the % change formula for a $1 change from that point (this is exact for a straight line). The \"Show all three sections\" button skips the reveal. The special curves section (horizontal, vertical, rectangular hyperbola) is SL content from the 2.5 diagrams, so SL students can use it too. Common mistake to target: treating the slope as PED."
 }

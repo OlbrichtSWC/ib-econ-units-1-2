@@ -245,9 +245,17 @@ details.explain > summary { cursor: pointer; list-style-position: outside; }
 details.explain > summary h3 { font-size: 1.1rem; }
 details.how-to-play > summary { cursor: pointer; font-weight: 700; color: var(--navy, #1D4ED8); }
 details.how-to-play[open] > summary { margin-bottom: 8px; }
-fieldset.checklist { border: 1px solid var(--line, #c9d2e0); border-radius: 8px; padding: 10px 14px; display: grid; gap: 8px; }
-.check-row { display: flex; gap: 10px; align-items: flex-start; }
-.check-row input { margin-top: 4px; width: 20px; height: 20px; flex: none; }
+.explain-facts { border: 2px dashed var(--navy-100, #c7d2fe); border-radius: var(--radius-sm, 8px); padding: 10px 14px; background: var(--navy-50, #eef2ff); }
+.explain-facts ul, .explain-facts p { margin: 0; }
+.explain-facts table { margin: 4px 0 0; }
+.explain-step { border-left: 4px solid var(--red, #C8102E); padding-left: 12px; }
+.explain-step-head { margin: 0 0 8px; }
+.explain-step-head:focus { outline: 2px solid var(--navy, #1D4ED8); outline-offset: 2px; }
+.explain-said { margin: 0; padding: 8px 12px; border-radius: var(--radius-sm, 8px); }
+.explain-said.ok { background: var(--ok-50); border-left: 4px solid var(--ok); }
+.explain-said.no { background: var(--red-50); border-left: 4px solid var(--red); }
+.explain-paragraph { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm, 8px); padding: 10px 14px; }
+.explain-sentences { margin: 0; padding-left: 1.4em; display: grid; gap: 4px; }
 .writing-entry { border-left: 4px solid var(--navy, #1D4ED8); padding-left: 12px; }
 .writing-text { white-space: pre-wrap; margin: 4px 0 0; }
 @media print {

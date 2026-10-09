@@ -534,19 +534,119 @@
     }
   ],
   "explain": {
-    "prompt": "Explain why the Snowcap Ridge market is allocatively efficient at a price of $50, and what happens to community surplus at a price of $74.",
-    "frames": [
-      "At $50, the demand curve (MB) and the supply curve (MC) ___.",
-      "Community surplus is the sum of ___ and ___.",
-      "At $74, quantity demanded is ___ than quantity supplied, so only ___ passes are traded.",
-      "The passes between ___ and ___ are no longer traded, so there is a welfare loss because ___."
+    "prompt": "Explain why the Snowcap Ridge market for day passes is allocatively efficient at a price of $50, and what happens to community surplus at a price of $74.",
+    "facts": "- Demand (MB) runs from **$90** at 0 passes down to **$0** at 900 passes.\n- Supply (MC) starts at **$30** and rises **$5** for every 100 passes.\n- Equilibrium: **400 passes** at **$50**.\n- At **$74**: quantity demanded is **160** passes and quantity supplied is **880** passes.\n- The quantity traded is always the **smaller** of quantity demanded and quantity supplied.\n- (HL) At 160 passes, the demand curve is at **$74** and the supply curve is at **$38**.",
+    "steps": [
+      {
+        "lead": "At $50, the demand curve (MB) and the supply curve (MC)",
+        "correct": 1,
+        "options": [
+          {
+            "text": "are furthest apart, so the gap between them is the surplus.",
+            "why": "At $50 the curves cross. The gap between them is zero at equilibrium."
+          },
+          {
+            "text": "meet, so 400 passes are traded and MB = MC for the last pass.",
+            "why": "This is the competitive equilibrium: quantity demanded equals quantity supplied, and MB = MC."
+          },
+          {
+            "text": "both show $50, so consumer surplus equals producer surplus.",
+            "why": "The price is the same for both, but the two areas are different sizes. Here consumer surplus is bigger."
+          }
+        ]
+      },
+      {
+        "lead": "Community surplus is consumer surplus (the area below demand and above the price) plus producer surplus",
+        "correct": 0,
+        "options": [
+          {
+            "text": "(the area above supply and below the price), and at $50 it is as big as it can be.",
+            "why": "At equilibrium, every pass with MB above MC is traded, so the total area is largest."
+          },
+          {
+            "text": "(the area below supply and above the price), and it is biggest at $74.",
+            "why": "Producer surplus lies above the supply curve. And at $74 fewer passes are traded, so community surplus is smaller."
+          },
+          {
+            "text": "(the area between the two curves to the right of 400 passes).",
+            "why": "To the right of 400 passes, MC is above MB. That area is not a surplus."
+          }
+        ]
+      },
+      {
+        "lead": "So at $50 the market is allocatively efficient, because",
+        "correct": 2,
+        "options": [
+          {
+            "text": "the ski hill earns the most revenue it can at this price.",
+            "why": "Allocative efficiency is about community surplus, not the firm's revenue."
+          },
+          {
+            "text": "every skier who wants a pass gets one, at any price.",
+            "why": "Skiers who value a pass at less than $50 do not buy one. That is efficient."
+          },
+          {
+            "text": "every pass that buyers value more than it costs to make is traded, and no other pass is.",
+            "why": "Resources go to exactly the passes where MB is at least MC. Community surplus is at its maximum."
+          }
+        ]
+      },
+      {
+        "lead": "At $74, quantity demanded is 160 passes but quantity supplied is 880, so",
+        "correct": 2,
+        "options": [
+          {
+            "text": "880 passes are traded, because the ski hill offers that many.",
+            "why": "Buyers only want 160 passes at $74. Unsold passes are not traded."
+          },
+          {
+            "text": "400 passes are still traded, because that is the equilibrium.",
+            "why": "The market is not at equilibrium at $74. Buyers only want 160 passes."
+          },
+          {
+            "text": "only 160 passes are traded, because the short side of the market (the buyers) sets the quantity.",
+            "why": "When there is a surplus, the quantity traded is the quantity demanded."
+          }
+        ]
+      },
+      {
+        "lead": "The 240 passes between 160 and 400 are no longer traded, even though",
+        "correct": 0,
+        "options": [
+          {
+            "text": "buyers value each of them more than it costs to make it (MB > MC).",
+            "why": "For each of these passes, the demand curve is above the supply curve, so trading it would add to community surplus."
+          },
+          {
+            "text": "they cost more to make than buyers will pay (MC > MB).",
+            "why": "That is true only for passes beyond 400. Between 160 and 400, MB is above MC."
+          },
+          {
+            "text": "the ski hill could sell all of them at $74.",
+            "why": "At $74 buyers want only 160 passes, so the ski hill cannot sell more."
+          }
+        ]
+      },
+      {
+        "lead": "So community surplus falls. The lost part is a welfare loss: on the diagram it is",
+        "correct": 1,
+        "options": [
+          {
+            "text": "the rectangle between $50 and $74, from 0 to 160 passes.",
+            "why": "That area moves from consumers to producers. It is not lost to society."
+          },
+          {
+            "text": "the triangle between the demand and supply curves, from 160 to 400 passes.",
+            "why": "This triangle is the community surplus from the passes no longer traded."
+          },
+          {
+            "text": "the area of unsold passes, from 160 to 880 passes.",
+            "why": "The welfare loss only covers passes where MB is above MC, from 160 to 400."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I said that at $50 the market is at equilibrium, where MB = MC.",
-      "I said that community surplus is consumer surplus plus producer surplus, and that it is greatest at equilibrium.",
-      "I said that at $74 the quantity traded is the quantity demanded, which is smaller than the quantity supplied.",
-      "I named the welfare loss and described where it is on the diagram."
-    ]
+    "own": "(HL) For example, calculate the welfare loss at $74 using ½ × base × height, and show your working."
   },
   "teacherNotes": "Project the dial and ask students to predict the shapes before you move the price: 'Will consumer surplus be a triangle or a trapezium at $38?' The quantity traded is always the short side of the market, which is the key idea behind welfare loss in 2.3 and later price controls (2.8). The dollar values, the working panel and the Calculate it problems are HL only (IB 2.3: calculating CS and PS from a diagram). SL students should still use the shaded areas to explain allocative efficiency (MB = MC) and welfare loss. Calculate it problems hide the panel values at that price until the student checks an answer; common slips (forgetting ½, the wrong height or base) get their own feedback."
 }

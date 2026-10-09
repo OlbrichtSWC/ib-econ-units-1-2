@@ -8,6 +8,7 @@
  *   [[term]]           glossary term (tap to see its meaning)
  *   [[shown words|term]]  glossary term with different shown words
  *   ^HL^               an HL label
+ *   | a | b |          a table: a header row, a |---|---| row, then data rows
  *   H~2~O style subscripts are not needed: type D₁, S₂ directly.
  */
 import { ComponentChildren, Fragment } from 'preact';
@@ -21,6 +22,23 @@ export function Md({ text, inline }: { text: string; inline?: boolean }) {
     <>
       {blocks.map((block, i) => {
         const lines = block.split('\n');
+        if (lines.length >= 3 && lines.every((l) => /^\s*\|.*\|\s*$/.test(l)) && /^[\s|:-]+$/.test(lines[1])) {
+          const cells = (l: string) => l.trim().slice(1, -1).split('|').map((c) => c.trim());
+          return (
+            <div key={i} class="table-scroll" tabIndex={0} role="region" aria-label="Table">
+              <table class="table">
+                <thead>
+                  <tr>{cells(lines[0]).map((c, j) => <th key={j} scope="col">{renderInline(c)}</th>)}</tr>
+                </thead>
+                <tbody>
+                  {lines.slice(2).map((l, r) => (
+                    <tr key={r}>{cells(l).map((c, j) => <td key={j}>{renderInline(c)}</td>)}</tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
         if (lines.every((l) => /^\s*[-*] /.test(l))) {
           return <ul key={i}>{lines.map((l, j) => <li key={j}>{renderInline(l.replace(/^\s*[-*] /, ''))}</li>)}</ul>;
         }

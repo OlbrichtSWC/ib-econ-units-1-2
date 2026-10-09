@@ -1070,20 +1070,119 @@
     }
   ],
   "explain": {
-    "prompt": "Choose one mission. Explain, using a diagram, how your policy met the goal, and which stakeholders gained and lost.",
-    "frames": [
-      "The goal was ___, so I chose ___.",
-      "On the diagram, the policy ___, so the price buyers pay ___ and the quantity ___.",
-      "___ gained because ___.",
-      "___ lost because ___.",
-      "A problem with this policy is ___."
+    "prompt": "Mission: Rent in Lakeside. Using a diagram, explain how a maximum price of $1,000 met the goal, and which stakeholders gained and lost.",
+    "facts": "- **Rent in Lakeside:** rents have risen to **$1,200 a month**. Goal: rent must be **$1,000 a month or less**. The government will **not spend any money**.\n- Before the policy, **800 flats** are rented at **$1,200** a month. This is the equilibrium.\n- At a rent of **$1,000**, tenants want **1,000 flats**, but landlords supply only **600 flats**.\n- The stakeholder panel shows no direct effect on the government budget, and a welfare loss.",
+    "steps": [
+      {
+        "lead": "The goal was a rent of $1,000 or less with no government spending, so I chose",
+        "correct": 1,
+        "options": [
+          {
+            "text": "a subsidy to landlords, so that they can charge lower rents.",
+            "why": "A subsidy could lower rents, but the government pays for every flat. The brief says no spending."
+          },
+          {
+            "text": "a maximum price of $1,000, set below the equilibrium rent of $1,200.",
+            "why": "Yes. A maximum price lowers the rent tenants pay at no cost to the government."
+          },
+          {
+            "text": "a minimum price of $1,000, so that rent cannot rise above it.",
+            "why": "A minimum price stops the price going below a level. It would keep rents high."
+          }
+        ]
+      },
+      {
+        "lead": "On the diagram, the maximum price is a horizontal line below equilibrium, so",
+        "correct": 0,
+        "options": [
+          {
+            "text": "the rent falls from $1,200 to $1,000, and the flats rented fall from 800 to 600.",
+            "why": "Yes. Only the flats that landlords supply at $1,000 can be rented: 600."
+          },
+          {
+            "text": "the rent falls to $1,000, and the flats rented rise from 800 to 1,000.",
+            "why": "1,000 is what tenants want. Landlords supply only 600 flats at $1,000, so only 600 are rented."
+          },
+          {
+            "text": "the supply curve shifts left, and the rent rises above $1,200.",
+            "why": "A maximum price does not shift any curve. It is a line on the diagram, and the rent falls to it."
+          }
+        ]
+      },
+      {
+        "lead": "At $1,000, tenants want 1,000 flats, so there is",
+        "correct": 2,
+        "options": [
+          {
+            "text": "a surplus of 400 flats (1,000 − 600).",
+            "why": "Quantity demanded is bigger than quantity supplied. That is a shortage, not a surplus."
+          },
+          {
+            "text": "a shortage of 200 flats (1,000 − 800).",
+            "why": "Compare the quantities at the maximum price: 1,000 demanded and 600 supplied. 800 was the old equilibrium."
+          },
+          {
+            "text": "a shortage of 400 flats (1,000 − 600).",
+            "why": "Yes. Show it on your diagram as the gap between supply and demand at $1,000."
+          }
+        ]
+      },
+      {
+        "lead": "Tenants who find a flat gain, because",
+        "correct": 2,
+        "options": [
+          {
+            "text": "every tenant who wants a flat can now rent one.",
+            "why": "Only 600 flats are rented, but tenants want 1,000. Many cannot find one."
+          },
+          {
+            "text": "landlords build more flats when rents are lower.",
+            "why": "A lower rent gives landlords less reason to supply flats. Supply falls from 800 to 600."
+          },
+          {
+            "text": "they pay $200 a month less in rent ($1,200 − $1,000).",
+            "why": "Yes. Tenants who get one of the 600 flats are better off."
+          }
+        ]
+      },
+      {
+        "lead": "Landlords lose, because",
+        "correct": 0,
+        "options": [
+          {
+            "text": "they receive $200 a month less for each flat, and they rent out 200 fewer flats.",
+            "why": "Yes. The rent falls from $1,200 to $1,000, and flats rented fall from 800 to 600."
+          },
+          {
+            "text": "the government now taxes each flat that they rent out.",
+            "why": "A maximum price is not a tax. The government gets no revenue from it."
+          },
+          {
+            "text": "they must now rent out more flats than they did before.",
+            "why": "At a lower rent, landlords supply fewer flats: 600 instead of 800."
+          }
+        ]
+      },
+      {
+        "lead": "A problem with this policy is that",
+        "correct": 1,
+        "options": [
+          {
+            "text": "the government must pay $200 a month for every flat that is rented.",
+            "why": "A maximum price costs the government nothing directly. That is why it fits the brief."
+          },
+          {
+            "text": "tenants want 400 more flats than are supplied, and fewer flats are rented, so there is a welfare loss.",
+            "why": "Yes. The shortage can also lead to waiting lists or illegal parallel markets. The government may need to supply flats itself."
+          },
+          {
+            "text": "there is a surplus of flats, which the government must buy up.",
+            "why": "A surplus comes from a minimum price. A maximum price below equilibrium causes a shortage."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I named the tool and said why it fits the goal.",
-      "I described the diagram: which curve or line moved, and the new price and quantity.",
-      "I named at least two stakeholders and said who gains and who loses.",
-      "I named one problem, such as a shortage, a surplus, a cost to the government or a welfare loss."
-    ]
+    "own": "For example, describe your diagram: where the maximum price line is, and where you show the shortage."
   },
   "teacherNotes": "Level 1 checks that students can match a tool to a goal. Each brief rules out the other tools on purpose (for example \"no spending\" rules out a subsidy). Level 2 asks for four predictions before the reveal. Level 3 is HL: the calculations use the IB formulas for tax revenue, tax incidence, subsidy cost, shortage, surplus and welfare loss. Discussion idea: the cigarette mission shows that with price inelastic demand, consumers pay most of a tax, and that a higher tax does not always raise more revenue."
 }

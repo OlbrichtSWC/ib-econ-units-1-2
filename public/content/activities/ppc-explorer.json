@@ -1184,19 +1184,119 @@
     }
   ],
   "explain": {
-    "prompt": "Choose one event you played (for example a new harbour, the sawmill closing or a storm). Explain, using a PPC diagram, what the event did to the island.",
-    "frames": [
-      "Before the event, the island could produce ___.",
-      "The event changed ___, so the PPC ___.",
-      "This means the opportunity cost of ___ changed because ___.",
-      "This is different from unemployment because ___."
+    "prompt": "Using a PPC diagram, explain what two events did to Pinewood Island: the new harbour, and the sawmill closing.",
+    "facts": "- Pinewood Island has **10 islanders**. Each one can fish or cut timber.\n- If all 10 fish, the island catches **55 fish**. If all 10 cut timber, it cuts **55 timber**.\n- The islanders have different skills. Some are better at fishing, others at timber.\n- **Event 1: a new harbour and better tools.** Every islander can make **30% more** fish and timber.\n- **Event 2: the sawmill closes.** **3 jobs** are lost, so only 7 islanders work.",
+    "steps": [
+      {
+        "lead": "The new harbour and better tools",
+        "correct": 1,
+        "options": [
+          {
+            "text": "move islanders from cutting timber to fishing.",
+            "why": "No one changes job. The tools make every islander more productive."
+          },
+          {
+            "text": "let every islander make 30% more fish and 30% more timber.",
+            "why": "Better capital raises what each islander can produce in both jobs."
+          },
+          {
+            "text": "add 3 new islanders to the island.",
+            "why": "The number of islanders stays at 10. Only the tools and the harbour change."
+          }
+        ]
+      },
+      {
+        "lead": "So the island's PPC",
+        "correct": 0,
+        "options": [
+          {
+            "text": "shifts outward, because the island can now make more of both goods.",
+            "why": "Better technology for both goods moves the whole curve out. This is economic growth."
+          },
+          {
+            "text": "pivots out on the fish axis only.",
+            "why": "A pivot happens when only one good gets better. Here both fish and timber rise by 30%."
+          },
+          {
+            "text": "stays where it is, and the island moves along it.",
+            "why": "A movement along the PPC means moving islanders between jobs. Here the island can make more of everything."
+          }
+        ]
+      },
+      {
+        "lead": "If every islander fishes after the change, the island can catch",
+        "correct": 2,
+        "options": [
+          {
+            "text": "55 fish, the same as before.",
+            "why": "That was the most before the change. Each islander now catches 30% more."
+          },
+          {
+            "text": "85 fish (55 + 30).",
+            "why": "The rise is 30 percent, not 30 fish. Multiply 55 by 1.3."
+          },
+          {
+            "text": "about 72 fish (55 × 1.3 = 71.5).",
+            "why": "55 × 1.3 = 71.5, so the fish end of the PPC moves out from 55 to about 72."
+          }
+        ]
+      },
+      {
+        "lead": "When the sawmill closes and 3 jobs are lost, the PPC",
+        "correct": 1,
+        "options": [
+          {
+            "text": "shifts inward, because the island has fewer islanders.",
+            "why": "All 10 islanders still live on the island. The PPC shows what they could make if all of them worked."
+          },
+          {
+            "text": "does not move, because the island's resources and technology are the same.",
+            "why": "Nothing about the islanders' skills or tools changed. Only the number of jobs changed."
+          },
+          {
+            "text": "shifts outward, because the islanders have more free time.",
+            "why": "Free time does not raise what the island can produce."
+          }
+        ]
+      },
+      {
+        "lead": "Instead, with 3 islanders unemployed, the island produces",
+        "correct": 0,
+        "options": [
+          {
+            "text": "at a point inside its PPC. Some resources are not being used.",
+            "why": "Unemployment means the island makes less than it could, so it is inside the curve."
+          },
+          {
+            "text": "at a point outside its PPC.",
+            "why": "A point outside the PPC cannot be reached with the island's resources."
+          },
+          {
+            "text": "at a point on its PPC, but with more timber.",
+            "why": "With 3 islanders out of work, the island cannot reach its PPC."
+          }
+        ]
+      },
+      {
+        "lead": "The PPC is bowed out (concave) because",
+        "correct": 2,
+        "options": [
+          {
+            "text": "every islander is equally good at both jobs.",
+            "why": "Equal skills would give a straight-line PPC with a constant opportunity cost."
+          },
+          {
+            "text": "the island always has unemployment.",
+            "why": "Unemployment puts the island inside its PPC. It does not change the shape of the curve."
+          },
+          {
+            "text": "islanders have different skills, so each extra fish costs more timber than the last. This is increasing opportunity cost.",
+            "why": "The first fishers are the best at fishing. Later ones are better at timber, so each extra fish gives up more timber."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I named the event and said which resource or technology changed.",
-      "I said whether the PPC shifted, pivoted, or did not move.",
-      "I explained the difference between a shift of the PPC and a point inside it.",
-      "I described a diagram with both axes labelled (fish and timber)."
-    ]
+    "own": "For example, describe your PPC diagram: what goes on each axis, and where the old and new curves are."
   },
   "teacherNotes": "Use projector mode and play the event scenarios as a whole-class prediction game: students show 1 to 5 fingers for the outcome before you play each scenario. In **Four seasons**, students place each islander in a job. Putting islanders in jobs that do not suit them leaves the island inside its PPC, so the game shows inefficiency as well as unemployment. Levels 1 and 2 use whole-curve shifts and changes in jobs. Level 3 adds events that change only one good (pivots). Each season ends with an opportunity cost question; Level 2 and 3 questions compare constant and increasing opportunity cost (1.1 diagram: increasing versus constant opportunity cost)."
 }

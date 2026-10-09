@@ -1381,20 +1381,119 @@
     }
   ],
   "explain": {
-    "prompt": "Using a payoff matrix, explain why two oligopoly firms are tempted to collude, and why collusion often breaks down.",
-    "frames": [
-      "In an oligopoly, firms are interdependent: each firm's profit depends on ___.",
-      "If both firms keep a high price, they earn ___ each. If both cut prices, they earn ___ each.",
-      "So they are tempted to collude, because ___.",
-      "But each firm has a dominant strategy of ___, because ___.",
-      "Collusion often breaks down because ___. Formal collusion (a cartel) is ___ in many countries."
+    "prompt": "Using the payoff matrix from the price war, explain why your café and the rival café are tempted to collude, and why collusion often breaks down.",
+    "facts": "- Two cafés face each other on one street: **your café** and the **rival café**. Customers walk to the cheaper one.\n- Each café chooses a **high price** or a **low price**. The matrix shows profit per day.\n- You high, rival high: you **$600**, rival **$600**.\n- You high, rival low: you **$200**, rival **$800**.\n- You low, rival high: you **$800**, rival **$200**.\n- You low, rival low: you **$400**, rival **$400**.",
+    "steps": [
+      {
+        "lead": "The two cafés are an oligopoly. They are interdependent: each café's profit",
+        "correct": 0,
+        "options": [
+          {
+            "text": "depends on its own price and on the rival's price.",
+            "why": "Yes. Customers walk to the cheaper café, so each café must think about what the other will do."
+          },
+          {
+            "text": "depends only on its own price and its own costs.",
+            "why": "In this street, customers walk to the cheaper café. So the rival's price changes your profit too."
+          },
+          {
+            "text": "stays the same, whatever price the rival sets.",
+            "why": "Look at the matrix: with a high price you earn $600 or $200, depending on the rival."
+          }
+        ]
+      },
+      {
+        "lead": "If both cafés keep a high price, each earns $600 a day. If both cut to a low price,",
+        "correct": 2,
+        "options": [
+          {
+            "text": "each earns $800 a day, because more customers come.",
+            "why": "$800 is what one café earns when it alone cuts its price. When both cut, customers split, and each earns $400."
+          },
+          {
+            "text": "each earns $200 a day, the lowest profit in the matrix.",
+            "why": "$200 is what a café earns when it keeps a high price and the rival cuts. Both low gives $400 each."
+          },
+          {
+            "text": "each earns only $400 a day, less than before.",
+            "why": "Yes. A price war leaves both cafés worse off."
+          }
+        ]
+      },
+      {
+        "lead": "So the cafés are tempted to collude, because",
+        "correct": 1,
+        "options": [
+          {
+            "text": "collusion lowers prices, so more customers come to both cafés.",
+            "why": "Collusion keeps prices high. Consumers pay more, which is why it is a problem."
+          },
+          {
+            "text": "with high prices they earn $1,200 a day together, not $800. They act like one monopoly.",
+            "why": "Yes. By agreeing to keep prices high, the two firms act like one monopoly and earn more together."
+          },
+          {
+            "text": "collusion turns each café into a price taker, so profit is safe.",
+            "why": "Collusion gives the firms more market power, not less."
+          }
+        ]
+      },
+      {
+        "lead": "But each café has a dominant strategy of a low price, because",
+        "correct": 2,
+        "options": [
+          {
+            "text": "a low price gives the two cafés the most profit together.",
+            "why": "Together they earn $800 with low prices and $1,200 with high prices. A dominant strategy is about one firm's own profit."
+          },
+          {
+            "text": "the rival café copies its price the week after.",
+            "why": "That is how the rival played in the game. A dominant strategy is the best move whatever the rival does."
+          },
+          {
+            "text": "whatever the rival does, a low price earns more: $800, not $600, or $400, not $200.",
+            "why": "Yes. If the rival is high, low pays $800, not $600. If the rival is low, low pays $400, not $200."
+          }
+        ]
+      },
+      {
+        "lead": "So both cafés end up",
+        "correct": 0,
+        "options": [
+          {
+            "text": "with a low price and $400 each, though both would be better off at $600. This is a prisoner's dilemma.",
+            "why": "Yes. Each café follows its dominant strategy, and both end up worse off than if they had both kept prices high."
+          },
+          {
+            "text": "with a high price and $600 each, because that is best for both of them.",
+            "why": "Each café can do better by cutting its price, so high and high is not stable without an agreement."
+          },
+          {
+            "text": "with one café high and one café low, earning $800 and $200.",
+            "why": "The café earning $200 would switch to a low price and earn $400."
+          }
+        ]
+      },
+      {
+        "lead": "Collusion often breaks down because",
+        "correct": 1,
+        "options": [
+          {
+            "text": "each café would lose $200 a day if it cut its price alone, so neither café has a reason to cheat on the deal.",
+            "why": "Read the matrix again: if the rival stays high, cutting raises your profit from $600 to $800. That is a gain of $200."
+          },
+          {
+            "text": "each café can gain $200 a day by secretly cutting its price. Formal collusion (a cartel) is illegal in many countries, so the deal cannot be enforced.",
+            "why": "Yes. The incentive to cheat makes the deal unstable. Firms cannot go to court to enforce an illegal deal, and they can face large fines."
+          },
+          {
+            "text": "both cafés earn more with low prices than with high prices, so neither café wants to keep the deal.",
+            "why": "With low prices both earn $400, less than $600 each with high prices."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I drew a 2 × 2 payoff matrix with both firms' profits in each cell.",
-      "I named the dominant strategy and said why it is best whatever the rival does.",
-      "I said where both firms end up, and that both would be better off colluding.",
-      "I explained the incentive to cheat and that cartels are illegal in many countries."
-    ]
+    "own": "For example, describe how you played the five weeks against the rival café, or explain why the cafés may use non-price competition instead."
   },
   "teacherNotes": "The whole activity is HL (2.11). Level 1 uses the guide's characteristics: number of firms, product type and barriers to entry, plus price taker or price maker. The concentration ratio rounds list shares out of order, so students must find the largest firms first. Level 2 uses schedules (tables), never functions. With whole-unit data, MC = MR means making every unit where MR is at least MC and stopping before MC rises above MR. This always matches the highest TR − TC, and each round has exactly one best output. The rounds include abnormal profit, normal profit (AR = AC) and a loss (AR < AC), as the guide asks. Level 3 is a prisoner's dilemma: a low price is the dominant strategy, both firms end up with low prices, and both would earn more by colluding. The rival plays tit-for-tat, so students see the risk of a price war and why cheating is punished in a game that repeats. Discussion idea: is it good or bad for consumers when both cafés keep high prices with no deal? The guide's diagrams for perfect competition, natural monopoly and monopolistic competition are not drawn here: use them as a follow-up."
 }

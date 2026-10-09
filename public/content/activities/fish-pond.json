@@ -9,85 +9,197 @@
     "goal": "Keep the fish pond alive. Fish with three computer fishers, test the rules that can save the pond, then stop a cheat.",
     "intro": "**Level 1: Fish for 8 seasons.** You share a pond with three computer fishers. Each season, choose how many fish to catch. Then the fish that are left breed. The other boats always take 5 fish each. Keep the pond alive for 8 seasons and answer the questions about why the stock falls.\n\n**Level 2: Make the rules.** Test five responses to overfishing, one at a time. Predict what the rule will do to the stock over 6 seasons, then watch it happen. Then pick one strength and one limitation of the rule.\n\n**Level 3: One fisher cheats.** The four fishers agree a limit. Then one boat starts to take more than the limit. Choose how the group responds, keep to the limit yourself, and bring the pond back to the healthy level of 50 fish after 10 seasons.",
     "levels": [
-      { "title": "Fish for 8 seasons", "blurb": "Keep the pond alive for 8 seasons and answer 6 of 8 questions right first time." },
-      { "title": "Make the rules", "blurb": "Test 5 rules. Predict each one, then judge it. Score 12 of 15 first-try points." },
-      { "title": "One fisher cheats", "blurb": "Stop a cheat. End 10 seasons with at least 50 fish and 5 of 6 answers right first time." }
+      {
+        "title": "Fish for 8 seasons",
+        "blurb": "Keep the pond alive for 8 seasons and answer 6 of 8 questions right first time."
+      },
+      {
+        "title": "Make the rules",
+        "blurb": "Test 5 rules. Predict each one, then judge it. Score 12 of 15 first-try points."
+      },
+      {
+        "title": "One fisher cheats",
+        "blurb": "Stop a cheat. End 10 seasons with at least 50 fish and 5 of 6 answers right first time."
+      }
     ],
     "boats": [
-      { "name": "You", "icon": "🚣" },
-      { "name": "Ana", "icon": "⛵" },
-      { "name": "Bo", "icon": "⛵" },
-      { "name": "Cy", "icon": "⛵" }
+      {
+        "name": "You",
+        "icon": "🚣"
+      },
+      {
+        "name": "Ana",
+        "icon": "⛵"
+      },
+      {
+        "name": "Bo",
+        "icon": "⛵"
+      },
+      {
+        "name": "Cy",
+        "icon": "⛵"
+      }
     ],
     "l1Questions": [
       {
         "id": "rival",
         "prompt": "You catch a fish. What does that mean for the other boats?",
         "options": [
-          { "text": "There is one fish fewer for them to catch. The fish are rivalrous.", "correct": true, "feedback": "Yes. Using the resource leaves less for others. That is rivalry." },
-          { "text": "Nothing changes for them. The fish are non-rivalrous.", "feedback": "A fish can only be caught once. Your catch leaves less for the others, so the fish are rivalrous." },
-          { "text": "They must pay you for the fish.", "feedback": "No one pays anyone here. No one owns the pond or the fish in it." },
-          { "text": "They catch more, because there is more room in the pond.", "feedback": "The other boats take the same 5 fish each. Your catch just leaves fewer fish in the pond." }
+          {
+            "text": "There is one fish fewer for them to catch. The fish are rivalrous.",
+            "correct": true,
+            "feedback": "Yes. Using the resource leaves less for others. That is rivalry."
+          },
+          {
+            "text": "Nothing changes for them. The fish are non-rivalrous.",
+            "feedback": "A fish can only be caught once. Your catch leaves less for the others, so the fish are rivalrous."
+          },
+          {
+            "text": "They must pay you for the fish.",
+            "feedback": "No one pays anyone here. No one owns the pond or the fish in it."
+          },
+          {
+            "text": "They catch more, because there is more room in the pond.",
+            "feedback": "The other boats take the same 5 fish each. Your catch just leaves fewer fish in the pond."
+          }
         ]
       },
       {
         "id": "exclude",
         "prompt": "Why can you not stop the other boats from fishing?",
         "options": [
-          { "text": "No one owns the pond, so no one can keep boats out. The fish are non-excludable.", "correct": true, "feedback": "Yes. Without an owner or a rule, anyone can fish. That is non-excludability." },
-          { "text": "The fish are rivalrous, so everyone must be allowed in.", "feedback": "Rivalry means one person's use leaves less for others. Being unable to keep people out is a different feature: non-excludability." },
-          { "text": "The other boats pay a price to fish.", "feedback": "There is no price to fish in this pond. That is part of the problem." },
-          { "text": "The government gave them the pond.", "feedback": "No one owns the pond. That is why no one can keep boats out." }
+          {
+            "text": "No one owns the pond, so no one can keep boats out. The fish are non-excludable.",
+            "correct": true,
+            "feedback": "Yes. Without an owner or a rule, anyone can fish. That is non-excludability."
+          },
+          {
+            "text": "The fish are rivalrous, so everyone must be allowed in.",
+            "feedback": "Rivalry means one person's use leaves less for others. Being unable to keep people out is a different feature: non-excludability."
+          },
+          {
+            "text": "The other boats pay a price to fish.",
+            "feedback": "There is no price to fish in this pond. That is part of the problem."
+          },
+          {
+            "text": "The government gave them the pond.",
+            "feedback": "No one owns the pond. That is why no one can keep boats out."
+          }
         ]
       },
       {
         "id": "selfish",
         "prompt": "The computer fishers keep taking 5 fish each, even as the stock falls. Why?",
         "options": [
-          { "text": "Each boat gets all of the gain from its own catch, but the cost of a smaller stock is shared by every boat.", "correct": true, "feedback": "Yes. Each fisher acts in their own self-interest. Each one gains more than it loses by fishing more." },
-          { "text": "They want the pond to collapse.", "feedback": "No fisher wants that. Each one just looks at their own gain from catching more today." },
-          { "text": "Catching more fish costs them more, so they must fish more.", "feedback": "Their costs do not push them to fish more. The reason is that the loss of fish is shared, but the catch is all theirs." },
-          { "text": "The fish breed faster when there are fewer of them.", "feedback": "With very few fish, few new fish are born. Births are biggest when the pond is about half full." }
+          {
+            "text": "Each boat gets all of the gain from its own catch, but the cost of a smaller stock is shared by every boat.",
+            "correct": true,
+            "feedback": "Yes. Each fisher acts in their own self-interest. Each one gains more than it loses by fishing more."
+          },
+          {
+            "text": "They want the pond to collapse.",
+            "feedback": "No fisher wants that. Each one just looks at their own gain from catching more today."
+          },
+          {
+            "text": "Catching more fish costs them more, so they must fish more.",
+            "feedback": "Their costs do not push them to fish more. The reason is that the loss of fish is shared, but the catch is all theirs."
+          },
+          {
+            "text": "The fish breed faster when there are fewer of them.",
+            "feedback": "With very few fish, few new fish are born. Births are biggest when the pond is about half full."
+          }
         ]
       },
       {
         "id": "tragedy",
         "prompt": "Everyone acts in their own self-interest, and the shared stock runs down. What is this called?",
         "options": [
-          { "text": "The tragedy of the commons", "correct": true, "feedback": "Yes. A shared, rivalrous, non-excludable resource is overused, and everyone loses." },
-          { "text": "The free rider problem", "feedback": "Free riding is about public goods (2.9), which are non-rivalrous. Here each catch leaves less for others, so it is the tragedy of the commons." },
-          { "text": "Allocative efficiency", "feedback": "Allocative efficiency is the best outcome for society. Overfishing is a market failure, the opposite." },
-          { "text": "A positive externality", "feedback": "Overfishing harms others, so any externality here is negative. The name for overusing a shared resource is the tragedy of the commons." }
+          {
+            "text": "The tragedy of the commons",
+            "correct": true,
+            "feedback": "Yes. A shared, rivalrous, non-excludable resource is overused, and everyone loses."
+          },
+          {
+            "text": "The free rider problem",
+            "feedback": "Free riding is about public goods (2.9), which are non-rivalrous. Here each catch leaves less for others, so it is the tragedy of the commons."
+          },
+          {
+            "text": "Allocative efficiency",
+            "feedback": "Allocative efficiency is the best outcome for society. Overfishing is a market failure, the opposite."
+          },
+          {
+            "text": "A positive externality",
+            "feedback": "Overfishing harms others, so any externality here is negative. The name for overusing a shared resource is the tragedy of the commons."
+          }
         ]
       },
       {
         "id": "alone",
         "prompt": "Suppose you catch only 1 fish each season. Does that solve the problem?",
         "options": [
-          { "text": "Not fully. The other boats still take 15 fish, which is more than the pond can make each season.", "correct": true, "feedback": "Yes. One fisher holding back helps, but the others still overfish. A shared resource needs shared rules." },
-          { "text": "Yes. If one fisher holds back, the stock always grows.", "feedback": "Look at the numbers. The other three boats take 15 fish. When the pond is half full, it makes only about 12 new fish." },
-          { "text": "Yes, because the other boats will copy you.", "feedback": "The computer fishers follow their own rule: 5 fish each, whatever you do." },
-          { "text": "No, because your catch makes no difference at all.", "feedback": "Your catch does matter: every fish left in the pond can breed. But on its own, it is not enough." }
+          {
+            "text": "Not fully. The other boats still take 15 fish, which is more than the pond can make each season.",
+            "correct": true,
+            "feedback": "Yes. One fisher holding back helps, but the others still overfish. A shared resource needs shared rules."
+          },
+          {
+            "text": "Yes. If one fisher holds back, the stock always grows.",
+            "feedback": "Look at the numbers. The other three boats take 15 fish. When the pond is half full, it makes only about 12 new fish."
+          },
+          {
+            "text": "Yes, because the other boats will copy you.",
+            "feedback": "The computer fishers follow their own rule: 5 fish each, whatever you do."
+          },
+          {
+            "text": "No, because your catch makes no difference at all.",
+            "feedback": "Your catch does matter: every fish left in the pond can breed. But on its own, it is not enough."
+          }
         ]
       },
       {
         "id": "sustain",
         "prompt": "What is a sustainable catch from this pond?",
         "options": [
-          { "text": "A total catch no bigger than the new fish born each season, so the stock lasts for the future.", "correct": true, "feedback": "Yes. If the catch matches the new fish, the stock stays the same year after year." },
-          { "text": "As many fish as the boats can carry.", "feedback": "That is what the boats do now, and the stock falls. A sustainable catch must not be more than the pond can replace." },
-          { "text": "No fish at all, ever.", "feedback": "The pond can give some fish every season and still last. Sustainable does not mean zero." },
-          { "text": "Half of the fish in the pond each season.", "feedback": "Half the pond is far more than the new fish born each season. The stock would collapse." }
+          {
+            "text": "A total catch no bigger than the new fish born each season, so the stock lasts for the future.",
+            "correct": true,
+            "feedback": "Yes. If the catch matches the new fish, the stock stays the same year after year."
+          },
+          {
+            "text": "As many fish as the boats can carry.",
+            "feedback": "That is what the boats do now, and the stock falls. A sustainable catch must not be more than the pond can replace."
+          },
+          {
+            "text": "No fish at all, ever.",
+            "feedback": "The pond can give some fish every season and still last. Sustainable does not mean zero."
+          },
+          {
+            "text": "Half of the fish in the pond each season.",
+            "feedback": "Half the pond is far more than the new fish born each season. The stock would collapse."
+          }
         ]
       },
       {
         "id": "external",
         "prompt": "Overfishing today harms people who are not fishing today. Who, and why?",
         "options": [
-          { "text": "Future fishers and people who rely on the fish, because there will be fewer fish later. It is a negative externality of unsustainable production.", "correct": true, "feedback": "Yes. Third parties, including future generations, bear a cost that today's fishers do not pay." },
-          { "text": "No one. Only today's fishers are affected.", "feedback": "When the stock falls, people later on have fewer fish. They are third parties who bear a cost." },
-          { "text": "Today's fishers, because they earn more.", "feedback": "Earning more is a gain, not a harm. Think about who is outside the market and loses out." },
-          { "text": "Fish buyers, because fish become free.", "feedback": "Fewer fish usually means higher prices, not free fish. The harm falls on future fishers and users." }
+          {
+            "text": "Future fishers and people who rely on the fish, because there will be fewer fish later. It is a negative externality of unsustainable production.",
+            "correct": true,
+            "feedback": "Yes. Third parties, including future generations, bear a cost that today's fishers do not pay."
+          },
+          {
+            "text": "No one. Only today's fishers are affected.",
+            "feedback": "When the stock falls, people later on have fewer fish. They are third parties who bear a cost."
+          },
+          {
+            "text": "Today's fishers, because they earn more.",
+            "feedback": "Earning more is a gain, not a harm. Think about who is outside the market and loses out."
+          },
+          {
+            "text": "Fish buyers, because fish become free.",
+            "feedback": "Fewer fish usually means higher prices, not free fish. The harm falls on future fishers and users."
+          }
         ]
       }
     ],
@@ -99,24 +211,54 @@
       "stock": "That is the stock next season: fish left + new fish. The question asks only for the new fish.",
       "near": "Check your working. Half of the fish left, then × (1 − fish left ÷ 100), then round."
     },
-    "trendNames": { "grows": "The stock grows", "same": "The stock stays about the same", "falls": "The stock still falls", "collapses": "The pond collapses" },
+    "trendNames": {
+      "grows": "The stock grows",
+      "same": "The stock stays about the same",
+      "falls": "The stock still falls",
+      "collapses": "The pond collapses"
+    },
     "rules": [
       {
         "id": "quota",
         "icon": "📋",
         "name": "Catch quota",
         "text": "The government sets a catch quota: each boat may catch only 2 fish a season. Inspectors check the boats.",
-        "wants": [2, 2, 2, 2],
+        "wants": [
+          2,
+          2,
+          2,
+          2
+        ],
         "result": "The boats catch 8 fish in all. A pond of 50 makes about 12 new fish a season, so the stock grows.",
         "strengths": [
-          { "text": "It sets the total catch directly, so the government can choose a sustainable level.", "correct": true, "feedback": "Yes. A quota limits the quantity caught, which is what matters for the stock." },
-          { "text": "It raises money for the government from every fish caught.", "feedback": "A quota limits how much is caught. It does not raise money like a tax." },
-          { "text": "It needs no checking at all.", "feedback": "A quota only works if someone checks the catch. That is a limitation, not a strength." }
+          {
+            "text": "It sets the total catch directly, so the government can choose a sustainable level.",
+            "correct": true,
+            "feedback": "Yes. A quota limits the quantity caught, which is what matters for the stock."
+          },
+          {
+            "text": "It raises money for the government from every fish caught.",
+            "feedback": "A quota limits how much is caught. It does not raise money like a tax."
+          },
+          {
+            "text": "It needs no checking at all.",
+            "feedback": "A quota only works if someone checks the catch. That is a limitation, not a strength."
+          }
         ],
         "limits": [
-          { "text": "It needs monitoring and enforcement, which cost money, and fishers may hide extra fish.", "correct": true, "feedback": "Yes. A rule that is not checked is easy to break." },
-          { "text": "It makes the stock fall faster.", "feedback": "The test showed the stock grows with this quota." },
-          { "text": "It lets boats catch as many fish as they like.", "feedback": "The quota limits each boat to 2 fish. That is the opposite." }
+          {
+            "text": "It needs monitoring and enforcement, which cost money, and fishers may hide extra fish.",
+            "correct": true,
+            "feedback": "Yes. A rule that is not checked is easy to break."
+          },
+          {
+            "text": "It makes the stock fall faster.",
+            "feedback": "The test showed the stock grows with this quota."
+          },
+          {
+            "text": "It lets boats catch as many fish as they like.",
+            "feedback": "The quota limits each boat to 2 fish. That is the opposite."
+          }
         ]
       },
       {
@@ -124,17 +266,42 @@
         "icon": "🎫",
         "name": "Tradable permits",
         "text": "The government gives out 12 fishing permits a season. Each permit lets a boat catch 1 fish. Boats can buy and sell permits.",
-        "wants": [2, 3, 3, 4],
+        "wants": [
+          2,
+          3,
+          3,
+          4
+        ],
         "result": "However the permits are traded, the boats catch 12 fish in all. A pond of 50 makes about 12 new fish, so the stock stays about the same.",
         "strengths": [
-          { "text": "The total catch is fixed, and boats that want to fish less can sell their permits and still earn.", "correct": true, "feedback": "Yes. The cap protects the stock, and trading lets permits go to the boats that value them most." },
-          { "text": "Every boat must catch exactly the same number of fish.", "feedback": "Trading lets boats catch different amounts. Only the total is fixed." },
-          { "text": "It removes the need for any limit on the total catch.", "feedback": "The permits are the limit. The number of permits sets the total catch." }
+          {
+            "text": "The total catch is fixed, and boats that want to fish less can sell their permits and still earn.",
+            "correct": true,
+            "feedback": "Yes. The cap protects the stock, and trading lets permits go to the boats that value them most."
+          },
+          {
+            "text": "Every boat must catch exactly the same number of fish.",
+            "feedback": "Trading lets boats catch different amounts. Only the total is fixed."
+          },
+          {
+            "text": "It removes the need for any limit on the total catch.",
+            "feedback": "The permits are the limit. The number of permits sets the total catch."
+          }
         ],
         "limits": [
-          { "text": "It is hard to know the right number of permits, and big firms may buy most of them.", "correct": true, "feedback": "Yes. Too many permits and the stock falls. And small fishers may be pushed out." },
-          { "text": "Trading permits raises the total catch.", "feedback": "Trading moves permits between boats. The total stays at 12." },
-          { "text": "Permits can never be checked.", "feedback": "Permits can be checked at the dock. Monitoring has a cost, but it is possible." }
+          {
+            "text": "It is hard to know the right number of permits, and big firms may buy most of them.",
+            "correct": true,
+            "feedback": "Yes. Too many permits and the stock falls. And small fishers may be pushed out."
+          },
+          {
+            "text": "Trading permits raises the total catch.",
+            "feedback": "Trading moves permits between boats. The total stays at 12."
+          },
+          {
+            "text": "Permits can never be checked.",
+            "feedback": "Permits can be checked at the dock. Monitoring has a cost, but it is possible."
+          }
         ]
       },
       {
@@ -142,17 +309,42 @@
         "icon": "🤝",
         "name": "Collective self-governance",
         "text": "The four fishers meet. They agree to catch 10 fish in all, set their own fines, and watch each other's boats.",
-        "wants": [2, 2, 3, 3],
+        "wants": [
+          2,
+          2,
+          3,
+          3
+        ],
         "result": "The boats catch 10 fish in all. That is less than the 12 or so new fish born at 50, so the stock grows slowly.",
         "strengths": [
-          { "text": "The fishers know the pond best, agree to the rules, and watch each other, so the rules are kept.", "correct": true, "feedback": "Yes. Users who make their own rules often keep them, and monitoring each other is cheap." },
-          { "text": "It always works, however many fishers there are.", "feedback": "It works best in small groups who know each other. With many users it is much harder." },
-          { "text": "It needs no agreement between the fishers.", "feedback": "Agreement is the heart of it. The users make the rules together." }
+          {
+            "text": "The fishers know the pond best, agree to the rules, and watch each other, so the rules are kept.",
+            "correct": true,
+            "feedback": "Yes. Users who make their own rules often keep them, and monitoring each other is cheap."
+          },
+          {
+            "text": "It always works, however many fishers there are.",
+            "feedback": "It works best in small groups who know each other. With many users it is much harder."
+          },
+          {
+            "text": "It needs no agreement between the fishers.",
+            "feedback": "Agreement is the heart of it. The users make the rules together."
+          }
         ],
         "limits": [
-          { "text": "It is hard to make work with many users who do not know or trust each other.", "correct": true, "feedback": "Yes. Large groups, outsiders and weak trust make shared rules break down." },
-          { "text": "It makes the stock collapse.", "feedback": "The test showed the stock grows with this agreement." },
-          { "text": "Only the government can make the rules.", "feedback": "Collective self-governance means the users make the rules, not the government." }
+          {
+            "text": "It is hard to make work with many users who do not know or trust each other.",
+            "correct": true,
+            "feedback": "Yes. Large groups, outsiders and weak trust make shared rules break down."
+          },
+          {
+            "text": "It makes the stock collapse.",
+            "feedback": "The test showed the stock grows with this agreement."
+          },
+          {
+            "text": "Only the government can make the rules.",
+            "feedback": "Collective self-governance means the users make the rules, not the government."
+          }
         ]
       },
       {
@@ -160,17 +352,42 @@
         "icon": "🪪",
         "name": "Fishing licence",
         "text": "A new law says only boats with a licence may fish. Only 2 of the 4 boats get a licence. But each licensed boat now catches 7 fish.",
-        "wants": [7, 7, 0, 0],
+        "wants": [
+          7,
+          7,
+          0,
+          0
+        ],
         "result": "The licensed boats catch 14 fish in all. That is more than the 12 or so new fish born at 50, so the stock still falls.",
         "strengths": [
-          { "text": "It makes the pond excludable: boats without a licence can be kept out.", "correct": true, "feedback": "Yes. Legislation can turn a non-excludable resource into one where access is controlled." },
-          { "text": "It limits how many fish each boat may catch.", "feedback": "This licence limits the number of boats, not the catch per boat. That is why the stock still falls." },
-          { "text": "It makes the fish non-rivalrous.", "feedback": "A fish caught by one boat still cannot be caught by another. Rivalry does not change." }
+          {
+            "text": "It makes the pond excludable: boats without a licence can be kept out.",
+            "correct": true,
+            "feedback": "Yes. Legislation can turn a non-excludable resource into one where access is controlled."
+          },
+          {
+            "text": "It limits how many fish each boat may catch.",
+            "feedback": "This licence limits the number of boats, not the catch per boat. That is why the stock still falls."
+          },
+          {
+            "text": "It makes the fish non-rivalrous.",
+            "feedback": "A fish caught by one boat still cannot be caught by another. Rivalry does not change."
+          }
         ],
         "limits": [
-          { "text": "Limiting the number of boats does not limit the catch: the licensed boats can still take too much.", "correct": true, "feedback": "Yes. The test showed the stock still falls. A licence often needs a quota as well." },
-          { "text": "It lets every boat fish.", "feedback": "Only 2 boats got a licence. The others are kept out." },
-          { "text": "It makes the stock grow too fast.", "feedback": "The test showed the stock falls. The licensed boats take too much." }
+          {
+            "text": "Limiting the number of boats does not limit the catch: the licensed boats can still take too much.",
+            "correct": true,
+            "feedback": "Yes. The test showed the stock still falls. A licence often needs a quota as well."
+          },
+          {
+            "text": "It lets every boat fish.",
+            "feedback": "Only 2 boats got a licence. The others are kept out."
+          },
+          {
+            "text": "It makes the stock grow too fast.",
+            "feedback": "The test showed the stock falls. The licensed boats take too much."
+          }
         ]
       },
       {
@@ -178,17 +395,42 @@
         "icon": "🌐",
         "name": "International agreement",
         "text": "The pond lies across a border. Ana and you fish from one country, Bo and Cy from the other. The two countries sign an agreement: 3 fish per boat, 12 in all.",
-        "wants": [3, 3, 3, 3],
+        "wants": [
+          3,
+          3,
+          3,
+          3
+        ],
         "result": "The boats catch 12 fish in all, the same as the 12 new fish born at 50. The stock stays about the same.",
         "strengths": [
-          { "text": "Fish cross borders, so only an agreement between countries can limit every boat.", "correct": true, "feedback": "Yes. Many sustainability issues are global. One country's rules cannot reach boats from another country." },
-          { "text": "Each country can ignore it if it wants to.", "feedback": "That is a limitation. An agreement only works if countries keep it." },
-          { "text": "It makes the fish breed faster.", "feedback": "The agreement limits the catch. It does not change how fast fish breed." }
+          {
+            "text": "Fish cross borders, so only an agreement between countries can limit every boat.",
+            "correct": true,
+            "feedback": "Yes. Many sustainability issues are global. One country's rules cannot reach boats from another country."
+          },
+          {
+            "text": "Each country can ignore it if it wants to.",
+            "feedback": "That is a limitation. An agreement only works if countries keep it."
+          },
+          {
+            "text": "It makes the fish breed faster.",
+            "feedback": "The agreement limits the catch. It does not change how fast fish breed."
+          }
         ],
         "limits": [
-          { "text": "It is hard to monitor and enforce: a country may not check its own boats, or may not sign at all.", "correct": true, "feedback": "Yes. There is no world government to enforce it, so countries must trust each other." },
-          { "text": "It sets the catch for one country only.", "feedback": "It covers both countries. That is its strength." },
-          { "text": "It makes the stock collapse.", "feedback": "The test showed the stock stays about the same with 12 fish a season." }
+          {
+            "text": "It is hard to monitor and enforce: a country may not check its own boats, or may not sign at all.",
+            "correct": true,
+            "feedback": "Yes. There is no world government to enforce it, so countries must trust each other."
+          },
+          {
+            "text": "It sets the catch for one country only.",
+            "feedback": "It covers both countries. That is its strength."
+          },
+          {
+            "text": "It makes the stock collapse.",
+            "feedback": "The test showed the stock stays about the same with 12 fish a season."
+          }
         ]
       }
     ],
@@ -210,10 +452,23 @@
         "after": 2,
         "prompt": "The agreed catch is 12 fish, and a pond of 50 makes 12 new fish. But the stock fell to 44. What should the group do first?",
         "options": [
-          { "text": "Start monitoring: count every boat's catch when it comes back to the dock.", "correct": true, "feedback": "Yes. A limit only works if someone checks it. Monitoring shows who is breaking the rule." },
-          { "text": "Raise everyone's limit, so no one needs to cheat.", "feedback": "A bigger catch makes the stock fall faster. First find out what is going wrong." },
-          { "text": "Do nothing. One boat cannot make a difference.", "feedback": "One boat taking 5 extra fish a season is enough to make the stock fall." },
-          { "text": "Stop all fishing forever.", "feedback": "That protects the fish, but every fisher loses their income. The pond can give 12 fish a season if the limit is kept." }
+          {
+            "text": "Start monitoring: count every boat's catch when it comes back to the dock.",
+            "correct": true,
+            "feedback": "Yes. A limit only works if someone checks it. Monitoring shows who is breaking the rule."
+          },
+          {
+            "text": "Raise everyone's limit, so no one needs to cheat.",
+            "feedback": "A bigger catch makes the stock fall faster. First find out what is going wrong."
+          },
+          {
+            "text": "Do nothing. One boat cannot make a difference.",
+            "feedback": "One boat taking 5 extra fish a season is enough to make the stock fall."
+          },
+          {
+            "text": "Stop all fishing forever.",
+            "feedback": "That protects the fish, but every fisher loses their income. The pond can give 12 fish a season if the limit is kept."
+          }
         ]
       },
       {
@@ -221,10 +476,23 @@
         "after": 3,
         "prompt": "Monitoring shows Cy caught 8 fish, not 3. Cy says: \"If I don't take them, someone else will.\" Which idea explains Cy's choice?",
         "options": [
-          { "text": "The fish are rivalrous and non-excludable: Cy keeps all 5 extra fish, but the loss to the stock is shared by all four boats.", "correct": true, "feedback": "Yes. This is the tragedy of the commons in one boat. Cheating pays the cheater unless the rules change that." },
-          { "text": "The fish are a public good, so no one can be stopped from enjoying them.", "feedback": "A public good is non-rivalrous. Fish are rivalrous: a fish Cy catches cannot be caught by anyone else." },
-          { "text": "Cy owns the pond, so Cy can take what Cy likes.", "feedback": "No one owns the pond. That is the problem." },
-          { "text": "Cheating makes the fish breed faster.", "feedback": "Fewer fish left after fishing means fewer new fish, not more." }
+          {
+            "text": "The fish are rivalrous and non-excludable: Cy keeps all 5 extra fish, but the loss to the stock is shared by all four boats.",
+            "correct": true,
+            "feedback": "Yes. This is the tragedy of the commons in one boat. Cheating pays the cheater unless the rules change that."
+          },
+          {
+            "text": "The fish are a public good, so no one can be stopped from enjoying them.",
+            "feedback": "A public good is non-rivalrous. Fish are rivalrous: a fish Cy catches cannot be caught by anyone else."
+          },
+          {
+            "text": "Cy owns the pond, so Cy can take what Cy likes.",
+            "feedback": "No one owns the pond. That is the problem."
+          },
+          {
+            "text": "Cheating makes the fish breed faster.",
+            "feedback": "Fewer fish left after fishing means fewer new fish, not more."
+          }
         ]
       },
       {
@@ -232,10 +500,23 @@
         "after": 3,
         "prompt": "Cheating gives Cy 5 extra fish a season. Monitoring checks each boat in 1 of every 2 seasons, so the chance of being caught is 1/2. What is the smallest fine that makes cheating not worth it?",
         "options": [
-          { "text": "A fine of 3 fish", "feedback": "Expected fine = 1/2 × 3 = 1.5 fish. That is less than the 5-fish gain, so cheating still pays." },
-          { "text": "A fine of 6 fish", "feedback": "Expected fine = 1/2 × 6 = 3 fish. That is less than the 5-fish gain, so cheating still pays." },
-          { "text": "A fine of 9 fish", "feedback": "Expected fine = 1/2 × 9 = 4.5 fish. Still less than the 5-fish gain, so cheating still pays." },
-          { "text": "A fine of 12 fish", "correct": true, "feedback": "Yes. Expected fine = 1/2 × 12 = 6 fish, more than the 5-fish gain. Cheating no longer pays." }
+          {
+            "text": "A fine of 3 fish",
+            "feedback": "Expected fine = 1/2 × 3 = 1.5 fish. That is less than the 5-fish gain, so cheating still pays."
+          },
+          {
+            "text": "A fine of 6 fish",
+            "feedback": "Expected fine = 1/2 × 6 = 3 fish. That is less than the 5-fish gain, so cheating still pays."
+          },
+          {
+            "text": "A fine of 9 fish",
+            "feedback": "Expected fine = 1/2 × 9 = 4.5 fish. Still less than the 5-fish gain, so cheating still pays."
+          },
+          {
+            "text": "A fine of 12 fish",
+            "correct": true,
+            "feedback": "Yes. Expected fine = 1/2 × 12 = 6 fish, more than the 5-fish gain. Cheating no longer pays."
+          }
         ]
       },
       {
@@ -243,10 +524,23 @@
         "after": 4,
         "prompt": "No one cheats now. But the stock is 34: the boats catch 12 fish, and only 9 new fish are born. What should the group do?",
         "options": [
-          { "text": "Lower everyone's limit to 2 fish for a while, so more fish are born than are caught.", "correct": true, "feedback": "Yes. A smaller catch lets the stock grow back toward the healthy level." },
-          { "text": "Keep the limit at 3. The pond made 12 new fish before, so it will again.", "feedback": "At 50 fish the pond made 12 new fish. At 34 it makes fewer. The limit must match the stock now." },
-          { "text": "Raise the limit, to catch the fish before they are gone.", "feedback": "That is the tragedy of the commons again. The stock would collapse." },
-          { "text": "Fine Cy again.", "feedback": "Cy is keeping the limit now. The problem is that the limit is too high for a stock of 34." }
+          {
+            "text": "Lower everyone's limit to 2 fish for a while, so more fish are born than are caught.",
+            "correct": true,
+            "feedback": "Yes. A smaller catch lets the stock grow back toward the healthy level."
+          },
+          {
+            "text": "Keep the limit at 3. The pond made 12 new fish before, so it will again.",
+            "feedback": "At 50 fish the pond made 12 new fish. At 34 it makes fewer. The limit must match the stock now."
+          },
+          {
+            "text": "Raise the limit, to catch the fish before they are gone.",
+            "feedback": "That is the tragedy of the commons again. The stock would collapse."
+          },
+          {
+            "text": "Fine Cy again.",
+            "feedback": "Cy is keeping the limit now. The problem is that the limit is too high for a stock of 34."
+          }
         ]
       },
       {
@@ -254,10 +548,23 @@
         "after": 6,
         "prompt": "The fishers made these rules themselves: a limit, monitoring at the dock and fines. Why do rules like these often work well?",
         "options": [
-          { "text": "The users know the pond, agree to the rules and watch each other, so the rules are kept. This is collective self-governance.", "correct": true, "feedback": "Yes. Small groups who share a resource can manage it well when they make, check and enforce their own rules." },
-          { "text": "Because the fish become excludable on their own.", "feedback": "The fish did not change. The fishers' rules control who can catch what." },
-          { "text": "Because no monitoring is needed.", "feedback": "Monitoring at the dock was the first step. Rules without monitoring are easy to break." },
-          { "text": "Because the government owns the pond now.", "feedback": "The government did not make these rules. The fishers did." }
+          {
+            "text": "The users know the pond, agree to the rules and watch each other, so the rules are kept. This is collective self-governance.",
+            "correct": true,
+            "feedback": "Yes. Small groups who share a resource can manage it well when they make, check and enforce their own rules."
+          },
+          {
+            "text": "Because the fish become excludable on their own.",
+            "feedback": "The fish did not change. The fishers' rules control who can catch what."
+          },
+          {
+            "text": "Because no monitoring is needed.",
+            "feedback": "Monitoring at the dock was the first step. Rules without monitoring are easy to break."
+          },
+          {
+            "text": "Because the government owns the pond now.",
+            "feedback": "The government did not make these rules. The fishers did."
+          }
         ]
       },
       {
@@ -265,10 +572,23 @@
         "after": 7,
         "prompt": "Some fish from the pond swim into a river in the next country. Boats there have no limit. What response is needed?",
         "options": [
-          { "text": "An international agreement between the two countries, with monitoring on both sides.", "correct": true, "feedback": "Yes. The fish cross a border, so the rules must too. Monitoring and enforcement are the hard part." },
-          { "text": "A tougher fine for Cy.", "feedback": "Cy keeps the limit now. The new problem is boats in another country, which your group's rules cannot reach." },
-          { "text": "Nothing. The other country's boats are not part of the pond.", "feedback": "They catch the same fish. A shared stock across a border needs international cooperation." },
-          { "text": "Raise your own limit to catch the fish first.", "feedback": "A race to catch the fish first is the tragedy of the commons again." }
+          {
+            "text": "An international agreement between the two countries, with monitoring on both sides.",
+            "correct": true,
+            "feedback": "Yes. The fish cross a border, so the rules must too. Monitoring and enforcement are the hard part."
+          },
+          {
+            "text": "A tougher fine for Cy.",
+            "feedback": "Cy keeps the limit now. The new problem is boats in another country, which your group's rules cannot reach."
+          },
+          {
+            "text": "Nothing. The other country's boats are not part of the pond.",
+            "feedback": "They catch the same fish. A shared stock across a border needs international cooperation."
+          },
+          {
+            "text": "Raise your own limit to catch the fish first.",
+            "feedback": "A race to catch the fish first is the tragedy of the commons again."
+          }
         ]
       }
     ]
@@ -280,12 +600,28 @@
       "level": "core",
       "prompt": "Which two features does a **common pool resource** have?",
       "options": [
-        { "text": "Rivalrous and non-excludable", "correct": true, "feedback": "Yes. One person's use leaves less for others, and it is hard to keep people out." },
-        { "text": "Non-rivalrous and non-excludable", "feedback": "That describes a public good, such as a street light. A fish caught by one person cannot be caught by another, so fish are rivalrous." },
-        { "text": "Rivalrous and excludable", "feedback": "That describes a private good, such as a sandwich. A common pool resource is hard to keep people out of." },
-        { "text": "Non-rivalrous and excludable", "feedback": "That describes a club good, such as a streaming service. A common pool resource is rivalrous." }
+        {
+          "text": "Rivalrous and non-excludable",
+          "correct": true,
+          "feedback": "Yes. One person's use leaves less for others, and it is hard to keep people out."
+        },
+        {
+          "text": "Non-rivalrous and non-excludable",
+          "feedback": "That describes a public good, such as a street light. A fish caught by one person cannot be caught by another, so fish are rivalrous."
+        },
+        {
+          "text": "Rivalrous and excludable",
+          "feedback": "That describes a private good, such as a sandwich. A common pool resource is hard to keep people out of."
+        },
+        {
+          "text": "Non-rivalrous and excludable",
+          "feedback": "That describes a club good, such as a streaming service. A common pool resource is rivalrous."
+        }
       ],
-      "hints": ["Does one person's use leave less for others?", "Can people be kept out of the open ocean?"],
+      "hints": [
+        "Does one person's use leave less for others?",
+        "Can people be kept out of the open ocean?"
+      ],
       "worked": "Example: wood in a forest that anyone may enter. Wood one person cuts is gone for others (rivalrous). No one can stop people from entering (non-excludable).",
       "explanation": "A **common pool resource** is **rivalrous** (use by one leaves less for others) but **non-excludable** (people cannot easily be kept out). Fish stocks, forests and groundwater are examples."
     },
@@ -303,33 +639,146 @@
         "title": "Goods sorted by rivalry and excludability",
         "description": "A grid of four cells. The two columns are rivalrous and non-rivalrous. The two rows are excludable and non-excludable. Letters A to D mark the four cells.",
         "boxes": [
-          { "at": { "q": 45, "p": 44 }, "w": 34, "h": 22 },
-          { "at": { "q": 81, "p": 44 }, "w": 34, "h": 22 },
-          { "at": { "q": 45, "p": 18 }, "w": 34, "h": 22 },
-          { "at": { "q": 81, "p": 18 }, "w": 34, "h": 22 }
+          {
+            "at": {
+              "q": 45,
+              "p": 44
+            },
+            "w": 34,
+            "h": 22
+          },
+          {
+            "at": {
+              "q": 81,
+              "p": 44
+            },
+            "w": 34,
+            "h": 22
+          },
+          {
+            "at": {
+              "q": 45,
+              "p": 18
+            },
+            "w": 34,
+            "h": 22
+          },
+          {
+            "at": {
+              "q": 81,
+              "p": 18
+            },
+            "w": 34,
+            "h": 22
+          }
         ],
         "texts": [
-          { "at": { "q": 45, "p": 62 }, "text": "Rivalrous", "anchor": "middle" },
-          { "at": { "q": 81, "p": 62 }, "text": "Non-rivalrous", "anchor": "middle" },
-          { "at": { "q": 25, "p": 43 }, "text": "Excludable", "anchor": "end" },
-          { "at": { "q": 25, "p": 20 }, "text": "Non-", "anchor": "end" },
-          { "at": { "q": 25, "p": 14 }, "text": "excludable", "anchor": "end" }
+          {
+            "at": {
+              "q": 45,
+              "p": 62
+            },
+            "text": "Rivalrous",
+            "anchor": "middle"
+          },
+          {
+            "at": {
+              "q": 81,
+              "p": 62
+            },
+            "text": "Non-rivalrous",
+            "anchor": "middle"
+          },
+          {
+            "at": {
+              "q": 25,
+              "p": 43
+            },
+            "text": "Excludable",
+            "anchor": "end"
+          },
+          {
+            "at": {
+              "q": 25,
+              "p": 20
+            },
+            "text": "Non-",
+            "anchor": "end"
+          },
+          {
+            "at": {
+              "q": 25,
+              "p": 14
+            },
+            "text": "excludable",
+            "anchor": "end"
+          }
         ],
         "tags": [
-          { "at": { "q": 45, "p": 44 }, "letter": "A" },
-          { "at": { "q": 81, "p": 44 }, "letter": "B" },
-          { "at": { "q": 45, "p": 18 }, "letter": "C" },
-          { "at": { "q": 81, "p": 18 }, "letter": "D" }
+          {
+            "at": {
+              "q": 45,
+              "p": 44
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 81,
+              "p": 44
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 45,
+              "p": 18
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 81,
+              "p": 18
+            },
+            "letter": "D"
+          }
         ]
       },
       "slots": [
-        { "letter": "A", "answer": "Private good", "feedback": "A is rivalrous and excludable: you pay for it and your use leaves less for others. That is a private good, such as a sandwich." },
-        { "letter": "B", "answer": "Club good", "feedback": "B is excludable but non-rivalrous: members can be charged, and one more user leaves no less for others. That is a club good, such as a streaming service." },
-        { "letter": "C", "answer": "Common pool resource", "feedback": "C is rivalrous but non-excludable, like fish in the open ocean. That is a common pool resource." },
-        { "letter": "D", "answer": "Public good", "feedback": "D is non-rivalrous and non-excludable, like a street light. That is a public good." }
+        {
+          "letter": "A",
+          "answer": "Private good",
+          "feedback": "A is rivalrous and excludable: you pay for it and your use leaves less for others. That is a private good, such as a sandwich."
+        },
+        {
+          "letter": "B",
+          "answer": "Club good",
+          "feedback": "B is excludable but non-rivalrous: members can be charged, and one more user leaves no less for others. That is a club good, such as a streaming service."
+        },
+        {
+          "letter": "C",
+          "answer": "Common pool resource",
+          "feedback": "C is rivalrous but non-excludable, like fish in the open ocean. That is a common pool resource."
+        },
+        {
+          "letter": "D",
+          "answer": "Public good",
+          "feedback": "D is non-rivalrous and non-excludable, like a street light. That is a public good."
+        }
       ],
-      "choices": ["Private good", "Club good", "Common pool resource", "Public good", "Merit good", "Demerit good"],
-      "hints": ["Read each cell's row and column. Which goods can people be kept out of?", "Fish in the ocean: rivalrous, and no one can keep boats out. Which cell is that?"],
+      "choices": [
+        "Private good",
+        "Club good",
+        "Common pool resource",
+        "Public good",
+        "Merit good",
+        "Demerit good"
+      ],
+      "hints": [
+        "Read each cell's row and column. Which goods can people be kept out of?",
+        "Fish in the ocean: rivalrous, and no one can keep boats out. Which cell is that?"
+      ],
       "worked": "Example: a cinema seat. Only one person can sit in it (rivalrous) and you need a ticket (excludable). So it goes in the rivalrous, excludable cell: a private good.",
       "explanation": "Rivalrous and excludable: **private good**. Non-rivalrous and excludable: **club good**. Rivalrous and non-excludable: **common pool resource**. Non-rivalrous and non-excludable: **public good**."
     },
@@ -339,12 +788,28 @@
       "level": "core",
       "prompt": "What is the **tragedy of the commons**?",
       "options": [
-        { "text": "People acting in their own self-interest overuse a shared resource, so it runs down and everyone loses.", "correct": true, "feedback": "Yes. Each user gains from using more, but the cost of the smaller stock is shared by all." },
-        { "text": "People enjoy a public good without paying for it.", "feedback": "That is the free rider problem with public goods, which are non-rivalrous." },
-        { "text": "The government owns a resource and sells it too cheaply.", "feedback": "The tragedy happens when no one owns the resource, so no one controls its use." },
-        { "text": "A firm makes too little of a merit good.", "feedback": "That is about positive externalities. The tragedy of the commons is about overusing a shared resource." }
+        {
+          "text": "People acting in their own self-interest overuse a shared resource, so it runs down and everyone loses.",
+          "correct": true,
+          "feedback": "Yes. Each user gains from using more, but the cost of the smaller stock is shared by all."
+        },
+        {
+          "text": "People enjoy a public good without paying for it.",
+          "feedback": "That is the free rider problem with public goods, which are non-rivalrous."
+        },
+        {
+          "text": "The government owns a resource and sells it too cheaply.",
+          "feedback": "The tragedy happens when no one owns the resource, so no one controls its use."
+        },
+        {
+          "text": "A firm makes too little of a merit good.",
+          "feedback": "That is about positive externalities. The tragedy of the commons is about overusing a shared resource."
+        }
       ],
-      "hints": ["Think of the fish pond with no rules.", "Who gains from catching one more fish, and who bears the cost?"],
+      "hints": [
+        "Think of the fish pond with no rules.",
+        "Who gains from catching one more fish, and who bears the cost?"
+      ],
       "worked": "Example: a field that every farmer may use. Each farmer adds one more cow, because the grass is free. Soon the field is bare and no farmer can feed cows.",
       "explanation": "In the **tragedy of the commons**, each user's rational choice (use more) leads to a result that is bad for all (the resource runs out). It is a market failure, and it is not sustainable."
     },
@@ -357,11 +822,23 @@
       "tolerance": 0.01,
       "suffix": "fish",
       "mistakes": [
-        { "value": 12, "feedback": "12 is the number of new fish. Add them to the 40 fish left: the question asks for the stock next season." },
-        { "value": 60, "feedback": "You found half of 40 (20) and added it. You also need × (1 − 40 ÷ 100) = × 0.6, so 20 × 0.6 = 12 new fish." },
-        { "value": 40, "feedback": "That leaves out the new fish. The 40 fish left will breed." }
+        {
+          "value": 12,
+          "feedback": "12 is the number of new fish. Add them to the 40 fish left: the question asks for the stock next season."
+        },
+        {
+          "value": 60,
+          "feedback": "You found half of 40 (20) and added it. You also need × (1 − 40 ÷ 100) = × 0.6, so 20 × 0.6 = 12 new fish."
+        },
+        {
+          "value": 40,
+          "feedback": "That leaves out the new fish. The 40 fish left will breed."
+        }
       ],
-      "hints": ["First find the new fish: half of 40, then × (1 − 40 ÷ 100).", "New fish = 20 × 0.6 = 12. Now add them to the fish left."],
+      "hints": [
+        "First find the new fish: half of 40, then × (1 − 40 ÷ 100).",
+        "New fish = 20 × 0.6 = 12. Now add them to the fish left."
+      ],
       "worked": "Example: 60 fish are left. New fish = 30 × (1 − 0.6) = 30 × 0.4 = 12. Next season: 60 + 12 = 72 fish.",
       "explanation": "New fish = 1/2 × 40 × (1 − 0.4) = 20 × 0.6 = 12. Next season: 40 + 12 = **52 fish**."
     },
@@ -372,19 +849,54 @@
       "prompt": "A pond has **50** fish. The table shows how many new fish are born after fishing. What is the biggest total catch this season that still leaves 50 fish in the pond next season?",
       "table": {
         "caption": "New fish born, by the number of fish left after fishing",
-        "headers": ["Fish left after fishing", "New fish born"],
-        "rows": [[34, 11], [36, 12], [38, 12], [40, 12]]
+        "headers": [
+          "Fish left after fishing",
+          "New fish born"
+        ],
+        "rows": [
+          [
+            34,
+            11
+          ],
+          [
+            36,
+            12
+          ],
+          [
+            38,
+            12
+          ],
+          [
+            40,
+            12
+          ]
+        ]
       },
       "answer": 12,
       "tolerance": 0.01,
       "suffix": "fish",
       "mistakes": [
-        { "value": 10, "feedback": "With a catch of 10, 40 fish are left and 12 are born: 52 fish. The stock grows, so the boats could catch a little more." },
-        { "value": 14, "feedback": "With a catch of 14, 36 fish are left and 12 are born: only 48 fish. The stock falls." },
-        { "value": 16, "feedback": "With a catch of 16, 34 fish are left and 11 are born: only 45 fish. The stock falls." },
-        { "value": 25, "feedback": "Half the pond is far too much. Use the table: fish left + new fish must be at least 50." }
+        {
+          "value": 10,
+          "feedback": "With a catch of 10, 40 fish are left and 12 are born: 52 fish. The stock grows, so the boats could catch a little more."
+        },
+        {
+          "value": 14,
+          "feedback": "With a catch of 14, 36 fish are left and 12 are born: only 48 fish. The stock falls."
+        },
+        {
+          "value": 16,
+          "feedback": "With a catch of 16, 34 fish are left and 11 are born: only 45 fish. The stock falls."
+        },
+        {
+          "value": 25,
+          "feedback": "Half the pond is far too much. Use the table: fish left + new fish must be at least 50."
+        }
       ],
-      "hints": ["For each row, add the fish left and the new fish. Which row gives 50?", "38 + 12 = 50. So 38 fish must be left. How many were caught?"],
+      "hints": [
+        "For each row, add the fish left and the new fish. Which row gives 50?",
+        "38 + 12 = 50. So 38 fish must be left. How many were caught?"
+      ],
       "worked": "Example: a pond of 60. If 48 fish left gives 12 new fish, the stock is 48 + 12 = 60 again. So the sustainable catch is 60 − 48 = 12.",
       "explanation": "With 38 fish left, 12 are born: 38 + 12 = 50. So the biggest catch that keeps the stock at 50 is 50 − 38 = **12 fish**. This is a sustainable catch."
     },
@@ -394,12 +906,28 @@
       "level": "apply",
       "prompt": "Fishing fleets catch cod faster than the cod can breed. Which statement about this **unsustainable** production is right?",
       "options": [
-        { "text": "It creates a negative externality: future fishers and communities that rely on cod bear a cost that today's fleets do not pay.", "correct": true, "feedback": "Yes. Third parties, including future generations, lose out. The fleets do not count this cost." },
-        { "text": "It creates a positive externality, because more fish are sold today.", "feedback": "Selling more fish is a private gain. The spillover onto others is a harm, so it is negative." },
-        { "text": "It is allocatively efficient, because fleets catch what consumers demand.", "feedback": "The fleets ignore the cost to others and to the future. So output is not at the social optimum." },
-        { "text": "It has no effect on anyone outside the market.", "feedback": "A smaller cod stock harms people who are not part of today's catch, such as future fishers." }
+        {
+          "text": "It creates a negative externality: future fishers and communities that rely on cod bear a cost that today's fleets do not pay.",
+          "correct": true,
+          "feedback": "Yes. Third parties, including future generations, lose out. The fleets do not count this cost."
+        },
+        {
+          "text": "It creates a positive externality, because more fish are sold today.",
+          "feedback": "Selling more fish is a private gain. The spillover onto others is a harm, so it is negative."
+        },
+        {
+          "text": "It is allocatively efficient, because fleets catch what consumers demand.",
+          "feedback": "The fleets ignore the cost to others and to the future. So output is not at the social optimum."
+        },
+        {
+          "text": "It has no effect on anyone outside the market.",
+          "feedback": "A smaller cod stock harms people who are not part of today's catch, such as future fishers."
+        }
       ],
-      "hints": ["Who bears the cost when the stock is smaller next year?", "Is that cost a harm or a benefit, and is it paid by the fleets?"],
+      "hints": [
+        "Who bears the cost when the stock is smaller next year?",
+        "Is that cost a harm or a benefit, and is it paid by the fleets?"
+      ],
       "worked": "Example: a forest is cut faster than trees regrow. Later, people lose wood, clean air and jobs. That cost spills over to third parties: a negative externality.",
       "explanation": "Using a common pool resource faster than it can regrow is **unsustainable production**. It creates a **negative externality**: costs fall on third parties, including future generations."
     },
@@ -409,12 +937,28 @@
       "level": "apply",
       "prompt": "A government sets a **catch quota** for a fishing area. Which is a limitation of the quota?",
       "options": [
-        { "text": "It needs monitoring and enforcement, which are costly, and fishers may land more than the quota in secret.", "correct": true, "feedback": "Yes. Without checks, a quota is easy to break, and checks cost money." },
-        { "text": "It cannot limit the total catch.", "feedback": "Limiting the total catch is what a quota does. That is its strength." },
-        { "text": "It makes the fish non-rivalrous.", "feedback": "A quota does not change rivalry. A fish caught is still gone for others." },
-        { "text": "It always raises the stock, whatever the quota is.", "feedback": "If the quota is set too high, the stock still falls. Setting the right level is hard." }
+        {
+          "text": "It needs monitoring and enforcement, which are costly, and fishers may land more than the quota in secret.",
+          "correct": true,
+          "feedback": "Yes. Without checks, a quota is easy to break, and checks cost money."
+        },
+        {
+          "text": "It cannot limit the total catch.",
+          "feedback": "Limiting the total catch is what a quota does. That is its strength."
+        },
+        {
+          "text": "It makes the fish non-rivalrous.",
+          "feedback": "A quota does not change rivalry. A fish caught is still gone for others."
+        },
+        {
+          "text": "It always raises the stock, whatever the quota is.",
+          "feedback": "If the quota is set too high, the stock still falls. Setting the right level is hard."
+        }
       ],
-      "hints": ["A rule is only as good as the checks on it.", "What happens if no one counts the fish that are landed?"],
+      "hints": [
+        "A rule is only as good as the checks on it.",
+        "What happens if no one counts the fish that are landed?"
+      ],
       "worked": "Example: a speed limit only cuts speeding if police check speeds. Checking costs money, and some drivers still speed when no one is looking.",
       "explanation": "A quota limits the catch directly, but it needs **monitoring** and **enforcement**. These cost money, and the right quota is hard to know."
     },
@@ -424,12 +968,28 @@
       "level": "apply",
       "prompt": "In which case is **collective self-governance** most likely to keep a resource sustainable?",
       "options": [
-        { "text": "A small village shares a lake. The villagers agree their own limits, take turns checking catches, and fine anyone who cheats.", "correct": true, "feedback": "Yes. A small group that makes, monitors and enforces its own rules can manage a shared resource well." },
-        { "text": "Millions of people from many countries use the open ocean, with no rules and no checks.", "feedback": "With many users and no checks, shared rules are very hard to agree and keep." },
-        { "text": "A lake is shared, but the users never meet or talk.", "feedback": "Self-governance needs users to agree rules together." },
-        { "text": "The users agree a limit but no one checks it.", "feedback": "Without monitoring, cheating pays. Self-governance needs checks and penalties." }
+        {
+          "text": "A small village shares a lake. The villagers agree their own limits, take turns checking catches, and fine anyone who cheats.",
+          "correct": true,
+          "feedback": "Yes. A small group that makes, monitors and enforces its own rules can manage a shared resource well."
+        },
+        {
+          "text": "Millions of people from many countries use the open ocean, with no rules and no checks.",
+          "feedback": "With many users and no checks, shared rules are very hard to agree and keep."
+        },
+        {
+          "text": "A lake is shared, but the users never meet or talk.",
+          "feedback": "Self-governance needs users to agree rules together."
+        },
+        {
+          "text": "The users agree a limit but no one checks it.",
+          "feedback": "Without monitoring, cheating pays. Self-governance needs checks and penalties."
+        }
       ],
-      "hints": ["Self-governance means the users run the rules.", "What makes a group able to agree and keep rules?"],
+      "hints": [
+        "Self-governance means the users run the rules.",
+        "What makes a group able to agree and keep rules?"
+      ],
       "worked": "Example: farmers sharing water from one canal agree a rota for opening the gates, and a farmer who takes extra loses a turn.",
       "explanation": "**Collective self-governance** works best with a small group of users who agree rules, **monitor** each other and use **penalties**. It is harder with many users or outsiders."
     },
@@ -439,31 +999,146 @@
       "level": "apply",
       "prompt": "Fish stocks in an ocean are shared by many countries. Why is an **international agreement** needed, and what is its main challenge?",
       "options": [
-        { "text": "Fish cross borders, so one country cannot protect them alone. But it is hard to monitor and enforce, and some countries may not sign.", "correct": true, "feedback": "Yes. Sustainability issues are often global, and there is no world government to enforce the rules." },
-        { "text": "Each country can protect the fish alone, so the agreement is easy to keep.", "feedback": "Fish swim across borders. One country's rules do not reach other countries' boats." },
-        { "text": "An agreement makes the fish excludable, so no monitoring is needed.", "feedback": "An agreement only works if each country checks its boats. Monitoring is still needed." },
-        { "text": "It is needed because fish are a public good.", "feedback": "Fish are rivalrous, so they are a common pool resource, not a public good." }
+        {
+          "text": "Fish cross borders, so one country cannot protect them alone. But it is hard to monitor and enforce, and some countries may not sign.",
+          "correct": true,
+          "feedback": "Yes. Sustainability issues are often global, and there is no world government to enforce the rules."
+        },
+        {
+          "text": "Each country can protect the fish alone, so the agreement is easy to keep.",
+          "feedback": "Fish swim across borders. One country's rules do not reach other countries' boats."
+        },
+        {
+          "text": "An agreement makes the fish excludable, so no monitoring is needed.",
+          "feedback": "An agreement only works if each country checks its boats. Monitoring is still needed."
+        },
+        {
+          "text": "It is needed because fish are a public good.",
+          "feedback": "Fish are rivalrous, so they are a common pool resource, not a public good."
+        }
       ],
-      "hints": ["Can one country's law stop another country's boats?", "Who enforces an agreement between countries?"],
+      "hints": [
+        "Can one country's law stop another country's boats?",
+        "Who enforces an agreement between countries?"
+      ],
       "worked": "Example: a river flows through three countries. If one country takes too much water, the others suffer. An agreement helps only if all three keep it.",
       "explanation": "Many common pool resources are **global**. **International agreements** are needed, but they face challenges: some countries may not sign or may free ride, and **monitoring** and **enforcement** are hard."
     }
   ],
   "explain": {
-    "prompt": "Explain why a shared fish stock is likely to be overfished. Use the terms rivalrous and non-excludable. Then evaluate one response to the problem.",
-    "frames": [
-      "Fish in the lake are rivalrous because ___.",
-      "They are non-excludable because ___.",
-      "Each fisher catches more because ___, but the cost of a smaller stock is ___. This is the tragedy of the commons.",
-      "One response is ___. It could work because ___.",
-      "A limitation is ___, because ___."
+    "prompt": "Explain why the fish in the pond are likely to be overfished. Use the terms rivalrous and non-excludable. Then evaluate a catch quota of 2 fish per boat.",
+    "facts": "- Four boats share the pond: **You, Ana, Bo and Cy**. No one owns the pond.\n- The pond holds at most **100 fish**. In Level 1 it starts with **80 fish**.\n- Each season the boats fish, then the fish that are left breed. Few fish make few new fish.\n- A pond of **50 fish** makes about **12 new fish** a season. That is about the most it can make.\n- In Level 1, Ana, Bo and Cy take **5 fish each** every season (**15 in all**), whatever happens to the pond.\n- **Catch quota:** each boat may catch only **2 fish** a season (**8 in all**). Inspectors check the boats.",
+    "steps": [
+      {
+        "lead": "The fish in the pond are rivalrous, because",
+        "correct": 2,
+        "options": [
+          {
+            "text": "every boat can enjoy the same fish at the same time.",
+            "why": "That would make the fish non-rivalrous, like the light from a streetlight. A fish can only be caught once."
+          },
+          {
+            "text": "no one can stop the other boats from fishing.",
+            "why": "That is non-excludability, the second feature. Rivalry is about whether one person's use leaves less for others."
+          },
+          {
+            "text": "a fish one boat catches cannot be caught by another boat.",
+            "why": "Yes. Using the resource leaves less for everyone else. That is rivalry."
+          }
+        ]
+      },
+      {
+        "lead": "They are also non-excludable, because",
+        "correct": 0,
+        "options": [
+          {
+            "text": "no one owns the pond, so no one can keep the other boats out.",
+            "why": "Yes. Without an owner or a rule, anyone can fish. That is non-excludability."
+          },
+          {
+            "text": "a fish caught by one boat leaves fewer fish for the others.",
+            "why": "That is rivalry. Non-excludability is about whether people can be kept out."
+          },
+          {
+            "text": "every boat must pay a price for each fish it catches.",
+            "why": "No one pays to fish in this pond. That is part of the problem."
+          }
+        ]
+      },
+      {
+        "lead": "Each boat keeps all the gain from its own catch, but",
+        "correct": 1,
+        "options": [
+          {
+            "text": "it pays the full cost of a smaller stock itself, so it fishes with care.",
+            "why": "The cost of a smaller stock is shared by all four boats, so each boat bears only a small part of it."
+          },
+          {
+            "text": "the cost of a smaller stock is shared by all four boats, so each boat has a reason to catch more.",
+            "why": "Yes. The gain is private, but the cost is shared. So every boat is tempted to take more."
+          },
+          {
+            "text": "a smaller stock breeds faster, so catching more fish has no cost.",
+            "why": "Fewer fish left after fishing means fewer new fish, not more."
+          }
+        ]
+      },
+      {
+        "lead": "In Level 1, Ana, Bo and Cy took 15 fish a season, more than the 12 or so new fish the pond can make, so",
+        "correct": 2,
+        "options": [
+          {
+            "text": "the stock stayed the same, because the pond always replaces the fish.",
+            "why": "The pond makes about 12 new fish at most. Taking more than that every season makes the stock fall."
+          },
+          {
+            "text": "the stock fell only because of the number of fish I caught.",
+            "why": "Even if you held back, the other boats took 15 fish a season, so the stock still fell."
+          },
+          {
+            "text": "the stock fell, even when my own boat held back. This is the tragedy of the commons.",
+            "why": "Yes. Each boat acts in its own interest, and the fish are caught faster than they grow back. This is not sustainable."
+          }
+        ]
+      },
+      {
+        "lead": "One response is a catch quota of 2 fish per boat, checked by inspectors. It works because",
+        "correct": 0,
+        "options": [
+          {
+            "text": "the boats catch only 8 fish in all, fewer than the new fish born, so the stock grows.",
+            "why": "Yes. A quota limits the quantity caught directly. In the game the stock grew."
+          },
+          {
+            "text": "it limits the number of boats, so fewer fishers can use the pond.",
+            "why": "That is a fishing licence. A quota limits the catch of each boat, not the number of boats."
+          },
+          {
+            "text": "it makes the fish non-rivalrous, so there are enough fish for everyone.",
+            "why": "A fish caught by one boat still cannot be caught by another. A quota changes how much is caught, not the kind of good."
+          }
+        ]
+      },
+      {
+        "lead": "A limitation is that",
+        "correct": 1,
+        "options": [
+          {
+            "text": "the quota makes the stock fall faster than before.",
+            "why": "The test in Level 2 showed that the stock grows with this quota."
+          },
+          {
+            "text": "it needs monitoring and enforcement, which cost money, and fishers may hide extra fish.",
+            "why": "Yes. A rule that is not checked is easy to break, as Cy showed in Level 3. It is also hard to know the right quota."
+          },
+          {
+            "text": "a quota gives every boat a reason to fish more than before.",
+            "why": "A quota caps each boat's catch. The hard part is checking that every boat keeps to it."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I explained both rivalry and non-excludability with the fish example.",
-      "I named the tragedy of the commons and said why it is not sustainable.",
-      "I explained how one response changes the fishers' behaviour.",
-      "I gave a limitation, such as monitoring, enforcement or setting the right level."
-    ]
+    "own": "For example, describe what happened to the pond in your game, or explain how one other response could work: tradable permits, collective self-governance or an international agreement."
   },
   "teacherNotes": "Level 1 shows the tragedy of the commons: three computer fishers take 5 fish each whatever happens, and the stock falls even if the student holds back. With 3 fish a season the pond survives 8 seasons; 5 or more and it collapses. Stock growth is logistic (carrying capacity 100, growth rate 0.5, rounded), so the biggest catch that keeps a stock of 50 steady is 12 fish a season. Level 2 tests the guide's responses for common pool resources: a quota, tradable permits, collective self-governance, legislation (a licence) and an international agreement. The licence round shows that limiting boats does not limit the catch. Level 3 links to monitoring and enforcement and the expected value of a fine (chance of being caught × fine). Externalities from production and consumption are covered in Smoke and Sunshine. Discussion idea: which response would you choose for a real fishery, and who gains and who loses?"
 }

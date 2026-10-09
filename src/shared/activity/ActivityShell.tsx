@@ -166,7 +166,7 @@ export function ActivityShell(props: ShellProps) {
               onGoal={props.onGoal}
             />
             {content.explain && (
-              <ExplainBox activityId={meta.id} prompt={content.explain.prompt} frames={content.explain.frames} checklist={content.explain.checklist} />
+              <ExplainBox activityId={meta.id} task={content.explain} />
             )}
             <div>
               <button

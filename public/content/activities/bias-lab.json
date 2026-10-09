@@ -9,9 +9,18 @@
     "goal": "Be the test subject in the Mind Tricks Lab, hunt for biases in everyday life, then design nudges and judge what firms aim for. All levels are HL.",
     "intro": "**Level 1: Be the test subject (HL).** Take part in five quick experiments. Then the curtain opens and the lab shows you the trick. Name the bias that was at work. Nothing you choose is saved or sent: it stays on your screen.\n\n**Level 2: Bias hunter (HL).** Read everyday scenarios. Spot the bias, or the limit to rational choice, in each one.\n\n**Level 3: Nudge designer (HL).** For each policy goal, choose a default, restricted or mandated choice, or a nudge, and say why it works. Then match each firm to its business objective.",
     "levels": [
-      { "title": "Be the test subject (HL)", "blurb": "5 experiments. Name the bias at work. Get 4 right first time." },
-      { "title": "Bias hunter (HL)", "blurb": "10 everyday scenarios. Spot the bias or limit. Get 8 right first time." },
-      { "title": "Nudge designer (HL)", "blurb": "Design 4 nudges and match 5 firms. Score 10 of 13 first-try points." }
+      {
+        "title": "Be the test subject (HL)",
+        "blurb": "5 experiments. Name the bias at work. Get 4 right first time."
+      },
+      {
+        "title": "Bias hunter (HL)",
+        "blurb": "10 everyday scenarios. Spot the bias or limit. Get 8 right first time."
+      },
+      {
+        "title": "Nudge designer (HL)",
+        "blurb": "Design 4 nudges and match 5 firms. Score 10 of 13 first-try points."
+      }
     ],
     "effectNames": {
       "anchoring": "Anchoring",
@@ -66,8 +75,14 @@
         "setup": "The lab canteen has two yogurts on the shelf. Same size, same price.",
         "question": "Which yogurt do you take?",
         "options": [
-          { "text": "Yogurt A: 90% fat free", "reaction": "You chose the yogurt that is \"90% fat free\"." },
-          { "text": "Yogurt B: 10% fat", "reaction": "You chose the yogurt with \"10% fat\"." }
+          {
+            "text": "Yogurt A: 90% fat free",
+            "reaction": "You chose the yogurt that is \"90% fat free\"."
+          },
+          {
+            "text": "Yogurt B: 10% fat",
+            "reaction": "You chose the yogurt with \"10% fat\"."
+          }
         ],
         "trick": "The two yogurts are the same. 90% fat free means 10% fat. Only the words changed. Many people prefer the \"90% fat free\" label, because it sounds healthier. The way a choice is described is called the frame.",
         "nameHint": "Compare the two labels. Do they give different facts, or the same facts in different words?",
@@ -87,8 +102,14 @@
         ],
         "question": "On a normal beach day, which is more likely to happen to a swimmer?",
         "options": [
-          { "text": "🦈 A shark bite", "reaction": "You picked the shark bite." },
-          { "text": "☀️ Bad sunburn", "reaction": "You picked sunburn." }
+          {
+            "text": "🦈 A shark bite",
+            "reaction": "You picked the shark bite."
+          },
+          {
+            "text": "☀️ Bad sunburn",
+            "reaction": "You picked sunburn."
+          }
         ],
         "trick": "Sunburn is far more common than a shark bite, but it never makes the headlines. Shark stories are vivid and easy to remember. When an event comes to mind easily, people tend to think it is more likely than it is.",
         "nameHint": "Why might sharks feel like a big risk right after those headlines?",
@@ -103,9 +124,18 @@
         "setup": "You need toothpaste. You always buy SparkleWhite. Here is the shelf.",
         "question": "Which one goes in your basket?",
         "options": [
-          { "text": "SparkleWhite (your usual): $4.20, 100 ml", "reaction": "You grabbed your usual brand." },
-          { "text": "FreshMint: $2.70, 100 ml, same main ingredients", "reaction": "You compared and picked the cheaper one." },
-          { "text": "Brite: $3.10, 75 ml", "reaction": "You picked Brite." }
+          {
+            "text": "SparkleWhite (your usual): $4.20, 100 ml",
+            "reaction": "You grabbed your usual brand."
+          },
+          {
+            "text": "FreshMint: $2.70, 100 ml, same main ingredients",
+            "reaction": "You compared and picked the cheaper one."
+          },
+          {
+            "text": "Brite: $3.10, 75 ml",
+            "reaction": "You picked Brite."
+          }
         ],
         "trick": "FreshMint has the same main ingredients and size for $1.50 less. Many shoppers do not compare. They use a shortcut: \"I always buy this one\". It saves time and effort, but it can mean paying more. If you compared this time, well done. In a busy shop, most of us use shortcuts.",
         "nameHint": "What shortcut does a shopper use when they always buy the usual brand?",
@@ -120,8 +150,14 @@
         "setup": "It is 11 pm on a school night. You planned to sleep at 10 pm, because you have a test tomorrow. Your show ends on a cliffhanger.",
         "question": "What do you do?",
         "options": [
-          { "text": "📺 Watch one more episode", "reaction": "You chose one more episode." },
-          { "text": "😴 Go to sleep", "reaction": "You chose to go to sleep." }
+          {
+            "text": "📺 Watch one more episode",
+            "reaction": "You chose one more episode."
+          },
+          {
+            "text": "😴 Go to sleep",
+            "reaction": "You chose to go to sleep."
+          }
         ],
         "trick": "Earlier, you planned to sleep at 10. The plan was good for you. But when the moment comes, the treat now often wins over the benefit later. Most people have limited willpower, so they do not always act in their own long-term interest.",
         "nameHint": "The plan was made earlier. What happens to plans when a treat is right in front of you?",
@@ -129,16 +165,86 @@
       }
     ],
     "huntScenarios": [
-      { "id": "h1", "icon": "🧥", "text": "A jacket tag says \"Was $200, now $120\". Ali thinks $120 is a great deal, even though similar jackets in other shops cost $90.", "effect": "anchoring", "hint": "Which number did Ali see first, and how did it shape his view of $120?", "why": "The $200 \"was\" price is an anchor. It makes $120 seem cheap." },
-      { "id": "h2", "icon": "🏋️", "text": "A gym advert says \"Only $1 a day!\" instead of \"$365 a year\". More people sign up.", "effect": "framing", "hint": "Is the price different, or only the way it is described?", "why": "$1 a day and $365 a year are the same. The small daily frame makes it feel cheaper." },
-      { "id": "h3", "icon": "✈️", "text": "After a week of news stories about one plane crash, Mia decides to drive a long way instead of flying, because flying now feels dangerous.", "effect": "availability", "hint": "What made the risk of flying come to mind so easily?", "why": "The crash is vivid and in the news, so it feels more likely than it is." },
-      { "id": "h4", "icon": "🍷", "text": "When Sara eats out, she always orders the second cheapest dish on the menu. She does not read the rest.", "effect": "rule", "hint": "Sara uses the same simple shortcut every time. What is that called?", "why": "\"Always order the second cheapest\" is a rule of thumb: a quick shortcut instead of comparing." },
-      { "id": "h5", "icon": "📱", "text": "Ken needs a phone plan. There are 40 plans with different data, minutes and fees. He looks at three, picks one that seems fine, and stops.", "effect": "rationality", "hint": "Ken cannot compare 40 plans. What limits his choice?", "why": "Ken has limited time and brain power, so he settles for good enough. That is bounded rationality." },
-      { "id": "h6", "icon": "🍔", "text": "Priya plans to save $50 every month. But each payday she spends it on takeaway food.", "effect": "selfcontrol", "hint": "Priya made a plan. What happens when the treat is in front of her?", "why": "Priya knows what is good for her, but gives in to what she wants now. That is bounded self-control." },
-      { "id": "h7", "icon": "🌊", "text": "After a flood in another country, thousands of people give money to help, even though they gain nothing for themselves.", "effect": "selfishness", "hint": "Does the rational model say people only care about their own utility?", "why": "People care about others too. Giving to help strangers shows bounded selfishness." },
-      { "id": "h8", "icon": "💻", "text": "Tom buys a used laptop. The seller knows the battery is weak, but Tom has no way to check.", "effect": "info", "hint": "Who knows more about the laptop: Tom or the seller?", "why": "Tom does not have all the facts, so he cannot judge the laptop well. That is imperfect information." },
-      { "id": "h9", "icon": "🏠", "text": "An estate agent always shows buyers a very expensive house first. After that, the next houses seem cheap.", "effect": "anchoring", "hint": "Which price sticks in the buyer's mind first?", "why": "The first, very high price is an anchor. Later prices are judged against it." },
-      { "id": "h10", "icon": "☕", "text": "A traveller leaves a tip at a café in a town she will never visit again. No one would know if she did not.", "effect": "selfishness", "hint": "She gains nothing from the tip. What does that tell us about her motives?", "why": "Tipping when no one is watching shows people care about fairness, not only their own gain: bounded selfishness." }
+      {
+        "id": "h1",
+        "icon": "🧥",
+        "text": "A jacket tag says \"Was $200, now $120\". Ali thinks $120 is a great deal, even though similar jackets in other shops cost $90.",
+        "effect": "anchoring",
+        "hint": "Which number did Ali see first, and how did it shape his view of $120?",
+        "why": "The $200 \"was\" price is an anchor. It makes $120 seem cheap."
+      },
+      {
+        "id": "h2",
+        "icon": "🏋️",
+        "text": "A gym advert says \"Only $1 a day!\" instead of \"$365 a year\". More people sign up.",
+        "effect": "framing",
+        "hint": "Is the price different, or only the way it is described?",
+        "why": "$1 a day and $365 a year are the same. The small daily frame makes it feel cheaper."
+      },
+      {
+        "id": "h3",
+        "icon": "✈️",
+        "text": "After a week of news stories about one plane crash, Mia decides to drive a long way instead of flying, because flying now feels dangerous.",
+        "effect": "availability",
+        "hint": "What made the risk of flying come to mind so easily?",
+        "why": "The crash is vivid and in the news, so it feels more likely than it is."
+      },
+      {
+        "id": "h4",
+        "icon": "🍷",
+        "text": "When Sara eats out, she always orders the second cheapest dish on the menu. She does not read the rest.",
+        "effect": "rule",
+        "hint": "Sara uses the same simple shortcut every time. What is that called?",
+        "why": "\"Always order the second cheapest\" is a rule of thumb: a quick shortcut instead of comparing."
+      },
+      {
+        "id": "h5",
+        "icon": "📱",
+        "text": "Ken needs a phone plan. There are 40 plans with different data, minutes and fees. He looks at three, picks one that seems fine, and stops.",
+        "effect": "rationality",
+        "hint": "Ken cannot compare 40 plans. What limits his choice?",
+        "why": "Ken has limited time and brain power, so he settles for good enough. That is bounded rationality."
+      },
+      {
+        "id": "h6",
+        "icon": "🍔",
+        "text": "Priya plans to save $50 every month. But each payday she spends it on takeaway food.",
+        "effect": "selfcontrol",
+        "hint": "Priya made a plan. What happens when the treat is in front of her?",
+        "why": "Priya knows what is good for her, but gives in to what she wants now. That is bounded self-control."
+      },
+      {
+        "id": "h7",
+        "icon": "🌊",
+        "text": "After a flood in another country, thousands of people give money to help, even though they gain nothing for themselves.",
+        "effect": "selfishness",
+        "hint": "Does the rational model say people only care about their own utility?",
+        "why": "People care about others too. Giving to help strangers shows bounded selfishness."
+      },
+      {
+        "id": "h8",
+        "icon": "💻",
+        "text": "Tom buys a used laptop. The seller knows the battery is weak, but Tom has no way to check.",
+        "effect": "info",
+        "hint": "Who knows more about the laptop: Tom or the seller?",
+        "why": "Tom does not have all the facts, so he cannot judge the laptop well. That is imperfect information."
+      },
+      {
+        "id": "h9",
+        "icon": "🏠",
+        "text": "An estate agent always shows buyers a very expensive house first. After that, the next houses seem cheap.",
+        "effect": "anchoring",
+        "hint": "Which price sticks in the buyer's mind first?",
+        "why": "The first, very high price is an anchor. Later prices are judged against it."
+      },
+      {
+        "id": "h10",
+        "icon": "☕",
+        "text": "A traveller leaves a tip at a café in a town she will never visit again. No one would know if she did not.",
+        "effect": "selfishness",
+        "hint": "She gains nothing from the tip. What does that tell us about her motives?",
+        "why": "Tipping when no one is watching shows people care about fairness, not only their own gain: bounded selfishness."
+      }
     ],
     "toolNames": {
       "default": "Default choice",
@@ -170,11 +276,24 @@
           "mandated": "Forcing everyone to decide would help a little, but the minister wants people to save without any form to fill in.",
           "nudge": "A reminder might help a few workers, but many would still never fill in the form. There is a stronger tool that does the form for them."
         },
-        "prototype": ["Pension plan: you are IN", "Opt out here if you wish"],
+        "prototype": [
+          "Pension plan: you are IN",
+          "Opt out here if you wish"
+        ],
         "reasons": [
-          { "text": "People tend to stick with the option that is already chosen for them.", "correct": true, "feedback": "Yes. Because of bounded rationality and habit, most workers stay in the plan. Saving goes up, and anyone can still opt out." },
-          { "text": "Workers are forced to save, so they have no choice.", "feedback": "No: a default leaves workers free to opt out. Nobody is forced." },
-          { "text": "It makes saving cheaper for workers.", "feedback": "A default does not change the price of saving. It changes which option is set for you." }
+          {
+            "text": "People tend to stick with the option that is already chosen for them.",
+            "correct": true,
+            "feedback": "Yes. Because of bounded rationality and habit, most workers stay in the plan. Saving goes up, and anyone can still opt out."
+          },
+          {
+            "text": "Workers are forced to save, so they have no choice.",
+            "feedback": "No: a default leaves workers free to opt out. Nobody is forced."
+          },
+          {
+            "text": "It makes saving cheaper for workers.",
+            "feedback": "A default does not change the price of saving. It changes which option is set for you."
+          }
         ]
       },
       {
@@ -188,11 +307,24 @@
           "mandated": "Students already have to choose a lunch. The problem is too many unhealthy options, not skipping the choice.",
           "nudge": "A nudge keeps every option on the menu. The head wants a short list, which means some options go."
         },
-        "prototype": ["Menu: 5 healthy meals", "Pick any one"],
+        "prototype": [
+          "Menu: 5 healthy meals",
+          "Pick any one"
+        ],
         "reasons": [
-          { "text": "Fewer options make choosing easier, and the unhealthy options are not there to grab.", "correct": true, "feedback": "Yes. Students still choose, but from a smaller, healthier list. This helps with bounded rationality and bounded self-control." },
-          { "text": "Healthy food becomes cheaper than fried food.", "feedback": "The prices did not change. The number of options did." },
-          { "text": "Students are told what to eat each day.", "feedback": "Students still choose their own meal. Restricted choice limits the options, it does not choose for them." }
+          {
+            "text": "Fewer options make choosing easier, and the unhealthy options are not there to grab.",
+            "correct": true,
+            "feedback": "Yes. Students still choose, but from a smaller, healthier list. This helps with bounded rationality and bounded self-control."
+          },
+          {
+            "text": "Healthy food becomes cheaper than fried food.",
+            "feedback": "The prices did not change. The number of options did."
+          },
+          {
+            "text": "Students are told what to eat each day.",
+            "feedback": "Students still choose their own meal. Restricted choice limits the options, it does not choose for them."
+          }
         ]
       },
       {
@@ -206,11 +338,24 @@
           "restricted": "There are only two answers already: yes or no. Cutting options does not make people decide.",
           "nudge": "A poster might help a little, but people could still skip the question. The government wants an answer from everyone."
         },
-        "prototype": ["Driving licence form", "Organ donor? Yes / No (you must answer)"],
+        "prototype": [
+          "Driving licence form",
+          "Organ donor? Yes / No (you must answer)"
+        ],
         "reasons": [
-          { "text": "Everyone must answer, so people who support donation do not put it off.", "correct": true, "feedback": "Yes. A mandated choice stops people delaying the decision (bounded self-control), and the answer is still their own." },
-          { "text": "The government decides for people who do not answer.", "feedback": "That would be a default. With a mandated choice, nothing is decided for you." },
-          { "text": "Donors are paid, so more people sign up.", "feedback": "There is no payment here. The design changes how the choice is set out, not the incentive." }
+          {
+            "text": "Everyone must answer, so people who support donation do not put it off.",
+            "correct": true,
+            "feedback": "Yes. A mandated choice stops people delaying the decision (bounded self-control), and the answer is still their own."
+          },
+          {
+            "text": "The government decides for people who do not answer.",
+            "feedback": "That would be a default. With a mandated choice, nothing is decided for you."
+          },
+          {
+            "text": "Donors are paid, so more people sign up.",
+            "feedback": "There is no payment here. The design changes how the choice is set out, not the incentive."
+          }
         ]
       },
       {
@@ -224,11 +369,24 @@
           "restricted": "The firm cannot ban or remove anything. People still use as much electricity as they want.",
           "mandated": "Nobody is asked to make a choice on a bill. Think about a small change in what the bill shows."
         },
-        "prototype": ["Your use: 20% more than similar homes 😟", "Tip: switch off at the wall"],
+        "prototype": [
+          "Your use: 20% more than similar homes 😟",
+          "Tip: switch off at the wall"
+        ],
         "reasons": [
-          { "text": "Showing how you compare with similar homes is a small push. Most people do not like using more than others.", "correct": true, "feedback": "Yes. A nudge changes how information is shown. It also helps with imperfect information: many people do not know how much energy they use." },
-          { "text": "Homes that use too much energy are fined.", "feedback": "A fine is a penalty, not a nudge. The firm cannot add new rules or charges." },
-          { "text": "Electricity is cut off at night.", "feedback": "That removes a choice. A nudge leaves every option open." }
+          {
+            "text": "Showing how you compare with similar homes is a small push. Most people do not like using more than others.",
+            "correct": true,
+            "feedback": "Yes. A nudge changes how information is shown. It also helps with imperfect information: many people do not know how much energy they use."
+          },
+          {
+            "text": "Homes that use too much energy are fined.",
+            "feedback": "A fine is a penalty, not a nudge. The firm cannot add new rules or charges."
+          },
+          {
+            "text": "Electricity is cut off at night.",
+            "feedback": "That removes a choice. A nudge leaves every option open."
+          }
         ]
       }
     ],
@@ -247,29 +405,86 @@
       "growth": "Get bigger: more sales revenue, output, stores or workers."
     },
     "firms": [
-      { "id": "f1", "icon": "📈", "name": "A phone maker", "text": "Every decision is about one number: the biggest gap between revenue and cost. It cuts any product line that does not add to profit.", "objective": "profit", "why": "Choosing whatever adds most to total revenue minus total cost is profit maximization." },
-      { "id": "f2", "icon": "🌱", "name": "A coffee chain", "text": "It pays farmers more than the market price and cuts its plastic packaging, even though both raise its costs.", "objective": "csr", "why": "Accepting higher costs to treat farmers fairly and protect the environment is corporate social responsibility." },
-      { "id": "f3", "icon": "🎬", "name": "A new streaming service", "text": "It sets a very low price to win customers from its rivals. It is happy with low profits for now, as long as more of the market's viewers sign up with it.", "objective": "share", "why": "Winning a bigger part of all the sales in the market, even with low profit, is a market share objective." },
-      { "id": "f4", "icon": "🥐", "name": "A family bakery", "text": "The owners want enough profit to live well and keep the workers and the town happy. They do not try to earn as much as possible.", "objective": "satisficing", "why": "Aiming for a satisfactory profit that keeps different stakeholders happy is satisficing." },
-      { "id": "f5", "icon": "🏗️", "name": "A gym chain", "text": "It opens 20 new gyms in two years, hires hundreds of workers and buys a smaller rival, to become a much bigger firm.", "objective": "growth", "why": "Getting bigger in sales, output, sites and workers is a growth objective." }
+      {
+        "id": "f1",
+        "icon": "📈",
+        "name": "A phone maker",
+        "text": "Every decision is about one number: the biggest gap between revenue and cost. It cuts any product line that does not add to profit.",
+        "objective": "profit",
+        "why": "Choosing whatever adds most to total revenue minus total cost is profit maximization."
+      },
+      {
+        "id": "f2",
+        "icon": "🌱",
+        "name": "A coffee chain",
+        "text": "It pays farmers more than the market price and cuts its plastic packaging, even though both raise its costs.",
+        "objective": "csr",
+        "why": "Accepting higher costs to treat farmers fairly and protect the environment is corporate social responsibility."
+      },
+      {
+        "id": "f3",
+        "icon": "🎬",
+        "name": "A new streaming service",
+        "text": "It sets a very low price to win customers from its rivals. It is happy with low profits for now, as long as more of the market's viewers sign up with it.",
+        "objective": "share",
+        "why": "Winning a bigger part of all the sales in the market, even with low profit, is a market share objective."
+      },
+      {
+        "id": "f4",
+        "icon": "🥐",
+        "name": "A family bakery",
+        "text": "The owners want enough profit to live well and keep the workers and the town happy. They do not try to earn as much as possible.",
+        "objective": "satisficing",
+        "why": "Aiming for a satisfactory profit that keeps different stakeholders happy is satisficing."
+      },
+      {
+        "id": "f5",
+        "icon": "🏗️",
+        "name": "A gym chain",
+        "text": "It opens 20 new gyms in two years, hires hundreds of workers and buys a smaller rival, to become a much bigger firm.",
+        "objective": "growth",
+        "why": "Getting bigger in sales, output, sites and workers is a growth objective."
+      }
     ]
   },
   "check": [
     {
-      "id": "q1", "type": "choice", "level": "core", "hl": true,
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "hl": true,
       "prompt": "Which is an **assumption** of rational consumer choice?",
       "options": [
-        { "text": "Consumers have perfect information about their choices.", "correct": true, "feedback": "Yes. The model assumes consumers know everything they need, such as prices and quality." },
-        { "text": "Consumers often follow a rule of thumb.", "feedback": "A rule of thumb is a bias. Behavioural economics uses it to criticise the rational model." },
-        { "text": "Consumers have limited self-control.", "feedback": "Bounded self-control is a limit that behavioural economics points out, not an assumption of the model." },
-        { "text": "Consumers care mainly about other people.", "feedback": "The model assumes consumers maximize their own utility. Caring about others is bounded selfishness." }
+        {
+          "text": "Consumers have perfect information about their choices.",
+          "correct": true,
+          "feedback": "Yes. The model assumes consumers know everything they need, such as prices and quality."
+        },
+        {
+          "text": "Consumers often follow a rule of thumb.",
+          "feedback": "A rule of thumb is a bias. Behavioural economics uses it to criticise the rational model."
+        },
+        {
+          "text": "Consumers have limited self-control.",
+          "feedback": "Bounded self-control is a limit that behavioural economics points out, not an assumption of the model."
+        },
+        {
+          "text": "Consumers care mainly about other people.",
+          "feedback": "The model assumes consumers maximize their own utility. Caring about others is bounded selfishness."
+        }
       ],
-      "hints": ["The rational model has three assumptions: rationality, utility maximization and one about information.", "Which option is part of the model, not a criticism of it?"],
+      "hints": [
+        "The rational model has three assumptions: rationality, utility maximization and one about information.",
+        "Which option is part of the model, not a criticism of it?"
+      ],
       "worked": "Example: the model assumes a shopper knows the price and quality of every brand of rice in the shop, and picks the one that gives the most utility.",
       "explanation": "Rational consumer choice assumes **consumer rationality**, **utility maximization** and **perfect information**. Biases, bounded self-control and bounded selfishness are the limits found by behavioural economics."
     },
     {
-      "id": "q2", "type": "label", "level": "core", "hl": true,
+      "id": "q2",
+      "type": "label",
+      "level": "core",
+      "hl": true,
       "prompt": "This diagram compares rational consumer choice with behavioural economics. **Label the diagram.** Choose what each letter shows.",
       "diagram": {
         "xMax": 100,
@@ -280,151 +495,543 @@
         "title": "Assumptions of rational choice and their limits",
         "description": "Three boxes on the left, each with a letter, show assumptions. Arrows point right to boxes that show limits. The top left box points to Biases and Bounded rationality. The middle left box points to Bounded self-control and Bounded selfishness. The bottom left box points to one box with a letter.",
         "boxes": [
-          { "at": { "q": 18, "p": 44.5 }, "w": 34, "h": 19 },
-          { "at": { "q": 18, "p": 22.5 }, "w": 34, "h": 19 },
-          { "at": { "q": 18, "p": 5 }, "w": 34, "h": 8 },
-          { "at": { "q": 72, "p": 50 }, "w": 54, "h": 8, "text": "Biases" },
-          { "at": { "q": 72, "p": 39 }, "w": 54, "h": 8, "text": "Bounded rationality" },
-          { "at": { "q": 72, "p": 28 }, "w": 54, "h": 8, "text": "Bounded self-control" },
-          { "at": { "q": 72, "p": 17 }, "w": 54, "h": 8, "text": "Bounded selfishness" },
-          { "at": { "q": 72, "p": 5 }, "w": 54, "h": 8 }
+          {
+            "at": {
+              "q": 18,
+              "p": 44.5
+            },
+            "w": 34,
+            "h": 19
+          },
+          {
+            "at": {
+              "q": 18,
+              "p": 22.5
+            },
+            "w": 34,
+            "h": 19
+          },
+          {
+            "at": {
+              "q": 18,
+              "p": 5
+            },
+            "w": 34,
+            "h": 8
+          },
+          {
+            "at": {
+              "q": 72,
+              "p": 50
+            },
+            "w": 54,
+            "h": 8,
+            "text": "Biases"
+          },
+          {
+            "at": {
+              "q": 72,
+              "p": 39
+            },
+            "w": 54,
+            "h": 8,
+            "text": "Bounded rationality"
+          },
+          {
+            "at": {
+              "q": 72,
+              "p": 28
+            },
+            "w": 54,
+            "h": 8,
+            "text": "Bounded self-control"
+          },
+          {
+            "at": {
+              "q": 72,
+              "p": 17
+            },
+            "w": 54,
+            "h": 8,
+            "text": "Bounded selfishness"
+          },
+          {
+            "at": {
+              "q": 72,
+              "p": 5
+            },
+            "w": 54,
+            "h": 8
+          }
         ],
         "arrows": [
-          { "from": { "q": 35.5, "p": 47 }, "to": { "q": 44.5, "p": 50 } },
-          { "from": { "q": 35.5, "p": 42 }, "to": { "q": 44.5, "p": 39 } },
-          { "from": { "q": 35.5, "p": 25 }, "to": { "q": 44.5, "p": 28 } },
-          { "from": { "q": 35.5, "p": 20 }, "to": { "q": 44.5, "p": 17 } },
-          { "from": { "q": 35.5, "p": 5 }, "to": { "q": 44.5, "p": 5 } }
+          {
+            "from": {
+              "q": 35.5,
+              "p": 47
+            },
+            "to": {
+              "q": 44.5,
+              "p": 50
+            }
+          },
+          {
+            "from": {
+              "q": 35.5,
+              "p": 42
+            },
+            "to": {
+              "q": 44.5,
+              "p": 39
+            }
+          },
+          {
+            "from": {
+              "q": 35.5,
+              "p": 25
+            },
+            "to": {
+              "q": 44.5,
+              "p": 28
+            }
+          },
+          {
+            "from": {
+              "q": 35.5,
+              "p": 20
+            },
+            "to": {
+              "q": 44.5,
+              "p": 17
+            }
+          },
+          {
+            "from": {
+              "q": 35.5,
+              "p": 5
+            },
+            "to": {
+              "q": 44.5,
+              "p": 5
+            }
+          }
         ],
         "texts": [
-          { "at": { "q": 18, "p": 59 }, "text": "Assumes", "anchor": "middle" },
-          { "at": { "q": 72, "p": 59 }, "text": "Limits", "anchor": "middle" }
+          {
+            "at": {
+              "q": 18,
+              "p": 59
+            },
+            "text": "Assumes",
+            "anchor": "middle"
+          },
+          {
+            "at": {
+              "q": 72,
+              "p": 59
+            },
+            "text": "Limits",
+            "anchor": "middle"
+          }
         ],
         "tags": [
-          { "at": { "q": 18, "p": 44.5 }, "letter": "A" },
-          { "at": { "q": 18, "p": 22.5 }, "letter": "B" },
-          { "at": { "q": 18, "p": 5 }, "letter": "C" },
-          { "at": { "q": 72, "p": 5 }, "letter": "D" }
+          {
+            "at": {
+              "q": 18,
+              "p": 44.5
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 18,
+              "p": 22.5
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 18,
+              "p": 5
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 72,
+              "p": 5
+            },
+            "letter": "D"
+          }
         ]
       },
       "slots": [
-        { "letter": "A", "answer": "Consumer rationality", "feedback": "A is challenged by biases and bounded rationality. Both show people do not always think things through: so A is consumer rationality." },
-        { "letter": "B", "answer": "Utility maximization", "feedback": "B is challenged by bounded self-control and bounded selfishness. People do not always maximize their own utility: so B is utility maximization." },
-        { "letter": "C", "answer": "Perfect information", "feedback": "C is the third assumption: consumers know all the facts. That is perfect information." },
-        { "letter": "D", "answer": "Imperfect information", "feedback": "D is the limit to C. In real markets, buyers often lack facts: imperfect information." }
+        {
+          "letter": "A",
+          "answer": "Consumer rationality",
+          "feedback": "A is challenged by biases and bounded rationality. Both show people do not always think things through: so A is consumer rationality."
+        },
+        {
+          "letter": "B",
+          "answer": "Utility maximization",
+          "feedback": "B is challenged by bounded self-control and bounded selfishness. People do not always maximize their own utility: so B is utility maximization."
+        },
+        {
+          "letter": "C",
+          "answer": "Perfect information",
+          "feedback": "C is the third assumption: consumers know all the facts. That is perfect information."
+        },
+        {
+          "letter": "D",
+          "answer": "Imperfect information",
+          "feedback": "D is the limit to C. In real markets, buyers often lack facts: imperfect information."
+        }
       ],
-      "choices": ["Consumer rationality", "Utility maximization", "Perfect information", "Imperfect information", "Profit maximization", "Satisficing", "Default choice"],
-      "hints": ["The three assumptions are rationality, utility maximization and perfect information.", "Match each assumption to the limits next to it. D is the opposite of C."],
+      "choices": [
+        "Consumer rationality",
+        "Utility maximization",
+        "Perfect information",
+        "Imperfect information",
+        "Profit maximization",
+        "Satisficing",
+        "Default choice"
+      ],
+      "hints": [
+        "The three assumptions are rationality, utility maximization and perfect information.",
+        "Match each assumption to the limits next to it. D is the opposite of C."
+      ],
       "worked": "Example: \"people choose a phone plan that is good enough after looking at three\" is bounded rationality. It challenges the assumption that consumers are rational.",
       "explanation": "Rational choice assumes **consumer rationality** (A), **utility maximization** (B) and **perfect information** (C). Behavioural economics shows biases and bounded rationality, bounded self-control and bounded selfishness, and **imperfect information** (D)."
     },
     {
-      "id": "q3", "type": "choice", "level": "core", "hl": true,
+      "id": "q3",
+      "type": "choice",
+      "level": "core",
+      "hl": true,
       "prompt": "A car seller shows a buyer a $40 000 car first, then a $25 000 car. The buyer thinks the second car is cheap. Which bias is this?",
       "options": [
-        { "text": "Anchoring", "correct": true, "feedback": "Yes. The first price, $40 000, is an anchor. The buyer judges the next price against it." },
-        { "text": "Framing", "feedback": "Framing is the same fact described in different words. Here two different prices are shown, and the first one shapes the view of the second." },
-        { "text": "Availability", "feedback": "Availability is about events that are easy to remember, such as news stories. Here a first number shapes the judgement." },
-        { "text": "Bounded selfishness", "feedback": "Bounded selfishness is about caring for others. This is about a first number shaping a judgement." }
+        {
+          "text": "Anchoring",
+          "correct": true,
+          "feedback": "Yes. The first price, $40 000, is an anchor. The buyer judges the next price against it."
+        },
+        {
+          "text": "Framing",
+          "feedback": "Framing is the same fact described in different words. Here two different prices are shown, and the first one shapes the view of the second."
+        },
+        {
+          "text": "Availability",
+          "feedback": "Availability is about events that are easy to remember, such as news stories. Here a first number shapes the judgement."
+        },
+        {
+          "text": "Bounded selfishness",
+          "feedback": "Bounded selfishness is about caring for others. This is about a first number shaping a judgement."
+        }
       ],
-      "hints": ["What did the buyer see first?", "Which bias is about a first number pulling later judgements?"],
+      "hints": [
+        "What did the buyer see first?",
+        "Which bias is about a first number pulling later judgements?"
+      ],
       "worked": "Example: a menu lists one very expensive dish at the top. The other dishes then seem cheap. The expensive dish is an anchor.",
       "explanation": "**Anchoring**: people rely too much on the first piece of information they get, and judge later choices against it."
     },
     {
-      "id": "q4", "type": "number", "level": "core", "hl": true,
+      "id": "q4",
+      "type": "number",
+      "level": "core",
+      "hl": true,
       "prompt": "A pack of crisps is labelled **\"75% fat free\"**. What percentage of the crisps is fat?",
       "answer": 25,
       "suffix": "% fat",
       "mistakes": [
-        { "value": 75, "feedback": "75% is the part that is fat free. The rest is fat: 100 − 75." },
-        { "value": 0, "feedback": "\"Fat free\" here only describes 75% of the crisps. The other part is fat." }
+        {
+          "value": 75,
+          "feedback": "75% is the part that is fat free. The rest is fat: 100 − 75."
+        },
+        {
+          "value": 0,
+          "feedback": "\"Fat free\" here only describes 75% of the crisps. The other part is fat."
+        }
       ],
-      "hints": ["Fat free part + fat part = 100%.", "Work out 100 − 75."],
+      "hints": [
+        "Fat free part + fat part = 100%.",
+        "Work out 100 − 75."
+      ],
       "worked": "Example: \"90% fat free\" means 100 − 90 = 10% fat.",
       "explanation": "100 − 75 = **25% fat**. \"75% fat free\" and \"25% fat\" are the same facts in a different frame. The positive frame makes the crisps sound healthier."
     },
     {
-      "id": "q5", "type": "choice", "level": "apply", "hl": true,
+      "id": "q5",
+      "type": "choice",
+      "level": "apply",
+      "hl": true,
       "prompt": "Jo joins a gym in January and pays for a whole year. By March she has stopped going, though she still wants to get fit. Which limit to rational choice does this show best?",
       "options": [
-        { "text": "Bounded self-control", "correct": true, "feedback": "Yes. Jo's plan is good for her, but she gives in to what she wants now (staying home), against her own long-term interest." },
-        { "text": "Bounded selfishness", "feedback": "Bounded selfishness is about caring for others. Jo's problem is sticking to her own plan." },
-        { "text": "Imperfect information", "feedback": "Jo knows the gym is good for her. She has the information, but not the willpower." },
-        { "text": "Anchoring", "feedback": "No first number shapes Jo's judgement here. Think about plans and willpower." }
+        {
+          "text": "Bounded self-control",
+          "correct": true,
+          "feedback": "Yes. Jo's plan is good for her, but she gives in to what she wants now (staying home), against her own long-term interest."
+        },
+        {
+          "text": "Bounded selfishness",
+          "feedback": "Bounded selfishness is about caring for others. Jo's problem is sticking to her own plan."
+        },
+        {
+          "text": "Imperfect information",
+          "feedback": "Jo knows the gym is good for her. She has the information, but not the willpower."
+        },
+        {
+          "text": "Anchoring",
+          "feedback": "No first number shapes Jo's judgement here. Think about plans and willpower."
+        }
       ],
-      "hints": ["Jo knows what is good for her. So what goes wrong?", "Which limit is about willpower?"],
+      "hints": [
+        "Jo knows what is good for her. So what goes wrong?",
+        "Which limit is about willpower?"
+      ],
       "worked": "Example: Sam plans to study every evening but plays games instead. He knows studying is better for him later. That is bounded self-control.",
       "explanation": "**Bounded self-control**: people often act against their own long-term interest because they choose the pleasure now. This goes against utility maximization."
     },
     {
-      "id": "q6", "type": "choice", "level": "apply", "hl": true,
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "hl": true,
       "prompt": "When people renew their driving licence, they **must** answer \"Do you want to be an organ donor? Yes or No\" before the form can be sent. What type of choice architecture is this?",
       "options": [
-        { "text": "Mandated choice", "correct": true, "feedback": "Yes. Nothing is chosen for people, but they must make a decision." },
-        { "text": "Default choice", "feedback": "A default pre-selects an answer, such as \"yes\" unless you opt out. Here nothing is pre-selected." },
-        { "text": "Restricted choice", "feedback": "Restricted choice cuts down the options. Here the point is that people must answer." },
-        { "text": "Profit maximization", "feedback": "Profit maximization is a business objective, not choice architecture." }
+        {
+          "text": "Mandated choice",
+          "correct": true,
+          "feedback": "Yes. Nothing is chosen for people, but they must make a decision."
+        },
+        {
+          "text": "Default choice",
+          "feedback": "A default pre-selects an answer, such as \"yes\" unless you opt out. Here nothing is pre-selected."
+        },
+        {
+          "text": "Restricted choice",
+          "feedback": "Restricted choice cuts down the options. Here the point is that people must answer."
+        },
+        {
+          "text": "Profit maximization",
+          "feedback": "Profit maximization is a business objective, not choice architecture."
+        }
       ],
-      "hints": ["Is any answer pre-selected?", "People cannot skip the question. Which type forces a decision?"],
+      "hints": [
+        "Is any answer pre-selected?",
+        "People cannot skip the question. Which type forces a decision?"
+      ],
       "worked": "Example: an opt-out organ donor system is a **default choice**: everyone is a donor unless they say no. The licence form here is different.",
       "explanation": "A **mandated choice** requires people to decide for themselves. It helps people who support an idea but keep putting off the decision."
     },
     {
-      "id": "q7", "type": "choice", "level": "core", "hl": true,
+      "id": "q7",
+      "type": "choice",
+      "level": "core",
+      "hl": true,
       "prompt": "Which of these is a **nudge**?",
       "options": [
-        { "text": "A school canteen puts fruit at eye level and moves cakes to a lower shelf.", "correct": true, "feedback": "Yes. Every option is still there and the prices are the same. A small change makes the healthy choice easier." },
-        { "text": "The government bans sugary drinks in schools.", "feedback": "A ban removes the choice. A nudge leaves every option open." },
-        { "text": "A tax raises the price of cigarettes.", "feedback": "A tax changes the price, which is an incentive. A nudge works without changing prices much." },
-        { "text": "A fine for littering.", "feedback": "A fine is a penalty. A nudge does not punish or force." }
+        {
+          "text": "A school canteen puts fruit at eye level and moves cakes to a lower shelf.",
+          "correct": true,
+          "feedback": "Yes. Every option is still there and the prices are the same. A small change makes the healthy choice easier."
+        },
+        {
+          "text": "The government bans sugary drinks in schools.",
+          "feedback": "A ban removes the choice. A nudge leaves every option open."
+        },
+        {
+          "text": "A tax raises the price of cigarettes.",
+          "feedback": "A tax changes the price, which is an incentive. A nudge works without changing prices much."
+        },
+        {
+          "text": "A fine for littering.",
+          "feedback": "A fine is a penalty. A nudge does not punish or force."
+        }
       ],
-      "hints": ["A nudge does not ban anything or change prices much.", "Which option changes only how the choice is set out?"],
+      "hints": [
+        "A nudge does not ban anything or change prices much.",
+        "Which option changes only how the choice is set out?"
+      ],
       "worked": "Example: painting footprints that lead to a rubbish bin is a nudge. Nobody is forced or fined.",
       "explanation": "**Nudge theory**: small changes to how choices are presented can push people towards better choices, without removing options or changing incentives much."
     },
     {
-      "id": "q8", "type": "number", "level": "apply", "hl": true,
+      "id": "q8",
+      "type": "number",
+      "level": "apply",
+      "hl": true,
       "prompt": "Sam always buys his usual brand of cereal for **$4.20**. A store brand of the same size and quality costs **$2.70**. He buys one box a week. How much more does Sam's rule of thumb cost him over **10 weeks**?",
       "answer": 15,
       "prefix": "$",
       "mistakes": [
-        { "value": 1.5, "feedback": "$1.50 is the extra cost for one week. Multiply by the 10 weeks." },
-        { "value": 42, "feedback": "$42 is what Sam spends in total. The question asks how much more than the store brand." },
-        { "value": 69, "feedback": "$69 is the total of both brands. Find the difference per box first, then multiply by 10." }
+        {
+          "value": 1.5,
+          "feedback": "$1.50 is the extra cost for one week. Multiply by the 10 weeks."
+        },
+        {
+          "value": 42,
+          "feedback": "$42 is what Sam spends in total. The question asks how much more than the store brand."
+        },
+        {
+          "value": 69,
+          "feedback": "$69 is the total of both brands. Find the difference per box first, then multiply by 10."
+        }
       ],
-      "hints": ["Find the difference in price for one box.", "($4.20 − $2.70) × 10."],
+      "hints": [
+        "Find the difference in price for one box.",
+        "($4.20 − $2.70) × 10."
+      ],
       "worked": "Example: a usual brand at $3.00 and a store brand at $2.00 for 8 weeks: ($3.00 − $2.00) × 8 = $8 more.",
       "explanation": "($4.20 − $2.70) × 10 = $1.50 × 10 = **$15**. The rule of thumb saves time each week, but it costs money. Behavioural economics says real consumers make this trade often."
     },
     {
-      "id": "q9", "type": "choice", "level": "apply", "hl": true,
+      "id": "q9",
+      "type": "choice",
+      "level": "apply",
+      "hl": true,
       "prompt": "The owner of a small hotel says: \"We make enough profit to pay our staff well and keep our guests happy. We do not need to squeeze out every last dollar.\" Which business objective is this?",
       "options": [
-        { "text": "Satisficing", "correct": true, "feedback": "Yes. The owner aims for a satisfactory profit that keeps different stakeholders happy." },
-        { "text": "Profit maximization", "feedback": "Profit maximization means the biggest possible profit. The owner says this is not the aim." },
-        { "text": "Market share", "feedback": "Market share is about winning more of all the sales in the market. The owner says nothing about rivals." },
-        { "text": "Growth", "feedback": "Growth means getting bigger. The owner is happy with the hotel as it is." }
+        {
+          "text": "Satisficing",
+          "correct": true,
+          "feedback": "Yes. The owner aims for a satisfactory profit that keeps different stakeholders happy."
+        },
+        {
+          "text": "Profit maximization",
+          "feedback": "Profit maximization means the biggest possible profit. The owner says this is not the aim."
+        },
+        {
+          "text": "Market share",
+          "feedback": "Market share is about winning more of all the sales in the market. The owner says nothing about rivals."
+        },
+        {
+          "text": "Growth",
+          "feedback": "Growth means getting bigger. The owner is happy with the hotel as it is."
+        }
       ],
-      "hints": ["Is the owner aiming for the most profit, or enough profit?", "Which objective means \"satisfy\" plus \"suffice\"?"],
+      "hints": [
+        "Is the owner aiming for the most profit, or enough profit?",
+        "Which objective means \"satisfy\" plus \"suffice\"?"
+      ],
       "worked": "Example: a family shop that closes on Sundays, though it could earn more by opening, is satisficing: enough profit, plus time for the family.",
       "explanation": "**Satisficing** means aiming for a satisfactory level of profit, not the maximum. Owners and managers balance the wishes of different stakeholders."
     }
   ],
   "explain": {
-    "prompt": "Choose one experiment or scenario from the game. Explain which bias or limit was at work, and how it goes against the assumptions of rational consumer choice. Then suggest one piece of choice architecture or a nudge that could help.",
-    "frames": [
-      "In the ___ experiment, people tended to ___.",
-      "This shows ___, because ___.",
-      "It goes against the assumption of ___, which says that ___.",
-      "A ___ choice could help, for example ___. This works because ___."
+    "prompt": "In Bias hunter, Priya plans to save $50 every month, but each payday she spends it on takeaway food. Explain which limit to rational choice is at work, and how it goes against rational consumer choice. Then suggest one piece of choice architecture that could help her.",
+    "facts": "- **Priya** plans to save **$50 every month**. Each payday she spends it on takeaway food.\n- **Rational consumer choice** assumes three things: **consumer rationality**, **utility maximization** and **perfect information**.\n- **Bounded self-control**: people plan well but give in to what they want now, against their own long-term interest.\n- **Choice architecture** is the way choices are set out:\n  - **Default choice**: an option is chosen for you. You keep it unless you opt out.\n  - **Restricted choice**: the number of options is cut down.\n  - **Mandated choice**: you must make the choice yourself.\n  - **Nudge**: a small change in how choices are shown. Nothing is banned and prices stay the same.\n- In **Nudge designer**, the pension plan used a default: \"Pension plan: you are IN. Opt out here if you wish.\" People tend to stick with the option already chosen for them.",
+    "steps": [
+      {
+        "lead": "Priya's problem shows",
+        "correct": 1,
+        "options": [
+          {
+            "text": "bounded rationality, because she has too many choices to compare.",
+            "why": "Priya is not comparing many options. She knows what she wants to do, but she does not do it."
+          },
+          {
+            "text": "bounded self-control, because she makes a good plan but gives in to what she wants now.",
+            "why": "Right. Priya plans to save $50, but on payday the treat now wins over the benefit later."
+          },
+          {
+            "text": "imperfect information, because she does not know that saving is good for her.",
+            "why": "Priya does know. She made a plan to save, so she has the facts. Her problem is willpower."
+          }
+        ]
+      },
+      {
+        "lead": "This goes against the assumption of",
+        "correct": 2,
+        "options": [
+          {
+            "text": "perfect information, because she does not know the price of takeaway food.",
+            "why": "She knows the price. Missing facts are not her problem. She breaks her own plan."
+          },
+          {
+            "text": "bounded selfishness, because she spends all of the money on herself.",
+            "why": "Bounded selfishness is a limit found by behavioural economics, not an assumption of the rational model."
+          },
+          {
+            "text": "consumer rationality, which says people act in their own best interest to maximize utility.",
+            "why": "Right. A rational consumer would keep to the plan that gives the most utility over time."
+          }
+        ]
+      },
+      {
+        "lead": "If Priya were fully rational, she would",
+        "correct": 0,
+        "options": [
+          {
+            "text": "save the $50 each month, because she already decided that saving is her best choice.",
+            "why": "Right. Her own plan shows that saving gives her more utility over time. A rational consumer would stick to it."
+          },
+          {
+            "text": "spend the $50 on takeaway food, because it gives her pleasure now.",
+            "why": "The pleasure now is the temptation. Her own plan shows that saving was her best choice."
+          },
+          {
+            "text": "stop making plans to save, because plans are hard to keep.",
+            "why": "The rational model says people make good plans and keep them. Giving up on plans is not rational choice."
+          }
+        ]
+      },
+      {
+        "lead": "One piece of choice architecture that could help is",
+        "correct": 2,
+        "options": [
+          {
+            "text": "a restricted choice that bans her from buying takeaway food on payday.",
+            "why": "A ban takes away options and her freedom. It also does not move any money into savings."
+          },
+          {
+            "text": "a mandated choice, where Priya must decide each month whether to save.",
+            "why": "Priya already decides to save each month. Then she breaks the plan, so forcing a decision does not help much."
+          },
+          {
+            "text": "a default choice: on payday, $50 goes into her savings unless she opts out.",
+            "why": "Right. Like the pension plan in Nudge designer, the saving happens unless she takes action to stop it."
+          }
+        ]
+      },
+      {
+        "lead": "This works because",
+        "correct": 0,
+        "options": [
+          {
+            "text": "people tend to stick with an option chosen for them, so the money is saved first.",
+            "why": "Right. Priya does not need willpower on payday. The $50 is already saved."
+          },
+          {
+            "text": "it makes saving cheaper for Priya, so she gets more utility from saving.",
+            "why": "A default does not change the price of saving. It changes which option is set for her."
+          },
+          {
+            "text": "Priya is forced to save, and she cannot get the money back to spend.",
+            "why": "A default leaves her free to opt out. Nobody is forced, which is what makes it a nudge."
+          }
+        ]
+      },
+      {
+        "lead": "However, a default",
+        "correct": 1,
+        "options": [
+          {
+            "text": "removes Priya's freedom to choose, so it is the same as a ban.",
+            "why": "She can opt out at any time, so it is not a ban. Her choices stay open."
+          },
+          {
+            "text": "leaves Priya free to opt out, so with weak self-control she might still spend it.",
+            "why": "Right. This is a limit of a default. Some people also say it is unfair to use people's biases, even to help them."
+          },
+          {
+            "text": "only works if the government pays Priya a reward to save.",
+            "why": "No payment is needed. A default changes how the choice is set out, not the incentive."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I named the bias or limit correctly.",
-      "I linked it to one assumption of rational consumer choice.",
-      "I used an example from the game or from real life.",
-      "My nudge or choice architecture leaves people free to choose, or I said why it limits choice."
-    ]
+    "own": "For example, name another scenario from the game where people show bounded self-control, and say which choice architecture could help."
   },
   "teacherNotes": "All of 2.4 is HL only. Level 1 puts students through five short experiments before naming any bias, so the class has a shared experience to discuss. Nothing a student chooses is stored or sent, so you can run the experiments projected and ask for a show of hands: how many took the 90% fat free yogurt? What prices did people with a high lucky number give compared with a low one? Results in one class may not show the effect, which is a good discussion point about sample size. Level 2 covers all four biases and the bounded rationality, bounded self-control, bounded selfishness and imperfect information limits. Level 3 links choice architecture (default, restricted and mandated choice) and nudge theory to policy goals, then covers the business objectives from the 2.4 guide. Discussion idea: is a default choice fair, or does it take advantage of people's biases? Link to TOK: if people are not rational, can economic models still be useful?"
 }
