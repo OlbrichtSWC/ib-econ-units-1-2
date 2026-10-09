@@ -830,6 +830,359 @@
         "necessities"
       ],
       "example": "Bread and milk."
+    },
+    {
+      "term": "Common pool resources",
+      "aliases": [
+        "common pool resource",
+        "common access resources",
+        "common access resource"
+      ],
+      "meaning": "Resources that are rivalrous but non-excludable: one person's use leaves less for others, but it is hard to stop people from using them.",
+      "code": "2.8",
+      "example": "Fish in the open ocean, forests and groundwater."
+    },
+    {
+      "term": "Tragedy of the commons",
+      "meaning": "When people acting in their own self-interest overuse a shared resource, so it runs down and everyone loses.",
+      "code": "2.8",
+      "example": "Every boat catches as many fish as it can, and the fish stock collapses."
+    },
+    {
+      "term": "Rivalrous",
+      "aliases": [
+        "rivalry",
+        "rival"
+      ],
+      "meaning": "A good is rivalrous when one person's use leaves less for others.",
+      "code": "2.8",
+      "example": "A fish you catch cannot be caught by anyone else."
+    },
+    {
+      "term": "Non-excludable",
+      "aliases": [
+        "non-excludability"
+      ],
+      "meaning": "A good is non-excludable when it is hard or impossible to stop people from using it, even if they do not pay.",
+      "code": "2.8",
+      "example": "No one can keep boats out of the open ocean."
+    },
+    {
+      "term": "Quota",
+      "aliases": [
+        "quotas",
+        "catch quota",
+        "catch quotas"
+      ],
+      "meaning": "A limit on the quantity of something that can be produced, caught or traded.",
+      "code": "2.8",
+      "example": "Each boat may land only 2 tonnes of cod a week."
+    },
+    {
+      "term": "Collective self-governance",
+      "aliases": [
+        "self-governance"
+      ],
+      "meaning": "The users of a shared resource make, monitor and enforce their own rules for using it.",
+      "code": "2.8",
+      "example": "Villagers who share a lake agree catch limits, take turns checking, and fine anyone who cheats."
+    },
+    {
+      "term": "International agreements",
+      "aliases": [
+        "international agreement"
+      ],
+      "meaning": "Agreements between countries to act together on a shared problem, such as fish stocks or pollution that cross borders.",
+      "code": "2.8",
+      "example": "Countries that share a sea agree limits on the total catch."
+    },
+    {
+      "term": "Public good",
+      "aliases": [
+        "public goods"
+      ],
+      "meaning": "A good that is non-rivalrous and non-excludable. The free market may provide too little of it, or none at all.",
+      "code": "2.9",
+      "example": "Streetlights, national defence and a lighthouse."
+    },
+    {
+      "term": "Rivalry",
+      "aliases": [
+        "rivalrous",
+        "non-rivalrous",
+        "non-rivalry"
+      ],
+      "meaning": "A good is rivalrous when one person's use leaves less for others. It is non-rivalrous when one more user takes nothing away from anyone else.",
+      "code": "2.9",
+      "example": "A pizza is rivalrous. A streetlight is non-rivalrous: one more person walking under it does not dim the light."
+    },
+    {
+      "term": "Excludability",
+      "aliases": [
+        "excludable",
+        "non-excludable",
+        "non-excludability"
+      ],
+      "meaning": "A good is excludable when people who do not pay can be stopped from using it. It is non-excludable when nobody can be kept out.",
+      "code": "2.9",
+      "example": "A cinema is excludable. A fireworks display in the sky is non-excludable."
+    },
+    {
+      "term": "Free rider problem",
+      "aliases": [
+        "free rider",
+        "free riders",
+        "free riding"
+      ],
+      "meaning": "People enjoy a good without paying for it, because they cannot be stopped from using it. If many people free ride, nobody will pay to provide the good.",
+      "code": "2.9",
+      "example": "A neighbour pays nothing towards the streetlights but still walks home in their light."
+    },
+    {
+      "term": "Private good",
+      "aliases": [
+        "private goods"
+      ],
+      "meaning": "A good that is rivalrous and excludable. The free market can provide it, because sellers can charge everyone who uses it.",
+      "code": "2.9",
+      "example": "A pizza or a T-shirt."
+    },
+    {
+      "term": "Club good",
+      "aliases": [
+        "club goods"
+      ],
+      "meaning": "A good that is excludable but non-rivalrous (until it gets crowded). Not named in the IB guide, but useful for sorting goods.",
+      "code": "2.9",
+      "example": "A gym membership or a toll road."
+    },
+    {
+      "term": "Direct provision",
+      "meaning": "The government makes or runs a good itself, with its own workers, and pays for it with taxes.",
+      "code": "2.9",
+      "example": "A national army, or council workers who run the streetlights."
+    },
+    {
+      "term": "Contracting out",
+      "aliases": [
+        "contracting out to the private sector"
+      ],
+      "meaning": "The government pays a private firm to make or run a good. Taxes still pay for it, and the government decides what is provided.",
+      "code": "2.9",
+      "example": "A council pays a private firm to fit and run its streetlights."
+    },
+    {
+      "term": "Rational consumer choice",
+      "aliases": [
+        "rational choice"
+      ],
+      "meaning": "The standard model of how consumers choose. It assumes they are rational, maximize utility and have perfect information.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Consumer rationality",
+      "aliases": [
+        "rationality",
+        "rational"
+      ],
+      "meaning": "The assumption that consumers think carefully and choose the option that is best for them.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Utility maximization",
+      "aliases": [
+        "utility maximisation",
+        "maximize utility"
+      ],
+      "meaning": "The assumption that consumers choose to get the most satisfaction (utility) they can from their income.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Perfect information",
+      "meaning": "The assumption that consumers know everything about every choice, such as prices and quality.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Behavioural economics",
+      "aliases": [
+        "behavioral economics"
+      ],
+      "meaning": "A branch of economics that uses ideas from psychology to study how people really make choices.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Bias",
+      "aliases": [
+        "biases",
+        "cognitive bias"
+      ],
+      "meaning": "A mental shortcut or habit of thinking that leads to choices that are not fully rational.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Rule of thumb",
+      "aliases": [
+        "rules of thumb",
+        "heuristic"
+      ],
+      "meaning": "A simple mental shortcut used to make a choice quickly, instead of comparing every option.",
+      "code": "2.4",
+      "example": "Always buying the brand you bought last time.",
+      "hl": true
+    },
+    {
+      "term": "Anchoring",
+      "aliases": [
+        "anchor",
+        "anchors"
+      ],
+      "meaning": "A bias: people rely too much on the first number or fact they see, and judge later choices against it.",
+      "code": "2.4",
+      "example": "A \"was $200\" tag makes a $120 price look cheap.",
+      "hl": true
+    },
+    {
+      "term": "Framing",
+      "aliases": [
+        "frame"
+      ],
+      "meaning": "A bias: the same facts, described in a different way, change the choice people make.",
+      "code": "2.4",
+      "example": "\"90% fat free\" sounds healthier than \"10% fat\".",
+      "hl": true
+    },
+    {
+      "term": "Availability bias",
+      "aliases": [
+        "availability"
+      ],
+      "meaning": "A bias: things that are easy to bring to mind, such as vivid news, seem more common or likely than they are.",
+      "code": "2.4",
+      "example": "Fearing sharks after reading shark stories.",
+      "hl": true
+    },
+    {
+      "term": "Bounded rationality",
+      "meaning": "People have limited time, information and brain power, so they settle for a choice that is good enough.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Bounded self-control",
+      "aliases": [
+        "bounded self control"
+      ],
+      "meaning": "People plan well but give in to what they want now, against their own long-term interest.",
+      "code": "2.4",
+      "example": "Planning to save, then spending the money on a treat.",
+      "hl": true
+    },
+    {
+      "term": "Bounded selfishness",
+      "meaning": "People care about others and about fairness, not only about their own gain.",
+      "code": "2.4",
+      "example": "Giving to charity or leaving a tip.",
+      "hl": true
+    },
+    {
+      "term": "Imperfect information",
+      "meaning": "Buyers or sellers do not have all the facts they need to make the best choice.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Choice architecture",
+      "meaning": "The way choices are designed and set out for people. It can change what people choose.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Default choice",
+      "aliases": [
+        "default",
+        "default choices"
+      ],
+      "meaning": "An option that is chosen for people in advance. They keep it unless they opt out.",
+      "code": "2.4",
+      "example": "Workers are put into a pension plan unless they leave it.",
+      "hl": true
+    },
+    {
+      "term": "Restricted choice",
+      "aliases": [
+        "restricted choices"
+      ],
+      "meaning": "The number of options is limited, to make choosing easier or to remove harmful options.",
+      "code": "2.4",
+      "example": "A canteen menu with a short list of healthy meals.",
+      "hl": true
+    },
+    {
+      "term": "Mandated choice",
+      "aliases": [
+        "mandated choices"
+      ],
+      "meaning": "People must make a choice for themselves. Nothing is chosen for them in advance.",
+      "code": "2.4",
+      "example": "Answering yes or no to organ donation on a licence form.",
+      "hl": true
+    },
+    {
+      "term": "Nudge theory",
+      "aliases": [
+        "nudge",
+        "nudges"
+      ],
+      "meaning": "Small changes to how choices are presented can push people towards better choices, without banning options or changing incentives much.",
+      "code": "2.4",
+      "example": "Putting fruit at eye level in a canteen.",
+      "hl": true
+    },
+    {
+      "term": "Profit maximization",
+      "aliases": [
+        "profit maximisation",
+        "maximize profit"
+      ],
+      "meaning": "A business objective: earn the largest possible profit, total revenue minus total cost.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Corporate social responsibility",
+      "aliases": [
+        "CSR"
+      ],
+      "meaning": "A business objective: act ethically towards workers, communities and the environment, even if it costs more.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Market share",
+      "meaning": "A firm's sales as a share of all sales in the market. Some firms aim to make it bigger.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Satisficing",
+      "meaning": "A business objective: aim for a satisfactory level of profit, enough to keep stakeholders happy, not the most possible.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Business growth",
+      "aliases": [
+        "growth of a firm"
+      ],
+      "meaning": "A business objective: get bigger, with more sales revenue, output, sites or workers.",
+      "code": "2.4",
+      "hl": true
     }
   ]
 }

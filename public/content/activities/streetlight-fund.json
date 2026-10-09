@@ -1,0 +1,441 @@
+{
+  "id": "streetlight-fund",
+  "outcome": "I can explain why public goods are non-rivalrous and non-excludable, why the free rider problem means the market fails to provide them, and evaluate direct provision and contracting out, funded by taxes.",
+  "learn": {
+    "text": "Economists sort goods with two questions. Is the good **[[rivalrous]]**: does one person's use leave less for others? Is it **[[excludable]]**: can people who do not pay be stopped from using it?\n\nA **[[public good]]** is **non-rivalrous** and **[[non-excludable]]**. Examples: streetlights, national defence, a lighthouse. A **[[private good]]**, such as a pizza, is rivalrous and excludable. The grid also has [[club goods]] and [[common pool resources]].\n\nBecause nobody can be kept out, people can enjoy a public good without paying. This is the **[[free rider problem]]**. If people wait for others to pay, a firm cannot sell the good and make a profit. So the free market provides too little of it, or none at all. This is a [[market failure]].\n\nThe government can respond in two ways. **[[Direct provision]]**: the government makes or runs the good itself. **[[Contracting out to the private sector]]**: the government pays a private firm to do the work. Either way, **taxes** pay for it. Everyone must pay tax, so nobody can free ride.",
+    "caption": "The rival and excludable grid. Public goods are in the bottom right: non-rivalrous and non-excludable."
+  },
+  "try": {
+    "goal": "Light up the street. Sort the goods, try to fund the lamps with your neighbours, then help the council pay for them with a tax.",
+    "intro": "**Level 1: Sort the goods.** A good arrives at the street. Ask two questions: is it rivalrous, and is it excludable? Then place it in the grid. Each good you sort lights the street a little more.\n\n**Level 2: Fund the lights.** You and four neighbours each have $10 a week. Every $5 in the fund lights one lamp, and the light reaches every house, paid or not. Choose how much to give. After each week, answer a question about what happened.\n\n**Level 3: The council decides.** Read each case. Is it direct provision or contracting out? Work out the tax per household: total cost ÷ number of households. Then judge an advantage or a disadvantage.",
+    "levels": [
+      { "title": "Sort the goods", "blurb": "10 goods. Place each one in the rival and excludable grid. Get 8 right first time." },
+      { "title": "Fund the lights", "blurb": "6 weeks of giving with 4 neighbours. Answer the question after each week. Get 5 right first time." },
+      { "title": "The council decides", "blurb": "4 cases. Name the way, set the tax and judge it. Score 10 of 12 first-try points." }
+    ],
+    "kindNames": {
+      "private": "Private goods",
+      "club": "Club goods",
+      "common": "Common pool resources",
+      "public": "Public goods"
+    },
+    "rivalText": "Rivalrous: one person's use leaves less for others.",
+    "exclText": "Excludable: people who do not pay can be kept out.",
+    "goods": [
+      {
+        "id": "streetlight",
+        "icon": "💡",
+        "name": "Streetlights",
+        "kind": "public",
+        "rival": "When you walk under a streetlight, there is no less light for the next person. It is non-rivalrous.",
+        "excl": "The light shines on everyone in the street. Nobody can be kept out of it, so it is non-excludable.",
+        "why": "Streetlights are a public good: non-rivalrous and non-excludable. People can enjoy them without paying."
+      },
+      {
+        "id": "defence",
+        "icon": "🛡️",
+        "name": "A national defence system",
+        "kind": "public",
+        "rival": "Protecting one more person does not leave less protection for anyone else. It is non-rivalrous.",
+        "excl": "The army cannot protect your neighbour but leave your house out. Nobody can be kept out, so it is non-excludable.",
+        "why": "National defence is the classic public good. Everyone in the country is protected, paid or not."
+      },
+      {
+        "id": "pizza",
+        "icon": "🍕",
+        "name": "A pizza",
+        "kind": "private",
+        "rival": "If you eat a slice, nobody else can eat that slice. It is rivalrous.",
+        "excl": "The shop only gives you the pizza if you pay. It is excludable.",
+        "why": "A pizza is a private good: rivalrous and excludable. The market provides it well."
+      },
+      {
+        "id": "gym",
+        "icon": "🏋️",
+        "name": "A gym membership",
+        "kind": "club",
+        "rival": "One more member does not use up the gym, unless it gets very crowded. It is non-rivalrous.",
+        "excl": "Only people who pay can get in. It is excludable.",
+        "why": "A gym is a club good: excludable, but non-rivalrous until it gets crowded."
+      },
+      {
+        "id": "fish",
+        "icon": "🐟",
+        "name": "Fish in the ocean",
+        "kind": "common",
+        "rival": "A fish caught by one boat cannot be caught by another. It is rivalrous.",
+        "excl": "Nobody owns the open ocean, so it is hard to stop boats from fishing. It is non-excludable.",
+        "why": "Ocean fish are a common pool resource: rivalrous but non-excludable. They are often overused."
+      },
+      {
+        "id": "lighthouse",
+        "icon": "🗼",
+        "name": "A lighthouse",
+        "kind": "public",
+        "rival": "One more ship seeing the light does not stop other ships seeing it. It is non-rivalrous.",
+        "excl": "A lighthouse cannot hide its light from ships that did not pay. It is non-excludable.",
+        "why": "A lighthouse is a public good. A private firm would find it hard to charge the ships."
+      },
+      {
+        "id": "toll",
+        "icon": "🛣️",
+        "name": "A toll road",
+        "kind": "club",
+        "rival": "One more car does not use up the road, unless there is a traffic jam. It is non-rivalrous.",
+        "excl": "A gate stops drivers who do not pay the toll. It is excludable.",
+        "why": "A toll road is a club good: drivers who do not pay are kept out, but one more car takes little away from others."
+      },
+      {
+        "id": "fireworks",
+        "icon": "🎆",
+        "name": "A fireworks display in the sky over a town",
+        "kind": "public",
+        "rival": "One more person watching does not make the display smaller for anyone. It is non-rivalrous.",
+        "excl": "Anyone in town can look up and see it. Nobody can be kept out, so it is non-excludable.",
+        "why": "A fireworks display in the sky is a public good. People can watch it for free from their window."
+      },
+      {
+        "id": "tshirt",
+        "icon": "👕",
+        "name": "A T-shirt",
+        "kind": "private",
+        "rival": "While you wear the T-shirt, nobody else can wear it. It is rivalrous.",
+        "excl": "The shop keeps the T-shirt until you pay. It is excludable.",
+        "why": "A T-shirt is a private good: rivalrous and excludable."
+      },
+      {
+        "id": "field",
+        "icon": "🐄",
+        "name": "Grass on a village field that every farmer may use",
+        "kind": "common",
+        "rival": "Grass eaten by one farmer's cows cannot be eaten by another farmer's cows. It is rivalrous.",
+        "excl": "Every farmer may use the field, so nobody can be kept out. It is non-excludable.",
+        "why": "The shared field is a common pool resource: rivalrous but non-excludable."
+      }
+    ],
+    "weeks": [
+      {
+        "prompt": "Dev gave $0 this week. Does his house get the light too?",
+        "options": [
+          { "text": "Yes. The light reaches his house anyway: nobody can keep him out of it.", "correct": true, "feedback": "Right. Streetlights are non-excludable. Dev enjoys the light without paying." },
+          { "text": "No. Only the houses that paid get the light.", "feedback": "Look at the street: the lamps light every house. A streetlight cannot shine only on the houses that paid." },
+          { "text": "Yes, but only half as much as the others.", "feedback": "Dev gets the same light as everyone else. The light does not depend on what you paid." }
+        ]
+      },
+      {
+        "prompt": "Ama, Ben and Chen all gave less this week. What is the best explanation?",
+        "options": [
+          { "text": "They get the light anyway, so they let other people pay. This is free riding.", "correct": true, "feedback": "Right. When nobody can be kept out, it pays to let others fund the good. This is the free rider problem." },
+          { "text": "They do not like streetlights any more.", "feedback": "They still enjoy the light. The point is that they get it whether they pay or not." },
+          { "text": "The lamps became cheaper to run.", "feedback": "Each lamp still costs $5 a week. Nothing changed except how much people chose to give." }
+        ]
+      },
+      {
+        "prompt": "A new family moves into the street. Does anyone get less light?",
+        "options": [
+          { "text": "No. One more family under the lamps takes no light away from anyone.", "correct": true, "feedback": "Right. Streetlights are non-rivalrous: one more user does not reduce what others get." },
+          { "text": "Yes. The light is now shared between more people, so each gets less.", "feedback": "Light is not like a pizza. One more person under a lamp does not dim it for others. It is non-rivalrous." },
+          { "text": "Yes, unless the new family pays.", "feedback": "Paying does not change how much light anyone gets. One more user does not reduce the light for others." }
+        ]
+      },
+      {
+        "prompt": "Each lamp costs $5 a week. It gives each of the 5 households $2 of benefit. Why does nobody want to pay for one more lamp?",
+        "options": [
+          { "text": "For the whole street it is worth it ($10 benefit for $5). But one household pays $5 and gets only $2 back.", "correct": true, "feedback": "Right. The lamp is worth it to society, but not to any one payer. So each household waits for others to pay, and the lamp is not funded." },
+          { "text": "The lamp is not worth it for the street: $2 is less than $5.", "feedback": "The street gets $2 × 5 households = $10 of benefit for $5 of cost. Society wants the lamp. The problem is that one payer only gets $2 of it." },
+          { "text": "The benefit is too small to measure, so nobody can tell.", "feedback": "The numbers are clear: $10 of benefit for the street, $5 of cost. Society gains, but each payer loses." }
+        ]
+      },
+      {
+        "prompt": "Could a private firm sell the street its lights and make a profit?",
+        "options": [
+          { "text": "No. It cannot stop people who do not pay from using the light, so too few people would pay.", "correct": true, "feedback": "Right. Non-excludability means the firm cannot charge users. Free riders mean too little revenue, so the market provides too little or none: market failure." },
+          { "text": "Yes. It could charge a price for each hour of light.", "feedback": "How would the firm collect it? The light reaches everyone, so people would free ride instead of paying." },
+          { "text": "Yes, because streetlights are rivalrous.", "feedback": "Streetlights are non-rivalrous. And the real problem for a firm is that they are non-excludable." }
+        ]
+      },
+      {
+        "prompt": "The council taxed every household $6. Why did the whole street light up?",
+        "options": [
+          { "text": "Everyone had to pay, so nobody could free ride. $6 × 5 households = $30, enough for all 6 lamps.", "correct": true, "feedback": "Right. A tax solves the free rider problem: the cost is shared by everyone who gets the light." },
+          { "text": "The tax made the lamps cheaper to run.", "feedback": "The lamps still cost $5 each. The tax changed who pays: everyone, not just a few." },
+          { "text": "The council charged only the people who use the light.", "feedback": "The council cannot tell who uses the light, and it does not need to. Every household pays the same tax." }
+        ]
+      }
+    ],
+    "wayNames": { "direct": "Direct provision", "contract": "Contracting out" },
+    "wayHow": {
+      "direct": "The government makes or runs it itself, with its own workers.",
+      "contract": "The government pays a private firm to make or run it."
+    },
+    "wayWrong": {
+      "direct": "Read again: who does the work? Here the council pays a private firm. That is contracting out to the private sector.",
+      "contract": "Read again: who does the work? Here the government's own workers do it. That is direct provision."
+    },
+    "calcText": {
+      "total": "That is the total cost. Share it between the households: divide it by the number of households.",
+      "noMultiply": "You divided the cost of one item. First find the total cost: number of items × cost of each.",
+      "byItems": "You divided by the number of items. The tax is shared by households: divide the total cost by the number of households.",
+      "times": "You multiplied by the number of households. Divide the total cost by the number of households.",
+      "other": "Not yet. Tax per household = total cost ÷ number of households."
+    },
+    "cases": [
+      {
+        "id": "lights",
+        "icon": "💡",
+        "title": "New streetlights",
+        "story": "A town needs 40 new streetlights. Council workers will fit the lights and run them. Each light costs $150 a year to run. 200 households pay council tax.",
+        "way": "direct",
+        "items": 40,
+        "itemName": "lights",
+        "costEach": 150,
+        "households": 200,
+        "judge": "advantage",
+        "options": [
+          { "text": "The council keeps full control of where the lights go and how well they work.", "correct": true, "feedback": "Right. With direct provision the government decides the quality and the service, and it answers to voters for it." },
+          { "text": "The council can make a profit by charging the people who walk under the lights.", "feedback": "The lights are non-excludable, so nobody can be charged for using them. That is why taxes pay for them." },
+          { "text": "There is no opportunity cost, because taxes pay for the lights.", "feedback": "Tax money spent on lights cannot be spent on something else, such as schools. There is always an opportunity cost." }
+        ]
+      },
+      {
+        "id": "fireworks",
+        "icon": "🎆",
+        "title": "The festival fireworks",
+        "story": "The town wants a fireworks display for its festival. The council pays a private events firm to run the display. The firm's price is $9,000. 450 households pay council tax.",
+        "way": "contract",
+        "items": 1,
+        "itemName": "display",
+        "costEach": 9000,
+        "households": 450,
+        "judge": "advantage",
+        "options": [
+          { "text": "The firm has the skills and the equipment, and firms that compete for the contract can keep the cost down.", "correct": true, "feedback": "Right. Contracting out can use private sector skill and efficiency, while taxes still pay for the display." },
+          { "text": "The firm can charge everyone who watches, so no tax is needed.", "feedback": "Fireworks in the sky are non-excludable. The firm cannot charge the watchers. That is why the council pays it." },
+          { "text": "The council no longer needs to check the quality of the display.", "feedback": "The council must still check that the firm does what the contract says. That is a cost of contracting out." }
+        ]
+      },
+      {
+        "id": "flood",
+        "icon": "🌊",
+        "title": "The flood wall",
+        "story": "A town by a river needs a flood wall in 3 sections. A private building firm wins the contract to build them. Each section costs $400,000. The council pays the firm, and 4,000 households share the cost through tax.",
+        "way": "contract",
+        "items": 3,
+        "itemName": "sections",
+        "costEach": 400000,
+        "households": 4000,
+        "judge": "disadvantage",
+        "options": [
+          { "text": "The firm wants profit, so it may cut corners on quality unless the council checks the work.", "correct": true, "feedback": "Right. A firm earns more if it spends less. The council must write a clear contract and check the work, and that costs money too." },
+          { "text": "Private firms are not able to build public goods.", "feedback": "Firms can build public goods. The problem is selling them, not building them. Here the council pays, so the firm can build it." },
+          { "text": "The flood wall becomes excludable once a firm builds it.", "feedback": "The wall protects every house behind it, whoever built it. It is still non-excludable." }
+        ]
+      },
+      {
+        "id": "lighthouse",
+        "icon": "🗼",
+        "title": "The coast lighthouses",
+        "story": "A coast has 3 lighthouses. A government lighthouse service runs them itself, with its own staff. Each lighthouse costs $80,000 a year to run. 12,000 households pay tax to fund them.",
+        "way": "direct",
+        "items": 3,
+        "itemName": "lighthouses",
+        "costEach": 80000,
+        "households": 12000,
+        "judge": "disadvantage",
+        "options": [
+          { "text": "Tax spent on lighthouses cannot be spent on other things, such as hospitals. And with no profit motive, the service may have less reason to cut costs.", "correct": true, "feedback": "Right. Direct provision has an opportunity cost, and a government service may be less efficient than a firm that competes for a contract." },
+          { "text": "Ships that did not pay can be kept away from the light.", "feedback": "A lighthouse is non-excludable: every ship sees the light. That is a reason for government to provide it, not a disadvantage." },
+          { "text": "Lighthouses are rivalrous, so the government should not provide them.", "feedback": "One more ship seeing the light takes nothing from others. Lighthouses are non-rivalrous." }
+        ]
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "What does it mean when a good is **non-excludable**?",
+      "options": [
+        { "text": "People who do not pay cannot be stopped from using it.", "correct": true, "feedback": "Yes. Nobody can be kept out, so people can use it for free." },
+        { "text": "One person's use does not leave less for others.", "feedback": "That is non-rivalrous. Excludability is about whether non-payers can be kept out." },
+        { "text": "The government makes it.", "feedback": "Who makes a good does not decide whether it is excludable." },
+        { "text": "Nobody wants to use it.", "feedback": "People may want a non-excludable good a lot, for example streetlights." }
+      ],
+      "hints": ["Think about a gate or a ticket. Can you stop people who do not pay?", "A fireworks display in the sky: can you stop people from watching?"],
+      "worked": "Example: a cinema can check tickets at the door, so it is excludable. A fireworks display in the sky cannot stop anyone from watching, so it is non-excludable.",
+      "explanation": "A good is **non-excludable** when people who do not pay cannot be stopped from using it. This leads to the free rider problem."
+    },
+    {
+      "id": "q2",
+      "type": "label",
+      "level": "core",
+      "prompt": "This grid sorts goods by two questions. Choose the label for each letter.",
+      "diagram": {
+        "xMax": 100,
+        "yMax": 60,
+        "xLabel": "",
+        "yLabel": "",
+        "noAxes": true,
+        "title": "The rival and excludable grid",
+        "description": "A grid of four boxes. The columns are rival and non-rival. The rows are excludable and non-excludable. Each box has a letter: A top left, B top right, C bottom left, D bottom right.",
+        "boxes": [
+          { "at": { "q": 38, "p": 38 }, "w": 38, "h": 20 },
+          { "at": { "q": 78, "p": 38 }, "w": 38, "h": 20 },
+          { "at": { "q": 38, "p": 14 }, "w": 38, "h": 20 },
+          { "at": { "q": 78, "p": 14 }, "w": 38, "h": 20 }
+        ],
+        "texts": [
+          { "at": { "q": 38, "p": 52 }, "text": "Rival", "anchor": "middle" },
+          { "at": { "q": 78, "p": 52 }, "text": "Non-rival", "anchor": "middle" },
+          { "at": { "q": 17, "p": 37 }, "text": "Excludable", "anchor": "end" },
+          { "at": { "q": 17, "p": 15 }, "text": "Non-", "anchor": "end" },
+          { "at": { "q": 17, "p": 10 }, "text": "excludable", "anchor": "end" }
+        ],
+        "tags": [
+          { "at": { "q": 38, "p": 38 }, "letter": "A" },
+          { "at": { "q": 78, "p": 38 }, "letter": "B" },
+          { "at": { "q": 38, "p": 14 }, "letter": "C" },
+          { "at": { "q": 78, "p": 14 }, "letter": "D" }
+        ]
+      },
+      "slots": [
+        { "letter": "A", "answer": "Private goods", "feedback": "Rival and excludable: a private good, such as a pizza." },
+        { "letter": "B", "answer": "Club goods", "feedback": "Non-rival but excludable: a club good, such as a gym or a toll road." },
+        { "letter": "C", "answer": "Common pool resources", "feedback": "Rival but non-excludable: a common pool resource, such as fish in the ocean." },
+        { "letter": "D", "answer": "Public goods", "feedback": "Non-rival and non-excludable: a public good, such as streetlights." }
+      ],
+      "choices": ["Private goods", "Club goods", "Common pool resources", "Public goods", "Merit goods", "Demerit goods"],
+      "hints": ["Read the column first (rival or not), then the row (excludable or not).", "A public good is non-rival and non-excludable. A private good is the opposite."],
+      "worked": "Example: a pizza. If you eat it, nobody else can (rival). The shop only gives it to people who pay (excludable). So it goes in the rival and excludable box: private goods.",
+      "explanation": "Private goods: rival and excludable. Club goods: non-rival and excludable. Common pool resources: rival and non-excludable. **Public goods: non-rival and non-excludable.**"
+    },
+    {
+      "id": "q3",
+      "type": "choice",
+      "level": "core",
+      "prompt": "What is the **free rider problem**?",
+      "options": [
+        { "text": "People can enjoy a good without paying for it, so too few people pay and the market provides too little of it.", "correct": true, "feedback": "Yes. Because non-payers cannot be kept out, each person waits for others to pay." },
+        { "text": "Buses are too cheap, so too many people use them.", "feedback": "This is not about buses. A free rider uses a good without paying for it." },
+        { "text": "Firms charge too high a price for public goods.", "feedback": "The problem is that firms cannot charge for public goods at all, so they do not provide them." },
+        { "text": "Using a good leaves less of it for others.", "feedback": "That is rivalry. The free rider problem comes from non-excludability." }
+      ],
+      "hints": ["Who pays for a good that nobody can be kept out of?", "If you get the light anyway, why would you pay for it?"],
+      "worked": "Example: a street raises money for lights. A neighbour pays nothing but still gets the light. If many people do this, there is not enough money, and the lights are not provided.",
+      "explanation": "The **free rider problem**: people use a non-excludable good without paying. Firms cannot earn enough revenue, so the free market provides too little or none. This is market failure."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Why would a private firm be unlikely to build a lighthouse on its own?",
+      "options": [
+        { "text": "It cannot stop ships that do not pay from seeing the light, so it could not earn enough revenue.", "correct": true, "feedback": "Yes. The lighthouse is non-excludable, so ships can free ride. The firm cannot make a profit." },
+        { "text": "Lighthouses are rivalrous, so they would run out of light.", "feedback": "One more ship seeing the light takes nothing from other ships. A lighthouse is non-rivalrous." },
+        { "text": "Ships do not get any benefit from lighthouses.", "feedback": "Ships benefit a lot: they avoid rocks. The problem is that they can benefit without paying." },
+        { "text": "Firms are not allowed to build anything near the sea.", "feedback": "The economic reason is about payment. The firm could build it but could not charge for it." }
+      ],
+      "hints": ["Can the lighthouse choose which ships see its light?", "Think about non-excludability and free riders."],
+      "worked": "Example: a firm puts on fireworks in the sky. Anyone in town can watch from home, so few people buy tickets. The firm loses money and stops.",
+      "explanation": "A lighthouse is **non-excludable**: every ship sees it. Ships can **free ride**, so a firm cannot earn enough revenue. The market fails to provide it, so governments usually do."
+    },
+    {
+      "id": "q5",
+      "type": "number",
+      "level": "apply",
+      "prompt": "A town needs 50 streetlights. Each light costs $120 a year to run. 300 households share the cost equally through a council tax. What is the tax per household per year?",
+      "answer": 20,
+      "tolerance": 0.01,
+      "prefix": "$",
+      "mistakes": [
+        { "value": 6000, "feedback": "That is the total cost (50 × $120). Now share it between the 300 households." },
+        { "value": 0.4, "feedback": "You divided the cost of one light by the households. First find the total cost: 50 × $120." },
+        { "value": 120, "feedback": "You divided the total cost by the number of lights. The tax is shared by the 300 households." },
+        { "value": 2.5, "feedback": "You divided the cost of one light by the number of lights. Find the total cost (50 × $120), then divide by the households." }
+      ],
+      "hints": ["First find the total cost of all the lights.", "Total cost = 50 × $120 = $6,000. Then divide by the number of households."],
+      "worked": "Example: 10 lights cost $200 each, so the total cost is $2,000. With 100 households, the tax is $2,000 ÷ 100 = $20 each.",
+      "explanation": "Total cost = 50 × $120 = $6,000. Tax per household = $6,000 ÷ 300 = **$20** a year."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "core",
+      "prompt": "A government pays a private firm to build a flood wall. Taxes pay for it. What is this called?",
+      "options": [
+        { "text": "Contracting out to the private sector", "correct": true, "feedback": "Yes. A private firm does the work, and the government pays it with tax money." },
+        { "text": "Direct provision", "feedback": "In direct provision the government's own workers do the job. Here a private firm does it." },
+        { "text": "A free market", "feedback": "In a free market the firm would sell to buyers. Here the government decides and pays." },
+        { "text": "The free rider problem", "feedback": "The free rider problem is why the market fails. Contracting out is one way the government responds." }
+      ],
+      "hints": ["Who does the work, and who pays?", "The firm does the work. The government pays with taxes."],
+      "worked": "Example: a council pays a private company to collect rubbish each week. The council decides the service and pays from taxes. This is contracting out.",
+      "explanation": "**Contracting out** to the private sector: the government pays a private firm to provide the good, funded by taxes. In **direct provision** the government provides it itself."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "National defence is **non-rivalrous**. What does this mean?",
+      "options": [
+        { "text": "Protecting one more person does not reduce the protection that others get.", "correct": true, "feedback": "Yes. A baby born today is protected, and nobody else is less protected." },
+        { "text": "People who do not pay tax cannot be protected.", "feedback": "That is about excludability. And defence is non-excludable: everyone is protected." },
+        { "text": "Countries do not have rivals.", "feedback": "Rivalry here is about using a good, not about other countries." },
+        { "text": "Defence is free to provide.", "feedback": "Defence costs a lot. Non-rivalrous means one more user adds nothing to the cost of others' use." }
+      ],
+      "hints": ["Rivalry asks: does one person's use leave less for others?", "Think of a new family moving into the country."],
+      "worked": "Example: a streetlight. When one more person walks under it, the light for everyone else is the same. It is non-rivalrous.",
+      "explanation": "**Non-rivalrous**: one more user does not reduce the amount others get. National defence is non-rivalrous and non-excludable, so it is a public good."
+    },
+    {
+      "id": "q8",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Which is a **disadvantage** of contracting out, compared with direct provision?",
+      "options": [
+        { "text": "The firm wants profit, so it may cut quality unless the government checks its work.", "correct": true, "feedback": "Yes. The government must write a clear contract and check the work, and that costs money too." },
+        { "text": "The good becomes excludable, so people must pay to use it.", "feedback": "Who builds a streetlight does not change whether it is excludable. People still use it for free." },
+        { "text": "Taxes are not needed any more.", "feedback": "The government still pays the firm, so taxes are still needed." },
+        { "text": "Private firms always cost more than the government.", "feedback": "Competition for the contract can make firms cheaper. That is an advantage of contracting out." }
+      ],
+      "hints": ["What does a private firm want?", "What could happen to quality if nobody checks?"],
+      "worked": "Example: a council pays a firm to clean the streets. To cut costs, the firm cleans less often. The council must check the work and can fine the firm.",
+      "explanation": "Contracting out can use firms' skills and **competition** to keep costs down. But a firm's **profit motive** may lead it to cut quality, so the government must monitor the contract."
+    },
+    {
+      "id": "q9",
+      "type": "number",
+      "level": "apply",
+      "prompt": "Five households share a street. The lights cost $30 a week. Two households refuse to pay, but they still get the light. The other three share the full cost equally. How much does each of the three pay?",
+      "answer": 10,
+      "tolerance": 0.01,
+      "prefix": "$",
+      "mistakes": [
+        { "value": 6, "feedback": "$6 is what each would pay if all five paid. Only three households are paying." },
+        { "value": 15, "feedback": "You divided by the two households who refuse. The cost is shared by the three who pay." },
+        { "value": 30, "feedback": "That is the full cost. Share it between the three households who pay." }
+      ],
+      "hints": ["Only the households who pay share the cost.", "$30 ÷ 3 households."],
+      "worked": "Example: a party costs $40 for four friends, but one friend refuses to pay. The other three pay $40 ÷ 3 = $13.33 each, not $10.",
+      "explanation": "$30 ÷ 3 = **$10** each, instead of $6 if all five paid. Free riders push the cost onto others, so the payers may stop paying too. A tax makes everyone pay."
+    }
+  ],
+  "explain": {
+    "prompt": "Explain why the free market may fail to provide streetlights. Then evaluate one way the government could provide them.",
+    "frames": [
+      "Streetlights are non-rivalrous because ___.",
+      "They are non-excludable because ___.",
+      "This leads to the free rider problem: ___, so a private firm ___.",
+      "The government could use ___, funded by taxes. One advantage is ___.",
+      "One disadvantage is ___, because ___."
+    ],
+    "checklist": [
+      "I explained non-rivalry and non-excludability with the streetlight example.",
+      "I explained the free rider problem and why firms cannot make a profit.",
+      "I named direct provision or contracting out, and said taxes pay for it.",
+      "I gave an advantage and a disadvantage, each with a reason."
+    ]
+  },
+  "teacherNotes": "Level 1 sorts ten goods into the rival and excludable grid. Club goods are not named in the 2.9 guide, but the grid needs all four boxes; common pool resources link back to 2.8. Level 2 is a public goods game with fixed computer neighbours: Dev always free rides and the others give less each week, so voluntary giving can never light all six lamps, even if the student gives everything. Each lamp is worth $10 to the street but costs one payer $5 for a $2 benefit: ask students why the rational choice for each household is bad for the street. The last week shows the council tax. Level 3 covers both government responses in the guide: direct provision and contracting out to the private sector, funded by taxes. There are no HL parts in 2.9. Discussion idea: should a town contract out its streetlights? Who gains and who could lose?"
+}

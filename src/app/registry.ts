@@ -88,7 +88,16 @@ export const ACTIVITIES: ActivityMeta[] = [
     ],
     load: () => import('../activities/surplus-shader'),
   },
-  { id: 'bias-lab', tag: '2.4 Behavioural economics', code: '2.4', unit: 2, hl: 'all', title: 'Bias Lab', style: 'Experiments', blurb: 'Take part in short experiments on anchoring, framing and defaults, then design a nudge.' },
+  {
+    id: 'bias-lab', tag: '2.4 Behavioural economics', code: '2.4', unit: 2, hl: 'all', title: 'Mind Tricks Lab', style: 'Experiment lab',
+    blurb: 'Take part in quick experiments, watch the curtain reveal the trick, then hunt for biases and design nudges.',
+    goal: { name: 'Test Subject', how: 'Level 1 of Mind Tricks Lab (HL): take part in 5 experiments and name the bias at work in 4 right first time.', icon: 'brain' },
+    goals: [
+      { name: 'Bias Hunter', how: 'Level 2 of Mind Tricks Lab (HL): spot the bias or limit to rational choice in 8 of 10 scenarios right first time.', icon: 'brain' },
+      { name: 'Nudge Designer', how: 'Level 3 of Mind Tricks Lab (HL): design 4 nudges and match 5 firms to their objectives. Score 10 of 13 first-try points.', icon: 'brain' },
+    ],
+    load: () => import('../activities/bias-lab'),
+  },
   {
     id: 'elasticity-cafe', tag: '2.5 PED', code: '2.5', unit: 2, title: 'The Elasticity Café', style: 'Business simulation',
     blurb: 'Run a café for a week. Set prices, read your sales and discover the hidden PED.',
@@ -149,8 +158,26 @@ export const ACTIVITIES: ActivityMeta[] = [
     ],
     load: () => import('../activities/externality-fixer'),
   },
-  { id: 'fish-pond', tag: '2.8 Common pool resources', code: '2.8', unit: 2, title: 'Fish Pond', style: 'Multiplayer simulation', blurb: 'Fish a shared pond with computer players. Can the stock survive?' },
-  { id: 'streetlight-fund', tag: '2.9 Public goods', code: '2.9', unit: 2, title: 'Streetlight Fund', style: 'Contribution game', blurb: 'Fund a public good with computer players who may free ride.' },
+  {
+    id: 'fish-pond', tag: '2.8 Common pool resources', code: '2.8', unit: 2, title: 'Fish Pond', style: 'Shared pond',
+    blurb: 'Fish a shared pond with three computer fishers, test the rules that can save it, then stop a cheat before the stock collapses.',
+    goal: { name: 'Pond Keeper', how: 'Level 1 of Fish Pond: keep the pond alive for 8 seasons and answer 6 of 8 questions right first time.', icon: 'fish' },
+    goals: [
+      { name: 'Rule Maker', how: 'Level 2 of Fish Pond: predict and judge 5 rules for the pond. Score 12 of 15 first-try points.', icon: 'fish' },
+      { name: 'Pond Guardian', how: 'Level 3 of Fish Pond: stop a cheating fisher. End 10 seasons with at least 50 fish and 5 of 6 answers right first time.', icon: 'fish' },
+    ],
+    load: () => import('../activities/fish-pond'),
+  },
+  {
+    id: 'streetlight-fund', tag: '2.9 Public goods', code: '2.9', unit: 2, title: 'Streetlight Fund', style: 'Neighbourhood game',
+    blurb: 'Light up a dark street. Sort the goods, try to fund the lamps with neighbours who free ride, then help the council pay with a tax.',
+    goal: { name: 'Goods Sorter', how: 'Level 1 of Streetlight Fund: place goods in the rival and excludable grid, 8 of 10 right first time.', icon: 'lamp' },
+    goals: [
+      { name: 'Free Rider Detective', how: 'Level 2 of Streetlight Fund: play the six weeks of the street fund and answer 5 of 6 questions right first time.', icon: 'lamp' },
+      { name: 'Town Planner', how: 'Level 3 of Streetlight Fund: name direct provision or contracting out, set the tax per household and judge it. Score 10 of 12 first-try points.', icon: 'lamp' },
+    ],
+    load: () => import('../activities/streetlight-fund'),
+  },
   { id: 'used-car-lot', tag: '2.10 Asymmetric information', code: '2.10', unit: 2, hl: 'all', title: 'Used Car Lot', style: 'Trading game', blurb: 'Buy cars without seeing their quality. Watch good cars leave the market.' },
   { id: 'monopoly-game', tag: '2.11 Market power', code: '2.11', unit: 2, hl: 'all', title: 'Monopoly and Game Theory', style: 'Rival pricing game', blurb: 'Find MC = MR, then play a pricing game against a rival firm.' },
   { id: 'fair-efficient', tag: '2.12 Equity', code: '2.12', unit: 2, hl: 'all', title: 'Fair or Efficient?', style: 'Judgement calls', blurb: 'Judge market outcomes as equitable, efficient, both or neither.' },

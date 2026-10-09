@@ -1,7 +1,7 @@
 /** A rubber-stamp picture. Earned stamps are inked in red; stamps not yet earned are a dashed outline. */
 import { ComponentChildren } from 'preact';
 
-export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory';
+export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory' | 'brain' | 'lamp' | 'fish';
 
 const ICONS: Record<StampIcon, ComponentChildren> = {
   // A shopping basket with a handle
@@ -101,6 +101,32 @@ const ICONS: Record<StampIcon, ComponentChildren> = {
       <path d="M64 68V34h6v34" />
       <path d="M26 68h48" />
       <path d="M66 28c-4-3 0-7 4-6 1-4 7-4 8 0" />
+    </g>
+  ),
+  // A brain seen from the side, with a line between the two halves
+  brain: (
+    <g>
+      <path d="M50 30c-4-4-12-4-15 1-6 0-9 6-7 11-4 3-4 10 1 13-1 6 4 11 10 10 2 4 8 5 11 1z" />
+      <path d="M50 30c4-4 12-4 15 1 6 0 9 6 7 11 4 3 4 10-1 13 1 6-4 11-10 10-2 4-8 5-11 1z" />
+      <path d="M50 30v36" />
+      <path d="M36 42c3 0 5 2 5 5M38 56c2-2 6-2 7 1M64 42c-3 0-5 2-5 5M62 56c-2-2-6-2-7 1" />
+    </g>
+  ),
+  // A street lamp with light falling below it
+  lamp: (
+    <g transform="translate(-6 2)">
+      <path d="M44 72h12M50 72V36c0-5 4-8 9-8h3" />
+      <path d="M58 30h12l-3 6h-6z" />
+      <path d="M60 42l-4 10M64 42v10M68 42l4 10" stroke-dasharray="2 4" />
+    </g>
+  ),
+  // A fish swimming over a wave
+  fish: (
+    <g>
+      <path d="M30 46c8-12 26-12 34 0-8 12-26 12-34 0z" />
+      <path d="M64 46l10-8v16z" />
+      <circle cx="38" cy="44" r="2" fill="currentColor" />
+      <path d="M28 64c5-4 9-4 14 0s9 4 14 0 9-4 14 0" />
     </g>
   ),
   star: <path d="M50 28l6.5 13.5 14.5 2-10.5 10 2.5 14.5L50 61l-13 7 2.5-14.5-10.5-10 14.5-2z" />,

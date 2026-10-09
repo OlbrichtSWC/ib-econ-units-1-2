@@ -13,7 +13,10 @@
     "hints-yed": true,
     "supply-speed": true,
     "gov-toolkit": true,
-    "externality-fixer": true
+    "externality-fixer": true,
+    "bias-lab": true,
+    "streetlight-fund": true,
+    "fish-pond": true
   },
   "scale": {
     "name": "CBE High School Proficiency Scale",
