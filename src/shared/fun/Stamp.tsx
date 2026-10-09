@@ -1,9 +1,17 @@
 /** A rubber-stamp picture. Earned stamps are inked in red; stamps not yet earned are a dashed outline. */
 import { ComponentChildren } from 'preact';
 
-export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask';
+export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory';
 
 const ICONS: Record<StampIcon, ComponentChildren> = {
+  // A shopping basket with a handle
+  basket: (
+    <g>
+      <path d="M38 44c0-10 5-16 12-16s12 6 12 16" />
+      <path d="M28 44h44l-6 24H34z" />
+      <path d="M42 50v12M50 50v12M58 50v12" />
+    </g>
+  ),
   // Palm tree on an island
   island: (
     <g>
@@ -75,6 +83,24 @@ const ICONS: Record<StampIcon, ComponentChildren> = {
     <g>
       <path d="M44 28h12M46 28v14L32 66c-1 2 0 4 3 4h30c3 0 4-2 3-4L54 42V28" />
       <path d="M38 56h24" />
+    </g>
+  ),
+  // A speed gauge: how fast supply responds
+  gauge: (
+    <g>
+      <path d="M28 62a22 22 0 0144 0" />
+      <path d="M32 50l4 2M50 40v4M68 50l-4 2" />
+      <path d="M50 62l12-14" />
+      <circle cx="50" cy="62" r="3" fill="currentColor" />
+    </g>
+  ),
+  // A factory with a smoking chimney
+  factory: (
+    <g>
+      <path d="M28 68V50l12-8v8l12-8v8l12-8v26z" />
+      <path d="M64 68V34h6v34" />
+      <path d="M26 68h48" />
+      <path d="M66 28c-4-3 0-7 4-6 1-4 7-4 8 0" />
     </g>
   ),
   star: <path d="M50 28l6.5 13.5 14.5 2-10.5 10 2.5 14.5L50 61l-13 7 2.5-14.5-10.5-10 14.5-2z" />,

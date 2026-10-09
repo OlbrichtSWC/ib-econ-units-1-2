@@ -1,0 +1,113 @@
+/* HINTS Market: a market stall with a chute and crates, a shopping basket, and a calculator corner.
+   Motion stops when the device asks for reduced motion (tokens.css). */
+
+/* ---------- Level 1: the stall ---------- */
+.hy-stall { position: relative; border: 3px solid #7a4a21; border-radius: 12px; background: #fbf4e8; overflow: hidden; }
+.hy-awning { height: 30px; background: repeating-linear-gradient(90deg, var(--red) 0 34px, var(--white) 34px 68px); border-bottom: 3px solid #7a4a21; position: relative; animation: hy-flap 4s ease-in-out infinite; transform-origin: top; }
+.hy-awning::after { content: ''; position: absolute; left: 0; right: 0; bottom: -12px; height: 12px; background: radial-gradient(circle at 17px 0, var(--red) 11px, transparent 12px) 0 0 / 68px 12px repeat-x, radial-gradient(circle at 51px 0, var(--white) 11px, transparent 12px) 0 0 / 68px 12px repeat-x; }
+@keyframes hy-flap { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.08); } }
+.hy-counter { position: relative; padding: 26px 14px 18px; min-height: 150px; }
+.hy-chute { position: absolute; z-index: 0; left: -20px; top: 8px; width: 34%; height: 18px; background: repeating-linear-gradient(90deg, #c49a6c 0 12px, #b3875a 12px 24px); border: 2px solid #7a4a21; border-radius: 4px; transform: rotate(8deg); transform-origin: left; }
+.hy-good { position: relative; z-index: 1; display: flex; gap: 14px; align-items: center; margin: 18px auto 0; max-width: 520px; padding: 12px 16px; background: var(--white); border: 2px solid var(--navy); border-radius: 14px; box-shadow: 0 4px 0 rgba(27, 58, 107, 0.25); }
+.hy-good-icon { font-size: 44px; line-height: 1; }
+.hy-good-name { margin: 0; font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+.hy-clue { margin: 4px 0 0; }
+.hy-clue-tag { display: inline-block; padding: 0 8px; margin-right: 4px; border-radius: 999px; background: var(--navy); color: var(--white); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.hy-drop { animation: hy-drop 0.9s cubic-bezier(0.3, 0.9, 0.4, 1.2) both; }
+@keyframes hy-drop {
+  0% { transform: translate(-70%, -90px) rotate(-12deg); opacity: 0; }
+  55% { transform: translate(0, 6px) rotate(3deg); opacity: 1; }
+  75% { transform: translate(0, -6px) rotate(-1deg); }
+  100% { transform: none; }
+}
+.hy-sorted { animation: hy-sorted 0.7s ease-in both; }
+@keyframes hy-sorted { to { transform: translateY(14px) scale(0.94); } }
+.hy-sorted-elastic { animation-name: hy-sorted-l; }
+.hy-sorted-inelastic { animation-name: hy-sorted-r; }
+@keyframes hy-sorted-l { to { transform: translate(-12%, 14px) rotate(-3deg) scale(0.94); } }
+@keyframes hy-sorted-r { to { transform: translate(12%, 14px) rotate(3deg) scale(0.94); } }
+.hy-sold { position: absolute; right: 10px; top: -14px; padding: 1px 10px; border: 3px solid var(--ok); border-radius: 6px; background: var(--white); color: var(--ok); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; transform: rotate(-6deg); animation: hy-pop-in 0.35s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+
+.hy-dets { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.hy-det { position: relative; display: grid; justify-items: center; gap: 4px; padding: 10px 4px; border: 2px solid var(--line); border-radius: 12px; background: var(--white); font: inherit; color: inherit; cursor: pointer; text-align: center; }
+.hy-det:hover:not(:disabled) { border-color: var(--navy); background: var(--navy-50); }
+.hy-det:active:not(:disabled) { transform: translateY(2px); }
+.hy-det:disabled { cursor: default; }
+.hy-det-miss { border-style: dashed; }
+.hy-det-right { border-color: var(--ok); background: var(--ok-50); }
+.hy-det-letter { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: var(--white); font-size: 1.4rem; font-weight: 700; }
+.hy-det-right .hy-det-letter { background: var(--ok); animation: hy-pop-in 0.4s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@media (max-width: 560px) {
+  .hy-dets { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+}
+
+.hy-crates { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.hy-crate { position: relative; display: grid; gap: 6px; justify-items: center; padding: 12px 10px; border: 2px solid #7a4a21; border-radius: 12px; background: #fbf4e8; font: inherit; color: inherit; cursor: pointer; text-align: center; }
+.hy-crate:hover:not(:disabled) { background: #f5e6cc; }
+.hy-crate:active:not(:disabled) { transform: translateY(2px); }
+.hy-crate:disabled { cursor: default; }
+.hy-crate-right { border-color: var(--ok); box-shadow: 0 0 0 3px var(--ok-50); animation: hy-bump 0.5s ease-out both; }
+.hy-crate-head { font-size: 1.1rem; }
+.hy-crate-box { display: flex; flex-wrap: wrap; gap: 2px; justify-content: center; align-content: flex-end; width: 100%; min-height: 54px; padding: 6px; border: 3px solid #7a4a21; border-top-width: 0; border-radius: 0 0 8px 8px; background: repeating-linear-gradient(0deg, #d9b98f 0 14px, #c9a676 14px 16px); }
+.hy-crate-item { font-size: 24px; animation: hy-pop-in 0.45s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes hy-pop-in { from { transform: scale(0) translateY(-20px); } to { transform: none; } }
+@keyframes hy-bump { 40% { transform: scale(1.04); } }
+
+/* ---------- Level 2: the income lab ---------- */
+.hy-income-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.hy-income-label { min-width: 15em; }
+.hy-income-val { font-size: 1.3rem; color: var(--navy); }
+.hy-slider { flex: 1 1 220px; min-width: 0; accent-color: var(--navy); height: 28px; }
+.hy-basket { position: relative; margin-top: 26px; padding: 12px 14px; border: 3px solid #7a4a21; border-radius: 6px 6px 18px 18px; background: repeating-linear-gradient(45deg, #f3e2c4 0 10px, #ecd5ae 10px 20px); }
+.hy-basket-handle { position: absolute; left: 50%; top: -26px; width: 120px; height: 46px; margin-left: -60px; border: 4px solid #7a4a21; border-bottom: 0; border-radius: 60px 60px 0 0; }
+.hy-basket-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.hy-basket-row { display: grid; grid-template-columns: 34px minmax(7em, 10em) 1fr minmax(9em, auto); gap: 10px; align-items: center; padding: 6px 10px; background: rgba(255, 255, 255, 0.88); border-radius: 10px; }
+.hy-basket-icon { font-size: 26px; }
+.hy-basket-name { font-weight: 700; }
+.hy-bar { height: 14px; border-radius: 7px; background: var(--line); overflow: hidden; }
+.hy-bar-fill { display: block; height: 100%; background: var(--navy); border-radius: 7px; transition: width 0.6s ease-out; }
+.hy-bump { display: inline-block; font-size: 1.15rem; animation: hy-pop-in 0.4s ease-out both; }
+.hy-delta { font-size: 0.85rem; font-weight: 700; }
+.hy-delta.up { color: var(--ok); }
+.hy-delta.down { color: var(--red); }
+@media (max-width: 560px) {
+  .hy-basket-row { grid-template-columns: 30px 1fr; }
+  .hy-bar, .hy-basket-q { grid-column: 1 / -1; }
+}
+
+.hy-engels { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.hy-engel { margin: 0; padding: 6px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.hy-engel figcaption { padding: 2px 6px; }
+.hy-seg { stroke-dasharray: 1; stroke-dashoffset: 1; animation: hy-draw 0.7s ease-out forwards; }
+@keyframes hy-draw { to { stroke-dashoffset: 0; } }
+.hy-pop { transform-box: fill-box; transform-origin: center; animation: hy-dot 0.5s 0.5s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes hy-dot { from { transform: scale(0); } to { transform: scale(1); } }
+
+.hy-table-wrap { overflow-x: auto; }
+.hy-table { border-collapse: collapse; font-size: 0.95rem; }
+.hy-table caption { text-align: left; color: var(--ink-soft); padding-bottom: 4px; }
+.hy-table th, .hy-table td { padding: 4px 10px; border-bottom: 1px solid var(--line); text-align: right; }
+.hy-table th[scope='row'] { text-align: left; }
+.hy-table thead th { font-size: 0.85rem; color: var(--ink-soft); }
+.hy-yed-row { padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); }
+.hy-yed-btns { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 6px; }
+
+/* ---------- Level 3: the calculator corner ---------- */
+.hy-receipt { position: relative; max-width: 460px; padding: 14px 18px 22px; background: var(--white); border: 1px solid var(--line); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); font-family: 'Courier New', Courier, monospace; display: grid; gap: 8px;
+  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat, radial-gradient(circle 6px at 8px 100%, transparent 98%, #000) bottom / 16px 10px repeat-x;
+          mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat, radial-gradient(circle 6px at 8px 100%, transparent 98%, #000) bottom / 16px 10px repeat-x; }
+.hy-receipt-title { margin: 0; font-weight: 700; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px dashed var(--line); padding-bottom: 6px; }
+.hy-receipt-table { width: 100%; font-family: inherit; }
+.hy-print { animation: hy-print 0.8s steps(8) both; }
+@keyframes hy-print { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+
+.hy-calc { display: grid; gap: 8px; max-width: 420px; padding: 12px; border-radius: 16px; background: #2b3445; box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.3); }
+.hy-lcd { padding: 8px 12px; border-radius: 8px; background: #c9dcb4; color: #1d2a12; font-family: 'Courier New', Courier, monospace; font-size: 1.6rem; font-weight: 700; text-align: right; min-height: 1.6em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hy-calc-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--white); }
+.hy-calc-label { font-weight: 700; }
+.hy-calc-row input { font: inherit; font-size: 1.1rem; padding: 6px 8px; border-radius: 8px; border: 2px solid var(--white); width: 7em; }
+
+/* ---------- Learn it ---------- */
+.hy-hints { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.hy-hint { display: flex; gap: 8px; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.hy-hint .hy-det-letter { flex: none; }

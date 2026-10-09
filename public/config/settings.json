@@ -10,7 +10,10 @@
     "surplus-shader": true,
     "elasticity-cafe": true,
     "ped-line": true,
-    "gov-toolkit": true
+    "hints-yed": true,
+    "supply-speed": true,
+    "gov-toolkit": true,
+    "externality-fixer": true
   },
   "scale": {
     "name": "CBE High School Proficiency Scale",

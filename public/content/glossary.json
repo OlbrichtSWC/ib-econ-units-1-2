@@ -601,6 +601,235 @@
       "meaning": "The idea that markets work best with very little government intervention. Linked to Adam Smith in the 18th century.",
       "code": "1.2",
       "example": "Letting prices, not the government, decide what firms produce."
+    },
+    {
+      "term": "Externality",
+      "aliases": [
+        "externalities",
+        "spillover"
+      ],
+      "meaning": "A cost or benefit that falls on third parties, people outside the market who did not choose it.",
+      "code": "2.8",
+      "example": "Smoke from a factory makes people nearby cough."
+    },
+    {
+      "term": "Market failure",
+      "meaning": "The free market does not allocate resources efficiently, so it makes too much or too little of a good. Externalities are one cause.",
+      "code": "2.8"
+    },
+    {
+      "term": "Social optimum",
+      "aliases": [
+        "socially optimum output"
+      ],
+      "meaning": "The quantity where marginal social benefit equals marginal social cost (MSB = MSC). Society is best off here: allocative efficiency.",
+      "code": "2.8"
+    },
+    {
+      "term": "Marginal private benefit",
+      "aliases": [
+        "MPB"
+      ],
+      "meaning": "The extra benefit to the buyer from one more unit. It is the demand curve.",
+      "code": "2.8"
+    },
+    {
+      "term": "Marginal private cost",
+      "aliases": [
+        "MPC"
+      ],
+      "meaning": "The extra cost to the producer of one more unit. It is the supply curve.",
+      "code": "2.8"
+    },
+    {
+      "term": "Marginal social benefit",
+      "aliases": [
+        "MSB"
+      ],
+      "meaning": "The extra benefit to society from one more unit: the buyer's benefit plus any external benefit, or minus any external cost, of consumption.",
+      "code": "2.8"
+    },
+    {
+      "term": "Marginal social cost",
+      "aliases": [
+        "MSC"
+      ],
+      "meaning": "The extra cost to society of one more unit: the firm's cost plus any external cost, or minus any external benefit, of production.",
+      "code": "2.8"
+    },
+    {
+      "term": "Merit good",
+      "aliases": [
+        "merit goods"
+      ],
+      "meaning": "A good that is good for people and society, but is underconsumed in a free market, often because of a positive consumption externality.",
+      "code": "2.8",
+      "example": "Education and vaccines."
+    },
+    {
+      "term": "Demerit good",
+      "aliases": [
+        "demerit goods"
+      ],
+      "meaning": "A good that harms the user and others, and is overconsumed in a free market.",
+      "code": "2.8",
+      "example": "Cigarettes."
+    },
+    {
+      "term": "Pigouvian tax",
+      "aliases": [
+        "Pigouvian taxes",
+        "indirect (Pigouvian) tax"
+      ],
+      "meaning": "A tax on each unit of a good with a negative externality. It should equal the external cost at the social optimum, so the market makes Q*.",
+      "code": "2.8"
+    },
+    {
+      "term": "Carbon tax",
+      "aliases": [
+        "carbon taxes"
+      ],
+      "meaning": "A tax on the carbon content of fuels, so firms and households pay for the harm from carbon emissions.",
+      "code": "2.8"
+    },
+    {
+      "term": "Tradable permits",
+      "aliases": [
+        "tradable permit",
+        "pollution permits"
+      ],
+      "meaning": "The government caps total pollution and issues permits for it. Firms can buy and sell the permits, so firms that can cut pollution cheaply do so.",
+      "code": "2.8"
+    },
+    {
+      "term": "Legislation and regulation",
+      "aliases": [
+        "regulation",
+        "legislation"
+      ],
+      "meaning": "Laws and rules that limit or ban an activity, with fines for breaking them.",
+      "code": "2.8",
+      "example": "A noise law that limits loud music at night."
+    },
+    {
+      "term": "Awareness creation",
+      "aliases": [
+        "education and awareness campaign",
+        "education and awareness campaigns",
+        "awareness campaign"
+      ],
+      "meaning": "Government education campaigns that give people better information, so demand moves towards MSB.",
+      "code": "2.8",
+      "example": "Health warnings about smoking."
+    },
+    {
+      "term": "Government provision",
+      "meaning": "The government makes or runs a good itself, often free or cheap, to raise its consumption.",
+      "code": "2.8",
+      "example": "Free public schools and vaccines."
+    },
+    {
+      "term": "Elastic supply",
+      "meaning": "PES is greater than 1. Quantity supplied changes by a bigger percentage than price.",
+      "code": "2.6",
+      "example": "A T-shirt factory with idle machines can raise output by 30% when the price rises 10%."
+    },
+    {
+      "term": "Inelastic supply",
+      "meaning": "PES is between 0 and 1. Quantity supplied changes by a smaller percentage than price.",
+      "code": "2.6",
+      "example": "A coffee farm raises output by only 5% when the price rises 25%, because new trees take years to grow."
+    },
+    {
+      "term": "Unitary PES",
+      "aliases": [
+        "unit elastic supply"
+      ],
+      "meaning": "PES equals 1. Quantity supplied changes by the same percentage as price. Any straight supply curve from the origin has PES = 1.",
+      "code": "2.6"
+    },
+    {
+      "term": "Momentary period",
+      "meaning": "A period so short that firms cannot change their output at all. Supply is perfectly inelastic (PES = 0).",
+      "code": "2.6",
+      "example": "The fish already on the boat are all that can be sold this morning."
+    },
+    {
+      "term": "Short run",
+      "meaning": "A period in which at least one factor of production, such as land or machines, is fixed. Firms can add workers and materials.",
+      "code": "2.6",
+      "example": "A car factory adds a night shift on the same assembly lines."
+    },
+    {
+      "term": "Long run",
+      "meaning": "A period long enough for all factors of production to change, and for new firms to join the market.",
+      "code": "2.6",
+      "example": "A car maker builds a second factory."
+    },
+    {
+      "term": "Unused capacity",
+      "aliases": [
+        "spare capacity"
+      ],
+      "meaning": "Machines, buildings or workers that a firm is not using fully. With unused capacity a firm can raise output quickly, so supply is more elastic.",
+      "code": "2.6",
+      "example": "A factory where half the machines stand idle."
+    },
+    {
+      "term": "Ability to store stock",
+      "aliases": [
+        "stock storage",
+        "ability to store",
+        "store stock"
+      ],
+      "meaning": "How easily a producer can keep goods to sell later. Goods that can be stored have more elastic supply, because stock can be sold as soon as the price rises.",
+      "code": "2.6",
+      "example": "Canned soup keeps for a long time; fresh flowers wilt in days."
+    },
+    {
+      "term": "Mobility of factors of production",
+      "aliases": [
+        "factor mobility",
+        "mobility of factors"
+      ],
+      "meaning": "How easily land, labour and capital can move into a new use. More mobile factors make supply more elastic.",
+      "code": "2.6",
+      "example": "Any rider with a bike can start working for a delivery service, but a shipyard needs specialist welders."
+    },
+    {
+      "term": "Manufactured products",
+      "aliases": [
+        "manufactured product",
+        "manufactured goods"
+      ],
+      "meaning": "Goods made in factories from raw materials, such as phones, bicycles or chocolate bars.",
+      "code": "2.6",
+      "hl": true
+    },
+    {
+      "term": "Engel curve",
+      "meaning": "A diagram showing how quantity demanded of a good changes as income changes. Income is on the vertical axis and quantity demanded is on the horizontal axis.",
+      "code": "2.5",
+      "example": "A flat section shows a luxury, a steep section a necessity, and a section that bends back an inferior good."
+    },
+    {
+      "term": "Luxury good",
+      "meaning": "A normal good with a YED above 1: quantity demanded rises by a bigger % than income. Many services are luxuries.",
+      "code": "2.5",
+      "aliases": [
+        "luxury",
+        "luxuries"
+      ],
+      "example": "Restaurant meals and holidays abroad."
+    },
+    {
+      "term": "Necessity good",
+      "meaning": "A normal good with a YED between 0 and 1: quantity demanded rises by a smaller % than income.",
+      "code": "2.5",
+      "aliases": [
+        "necessities"
+      ],
+      "example": "Bread and milk."
     }
   ]
 }

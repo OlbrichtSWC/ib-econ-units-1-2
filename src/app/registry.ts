@@ -109,8 +109,26 @@ export const ACTIVITIES: ActivityMeta[] = [
     ],
     load: () => import('../activities/ped-line'),
   },
-  { id: 'hints-yed', tag: '2.5 PED determinants and YED', code: '2.5', unit: 2, hl: 'part', title: 'HINTS Sorter and YED Lab', style: 'Sort and explore', blurb: 'Sort goods by PED using HINTS, then explore Engel curves.' },
-  { id: 'supply-speed', tag: '2.6 PES', code: '2.6', unit: 2, hl: 'part', title: 'Supply Speed', style: 'Producer game', blurb: 'React to a price rise as a producer. See how time and capacity change PES.' },
+  {
+    id: 'hints-yed', tag: '2.5 PED determinants and YED', code: '2.5', unit: 2, hl: 'part', title: 'HINTS Market', style: 'Market stall',
+    blurb: 'Sort goods at a market stall with HINTS, watch Engel curves draw as income rises, then calculate PED and YED.',
+    goal: { name: 'Stall Sorter', how: 'Level 1 of HINTS Market: choose the HINTS determinant and the right crate for 8 of 10 goods, first time.', icon: 'basket' },
+    goals: [
+      { name: 'Income Explorer', how: 'Level 2 of HINTS Market: classify 5 of 6 goods as necessity, luxury or inferior from their Engel curves, first time.', icon: 'basket' },
+      { name: 'Elasticity Analyst', how: 'Level 3 of HINTS Market: calculate and classify 5 of 6 PEDs and YEDs right first time (one round is HL).', icon: 'basket' },
+    ],
+    load: () => import('../activities/hints-yed'),
+  },
+  {
+    id: 'supply-speed', tag: '2.6 PES', code: '2.6', unit: 2, hl: 'part', title: 'Supply Speed', style: 'Producer race',
+    blurb: 'Race producers after a price rise. See how time, spare capacity and stock change PES, then measure it.',
+    goal: { name: 'Supply Scout', how: 'Level 1 of Supply Speed: rank the producers and name the determinant, 8 of 10 right first time.', icon: 'gauge' },
+    goals: [
+      { name: 'Time Traveller', how: 'Level 2 of Supply Speed: choose what a producer can do in each time period, 10 of 12 right first time.', icon: 'gauge' },
+      { name: 'PES Pro', how: 'Level 3 of Supply Speed (includes HL): calculate and classify PES, 5 of 6 rounds with no wrong try.', icon: 'gauge' },
+    ],
+    load: () => import('../activities/supply-speed'),
+  },
   {
     id: 'gov-toolkit', tag: '2.7 Government intervention', code: '2.7', unit: 2, hl: 'part', title: 'Government Toolkit', style: "Minister's missions",
     blurb: 'Read a mission brief, choose a maximum price, minimum price, tax or subsidy, and see who wins and who loses.',
@@ -121,7 +139,16 @@ export const ACTIVITIES: ActivityMeta[] = [
     ],
     load: () => import('../activities/gov-toolkit'),
   },
-  { id: 'externality-fixer', tag: '2.8 Externalities', code: '2.8', unit: 2, hl: 'part', title: 'Externality Fixer', style: 'Policy puzzle', blurb: 'Choose a policy that moves output to the social optimum.' },
+  {
+    id: 'externality-fixer', tag: '2.8 Externalities', code: '2.8', unit: 2, hl: 'part', title: 'Smoke and Sunshine', style: 'Town fixer',
+    blurb: 'Spot the spillovers in a smoky town, then choose and size the policy that clears the smoke and brings out the sun.',
+    goal: { name: 'Spillover Spotter', how: 'Level 1 of Smoke and Sunshine: name the externality and its diagram gap for 8 of 10 scenarios right first time.', icon: 'factory' },
+    goals: [
+      { name: 'Town Fixer', how: 'Level 2 of Smoke and Sunshine: choose the right policy and set its size to reach Q*, 5 of 6 markets right first time.', icon: 'factory' },
+      { name: 'Welfare Judge', how: 'Level 3 of Smoke and Sunshine (HL): calculate the welfare loss and judge each policy. Score 15 of 18 first-try points.', icon: 'factory' },
+    ],
+    load: () => import('../activities/externality-fixer'),
+  },
   { id: 'fish-pond', tag: '2.8 Common pool resources', code: '2.8', unit: 2, title: 'Fish Pond', style: 'Multiplayer simulation', blurb: 'Fish a shared pond with computer players. Can the stock survive?' },
   { id: 'streetlight-fund', tag: '2.9 Public goods', code: '2.9', unit: 2, title: 'Streetlight Fund', style: 'Contribution game', blurb: 'Fund a public good with computer players who may free ride.' },
   { id: 'used-car-lot', tag: '2.10 Asymmetric information', code: '2.10', unit: 2, hl: 'all', title: 'Used Car Lot', style: 'Trading game', blurb: 'Buy cars without seeing their quality. Watch good cars leave the market.' },

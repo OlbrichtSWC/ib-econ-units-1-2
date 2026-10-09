@@ -1,0 +1,78 @@
+/* Supply Speed: producer scenes, the race track, the time machine and the PES gauge. Motion stops when the device asks for reduced motion (tokens.css). */
+
+.ss-price { display: flex; gap: 10px; align-items: center; padding: 8px 14px; border: 2px solid var(--red); border-radius: 999px; background: #fdeaed; color: var(--ink); width: fit-content; max-width: 100%; }
+.ss-price-arrow { color: var(--red); font-size: 1.2rem; animation: ss-up 1.2s ease-in-out infinite; }
+@keyframes ss-up { 0%, 100% { transform: translateY(2px); } 50% { transform: translateY(-4px); } }
+
+/* Level 1: producers */
+.ss-producers { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.ss-producer { position: relative; display: grid; gap: 4px; justify-items: center; align-content: start; text-align: center; padding: 12px 10px 14px; border: 2px solid var(--line); border-radius: 14px; background: var(--white); font: inherit; color: inherit; cursor: pointer; }
+.ss-producer:hover:not(:disabled) { border-color: var(--navy); background: var(--navy-50); }
+.ss-producer:active:not(:disabled) { transform: translateY(2px); }
+.ss-producer:disabled { cursor: default; }
+.ss-placed { border-color: var(--navy); background: var(--navy-50); }
+.ss-place { display: inline-block; margin-top: 4px; padding: 2px 10px; border-radius: 999px; background: var(--navy); color: var(--white); font-weight: 700; font-size: 0.9rem; animation: ss-pop 0.35s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes ss-pop { from { transform: scale(0.4); opacity: 0; } to { transform: none; opacity: 1; } }
+.ss-in { animation: ss-in 0.55s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+@keyframes ss-in { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.ss-scene { display: grid; justify-items: center; gap: 2px; width: 100%; padding: 8px 0 4px; border-radius: 10px; background: linear-gradient(#eef6ff, #fff 70%); border-bottom: 4px solid #cfe7d7; }
+.ss-scene-main { font-size: 40px; line-height: 1.1; }
+.ss-scene-props { display: flex; gap: 8px; font-size: 22px; }
+.ss-prop { display: inline-block; }
+.ss-anim-sway .ss-prop { animation: ss-sway 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
+@keyframes ss-sway { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+.ss-anim-flicker .ss-prop { animation: ss-flicker 0.9s ease-in-out infinite alternate; }
+@keyframes ss-flicker { from { transform: scale(0.9); opacity: 0.75; } to { transform: scale(1.1); opacity: 1; } }
+.ss-anim-blink .ss-prop:nth-child(even) { animation: ss-drop 1.4s ease-in infinite; }
+@keyframes ss-drop { 0% { transform: translateY(-6px); opacity: 0; } 40% { opacity: 1; } 100% { transform: translateY(6px); opacity: 0; } }
+.ss-anim-spin .ss-prop { animation: ss-spin 3s linear infinite; }
+@keyframes ss-spin { to { transform: rotate(360deg); } }
+.ss-anim-bob .ss-prop { animation: ss-bob 1.8s ease-in-out infinite; }
+@keyframes ss-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.ss-anim-roll .ss-prop { animation: ss-roll 2s ease-in-out infinite; }
+@keyframes ss-roll { 0%, 100% { transform: translateX(-4px); } 50% { transform: translateX(4px); } }
+
+/* Level 1: the race */
+.ss-track { display: grid; gap: 10px; }
+.ss-lane { display: grid; gap: 4px 12px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 700px) { .ss-lane { grid-template-columns: 190px minmax(0, 1fr); } .ss-lane-result { grid-column: 2; } }
+.ss-lane-name { font-weight: 700; }
+.ss-road { position: relative; height: 40px; border-radius: 8px; background: repeating-linear-gradient(90deg, transparent 0 18px, rgba(255, 255, 255, 0.9) 18px 30px) center / 100% 3px no-repeat, #5b6475; border-right: 6px dashed var(--white); outline: 2px solid #3d4452; }
+.ss-runner { position: absolute; top: 3px; left: 0; font-size: 26px; line-height: 34px; transition: left 1.8s cubic-bezier(0.25, 0.9, 0.3, 1); filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.35)); }
+.ss-lane-result { font-size: 0.95rem; }
+
+/* Level 2: time machine */
+.ss-dial { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 0; list-style: none; }
+.ss-dial li { display: grid; justify-items: center; gap: 2px; padding: 8px 4px; border: 2px solid var(--line); border-radius: 12px; background: var(--white); text-align: center; color: var(--ink-soft); font-size: 0.9rem; }
+.ss-dial li.on { border-color: var(--red); color: var(--ink); background: #fdeaed; }
+.ss-dial li.done { border-color: var(--navy); color: var(--navy); }
+.ss-dial li.done strong::after { content: ' \2713'; }
+.ss-dial-icon { font-size: 26px; }
+.ss-tick-tock { animation: ss-tick 1s steps(2, jump-none) infinite; }
+@keyframes ss-tick { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
+.ss-farm { display: flex; flex-wrap: wrap; gap: 4px; min-height: 44px; padding: 8px 10px; border-radius: 10px; background: linear-gradient(#eef6ff, #fff); border-bottom: 5px solid #cfe7d7; font-size: 28px; line-height: 1.2; }
+.ss-grow { display: inline-block; animation: ss-grow 0.5s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes ss-grow { from { transform: scale(0) translateY(10px); } to { transform: none; } }
+.ss-output { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0; font-size: 1.1rem; }
+.ss-output strong { font-size: 1.5rem; font-variant-numeric: tabular-nums; color: var(--navy); }
+.ss-pes-chip { padding: 2px 10px; border-radius: 999px; border: 2px solid var(--red); color: var(--red); font-weight: 700; font-size: 0.95rem; animation: ss-pop 0.35s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+.ss-period-hint { margin: 0; padding: 8px 12px; border-left: 4px solid var(--navy); background: var(--navy-50); border-radius: 4px; }
+
+/* Level 3: measure it */
+.ss-results { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.ss-results > .table-scroll { flex: 1 1 240px; }
+.ss-results-icon { font-size: 44px; animation: ss-bob 2s ease-in-out infinite; }
+.ss-vs { display: flex; gap: 12px; align-items: center; margin: 0; font-size: 36px; }
+.ss-vs-mid { font-size: 1rem; font-weight: 700; color: var(--ink-soft); }
+.ss-gauge { margin: 0; display: grid; justify-items: center; gap: 4px; }
+.ss-gauge svg { width: 100%; max-width: 260px; height: auto; }
+.ss-needle { transform-origin: 100px 100px; transform-box: view-box; transition: transform 1.2s cubic-bezier(0.3, 1.5, 0.5, 1); }
+.ss-formula { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-weight: 700; color: var(--navy); }
+.ss-frac { display: inline-grid; text-align: center; font-weight: 400; color: var(--ink); }
+.ss-frac > span:first-child { border-bottom: 2px solid var(--ink); padding-bottom: 2px; }
+.ss-answer { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ss-classes { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+
+/* Learn it */
+.ss-learn-picks { display: flex; flex-wrap: wrap; gap: 6px; }

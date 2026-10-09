@@ -1,0 +1,480 @@
+{
+  "id": "externality-fixer",
+  "outcome": "I can identify the four kinds of externality, show them on a diagram with the welfare loss, and judge the government policies that move a market to the social optimum.",
+  "learn": {
+    "text": "A market is **[[allocatively efficient|Allocative efficiency]]** at the **[[social optimum]]**, where marginal social benefit equals marginal social cost (**MSB = MSC**). Community surplus is as big as it can be.\n\nAn **[[externality]]** is a cost or benefit that spills over to third parties: people outside the market. Buyers and sellers only look at their private benefit and cost (**[[MPB]]** and **[[MPC]]**). So the free market makes **Qm**, not Q*. This is [[market failure]].\n\n- **Negative externality of production**: [[MSC]] is above MPC. Example: smoke from a factory.\n- **Negative externality of consumption**: [[MSB]] is below MPB. Example: loud music, smoking.\n- **Positive externality of production**: MSC is below MPC. Example: bees that pollinate an orchard.\n- **Positive externality of consumption**: MSB is above MPB. Example: vaccines, education.\n\n**[[Merit goods]]** such as education are underconsumed. **[[Demerit goods]]** such as cigarettes are overconsumed. Either way there is a **[[welfare loss]]**: the triangle between MSB and MSC, from Qm to Q*. ^HL^ You can calculate it as 1/2 × base × height.\n\nGovernments can respond with a **[[Pigouvian tax]]** or **[[carbon tax]]**, **[[subsidies]]**, **[[legislation and regulation]]**, **[[education and awareness campaigns|Awareness creation]]**, **[[tradable permits]]** and **[[government provision]]**. Each one has strengths and limitations. A big limitation for all of them: it is hard to measure an externality in money.",
+    "caption": "A negative externality of production. The market makes Qm where MPB = MPC. Society is best off at Q*, where MSB = MSC. The shaded triangle is the welfare loss from making too much."
+  },
+  "try": {
+    "goal": "Fix the town. Spot each spillover, choose and size the policy that moves output to Q*, then judge the welfare loss.",
+    "intro": "**Level 1: What spills over?** Read a scenario from the town. Name the externality: negative or positive, production or consumption. Then pick the gap you would draw on the diagram.\n\n**Level 2: Fix the town.** Each market makes the wrong amount. Choose the right policy, then use the slider to set its size so output moves to Q*. Watch the town change as you get close.\n\n**Level 3: Welfare judge (HL).** Read the numbers on a diagram and calculate the welfare loss: 1/2 × base × height. Then judge one strength and one limitation of the policy.",
+    "levels": [
+      { "title": "What spills over?", "blurb": "10 scenarios. Name the externality and its diagram gap. Get 8 right first time." },
+      { "title": "Fix the town", "blurb": "6 markets. Choose the policy and set its size to reach Q*. Fix 5 right first time." },
+      { "title": "Welfare judge (HL)", "blurb": "6 diagrams. Calculate the welfare loss and judge the policy. Score 15 of 18 first-try points." }
+    ],
+    "extNames": {
+      "neg-prod": "Negative externality of production",
+      "neg-cons": "Negative externality of consumption",
+      "pos-prod": "Positive externality of production",
+      "pos-cons": "Positive externality of consumption"
+    },
+    "gapNames": {
+      "msc-above": "MSC above MPC",
+      "msc-below": "MSC below MPC",
+      "msb-below": "MSB below MPB",
+      "msb-above": "MSB above MPB"
+    },
+    "gapHints": {
+      "msc-above": "Making it costs society more than it costs the firm.",
+      "msc-below": "Making it costs society less than it costs the firm.",
+      "msb-below": "Using it is worth less to society than to the buyer.",
+      "msb-above": "Using it is worth more to society than to the buyer."
+    },
+    "signWrong": "Look at the third parties. Are they harmed (negative) or helped (positive)?",
+    "sideWrong": "Who causes the spillover? A firm making the good (production) or a person using it (consumption)?",
+    "gapWrong": "Production externalities move the cost curve (MSC). Consumption externalities move the benefit curve (MSB). A harm puts costs up or benefits down.",
+    "scenarios": [
+      { "id": "factory", "icon": "🏭", "spot": "factory", "text": "A factory makes cement. Smoke from its chimney makes people in nearby homes cough. The factory does not pay for this harm.", "ext": "neg-prod", "why": "The harm comes from **making** cement and falls on third parties. The marginal social cost (MSC) is above the marginal private cost (MPC) by the external cost." },
+      { "id": "bees", "icon": "🐝", "spot": "bees", "text": "A beekeeper keeps bees for honey. The bees also pollinate the apple trees on the next farm, so that farm grows more apples.", "ext": "pos-prod", "why": "The extra benefit comes from **producing** honey. The orchard gains, but the beekeeper is not paid for it. So MSC is below MPC." },
+      { "id": "party", "icon": "🎉", "spot": "party", "text": "A family plays loud music at a party until 3 a.m. The neighbours cannot sleep.", "ext": "neg-cons", "why": "The harm comes from **using** the music system, not from making it. Society gets less benefit than the family does, so MSB is below MPB." },
+      { "id": "vaccine", "icon": "💉", "spot": "clinic", "text": "A student gets a flu vaccine. She is protected, and so are the people around her, because she cannot pass the flu on.", "ext": "pos-cons", "why": "The extra benefit comes from **consuming** the vaccine. Society gains more than the student does, so MSB is above MPB. A vaccine is a merit good." },
+      { "id": "smoking", "icon": "🚬", "spot": "kiosk", "text": "A man smokes cigarettes at a bus stop. Other people waiting at the stop breathe in the smoke.", "ext": "neg-cons", "why": "The harm comes from **consuming** cigarettes. MSB is below MPB. Cigarettes are a demerit good: they are overconsumed." },
+      { "id": "college", "icon": "🎓", "spot": "school", "text": "A young woman finishes a college course. She earns more, and her new skills also help her workplace and the town.", "ext": "pos-cons", "why": "The extra benefit comes from **consuming** education. MSB is above MPB, so the free market gives too little education. Education is a merit good." },
+      { "id": "river", "icon": "🌾", "text": "A farm sprays fertiliser on its fields. Rain washes it into a river, and fishers downstream catch fewer fish.", "ext": "neg-prod", "why": "The harm comes from **producing** crops and falls on the fishers. MSC is above MPC." },
+      { "id": "training", "icon": "🛠️", "text": "A firm trains its workers in new skills. Some workers later move to other firms and take the skills with them.", "ext": "pos-prod", "why": "The benefit comes from the firm's **production** choices, and other firms gain. MSC is below MPC." },
+      { "id": "traffic", "icon": "🚗", "text": "People drive their cars into a busy city centre. The traffic slows the buses, and the fumes harm people walking.", "ext": "neg-cons", "why": "The harm comes from **using** cars. MSB is below MPB, so too many car trips are made." },
+      { "id": "garden", "icon": "🌷", "text": "A family plants a flower garden in front of their house. People walking past enjoy the colours and the smell.", "ext": "pos-cons", "why": "The benefit comes from the family **consuming** the garden, and passers-by gain too. MSB is above MPB." }
+    ],
+    "toolNames": {
+      "tax": "Indirect (Pigouvian) tax",
+      "subsidy": "Subsidy",
+      "regulation": "Legislation and regulation",
+      "permits": "Tradable permits",
+      "awareness": "Education and awareness campaign",
+      "provision": "Government provision"
+    },
+    "toolHow": {
+      "tax": "A tax on each unit. Supply (MPC) shifts up by the tax.",
+      "subsidy": "A payment for each unit. Supply (MPC) shifts down by the subsidy.",
+      "regulation": "A law that limits how much can be made or used.",
+      "permits": "A fixed number of permits to pollute, which firms can buy and sell.",
+      "awareness": "Information that changes what people believe. Demand (MPB) shifts.",
+      "provision": "The government makes or runs the good itself. Supply shifts right."
+    },
+    "sizeNames": {
+      "tax": "Tax per unit",
+      "subsidy": "Subsidy per unit",
+      "regulation": "Legal limit",
+      "permits": "Permits issued",
+      "awareness": "Campaign effect on what people will pay",
+      "provision": "Extra units the government provides"
+    },
+    "sizeSmall": "Not enough yet. Output is still between Qm and Q*. Make the policy bigger.",
+    "sizeBig": "Too much. Output has gone past Q*, so now there is a welfare loss on the other side. Make the policy smaller.",
+    "sizeTip": "Tip: at Q*, read the gap between MPB and MPC. That is the external cost or benefit at the optimum.",
+    "markets": [
+      {
+        "id": "cement", "spot": "factory", "icon": "🏭", "title": "The cement factory", "unit": "tonnes",
+        "ext": "neg-prod",
+        "brief": "Smoke from the cement factory harms people nearby. The council wants the factory to pay for the harm it causes, and it will use the money to plant trees.",
+        "xMax": 100, "yMax": 24,
+        "mpb": { "a": { "q": 0, "p": 20 }, "b": { "q": 100, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 2 }, "b": { "q": 100, "p": 12 } },
+        "social": { "a": { "q": 0, "p": 2 }, "b": { "q": 100, "p": 22 } },
+        "tool": "tax",
+        "slider": { "min": 0, "max": 10, "step": 0.5 },
+        "options": [
+          { "tool": "tax", "feedback": "Yes. A tax on each tonne makes the factory pay for the harm. MPC shifts up, so output falls." },
+          { "tool": "subsidy", "feedback": "A subsidy lowers the factory's costs. It would make **more** cement and more smoke." },
+          { "tool": "provision", "feedback": "Government provision adds more supply. This market already makes too much." }
+        ],
+        "fixed": "The tax equals the external cost at Q* ($4.50). The gap at Qm is bigger ($6), but a $6 tax would cut output too far. The smoke clears and the town gets money for trees."
+      },
+      {
+        "id": "honey", "spot": "bees", "icon": "🐝", "title": "The honey farm", "unit": "hives",
+        "ext": "pos-prod",
+        "brief": "The bees pollinate the orchards nearby, but the beekeeper is not paid for this. The council wants more hives, and it is happy to pay part of the cost of each one.",
+        "xMax": 100, "yMax": 20,
+        "mpb": { "a": { "q": 0, "p": 18 }, "b": { "q": 90, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 2 }, "b": { "q": 80, "p": 18 } },
+        "social": { "a": { "q": 0, "p": 2 }, "b": { "q": 100, "p": 14 } },
+        "tool": "subsidy",
+        "slider": { "min": 0, "max": 8, "step": 0.5 },
+        "options": [
+          { "tool": "subsidy", "feedback": "Yes. A subsidy pays part of the cost of each hive. MPC shifts down, so output rises." },
+          { "tool": "tax", "feedback": "A tax raises costs. There would be even fewer hives." },
+          { "tool": "regulation", "feedback": "A legal limit caps output. The problem here is too **little** output, not too much." }
+        ],
+        "fixed": "The subsidy equals the external benefit at Q* ($4). More hives mean more pollinated orchards, and the flowers bloom."
+      },
+      {
+        "id": "music", "spot": "party", "icon": "🎉", "title": "Party street", "unit": "hours of loud music a month",
+        "ext": "neg-cons",
+        "brief": "Loud parties keep the neighbours awake. The council wants one clear rule that everyone must follow, with a fine for breaking it. It does not want to raise money.",
+        "xMax": 80, "yMax": 22,
+        "mpb": { "a": { "q": 0, "p": 20 }, "b": { "q": 100, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 2 }, "b": { "q": 100, "p": 12 } },
+        "social": { "a": { "q": 0, "p": 14 }, "b": { "q": 70, "p": 0 } },
+        "tool": "regulation",
+        "slider": { "min": 0, "max": 80, "step": 5 },
+        "options": [
+          { "tool": "regulation", "feedback": "Yes. A noise law is a clear rule with a fine. It limits the hours of loud music directly." },
+          { "tool": "subsidy", "feedback": "A subsidy would make parties cheaper, so there would be **more** loud music." },
+          { "tool": "provision", "feedback": "The government running more parties would add to the noise, not cut it." }
+        ],
+        "fixed": "The noise law limits loud music to Q* (40 hours a month). Quiet nights are back. The law only works if someone checks and fines people who break it."
+      },
+      {
+        "id": "vaccines", "spot": "clinic", "icon": "💉", "title": "The vaccine clinic", "unit": "thousand vaccines",
+        "ext": "pos-cons",
+        "brief": "Each vaccine protects other people too, but many people do not get one. The council wants to lower the price people pay at the clinic.",
+        "xMax": 100, "yMax": 24,
+        "mpb": { "a": { "q": 0, "p": 16 }, "b": { "q": 80, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 4 }, "b": { "q": 100, "p": 14 } },
+        "social": { "a": { "q": 0, "p": 22 }, "b": { "q": 100, "p": 2 } },
+        "tool": "subsidy",
+        "slider": { "min": 0, "max": 10, "step": 0.5 },
+        "options": [
+          { "tool": "subsidy", "feedback": "Yes. A subsidy lowers the price at the clinic, so more people get vaccinated." },
+          { "tool": "tax", "feedback": "A tax raises the price. Even fewer people would get a vaccine." },
+          { "tool": "regulation", "feedback": "A legal limit would cap the number of vaccines. The town needs more, not fewer." }
+        ],
+        "fixed": "The subsidy equals the external benefit at Q* ($6). More people are protected, and the clinic queue is full of smiles."
+      },
+      {
+        "id": "cigarettes", "spot": "kiosk", "icon": "🚬", "title": "The cigarette kiosk", "unit": "thousand packs",
+        "ext": "neg-cons",
+        "brief": "Many smokers do not know how much smoking harms them and the people around them. The council wants to change what people believe, not the price.",
+        "xMax": 100, "yMax": 20,
+        "mpb": { "a": { "q": 0, "p": 18 }, "b": { "q": 90, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 3 }, "b": { "q": 100, "p": 13 } },
+        "social": { "a": { "q": 0, "p": 15 }, "b": { "q": 75, "p": 0 } },
+        "tool": "awareness",
+        "slider": { "min": 0, "max": 6, "step": 0.5 },
+        "options": [
+          { "tool": "awareness", "feedback": "Yes. A campaign gives people better information. Demand (MPB) shifts left, towards MSB." },
+          { "tool": "subsidy", "feedback": "A subsidy makes cigarettes cheaper, so people smoke **more**." },
+          { "tool": "provision", "feedback": "The government selling cigarettes would add to supply. That raises smoking." }
+        ],
+        "fixed": "The campaign shifts MPB down by $3, so it meets MPC at Q*. Fewer people smoke at the bus stop. Campaigns can take a long time to work in real life."
+      },
+      {
+        "id": "college", "spot": "school", "icon": "🎓", "title": "The town college", "unit": "places",
+        "ext": "pos-cons",
+        "brief": "Education helps the whole town, but too few people take college places. The council wants more places, and it wants to run them itself rather than pay private colleges.",
+        "xMax": 100, "yMax": 28,
+        "mpb": { "a": { "q": 0, "p": 20 }, "b": { "q": 100, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 2 }, "b": { "q": 100, "p": 22 } },
+        "social": { "a": { "q": 0, "p": 26 }, "b": { "q": 100, "p": 6 } },
+        "tool": "provision",
+        "slider": { "min": 0, "max": 50, "step": 5 },
+        "options": [
+          { "tool": "provision", "feedback": "Yes. The council runs the places itself. Supply shifts right, the price falls and more people study." },
+          { "tool": "subsidy", "feedback": "A subsidy would raise output, but it pays private colleges. The council wants to run the places itself." },
+          { "tool": "tax", "feedback": "A tax raises the price of college. Even fewer people would study." }
+        ],
+        "fixed": "Supply shifts right by 30 places, so it meets MPB at Q* (60 places). The college is busy. Running it costs the government money that has an opportunity cost."
+      }
+    ],
+    "calcText": {
+      "noHalf": "That is base × height, a rectangle. The welfare loss is a triangle, so halve it: 1/2 × base × height.",
+      "gapAtOptimum": "You used the gap between the curves at Q*. The height of the triangle is the gap at **Qm**, where the market is now.",
+      "usedQm": "The base is the distance from Q* to Qm, not Qm itself.",
+      "priceBase": "You used the change in price as the height. Use the vertical gap between MSB and MSC at Qm.",
+      "other": "Find the base (the distance from Q* to Qm) and the height (the gap between the two curves at Qm). Then work out 1/2 × base × height."
+    },
+    "rounds": [
+      {
+        "id": "steel", "spot": "factory", "icon": "🏭", "title": "Steel works", "unit": "tonnes", "policy": "Carbon tax",
+        "story": "A steel works burns coal, and the smoke harms the town. The government plans a carbon tax on each tonne of steel.",
+        "ext": "neg-prod", "xMax": 100, "yMax": 24,
+        "mpb": { "a": { "q": 0, "p": 20 }, "b": { "q": 100, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 2 }, "b": { "q": 100, "p": 12 } },
+        "social": { "a": { "q": 0, "p": 8 }, "b": { "q": 100, "p": 18 } },
+        "strengths": [
+          { "text": "The firm pays for the harm it causes, so the price shows the full cost to society.", "correct": true, "feedback": "Yes. The polluter pays, and the tax also raises revenue the government can use." },
+          { "text": "It is easy to put a money value on the harm from smoke.", "feedback": "This is not true. Measuring the external cost is hard. That is a limitation." },
+          { "text": "It makes steel cheaper for buyers.", "feedback": "A tax raises the price buyers pay." }
+        ],
+        "limits": [
+          { "text": "The external cost is hard to measure, so the tax may be set too high or too low.", "correct": true, "feedback": "Yes. If the tax is not equal to the external cost at Q*, output misses the optimum." },
+          { "text": "It raises no money for the government.", "feedback": "A tax does raise revenue. That is a strength." },
+          { "text": "It gives the firm no reason to pollute less.", "feedback": "Each tonne now costs more, so the firm has a reason to cut output or find cleaner ways." }
+        ]
+      },
+      {
+        "id": "power", "spot": "factory", "icon": "⚡", "title": "Power station", "unit": "megawatt hours", "policy": "Tradable permits",
+        "story": "A coal power station pollutes the air. The government issues tradable permits: each unit of output needs one permit, and firms can buy and sell them.",
+        "ext": "neg-prod", "xMax": 80, "yMax": 26,
+        "mpb": { "a": { "q": 0, "p": 24 }, "b": { "q": 80, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 4 }, "b": { "q": 100, "p": 14 } },
+        "social": { "a": { "q": 0, "p": 4 }, "b": { "q": 100, "p": 24 } },
+        "strengths": [
+          { "text": "The total amount of pollution is capped, so the government knows how much there will be.", "correct": true, "feedback": "Yes. The number of permits sets the limit. Firms that cut pollution cheaply can sell spare permits." },
+          { "text": "Firms can pollute as much as they like.", "feedback": "No. Each firm needs a permit for its pollution, and the total is capped." },
+          { "text": "It needs no checking or monitoring.", "feedback": "Pollution must be measured to make sure firms hold enough permits. That costs money." }
+        ],
+        "limits": [
+          { "text": "If the government issues too many permits, their price is low and pollution hardly falls.", "correct": true, "feedback": "Yes. Setting the right number of permits is hard, and monitoring is costly." },
+          { "text": "It gives firms no reason to cut pollution.", "feedback": "Each permit has a price, so cutting pollution saves money. That is an incentive." },
+          { "text": "Firms that cut pollution cannot sell their spare permits.", "feedback": "They can sell them. That is how the system rewards cleaner firms." }
+        ]
+      },
+      {
+        "id": "orchard", "spot": "bees", "icon": "🐝", "title": "Bee farms", "unit": "hives", "policy": "Subsidy",
+        "story": "Bee farms pollinate the orchards around the town. The government plans a subsidy for each hive.",
+        "ext": "pos-prod", "xMax": 100, "yMax": 20,
+        "mpb": { "a": { "q": 0, "p": 18 }, "b": { "q": 90, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 6 }, "b": { "q": 100, "p": 16 } },
+        "social": { "a": { "q": 0, "p": 3 }, "b": { "q": 100, "p": 13 } },
+        "strengths": [
+          { "text": "Output rises towards Q*, so more orchards get pollinated.", "correct": true, "feedback": "Yes. The subsidy lowers costs, so beekeepers keep more hives." },
+          { "text": "It costs the government nothing.", "feedback": "A subsidy is paid from the government budget." },
+          { "text": "It raises the price of honey for buyers.", "feedback": "A subsidy lowers the price buyers pay." }
+        ],
+        "limits": [
+          { "text": "It has an opportunity cost: the money could be spent on schools or hospitals instead.", "correct": true, "feedback": "Yes. Every subsidy is paid from a limited budget." },
+          { "text": "Beekeepers will keep fewer hives.", "feedback": "Lower costs mean beekeepers keep more hives, not fewer." },
+          { "text": "The value of the pollination is easy to measure.", "feedback": "This is not true, and it would not be a limitation. Measuring the external benefit is hard." }
+        ]
+      },
+      {
+        "id": "noise", "spot": "party", "icon": "🎉", "title": "Late night music", "unit": "hours a month", "policy": "Legislation and regulation",
+        "story": "Late night music keeps people awake. The government passes a noise law that limits the hours of loud music, with fines.",
+        "ext": "neg-cons", "xMax": 100, "yMax": 24,
+        "mpb": { "a": { "q": 0, "p": 22 }, "b": { "q": 110, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 2 }, "b": { "q": 100, "p": 22 } },
+        "social": { "a": { "q": 0, "p": 16 }, "b": { "q": 80, "p": 0 } },
+        "strengths": [
+          { "text": "It is simple and clear: everyone knows the rule, and it can work quickly.", "correct": true, "feedback": "Yes. A law is easy to understand and can cut the noise straight away." },
+          { "text": "It raises a lot of money for the government.", "feedback": "A law is not a tax. It raises little or no money." },
+          { "text": "Nobody has to check that people follow it.", "feedback": "A law only works if someone checks and fines people who break it." }
+        ],
+        "limits": [
+          { "text": "It needs inspectors or police to enforce it, and that costs money.", "correct": true, "feedback": "Yes. Without enforcement, people may ignore the law." },
+          { "text": "It makes parties louder.", "feedback": "A noise law makes parties quieter, not louder." },
+          { "text": "It always puts output exactly at Q*.", "feedback": "That is not a limitation, and it is not true. A fixed limit can be set in the wrong place." }
+        ]
+      },
+      {
+        "id": "smokers", "spot": "kiosk", "icon": "🚬", "title": "Cigarettes", "unit": "thousand packs", "policy": "Education and awareness campaign",
+        "story": "Cigarettes are a demerit good. The government runs a campaign about the harm of smoking to smokers and to the people around them.",
+        "ext": "neg-cons", "xMax": 80, "yMax": 22,
+        "mpb": { "a": { "q": 0, "p": 20 }, "b": { "q": 80, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 2 }, "b": { "q": 100, "p": 22 } },
+        "social": { "a": { "q": 0, "p": 20 }, "b": { "q": 50, "p": 0 } },
+        "strengths": [
+          { "text": "It deals with the cause: people learn the true harm, so they choose to smoke less.", "correct": true, "feedback": "Yes. Better information shifts demand (MPB) towards MSB." },
+          { "text": "It works overnight.", "feedback": "Changing what people believe and do takes a long time." },
+          { "text": "It raises money for health care.", "feedback": "A campaign costs money. It does not raise any." }
+        ],
+        "limits": [
+          { "text": "It takes a long time to work, and smokers who are addicted may ignore it.", "correct": true, "feedback": "Yes. Habit makes demand for cigarettes slow to change." },
+          { "text": "It makes cigarettes cheaper.", "feedback": "A campaign does not change the price. It changes what people believe." },
+          { "text": "It costs the government nothing.", "feedback": "That would not be a limitation, and it is not true. Campaigns cost money." }
+        ]
+      },
+      {
+        "id": "schools", "spot": "school", "icon": "🎓", "title": "College places", "unit": "places", "policy": "Government provision",
+        "story": "Education is a merit good. The government plans to run free college places itself.",
+        "ext": "pos-cons", "xMax": 100, "yMax": 30,
+        "mpb": { "a": { "q": 0, "p": 20 }, "b": { "q": 100, "p": 0 } },
+        "mpc": { "a": { "q": 0, "p": 4 }, "b": { "q": 100, "p": 24 } },
+        "social": { "a": { "q": 0, "p": 28 }, "b": { "q": 100, "p": 8 } },
+        "strengths": [
+          { "text": "Everyone can get a place, even people on low incomes, so it helps equity.", "correct": true, "feedback": "Yes. Free places mean that income does not decide who studies." },
+          { "text": "It costs the government nothing.", "feedback": "Running colleges is very costly for the government." },
+          { "text": "It reduces the number of people who study.", "feedback": "Free places raise the number of people who study." }
+        ],
+        "limits": [
+          { "text": "It is costly, so it has a big opportunity cost for the government budget.", "correct": true, "feedback": "Yes. The money could be used for health care or roads instead." },
+          { "text": "Fewer people will study.", "feedback": "More people study when places are free." },
+          { "text": "It means nobody pays any tax.", "feedback": "The opposite: taxes pay for the places." }
+        ]
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1", "type": "choice", "level": "core",
+      "prompt": "A chemical plant lets waste into a river. Fishers downstream catch fewer fish. What kind of externality is this?",
+      "options": [
+        { "text": "A negative externality of production", "correct": true, "feedback": "Yes. Making chemicals harms third parties, so MSC is above MPC." },
+        { "text": "A negative externality of consumption", "feedback": "The harm comes from making the chemicals, not from using them." },
+        { "text": "A positive externality of production", "feedback": "The fishers are harmed, so the externality is negative." },
+        { "text": "Not an externality: the fishers are part of the market", "feedback": "The fishers do not buy or sell the chemicals. They are third parties." }
+      ],
+      "hints": ["Are the fishers harmed or helped?", "Does the harm come from making the good or from using it?"],
+      "worked": "Example: a cement factory's smoke makes people cough. The harm comes from making cement, and it is a harm. So it is a negative externality of production.",
+      "explanation": "The harm falls on **third parties** and comes from **production**. MSC is above MPC, so the market makes too much."
+    },
+    {
+      "id": "q2", "type": "label", "level": "core",
+      "prompt": "This diagram shows a negative externality of production. Choose the label for each letter.",
+      "diagram": {
+        "xMax": 100, "yMax": 24, "xLabel": "Quantity", "yLabel": "Price, costs, benefits ($)",
+        "title": "A negative externality of production",
+        "description": "Two upward sloping lines and one downward sloping line. The higher upward line crosses the downward line at a smaller quantity than the lower upward line does. A shaded triangle sits between these two quantities. Letters A to F mark the three lines, two quantities on the axis and the triangle.",
+        "areas": [{ "points": [{ "q": 40, "p": 12 }, { "q": 60, "p": 14 }, { "q": 60, "p": 8 }], "tone": "red", "pattern": "hatch" }],
+        "guides": [{ "at": { "q": 60, "p": 8 } }, { "at": { "q": 40, "p": 12 } }],
+        "curves": [
+          { "line": { "a": { "q": 0, "p": 20 }, "b": { "q": 100, "p": 0 } }, "tone": "navy" },
+          { "line": { "a": { "q": 0, "p": 2 }, "b": { "q": 100, "p": 12 } }, "tone": "green" },
+          { "line": { "a": { "q": 0, "p": 8 }, "b": { "q": 100, "p": 18 } }, "tone": "red" }
+        ],
+        "tags": [
+          { "at": { "q": 85, "p": 10.5 }, "letter": "A" },
+          { "at": { "q": 85, "p": 16.5 }, "letter": "B" },
+          { "at": { "q": 85, "p": 3 }, "letter": "C" },
+          { "at": { "q": 60, "p": 1.4 }, "letter": "D" },
+          { "at": { "q": 40, "p": 1.4 }, "letter": "E" },
+          { "at": { "q": 53, "p": 11.3 }, "letter": "F" }
+        ]
+      },
+      "slots": [
+        { "letter": "A", "answer": "MPC", "feedback": "The lower upward line is the firm's own cost: marginal private cost (MPC). It is the supply curve." },
+        { "letter": "B", "answer": "MSC", "feedback": "The higher upward line adds the external cost: marginal social cost (MSC)." },
+        { "letter": "C", "answer": "MPB = MSB", "feedback": "The downward line is demand. With a production externality, private and social benefit are the same: MPB = MSB." },
+        { "letter": "D", "answer": "Qm", "feedback": "The market makes Qm, where MPB = MPC." },
+        { "letter": "E", "answer": "Q*", "feedback": "The social optimum Q* is where MSB = MSC." },
+        { "letter": "F", "answer": "Welfare loss", "feedback": "The triangle between MSC and MSB from Q* to Qm is the welfare loss from making too much." }
+      ],
+      "choices": ["MPC", "MSC", "MPB = MSB", "Qm", "Q*", "Welfare loss", "MPC = MSC", "Tax revenue"],
+      "hints": ["Supply is the firm's private cost. The external cost is added on top of it.", "The market uses private curves. Society's best point uses social curves."],
+      "worked": "Example: with factory smoke, draw MPC (supply), then MSC above it. Demand is MPB = MSB. The market makes Qm (MPB = MPC). Society wants Q* (MSB = MSC). Shade the triangle from Q* to Qm between MSC and MSB.",
+      "explanation": "MSC sits above MPC by the external cost. The market makes **Qm**, more than the social optimum Q*. The triangle between Q* and Qm is the **welfare loss**."
+    },
+    {
+      "id": "q3", "type": "choice", "level": "core",
+      "prompt": "Which statement about a **merit good** is right?",
+      "options": [
+        { "text": "It is underconsumed in a free market, because MSB is above MPB.", "correct": true, "feedback": "Yes. People only count their private benefit, so they buy less than Q*." },
+        { "text": "It is overconsumed in a free market, because MSB is above MPB.", "feedback": "When MSB is above MPB, society wants **more** than the market gives. That is underconsumption." },
+        { "text": "It is a good that harms the person who uses it.", "feedback": "That describes a demerit good, such as cigarettes." },
+        { "text": "It is a good that only the government can make.", "feedback": "Private firms can make merit goods too, for example private schools." }
+      ],
+      "hints": ["Think of education or vaccines.", "Does the free market give too much or too little of them?"],
+      "worked": "Example: vaccines protect the people around you too. People do not count that benefit, so fewer get vaccinated than is best for society.",
+      "explanation": "A **merit good** has benefits that people do not fully count, often a positive consumption externality. MSB is above MPB, so it is **underconsumed**."
+    },
+    {
+      "id": "q4", "type": "choice", "level": "apply",
+      "prompt": "This diagram shows the market for vaccines. Which statement is right?",
+      "diagram": {
+        "xMax": 100, "yMax": 24, "xLabel": "Vaccines (thousands)", "yLabel": "Price, costs, benefits ($)",
+        "title": "The market for vaccines",
+        "description": "A downward sloping MPB line, a higher downward sloping MSB line, and an upward sloping line labelled MPC = MSC. The market quantity Qm is where MPB meets MPC. Q* is where MSB meets MPC, at a larger quantity.",
+        "guides": [{ "at": { "q": 40, "p": 8 }, "xText": "Qm" }, { "at": { "q": 60, "p": 10 }, "xText": "Q*" }],
+        "curves": [
+          { "line": { "a": { "q": 0, "p": 16 }, "b": { "q": 80, "p": 0 } }, "tone": "navy", "label": "MPB", "labelOffset": { "dx": -62, "dy": -14 } },
+          { "line": { "a": { "q": 0, "p": 22 }, "b": { "q": 100, "p": 2 } }, "tone": "red", "label": "MSB" },
+          { "line": { "a": { "q": 0, "p": 4 }, "b": { "q": 100, "p": 14 } }, "tone": "green", "label": "MPC = MSC", "labelOffset": { "dx": -110, "dy": -12 } }
+        ]
+      },
+      "options": [
+        { "text": "There is a positive externality of consumption, and the market gives too few vaccines.", "correct": true, "feedback": "Yes. MSB is above MPB, so Qm is less than Q*." },
+        { "text": "There is a negative externality of production, and the market gives too many vaccines.", "feedback": "The gap is between the benefit curves (MSB and MPB), not the cost curves. And Qm is less than Q*." },
+        { "text": "The market is at the social optimum, because MPB = MPC at Qm.", "feedback": "MPB = MPC gives the market outcome. The social optimum needs MSB = MSC." },
+        { "text": "A tax on vaccines would move the market to Q*.", "feedback": "A tax would cut the number of vaccines. The market needs more, not fewer." }
+      ],
+      "hints": ["Which curves are apart: the cost curves or the benefit curves?", "Is Qm to the left or the right of Q*?"],
+      "worked": "Example: education. MSB is above MPB because an educated person helps others too. The market makes Qm, less than Q*. A subsidy or government provision can raise output.",
+      "explanation": "MSB above MPB shows a **positive externality of consumption**. The market makes **Qm** is less than Q*: too few vaccines. A subsidy could fix it."
+    },
+    {
+      "id": "q5", "type": "choice", "level": "apply",
+      "prompt": "A government wants a **Pigouvian tax** to move a polluting market to the social optimum. How big should the tax per unit be?",
+      "options": [
+        { "text": "Equal to the external cost at the social optimum, Q*.", "correct": true, "feedback": "Yes. Then MPC + tax meets MPB at Q*." },
+        { "text": "Equal to the external cost at the market quantity, Qm.", "feedback": "If the external cost grows with output, the gap at Qm is too big. Output would fall below Q*." },
+        { "text": "Equal to the market price.", "feedback": "The price has nothing to do with the size of the harm." },
+        { "text": "As big as possible, so pollution stops.", "feedback": "Zero output is not the optimum. Society still values some of the good." }
+      ],
+      "hints": ["The tax should make the firm count the harm it causes.", "Where do we want the new supply curve to cross demand?"],
+      "worked": "Example: at Q* = 45 tonnes, MSC is $11 and MPC is $6.50. A tax of $4.50 shifts MPC up so it meets MPB at 45 tonnes.",
+      "explanation": "A Pigouvian tax should equal the **external cost** at Q*. Then MPC + tax = MSC at the optimum, and the market makes Q*."
+    },
+    {
+      "id": "q6", "type": "choice", "level": "core",
+      "prompt": "How do **tradable permits** reduce pollution?",
+      "options": [
+        { "text": "The government caps the total pollution with a fixed number of permits. Firms that cut pollution cheaply can sell spare permits.", "correct": true, "feedback": "Yes. The cap limits pollution, and trading gives firms a reason to cut it." },
+        { "text": "Firms are paid for each tonne of pollution they make.", "feedback": "That would raise pollution. Permits limit pollution." },
+        { "text": "Every firm must stop polluting at once.", "feedback": "That is a ban. Permits allow a limited amount of pollution." },
+        { "text": "Consumers are told about the harm of pollution.", "feedback": "That is an education and awareness campaign." }
+      ],
+      "hints": ["A permit is the right to pollute a certain amount.", "What happens to the total, and what can firms do with permits they do not need?"],
+      "worked": "Example: a government issues permits for 100 tonnes of carbon. A firm that can clean up cheaply cuts its pollution and sells its spare permits to a firm that cannot.",
+      "explanation": "**Tradable permits** cap total pollution. Because permits have a price, every firm has a reason to pollute less."
+    },
+    {
+      "id": "q7", "type": "choice", "level": "apply",
+      "prompt": "A government raises the tax on cigarettes by a large amount. Smoking falls only a little. What is the best explanation?",
+      "options": [
+        { "text": "Demand for cigarettes is price inelastic, because smoking is a habit.", "correct": true, "feedback": "Yes. Habit (the H in HINTS) makes demand price inelastic, so quantity falls only a little." },
+        { "text": "The tax shifted demand to the right.", "feedback": "A tax shifts supply (MPC) up. It does not shift demand." },
+        { "text": "Cigarettes have a positive externality.", "feedback": "Smoking harms other people. It has a negative externality." },
+        { "text": "Taxes always raise quantity.", "feedback": "A tax raises the price, so quantity falls. The question is by how much." }
+      ],
+      "hints": ["Think about the HINTS determinants of PED.", "Smokers find it hard to stop. What does that mean for PED?"],
+      "worked": "Example: if PED for cigarettes is 0.3, a 20% price rise cuts smoking by only 6%.",
+      "explanation": "Demand for a demerit good like cigarettes is often **price inelastic**. A tax raises revenue but cuts consumption only a little. This is a **limitation** of taxes on demerit goods."
+    },
+    {
+      "id": "q8", "type": "number", "level": "apply", "hl": true,
+      "prompt": "This diagram shows a negative externality of consumption. Calculate the welfare loss.",
+      "diagram": {
+        "xMax": 100, "yMax": 22, "xLabel": "Quantity", "yLabel": "Price, costs, benefits ($)",
+        "title": "A negative externality of consumption with numbers",
+        "description": "MPB slopes down. MSB slopes down below it. MPC = MSC slopes up. The market quantity is 50, where MPB and MPC meet at $10. At 50, MSB is $4. The social optimum is 35, where MSB meets MPC at $7. A triangle between 35 and 50 is shaded.",
+        "areas": [{ "points": [{ "q": 35, "p": 7 }, { "q": 50, "p": 4 }, { "q": 50, "p": 10 }], "tone": "red", "pattern": "hatch" }],
+        "guides": [{ "at": { "q": 50, "p": 10 }, "xText": "50", "yText": "10" }, { "at": { "q": 35, "p": 7 }, "xText": "35", "yText": "7" }, { "at": { "q": 50, "p": 4 }, "yText": "4" }],
+        "curves": [
+          { "line": { "a": { "q": 0, "p": 20 }, "b": { "q": 100, "p": 0 } }, "tone": "navy", "label": "MPB", "labelOffset": { "dx": -62, "dy": -14 } },
+          { "line": { "a": { "q": 0, "p": 14 }, "b": { "q": 70, "p": 0 } }, "tone": "red", "label": "MSB", "labelOffset": { "dx": -56, "dy": -14 } },
+          { "line": { "a": { "q": 0, "p": 0 }, "b": { "q": 100, "p": 20 } }, "tone": "green", "label": "MPC = MSC", "labelOffset": { "dx": -110, "dy": -12 } }
+        ]
+      },
+      "answer": 45, "tolerance": 0.01, "prefix": "$",
+      "mistakes": [
+        { "value": 90, "feedback": "That is base × height, a rectangle. The welfare loss is a triangle: 1/2 × base × height." },
+        { "value": 150, "feedback": "The base is the distance from Q* to Qm (50 − 35 = 15), not 50." },
+        { "value": 22.5, "feedback": "You used the change in price ($10 − $7) as the height. Use the gap between MPB and MSB at Qm: $10 − $4." }
+      ],
+      "hints": ["The base is the distance between the two quantities. The height is the gap between MPB and MSB at the market quantity.", "Base = 50 − 35 = 15. Height = 10 − 4 = 6."],
+      "worked": "Example: Qm = 60, Q* = 40, and at Qm the gap between the curves is $6. Welfare loss = 1/2 × 20 × 6 = $60.",
+      "explanation": "Welfare loss = 1/2 × base × height = 1/2 × (50 − 35) × (10 − 4) = 1/2 × 15 × 6 = **$45**."
+    },
+    {
+      "id": "q9", "type": "number", "level": "apply", "hl": true,
+      "prompt": "Vaccines have a positive consumption externality. Without help, the market gives 40 thousand vaccines. The government pays a subsidy of $6 per vaccine, and the market moves to Q* = 60 thousand vaccines. How much does the subsidy cost the government, in thousands of dollars?",
+      "answer": 360, "tolerance": 0.01, "prefix": "$", "suffix": "thousand",
+      "mistakes": [
+        { "value": 240, "feedback": "You used the old quantity (40 thousand). The government pays the subsidy on every vaccine sold after the subsidy: 60 thousand." },
+        { "value": 120, "feedback": "You used the change in quantity (20 thousand). The subsidy is paid on all 60 thousand vaccines." },
+        { "value": 180, "feedback": "No need to halve it. Subsidy spending is a rectangle: subsidy per unit × new quantity." }
+      ],
+      "hints": ["The subsidy is paid on every unit sold after the subsidy.", "Spending = subsidy per unit × new quantity = 6 × 60."],
+      "worked": "Example: a $2 subsidy on 500 bus trips costs the government 2 × 500 = $1,000.",
+      "explanation": "Subsidy spending = subsidy per unit × quantity after the subsidy = $6 × 60 thousand = **$360 thousand**. This cost has an opportunity cost for the government."
+    }
+  ],
+  "explain": {
+    "prompt": "Using a diagram, explain how a carbon tax could correct a negative externality of production. Then judge one strength and one limitation of the tax.",
+    "frames": [
+      "The firm only counts its private cost (MPC), so the market makes ___, which is more than Q*.",
+      "The external cost is ___, so MSC is above MPC.",
+      "A carbon tax equal to ___ shifts MPC up, so output falls to ___.",
+      "One strength of the tax is ___, because ___.",
+      "One limitation is ___, because ___."
+    ],
+    "checklist": [
+      "I drew MPB = MSB, MPC and MSC, and labelled Qm and Q*.",
+      "I shaded the welfare loss between Q* and Qm.",
+      "I said the tax should equal the external cost at Q*.",
+      "I gave a strength and a limitation, each with a reason."
+    ]
+  },
+  "teacherNotes": "Level 1 builds the four externality types and the matching diagram gap, so students link each type to a picture. Level 2 uses non-parallel curves in two markets (cement and honey): students who set the tax or subsidy equal to the gap at Qm overshoot Q*. Ask why the tax must equal the external cost at the optimum. Level 3 is HL: the welfare loss calculation from a diagram is HL only in the 2.8 guide. The strengths and limitations link to the 2.8 evaluation points: measurement of externalities, effectiveness and consequences for stakeholders. Common pool resources and international agreements are covered in the Fish Pond activity. Discussion idea: which policy would you choose for the cement factory, and who gains and loses?"
+}

@@ -14,7 +14,10 @@ You can fix a typo, rewrite a hint or add a question without touching any code.
 | `content/activities/surplus-shader.json` | Everything in Surplus Shader |
 | `content/activities/elasticity-cafe.json` | Everything in The Elasticity Café |
 | `content/activities/ped-line.json` | Everything in Same Slope, Different PED |
+| `content/activities/hints-yed.json` | Everything in HINTS Market |
+| `content/activities/supply-speed.json` | Everything in Supply Speed |
 | `content/activities/gov-toolkit.json` | Everything in Government Toolkit |
+| `content/activities/externality-fixer.json` | Everything in Smoke and Sunshine |
 
 ## Three rules for JSON files
 

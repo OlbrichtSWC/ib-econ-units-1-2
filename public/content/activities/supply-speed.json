@@ -1,0 +1,1097 @@
+{
+ "id": "supply-speed",
+ "outcome": "I can calculate PES, explain the range of values it can take, and explain how time, spare capacity, stock, factor mobility and costs affect it.",
+ "learn": {
+  "text": "**[[Price elasticity of supply]]** (PES) measures how much quantity supplied responds when the price changes.\n\n**PES = % change in quantity supplied ÷ % change in price.** Price and quantity supplied move in the same direction, so PES is positive. It can range from 0 to infinity.\n\n- PES = 0: **perfectly inelastic**. Quantity supplied does not change. The supply curve is vertical.\n- PES between 0 and 1: **[[inelastic supply]]**. Quantity changes by a smaller % than price.\n- PES = 1: **[[unitary PES]]**. Any straight supply curve from the origin has PES = 1 all along it.\n- PES above 1: **[[elastic supply]]**. Quantity changes by a bigger % than price.\n- PES = infinity: **perfectly elastic**. The supply curve is horizontal.\n\nWhat makes supply more elastic? **Time** is the biggest one. In the [[momentary period]] output cannot change. In the [[short run]] firms add workers and materials. In the [[long run]] they add machines and land, and new firms join. Supply is also more elastic when firms have [[unused capacity]], when they can [[store stock|ability to store stock]], when factors are mobile ([[mobility of factors of production]]), and when costs rise slowly as output grows.\n\n^HL^ PES for [[primary commodities]] (crops, metals) is usually lower than for [[manufactured products]]. Crops and mines take a long time to expand, land and farm workers cannot move in quickly, and many crops cannot be stored for long.",
+  "caption": "Choose a value of PES to highlight its supply curve. The steeper the curve through a point, the less elastic the supply."
+ },
+ "try": {
+  "goal": "Race the producers. Rank them by how fast they can supply more, travel through time with one producer, then measure PES yourself.",
+  "intro": "**Level 1: Three producers.** The price rises for three producers. Rank them from least to most elastic supply, then choose the determinant that explains your ranking. Watch them race.\n\n**Level 2: Time machine.** One producer travels from the momentary period to the short run and the long run. Choose what it can do in each period. Watch output grow and the supply curve get flatter.\n\n**Level 3: Measure it.** Calculate PES from each producer's results and say what kind of supply it shows. One round is HL: primary commodities against manufactured products.",
+  "levels": [
+   {
+    "title": "Three producers",
+    "blurb": "5 rounds: rank the producers and name the determinant. Get 8 of 10 right first time."
+   },
+   {
+    "title": "Time machine",
+    "blurb": "4 producers through 3 time periods. Get 10 of 12 right first time."
+   },
+   {
+    "title": "Measure it",
+    "blurb": "Calculate and classify PES in 6 rounds, one of them HL. Solve 5 with no wrong try."
+   }
+  ],
+  "determinantNames": {
+   "time": "Time to make more",
+   "capacity": "Unused (spare) capacity",
+   "storage": "Ability to store stock",
+   "mobility": "Mobility of factors of production",
+   "costs": "How fast costs rise"
+  },
+  "determinantIcons": {
+   "time": "⏳",
+   "capacity": "🏭",
+   "storage": "📦",
+   "mobility": "🔀",
+   "costs": "📈"
+  },
+  "raceRounds": [
+   {
+    "id": "r-time",
+    "priceRise": 20,
+    "determinant": "time",
+    "producers": [
+     {
+      "id": "farm",
+      "name": "Strawberry farm",
+      "icon": "🍓",
+      "scene": [
+       "🌱",
+       "🌱",
+       "🍓",
+       "🌱"
+      ],
+      "anim": "sway",
+      "note": "New plants take months to give fruit.",
+      "pes": 0.2
+     },
+     {
+      "id": "bakery",
+      "name": "Bakery",
+      "icon": "🥐",
+      "scene": [
+       "🔥",
+       "🥖",
+       "🔥",
+       "🥐"
+      ],
+      "anim": "flicker",
+      "note": "More dough can be mixed and baked by tomorrow morning.",
+      "pes": 1.5
+     },
+     {
+      "id": "app",
+      "name": "App studio",
+      "icon": "📱",
+      "scene": [
+       "💻",
+       "⬇️",
+       "💻",
+       "⬇️"
+      ],
+      "anim": "blink",
+      "note": "Each extra download of its game app is ready in a second.",
+      "pes": 5
+     }
+    ],
+    "rankWhy": "The farm is slowest (months to grow fruit), the bakery is next (one night of baking) and the app studio is fastest (a download takes a second).",
+    "detWhy": "The three producers need very different amounts of **time** to make more. The more time a producer needs before extra output is ready, the less elastic its supply.",
+    "detHint": "Ask: how long does each producer need before more output is ready?"
+   },
+   {
+    "id": "r-capacity",
+    "priceRise": 20,
+    "determinant": "capacity",
+    "producers": [
+     {
+      "id": "fa",
+      "name": "T-shirt factory A",
+      "icon": "👕",
+      "scene": [
+       "⚙️",
+       "⚙️",
+       "⚙️",
+       "⚙️"
+      ],
+      "anim": "spin",
+      "note": "All machines already run day and night.",
+      "pes": 0.2
+     },
+     {
+      "id": "fb",
+      "name": "T-shirt factory B",
+      "icon": "👕",
+      "scene": [
+       "⚙️",
+       "⚙️",
+       "⚙️",
+       "💤"
+      ],
+      "anim": "spin",
+      "note": "7 of its 10 machines are in use.",
+      "pes": 1.2
+     },
+     {
+      "id": "fc",
+      "name": "T-shirt factory C",
+      "icon": "👕",
+      "scene": [
+       "⚙️",
+       "💤",
+       "⚙️",
+       "💤"
+      ],
+      "anim": "spin",
+      "note": "Half of its machines stand idle.",
+      "pes": 3
+     }
+    ],
+    "rankWhy": "Factory A has no spare machines, so it can hardly make more. Factory B has a few. Factory C can switch on half its machines straight away.",
+    "detWhy": "The factories make the same product. What differs is **unused capacity**: idle machines that can start work quickly. More spare capacity means more elastic supply.",
+    "detHint": "The three factories make the same thing. Look at how many of their machines are in use."
+   },
+   {
+    "id": "r-storage",
+    "priceRise": 20,
+    "determinant": "storage",
+    "producers": [
+     {
+      "id": "flowers",
+      "name": "Flower stall",
+      "icon": "💐",
+      "scene": [
+       "🌷",
+       "🌹",
+       "🌷",
+       "🥀"
+      ],
+      "anim": "sway",
+      "note": "Flowers wilt in two days, so it keeps no stock.",
+      "pes": 0.2
+     },
+     {
+      "id": "pizza",
+      "name": "Frozen pizza maker",
+      "icon": "🍕",
+      "scene": [
+       "❄️",
+       "🍕",
+       "❄️",
+       "🍕"
+      ],
+      "anim": "bob",
+      "note": "A freezer holds a few days of pizzas.",
+      "pes": 1.1
+     },
+     {
+      "id": "soup",
+      "name": "Canned soup maker",
+      "icon": "🥫",
+      "scene": [
+       "📦",
+       "📦",
+       "🥫",
+       "📦"
+      ],
+      "anim": "bob",
+      "note": "A warehouse is full of cans ready to sell.",
+      "pes": 2.5
+     }
+    ],
+    "rankWhy": "The flower stall has nothing in stock. The pizza maker has a few days of stock. The soup maker can send a whole warehouse of cans to shops today.",
+    "detWhy": "A producer with goods in storage can sell more as soon as the price rises. Goods that spoil cannot be stored. So the **ability to store stock** makes supply more elastic.",
+    "detHint": "Look at what each producer has ready on its shelves."
+   },
+   {
+    "id": "r-mobility",
+    "priceRise": 20,
+    "determinant": "mobility",
+    "producers": [
+     {
+      "id": "ship",
+      "name": "Shipyard",
+      "icon": "🚢",
+      "scene": [
+       "🏗️",
+       "👷",
+       "🏗️",
+       "⚓"
+      ],
+      "anim": "bob",
+      "note": "It needs specialist welders and giant docks. Few can be found quickly.",
+      "pes": 0.2
+     },
+     {
+      "id": "garage",
+      "name": "Car repair garage",
+      "icon": "🔧",
+      "scene": [
+       "🚗",
+       "🔧",
+       "🚙",
+       "🔩"
+      ],
+      "anim": "spin",
+      "note": "It needs trained mechanics. A few can move from other garages.",
+      "pes": 0.9
+     },
+     {
+      "id": "bikes",
+      "name": "Bike delivery service",
+      "icon": "🚲",
+      "scene": [
+       "🚲",
+       "📦",
+       "🚲",
+       "🛵"
+      ],
+      "anim": "roll",
+      "note": "Any rider with a bike can start work this week.",
+      "pes": 3
+     }
+    ],
+    "rankWhy": "The shipyard needs workers and equipment that are hard to find. The garage can hire a few mechanics. The delivery service can take on new riders at once.",
+    "detWhy": "This is the **mobility of factors of production**. When workers and capital can move easily into an industry, firms can raise output quickly, so supply is more elastic.",
+    "detHint": "Ask: how easy is it for each producer to find the workers and equipment it needs?"
+   },
+   {
+    "id": "r-costs",
+    "priceRise": 20,
+    "determinant": "costs",
+    "producers": [
+     {
+      "id": "mine",
+      "name": "Gold mine",
+      "icon": "⛏️",
+      "scene": [
+       "🪨",
+       "⛏️",
+       "🪨",
+       "💰"
+      ],
+      "anim": "bob",
+      "note": "Each extra tonne means digging deeper. Costs climb fast.",
+      "pes": 0.3
+     },
+     {
+      "id": "chairs",
+      "name": "Furniture workshop",
+      "icon": "🪑",
+      "scene": [
+       "🪚",
+       "🪑",
+       "🪵",
+       "🪑"
+      ],
+      "anim": "bob",
+      "note": "Extra chairs need overtime pay, so costs rise a little.",
+      "pes": 1.2
+     },
+     {
+      "id": "posters",
+      "name": "Poster printer",
+      "icon": "🖨️",
+      "scene": [
+       "📄",
+       "🖨️",
+       "📄",
+       "🖼️"
+      ],
+      "anim": "blink",
+      "note": "Extra posters cost the same as the first ones: paper and ink.",
+      "pes": 3.5
+     }
+    ],
+    "rankWhy": "The mine's costs climb fastest as it digs more, the workshop's rise a little, and the printer's hardly rise at all.",
+    "detWhy": "This is **how fast costs rise** as output grows. If each extra unit costs much more to make, a higher price only pays for a little more output, so supply is less elastic.",
+    "detHint": "Read what happens to each producer's costs when it makes more."
+   }
+  ],
+  "periodNames": {
+   "momentary": "Momentary period",
+   "short": "Short run",
+   "long": "Long run"
+  },
+  "periodHints": {
+   "momentary": "Right now. No time to make more.",
+   "short": "Weeks or months. More workers and materials, but the same land and machines.",
+   "long": "A year or more. New machines and land, and new firms can join."
+  },
+  "timeProducers": [
+   {
+    "id": "t-farm",
+    "name": "Strawberry farm",
+    "icon": "🍓",
+    "unit": "kg a day",
+    "priceUnit": "a kg",
+    "p0": 4,
+    "p1": 5,
+    "q0": 200,
+    "qShort": 220,
+    "qLong": 300,
+    "options": {
+     "momentary": [
+      {
+       "text": "Sell only the strawberries already picked. Output stays the same.",
+       "correct": true,
+       "feedback": "Right. There is no time to grow or pick more. Quantity supplied cannot change, so supply is perfectly inelastic (PES = 0)."
+      },
+      {
+       "text": "Plant new fields and sell their fruit today.",
+       "feedback": "New plants take months to give fruit. That needs the long run, not today."
+      },
+      {
+       "text": "Hire extra pickers to pick every ripe berry.",
+       "feedback": "Finding and hiring pickers takes some days. That is the short run. Right now the farm can only sell what is already picked."
+      }
+     ],
+     "short": [
+      {
+       "text": "Hire extra pickers and add fertiliser to the plants it has. Output rises a little.",
+       "correct": true,
+       "feedback": "Right. The farm can add workers and materials, but its fields are fixed. Output rises a little: supply is inelastic."
+      },
+      {
+       "text": "Nothing can change. Output stays the same.",
+       "feedback": "That is the momentary period. In the short run there is time to hire pickers and use the fields more."
+      },
+      {
+       "text": "Buy new land and sell fruit from new plants.",
+       "feedback": "New plants take months to give fruit. Changing the amount of land needs the long run."
+      }
+     ],
+     "long": [
+      {
+       "text": "Plant new fields, and new farms join the market. Output rises a lot.",
+       "correct": true,
+       "feedback": "Right. In the long run every factor can change and new firms can enter. Output rises a lot, so supply is elastic."
+      },
+      {
+       "text": "Keep the same fields and pickers as in the short run.",
+       "feedback": "In the long run the farm has time to change everything, including its land. At the higher price it wants to grow more."
+      },
+      {
+       "text": "Output falls back to where it started.",
+       "feedback": "The price is still higher, so the farm wants to supply more, not less."
+      }
+     ]
+    }
+   },
+   {
+    "id": "t-cars",
+    "name": "Car factory",
+    "icon": "🚗",
+    "unit": "cars a month",
+    "priceUnit": "a car",
+    "p0": 20000,
+    "p1": 22000,
+    "q0": 1000,
+    "qShort": 1050,
+    "qLong": 1300,
+    "options": {
+     "momentary": [
+      {
+       "text": "Sell the cars already built. Output stays the same.",
+       "correct": true,
+       "feedback": "Right. There is no time to build more cars yet. Supply is perfectly inelastic (PES = 0)."
+      },
+      {
+       "text": "Run an extra night shift on the same assembly lines.",
+       "feedback": "Hiring and training a night shift takes weeks. That is the short run."
+      },
+      {
+       "text": "Build a second factory by tomorrow.",
+       "feedback": "A new factory takes a year or more. That is the long run."
+      }
+     ],
+     "short": [
+      {
+       "text": "Open a second factory next month.",
+       "feedback": "Building a factory takes far longer than a month. That needs the long run."
+      },
+      {
+       "text": "Add a night shift on the same assembly lines. Output rises a little.",
+       "correct": true,
+       "feedback": "Right. The factory is fixed, but it can add workers and parts. Output rises a little: supply is inelastic."
+      },
+      {
+       "text": "Nothing can change. Output stays the same.",
+       "feedback": "That is the momentary period. In the short run the firm has time to add a shift."
+      }
+     ],
+     "long": [
+      {
+       "text": "Build a second factory, and other car makers expand. Output rises a lot.",
+       "correct": true,
+       "feedback": "Right. In the long run the firm can add machines and buildings, and other firms can join. Supply becomes elastic."
+      },
+      {
+       "text": "Only the night shift can help, even after years.",
+       "feedback": "After a year or more the firm can build new factories. In the long run every factor can change."
+      },
+      {
+       "text": "Sell the cars already built and stop making new ones.",
+       "feedback": "That is the momentary period. In the long run the firm has time to make many more cars."
+      }
+     ]
+    }
+   },
+   {
+    "id": "t-bakery",
+    "name": "Bakery",
+    "icon": "🥐",
+    "unit": "croissants a day",
+    "priceUnit": "a croissant",
+    "p0": 2,
+    "p1": 2.5,
+    "q0": 400,
+    "qShort": 500,
+    "qLong": 800,
+    "options": {
+     "momentary": [
+      {
+       "text": "Buy new ovens and bake more this minute.",
+       "feedback": "Buying and fitting new ovens takes time. That is the long run."
+      },
+      {
+       "text": "Sell the croissants baked this morning. Output stays the same.",
+       "correct": true,
+       "feedback": "Right. Today's croissants are already baked. Quantity supplied cannot change yet: PES = 0."
+      },
+      {
+       "text": "Bake extra batches in the ovens it has.",
+       "feedback": "Extra batches need more flour, butter and a baker's time. That is the short run, not this moment."
+      }
+     ],
+     "short": [
+      {
+       "text": "Bake extra batches in its ovens and hire a part-time baker. Output rises.",
+       "correct": true,
+       "feedback": "Right. The ovens are fixed, but the bakery can add workers and ingredients. A bakery can do this fast, so output rises by the same % as price here."
+      },
+      {
+       "text": "Open a second shop next week.",
+       "feedback": "Finding, fitting and opening a new shop takes much longer than a week. That is the long run."
+      },
+      {
+       "text": "Nothing can change. Output stays the same.",
+       "feedback": "That is the momentary period. In the short run there is time to bake more."
+      }
+     ],
+     "long": [
+      {
+       "text": "Buy new ovens and open a second shop. Output rises a lot.",
+       "correct": true,
+       "feedback": "Right. In the long run the bakery can add ovens and shops, and new bakeries can open. Output rises a lot: supply is very elastic."
+      },
+      {
+       "text": "Keep the same ovens forever.",
+       "feedback": "In the long run every factor can change, including the number of ovens."
+      },
+      {
+       "text": "Cut output because the price rose.",
+       "feedback": "A higher price makes it more profitable to supply more, not less."
+      }
+     ]
+    }
+   },
+   {
+    "id": "t-coffee",
+    "name": "Coffee farm",
+    "icon": "☕",
+    "unit": "kg a week",
+    "priceUnit": "a kg",
+    "p0": 4,
+    "p1": 5,
+    "q0": 1000,
+    "qShort": 1050,
+    "qLong": 1500,
+    "options": {
+     "momentary": [
+      {
+       "text": "Sell the beans already harvested and dried. Output stays the same.",
+       "correct": true,
+       "feedback": "Right. No new beans can grow right now. Supply is perfectly inelastic."
+      },
+      {
+       "text": "Pick the trees again and add fertiliser.",
+       "feedback": "Picking again and fertilising takes weeks. That is the short run."
+      },
+      {
+       "text": "Plant new coffee trees and sell their beans now.",
+       "feedback": "New coffee trees take years to give fruit. That is the long run."
+      }
+     ],
+     "short": [
+      {
+       "text": "Plant new trees and sell their beans next month.",
+       "feedback": "New coffee trees take years to give fruit, not a month."
+      },
+      {
+       "text": "Nothing can change. Output stays the same.",
+       "feedback": "That is the momentary period. In the short run the farm can work its trees harder."
+      },
+      {
+       "text": "Pick the trees more carefully and add fertiliser. Output rises only a little.",
+       "correct": true,
+       "feedback": "Right. The trees are fixed, so the farm can only squeeze a little more from them. Supply is very inelastic."
+      }
+     ],
+     "long": [
+      {
+       "text": "Plant new coffee trees, which give fruit after a few years. Output rises a lot.",
+       "correct": true,
+       "feedback": "Right. Given enough time, new trees grow and new farms join. Supply becomes elastic, but it takes years."
+      },
+      {
+       "text": "Output stays only a little higher, forever.",
+       "feedback": "In the long run there is time to plant new trees and for new farms to join."
+      },
+      {
+       "text": "Sell the beans already harvested and stop.",
+       "feedback": "That is the momentary period. In the long run the farm can grow much more."
+      }
+     ]
+    }
+   }
+  ],
+  "classNames": {
+   "perfectly-inelastic": "Perfectly inelastic",
+   "inelastic": "Inelastic",
+   "unit": "Unit elastic",
+   "elastic": "Elastic",
+   "perfectly-elastic": "Perfectly elastic"
+  },
+  "classRanges": {
+   "perfectly-inelastic": "PES = 0",
+   "inelastic": "PES between 0 and 1",
+   "unit": "PES = 1",
+   "elastic": "PES above 1",
+   "perfectly-elastic": "PES = infinity"
+  },
+  "measureRounds": [
+   {
+    "id": "m-straw",
+    "kind": "calc",
+    "name": "Strawberry farm",
+    "icon": "🍓",
+    "period": "Momentary period",
+    "unit": "kg a day",
+    "priceUnit": "a kg",
+    "p0": 4,
+    "p1": 5,
+    "q0": 200,
+    "q1": 200,
+    "why": "% change in quantity supplied = 0 ÷ 200 × 100 = 0%. % change in price = 1 ÷ 4 × 100 = 25%. PES = 0 ÷ 25 = **0**. Output cannot change yet."
+   },
+   {
+    "id": "m-coffee",
+    "kind": "calc",
+    "name": "Coffee farm",
+    "icon": "☕",
+    "period": "Short run",
+    "unit": "kg a week",
+    "priceUnit": "a kg",
+    "p0": 4,
+    "p1": 5,
+    "q0": 1000,
+    "q1": 1050,
+    "why": "% change in quantity supplied = 50 ÷ 1000 × 100 = 5%. % change in price = 1 ÷ 4 × 100 = 25%. PES = 5 ÷ 25 = **0.2**. The trees are fixed, so output hardly moves."
+   },
+   {
+    "id": "m-bakery",
+    "kind": "calc",
+    "name": "Bakery",
+    "icon": "🥐",
+    "period": "Short run",
+    "unit": "croissants a day",
+    "priceUnit": "a croissant",
+    "p0": 2,
+    "p1": 2.5,
+    "q0": 400,
+    "q1": 500,
+    "why": "% change in quantity supplied = 100 ÷ 400 × 100 = 25%. % change in price = 0.5 ÷ 2 × 100 = 25%. PES = 25 ÷ 25 = **1**. Quantity changes by the same % as price."
+   },
+   {
+    "id": "m-cars",
+    "kind": "calc",
+    "name": "Car factory",
+    "icon": "🚗",
+    "period": "Long run",
+    "unit": "cars a month",
+    "priceUnit": "a car",
+    "p0": 20000,
+    "p1": 22000,
+    "q0": 1000,
+    "q1": 1300,
+    "why": "% change in quantity supplied = 300 ÷ 1000 × 100 = 30%. % change in price = 2000 ÷ 20000 × 100 = 10%. PES = 30 ÷ 10 = **3**. With a new factory, output responds strongly."
+   },
+   {
+    "id": "m-shirts",
+    "kind": "reverse",
+    "name": "T-shirt factory C",
+    "icon": "👕",
+    "period": "Short run",
+    "pes": 2.5,
+    "pctPrice": 8,
+    "why": "Rearrange the formula: % change in quantity supplied = PES × % change in price = 2.5 × 8 = **20%**. PES is above 1, so supply is elastic: the idle machines let output rise fast."
+   },
+   {
+    "id": "m-hl",
+    "kind": "choice",
+    "hl": true,
+    "name": "Coffee beans and mobile phones",
+    "icon": "🌍",
+    "steps": [
+     {
+      "prompt": "The world prices of coffee beans and of mobile phones both rise by 10%. Which is likely to have the **lower** PES?",
+      "options": [
+       {
+        "text": "Coffee beans, a primary commodity",
+        "correct": true,
+        "feedback": "Right. Primary commodities usually have lower PES than manufactured products."
+       },
+       {
+        "text": "Mobile phones, a manufactured product",
+        "feedback": "Phone factories can add shifts and machines fairly quickly, and phones are easy to store. Their supply responds faster than coffee."
+       }
+      ]
+     },
+     {
+      "prompt": "Why is PES for primary commodities usually lower?",
+      "options": [
+       {
+        "text": "People drink coffee every day, so they keep buying it.",
+        "feedback": "That is about demand (PED), not supply. PES is about how fast producers can raise output."
+       },
+       {
+        "text": "Crops take years to grow, land and farm workers cannot move in quickly, and many crops cannot be stored for long.",
+        "correct": true,
+        "feedback": "Right. Time, factor mobility and storage all point the same way for primary commodities, so their supply responds slowly."
+       },
+       {
+        "text": "Coffee is cheaper than a phone, so its PES is lower.",
+        "feedback": "The price level does not set PES. PES compares % changes, so it does not depend on how cheap the good is."
+       }
+      ]
+     }
+    ],
+    "why": "Primary commodities come from land: farms, mines and forests. Expanding them takes a long time, the factors are not very mobile, and many crops spoil. Factories can add shifts, use spare capacity and store finished goods. So PES for manufactured products is usually higher."
+   }
+  ]
+ },
+ "check": [
+  {
+   "id": "q1",
+   "type": "choice",
+   "level": "core",
+   "prompt": "Which formula gives the price elasticity of supply (PES)?",
+   "options": [
+    {
+     "text": "% change in price ÷ % change in quantity supplied",
+     "feedback": "This is upside down. Quantity supplied goes on top, because PES measures how quantity responds to price."
+    },
+    {
+     "text": "% change in quantity supplied ÷ % change in price",
+     "correct": true,
+     "feedback": "Yes. PES measures how strongly quantity supplied responds to a change in price."
+    },
+    {
+     "text": "Change in quantity supplied ÷ change in price",
+     "feedback": "These are changes in units, not % changes. Elasticity always uses % changes, so the units do not matter."
+    },
+    {
+     "text": "% change in quantity demanded ÷ % change in price",
+     "feedback": "That is PED. PES uses quantity supplied."
+    }
+   ],
+   "hints": [
+    "Elasticity always compares two % changes.",
+    "The thing that responds goes on top. What responds to the price here?"
+   ],
+   "worked": "Example: a price rises 10% and quantity supplied rises 5%. PES = 5 ÷ 10 = 0.5.",
+   "explanation": "**PES = % change in quantity supplied ÷ % change in price.** The response (quantity supplied) goes on top, and the cause (price) goes underneath."
+  },
+  {
+   "id": "q2",
+   "type": "number",
+   "level": "core",
+   "prompt": "The price of honey rises from $10 to $12 a jar. A beekeeper raises quantity supplied from 100 to 130 jars a week. Calculate the PES.",
+   "table": {
+    "caption": "A beekeeper's supply",
+    "headers": [
+     "",
+     "Price ($ a jar)",
+     "Quantity supplied (jars a week)"
+    ],
+    "rows": [
+     [
+      "Before",
+      10,
+      100
+     ],
+     [
+      "After",
+      12,
+      130
+     ]
+    ]
+   },
+   "answer": 1.5,
+   "tolerance": 0.01,
+   "prefix": "PES = ",
+   "mistakes": [
+    {
+     "value": 0.67,
+     "feedback": "This is upside down: % change in price ÷ % change in quantity. Put the % change in quantity supplied on top."
+    },
+    {
+     "value": 15,
+     "feedback": "You divided the change in units (30 jars ÷ $2). Use % changes: 30% and 20%."
+    },
+    {
+     "value": 30,
+     "feedback": "30% is the % change in quantity supplied. Now divide it by the % change in price."
+    },
+    {
+     "value": -1.5,
+     "feedback": "PES is positive: price and quantity supplied move in the same direction."
+    }
+   ],
+   "hints": [
+    "Work out the % change in quantity supplied and the % change in price first.",
+    "% change in quantity = 30 ÷ 100 × 100 = 30%. % change in price = 2 ÷ 10 × 100 = 20%."
+   ],
+   "worked": "Example: price rises from $5 to $6 (20%) and quantity supplied rises from 50 to 55 (10%). PES = 10 ÷ 20 = 0.5.",
+   "explanation": "% change in quantity supplied = 30%. % change in price = 20%. PES = 30 ÷ 20 = **1.5**. PES is above 1, so supply is elastic."
+  },
+  {
+   "id": "q3",
+   "type": "label",
+   "level": "core",
+   "prompt": "Four supply curves pass through the same point. Choose the label for each letter.",
+   "diagram": {
+    "xMax": 100,
+    "yMax": 100,
+    "xLabel": "Quantity",
+    "yLabel": "Price ($)",
+    "title": "Four supply curves with different PES",
+    "description": "Four straight supply curves cross at one point in the middle. A is vertical. B is steep and starts on the quantity axis. C is gentle and starts on the price axis. D is horizontal.",
+    "curves": [
+     {
+      "line": {
+       "a": {
+        "q": 50,
+        "p": 0
+       },
+       "b": {
+        "q": 50,
+        "p": 100
+       }
+      },
+      "tone": "navy"
+     },
+     {
+      "line": {
+       "a": {
+        "q": 30,
+        "p": 0
+       },
+       "b": {
+        "q": 50,
+        "p": 50
+       }
+      },
+      "tone": "navy"
+     },
+     {
+      "line": {
+       "a": {
+        "q": 0,
+        "p": 30
+       },
+       "b": {
+        "q": 50,
+        "p": 50
+       }
+      },
+      "tone": "navy"
+     },
+     {
+      "line": {
+       "a": {
+        "q": 0,
+        "p": 50
+       },
+       "b": {
+        "q": 100,
+        "p": 50
+       }
+      },
+      "tone": "navy"
+     }
+    ],
+    "tags": [
+     {
+      "at": {
+       "q": 50,
+       "p": 92
+      },
+      "letter": "A"
+     },
+     {
+      "at": {
+       "q": 66,
+       "p": 92
+      },
+      "letter": "B"
+     },
+     {
+      "at": {
+       "q": 92,
+       "p": 72
+      },
+      "letter": "C"
+     },
+     {
+      "at": {
+       "q": 92,
+       "p": 50
+      },
+      "letter": "D"
+     }
+    ]
+   },
+   "slots": [
+    {
+     "letter": "A",
+     "answer": "Perfectly inelastic supply (PES = 0)",
+     "feedback": "A vertical curve means quantity supplied never changes, whatever the price. PES = 0."
+    },
+    {
+     "letter": "B",
+     "answer": "Inelastic supply (PES below 1)",
+     "feedback": "A steep curve that starts on the quantity axis: quantity changes by a smaller % than price."
+    },
+    {
+     "letter": "C",
+     "answer": "Elastic supply (PES above 1)",
+     "feedback": "A gentle curve that starts on the price axis: quantity changes by a bigger % than price."
+    },
+    {
+     "letter": "D",
+     "answer": "Perfectly elastic supply (PES = infinity)",
+     "feedback": "A horizontal curve: firms supply any quantity at this price, and nothing below it."
+    }
+   ],
+   "choices": [
+    "Perfectly inelastic supply (PES = 0)",
+    "Inelastic supply (PES below 1)",
+    "Unit elastic supply (PES = 1)",
+    "Elastic supply (PES above 1)",
+    "Perfectly elastic supply (PES = infinity)",
+    "Demand curve"
+   ],
+   "hints": [
+    "The steeper the supply curve through a point, the less quantity responds to price.",
+    "A straight supply curve that starts on the quantity axis is inelastic. One that starts on the price axis is elastic."
+   ],
+   "worked": "Example: a concert hall has 2,000 seats tonight. Whatever the ticket price, it can only offer 2,000. Its supply curve is vertical: PES = 0.",
+   "explanation": "From A to D, supply gets more elastic: **vertical** (PES = 0), **steep** from the quantity axis (PES below 1), **gentle** from the price axis (PES above 1), **horizontal** (PES = infinity)."
+  },
+  {
+   "id": "q4",
+   "type": "choice",
+   "level": "core",
+   "prompt": "A fishing boat comes back to the harbour. That morning the price of fish suddenly rises. Why is supply of fish that morning perfectly inelastic?",
+   "options": [
+    {
+     "text": "The fishers do not want to earn more money.",
+     "feedback": "Firms do want to sell more at a higher price. The problem is that they cannot, yet."
+    },
+    {
+     "text": "There is no time to catch more fish. Only the fish on the boat can be sold.",
+     "correct": true,
+     "feedback": "Yes. In the momentary period output cannot change, so PES = 0 and the supply curve is vertical."
+    },
+    {
+     "text": "Demand for fish is perfectly inelastic.",
+     "feedback": "That is about buyers (PED). PES is about how fast producers can raise output."
+    },
+    {
+     "text": "Fish can be stored for a long time.",
+     "feedback": "Fresh fish spoils quickly. If it could be stored, supply would be more elastic, not less."
+    }
+   ],
+   "hints": [
+    "Think about time. How long does it take to catch more fish?",
+    "What is the name for a period so short that output cannot change at all?"
+   ],
+   "worked": "Example: at 6 p.m., a bakery's bread price rises. The day's bread is already baked. Until tomorrow, the bakery can only sell what is on its shelves: PES = 0.",
+   "explanation": "In the **momentary period** there is no time to change output. Quantity supplied is fixed, so the supply curve is vertical and **PES = 0**."
+  },
+  {
+   "id": "q5",
+   "type": "number",
+   "level": "apply",
+   "prompt": "The PES for rice from a farm is 0.5. The price of rice rises by 8%. By what % does quantity supplied rise?",
+   "answer": 4,
+   "tolerance": 0.01,
+   "suffix": "%",
+   "mistakes": [
+    {
+     "value": 16,
+     "feedback": "You divided 8 by 0.5. Rearrange the formula: % change in quantity = PES × % change in price."
+    },
+    {
+     "value": 0.06,
+     "feedback": "You divided 0.5 by 8. Multiply instead: % change in quantity = PES × % change in price."
+    },
+    {
+     "value": 8,
+     "feedback": "That is the % change in price. Quantity supplied changes by PES times that."
+    }
+   ],
+   "hints": [
+    "PES = % change in quantity supplied ÷ % change in price. Rearrange it.",
+    "% change in quantity supplied = PES × % change in price."
+   ],
+   "worked": "Example: PES = 2 and price rises 5%. % change in quantity supplied = 2 × 5 = 10%.",
+   "explanation": "% change in quantity supplied = PES × % change in price = 0.5 × 8 = **4%**. Supply is inelastic, so quantity rises by a smaller % than price."
+  },
+  {
+   "id": "q6",
+   "type": "number",
+   "level": "apply",
+   "prompt": "A furniture maker supplies 400 tables a year. Its PES is 2. The price of tables rises from $500 to $550. How many tables does it supply now?",
+   "answer": 480,
+   "tolerance": 0.5,
+   "suffix": "tables",
+   "mistakes": [
+    {
+     "value": 80,
+     "feedback": "80 is the **change** in tables. Add it to the 400 the firm made before."
+    },
+    {
+     "value": 440,
+     "feedback": "That is a 10% rise, the same as the price. With PES = 2, quantity rises by 2 × 10% = 20%."
+    },
+    {
+     "value": 420,
+     "feedback": "You used a 5% rise. % change in quantity = PES × % change in price = 2 × 10% = 20%."
+    },
+    {
+     "value": 20,
+     "feedback": "20% is the % change. Now find 20% of 400 and add it on."
+    }
+   ],
+   "hints": [
+    "First find the % change in price: (550 − 500) ÷ 500 × 100.",
+    "% change in quantity = 2 × 10% = 20%. What is 400 plus 20%?"
+   ],
+   "worked": "Example: a firm supplies 200 units and has PES = 1.5. Price rises 10%. Quantity rises 1.5 × 10 = 15%, which is 30 units. New quantity = 230.",
+   "explanation": "Price rises 10%. % change in quantity = 2 × 10 = 20%. 20% of 400 = 80, so the firm now supplies 400 + 80 = **480 tables**."
+  },
+  {
+   "id": "q7",
+   "type": "choice",
+   "level": "apply",
+   "prompt": "Two bottled water firms face the same price rise. Firm X runs all its machines day and night. Firm Y has a second bottling line that stands idle. Which statement is right?",
+   "options": [
+    {
+     "text": "Firm X has more elastic supply, because it is already busy.",
+     "feedback": "A busy firm has no spare machines, so it cannot raise output quickly. Its supply is less elastic."
+    },
+    {
+     "text": "Both firms have the same PES, because the price rose by the same %.",
+     "feedback": "The same price rise can bring very different output responses. That difference is what PES measures."
+    },
+    {
+     "text": "Firm Y has more elastic supply, because it has unused capacity.",
+     "correct": true,
+     "feedback": "Yes. Firm Y can switch on the idle line and raise output quickly, so its quantity supplied responds more."
+    },
+    {
+     "text": "Firm Y has less elastic supply, because idle machines cost money.",
+     "feedback": "Idle machines are spare capacity. They let a firm raise output fast when the price rises."
+    }
+   ],
+   "hints": [
+    "Which firm can make more water quickly?",
+    "Idle machines are unused capacity."
+   ],
+   "worked": "Example: a cinema with empty screens can add more showings of a popular film at once. A full cinema cannot. The cinema with empty screens has more elastic supply.",
+   "explanation": "**Unused capacity** lets a firm raise output quickly and cheaply, so Firm Y's supply is more elastic."
+  },
+  {
+   "id": "q8",
+   "type": "choice",
+   "level": "apply",
+   "hl": true,
+   "prompt": "^HL^ Why is the PES for primary commodities, such as wheat or copper, generally lower than the PES for manufactured products, such as bicycles?",
+   "options": [
+    {
+     "text": "Primary commodities are necessities, so demand for them is inelastic.",
+     "feedback": "That is about demand (PED). The question is about how quickly producers can raise supply."
+    },
+    {
+     "text": "Farms and mines take a long time to expand, factors cannot move in quickly, and many crops cannot be stored for long.",
+     "correct": true,
+     "feedback": "Yes. Time, low factor mobility and limited storage all make supply of primary commodities slow to respond."
+    },
+    {
+     "text": "Manufactured products are more expensive, so their PES is higher.",
+     "feedback": "PES compares % changes, so it does not depend on the price level."
+    },
+    {
+     "text": "Primary commodities have no costs of production.",
+     "feedback": "Farms and mines do have costs. Often costs rise fast as they try to produce more, which makes PES lower."
+    }
+   ],
+   "hints": [
+    "Think about how long it takes to grow more wheat or open a new mine.",
+    "Compare that with a bicycle factory that can add a shift or switch on idle machines."
+   ],
+   "worked": "Example: when the price of cocoa rises, farmers plant new trees, but these take years to give beans. A chocolate bar factory can add a shift within weeks.",
+   "explanation": "Primary commodities come from land. New crops and mines take **time**, land and farm workers are **not very mobile**, many crops **cannot be stored** for long, and costs can rise fast. Factories can add shifts, use spare capacity and store finished goods."
+  },
+  {
+   "id": "q9",
+   "type": "choice",
+   "level": "core",
+   "prompt": "A straight supply curve starts at the origin (0, 0). What is the PES along this curve?",
+   "options": [
+    {
+     "text": "PES = 1 at every point on the curve.",
+     "correct": true,
+     "feedback": "Yes. Any straight supply curve through the origin has PES = 1 all along it, whatever its slope."
+    },
+    {
+     "text": "PES = 0, because it starts at zero.",
+     "feedback": "PES = 0 needs a vertical curve. This curve slopes up, so quantity does respond to price."
+    },
+    {
+     "text": "It depends on how steep the curve is.",
+     "feedback": "For a straight line through the origin, a steeper or flatter slope still gives PES = 1. The % changes in price and quantity are always equal."
+    },
+    {
+     "text": "PES is higher at the top of the curve.",
+     "feedback": "That is true for some curves, but not for a straight line from the origin. Here PES = 1 at every point."
+    }
+   ],
+   "hints": [
+    "Along a line from the origin, if price doubles, what happens to quantity?",
+    "If price and quantity always change by the same %, what is PES?"
+   ],
+   "worked": "Example: a line through (0, 0), (10, $2) and (20, $4). Price rises from $2 to $4 (100%) and quantity rises from 10 to 20 (100%). PES = 100 ÷ 100 = 1.",
+   "explanation": "On a straight line through the origin, price and quantity always change by the same %. So **PES = 1** everywhere along it: **unitary PES**."
+  }
+ ],
+ "explain": {
+  "prompt": "A strawberry farm faces a higher price. Explain why its PES is low in the short run but higher in the long run. Use the PES formula and at least one other determinant.",
+  "frames": [
+   "PES measures ___. It is calculated as ___.",
+   "In the short run, the farm can ___, but it cannot ___, so PES is ___.",
+   "In the long run, ___, so quantity supplied rises by a ___ % than price.",
+   "Another determinant is ___. This matters because ___."
+  ],
+  "checklist": [
+   "I gave the PES formula with quantity supplied on top.",
+   "I said which factors are fixed in the short run and which can change in the long run.",
+   "I said whether supply is elastic or inelastic in each period.",
+   "I used a second determinant, such as spare capacity, storage or factor mobility."
+  ]
+ },
+ "teacherNotes": "Level 1 works well projected: ask the class to rank the three producers with their fingers before anyone taps. Each round isolates one determinant from the guide (time, unused capacity, ability to store, mobility of factors, rate at which costs increase). Level 2 shows the supply curve pivoting from vertical (momentary period) to steep (short run) to flatter (long run) through the same starting point. Level 3 uses the producers' own numbers from Level 2; the typed PES is checked for the inverted formula, unit changes instead of % changes, and a minus sign. The HL round covers why PES for primary commodities is generally lower than for manufactured products. The PES values in Level 1 are illustrative, not measured."
+}
