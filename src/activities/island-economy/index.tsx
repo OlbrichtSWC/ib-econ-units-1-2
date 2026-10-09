@@ -15,7 +15,6 @@ import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import {
   BEACH_GOAL, beachWon, DETECTIVE_GOAL, detectiveWon, Factor, FACTORS, opportunityCost, Question, QUESTIONS, shuffled, System, SYSTEMS, VILLAGE_GOAL,
   villageWon,
@@ -92,7 +91,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -121,14 +119,12 @@ function Beach({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const sort = (f: Factor) => {
     if (solved || phase !== 'sort') return;
     if (f === item.factor) {
-      play('correct');
       setSolved(true);
       setWrongPick(null);
       if (!missed) setFirstRight((n) => n + 1);
       setPiles({ ...piles, [f]: [...piles[f], item.icon] });
       setAnnounce(`Right: ${data.factorNames[f]}.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrongPick(f);
       setAnnounce(`Not ${data.factorNames[f]}. ${WRONG_HINT[f]}`);
@@ -136,7 +132,6 @@ function Beach({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   };
 
   const next = () => {
-    play('whoosh');
     setSolved(false);
     setMissed(false);
     setWrongPick(null);
@@ -151,7 +146,6 @@ function Beach({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
 
   const rank = (id: string) => {
     if (ranking.includes(id)) return;
-    play('tap');
     const r = [...ranking, id];
     setRanking(r);
     if (r.length === data.projects.length) {
@@ -176,7 +170,6 @@ function Beach({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     setCostPick(id);
     const ok = id === 'next';
     if (costRight === null) setCostRight(ok);
-    play(ok ? 'correct' : 'wrong');
     if (ok) {
       setPhase('done');
       onComplete();
@@ -334,15 +327,12 @@ function Villages({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   const answer = (s: System) => {
     if (solved) return;
     if (s === village.system) {
-      play('correct');
-      play('pop');
       setSolved(true);
       setWrong(null);
       setBuilt((b) => b + 1);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce('Right. A new building goes up.');
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(s);
       setAnnounce(`Not this one. That is how ${villageName(s)} answers it.`);
@@ -350,7 +340,6 @@ function Villages({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   };
 
   const next = () => {
-    play('tap');
     setSolved(false);
     setMissed(false);
     setWrong(null);
@@ -359,7 +348,6 @@ function Villages({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
       return;
     }
     if (v + 1 < data.villages.length) {
-      play('whoosh');
       setV(v + 1);
       setQi(0);
       setBuilt(0);
@@ -462,14 +450,12 @@ function Detective({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
   const guess = (s: System) => {
     if (solved) return;
     if (s === c.answer) {
-      play('correct');
       setSolved(true);
       setWrong(null);
       if (!missed) setFirstRight((n) => n + 1);
       setShown(c.clues.length);
       setAnnounce(`Case solved: ${data.systemNames[s]}.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(s);
       if (shown < c.clues.length) setShown(shown + 1);
@@ -478,7 +464,6 @@ function Detective({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
   };
 
   const next = () => {
-    play('whoosh');
     setSolved(false);
     setMissed(false);
     setWrong(null);
@@ -520,7 +505,7 @@ function Detective({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
           </ol>
           {!solved && (
             <div>
-              <button class="btn btn-secondary btn-sm" disabled={shown >= c.clues.length} onClick={() => { play('tap'); setShown(shown + 1); }}>
+              <button class="btn btn-secondary btn-sm" disabled={shown >= c.clues.length} onClick={() => { setShown(shown + 1); }}>
                 {shown >= c.clues.length ? 'No more clues' : 'Show another clue'}
               </button>
             </div>

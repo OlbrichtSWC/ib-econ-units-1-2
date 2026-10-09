@@ -18,7 +18,6 @@ import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { shuffled } from '../island-economy/model';
 import {
   ALL_EFFECTS, anchorFor, anchorGap, DESIGN_GOAL, designMax, designWon, Effect, EXPERIMENT_EFFECTS, HUNT_GOAL, huntWon, isHighAnchor,
@@ -103,7 +102,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -197,14 +195,12 @@ function Subject({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   const goal = Math.min(SUBJECT_GOAL, items.length);
 
   const finishRun = (text: string) => {
-    play('whoosh');
     setReaction(text);
     setPhase('name');
     setAnnounce(`The curtain opens. ${text} ${x.trick}`);
   };
 
   const spin = () => {
-    play('coin');
     setSpun(true);
     setAnnounce(`The wheel stops on ${anchor}.`);
   };
@@ -212,13 +208,11 @@ function Subject({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   const name = (e: Effect) => {
     if (solved) return;
     if (e === x.effect) {
-      play('correct');
       setSolved(true);
       setWrong(null);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce(`Right: ${data.effectNames[e]}.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(e);
       setAnnounce(`Not ${data.effectNames[e]}. ${x.nameHint}`);
@@ -226,7 +220,6 @@ function Subject({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   };
 
   const next = () => {
-    play('whoosh');
     setSolved(false);
     setMissed(false);
     setWrong(null);
@@ -313,7 +306,7 @@ function Subject({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
                   type="button"
                   class={`choice-btn ml-pick ${reaction === o.reaction ? 'chosen' : ''}`}
                   disabled={phase !== 'run'}
-                  onClick={() => { play('tap'); finishRun(o.reaction); }}
+                  onClick={() => { finishRun(o.reaction); }}
                 >
                   {o.text}
                 </button>
@@ -387,14 +380,12 @@ function Hunt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const tap = (e: Effect) => {
     if (solved) return;
     if (e === s.effect) {
-      play('stamp');
       setSolved(true);
       setWrong(null);
       if (!missed) setFirstRight((n) => n + 1);
       setCaught([...caught, e]);
       setAnnounce(`Caught it: ${data.effectNames[e]}. ${s.why}`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(e);
       setAnnounce(`Not ${data.effectNames[e]}. ${s.hint}`);
@@ -402,7 +393,6 @@ function Hunt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   };
 
   const next = () => {
-    play('whoosh');
     setSolved(false);
     setMissed(false);
     setWrong(null);
@@ -526,13 +516,11 @@ function Designer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   const pickTool = (t: Tool) => {
     if (toolOk) return;
     if (t === g.tool) {
-      play('pop');
       setToolOk(true);
       setToolWrong(null);
       if (!toolMissed) setPoints((p) => p + 1);
       setAnnounce(`Right: ${data.toolNames[t]}. Your design is built: ${g.prototype.join('. ')}. Now say why it works.`);
     } else {
-      play('wrong');
       setToolMissed(true);
       setToolWrong(t);
       setAnnounce(`Not ${data.toolNames[t]}. ${g.toolWrong[t] ?? ''}`);
@@ -543,14 +531,12 @@ function Designer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     if (reasonOk) return;
     setReasonPick(i);
     const ok = !!g.reasons[i].correct;
-    play(ok ? 'correct' : 'wrong');
     if (ok && !reasonMissed) setPoints((p) => p + 1);
     if (!ok) setReasonMissed(true);
     setAnnounce(g.reasons[i].feedback);
   };
 
   const nextGoal = () => {
-    play('whoosh');
     setToolWrong(null);
     setToolMissed(false);
     setToolOk(false);
@@ -566,13 +552,11 @@ function Designer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   const pickObjective = (o: Objective) => {
     if (objOk) return;
     if (o === f.objective) {
-      play('stamp');
       setObjOk(true);
       setObjWrong(null);
       if (!objMissed) setPoints((p) => p + 1);
       setAnnounce(`Right: ${data.objectiveNames[o]}. ${f.why}`);
     } else {
-      play('wrong');
       setObjMissed(true);
       setObjWrong(o);
       setAnnounce(`Not ${data.objectiveNames[o]}. ${data.objectiveMeaning[o]}`);
@@ -580,7 +564,6 @@ function Designer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   };
 
   const nextFirm = () => {
-    play('whoosh');
     setObjWrong(null);
     setObjMissed(false);
     setObjOk(false);

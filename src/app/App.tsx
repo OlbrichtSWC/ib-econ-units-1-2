@@ -2,14 +2,11 @@ import { useEffect, useMemo, useState } from 'preact/hooks';
 import { ActivityShell, StepName } from '../shared/activity/ActivityShell';
 import { GlossaryProvider } from '../shared/content/Glossary';
 import { loadJson } from '../shared/content/loader';
-import { celebrate } from '../shared/fun/celebrate';
 import { CelebrationLayer } from '../shared/fun/CelebrationLayer';
-import { play } from '../shared/fun/sound';
-import { SoundToggle } from '../shared/fun/SoundToggle';
 import { stampsFor } from '../shared/fun/stampDefs';
-import { StampToast } from '../shared/fun/StampToast';
+import { StampCeremony } from '../shared/fun/StampCeremony';
 import { LocalProgressStore } from '../shared/progress/localStore';
-import { autoStamps, levelFlag, newStampFlags } from '../shared/progress/stamps';
+import { autoStamps, levelFlag, newStampFlags, totalStamps } from '../shared/progress/stamps';
 import { emptyActivity, Progress, STEP, today } from '../shared/progress/types';
 import { GlossaryPage } from './GlossaryPage';
 import { Home } from './Home';
@@ -22,6 +19,9 @@ import { ClassLinkPage } from './ClassLinkPage';
 import { classDecides, ClassSettings, loadClassSettings, saveClassSettings } from './classLink';
 
 export const store = new LocalProgressStore('ib-econ-1-2.progress', PROGRESS_ID_TABLE);
+
+/** Every stamp the app offers, across all games. */
+const STAMPS_ON_OFFER = ACTIVITIES.filter((a) => a.load && a.goal).reduce((n, a) => n + stampsFor(a).length, 0);
 
 function readHash() {
   return location.hash.replace(/^#\/?/, '');
@@ -47,7 +47,8 @@ export function App() {
   const [route, setRoute] = useState(readHash());
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
   const [progress, setProgress] = useState<Progress>(store.load());
-  const [toasts, setToasts] = useState<{ activityId: string; flag: number }[]>([]);
+  /** New stamps waiting to be celebrated, with the student's stamp count before each one. */
+  const [toasts, setToasts] = useState<{ activityId: string; flag: number; before: number; at: number; of: number }[]>([]);
   const [teacher, setTeacher] = useState(session('teacher') === '1');
   const [projector, setProjector] = useState(session('projector') === '1');
   /** Activities and HL choice from a teacher's class link, saved on this device. */
@@ -104,12 +105,9 @@ export function App() {
     if (!fresh.length && next.steps === prev.steps && !Object.keys(patch).length && current.activities[id]) return;
     store.save({ activities: { ...current.activities, [id]: next } });
     if (fresh.length) {
-      setToasts((t) => [...t, ...fresh.map((flag) => ({ activityId: id, flag }))]);
-      // Let a "correct" sound finish before the stamp lands.
-      setTimeout(() => {
-        play('stamp');
-        celebrate({ size: 'big' });
-      }, 350);
+      const before = totalStamps(current);
+      // The stamp celebration has its own confetti, on top of the page.
+      setToasts((t) => [...t, ...fresh.map((flag, i) => ({ activityId: id, flag, before: before + i, at: i + 1, of: fresh.length }))]);
     }
   };
 
@@ -213,7 +211,6 @@ export function App() {
             <a class="navlink" href="#/stamps" aria-current={route === 'stamps' ? 'page' : undefined}>Stamps</a>
             <a class="navlink" href="#/progress" aria-current={route.startsWith('progress') ? 'page' : undefined}>My progress</a>
             <a class="navlink" href="#/teacher" aria-current={route === 'teacher' ? 'page' : undefined}>{teacher ? 'Teacher (on)' : 'Teacher'}</a>
-            <SoundToggle class="btn-sound" />
           </nav>
         </div>
       </header>
@@ -235,12 +232,16 @@ export function App() {
           return null;
         }
         return (
-          <StampToast
+          <StampCeremony
             key={`${t.activityId}-${t.flag}`}
             name={def.name}
             icon={def.icon}
             level={def.level}
             activity={meta.title}
+            earned={t.before + 1}
+            total={STAMPS_ON_OFFER}
+            before={t.before}
+            queue={t.of > 1 ? { at: t.at, of: t.of } : undefined}
             bookHref="#/stamps"
             onClose={() => setToasts((all) => all.slice(1))}
           />

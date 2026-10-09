@@ -18,7 +18,6 @@ import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { parseNumber } from '../../shared/activity/CheckIt';
 import { celebrate } from '../../shared/fun/celebrate';
 import { reducedMotion } from '../../shared/fun/motion';
-import { play } from '../../shared/fun/sound';
 import { shuffled } from '../island-economy/model';
 import {
   classifyPes, Determinant, DETERMINANTS, diagnosePes, diagnoseReverse, gaugeAngle, isNextInRank, MEASURE_GOAL, measureWon,
@@ -93,7 +92,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -211,13 +209,11 @@ function Race({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (rankDone || placed.includes(id)) return;
     const p = r.producers.find((x) => x.id === id)!;
     if (!isNextInRank(r.producers, placed, id)) {
-      play('wrong');
       setRankMissed(true);
       setWrongId(id);
       setAnnounce(`Not ${p.name} yet. Find the producer left that finds it hardest to raise output quickly.`);
       return;
     }
-    play('pop');
     setWrongId(null);
     let next = [...placed, id];
     // The last producer has only one place left.
@@ -225,7 +221,6 @@ function Race({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     setPlaced(next);
     if (next.length === r.producers.length) {
       if (!rankMissed) setMarks((m) => m + 1);
-      play('whoosh');
       setAnnounce(`Ranking complete. ${r.rankWhy} Now name the determinant.`);
     } else setAnnounce(`${p.name}: ${PLACE_NAMES[placed.length].toLowerCase()}.`);
   };
@@ -234,18 +229,15 @@ function Race({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (detSolved) return;
     setDet(d);
     if (d === r.determinant) {
-      play('correct');
       if (!detMissed) setMarks((m) => m + 1);
       setAnnounce(`Right: ${data.determinantNames[d]}.`);
     } else {
-      play('wrong');
       setDetMissed(true);
       setAnnounce(`Not ${data.determinantNames[d]}. ${r.detHint}`);
     }
   };
 
   const next = () => {
-    play('whoosh');
     setPlaced([]);
     setRankMissed(false);
     setWrongId(null);
@@ -449,20 +441,17 @@ function TimeMachine({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
     setPick(i);
     const o = options[i];
     if (o.correct) {
-      play('correct');
       if (!missed) setFirstRight((n) => n + 1);
       setReached(stage);
       const q = outputIn(t, period);
       setAnnounce(`Right. ${data.periodNames[period]}: output is ${fmt(q)} ${t.unit}. PES = ${fmt(round2(pesIn(t, period)))}.`);
     } else {
-      play('wrong');
       setMissed(true);
       setAnnounce(o.feedback);
     }
   };
 
   const next = () => {
-    play('whoosh');
     setPick(null);
     setMissed(false);
     if (stage + 1 < PERIODS.length) {
@@ -622,7 +611,6 @@ function Measure({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   const finishRound = (missedNow: boolean) => {
     setRoundDone(true);
     if (!missedNow) setSolvedCount((n) => n + 1);
-    play('correct');
   };
 
   const checkNum = () => {
@@ -639,12 +627,10 @@ function Measure({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
       slip = s === 'other' ? 'otherRev' : s;
     }
     if (slip === 'right') {
-      play('coin');
       setNumDone(true);
       setNumFb(null);
       setAnnounce(`Right: ${fmt(numAnswer)}. Now classify the supply.`);
     } else {
-      play('wrong');
       setMissed(true);
       setNumFb(SLIP_TEXT[slip]);
       setAnnounce(SLIP_TEXT[slip]);
@@ -658,7 +644,6 @@ function Measure({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
       setAnnounce(`Right: ${data.classNames[c]}.`);
       finishRound(missed);
     } else {
-      play('wrong');
       setMissed(true);
       setAnnounce(`Not ${data.classNames[c]}.`);
     }
@@ -671,24 +656,20 @@ function Measure({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     setPick(i);
     const o = st.options[i];
     if (!o.correct) {
-      play('wrong');
       setMissed(true);
       setAnnounce(o.feedback);
       return;
     }
     setAnnounce(o.feedback);
     if (step + 1 >= r.steps.length) finishRound(missed);
-    else play('pop');
   };
 
   const nextStep = () => {
-    play('tap');
     setStep(step + 1);
     setPick(null);
   };
 
   const next = () => {
-    play('whoosh');
     setStep(0);
     setMissed(false);
     setTyped('');
@@ -876,7 +857,7 @@ function LearnDiagram() {
     <div class="stack">
       <div class="ss-learn-picks" role="group" aria-label="Choose a value of PES">
         {PES_CLASSES.map((c) => (
-          <button key={c} type="button" class="choice-btn btn-sm" aria-pressed={sel === c} onClick={() => { play('tap'); setSel(c); }}>
+          <button key={c} type="button" class="choice-btn btn-sm" aria-pressed={sel === c} onClick={() => { setSel(c); }}>
             {names[c]} <span class="small">({LEARN_LINES[c].label})</span>
           </button>
         ))}

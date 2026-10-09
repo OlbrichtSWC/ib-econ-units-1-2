@@ -5,6 +5,15 @@
  *
  * Contrast: every text colour below meets WCAG AA (4.5:1) on the backgrounds it is used on.
  */
+/* Playful, readable fonts, stored with the app (no outside requests, and they work offline).
+ * Fredoka for headings, Nunito for text. Both are free under the SIL Open Font License (see fonts/). */
+@font-face { font-family: 'Fredoka'; font-style: normal; font-weight: 600; font-display: swap; src: url('./fonts/fredoka-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Fredoka'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/fredoka-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-style: normal; font-weight: 400; font-display: swap; src: url('./fonts/nunito-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-style: italic; font-weight: 400; font-display: swap; src: url('./fonts/nunito-latin-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-style: normal; font-weight: 700; font-display: swap; src: url('./fonts/nunito-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-style: italic; font-weight: 700; font-display: swap; src: url('./fonts/nunito-latin-700-italic.woff2') format('woff2'); }
+
 :root {
   /* School colours: royal blue, red and white. The variable names say "navy" for history; the colour is royal blue. */
   --navy: #1d4ed8; /* royal blue, 6.7:1 with white */
@@ -28,8 +37,8 @@
   --warn-50: #fdf3e2;
   --focus: #f2b600;
 
-  --font-head: Georgia, 'Times New Roman', serif;
-  --font-body: Calibri, Carlito, 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --font-head: Fredoka, Nunito, 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --font-body: Nunito, Calibri, Carlito, 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
 
   --radius: 16px;
   --radius-sm: 10px;
@@ -52,7 +61,7 @@ body {
   font-size: var(--text);
   line-height: 1.5;
 }
-h1, h2, h3, h4 { font-family: var(--font-head); color: var(--navy); line-height: 1.2; margin: 0 0 0.5em; font-weight: 700; }
+h1, h2, h3, h4 { font-family: var(--font-head); color: var(--navy); line-height: 1.2; margin: 0 0 0.5em; font-weight: 600; letter-spacing: 0.005em; }
 h1 { font-size: 1.75rem; }
 h2 { font-size: 1.4rem; }
 h3 { font-size: 1.15rem; }
@@ -199,19 +208,49 @@ dialog::backdrop { background: rgba(23, 50, 140, 0.45); }
   60% { transform: scale(0.92) rotate(-6deg); opacity: 1; }
   100% { transform: scale(1) rotate(-8deg); }
 }
-.toast {
-  position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 150;
-  display: flex; gap: 14px; align-items: center; width: min(440px, calc(100vw - 32px));
-  background: var(--white); border: 2px solid var(--navy); border-radius: var(--radius); box-shadow: 0 6px 24px rgba(23, 50, 140, 0.25);
-  padding: 12px 14px; animation: toast-up 0.3s ease-out both;
+/* The "new stamp" celebration (StampCeremony.tsx) */
+.ceremony {
+  padding: 0; border: none; border-radius: 24px; overflow: hidden; width: min(440px, calc(100vw - 24px)); max-width: none;
+  box-shadow: 0 8px 0 var(--red), 0 24px 60px rgba(10, 20, 60, 0.45); animation: ceremony-in 0.35s cubic-bezier(0.2, 1.4, 0.4, 1) both;
 }
-.toast p { margin: 0; }
-@keyframes toast-up { from { transform: translate(-50%, 30px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
-/* On wide screens the toast sits in the bottom-right corner, clear of the diagrams. */
-@media (min-width: 900px) {
-  .toast { left: auto; right: 20px; transform: none; width: 380px; animation-name: toast-up-corner; }
+.ceremony::backdrop { background: radial-gradient(circle at 50% 40%, rgba(29, 78, 216, 0.55), rgba(10, 20, 60, 0.8)); }
+@keyframes ceremony-in { from { transform: scale(0.7) translateY(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+.ceremony-top { position: relative; overflow: hidden; display: grid; justify-items: center; padding: 18px 16px 22px; background: linear-gradient(160deg, var(--navy-900), var(--navy) 60%, #3b6ff0); }
+.ceremony-rays {
+  position: absolute; inset: -60%; opacity: 0.35;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 255, 255, 0.55) 0deg 10deg, transparent 10deg 24deg);
+  animation: rays 14s linear infinite;
 }
-@keyframes toast-up-corner { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes rays { to { transform: rotate(360deg); } }
+.ceremony-ribbon {
+  position: relative; margin: 0 0 10px; background: var(--red); color: var(--white); font-family: var(--font-head); font-weight: 700;
+  font-size: 1.3rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 22px; border-radius: 10px; transform: rotate(-3deg);
+  box-shadow: 0 4px 0 #7a0a1c;
+}
+.ceremony-stamp { position: relative; display: grid; place-items: center; width: 180px; height: 180px; border-radius: 50%; background: var(--white); box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.35), 0 6px 0 rgba(0, 0, 0, 0.2); }
+.ceremony-stamp .stamp-animate { animation: stamp-slam 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) 0.15s both; }
+@keyframes stamp-slam {
+  0% { transform: scale(3) rotate(-30deg); opacity: 0; }
+  55% { transform: scale(0.88) rotate(-5deg); opacity: 1; }
+  75% { transform: scale(1.06) rotate(-9deg); }
+  100% { transform: scale(1) rotate(-8deg); }
+}
+.ceremony-confetti { position: absolute; inset: 0; pointer-events: none; }
+.ceremony-confetti i {
+  position: absolute; top: -12px; width: 8px; height: 14px; border-radius: 2px; opacity: 0;
+  animation-name: confetti-fall; animation-timing-function: ease-in; animation-iteration-count: 2; animation-fill-mode: both;
+}
+@keyframes confetti-fall { 0% { transform: translateY(0) rotate(0); opacity: 1; } 100% { transform: translateY(300px) rotate(var(--turn)); opacity: 0.2; } }
+.ceremony-body { padding: 16px 20px 22px; text-align: center; background: var(--white); }
+.ceremony-body h2 { font-size: 1.8rem; margin: 0 0 2px; }
+.ceremony-sub { margin: 0 0 12px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 10px; justify-content: center; align-items: center; }
+.ceremony-tier { font-weight: 700; color: var(--red-700); background: var(--red-50); border: 1.5px solid var(--red-100); border-radius: 999px; padding: 1px 10px; font-size: 0.9rem; }
+.ceremony-count { background: var(--navy-50); border-radius: 14px; padding: 10px 14px; margin-bottom: 14px; }
+.ceremony-count p { margin: 0; }
+.ceremony-count strong { color: var(--navy); }
+.ceremony-bar { height: 14px; border-radius: 7px; background: var(--white); border: 2px solid var(--navy-100); margin: 8px 0; overflow: hidden; }
+.ceremony-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--navy), #3b6ff0); border-radius: 6px; transition: width 0.8s ease; }
+.ceremony-title-up { font-size: 1.1rem; animation: pulse 0.8s ease-out 0.6s both; }
 .pulse { animation: pulse 0.5s ease-out; }
 @keyframes pulse { 0% { transform: scale(1); } 40% { transform: scale(1.08); } 100% { transform: scale(1); } }
 .shake { animation: shake 0.35s ease-in-out; }
@@ -219,6 +258,7 @@ dialog::backdrop { background: rgba(23, 50, 140, 0.45); }
 .float-up { animation: float-up 1s ease-out both; }
 @keyframes float-up { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-28px); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
-  .stamp-animate, .toast, .pulse, .shake, .float-up { animation: none; }
+  .stamp-animate, .ceremony, .ceremony-stamp .stamp-animate, .ceremony-rays, .ceremony-title-up, .pulse, .shake, .float-up { animation: none; }
+  .ceremony-confetti { display: none; }
   .float-up { opacity: 0; }
 }

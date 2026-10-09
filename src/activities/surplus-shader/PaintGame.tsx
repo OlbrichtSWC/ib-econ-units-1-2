@@ -9,7 +9,6 @@ import type { Pt } from '../../econ/calc';
 import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Curve, Diagram, Dot, Guide, HLine, TONE, useDiagram } from '../../shared/diagrams/Diagram';
 import { celebrate, celebrateAt } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import { equilibrium } from '../../econ/calc';
 import { DEMAND, Market, shiftedMarket, SUPPLY, surplusShapes } from './model';
@@ -184,7 +183,6 @@ export function PaintGame(props: { onGoal: (level: number) => void; stamps: numb
     setResult({ score, ...m, shown: false });
     setTries((t) => t + 1);
     if (score >= PASS_SCORE) {
-      play('correct');
       celebrateAt(checkRef.current, 'small');
       setPassed((p) => {
         if (p.has(task.id)) return p;
@@ -192,7 +190,6 @@ export function PaintGame(props: { onGoal: (level: number) => void; stamps: numb
         n.add(task.id);
         if (n.size === PAINT_GOAL) {
           setTimeout(() => {
-            play('win');
             celebrate({ size: 'big' });
             props.onGoal(levelNo);
           }, 500);
@@ -201,7 +198,6 @@ export function PaintGame(props: { onGoal: (level: number) => void; stamps: numb
       });
       setAnnounce(`Score ${score}%. Great painting.`);
     } else {
-      play('wrong');
       setAnnounce(`Score ${score}%. ${m.extra} cells are outside the area and ${m.missed} cells of the area are not painted.`);
     }
   };
@@ -217,7 +213,6 @@ export function PaintGame(props: { onGoal: (level: number) => void; stamps: numb
     setPainted(new Set());
     setResult(null);
     setTries(0);
-    play('tap');
     setAnnounce('New painting task.');
   };
 
@@ -228,7 +223,6 @@ export function PaintGame(props: { onGoal: (level: number) => void; stamps: numb
     setResult(null);
     setTries(0);
     setPassed(new Set());
-    play('tap');
   };
 
   const color = PAINT_TONE[task.ask];

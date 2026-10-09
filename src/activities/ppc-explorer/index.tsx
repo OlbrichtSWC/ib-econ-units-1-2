@@ -10,7 +10,6 @@ import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/com
 import { Arrow, Curve, Diagram, Dot, Guide, Label } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { DataTable } from '../../shared/activity/CheckIt';
-import { play } from '../../shared/fun/sound';
 import { CONSTANT, INCREASING, output, ppc, scale, Worker } from './model';
 import { SeasonLevel } from './seasons';
 import { Seasons } from './Seasons';
@@ -134,7 +133,6 @@ function FreePlay({ content, onComplete }: TryProps) {
       if (d.has(id)) return d;
       const n = new Set(d);
       n.add(id);
-      play('correct');
       if (n.size >= 4) onComplete();
       setAnnounce(`Mission complete: ${data.missions.find((m) => m.id === id)?.title ?? ''}.`);
       return n;
@@ -181,7 +179,6 @@ function FreePlay({ content, onComplete }: TryProps) {
     const e = event.effect;
     const correct = prediction === event.correct;
     setEventResult({ correct });
-    play(correct ? 'correct' : 'wrong');
     if (e.fish || e.timber || e.addWorkers) {
       setOldPpc(schedule);
       let w = scale(workers, e.fish ?? 1, e.timber ?? 1);

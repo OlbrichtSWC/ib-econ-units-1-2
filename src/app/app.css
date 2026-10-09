@@ -31,7 +31,7 @@
 .hero h1 .hl-word { color: var(--white); background: var(--red); padding: 0 8px; border-radius: 8px; display: inline-block; transform: rotate(-2deg); }
 .hero a { color: var(--white); }
 .hero-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
-.hero-stat { background: rgba(255, 255, 255, 0.14); border: 2px solid rgba(255, 255, 255, 0.45); border-radius: 999px; padding: 4px 14px; font-weight: 700; }
+.hero-stat { color: var(--white); text-decoration: none; background: rgba(255, 255, 255, 0.14); border: 2px solid rgba(255, 255, 255, 0.45); border-radius: 999px; padding: 4px 14px; font-weight: 700; }
 .hero-go { background: var(--white); color: var(--navy) !important; border-color: var(--white); box-shadow: 0 4px 0 var(--red); text-decoration: none; }
 .hero-go:hover { background: var(--navy-50); border-color: var(--navy-50); box-shadow: 0 5px 0 var(--red); }
 .hero-go:active:not([disabled]) { box-shadow: 0 1px 0 var(--red); }
@@ -137,8 +137,6 @@ fieldset[disabled] .option { cursor: default; }
 .stamp-row { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
 .stamp-slot { display: flex; gap: 12px; align-items: center; }
 .mini-stamps { display: inline-flex; gap: 2px; align-items: center; }
-.btn-sound { font: inherit; font-weight: 700; color: var(--white); background: transparent; border: 1.5px solid rgba(255, 255, 255, 0.5); border-radius: 6px; padding: 6px 10px; min-height: 44px; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
-.btn-sound:hover { background: rgba(255, 255, 255, 0.12); }
 
 /* Market Shock */
 .gap-scene svg { width: 100%; height: auto; max-height: 120px; display: block; }
@@ -298,3 +296,18 @@ details.coming-later > summary { cursor: pointer; }
   background: var(--navy); color: var(--white); font: 700 0.85em/1 var(--font-body, sans-serif); vertical-align: 0.1em;
 }
 .step-head { margin: 0; font-weight: 700; color: var(--navy); display: flex; align-items: center; }
+
+/* Stamp book: title, collection bar and the ladder of economist titles */
+.book-title { display: flex; gap: 12px; align-items: center; font-size: 1.2rem; }
+.book-title-icon { display: grid; place-items: center; width: 60px; height: 60px; font-size: 2rem; border-radius: 18px; background: var(--white); box-shadow: 0 4px 0 var(--red); transform: rotate(-5deg); }
+.book-bar { position: relative; height: 30px; border-radius: 15px; background: rgba(255, 255, 255, 0.18); border: 2px solid rgba(255, 255, 255, 0.6); overflow: hidden; margin: 6px 0 12px; }
+.book-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--red), #ff5a6e); }
+.book-bar b { position: absolute; inset: 0; display: grid; place-items: center; color: var(--white); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+.title-ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+.title-ladder li { display: grid; justify-items: center; text-align: center; gap: 2px; padding: 10px 6px; border: 2px dashed var(--line); border-radius: 14px; color: var(--ink-soft); background: var(--bg); }
+.title-ladder li.got { border-style: solid; border-color: var(--navy-100); background: var(--navy-50); color: var(--ink); }
+.title-ladder li.now { border-color: var(--navy); background: var(--white); box-shadow: 0 4px 0 var(--red); transform: translateY(-2px); }
+.tl-icon { font-size: 1.8rem; }
+.stamp-slot { padding: 8px; border-radius: 14px; }
+.stamp-slot.has { background: linear-gradient(135deg, var(--red-50), var(--white)); }
+.stamp-slot.has .stamp { filter: drop-shadow(0 3px 0 var(--red-100)); }

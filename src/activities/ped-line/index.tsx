@@ -10,7 +10,6 @@ import { Md } from '../../shared/content/markdown';
 import { HlBadge, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Area, Curve, Diagram, Dot, Guide, Halo, Handle, Label, TONE, useDiagram } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
-import { play } from '../../shared/fun/sound';
 import { Mystery, MysteryLevel } from './Mystery';
 import { ChallengeId, challengesForMove, DEMAND, ibCheck, MID, priceFromDrag, schedule, snapPrice, trCurve, unitaryCurve, Zone, zoneAt } from './model';
 
@@ -169,7 +168,6 @@ function Explore({ content, onComplete }: TryProps) {
       fresh.forEach((id) => n.add(id));
       doneRef.current = n;
       setDone(n);
-      play('correct');
       msg += ` Challenge complete: ${fresh.map((id) => data.challenges.find((c) => c.id === id)?.text.replace(/\*/g, '')).join(' ')}`;
       if (n.size >= 3 && !completed.current) {
         completed.current = true;
