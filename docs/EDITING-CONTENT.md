@@ -21,6 +21,9 @@ You can fix a typo, rewrite a hint or add a question without touching any code.
 | `content/activities/externality-fixer.json` | Everything in Smoke and Sunshine |
 | `content/activities/fish-pond.json` | Everything in Fish Pond |
 | `content/activities/streetlight-fund.json` | Everything in Streetlight Fund |
+| `content/activities/used-car-lot.json` | Everything in Used Car Lot |
+| `content/activities/monopoly-game.json` | Everything in Rival Pricing |
+| `content/activities/fair-efficient.json` | Everything in Fair or Efficient? |
 
 ## Three rules for JSON files
 

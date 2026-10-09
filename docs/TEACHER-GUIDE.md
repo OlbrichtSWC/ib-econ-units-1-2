@@ -19,6 +19,9 @@ Every activity follows the same rhythm: **Learn it** (short explanation and diag
 | **Smoke and Sunshine** | 2.8 Negative and positive externalities of production and consumption, MPC, MSC, MPB, MSB, welfare loss, merit and demerit goods, government responses. HL: calculating welfare loss | Town fixer. **Level 1**: name each spillover and its diagram gap. **Level 2**: choose a policy and set its size to reach Q*; the smoke clears as output gets close. **Level 3 (HL)**: calculate the welfare loss, then judge the policy | **Hook:** show the smoky town and ask what is wrong. **Pairs:** level 2, then debate which policy works best for the cement factory. **HL:** level 3 with working in notes. |
 | **Fish Pond** | 2.8 Common pool resources: rivalrous but non-excludable, the tragedy of the commons, threats to sustainability, quotas, tradable permits, legislation, collective self-governance, international agreements | Shared pond. **Level 1**: fish for 8 seasons with three other boats; can the stock survive? **Level 2**: try a rule (quota, permits, self-governance, licence, international agreement) and watch the stock chart. **Level 3**: keep the pond healthy when one fisher cheats | **Whole class:** project level 1 and let the class vote on the catch each season. **Debrief:** why did holding back alone not save the pond? |
 | **Streetlight Fund** | 2.9 Public goods: non-rivalry, non-excludability, the free rider problem, direct provision and contracting out | Neighbourhood game. **Level 1**: sort goods on a rival and excludable grid. **Level 2**: give to the streetlight fund with four neighbours and watch free riding grow; the lights fail until the council steps in. **Level 3**: choose direct provision or contracting out and set the tax per household | **Hook:** play level 2 on the projector and ask who free rode. **Exit:** why can't a private firm sell streetlights? |
+| **Used Car Lot** (HL) | 2.10 HL only. Asymmetric information, adverse selection, moral hazard; signalling, screening, legislation and regulation, provision of information | Car lot auction. **Level 1**: buyers only know the average, so good cars drive away (adverse selection). **Level 2**: pick the response that brings buyers' trust back. **Level 3**: spot moral hazard after the deal and choose a response | **Hook:** project level 1 and let the class bid. **Debrief:** why do good cars leave first? |
+| **Rival Pricing** (HL) | 2.11 HL only. Market structures, concentration ratios, profit maximization (MC = MR), abnormal and normal profit, game theory, collusion | Coffee street duel. **Level 1**: map markets to structures and calculate CR4. **Level 2**: find the profit-maximizing output, price and profit from a schedule. **Level 3**: a payoff matrix and a price war against a rival café | **Pairs:** level 3, then compare the profit from colluding and cheating. **Extension:** draw perfect competition and natural monopoly diagrams. |
+| **Fair or Efficient?** (HL) | 2.12 HL only. The market's inability to achieve equity; equity and equality; why a free market can make incomes unequal (circular flow) | Balance scale. **Level 1**: equity or equality? **Level 2**: judge outcomes as efficient, equitable, both or neither. **Level 3**: follow the money in a circular flow, calculate income shares, match government responses | **Debate:** the Level 2 maximum rent and rice subsidy cases. **Link:** 3.4 inequality and Lorenz curves. |
 
 ## Levels, stamps and sound (updated in 1.2)
 
@@ -44,6 +47,9 @@ Every activity follows the same rhythm: **Learn it** (short explanation and diag
 | Smoke and Sunshine | Spillover Spotter | Town Fixer | Welfare Judge (HL) |
 | Fish Pond | Pond Keeper | Rule Maker | Pond Guardian |
 | Streetlight Fund | Goods Sorter | Free Rider Detective | Town Planner |
+| Used Car Lot (HL) | Smart Buyer | Signal Reader | Risk Watcher |
+| Rival Pricing (HL) | Market Mapper | Profit Finder | Game Theorist |
+| Fair or Efficient? (HL) | Equity Spotter | Fair Judge | Flow Detective |
 
 - **Sound** is on by default and quiet. Students switch it with **Sound on / Sound off** in the top bar. In a lab, ask students to turn it off or use headphones.
 - Devices set to reduce motion get no confetti or animations.
@@ -69,4 +75,4 @@ In Teacher view, find **Class link**. Choose the activities your class should se
 
 ## Coming in later versions (syllabus order)
 
-Used Car Lot (HL), Monopoly and Game Theory (HL), Fair or Efficient? (HL); and the exam skills mode (Diagram Doctor, Command term trainer, Build it, Break it, Judge it).
+The exam skills mode (Diagram Doctor, Command term trainer, Build it, Break it, Judge it).

@@ -1,0 +1,1075 @@
+{
+ "id": "fair-efficient",
+ "outcome": "I can explain the difference between equity and equality, judge whether a market outcome is efficient, equitable, both or neither, and use the circular flow to explain why a free market can give unequal incomes.",
+ "learn": {
+  "text": "^HL^ This whole topic is HL only.\n\n**[[Equality]]** means everyone has the same, for example the same pay for the same job. **[[Equity]]** means fairness. What is fair is a **[[value judgement]]**, so people disagree. Equity can mean giving more help to people who need more.\n\nA free market can be **[[efficient|allocative efficiency]]**: output is where MB = MC and nothing is wasted. But goods go to people who are **willing and able to pay**. Ability to pay depends on income, so an efficient outcome can still be unfair.\n\nWhy are incomes unequal? Use the **[[circular flow of income]]**. Households sell **[[factors of production]]** to firms. Workers earn wages for their labour. Owners of land earn rent, and owners of capital earn interest and profit. People with scarce skills earn high wages. Some people **inherit** wealth, so the gap passes to the next generation. People who own no factors and cannot work get no factor income at all.\n\nGovernments respond in different ways: progressive and wealth taxes, investment in education and training, **[[transfer payments]]**, targeted spending (such as free healthcare), a **[[minimum wage]]**, and laws against discrimination.",
+  "caption": "Owners of land and capital receive rent, interest and profit. Workers receive wages. Who owns which factors decides who gets the biggest share of income."
+ },
+ "try": {
+  "goal": "Balance the scale. Sort fair from equal, judge market outcomes, then follow the money to see why incomes are unequal.",
+  "intro": "**Level 1: Equity or equality?** Read each case. Is it about fairness (equity) or about everyone getting the same (equality)? Drop it on the right side of the scale.\n\n**Level 2: Judge the outcome.** Is a market outcome efficient, equitable, both or neither? Then choose the reason. In this game, equitable means people on low incomes are not left out or harmed.\n\n**Level 3: Follow the money.** Watch income flow from firms to five households. Find why each income is high or low, work out income shares, then match a government response to each cause.",
+  "levels": [
+   {
+    "title": "Equity or equality?",
+    "blurb": "Sort 12 cases as equity or equality. Get 10 right first time."
+   },
+   {
+    "title": "Judge the outcome",
+    "blurb": "Judge 8 market outcomes and give the reason. Get 6 right first time."
+   },
+   {
+    "title": "Follow the money",
+    "blurb": "Causes, income shares and responses. Score 11 of 14 first-try points."
+   }
+  ],
+  "kindNames": {
+   "equity": "Equity",
+   "equality": "Equality"
+  },
+  "kindHints": {
+   "equity": "Fairness: help based on need",
+   "equality": "Everyone gets the same"
+  },
+  "cases": [
+   {
+    "id": "c1",
+    "icon": "💷",
+    "text": "Every worker doing the same job gets the same pay.",
+    "kind": "equality",
+    "why": "Everyone in the same job gets the same amount. Treating people the same is **equality**."
+   },
+   {
+    "id": "c2",
+    "icon": "🧑‍🏫",
+    "text": "Students who find reading hard get extra lessons after school.",
+    "kind": "equity",
+    "why": "Some students get more help because they need more. Giving people what they need to have a fair chance is **equity**."
+   },
+   {
+    "id": "c3",
+    "icon": "🎟️",
+    "text": "Every visitor pays the same $10 entry fee to the city museum.",
+    "kind": "equality",
+    "why": "Everyone pays the same fee, whatever their income. That is **equality**. A $10 fee is a bigger share of a small income, so it may not be fair."
+   },
+   {
+    "id": "c4",
+    "icon": "🎓",
+    "text": "A university gives scholarships to students from low-income families.",
+    "kind": "equity",
+    "why": "Help goes to the students whose families have less money. That is **equity**: fairness, not sameness."
+   },
+   {
+    "id": "c5",
+    "icon": "🍕",
+    "text": "Each child at the party gets one slice of pizza of the same size.",
+    "kind": "equality",
+    "why": "Every child gets exactly the same. That is **equality**."
+   },
+   {
+    "id": "c6",
+    "icon": "♿",
+    "text": "A ramp is built so that wheelchair users can enter the library.",
+    "kind": "equity",
+    "why": "The ramp gives some people what they need to use the library like everyone else. That is **equity**."
+   },
+   {
+    "id": "c7",
+    "icon": "🧾",
+    "text": "Every adult pays the same $500 tax each year, rich or poor.",
+    "kind": "equality",
+    "why": "Everyone pays the same amount. That is **equality**. Many people think it is not fair, because $500 is a much bigger share of a low income."
+   },
+   {
+    "id": "c8",
+    "icon": "📈",
+    "text": "People with higher incomes pay a higher rate of income tax.",
+    "kind": "equity",
+    "why": "People with more pay a bigger share. Many people see this progressive tax as fair: **equity**."
+   },
+   {
+    "id": "c9",
+    "icon": "🍎",
+    "text": "Children from low-income families get free school meals.",
+    "kind": "equity",
+    "why": "The meals go to the children whose families need help most. That is **equity**."
+   },
+   {
+    "id": "c10",
+    "icon": "🗳️",
+    "text": "Every citizen has one vote in the election.",
+    "kind": "equality",
+    "why": "Each person has the same, one vote. That is **equality**."
+   },
+   {
+    "id": "c11",
+    "icon": "💵",
+    "text": "Every adult gets the same cash payment each month from the government.",
+    "kind": "equality",
+    "why": "Everyone gets the same amount, whatever their income. That is **equality**. (Economists call this a universal basic income.)"
+   },
+   {
+    "id": "c12",
+    "icon": "🚌",
+    "text": "People with a low income pay half price on the bus.",
+    "kind": "equity",
+    "why": "The discount goes to the people who find the full fare hardest to pay. That is **equity**."
+   }
+  ],
+  "verdictNames": {
+   "efficient": "Efficient, not equitable",
+   "equitable": "Equitable, not efficient",
+   "both": "Both efficient and equitable",
+   "neither": "Neither efficient nor equitable"
+  },
+  "verdictWrong": {
+   "efficient": "Check efficiency first. Is there a welfare loss, from an externality, market power, or a price set by the government? Then ask if people on low incomes are left out.",
+   "equitable": "Is there a welfare loss? If output is where MB = MC (or MSB = MSC), the outcome is efficient. Then ask who is left out.",
+   "both": "Be careful: is there a welfare loss? Are people on low incomes left out or harmed? Both must be fine for this verdict.",
+   "neither": "Look again. Is output where MB = MC (or MSB = MSC)? Do people on low incomes gain? At least one of these may be true here."
+  },
+  "outcomes": [
+   {
+    "id": "j1",
+    "icon": "🍞",
+    "title": "A free market for bread",
+    "story": "Many bakeries compete. There are no externalities. Bread goes to everyone willing and able to pay the market price. A few very poor families cannot afford enough bread.",
+    "verdict": "efficient",
+    "reasons": [
+     {
+      "text": "Output is where MB = MC, so there is no welfare loss. But bread goes to people who can pay, not to the people who need it most.",
+      "feedback": "Right. The market is allocatively efficient, but ability to pay depends on income. That is not equitable.",
+      "correct": true
+     },
+     {
+      "text": "There is a welfare loss, because some families go without bread.",
+      "feedback": "Families who cannot pay do not count as demand. At the market output MB = MC, so there is no welfare loss. The problem is fairness, not efficiency."
+     },
+     {
+      "text": "It is fair, because everyone pays the same price.",
+      "feedback": "The same price for everyone is equality. A poor family pays a much bigger share of its income, so many people would say it is not fair."
+     }
+    ]
+   },
+   {
+    "id": "j2",
+    "icon": "🏠",
+    "title": "Flats to rent in a busy city",
+    "story": "Many landlords compete in a free market. Demand rises, so rents rise. The flats go to the people who will pay the most. Low-income workers move far out of the city.",
+    "verdict": "efficient",
+    "reasons": [
+     {
+      "text": "The price rations the flats to people willing and able to pay, so resources are not wasted. Low-income workers are priced out.",
+      "feedback": "Right. The price mechanism allocates flats efficiently, but only people with enough income can take part.",
+      "correct": true
+     },
+     {
+      "text": "Rising rents always cause a welfare loss.",
+      "feedback": "Rents rise because demand rises. In a competitive market with no externalities the new equilibrium is still where MB = MC."
+     },
+     {
+      "text": "It is equitable, because the flats go to the people who want them most.",
+      "feedback": "They go to the people who will pay most. Willingness to pay depends on ability to pay, so a low income means less say in the market."
+     }
+    ]
+   },
+   {
+    "id": "j3",
+    "icon": "💊",
+    "title": "One firm sells a medicine",
+    "story": "Only one firm makes a medicine. It makes less and charges a very high price to earn more profit. Many patients on low incomes go without.",
+    "verdict": "neither",
+    "reasons": [
+     {
+      "text": "The firm restricts output, so MB is above MC: a welfare loss. And patients who need the medicine but have little money go without.",
+      "feedback": "Right. Market power causes allocative inefficiency, and the high price hits low-income patients hardest.",
+      "correct": true
+     },
+     {
+      "text": "It is efficient, because the firm makes the most profit it can.",
+      "feedback": "Most profit is not the same as efficiency. The firm makes less than the output where MB = MC, so there is a welfare loss."
+     },
+     {
+      "text": "It is equitable, because every patient faces the same price.",
+      "feedback": "The same price is equality, not equity. Only the patients who can pay a very high price get the medicine."
+     }
+    ]
+   },
+   {
+    "id": "j4",
+    "icon": "🏭",
+    "title": "Smoke over a low-income area",
+    "story": "A paint factory sends smoke over the cheapest part of town, where low-income families live. The firm does not pay for the harm. It makes more paint than is best for society.",
+    "verdict": "neither",
+    "reasons": [
+     {
+      "text": "There is a negative externality, so the market overproduces (MSC is above MSB). The cost falls on families who have the least.",
+      "feedback": "Right. The externality causes a welfare loss, and the third parties who pay the cost are low-income households.",
+      "correct": true
+     },
+     {
+      "text": "It is efficient, because the firm produces where its own costs equal the price.",
+      "feedback": "The firm ignores the external cost. At its output MSC is above MSB, so too much is produced: a welfare loss."
+     },
+     {
+      "text": "It is equitable, because everyone in town breathes the same air.",
+      "feedback": "The smoke falls on the low-income area, not on everyone. The harm is not shared out fairly."
+     }
+    ]
+   },
+   {
+    "id": "j5",
+    "icon": "🍚",
+    "title": "A subsidy on rice",
+    "story": "The government pays a subsidy on rice so that low-income families can afford it. There is no externality. Output rises above the free market level, to where MC is above MB.",
+    "verdict": "equitable",
+    "reasons": [
+     {
+      "text": "It helps low-income families to buy a basic food, but too much rice is now produced: a welfare loss.",
+      "feedback": "Right. Many people see it as fairer, but with no externality the subsidy overallocates resources.",
+      "correct": true
+     },
+     {
+      "text": "It is efficient, because the subsidy lowers the price.",
+      "feedback": "A lower price is not the same as efficiency. Units are now made where MC is above MB, so there is a welfare loss."
+     },
+     {
+      "text": "It is not equitable, because the government pays for it.",
+      "feedback": "Who pays does not decide fairness on its own. The subsidy helps low-income families most, because rice is a big share of what they spend."
+     }
+    ]
+   },
+   {
+    "id": "j6",
+    "icon": "🔑",
+    "title": "A maximum rent",
+    "story": "The government sets a maximum rent below the market rent so that low-income tenants can afford a flat. Now more people want flats than there are flats to rent.",
+    "verdict": "equitable",
+    "reasons": [
+     {
+      "text": "Tenants who find a flat pay a lower rent, which aims at fairness. But fewer flats are supplied than people want: excess demand and a welfare loss.",
+      "feedback": "Right. A price ceiling aims at equity, but it causes a shortage. People who find no flat lose out, so the trade-off is real.",
+      "correct": true
+     },
+     {
+      "text": "It is efficient, because rents are lower for everyone.",
+      "feedback": "Rents are lower, but fewer flats are supplied. The quantity is below the free market level, so there is a welfare loss."
+     },
+     {
+      "text": "It is not equitable, because landlords earn less.",
+      "feedback": "Landlords earn less, but the aim is to help low-income tenants. Most people would see that aim as equity."
+     }
+    ]
+   },
+   {
+    "id": "j7",
+    "icon": "💉",
+    "title": "Free vaccines for every child",
+    "story": "A vaccine has a positive externality: when one child is vaccinated, others are protected too. The government gives the vaccine free to every child, so use rises to the social optimum.",
+    "verdict": "both",
+    "reasons": [
+     {
+      "text": "It corrects the underconsumption caused by the externality, so MSB = MSC. And every child is protected, whatever their family's income.",
+      "feedback": "Right. Government provision here moves the market to the social optimum and reaches low-income families too.",
+      "correct": true
+     },
+     {
+      "text": "It is not efficient, because the vaccine is free.",
+      "feedback": "A free price would cause overuse in a normal market. Here the positive externality means the free market makes too few, so free provision moves use up to the social optimum."
+     },
+     {
+      "text": "It is not equitable, because rich children get it free too.",
+      "feedback": "Rich children are included, but the point is that no child misses out because of low income. Most people would see that as fair."
+     }
+    ]
+   },
+   {
+    "id": "j8",
+    "icon": "🌳",
+    "title": "A pollution tax that pays people back",
+    "story": "The government puts a tax on pollution equal to the external cost, so output falls to the social optimum. It pays the tax revenue to low-income households as a cash transfer.",
+    "verdict": "both",
+    "reasons": [
+     {
+      "text": "The tax makes the polluter pay the external cost, so MSC = MSB. The revenue goes to the households with the least.",
+      "feedback": "Right. The tax corrects the externality (efficiency), and the transfer helps low-income households (equity).",
+      "correct": true
+     },
+     {
+      "text": "It is not efficient, because output falls.",
+      "feedback": "Output falls from too much to the social optimum. Producing less here removes the welfare loss."
+     },
+     {
+      "text": "It is not equitable, because the tax raises prices for everyone.",
+      "feedback": "Prices rise, but the revenue is given to low-income households. Their gain can be bigger than the higher prices they pay."
+     }
+    ]
+   }
+  ],
+  "households": [
+   {
+    "id": "h1",
+    "name": "Ana",
+    "icon": "🏭",
+    "income": 90,
+    "cause": "capital",
+    "story": "Ana owns the town's factory. She does not work there. Each year the firm's profits are paid to her."
+   },
+   {
+    "id": "h2",
+    "name": "Ben",
+    "icon": "🏘️",
+    "income": 50,
+    "cause": "inherit",
+    "story": "Ben's parents left him a block of flats. He earns rent from the people who live there."
+   },
+   {
+    "id": "h3",
+    "name": "Chen",
+    "icon": "💻",
+    "income": 35,
+    "cause": "skills",
+    "story": "Chen trained for years to become a software engineer. Few people have her skills, and firms compete to hire her."
+   },
+   {
+    "id": "h4",
+    "name": "Dina",
+    "icon": "🛒",
+    "income": 18,
+    "cause": "lowskill",
+    "story": "Dina works full time in a shop. She left school early. Many people could do her job."
+   },
+   {
+    "id": "h5",
+    "name": "Eli",
+    "icon": "🛌",
+    "income": 7,
+    "cause": "none",
+    "story": "Eli is ill and cannot work. He owns no land or capital. A small gift from his family is all he has."
+   }
+  ],
+  "causes": {
+   "capital": {
+    "label": "Owns capital: earns profit",
+    "icon": "⚙️",
+    "wrong": "Look at what Ana owns. The owner of capital receives the profit, even without working."
+   },
+   "inherit": {
+    "label": "Inherited wealth: earns rent",
+    "icon": "📜",
+    "wrong": "Where did Ben's flats come from? Wealth passed down from parents earns rent for the next generation."
+   },
+   "skills": {
+    "label": "High skills: earns a high wage",
+    "icon": "🎓",
+    "wrong": "Chen sells her labour. Skills that are scarce and in demand earn a high wage."
+   },
+   "lowskill": {
+    "label": "Low skills: earns a low wage",
+    "icon": "🧹",
+    "wrong": "Dina sells her labour, but many people can do her job. Labour with low skills earns a low wage."
+   },
+   "none": {
+    "label": "No factor to sell: no factor income",
+    "icon": "🚫",
+    "wrong": "Eli cannot sell labour and owns no land or capital. The market pays only for factors, so he gets no factor income."
+   }
+  },
+  "causeOrder": [
+   "capital",
+   "inherit",
+   "skills",
+   "lowskill",
+   "none"
+  ],
+  "calcs": [
+   {
+    "id": "k1",
+    "prompt": "What **percentage of the town's total income** goes to Ana, the richest household (the top 20%)?",
+    "group": [
+     0
+    ],
+    "answer": 45,
+    "working": "Share = 90 ÷ 200 × 100 = **45%**. One household in five gets almost half of all income.",
+    "mistakes": [
+     {
+      "value": 90,
+      "feedback": "90 is Ana's income in $ thousand. Divide it by the total income of all five households, then multiply by 100."
+     },
+     {
+      "value": 20,
+      "feedback": "Ana is 20% of the households. The question asks for her share of the income."
+     },
+     {
+      "value": 0.45,
+      "feedback": "0.45 is the fraction. Multiply by 100 to give a percentage."
+     }
+    ]
+   },
+   {
+    "id": "k2",
+    "prompt": "What **percentage of total income** goes to the poorest two households, Dina and Eli (the bottom 40%)?",
+    "group": [
+     3,
+     4
+    ],
+    "answer": 12.5,
+    "working": "Share = (18 + 7) ÷ 200 × 100 = 25 ÷ 200 × 100 = **12.5%**. Two households in five get only one eighth of the income.",
+    "mistakes": [
+     {
+      "value": 25,
+      "feedback": "25 is their income together, in $ thousand. Divide by the total of 200, then multiply by 100."
+     },
+     {
+      "value": 40,
+      "feedback": "Dina and Eli are 40% of the households. The question asks for their share of the income."
+     },
+     {
+      "value": 3.5,
+      "feedback": "3.5% is Eli's share only. Add Dina's income too."
+     },
+     {
+      "value": 9,
+      "feedback": "9% is Dina's share only. Add Eli's income too."
+     },
+     {
+      "value": 0.125,
+      "feedback": "0.125 is the fraction. Multiply by 100 to give a percentage."
+     }
+    ]
+   }
+  ],
+  "responses": [
+   {
+    "id": "r1",
+    "icon": "⚙️",
+    "cause": "Ana owns the factory. The profits flow to her as the owner of capital.",
+    "options": [
+     {
+      "text": "A progressive income tax: higher incomes pay a higher rate",
+      "feedback": "Right. A progressive tax takes a bigger share of high incomes, such as large profits, and the revenue can fund help for others.",
+      "correct": true
+     },
+     {
+      "text": "A minimum wage",
+      "feedback": "A minimum wage raises the pay of low-paid workers. Ana is not a worker: her income is profit."
+     },
+     {
+      "text": "Free training for shop workers",
+      "feedback": "Training raises low wages over time. It does not reach the profit that flows to Ana."
+     },
+     {
+      "text": "An indirect tax on bread",
+      "feedback": "A tax on bread takes a bigger share of low incomes than high ones. It would make the gap wider."
+     }
+    ]
+   },
+   {
+    "id": "r2",
+    "icon": "📜",
+    "cause": "Ben inherited flats from his parents. Wealth passes down, so the gap lasts from one generation to the next.",
+    "options": [
+     {
+      "text": "A tax on wealth, such as an inheritance tax",
+      "feedback": "Right. A wealth tax takes a share of large fortunes as they pass down, so the gap shrinks over time.",
+      "correct": true
+     },
+     {
+      "text": "A minimum wage",
+      "feedback": "Ben does not earn a wage. His income is rent from wealth he inherited."
+     },
+     {
+      "text": "A subsidy for building luxury flats",
+      "feedback": "This gives more to people who already own property. It does not reduce the gap."
+     },
+     {
+      "text": "A flat fee for every bus ride",
+      "feedback": "A flat fee is the same for everyone. It does nothing about inherited wealth."
+     }
+    ]
+   },
+   {
+    "id": "r3",
+    "icon": "🧹",
+    "cause": "Dina left school early, so she has few skills and earns a low wage.",
+    "options": [
+     {
+      "text": "Investment in human capital: free education and training",
+      "feedback": "Right. More skills raise the value of Dina's labour, so she can earn a higher wage. This also gives more equal opportunity.",
+      "correct": true
+     },
+     {
+      "text": "A tax on wealth",
+      "feedback": "Dina has very little wealth. A wealth tax does not raise her skills or her wage."
+     },
+     {
+      "text": "Cut income tax for the highest earners",
+      "feedback": "This helps people with high incomes most. The gap would grow."
+     },
+     {
+      "text": "A subsidy for factory owners",
+      "feedback": "This raises the income of owners of capital, like Ana. It does not help Dina's skills."
+     }
+    ]
+   },
+   {
+    "id": "r4",
+    "icon": "🛒",
+    "cause": "Shop workers have little bargaining power, so firms pay them very low wages.",
+    "options": [
+     {
+      "text": "A minimum wage",
+      "feedback": "Right. A minimum wage sets a floor under low wages. (If it is set too high, some workers could lose their jobs.)",
+      "correct": true
+     },
+     {
+      "text": "Cut tax on company profits",
+      "feedback": "This raises the income of owners of capital. It does not raise wages."
+     },
+     {
+      "text": "A tax on inheritance",
+      "feedback": "An inheritance tax targets inherited wealth. It does not change what shop workers are paid."
+     },
+     {
+      "text": "Remove all rules on pay",
+      "feedback": "With no rules, workers with little bargaining power may be paid even less."
+     }
+    ]
+   },
+   {
+    "id": "r5",
+    "icon": "🛌",
+    "cause": "Eli is ill and cannot work. He owns no factors of production, so the market pays him nothing.",
+    "options": [
+     {
+      "text": "Transfer payments, such as disability benefits",
+      "feedback": "Right. A transfer payment gives Eli an income that does not depend on selling a factor of production.",
+      "correct": true
+     },
+     {
+      "text": "A minimum wage",
+      "feedback": "A minimum wage helps only people in work. Eli cannot work."
+     },
+     {
+      "text": "Free job training",
+      "feedback": "Training helps people who can work. Eli is too ill to work now."
+     },
+     {
+      "text": "A progressive income tax on its own",
+      "feedback": "It takes more from high incomes, but on its own it gives Eli nothing. The money must be passed on, for example as a transfer payment."
+     }
+    ]
+   },
+   {
+    "id": "r6",
+    "icon": "⚖️",
+    "cause": "Some workers are paid less than others for the same work, because of their gender or race.",
+    "options": [
+     {
+      "text": "Policies to reduce discrimination, such as equal pay laws",
+      "feedback": "Right. These laws stop firms paying people less for the same work because of who they are.",
+      "correct": true
+     },
+     {
+      "text": "A tax on wealth",
+      "feedback": "A wealth tax targets large fortunes. It does not stop unfair pay at work."
+     },
+     {
+      "text": "An indirect tax on petrol",
+      "feedback": "A petrol tax raises the price of fuel. It has nothing to do with unfair pay."
+     },
+     {
+      "text": "A subsidy for all firms",
+      "feedback": "A subsidy lowers firms' costs. It does not stop discrimination."
+     }
+    ]
+   },
+   {
+    "id": "r7",
+    "icon": "🩺",
+    "cause": "Children in low-income families cannot afford a doctor. They miss school and earn less when they grow up.",
+    "options": [
+     {
+      "text": "Targeted spending: free healthcare for children",
+      "feedback": "Right. The government spends directly on a service, so every child can see a doctor whatever their family's income.",
+      "correct": true
+     },
+     {
+      "text": "The same fee for every doctor visit",
+      "feedback": "The same fee is equality, not equity. Low-income families still cannot pay."
+     },
+     {
+      "text": "A tax on inheritance",
+      "feedback": "An inheritance tax reduces large fortunes. On its own it does not get children to a doctor."
+     },
+     {
+      "text": "Cut spending on schools",
+      "feedback": "This would reduce opportunities for low-income children even more."
+     }
+    ]
+   }
+  ]
+ },
+ "check": [
+  {
+   "id": "q1",
+   "type": "choice",
+   "level": "core",
+   "hl": true,
+   "prompt": "What is the difference between **equity** and **equality**?",
+   "options": [
+    {
+     "text": "Equity means fairness. Equality means everyone has the same.",
+     "feedback": "Yes. Equity is about what is fair, which can mean giving more to people who need more. Equality is about sameness.",
+     "correct": true
+    },
+    {
+     "text": "They mean the same thing.",
+     "feedback": "They are different. The same pay for everyone is equality. Extra help for people who need it is equity."
+    },
+    {
+     "text": "Equity means everyone has the same. Equality means fairness.",
+     "feedback": "This is the wrong way round. Equity is fairness, and equality is sameness."
+    },
+    {
+     "text": "Equity is about efficiency. Equality is about prices.",
+     "feedback": "Neither is about efficiency or prices. Equity is fairness, and equality is everyone having the same."
+    }
+   ],
+   "hints": [
+    "One word is about being fair, the other about being the same.",
+    "\"Equal\" is inside \"equality\": everyone gets an equal amount."
+   ],
+   "worked": "Example: giving every student the same textbook is equality. Giving a student with poor eyesight a large-print copy is equity.",
+   "explanation": "**Equality** means outcomes are the same for different people. **Equity** means fairness, and what is fair is a value judgement."
+  },
+  {
+   "id": "q2",
+   "type": "choice",
+   "level": "core",
+   "hl": true,
+   "prompt": "Which of these is an example of **equity** rather than equality?",
+   "options": [
+    {
+     "text": "A scholarship given to students from low-income families",
+     "feedback": "Yes. The help goes to those who need it most, which many people see as fair.",
+     "correct": true
+    },
+    {
+     "text": "The same entry fee for every visitor",
+     "feedback": "The same fee for everyone is equality."
+    },
+    {
+     "text": "One vote for every citizen",
+     "feedback": "Everyone gets the same, one vote. That is equality."
+    },
+    {
+     "text": "The same cash payment for every adult",
+     "feedback": "Everyone gets the same amount. That is equality."
+    }
+   ],
+   "hints": [
+    "Look for the case where people are treated differently because their needs differ.",
+    "Which one gives more to people who have less?"
+   ],
+   "worked": "Example: free school meals for children from low-income families are equity. A free lunch for every child is equality.",
+   "explanation": "**Equity** can mean treating people differently so that the outcome is fairer, for example help based on need."
+  },
+  {
+   "id": "q3",
+   "type": "choice",
+   "level": "core",
+   "hl": true,
+   "prompt": "A competitive market with no externalities is **efficient**. Why may it still fail to be **equitable**?",
+   "options": [
+    {
+     "text": "Goods go to people willing and able to pay, and ability to pay depends on income.",
+     "feedback": "Yes. The market responds to money, not need. People with low incomes have little say in what is produced and who gets it.",
+     "correct": true
+    },
+    {
+     "text": "Because there is always a welfare loss in a free market.",
+     "feedback": "With no externalities or market power, a competitive market has no welfare loss. The problem is fairness."
+    },
+    {
+     "text": "Because firms charge different prices to different people.",
+     "feedback": "In a competitive market everyone pays the same price. The issue is how much income people have."
+    },
+    {
+     "text": "Because the market produces too much of every good.",
+     "feedback": "A competitive market with no externalities produces where MB = MC: not too much, not too little."
+    }
+   ],
+   "hints": [
+    "Who gets the goods in a free market?",
+    "Think about willingness and ability to pay."
+   ],
+   "worked": "Example: in a free market for flats, rents rise when demand rises. The flats go to people who can pay the most. Low-income workers are priced out, even though no resources are wasted.",
+   "explanation": "The market allocates goods to those **willing and able to pay**. If incomes are unequal, an efficient market can still give an outcome many people see as unfair."
+  },
+  {
+   "id": "q4",
+   "type": "label",
+   "level": "core",
+   "hl": true,
+   "prompt": "This circular flow shows owners and workers selling factors to firms. Choose the label for each letter.",
+   "diagram": {
+    "xMax": 100,
+    "yMax": 80,
+    "xLabel": "",
+    "yLabel": "",
+    "noAxes": true,
+    "title": "Factor ownership and incomes in a free market",
+    "description": "Owners on the top left and workers on the bottom left. Firms on the right. Arrows go from each group to firms (the factors they sell) and from firms back to each group (the incomes they receive). Four arrows have letters A to D.",
+    "boxes": [
+     {
+      "at": {
+       "q": 18,
+       "p": 66
+      },
+      "w": 26,
+      "h": 12,
+      "text": "Owners"
+     },
+     {
+      "at": {
+       "q": 18,
+       "p": 14
+      },
+      "w": 26,
+      "h": 12,
+      "text": "Workers"
+     },
+     {
+      "at": {
+       "q": 84,
+       "p": 40
+      },
+      "w": 24,
+      "h": 12,
+      "text": "Firms"
+     }
+    ],
+    "arrows": [
+     {
+      "from": {
+       "q": 72,
+       "p": 48
+      },
+      "to": {
+       "q": 31,
+       "p": 68
+      },
+      "tone": "red"
+     },
+     {
+      "from": {
+       "q": 31,
+       "p": 60
+      },
+      "to": {
+       "q": 72,
+       "p": 44
+      }
+     },
+     {
+      "from": {
+       "q": 72,
+       "p": 36
+      },
+      "to": {
+       "q": 31,
+       "p": 20
+      },
+      "tone": "red"
+     },
+     {
+      "from": {
+       "q": 31,
+       "p": 12
+      },
+      "to": {
+       "q": 72,
+       "p": 32
+      }
+     }
+    ],
+    "tags": [
+     {
+      "at": {
+       "q": 50,
+       "p": 63
+      },
+      "letter": "A"
+     },
+     {
+      "at": {
+       "q": 50,
+       "p": 47
+      },
+      "letter": "B"
+     },
+     {
+      "at": {
+       "q": 50,
+       "p": 33
+      },
+      "letter": "C"
+     },
+     {
+      "at": {
+       "q": 50,
+       "p": 17
+      },
+      "letter": "D"
+     }
+    ]
+   },
+   "slots": [
+    {
+     "letter": "A",
+     "answer": "Rent, interest and profit",
+     "feedback": "A is money from firms to the owners of land and capital: rent, interest and profit."
+    },
+    {
+     "letter": "B",
+     "answer": "Land and capital",
+     "feedback": "B goes from the owners to firms: the land and capital they own."
+    },
+    {
+     "letter": "C",
+     "answer": "Wages",
+     "feedback": "C is money from firms to workers: wages."
+    },
+    {
+     "letter": "D",
+     "answer": "Labour",
+     "feedback": "D goes from workers to firms: their labour."
+    }
+   ],
+   "choices": [
+    "Rent, interest and profit",
+    "Land and capital",
+    "Wages",
+    "Labour",
+    "Transfer payments",
+    "Taxes"
+   ],
+   "hints": [
+    "Arrows into the firms box are factors. Arrows out of it are incomes.",
+    "Workers sell labour and earn wages. Owners sell the use of land and capital."
+   ],
+   "worked": "Example: a farmer rents a field to a firm. The field (land) goes to the firm, and rent comes back to the farmer.",
+   "explanation": "Firms pay **rent, interest and profit** (A) to owners for their **land and capital** (B), and **wages** (C) to workers for their **labour** (D). People who own more factors, or scarcer ones, receive more income."
+  },
+  {
+   "id": "q5",
+   "type": "number",
+   "level": "apply",
+   "hl": true,
+   "prompt": "The table shows the yearly income of each fifth (20%) of households in a town. What **percentage of total income** does the richest 20% receive?",
+   "table": {
+    "caption": "Income of each fifth of households ($ million a year)",
+    "headers": [
+     "Group of households",
+     "Income ($ million)"
+    ],
+    "rows": [
+     [
+      "Poorest 20%",
+      12
+     ],
+     [
+      "Second 20%",
+      18
+     ],
+     [
+      "Middle 20%",
+      24
+     ],
+     [
+      "Fourth 20%",
+      36
+     ],
+     [
+      "Richest 20%",
+      60
+     ]
+    ]
+   },
+   "answer": 40,
+   "suffix": "%",
+   "tolerance": 0.1,
+   "mistakes": [
+    {
+     "value": 60,
+     "feedback": "$60 million is the income of the richest 20%. Divide it by total income, then multiply by 100."
+    },
+    {
+     "value": 20,
+     "feedback": "20% is their share of the households. The question asks for their share of the income."
+    },
+    {
+     "value": 0.4,
+     "feedback": "0.4 is the fraction. Multiply by 100 to give a percentage."
+    },
+    {
+     "value": 66.67,
+     "feedback": "You divided by 90, the total of the other four groups. Divide by the total of all five groups."
+    }
+   ],
+   "hints": [
+    "First add up the income of all five groups.",
+    "Total income is 12 + 18 + 24 + 36 + 60 = 150. Now divide 60 by 150."
+   ],
+   "worked": "Example: if total income is $200 million and the richest 20% get $90 million, their share is 90 ÷ 200 × 100 = 45%.",
+   "explanation": "Total income = 12 + 18 + 24 + 36 + 60 = **$150 million**. Share of the richest 20% = 60 ÷ 150 × 100 = **40%**. If incomes were equal, each fifth would get 20%."
+  },
+  {
+   "id": "q6",
+   "type": "choice",
+   "level": "apply",
+   "hl": true,
+   "prompt": "Only one firm sells a cancer medicine. It cuts output and raises the price to earn more profit. Is the outcome efficient, equitable, both or neither?",
+   "options": [
+    {
+     "text": "Neither: output is below the level where MB = MC, and low-income patients go without.",
+     "feedback": "Yes. Market power causes a welfare loss, and the high price shuts out people with low incomes.",
+     "correct": true
+    },
+    {
+     "text": "Efficient but not equitable",
+     "feedback": "Most profit is not efficiency. The firm produces less than where MB = MC, so there is a welfare loss."
+    },
+    {
+     "text": "Equitable but not efficient",
+     "feedback": "Patients who need the medicine but cannot pay the high price go without. Few people would see that as fair."
+    },
+    {
+     "text": "Both, because the firm earns a profit to fund research",
+     "feedback": "Profit may fund research, but now there is a welfare loss and low-income patients are shut out."
+    }
+   ],
+   "hints": [
+    "Does the firm produce where MB = MC?",
+    "Who can buy the medicine at a very high price?"
+   ],
+   "worked": "Example: a free, competitive bread market with no externalities is efficient but may not be equitable. A monopoly that restricts output is not even efficient.",
+   "explanation": "Restricting output causes **allocative inefficiency** (a welfare loss). The high price also means the medicine goes to those able to pay, not those in need: **inequity**."
+  },
+  {
+   "id": "q7",
+   "type": "choice",
+   "level": "apply",
+   "hl": true,
+   "prompt": "In a free market, many workers earn low wages because they have few skills. Which government response deals with this **cause**?",
+   "options": [
+    {
+     "text": "Investment in human capital, such as free education and training",
+     "feedback": "Yes. More skills raise the value of their labour, so they can earn higher wages.",
+     "correct": true
+    },
+    {
+     "text": "A tax on inheritance",
+     "feedback": "An inheritance tax targets inherited wealth. It does not raise workers' skills."
+    },
+    {
+     "text": "An indirect tax on food",
+     "feedback": "A tax on food takes a bigger share of low incomes. It would make inequality worse."
+    },
+    {
+     "text": "A cut in the top rate of income tax",
+     "feedback": "This helps people with high incomes most. The gap would grow."
+    }
+   ],
+   "hints": [
+    "Match the response to the cause: low skills.",
+    "Which response makes workers more skilled?"
+   ],
+   "worked": "Example: if the cause is owning no factors at all (for example, being too ill to work), the matching response is a transfer payment.",
+   "explanation": "Low skills mean low wages. **Investment in human capital** (education and training) raises skills, wages and equality of opportunity."
+  },
+  {
+   "id": "q8",
+   "type": "choice",
+   "level": "core",
+   "hl": true,
+   "prompt": "Two economists agree on the facts about incomes in a country. They still disagree about whether the distribution is **equitable**. Why?",
+   "options": [
+    {
+     "text": "Equity is a normative idea: what is fair is a value judgement.",
+     "feedback": "Yes. Evidence can show how unequal incomes are. Whether that is fair depends on values.",
+     "correct": true
+    },
+    {
+     "text": "One of them must have made a mistake with the data.",
+     "feedback": "They agree on the facts. They disagree about what is fair, which data cannot settle."
+    },
+    {
+     "text": "Equity can only be measured with a price.",
+     "feedback": "Equity is not measured with a price. It is about fairness."
+    },
+    {
+     "text": "Equity and efficiency are the same thing.",
+     "feedback": "They are different. An efficient market can still be seen as unfair."
+    }
+   ],
+   "hints": [
+    "Is \"fair\" a word that evidence can test?",
+    "Think back to positive and normative economics."
+   ],
+   "worked": "Example: \"The top 20% receive 40% of income\" is positive (testable). \"That is too much\" is normative.",
+   "explanation": "**Equity** is fairness, and fairness is a **value judgement**. People with different values can look at the same data and reach different views."
+  },
+  {
+   "id": "q9",
+   "type": "choice",
+   "level": "core",
+   "hl": true,
+   "prompt": "In a free market, a person who owns **no factors of production** and cannot work receives how much factor income?",
+   "options": [
+    {
+     "text": "None: the market pays only for the factors people sell.",
+     "feedback": "Yes. With no labour, land or capital to sell, there is no factor income. Governments may use transfer payments.",
+     "correct": true
+    },
+    {
+     "text": "The same as everyone else",
+     "feedback": "A free market does not share income equally. It pays for the factors people sell."
+    },
+    {
+     "text": "A wage set by the market",
+     "feedback": "A wage is paid for labour. This person cannot sell labour."
+    },
+    {
+     "text": "Rent and profit",
+     "feedback": "Rent is paid to owners of land and profit to owners of capital. This person owns neither."
+    }
+   ],
+   "hints": [
+    "In the circular flow, what do households sell to firms to earn income?",
+    "What happens if a household has nothing to sell?"
+   ],
+   "worked": "Example: a worker earns wages for labour. A landowner earns rent for land. Someone with neither earns nothing from the market.",
+   "explanation": "Factor incomes (wages, rent, interest and profit) are paid for **factors of production**. Owning no factors means no factor income, which is one reason a free market can leave people in poverty."
+  }
+ ],
+ "explain": {
+  "prompt": "Use the circular flow to explain why a free market can lead to an unequal distribution of income. Then suggest one government response and say which cause it deals with.",
+  "frames": [
+   "In a free market, households earn income by selling ___ to firms.",
+   "People who own ___ receive rent, interest and profit, while workers receive ___.",
+   "Incomes are unequal because ___.",
+   "The market can be efficient but not equitable, because ___.",
+   "One response is ___. It deals with ___ because ___."
+  ],
+  "checklist": [
+   "I explained the difference between equity and equality.",
+   "I used the circular flow: factors go to firms and factor incomes come back.",
+   "I gave at least two causes, such as factor ownership, skills or inheritance.",
+   "I said that an efficient market can still be seen as unfair, and that fairness is a value judgement.",
+   "I matched a government response to a cause."
+  ]
+ },
+ "teacherNotes": "This sub-topic is HL only (2.12). The guide asks for the circular flow model to illustrate why the free market results in inequalities: the Learn diagram and Level 3 do this with five households. Level 1 links back to equity and equality in 1.2. Level 2 asks for a verdict and a reason; the rent ceiling and rice subsidy rounds are good for debate, because equity is a value judgement. Level 3 matches government responses to causes, using the policies listed in 3.4 (progressive and wealth taxes, human capital, transfer payments, targeted spending, minimum wages, anti-discrimination policy). The income share calculations prepare students for the Lorenz curve from quintile data in 3.4 (HL)."
+}

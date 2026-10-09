@@ -178,9 +178,36 @@ export const ACTIVITIES: ActivityMeta[] = [
     ],
     load: () => import('../activities/streetlight-fund'),
   },
-  { id: 'used-car-lot', tag: '2.10 Asymmetric information', code: '2.10', unit: 2, hl: 'all', title: 'Used Car Lot', style: 'Trading game', blurb: 'Buy cars without seeing their quality. Watch good cars leave the market.' },
-  { id: 'monopoly-game', tag: '2.11 Market power', code: '2.11', unit: 2, hl: 'all', title: 'Monopoly and Game Theory', style: 'Rival pricing game', blurb: 'Find MC = MR, then play a pricing game against a rival firm.' },
-  { id: 'fair-efficient', tag: '2.12 Equity', code: '2.12', unit: 2, hl: 'all', title: 'Fair or Efficient?', style: 'Judgement calls', blurb: 'Judge market outcomes as equitable, efficient, both or neither.' },
+  {
+    id: 'used-car-lot', tag: '2.10 Asymmetric information', code: '2.10', unit: 2, hl: 'all', title: 'Used Car Lot', style: 'Car lot auction',
+    blurb: 'Bid on cars you cannot see inside. Watch good cars drive away, bring them back with signals and rules, then spot moral hazard.',
+    goal: { name: 'Smart Buyer', how: 'Level 1 of Used Car Lot (HL): find the buyers\' price and who drives away, 12 of 15 right first time.', icon: 'car' },
+    goals: [
+      { name: 'Signal Reader', how: 'Level 2 of Used Car Lot (HL): name the response to asymmetric information, 8 of 10 cases right first time.', icon: 'car' },
+      { name: 'Risk Watcher', how: 'Level 3 of Used Car Lot (HL): spot adverse selection or moral hazard and choose the response. Score 13 of 16 first-try points.', icon: 'car' },
+    ],
+    load: () => import('../activities/used-car-lot'),
+  },
+  {
+    id: 'monopoly-game', tag: '2.11 Market power', code: '2.11', unit: 2, hl: 'all', title: 'Rival Pricing', style: 'Coffee street duel',
+    blurb: 'Two cafés, one street. Map market structures, find the profit where MC = MR, then fight a price war with a payoff matrix.',
+    goal: { name: 'Market Mapper', how: 'Level 1 of Rival Pricing (HL): map the market structure for 8 of 10 markets right first time.', icon: 'crown' },
+    goals: [
+      { name: 'Profit Finder', how: 'Level 2 of Rival Pricing (HL): find the output, price, profit and kind of profit. Score 16 of 20 first-try points.', icon: 'crown' },
+      { name: 'Game Theorist', how: 'Level 3 of Rival Pricing (HL): read the payoff matrix, play the price duel and judge collusion. Score 15 of 18 first-try points.', icon: 'crown' },
+    ],
+    load: () => import('../activities/monopoly-game'),
+  },
+  {
+    id: 'fair-efficient', tag: '2.12 Equity', code: '2.12', unit: 2, hl: 'all', title: 'Fair or Efficient?', style: 'Balance scale',
+    blurb: 'Tip the scale between efficiency and equity. Sort fair from equal, judge market outcomes, then follow the money to see why incomes are unequal.',
+    goal: { name: 'Equity Spotter', how: 'Level 1 of Fair or Efficient?: sort 10 of 12 cases as equity or equality right first time.', icon: 'scale' },
+    goals: [
+      { name: 'Fair Judge', how: 'Level 2 of Fair or Efficient?: judge 6 of 8 market outcomes and their reasons with no wrong try.', icon: 'scale' },
+      { name: 'Flow Detective', how: 'Level 3 of Fair or Efficient?: find the causes, calculate income shares and match the responses. Score 11 of 14.', icon: 'scale' },
+    ],
+    load: () => import('../activities/fair-efficient'),
+  },
 ];
 
 /**

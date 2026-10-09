@@ -832,6 +832,256 @@
       "example": "Bread and milk."
     },
     {
+      "term": "Market power",
+      "meaning": "A firm's ability to set its own price instead of accepting the market price. The fewer close substitutes and the higher the barriers to entry, the more market power.",
+      "code": "2.11",
+      "hl": true
+    },
+    {
+      "term": "Perfect competition",
+      "meaning": "A market with many small firms selling the same (homogeneous) product, with free entry and exit. Each firm is a price taker and has no market power.",
+      "code": "2.11",
+      "hl": true,
+      "example": "Many farmers growing the same kind of wheat."
+    },
+    {
+      "term": "Monopolistic competition",
+      "meaning": "A market with many firms and free entry, where each firm's product is a bit different. Each firm has a little market power.",
+      "code": "2.11",
+      "hl": true,
+      "example": "A street of cafés, hair salons or restaurants."
+    },
+    {
+      "term": "Oligopoly",
+      "meaning": "A market with a few large firms and high barriers to entry. The firms are interdependent: each one must think about how its rivals will react.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "oligopolies"
+      ],
+      "example": "Airlines, mobile networks, supermarket chains."
+    },
+    {
+      "term": "Monopoly",
+      "meaning": "A market with a single or dominant firm, high barriers to entry and no close substitutes. The firm is a price maker.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "monopolist",
+        "monopolies"
+      ]
+    },
+    {
+      "term": "Natural monopoly",
+      "meaning": "A market where economies of scale are so large that one firm can supply the whole market at a lower average cost than two or more firms could.",
+      "code": "2.11",
+      "hl": true,
+      "example": "Water pipes or an electricity grid."
+    },
+    {
+      "term": "Barriers to entry",
+      "meaning": "Anything that makes it hard for new firms to enter a market, such as high set-up costs, economies of scale, patents, licences or strong brands.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "barrier to entry",
+        "entry barriers"
+      ]
+    },
+    {
+      "term": "Price taker",
+      "meaning": "A firm that must accept the market price, because it is too small to change it. Firms in perfect competition are price takers.",
+      "code": "2.11",
+      "hl": true
+    },
+    {
+      "term": "Price maker",
+      "meaning": "A firm with market power that can choose its price. It faces a downward sloping demand curve, so a higher price means fewer sales.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "price setter"
+      ]
+    },
+    {
+      "term": "Product differentiation",
+      "meaning": "Making a product a bit different from rivals' products, for example by quality, style, brand or location.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "differentiated products",
+        "differentiated product"
+      ]
+    },
+    {
+      "term": "Interdependence",
+      "meaning": "In an oligopoly, each firm's best choice depends on what its rivals do, so firms must think about how rivals will react.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "interdependent"
+      ]
+    },
+    {
+      "term": "Concentration ratio",
+      "meaning": "The total market share of the largest firms in a market. CR4 is the combined share (%) of the four largest firms. A high ratio means a few firms dominate.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "concentration ratios",
+        "CR4"
+      ],
+      "example": "Shares of 30%, 25%, 15% and 10% give CR4 = 80%."
+    },
+    {
+      "term": "Marginal revenue",
+      "meaning": "The extra revenue from selling one more unit: the change in total revenue. For a firm with market power, MR is below the price.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "MR"
+      ]
+    },
+    {
+      "term": "Average revenue",
+      "meaning": "Revenue per unit sold: TR ÷ Q. Average revenue equals the price, so the demand curve is the AR curve.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "AR"
+      ]
+    },
+    {
+      "term": "Average cost",
+      "meaning": "Cost per unit: total cost ÷ quantity (TC ÷ Q).",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "AC",
+        "average total cost",
+        "ATC"
+      ]
+    },
+    {
+      "term": "Abnormal profit",
+      "meaning": "Profit above normal profit. It happens when AR > AC, so TR is greater than TC.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "supernormal profit",
+        "economic profit"
+      ]
+    },
+    {
+      "term": "Normal profit",
+      "meaning": "The profit a firm needs to stay in business. It happens when AR = AC, so TR = TC. Economists count normal profit as part of costs.",
+      "code": "2.11",
+      "hl": true
+    },
+    {
+      "term": "Collusion",
+      "meaning": "When firms work together instead of competing, for example by agreeing to keep prices high. Formal collusion (a cartel) is illegal in many countries.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "collude",
+        "collusive oligopoly",
+        "collusive"
+      ]
+    },
+    {
+      "term": "Cartel",
+      "meaning": "A formal agreement between firms to fix prices or limit output, so they act like one monopoly. Cartels are illegal in many countries.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "cartels"
+      ]
+    },
+    {
+      "term": "Prisoner's dilemma",
+      "meaning": "A game in which each player's dominant strategy leads to an outcome that is worse for both than if they had cooperated.",
+      "code": "2.11",
+      "hl": true,
+      "example": "Two cafés both cut prices and both earn less than if both kept prices high."
+    },
+    {
+      "term": "Non-price competition",
+      "meaning": "Competing in ways other than price, such as advertising, loyalty schemes, quality or new products. Common in oligopoly, where price cuts are quickly copied.",
+      "code": "2.11",
+      "hl": true
+    },
+    {
+      "term": "Economies of scale",
+      "meaning": "Falls in average cost as a firm grows and produces more.",
+      "code": "2.11",
+      "hl": true,
+      "example": "A big water company spreads the cost of its pipes over millions of homes."
+    },
+    {
+      "term": "Transfer payments",
+      "meaning": "Money the government pays to people without asking for a good, service or factor in return. They give an income to people the market pays little or nothing.",
+      "code": "2.12",
+      "aliases": [
+        "transfer payment"
+      ],
+      "example": "Unemployment benefits, disability benefits and pensions."
+    },
+    {
+      "term": "Asymmetric information",
+      "meaning": "One side of a deal knows more than the other, for example about the quality of a good or about its own behaviour. It can cause market failure.",
+      "code": "2.10",
+      "hl": true,
+      "example": "The seller of a used car knows about its faults. The buyer does not."
+    },
+    {
+      "term": "Adverse selection",
+      "meaning": "Hidden information about quality or risk before a deal. The side that knows less pays an average price, so the best products or lowest-risk buyers leave the market.",
+      "code": "2.10",
+      "hl": true,
+      "example": "Owners of good used cars will not sell at the average price, so mostly lemons are left."
+    },
+    {
+      "term": "Moral hazard",
+      "meaning": "One side changes its behaviour after a deal and takes more risk, because the other side carries the cost and cannot see what it does.",
+      "code": "2.10",
+      "hl": true,
+      "example": "A driver takes more risks once insured. A bank takes big risks because it expects a bail-out."
+    },
+    {
+      "term": "Lemon",
+      "aliases": [
+        "lemons"
+      ],
+      "meaning": "A used good of poor quality whose faults the buyer cannot see before buying.",
+      "code": "2.10",
+      "hl": true
+    },
+    {
+      "term": "Market signalling",
+      "meaning": "A private response to asymmetric information: the side that knows more shows its quality in a way that is costly to fake.",
+      "code": "2.10",
+      "hl": true,
+      "example": "A seller offers a warranty. A job applicant shows a degree."
+    },
+    {
+      "term": "Screening",
+      "meaning": "A private response to asymmetric information: the side that knows less takes steps to find the hidden information.",
+      "code": "2.10",
+      "hl": true,
+      "example": "A buyer pays for a car inspection. An insurer asks for a health check."
+    },
+    {
+      "term": "Provision of information",
+      "aliases": [
+        "information provision"
+      ],
+      "meaning": "A government response to asymmetric information: the government gives people the facts, often for free.",
+      "code": "2.10",
+      "hl": true,
+      "example": "Public safety ratings for car models, or hygiene scores for restaurants."
+    },
+    {
       "term": "Common pool resources",
       "aliases": [
         "common pool resource",

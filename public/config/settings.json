@@ -16,7 +16,10 @@
     "externality-fixer": true,
     "bias-lab": true,
     "streetlight-fund": true,
-    "fish-pond": true
+    "fish-pond": true,
+    "used-car-lot": true,
+    "monopoly-game": true,
+    "fair-efficient": true
   },
   "scale": {
     "name": "CBE High School Proficiency Scale",

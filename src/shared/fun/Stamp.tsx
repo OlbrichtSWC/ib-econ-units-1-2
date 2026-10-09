@@ -1,7 +1,7 @@
 /** A rubber-stamp picture. Earned stamps are inked in red; stamps not yet earned are a dashed outline. */
 import { ComponentChildren } from 'preact';
 
-export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory' | 'brain' | 'lamp' | 'fish';
+export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory' | 'brain' | 'lamp' | 'fish' | 'car' | 'scale' | 'crown';
 
 const ICONS: Record<StampIcon, ComponentChildren> = {
   // A shopping basket with a handle
@@ -127,6 +127,32 @@ const ICONS: Record<StampIcon, ComponentChildren> = {
       <path d="M64 46l10-8v16z" />
       <circle cx="38" cy="44" r="2" fill="currentColor" />
       <path d="M28 64c5-4 9-4 14 0s9 4 14 0 9-4 14 0" />
+    </g>
+  ),
+  // A small car seen from the side
+  car: (
+    <g>
+      <path d="M26 60v-8c0-3 2-5 5-5h5l7-9h16l8 9h3c3 0 5 2 5 5v8z" />
+      <path d="M44 41v6M56 41v6" />
+      <circle cx="37" cy="61" r="5" />
+      <circle cx="63" cy="61" r="5" />
+    </g>
+  ),
+  // A balance scale: efficiency and equity
+  scale: (
+    <g>
+      <path d="M50 30v36M40 68h20" />
+      <path d="M30 38h40" />
+      <path d="M32 38l-7 14h14zM68 38l-7 14h14z" />
+      <circle cx="50" cy="32" r="2.5" fill="currentColor" />
+    </g>
+  ),
+  // A crown: market power
+  crown: (
+    <g>
+      <path d="M30 62l-2-26 12 10 10-16 10 16 12-10-2 26z" />
+      <path d="M32 68h36" />
+      <circle cx="50" cy="52" r="3" />
     </g>
   ),
   star: <path d="M50 28l6.5 13.5 14.5 2-10.5 10 2.5 14.5L50 61l-13 7 2.5-14.5-10.5-10 14.5-2z" />,
