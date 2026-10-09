@@ -152,7 +152,7 @@ function People(props: { x: number; n: number; tone: string; hats?: boolean }) {
         <g key={i} class="ef-pop" transform={`translate(${props.x + i * 15} 0)`}>
           <circle cx="0" cy="178" r="4.5" fill="#f1c9a5" stroke="#5b4636" stroke-width="1" />
           <rect x="-4.5" y="183" width="9" height="12" rx="3" fill={props.tone} />
-          {props.hats && <path d="M-6 175h12l-6-3z" fill="#1b3a6b" />}
+          {props.hats && <path d="M-6 175h12l-6-3z" fill="#1d4ed8" />}
         </g>
       ))}
     </g>
@@ -263,7 +263,7 @@ function Town(props: { fix: Partial<Record<Spot, number>>; focus?: Spot; spotted
           <path d="M336 160q8 10 0 20M343 156q12 14 0 28" stroke="#5a3f75" stroke-width="2.5" fill="none" />
         </g>
         <g class="ef-fade" opacity={f('party')}>
-          <text class="ef-zzz" x="334" y="126" font-size="15" font-weight="700" fill="#1b3a6b" aria-hidden="true">z z z</text>
+          <text class="ef-zzz" x="334" y="126" font-size="15" font-weight="700" fill="#1d4ed8" aria-hidden="true">z z z</text>
           <circle cx="335" cy="104" r="9" fill="#fff8d6" stroke="#8a5300" stroke-width="1.5" />
           <circle cx="339" cy="101" r="7" fill="#a9c4e8" />
         </g>
@@ -271,11 +271,11 @@ function Town(props: { fix: Partial<Record<Spot, number>>; focus?: Spot; spotted
 
       {/* Vaccine clinic */}
       <g>
-        <rect x="368" y="126" width="72" height="70" fill="#f3f6fb" stroke="#1b3a6b" stroke-width="2" />
-        <rect x="364" y="120" width="80" height="10" fill="#1b3a6b" />
+        <rect x="368" y="126" width="72" height="70" fill="#f3f6fb" stroke="#1d4ed8" stroke-width="2" />
+        <rect x="364" y="120" width="80" height="10" fill="#1d4ed8" />
         <rect x="391" y="135" width="26" height="26" rx="4" fill="#1e6b3a" />
         <path d="M404 140v16M396 148h16" stroke="#fff" stroke-width="5" stroke-linecap="round" />
-        <rect x="397" y="172" width="14" height="24" fill="#1b3a6b" />
+        <rect x="397" y="172" width="14" height="24" fill="#1d4ed8" />
         <People x={372} n={1 + Math.round(f('clinic') * 4)} tone="#1e6b3a" />
         <g class="ef-fade" opacity={f('clinic')}>
           <path class="ef-heart" d="M436 108c-3-5-10-2-7 3l7 7 7-7c3-5-4-8-7-3z" fill="#c8102e" />
@@ -289,7 +289,7 @@ function Town(props: { fix: Partial<Record<Spot, number>>; focus?: Spot; spotted
         <path d="M466 138v12M478 138v12M490 138v12M502 138v12" stroke="#ffffff" stroke-width="3" />
         <rect x="466" y="160" width="34" height="14" fill="#fff3d6" />
         <path d="M520 150v46" stroke="#4a5263" stroke-width="3" />
-        <rect x="512" y="140" width="16" height="12" rx="2" fill="#1b3a6b" />
+        <rect x="512" y="140" width="16" height="12" rx="2" fill="#1d4ed8" />
         <People x={516} n={1} tone="#4a5263" />
         <g class="ef-fade" opacity={1 - f('kiosk')}>
           <path class="ef-wisp" d="M522 172q-6-8 0-14t0-14" stroke="#6c707a" stroke-width="3" fill="none" stroke-linecap="round" />
@@ -309,8 +309,8 @@ function Town(props: { fix: Partial<Record<Spot, number>>; focus?: Spot; spotted
         <rect x="604" y="136" width="14" height="16" fill="#a9c4e8" />
         <rect x="578" y="166" width="16" height="30" fill="#7a5a3a" />
         <path d="M586 96v-22" stroke="#4a5263" stroke-width="2" />
-        <path class="ef-flag" d="M586 74h16l-4 5 4 5h-16z" fill="#1b3a6b" />
-        <People x={548} n={1 + Math.round(f('school') * 4)} tone="#1b3a6b" hats />
+        <path class="ef-flag" d="M586 74h16l-4 5 4 5h-16z" fill="#1d4ed8" />
+        <People x={548} n={1 + Math.round(f('school') * 4)} tone="#1d4ed8" hats />
       </g>
 
       {/* Where we are looking now, and places already spotted */}
@@ -350,7 +350,7 @@ function MiniGap({ gap }: { gap: Gap }) {
   return (
     <svg class="ef-mini" viewBox="0 0 80 64" aria-hidden="true">
       <path d="M6 4v56h72" stroke="#1a1f29" stroke-width="2" fill="none" />
-      <path d={priv} stroke={cost ? '#1e6b3a' : '#1b3a6b'} stroke-width="3" fill="none" />
+      <path d={priv} stroke={cost ? '#1e6b3a' : '#1d4ed8'} stroke-width="3" fill="none" />
       <path d={soc} stroke="#c8102e" stroke-width="3" stroke-dasharray="5 4" fill="none" />
       <path d={above ? 'M42 30v-12' : 'M42 32v12'} stroke="#c8102e" stroke-width="2" />
       <path d={above ? 'M38 22l4-5 4 5' : 'M38 40l4 5 4-5'} stroke="#c8102e" stroke-width="2" fill="none" />

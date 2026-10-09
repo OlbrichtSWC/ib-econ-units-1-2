@@ -569,13 +569,13 @@ function Gauge(props: { value: number | null; label: string }) {
   return (
     <figure class="ss-gauge" role="img" aria-label={props.value === null ? 'Supply speedometer, waiting for your answer' : `Supply speedometer: PES ${fmt(props.value)}, ${props.label}`}>
       <svg viewBox="0 -18 200 138" aria-hidden="true">
-        <path d="M20 100a80 80 0 0180-80" fill="none" stroke="#c9d6ea" stroke-width="18" />
+        <path d="M20 100a80 80 0 0180-80" fill="none" stroke="#c7d6fb" stroke-width="18" />
         <path d="M100 20a80 80 0 0180 80" fill="none" stroke="#f4c9d0" stroke-width="18" />
         <path d="M100 8v24" stroke="#1a1f29" stroke-width="3" />
         <text x="100" y="-4" text-anchor="middle" font-size="13" fill="#1a1f29">1</text>
         <text x="20" y="116" text-anchor="middle" font-size="13" fill="#1a1f29">0</text>
         <text x="180" y="116" text-anchor="middle" font-size="13" fill="#1a1f29">∞</text>
-        <text x="4" y="4" text-anchor="start" font-size="11" fill="#1B3A6B" font-weight="700">inelastic</text>
+        <text x="4" y="4" text-anchor="start" font-size="11" fill="#1D4ED8" font-weight="700">inelastic</text>
         <text x="196" y="4" text-anchor="end" font-size="11" fill="#C8102E" font-weight="700">elastic</text>
         <g class="ss-needle" style={{ transform: `rotate(${angle}deg)` }}>
           <path d="M100 100L100 30" stroke="#1a1f29" stroke-width="4" stroke-linecap="round" />

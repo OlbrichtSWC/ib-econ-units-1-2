@@ -11,9 +11,9 @@ export const BAGS_PER_ICON = 2;
 function Person({ x, y }: { x: number; y: number }) {
   return (
     <g transform={`translate(${x} ${y})`} class="gs-item">
-      <circle cx="0" cy="-30" r="6" fill="#1B3A6B" />
-      <path d="M-7 -2v-14a7 7 0 0114 0v14z" fill="#1B3A6B" />
-      <path d="M-4 -2v10M4 -2v10" stroke="#1B3A6B" stroke-width="3" stroke-linecap="round" />
+      <circle cx="0" cy="-30" r="6" fill="#1D4ED8" />
+      <path d="M-7 -2v-14a7 7 0 0114 0v14z" fill="#1D4ED8" />
+      <path d="M-4 -2v10M4 -2v10" stroke="#1D4ED8" stroke-width="3" stroke-linecap="round" />
     </g>
   );
 }
@@ -39,12 +39,12 @@ export function GapScene(props: { kind: 'shortage' | 'surplus' | 'none'; size: n
   return (
     <figure class="gap-scene" style={{ margin: 0 }}>
       <svg viewBox="0 0 420 96" role="img" aria-label={label}>
-        <rect x="0" y="86" width="420" height="10" fill="#d7e0ee" />
+        <rect x="0" y="86" width="420" height="10" fill="#d6e2ff" />
         {/* The stall */}
-        <rect x="8" y="34" width="86" height="52" fill="#fff" stroke="#1B3A6B" stroke-width="2" />
+        <rect x="8" y="34" width="86" height="52" fill="#fff" stroke="#1D4ED8" stroke-width="2" />
         <path d="M4 34l10-20h74l10 20z" fill="#C8102E" />
         <path d="M18 14l-6 20M32 14l-4 20M46 14v20M60 14l4 20M74 14l6 20" stroke="#fff" stroke-width="3" />
-        <text x="51" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="#1B3A6B" style={{ fontVariantNumeric: 'tabular-nums' }}>
+        <text x="51" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="#1D4ED8" style={{ fontVariantNumeric: 'tabular-nums' }}>
           ${props.price.toFixed(2)}
         </text>
         <text x="51" y="76" text-anchor="middle" font-size="10" fill="#4a5263">

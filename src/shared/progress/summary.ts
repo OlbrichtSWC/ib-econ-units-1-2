@@ -20,7 +20,7 @@ export interface SummaryOptions {
   now?: Date;
 }
 
-const NAVY = '#1B3A6B';
+const NAVY = '#1D4ED8';
 const RED = '#C8102E';
 const INK = '#1a1f29';
 const SOFT = '#4a5263';
@@ -56,7 +56,7 @@ export function drawSummary(canvas: HTMLCanvasElement, o: SummaryOptions) {
 
   const cols = [70, 470, 760, 960];
   let y = 320;
-  g.fillStyle = '#eef2f8';
+  g.fillStyle = '#eef3ff';
   g.fillRect(50, y - 40, W - 100, 56);
   g.fillStyle = NAVY;
   g.font = `bold 24px ${BODY}`;

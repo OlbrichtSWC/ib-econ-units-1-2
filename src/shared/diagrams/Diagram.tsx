@@ -18,14 +18,14 @@ import type { Line, Pt } from '../../econ/calc';
 
 export type Tone = 'navy' | 'red' | 'grey' | 'ink' | 'green';
 export const TONE: Record<Tone, string> = {
-  navy: '#1B3A6B',
+  navy: '#1D4ED8',
   red: '#C8102E',
   grey: '#5b6475',
   ink: '#1a1f29',
   green: '#1e6b3a',
 };
 const TINT: Record<Tone, string> = {
-  navy: '#c9d6ea',
+  navy: '#c7d6fb',
   red: '#f4c9d0',
   grey: '#dde1e8',
   ink: '#d0d4dc',

@@ -73,7 +73,7 @@ function costBars(costs: number[], current: number | null) {
         const on = current === i;
         return (
           <g key={i}>
-            <rect x={i * bw + 3} y={h - bh} width={bw - 6} height={bh} fill={on ? '#C8102E' : '#c9d6ea'} stroke="#1B3A6B" stroke-width="1" />
+            <rect x={i * bw + 3} y={h - bh} width={bw - 6} height={bh} fill={on ? '#C8102E' : '#c7d6fb'} stroke="#1D4ED8" stroke-width="1" />
             <text x={i * bw + bw / 2} y={h + 16} font-size="11" text-anchor="middle" fill="#4a5263">{i + 1}</text>
             {on && <text x={i * bw + bw / 2} y={h - bh - 4} font-size="11" text-anchor="middle" font-weight="700" fill="#1a1f29">{round(c, 2)}</text>}
           </g>

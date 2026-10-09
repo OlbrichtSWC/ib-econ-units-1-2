@@ -16,7 +16,7 @@ interface Bit {
   life: number;
 }
 
-const COLORS = ['#1B3A6B', '#C8102E', '#F2B600', '#3E6FB8', '#E8667A', '#1E6B3A'];
+const COLORS = ['#1D4ED8', '#C8102E', '#F2B600', '#5B8DEF', '#E8667A', '#1E6B3A'];
 
 export function CelebrationLayer() {
   const ref = useRef<HTMLCanvasElement>(null);

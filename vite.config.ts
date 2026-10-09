@@ -17,7 +17,7 @@ export default defineConfig({
         name: 'IB Economics: Units 1 and 2',
         short_name: 'IB Econ 1-2',
         description: 'Games and simulations for IB Economics Units 1 and 2.',
-        theme_color: '#1B3A6B',
+        theme_color: '#1D4ED8',
         background_color: '#ffffff',
         display: 'standalone',
         start_url: './',

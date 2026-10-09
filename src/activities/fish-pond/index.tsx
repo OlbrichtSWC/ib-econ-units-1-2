@@ -220,11 +220,11 @@ function Pond(props: PondProps) {
           <g key={b.name} opacity={off ? 0.35 : 1}>
             {show && <path class="fp-cast" d={`M${x + 26} 58v70`} stroke="#1a1f29" stroke-width="1.5" />}
             <g class="fp-bob" style={{ animationDelay: `${-i * 0.6}s` }}>
-              <path d={`M${x - 30} 62h60l-10 14h-40z`} fill={i === 0 ? '#c8102e' : '#1b3a6b'} stroke="#1a1f29" stroke-width="1.5" />
+              <path d={`M${x - 30} 62h60l-10 14h-40z`} fill={i === 0 ? '#c8102e' : '#1d4ed8'} stroke="#1a1f29" stroke-width="1.5" />
               <path d={`M${x} 62v-30l18 24z`} fill="#ffffff" stroke="#1a1f29" stroke-width="1.2" />
               <path d={`M${x + 18} 58l10-10`} stroke="#7a5a3a" stroke-width="2.5" stroke-linecap="round" />
             </g>
-            <text x={x - 6} y="98" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" stroke="#1b3a6b" stroke-width="3" paint-order="stroke">
+            <text x={x - 6} y="98" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" stroke="#1d4ed8" stroke-width="3" paint-order="stroke">
               {b.name}
             </text>
             {props.flagged === i && (
@@ -235,8 +235,8 @@ function Pond(props: PondProps) {
             )}
             {show && (
               <g class="fp-pop" transform={`translate(${x + 30} 24)`}>
-                <rect x="-20" y="-14" width="40" height="22" rx="11" fill="#ffffff" stroke="#1b3a6b" stroke-width="1.5" />
-                <text y="2" text-anchor="middle" font-size="14" font-weight="700" fill="#1b3a6b">{label}</text>
+                <rect x="-20" y="-14" width="40" height="22" rx="11" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5" />
+                <text y="2" text-anchor="middle" font-size="14" font-weight="700" fill="#1d4ed8">{label}</text>
               </g>
             )}
           </g>
