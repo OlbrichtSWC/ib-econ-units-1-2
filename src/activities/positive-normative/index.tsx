@@ -15,7 +15,6 @@ import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { shuffled } from '../island-economy/model';
 import {
   BELT_GOAL, beltWon, Century, CENTURIES, isValueWord, Kind, KINDS, LAB_GOAL, labMax, labWon, nextMethodStep, tokenize, VALUE_GOAL, valueWon,
@@ -81,7 +80,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -115,14 +113,12 @@ function Belt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const stamp = (k: Kind) => {
     if (solved) return;
     if (k === s.kind) {
-      play('stamp');
       setSolved(true);
       setWrong(null);
       if (!missed) setFirstRight((n) => n + 1);
       setBins({ ...bins, [k]: bins[k] + 1 });
       setAnnounce(`Right: ${data.kindNames[k]}.${s.trap ? ' That one was a trap.' : ''}`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(k);
       setAnnounce(`Not ${data.kindNames[k]}. ${WRONG_HINT[k]}`);
@@ -130,7 +126,6 @@ function Belt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   };
 
   const next = () => {
-    play('whoosh');
     setSolved(false);
     setMissed(false);
     setWrong(null);
@@ -233,13 +228,11 @@ function ValueHunt({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
     if (solved) return;
     const ok = i === NONE ? positive : isValueWord(words[i], r.values);
     if (ok) {
-      play('correct');
       setSolved(true);
       setWrong(null);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce(positive ? 'Right: no value word. This statement is positive.' : `Right: ${words[i]} is the value word.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(i);
       setAnnounce('Not quite. Read the hint and look again.');
@@ -247,7 +240,6 @@ function ValueHunt({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
   };
 
   const next = () => {
-    play('whoosh');
     setSolved(false);
     setMissed(false);
     setWrong(null);
@@ -373,13 +365,11 @@ function Lab({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (phase !== 'method') return;
     const n = nextMethodStep(placed, i);
     if (n < 0) {
-      play('wrong');
       setStepMissed(true);
       setWrongStep(i);
       setAnnounce(data.methodWrong);
       return;
     }
-    play('pop');
     if (!stepMissed) score();
     setStepMissed(false);
     setWrongStep(null);
@@ -393,13 +383,11 @@ function Lab({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (rwSolved) return;
     setRwPick(i);
     const ok = !!r.options[i].correct;
-    play(ok ? 'correct' : 'wrong');
     if (ok && !rwMissed) score();
     if (!ok) setRwMissed(true);
     setAnnounce(r.options[i].feedback);
   };
   const nextRewrite = () => {
-    play('whoosh');
     setRwPick(null);
     setRwMissed(false);
     if (rw + 1 < data.rewrites.length) setRw(rw + 1);
@@ -413,13 +401,11 @@ function Lab({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const placeIdea = (c: Century) => {
     if (phase !== 'timeline') return;
     if (c !== idea.century) {
-      play('wrong');
       setIdeaMissed(true);
       setWrongCentury(c);
       setAnnounce(`Not the ${data.centuryNames[c]}. ${data.ideaWrong}`);
       return;
     }
-    play('pop');
     const gained = ideaMissed ? 0 : 1;
     if (gained) score();
     setShelf({ ...shelf, [c]: [...shelf[c], idea] });
@@ -473,7 +459,7 @@ function Lab({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
         {phase === 'method' && placed === steps.length && (
           <div class="stack">
             <Fb ok>The method is complete. If the evidence refutes the theory, economists go back and try a new hypothesis.</Fb>
-            <div><button class="btn" onClick={() => { play('whoosh'); setPhase('rewrite'); }}>Go to station 2</button></div>
+            <div><button class="btn" onClick={() => { setPhase('rewrite'); }}>Go to station 2</button></div>
           </div>
         )}
       </section>

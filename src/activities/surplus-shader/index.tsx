@@ -12,7 +12,6 @@ import { CrossIcon, HlBadge, LiveRegion, MarkIcon, StepNo } from '../../shared/d
 import { Area, Arrow, Curve, Diagram, Dot, Guide, Handle, HLine, Label } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { parseNumber } from '../../shared/activity/CheckIt';
-import { play } from '../../shared/fun/sound';
 import { PaintGame } from './PaintGame';
 import {
   Ask, checkAnswer, correctValue, DEMAND, Market, MAX_SHIFT, Piece, shiftedMarket, snapPrice, SUPPLY, sumPieces, surplusShapes, working,
@@ -143,7 +142,6 @@ function DialLab({ content, onComplete }: TryProps) {
       if (d.has(id)) return d;
       const n = new Set(d);
       n.add(id);
-      play('correct');
       if (n.size === 3) onComplete();
       setAnnounce(`Challenge complete. ${n.size} of ${data.challenges.length} done.`);
       return n;

@@ -16,7 +16,6 @@ import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { shuffled } from '../island-economy/model';
 import {
   Fairness, FAIRNESS, FLOW_GOAL, flowMax, flowWidth, flowWon, incomeShare, isEfficient, isEquitable, JUDGE_GOAL, judgeWon,
@@ -82,7 +81,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -190,14 +188,12 @@ function Sorter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
   const drop = (k: Fairness) => {
     if (solved) return;
     if (k === c.kind) {
-      play('coin');
       setSolved(true);
       setWrong(null);
       if (!missed) setFirstRight((n) => n + 1);
       setPans({ ...pans, [k]: [...pans[k], { key: c.id, icon: c.icon }] });
       setAnnounce(`Right: ${data.kindNames[k]}.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(k);
       setAnnounce(`Not ${data.kindNames[k]}. Read the hint and try again.`);
@@ -205,7 +201,6 @@ function Sorter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
   };
 
   const next = () => {
-    play('whoosh');
     setSolved(false);
     setMissed(false);
     setWrong(null);
@@ -311,12 +306,10 @@ function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const pickVerdict = (v: Verdict) => {
     if (verdict) return;
     if (v === r.verdict) {
-      play('coin');
       setVerdict(v);
       setWrongVerdict(null);
       setAnnounce(`Right: ${data.verdictNames[v]}. Now choose the reason.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrongVerdict(v);
       setAnnounce(`Not ${data.verdictNames[v]}. ${data.verdictWrong[v]}`);
@@ -327,14 +320,12 @@ function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (reasonSolved) return;
     setReason(i);
     const ok = !!r.reasons[i].correct;
-    play(ok ? 'correct' : 'wrong');
     if (ok && !missed) setFirstRight((n) => n + 1);
     if (!ok) setMissed(true);
     setAnnounce(r.reasons[i].feedback);
   };
 
   const next = () => {
-    play('whoosh');
     setMissed(false);
     setVerdict(null);
     setWrongVerdict(null);
@@ -531,21 +522,18 @@ function FollowMoney({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
   const pickCause = (k: CauseId) => {
     if (hSolved) return;
     if (k === h.cause) {
-      play('coin');
       if (!hMissed) score();
       setHSolved(true);
       setHWrong(null);
       setSolvedIds(new Set([...solvedIds, h.id]));
       setAnnounce(`Right. ${h.name}: ${data.causes[k].label}.`);
     } else {
-      play('wrong');
       setHMissed(true);
       setHWrong(k);
       setAnnounce(data.causes[h.cause].wrong);
     }
   };
   const nextHousehold = () => {
-    play('whoosh');
     setHSolved(false);
     setHMissed(false);
     setHWrong(null);
@@ -566,14 +554,12 @@ function FollowMoney({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
       return;
     }
     if (numberRight(v, answer)) {
-      play('correct');
       if (!cMissed) score();
       setCSolved(true);
       setCFb('');
       setAnnounce(`Right: ${answer}%.`);
       return;
     }
-    play('wrong');
     setCMissed(true);
     const m = calc.mistakes.find((x) => Math.abs(x.value - v) < 0.01);
     const fb = m ? m.feedback : 'Not quite. Add the incomes of the group, divide by the total income of all five households, then multiply by 100.';
@@ -581,7 +567,6 @@ function FollowMoney({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
     setAnnounce(fb);
   };
   const nextCalc = () => {
-    play('whoosh');
     setTyped('');
     setCMissed(false);
     setCSolved(false);
@@ -599,7 +584,6 @@ function FollowMoney({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
     if (rSolved) return;
     setRPick(i);
     const ok = !!resp.options[i].correct;
-    play(ok ? 'coin' : 'wrong');
     if (ok) {
       if (!rMissed) score();
       setMatched([...matched, { key: resp.id, icon: resp.icon }]);
@@ -607,7 +591,6 @@ function FollowMoney({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
     setAnnounce(resp.options[i].feedback);
   };
   const nextResponse = () => {
-    play('whoosh');
     setRPick(null);
     setRMissed(false);
     if (ri + 1 < responses.length) setRi(ri + 1);

@@ -19,7 +19,6 @@ import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { reducedMotion } from '../../shared/fun/motion';
 import { shuffled } from '../island-economy/model';
 import {
@@ -94,7 +93,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -135,7 +133,6 @@ function useStepTo(target: number) {
     const id = setInterval(() => {
       shownRef.current += 1;
       setShown(shownRef.current);
-      play('pop');
       if (shownRef.current >= target) clearInterval(id);
     }, 320);
     return () => clearInterval(id);
@@ -269,14 +266,12 @@ function Sorter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
   const pickKind = (k: Kind) => {
     if (solved) return;
     if (k === g.kind) {
-      play('stamp');
       setWrong(null);
       setSolved(true);
       if (!missed) setFirstRight((n) => n + 1);
       setPlaced([...placed, g]);
       setAnnounce(`Right: ${data.kindNames[k]}. ${g.why}`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(k);
       setAnnounce(`Not ${data.kindNames[k]}. ${slipText(k)}`);
@@ -284,7 +279,6 @@ function Sorter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
   };
 
   const next = () => {
-    play('whoosh');
     setMissed(false);
     setWrong(null);
     setSolved(false);
@@ -401,7 +395,6 @@ function Fund({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const give = () => {
     if (result || (!taxed && gift === null)) return;
     const r = playWeek(week, taxed ? COUNCIL_TAX : gift!);
-    play(r.lamps >= LAMPS ? 'win' : 'coin');
     if (r.lamps >= LAMPS && !reducedMotion()) celebrate({ size: 'small' });
     setResult(r);
     setHistory([...history, r]);
@@ -412,19 +405,16 @@ function Fund({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (solved) return;
     setPick(i);
     if (options[i].correct) {
-      play('correct');
       setSolved(true);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce(options[i].feedback);
     } else {
-      play('wrong');
       setMissed(true);
       setAnnounce(options[i].feedback);
     }
   };
 
   const next = () => {
-    play('whoosh');
     setGift(null);
     setResult(null);
     setPick(null);
@@ -495,7 +485,7 @@ function Fund({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
                   class={`choice-btn sf-gift ${gift === v ? 'chosen' : ''}`}
                   aria-pressed={gift === v}
                   disabled={!!result}
-                  onClick={() => { play('tap'); setGift(v); }}
+                  onClick={() => { setGift(v); }}
                 >
                   {money(v)}
                 </button>
@@ -593,13 +583,11 @@ function Council({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   const pickWay = (w: Way) => {
     if (phase !== 'way') return;
     if (w === c.way) {
-      play('correct');
       if (!wayMissed) setPoints((p) => p + 1);
       setWrongWay(null);
       setPhase('calc');
       setAnnounce(`Right: ${data.wayNames[w]}. Now set the tax.`);
     } else {
-      play('wrong');
       setWayMissed(true);
       setWrongWay(w);
       setAnnounce(data.wayWrong[w]);
@@ -614,14 +602,12 @@ function Council({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
       return;
     }
     if (numberRight(v, tax)) {
-      play('coin');
       if (!calcMissed) setPoints((p) => p + 1);
       setCalcFb(null);
       setPhase('judge');
       setAnnounce(`Right. The tax is ${money(tax)} per household. Now judge the choice.`);
       return;
     }
-    play('wrong');
     setCalcMissed(true);
     const slip = taxMistakes(c.items, c.costEach, c.households).find((x) => numberRight(v, x.value));
     const text = slip ? data.calcText[slip.kind] : data.calcText.other;
@@ -633,20 +619,17 @@ function Council({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     if (phase !== 'judge') return;
     setJPick(i);
     if (judgeOpts[i].correct) {
-      play('stamp');
       if (!jMissed) setPoints((p) => p + 1);
       setPhase('solved');
       setSolvedCount((n) => n + 1);
       setAnnounce(judgeOpts[i].feedback);
     } else {
-      play('wrong');
       setJMissed(true);
       setAnnounce(judgeOpts[i].feedback);
     }
   };
 
   const next = () => {
-    play('whoosh');
     setPhase('way');
     setWrongWay(null);
     setWayMissed(false);

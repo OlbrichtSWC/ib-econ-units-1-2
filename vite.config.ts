@@ -29,7 +29,7 @@ export default defineConfig({
         // A new version takes over open pages straight away, so nobody is stuck on an old one.
         clientsClaim: true,
         skipWaiting: true,
-        globPatterns: ['**/*.{js,css,html,svg}'],
+        globPatterns: ['**/*.{js,css,html,svg,woff2}'],
         globIgnores: ['content/**', 'config/**'],
         // Content and settings: use the newest copy when online, the saved copy when offline.
         runtimeCaching: [

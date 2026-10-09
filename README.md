@@ -104,7 +104,7 @@ The passcode keeps answers out of casual view. It is not a real lock: because th
 - Written answers in "Explain it in writing" are saved in the browser on that device only, so students do not lose them. They are never sent and are not in the progress code. **Reset my progress** deletes them too.
 - A class link holds only which activities are on and whether HL content shows. The app asks before using it.
 - Stamps are saved with progress, on the device only. They are never compared between students, and there is no leaderboard.
-- The **Sound on / Sound off** choice is saved in the browser. Sounds are made in the browser; there are no sound files and nothing is downloaded.
+- The fonts (Fredoka and Nunito, free under the SIL Open Font License) are stored with the app, so no font is loaded from another website.
 
 ## 9. For the technical helper (optional)
 

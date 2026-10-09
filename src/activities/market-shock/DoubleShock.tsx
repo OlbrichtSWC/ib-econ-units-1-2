@@ -12,7 +12,6 @@ import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/com
 import { Curve, Diagram, Dot, Guide } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { BASE_D, BASE_S, buildPairs, Dir, doubleMarket, DoubleChange, doubleOutcome, parseShift, segment, Shift, X_MAX, Y_MAX } from './model';
 
 interface ShiftCard { id: string; determinant: string; title: string; text: string; market?: string; answer: Shift; explain: string }
@@ -65,12 +64,10 @@ export function DoubleShock({ content, onGoal, onComplete }: TryProps) {
     setLocked(true);
     const next = [...results, allRight];
     setResults(next);
-    play(allRight ? 'correct' : 'wrong');
     setAnnounce(allRight ? 'All four predictions right.' : 'Not quite. Read the explanation.');
     if (next.length === 2) onComplete();
     if (next.length === DOUBLE_ROUND && next.filter(Boolean).length >= DOUBLE_GOAL) {
       setTimeout(() => {
-        play('win');
         celebrate({ size: 'big' });
         onGoal(3);
       }, 400);
@@ -89,7 +86,6 @@ export function DoubleShock({ content, onGoal, onComplete }: TryProps) {
     setQPred(null);
     setLocked(false);
     setBigger('demand');
-    play('tap');
     setAnnounce('Two new events.');
   };
 
@@ -105,7 +101,6 @@ export function DoubleShock({ content, onGoal, onComplete }: TryProps) {
             aria-pressed={value === o.v}
             disabled={locked}
             onClick={() => {
-              play('tap');
               set(o.v);
             }}
           >

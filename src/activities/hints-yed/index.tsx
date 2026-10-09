@@ -17,7 +17,6 @@ import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { parseNumber } from '../../shared/activity/CheckIt';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { reducedMotion } from '../../shared/fun/motion';
 import { shuffled } from '../island-economy/model';
 import {
@@ -84,7 +83,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -136,12 +134,10 @@ function Stall({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const pickDet = (d: Det) => {
     if (detDone) return;
     if (d === g.det) {
-      play('correct');
       setDetDone(true);
       setWrongDet(null);
       setAnnounce(`Right: ${data.detNames[d]}. Now choose a crate.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrongDet(d);
       setAnnounce(`Not ${data.detNames[d]}. ${data.detAbout[d]}`);
@@ -151,14 +147,12 @@ function Stall({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const pickCrate = (k: PedKind) => {
     if (!detDone || solved) return;
     if (k === g.ped) {
-      play('pop');
       setSolved(true);
       setWrongCrate(null);
       if (!missed) setFirstRight((n) => n + 1);
       setCrates({ ...crates, [k]: [...crates[k], g] });
       setAnnounce(`Right: ${g.name} goes in the ${PED_NAME[k].toLowerCase()} crate.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrongCrate(k);
       setAnnounce(`Not ${PED_NAME[k].toLowerCase()}. ${data.detRules[g.det]}`);
@@ -166,7 +160,6 @@ function Stall({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   };
 
   const next = () => {
-    play('whoosh');
     setDetDone(false);
     setSolved(false);
     setMissed(false);
@@ -382,7 +375,6 @@ function IncomeLab({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
 
   const setIncome = (i: number) => {
     const n = Math.max(0, Math.min(top, i));
-    if (n !== step) play(n > step ? 'coin' : 'tap');
     setStep(n);
     setAnnounce(`Income ${money(incomes[n])} a month. ${b.goods.map((g) => `${g.name}: ${g.qty[n]} ${g.unit}`).join('. ')}.`);
   };
@@ -419,19 +411,16 @@ function IncomeLab({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
     const p = picks[g.id];
     if (p.solved) return;
     if (k === g.kind) {
-      play('correct');
       if (!p.missed) setFirstRight((n) => n + 1);
       setPicks({ ...picks, [g.id]: { ...p, solved: true, wrong: null } });
       setAnnounce(`Right: ${g.name} is ${data.yedNames[k].toLowerCase()}.`);
     } else {
-      play('wrong');
       setPicks({ ...picks, [g.id]: { ...p, missed: true, wrong: k } });
       setAnnounce(`Not ${data.yedNames[k].toLowerCase()}. ${sample(g).text}`);
     }
   };
 
   const next = () => {
-    play('whoosh');
     window.clearInterval(timer.current);
     setPlaying(false);
     if (bi + 1 < baskets.length) {
@@ -650,12 +639,10 @@ function CalcCorner({ data, seed, onComplete, onGoal, teacher, again }: LevelPro
       return;
     }
     if (closeEnough(v, ans)) {
-      play('coin');
       setNumOk(true);
       setNumMsg('');
       setAnnounce(`Right: ${label} ${num(ans)}.`);
     } else {
-      play('wrong');
       setNumMissed(true);
       const msg = slipText(c, v);
       setNumMsg(msg);
@@ -668,18 +655,15 @@ function CalcCorner({ data, seed, onComplete, onGoal, teacher, again }: LevelPro
     const o = options[i];
     setClsWrong(o.correct ? null : i);
     if (o.correct) {
-      play('correct');
       setClsOk(true);
       if (!numMissed && !clsMissed) setFirstRight((n) => n + 1);
     } else {
-      play('wrong');
       setClsMissed(true);
     }
     setAnnounce(o.feedback);
   };
 
   const next = () => {
-    play('whoosh');
     setTyped('');
     setNumOk(false);
     setNumMissed(false);

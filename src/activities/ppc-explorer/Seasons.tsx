@@ -12,7 +12,6 @@ import { Md } from '../../shared/content/markdown';
 import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import { Area, Curve, Diagram, Dot, Guide } from '../../shared/diagrams/Diagram';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { ordered, ppc, Worker } from './model';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import {
@@ -158,7 +157,6 @@ export function Seasons(props: {
     next[i] = j;
     setJobs(next);
     setLaidOff((l) => l.filter((x) => x.i !== i));
-    play('tap');
     const o = outputOf(island.workers, next);
     setAnnounce(`${ISLANDERS[i]} moves to ${LANES.find((l) => l.job === j)!.to}. Fish ${round(o.fish, 1)}, timber ${round(o.timber, 1)} tonnes.`);
   };
@@ -167,8 +165,6 @@ export function Seasons(props: {
     if (!season.event || !prediction) return;
     const right = prediction === season.event.correct;
     if (right) setStars((n) => n + 1);
-    play(right ? 'correct' : 'wrong');
-    play('whoosh');
     setEventShown(true);
     setPhase('plan');
     const r = applyJobs(jobs, laidOff, now.employed);
@@ -185,7 +181,6 @@ export function Seasons(props: {
     setResults([...results, good]);
     setAnswer(null);
     setPhase('result');
-    play(good ? 'correct' : 'wrong');
     setAnnounce(
       sayImpossible
         ? impossible
@@ -201,11 +196,9 @@ export function Seasons(props: {
     const right = k === season.check.correct;
     const total = stars + (right ? 1 : 0);
     if (right) setStars(total);
-    play(right ? 'correct' : 'wrong');
     setAnnounce(right ? 'Right. You earned a star.' : 'Not quite. Read the explanation.');
     if (results.length === seasons.length && yearWon(level, results, total)) {
       setTimeout(() => {
-        play('win');
         celebrate({ size: 'big' });
         props.onGoal(levelNo);
       }, 500);
@@ -220,7 +213,6 @@ export function Seasons(props: {
     setCalledImpossible(false);
     setAnswer(null);
     setPhase(seasons[n].event ? 'predict' : 'plan');
-    play('tap');
     setAnnounce(`${seasons[n].name} begins.`);
   };
 
@@ -240,7 +232,6 @@ export function Seasons(props: {
   const pickLevel = (n: number) => {
     setLevelNo(n);
     restart(props.levels[n - 1]);
-    play('tap');
     setAnnounce(`Level ${n}: ${props.levels[n - 1].title}.`);
   };
 
@@ -341,7 +332,7 @@ export function Seasons(props: {
                   <p style={{ margin: 0 }}><strong>Predict first:</strong> what will this do?</p>
                   <div class="choice-grid" role="group" aria-label="Your prediction">
                     {choices.map((o) => (
-                      <button key={o.id} type="button" class="choice-btn" aria-pressed={prediction === o.id} onClick={() => { play('tap'); setPrediction(o.id); }}>
+                      <button key={o.id} type="button" class="choice-btn" aria-pressed={prediction === o.id} onClick={() => { setPrediction(o.id); }}>
                         {o.text}
                       </button>
                     ))}

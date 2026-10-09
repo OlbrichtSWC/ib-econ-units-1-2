@@ -23,7 +23,7 @@ Every activity follows the same rhythm: **Learn it** (short explanation and diag
 | **Rival Pricing** (HL) | 2.11 HL only. Market structures, concentration ratios, profit maximization (MC = MR), abnormal and normal profit, game theory, collusion | Coffee street duel. **Level 1**: map markets to structures and calculate CR4. **Level 2**: find the profit-maximizing output, price and profit from a schedule. **Level 3**: a payoff matrix and a price war against a rival café | **Pairs:** level 3, then compare the profit from colluding and cheating. **Extension:** draw perfect competition and natural monopoly diagrams. |
 | **Fair or Efficient?** (HL) | 2.12 HL only. The market's inability to achieve equity; equity and equality; why a free market can make incomes unequal (circular flow) | Balance scale. **Level 1**: equity or equality? **Level 2**: judge outcomes as efficient, equitable, both or neither. **Level 3**: follow the money in a circular flow, calculate income shares, match government responses | **Debate:** the Level 2 maximum rent and rice subsidy cases. **Link:** 3.4 inequality and Lorenz curves. |
 
-## Levels, stamps and sound (updated in 1.2)
+## Levels, stamps and titles (updated in 1.3)
 
 - **Three levels per game.** Each game has a level picker. Level 1 is open. Level 2 opens when the student earns the level 1 stamp, and level 3 opens with the level 2 stamp. In teacher view every level is open.
 - **Five stamps per activity:** one for each level, **First-Try Star** (every Check it question right on the first try) and **Full Circle** (all four steps done). Students see them on the home page and in **Stamps**. Stamps are personal, never taken away and never ranked. They travel in the progress code and appear on the summary image. Old progress codes still load.
@@ -51,7 +51,9 @@ Every activity follows the same rhythm: **Learn it** (short explanation and diag
 | Rival Pricing (HL) | Market Mapper | Profit Finder | Game Theorist |
 | Fair or Efficient? (HL) | Equity Spotter | Fair Judge | Flow Detective |
 
-- **Sound** is on by default and quiet. Students switch it with **Sound on / Sound off** in the top bar. In a lab, ask students to turn it off or use headphones.
+- **Stamp celebration.** A new stamp opens a big pop-up: the stamp thumps down with confetti, and the student sees how many stamps they have.
+- **Economist titles.** Stamps earn personal titles: New Recruit, Apprentice Economist (1 stamp), Junior Economist (5), Economist (15), Senior Economist (30), Chief Economist (50) and Economics Legend (75). Titles show on the home page and in **Stamps**. Like stamps, they are personal and never compared.
+- **No sound.** The app makes no sounds, so it suits a quiet classroom or a lab.
 - Devices set to reduce motion get no confetti or animations.
 
 ## Class mode (Market Shock, on the projector)

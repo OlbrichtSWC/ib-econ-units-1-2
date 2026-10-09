@@ -12,7 +12,6 @@ import { CrossIcon, HlBadge, LiveRegion, MarkIcon, StepNo } from '../../shared/d
 import { Arrow, Curve, Diagram, Dot, Guide, Handle, Label, Tone } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import { ClassMode } from './ClassMode';
 import { DoubleShock } from './DoubleShock';
@@ -97,7 +96,6 @@ function Try(props: TryProps) {
         levels={data.levels}
         level={level}
         onPick={(n) => {
-          play('tap');
           setLevel(n);
         }}
         stamps={props.stamps}
@@ -167,10 +165,9 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
         const n = next.filter(Boolean).length;
         setTimeout(() => {
           if (n >= ROUND_GOAL) {
-            play('win');
             celebrate({ size: 'big' });
             onGoal(level);
-          } else play('pop');
+          }
         }, 300);
       }
       return next;
@@ -214,7 +211,6 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
     const r = checkPrediction(prediction, card.answer);
     setResult(r);
     const right = r === 'right';
-    play(right ? 'correct' : 'wrong');
     if (trap) {
       setPhase('trap-done');
       finishCard(right, true);
@@ -238,7 +234,6 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
     setDq(final);
     setDragMsg(null);
     setPhase('gap');
-    play('whoosh');
     const after = shiftedMarket(side, final);
     const gap = gapAtPrice(after.demand, after.supply, e1.p);
     setAnnounce(`The ${curveName} shifted ${correctDir}. At the old price of ${money(e1.p)} there is a ${gap.kind} of ${bags(gap.size)}.`);
@@ -255,7 +250,6 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
       );
       dqRef.current = 0;
       setDq(0);
-      play('wrong');
       setAnnounce('That is the other direction. Read the hint and try again.');
     }
   };
@@ -284,14 +278,12 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
   useEffect(() => {
     if (phase === 'settled' && !trap) {
       setAnnounce(`New equilibrium. ${outcomeWords(out)}`);
-      play('pop');
     }
   }, [phase]);
 
   const answerMech = (m: Mechanism) => {
     if (mech || trap) return;
     setMech(m);
-    play(m === card.mechanism.answer ? 'correct' : 'wrong');
     // Level 2: a card counts only when the curve AND the new price and quantity were predicted right.
     finishCard(result === 'right' && (level < 2 || outcomeRight), false);
     setAnnounce(m === card.mechanism.answer ? 'Right function.' : `Not quite. This sentence describes ${card.mechanism.answer}.`);
@@ -482,7 +474,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
           <p><strong>Predict first:</strong> {trap ? <Md inline text={card.question} /> : 'which curve shifts, and which way?'}</p>
           <div class="choice-grid" role="group" aria-label="Your prediction">
             {options.map((o) => (
-              <button key={o.id} type="button" class="choice-btn" aria-pressed={prediction === o.id} disabled={phase !== 'predict'} onClick={() => { play('tap'); setPrediction(o.id); }}>
+              <button key={o.id} type="button" class="choice-btn" aria-pressed={prediction === o.id} disabled={phase !== 'predict'} onClick={() => { setPrediction(o.id); }}>
                 {o.text}
               </button>
             ))}
@@ -552,7 +544,6 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
                   onClick={() => {
                     if (level >= 2) {
                       setOutChecked(true);
-                      play(outcomeRight ? 'correct' : 'wrong');
                     }
                     setPhase('adjust');
                   }}
@@ -627,7 +618,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
             </div>
           )}
           {((phase === 'settled' && mech) || phase === 'trap-done') && !roundDone && (
-            <div><button class="btn" onClick={() => { play('tap'); nextCard(); }}>Next scenario</button></div>
+            <div><button class="btn" onClick={() => { nextCard(); }}>Next scenario</button></div>
           )}
         </section>
       </div>

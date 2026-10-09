@@ -2,7 +2,7 @@
  * Stamp rules. Stamps are personal rewards saved with progress.
  * They are never taken away, and they are never compared with anyone else's.
  */
-import { ActivityProgress, STAMP, STEP } from './types';
+import { ActivityProgress, Progress, STAMP, STEP } from './types';
 
 const ALL_STEPS = STEP.learn | STEP.try | STEP.check | STEP.rated;
 
@@ -26,6 +26,11 @@ export function newStampFlags(before: number, after: number): number[] {
 
 export function countStamps(stamps: number): number {
   return Object.values(STAMP).filter((f) => (stamps & f) !== 0).length;
+}
+
+/** Stamps a student has across all games. */
+export function totalStamps(p: Progress): number {
+  return Object.values(p.activities).reduce((n, a) => n + countStamps(a?.stamps ?? 0), 0);
 }
 
 /** The stamp flag for reaching the goal of a game level (1, 2 or 3). */

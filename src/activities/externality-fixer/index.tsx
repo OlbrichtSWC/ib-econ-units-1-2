@@ -19,7 +19,6 @@ import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { priceAt, quantityAt } from '../../econ/calc';
 import type { Line, Pt } from '../../econ/calc';
 import { shuffled } from '../island-economy/model';
@@ -110,7 +109,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -375,12 +373,10 @@ function Spotter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   const pickExt = (e: Ext) => {
     if (phase !== 'type') return;
     if (e === s.ext) {
-      play('correct');
       setWrongExt(null);
       setPhase('gap');
       setAnnounce(`Right: ${data.extNames[e]}. Now pick the diagram gap.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrongExt(e);
       setAnnounce(`Not ${data.extNames[e]}. ${extHint(e)}`);
@@ -397,14 +393,12 @@ function Spotter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   const pickGap = (g: Gap) => {
     if (phase !== 'gap') return;
     if (g === gapFor(s.ext)) {
-      play('stamp');
       setWrongGap(null);
       setPhase('solved');
       if (!missed) setFirstRight((n) => n + 1);
       if (s.spot) setSpotted(new Set([...spotted, s.spot]));
       setAnnounce(`Right: ${data.gapNames[g]}.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrongGap(g);
       setAnnounce(`Not ${data.gapNames[g]}. ${data.gapWrong}`);
@@ -412,7 +406,6 @@ function Spotter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   };
 
   const next = () => {
-    play('whoosh');
     setPhase('type');
     setMissed(false);
     setWrongExt(null);
@@ -669,13 +662,11 @@ function Fixer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (tool) return;
     const opt = m.options.find((o) => o.tool === t)!;
     if (t === m.tool) {
-      play('correct');
       setTool(t);
       setWrongTool(null);
       setSize(startSize(t));
       setAnnounce(`Right: ${data.toolNames[t]}. Now set its size.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrongTool(t);
       setAnnounce(opt.feedback);
@@ -693,7 +684,6 @@ function Fixer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (!tool || solved) return;
     const v = sizeVerdict(m, tool, size, m.slider.step);
     if (v === 'right') {
-      play('coin');
       celebrate({ size: 'small' });
       setSolved(true);
       setVerdict(null);
@@ -701,7 +691,6 @@ function Fixer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       setFixed(new Set([...fixed, m.spot]));
       setAnnounce(`Fixed. Output is at Q*, ${fmt(optimum(m).q)} ${m.unit}.`);
     } else {
-      play('wrong');
       setMissed(true);
       setVerdict(v);
       setAnnounce(v === 'small' ? data.sizeSmall : data.sizeBig);
@@ -709,7 +698,6 @@ function Fixer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   };
 
   const next = () => {
-    play('whoosh');
     setTool(null);
     setWrongTool(null);
     setMissed(false);
@@ -880,14 +868,12 @@ function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       return;
     }
     if (numberRight(v, answer)) {
-      play('correct');
       if (!calcMissed) setPoints((p) => p + 1);
       setCalcFb(null);
       setPhase('strength');
       setAnnounce(`Right. The welfare loss is ${money(answer)}. Now pick a strength.`);
       return;
     }
-    play('wrong');
     setCalcMissed(true);
     const slip = lossMistakes(r).find((x) => numberRight(v, x.value));
     const text = slip ? data.calcText[slip.kind] : data.calcText.other;
@@ -899,12 +885,10 @@ function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (phase !== 'strength') return;
     setSPick(i);
     if (strengths[i].correct) {
-      play('correct');
       if (!sMissed) setPoints((p) => p + 1);
       setPhase('limit');
       setAnnounce(`${strengths[i].feedback} Now pick a limitation.`);
     } else {
-      play('wrong');
       setSMissed(true);
       setAnnounce(strengths[i].feedback);
     }
@@ -914,20 +898,17 @@ function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (phase !== 'limit') return;
     setLPick(i);
     if (limits[i].correct) {
-      play('stamp');
       if (!lMissed) setPoints((p) => p + 1);
       setPhase('solved');
       setJudged(new Set([...judged, r.spot]));
       setAnnounce(limits[i].feedback);
     } else {
-      play('wrong');
       setLMissed(true);
       setAnnounce(limits[i].feedback);
     }
   };
 
   const next = () => {
-    play('whoosh');
     setPhase('calc');
     setTyped('');
     setCalcMissed(false);

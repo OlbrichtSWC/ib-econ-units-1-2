@@ -17,7 +17,6 @@ import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/com
 import { Curve, Diagram, Dot, Guide, Handle } from '../../shared/diagrams/Diagram';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import { celebrate, celebrateAt } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import {
   ibCheck, MAIN_CURVE, MysteryCurve, MysteryRule, mysteryAnswers, mysteryAsk, mysteryDirection, mysteryHolds, mysteryTypedRight, mysteryValue,
   priceFromDrag, SKATE_CURVE, snapOn, zoneAt,
@@ -131,7 +130,6 @@ export function Mystery(props: {
     setAsk(null);
     setDraft('');
     if (mysteryHolds(clue.rule, price, line)) {
-      play('correct');
       celebrateAt(checkRef.current, 'small');
       const counts = !helped;
       setResult({
@@ -146,7 +144,6 @@ export function Mystery(props: {
         setSolved({ ...solved, [levelNo]: n });
         if (n.size === MYSTERY_GOAL) {
           setTimeout(() => {
-            play('win');
             celebrate({ size: 'big' });
             props.onGoal(levelNo);
           }, 500);
@@ -154,7 +151,6 @@ export function Mystery(props: {
       }
       return;
     }
-    play('wrong');
     if (level.checks > 0 && used >= level.checks) {
       const ans = mysteryAnswers(clue.rule, curve)[0];
       const text = `Case closed. That was your last check. The hidden point was at ${money(ans)}.`;
@@ -179,7 +175,6 @@ export function Mystery(props: {
     const v = Number(draft.trim().replace('−', '-').replace(/[$,]/g, ''));
     if (draft.trim() === '' || !Number.isFinite(v)) return;
     if (mysteryTypedRight(clue.rule, ask.at, v, line)) {
-      play('correct');
       const val = mysteryValue(clue.rule, ask.at, line);
       const shown = askWhat === 'ped' ? `PED = ${pedText(val)}` : `TR = ${money(val)}`;
       const text = `Right: ${shown} at ${money(ask.at)}, so demand there is ${zoneAt(ask.at, line)}. ${direction(ask.at)}`;
@@ -187,7 +182,6 @@ export function Mystery(props: {
       setResult({ ok: false, text, info: true });
       setAnnounce(text);
     } else {
-      play('wrong');
       setAsk({ ...ask, tries: ask.tries + 1 });
       setAnnounce('Not quite. Check your working and try again.');
     }
@@ -210,7 +204,6 @@ export function Mystery(props: {
   const next = () => {
     setIndex((i) => i + 1);
     resetCase(index % 2 === 1);
-    play('tap');
   };
 
   const info = props.curves[level.curve];

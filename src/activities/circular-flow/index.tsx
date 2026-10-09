@@ -14,7 +14,6 @@ import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
 import { reducedMotion } from '../../shared/fun/motion';
-import { play } from '../../shared/fun/sound';
 import { shuffled } from '../island-economy/model';
 import {
   applyChange, buildWon, Change, Flow, FLOW_DIRECTION, FLOWS, FORECAST_GOAL, incomeChange, isLeakage, isMoney, LEAK_SPOT_GOAL, Pipe, PIPE_MISTAKES_ALLOWED,
@@ -40,7 +39,6 @@ interface TryContent {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -295,13 +293,10 @@ function Spotter<T extends string>(props: {
   const guess = (t: T) => {
     if (solved) return;
     if (t === it.answer) {
-      play('correct');
-      play('coin');
       setSolved(true);
       setWrong(null);
       if (!missed) setRight((n) => n + 1);
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(t);
     }
@@ -358,8 +353,6 @@ function Build({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       return;
     }
     if (selected === slot) {
-      play('correct');
-      play('pop');
       const next = { ...placed, [slot]: true };
       setPlaced(next);
       setSelected(null);
@@ -367,9 +360,7 @@ function Build({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       const done = FLOWS.every((f) => next[f]);
       setMsg({ ok: true, text: done ? 'The river is complete! Watch the money and the goods flow in opposite directions.' : `Right: **${data.flowNames[slot]}** go from ${FLOW_DIRECTION[slot].from} to ${FLOW_DIRECTION[slot].to}.` });
       setAnnounce(done ? 'The river is complete.' : 'Right.');
-      if (done) play('whoosh');
     } else {
-      play('wrong');
       setMistakes((m) => m + 1);
       setWrongSlot(slot);
       const d = FLOW_DIRECTION[selected], s = FLOW_DIRECTION[slot];
@@ -411,7 +402,7 @@ function Build({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
         {!built && (
           <>
             <p style={{ margin: 0 }}>Tap a label, then tap the numbered channel it belongs on. The arrows show which way each channel flows.</p>
-            <Chips items={remaining} names={data.flowNames} details={data.flowDetails} selected={selected} onPick={(f) => { play('tap'); setSelected(f); setMsg(null); }} />
+            <Chips items={remaining} names={data.flowNames} details={data.flowDetails} selected={selected} onPick={(f) => { setSelected(f); setMsg(null); }} />
           </>
         )}
         <TwoSector placed={placed} flowNames={data.flowNames} onSlot={built ? undefined : place} selected={!!selected} wrong={wrongSlot} />
@@ -447,15 +438,12 @@ function Drains({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
       return;
     }
     if (selected === slot) {
-      play('correct');
-      play(isLeakage(slot) ? 'whoosh' : 'coin');
       const next = { ...placed, [slot]: true };
       setPlaced(next);
       setSelected(null);
       setWrongSlot(null);
       setMsg({ ok: true, text: `${isLeakage(slot) ? 'A drain (leakage)' : 'A spring (injection)'}: ${data.pipeWhy[slot]}` });
     } else {
-      play('wrong');
       setMistakes((m) => m + 1);
       setWrongSlot(slot);
       const text = isLeakage(selected) !== isLeakage(slot)
@@ -494,7 +482,7 @@ function Drains({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
         {!built && (
           <>
             <p style={{ margin: 0 }}>Drains carry money <strong>out of</strong> consumer spending. Springs bring money <strong>back in</strong> on its way to firms. Tap a label, then its pipe.</p>
-            <Chips items={remaining} names={data.pipeNames} selected={selected} onPick={(p) => { play('tap'); setSelected(p); setMsg(null); }} />
+            <Chips items={remaining} names={data.pipeNames} selected={selected} onPick={(p) => { setSelected(p); setMsg(null); }} />
           </>
         )}
         <FullFlow placed={placed} pipeNames={data.pipeNames} onSlot={built ? undefined : place} selected={!!selected} wrong={wrongSlot} flowing={built} />
@@ -569,12 +557,9 @@ function Forecast({ data, onComplete, onGoal, teacher, again }: LevelProps) {
     if (c === truth) {
       setSolved(true);
       if (!missed) setRight((n) => n + 1);
-      play('correct');
-      play(truth === 'rise' ? 'coin' : truth === 'fall' ? 'whoosh' : 'pop');
       setLevel((l) => Math.max(1, Math.min(9, l + (truth === 'rise' ? 2 : truth === 'fall' ? -2 : 0))));
       setAnnounce(`Right. ${data.changeNames[truth]}.`);
     } else {
-      play('wrong');
       setMissed(true);
       setAnnounce('Not yet. Add up each side again.');
     }

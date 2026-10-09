@@ -8,7 +8,6 @@ import { useState } from 'preact/hooks';
 import { Md } from '../content/markdown';
 import { CrossIcon, HlBadge, InfoIcon, LiveRegion, MarkIcon } from '../design/components';
 import { celebrateAt } from '../fun/celebrate';
-import { play } from '../fun/sound';
 import type { Evidence } from './mastery';
 import type { LabelQuestion, NumberQuestion, Question, TableData } from './types';
 import { SpecDiagram } from '../diagrams/SpecDiagram';
@@ -107,7 +106,6 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
   const evidence = () => attemptEvidence(questions, states);
 
   const right = () => {
-    play('correct');
     celebrateAt(document.getElementById('check-submit'), 'small');
   };
 
@@ -123,7 +121,6 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
       } else {
         set({ attempts: st.attempts + 1, feedback: { kind: 'try', text: opt.feedback } });
         setAnnounce('Not yet. ' + opt.feedback);
-        play('wrong');
       }
     } else if (q.type === 'label') {
       if (q.slots.some((sl) => !st.labels[sl.letter])) return;
@@ -136,7 +133,6 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
         const text = r.wrong.map((w) => `**${w.letter}:** ${w.feedback}`).join('\n\n');
         set({ attempts: st.attempts + 1, feedback: { kind: 'try', text } });
         setAnnounce(`Not yet. Check ${r.wrong.map((w) => w.letter).join(', ')}.`);
-        play('wrong');
       }
     } else {
       const v = parseNumber(st.value);
@@ -152,7 +148,6 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
       } else {
         set({ attempts: st.attempts + 1, feedback: { kind: 'try', text: r.feedback } });
         setAnnounce('Not yet. ' + r.feedback);
-        play('wrong');
       }
     }
   };
@@ -163,7 +158,6 @@ export function CheckIt(props: { questions: Question[]; teacher: boolean; onFini
       setAnnounce('');
     } else {
       setFinished(true);
-      play('win');
       const { sharp, ...e } = evidence();
       props.onFinish(e, sharp);
     }

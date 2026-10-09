@@ -19,7 +19,6 @@ import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { shuffled } from '../island-economy/model';
 import {
   Actor, BID_GOAL, bidWon, expectedValue, Grade, HAZARD_GOAL, hazardWon, leaveOptions, Lot, money, POINTS_PER_HAZARD_CASE, PriceKind, priceOptions,
@@ -84,7 +83,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -239,7 +237,6 @@ function BidBlind({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
       setSolved(true);
       if (!missed) setFirstRight((n) => n + 1);
     } else {
-      play('wrong');
       setMissed(true);
     }
   };
@@ -249,7 +246,6 @@ function BidBlind({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     setPick(i);
     const o = priceOpts[i];
     if (o.kind === 'expected') {
-      play('coin');
       mark(true, `Right. Buyers will pay up to ${money(o.value)}.`);
     } else mark(false, data.priceWrong[o.kind]);
   };
@@ -257,7 +253,6 @@ function BidBlind({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     if (solved) return;
     setPick(i);
     if (sameGrades(leaveOpts[i], st.leave)) {
-      play(st.leave.length ? 'whoosh' : 'correct');
       mark(true, st.leave.length ? `Right. ${leaveText(st.leave, data.gradeNames, st.lot.length)}.` : 'Right. Every owner accepts the price, so no one leaves.');
     } else mark(false, 'Not quite. Compare the price with each owner\'s lowest price.');
   };
@@ -265,12 +260,10 @@ function BidBlind({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     if (solved) return;
     setPick(i);
     const o = whyOpts[i];
-    if (o.correct) play('correct');
     mark(!!o.correct, o.feedback);
   };
 
   const next = () => {
-    play('tap');
     setPick(null);
     setSolved(false);
     setMissed(false);
@@ -283,7 +276,6 @@ function BidBlind({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     if (li + 1 < lots.length) {
       setLi(li + 1); setSi(0); setPhase('price');
       setAnnounce(`A new lot: ${lots[li + 1].name}.`);
-      play('whoosh');
     } else {
       setDone(true);
       onComplete();
@@ -436,14 +428,12 @@ function Signals({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   const choose = (r: Response) => {
     if (solved) return;
     if (r === answer) {
-      play('coin');
       setSolved(true);
       setWrong(null);
       setBack((n) => n + 1);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce(`Right: ${data.responseNames[r]}. A good car drives back onto the lot.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrong(r);
       setAnnounce(data.responseWrong[r]);
@@ -451,7 +441,6 @@ function Signals({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   };
 
   const next = () => {
-    play('tap');
     setSolved(false);
     setMissed(false);
     setWrong(null);
@@ -566,13 +555,11 @@ function MoralHazard({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
   const chooseProblem = (p: Problem) => {
     if (pSolved) return;
     if (p === answer) {
-      play('pop');
       setPSolved(true);
       setPWrong(null);
       if (!pMissed) setPoints((n) => n + 1);
       setAnnounce(`Right: ${data.problemNames[p]}. ${h.why}`);
     } else {
-      play('wrong');
       setPMissed(true);
       setPWrong(p);
       setAnnounce(data.problemWrong[p]);
@@ -582,13 +569,11 @@ function MoralHazard({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
     if (rSolved) return;
     setRPick(i);
     const ok = !!opts[i].correct;
-    play(ok ? 'correct' : 'wrong');
     if (ok && !rMissed) setPoints((n) => n + 1);
     if (!ok) setRMissed(true);
     setAnnounce(opts[i].feedback);
   };
   const next = () => {
-    play('tap');
     setPWrong(null); setPMissed(false); setPSolved(false); setRPick(null); setRMissed(false);
     if (hi + 1 < cases.length) setHi(hi + 1);
     else {

@@ -13,9 +13,9 @@
 Typing mistakes are fine to make: the app checks the code and tells you if a character is wrong. It ignores spaces, dashes and lower case.
 Your code changes as you work. Get a new one each time you switch devices.
 
-## Stamps and sound
+## Stamps and titles
 
-Each game has three levels. Earn a level's stamp to open the next level. You can also earn a stamp for getting every Check it question right on the first try (using one hint is fine), and one for finishing all four steps. That is up to five stamps in each activity. See them in **Stamps**. Stamps are just for you and are never taken away. Turn sound on or off with the button in the top bar.
+Each game has three levels. Earn a level's stamp to open the next level. You can also earn a stamp for getting every Check it question right on the first try (using one hint is fine), and one for finishing all four steps. That is up to five stamps in each activity. See them in **Stamps**. Stamps are just for you and are never taken away. Every stamp moves you towards a new economist title, from New Recruit all the way to Economics Legend.
 
 ## Your written answers
 

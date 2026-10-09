@@ -179,7 +179,7 @@ export function Stamp(props: { icon: StampIcon; earned: boolean; size?: number; 
         // A small level number at the bottom of the stamp: the same picture, a harder level.
         <g opacity={props.earned ? 1 : 0.6}>
           <circle cx="76" cy="76" r="14" fill="var(--white, #fff)" stroke="currentColor" stroke-width="3" />
-          <text x="76" y="82" text-anchor="middle" font-size="18" font-weight="700" fill="currentColor" font-family="Calibri, Carlito, sans-serif">
+          <text x="76" y="82" text-anchor="middle" font-size="18" font-weight="700" fill="currentColor" font-family="Fredoka, Nunito, sans-serif">
             {props.level}
           </text>
         </g>

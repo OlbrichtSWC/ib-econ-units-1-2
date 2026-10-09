@@ -17,7 +17,6 @@ import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { reducedMotion } from '../../shared/fun/motion';
 import { shuffled } from '../island-economy/model';
 import {
@@ -80,7 +79,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -320,7 +318,6 @@ function useSeasonAnim() {
       return;
     }
     setPhase('catch');
-    play('whoosh');
     timers.current.push(
       window.setTimeout(() => {
         if (collapsed) {
@@ -329,7 +326,6 @@ function useSeasonAnim() {
           return;
         }
         setPhase('breed');
-        play('pop');
         timers.current.push(window.setTimeout(() => { setPhase('idle'); done(); }, 1100));
       }, 1100),
     );
@@ -363,10 +359,8 @@ function Ask(props: { q: Question; seed: number; teacher: boolean; onRight: (fir
     if (solved) return;
     setPick(i);
     if (opts[i].correct) {
-      play('correct');
       props.onRight(!missed);
     } else {
-      play('wrong');
       setMissed(true);
       props.onWrong?.(opts[i].feedback);
     }
@@ -425,7 +419,6 @@ function Seasons({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
       setStock(r.end);
       setPath((p) => [...p, r.end]);
       if (r.collapsed) {
-        play('wrong');
         setStep('done');
         onComplete();
       } else setStep('ask');
@@ -439,7 +432,6 @@ function Seasons({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   };
 
   const next = () => {
-    play('whoosh');
     setSolved(false);
     setSn(null);
     if (season < L1_SEASONS) {
@@ -558,13 +550,11 @@ function Rules({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const predict = (t: Trend) => {
     if (step !== 'predict') return;
     if (t !== answer) {
-      play('wrong');
       setMissed(true);
       setWrongTrend(t);
       setAnnounce(trendHint(t));
       return;
     }
-    play('correct');
     if (!missed) setPoints((p) => p + 1);
     setWrongTrend(null);
     setStep('run');
@@ -578,7 +568,6 @@ function Rules({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     timer.current = window.setInterval(() => {
       s += 1;
       setShownSeason(s);
-      play('pop');
       if (s >= path.length - 1 && timer.current) {
         clearInterval(timer.current);
         timer.current = null;
@@ -592,7 +581,6 @@ function Rules({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   };
 
   const nextRule = () => {
-    play('whoosh');
     setMissed(false);
     setWrongTrend(null);
     setShownSeason(0);
@@ -677,7 +665,7 @@ function Rules({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       {finished && (step === 'run' || step === 'strength' || step === 'limit' || step === 'next') && (
         <section class="panel stack" aria-labelledby="fp-judge-h">
           <h3 id="fp-judge-h"><StepNo n={5} /> Judge the rule</h3>
-          {step === 'run' && <div><button class="btn" onClick={() => { play('tap'); setStep('strength'); }}>Judge the {r.name.toLowerCase()}</button></div>}
+          {step === 'run' && <div><button class="btn" onClick={() => { setStep('strength'); }}>Judge the {r.name.toLowerCase()}</button></div>}
           {step !== 'run' && (
             <Ask key={`${r.id}-s`} q={{ id: `${r.id}-s`, prompt: `One **strength** of the ${r.name.toLowerCase()}:`, options: r.strengths }} seed={seed + ri} teacher={teacher} onRight={(f) => judged(f, 'limit')} onWrong={setAnnounce} />
           )}
@@ -729,7 +717,6 @@ function Cheat({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       setQi(0);
       setSolved(false);
       if (r.collapsed) {
-        play('wrong');
         setStep('done');
         onComplete();
       } else setStep('after');
@@ -742,7 +729,6 @@ function Cheat({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   };
 
   const next = () => {
-    play('whoosh');
     if (qi + 1 < seasonQs.length) {
       setQi(qi + 1);
       setSolved(false);

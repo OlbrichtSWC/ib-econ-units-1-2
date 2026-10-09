@@ -11,7 +11,6 @@ import { Md } from '../../shared/content/markdown';
 import { CrossIcon, LiveRegion, MarkIcon } from '../../shared/design/components';
 import { Arrow, Curve, Diagram, Dot, Guide } from '../../shared/diagrams/Diagram';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { Answer, BASE_D, BASE_S, buildDeck, parseShift, segment, shiftedMarket, SHIFT_SIZE, X_MAX, Y_MAX } from './model';
 
 export interface ClassCard {
@@ -172,9 +171,8 @@ export function ClassMode(props: { cards: ClassCard[]; traps: ClassCard[]; optio
     setPossible(possible + teams.length);
     setRevealed(true);
     if (pts === teams.length) {
-      play('win');
       celebrate({ size: 'big' });
-    } else play(pts > 0 ? 'correct' : 'wrong');
+    }
     const right = props.options.find((o) => o.id === card.answer)?.text ?? '';
     setAnnounce(`Answer: ${right}. ${pts} of ${teams.length} teams were right.`);
   };

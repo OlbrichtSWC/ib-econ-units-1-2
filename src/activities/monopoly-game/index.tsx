@@ -18,7 +18,6 @@ import type { TryProps } from '../../shared/activity/types';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import type { Pt } from '../../econ/calc';
 import { shuffled } from '../island-economy/model';
 import {
@@ -108,7 +107,6 @@ interface LevelProps {
 
 function win(onGoal: (l?: number) => void, level: number) {
   setTimeout(() => {
-    play('win');
     celebrate({ size: 'big' });
     onGoal(level);
   }, 400);
@@ -335,7 +333,6 @@ function Mapper({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
   const cr = it.kind === 'cr' ? concentrationRatio(it.firms.map((f) => f.share), it.n) : 0;
 
   const finishItem = () => {
-    play('stamp');
     setPhase('solved');
     if (!missed) setFirstRight((n) => n + 1);
     setPlaced([...placed, { id: it.id, icon: it.icon, s: it.structure }]);
@@ -346,7 +343,6 @@ function Mapper({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
     if (s === it.structure) {
       setWrongS(null);
       if (it.kind === 'market') {
-        play('correct');
         setPhase('taker');
         setAnnounce(`Right: ${data.structNames[s]}. Now say if a firm here is a price taker or a price maker.`);
       } else {
@@ -354,7 +350,6 @@ function Mapper({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
         setAnnounce(`Right: ${data.structNames[s]}.`);
       }
     } else {
-      play('wrong');
       setMissed(true);
       setWrongS(s);
       setAnnounce(`Not ${data.structNames[s]}. ${data.structDefs[s]}`);
@@ -368,7 +363,6 @@ function Mapper({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
       finishItem();
       setAnnounce(taker ? 'Right: a price taker.' : 'Right: a price maker.');
     } else {
-      play('wrong');
       setMissed(true);
       setWrongT(taker);
       setAnnounce(taker ? data.takerWrong.taker : data.takerWrong.maker);
@@ -383,13 +377,11 @@ function Mapper({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
       return;
     }
     if (numberRight(v, cr)) {
-      play('correct');
       setCrFb(null);
       setPhase('struct');
       setAnnounce(`Right. The four-firm concentration ratio is ${fmt(cr)}%. Now choose the market structure.`);
       return;
     }
-    play('wrong');
     setMissed(true);
     const slip = crMistakes(it.firms.map((f) => f.share), it.n).find((x) => numberRight(v, x.value));
     const text = slip ? data.crText[slip.kind] : data.crText.other;
@@ -398,7 +390,6 @@ function Mapper({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
   };
 
   const next = () => {
-    play('whoosh');
     setMissed(false);
     setWrongS(null);
     setWrongT(null);
@@ -687,14 +678,12 @@ function ProfitFinder({ data, seed, onComplete, onGoal, teacher, again }: LevelP
     if (phase !== 'output') return;
     const slip = outputSlip(r, pick);
     if (slip === 'right') {
-      play('correct');
       point();
       setWrongQ(null);
       setFb(null);
       setPhase('price');
       setAnnounce(`Right: ${q} units. Now read the price.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrongQ(pick);
       const text = data.outputText[slip];
@@ -708,14 +697,12 @@ function ProfitFinder({ data, seed, onComplete, onGoal, teacher, again }: LevelP
     const v = parseNumber(typed);
     if (Number.isNaN(v)) return setFb('Type a number, for example 12.');
     if (numberRight(v, row.p)) {
-      play('correct');
       point();
       setFb(null);
       setPhase('profit');
       setAnnounce(`Right. The price is ${money(row.p)}. Now calculate the profit.`);
       return;
     }
-    play('wrong');
     setMissed(true);
     const slip = priceMistakes(r).find((x) => numberRight(v, x.value));
     const text = slip ? data.priceText[slip.kind] : data.priceText.other;
@@ -728,7 +715,6 @@ function ProfitFinder({ data, seed, onComplete, onGoal, teacher, again }: LevelP
     const v = parseNumber(typed2);
     if (Number.isNaN(v)) return setFb('Type a number. A loss is a negative number, for example -5.');
     if (numberRight(v, row.profit)) {
-      play(row.profit > 0 ? 'coin' : 'correct');
       if (row.profit > 0) celebrate({ size: 'small' });
       point();
       setFb(null);
@@ -736,7 +722,6 @@ function ProfitFinder({ data, seed, onComplete, onGoal, teacher, again }: LevelP
       setAnnounce(`Right. Profit is ${money(row.profit)}. Now name the kind of profit.`);
       return;
     }
-    play('wrong');
     setMissed(true);
     const slip = profitMistakes(r).find((x) => numberRight(v, x.value));
     const text = slip ? data.profitText[slip.kind] : data.profitText.other;
@@ -747,13 +732,11 @@ function ProfitFinder({ data, seed, onComplete, onGoal, teacher, again }: LevelP
   const pickKind = (k: ProfitKind) => {
     if (phase !== 'kind') return;
     if (k === kind) {
-      play('stamp');
       point();
       setWrongK(null);
       setPhase('solved');
       setAnnounce(`Right: ${data.kindNames[k]}.`);
     } else {
-      play('wrong');
       setMissed(true);
       setWrongK(k);
       setAnnounce(data.kindWrong[k]);
@@ -761,7 +744,6 @@ function ProfitFinder({ data, seed, onComplete, onGoal, teacher, again }: LevelP
   };
 
   const next = () => {
-    play('whoosh');
     setPhase('output');
     setWrongQ(null);
     setTyped('');
@@ -994,7 +976,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     setMissed(false);
   };
   const miss = () => {
-    play('wrong');
     setMissed(true);
   };
 
@@ -1004,7 +985,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     if (step <= 1) {
       const rival = replyFor(step);
       if (mv === bestReply(m, rival)) {
-        play('correct');
         point();
         setWrongMove(null);
         setStep(step + 1);
@@ -1016,7 +996,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
       }
     } else if (step === 2) {
       if (mv === dom) {
-        play('correct');
         point();
         setWrongMove(null);
         setStep(3);
@@ -1032,7 +1011,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   const pickCell = (y: Move, r: Move) => {
     if (step !== 3) return;
     if (y === eq[0] && r === eq[1]) {
-      play('stamp');
       point();
       setWrongCell(null);
       setStep(4);
@@ -1053,7 +1031,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   const predict = (mv: Move) => {
     if (wPhase !== 'predict') return;
     if (mv === rivalNow) {
-      play('correct');
       point();
       setWrongMove(null);
       setWPhase('choose');
@@ -1067,7 +1044,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
 
   const choose = (mv: Move) => {
     if (wPhase !== 'choose') return;
-    play('whoosh');
     setYours([...yours.slice(0, week), mv]);
     setWrongMove(null);
     setWPhase('read');
@@ -1078,7 +1054,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     if (wPhase !== 'read') return;
     const [a] = cell(m, myNow, rivalNow);
     if (v === a) {
-      play('coin');
       point();
       setWrongPay(null);
       setWPhase('result');
@@ -1097,7 +1072,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   };
 
   const nextWeek = () => {
-    play('whoosh');
     setWrongPay(null);
     setMissed(false);
     if (week + 1 < data.weeks) {
@@ -1115,7 +1089,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     setJPick(i);
     const o = judgements[ji].options[i];
     if (o.correct) {
-      play('stamp');
       point();
       setJSolved(true);
     } else {
@@ -1125,7 +1098,6 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   };
 
   const nextJudge = () => {
-    play('whoosh');
     setJPick(null);
     setJSolved(false);
     setMissed(false);
@@ -1263,7 +1235,7 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
                           Both cafés set a low price and earn {money(cell(m, 'low', 'low')[0])} each. Neither can do better by changing alone, so they stay there (a Nash equilibrium). But both would earn {money(allHigh[0])} with high prices. This is the <strong>prisoner's dilemma</strong>.
                         </span>
                       </p>
-                      <div><button class="btn" onClick={() => { play('whoosh'); setStage('week'); setMissed(false); setAnnounce('Week 1. Predict the rival\'s price.'); }}>Start the duel</button></div>
+                      <div><button class="btn" onClick={() => { setStage('week'); setMissed(false); setAnnounce('Week 1. Predict the rival\'s price.'); }}>Start the duel</button></div>
                     </div>
                   )}
                 </div>

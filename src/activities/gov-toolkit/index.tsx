@@ -16,7 +16,6 @@ import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { parseNumber } from '../../shared/activity/CheckIt';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import {
   applyPolicy, budgetRect, BudgetEffect, calcRight, calcValue, Effects, effectsRight, Gap, lossTriangle, meetsTarget, Mission, Outcome, policyEffects,
   PriceMove, shiftedSupply, snapSize, Tool, TOOLS,
@@ -185,14 +184,12 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
     if (phase !== 'tool') return;
     if (!firstTool) setFirstTool(t);
     if (t === m.tool) {
-      play('correct');
       setTool(t);
       setSize(startSize(m, t));
       setToolMsg('');
       setPhase(levelNo >= 2 ? 'predict' : 'set');
       setAnnounce(`${data.toolNames[t]} is a good choice. ${levelNo >= 2 ? 'Now predict its effects.' : 'Now set its size.'}`);
     } else {
-      play('wrong');
       const msg = m.wrongTool[t] ?? 'This tool does not meet the goal. Read the brief again.';
       setToolMsg(msg);
       setAnnounce(`Not this tool. ${msg}`);
@@ -201,7 +198,6 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
 
   const lockPredictions = () => {
     if (PRED_OPTIONS.some((p) => !pred[p.key])) return;
-    play('tap');
     setPhase('set');
     setAnnounce('Predictions locked in. Now set the size of the policy.');
   };
@@ -223,13 +219,11 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
     pl.add(m.id);
     setPlayed({ ...played, [levelNo]: pl });
     if (ok) {
-      play('correct');
       const w = new Set(levelWon);
       w.add(m.id);
       setWon({ ...won, [levelNo]: w });
       if (w.size === MISSION_GOAL && levelWon.size < MISSION_GOAL) {
         setTimeout(() => {
-          play('win');
           celebrate({ size: 'big' });
           onGoal(levelNo);
         }, 500);
@@ -244,12 +238,10 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
     const met = meetsTarget(o, m.target);
     setApplied({ met });
     if (!met) {
-      play('wrong');
       setAnnounce(`Not yet. Goal: ${targetText(m)}. Change the size and try again.`);
       return;
     }
     if (levelNo >= 3 && m.calc?.length) {
-      play('tap');
       setPhase('calc');
       setAnnounce('Goal met. Now do the calculations.');
       return;
@@ -264,7 +256,6 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
     const ok = calcRight(o, m.calc[i].ask, v);
     const next = calcState.map((c, j) => (j === i ? { tries: c.tries + 1, right: ok } : c));
     setCalcState(next);
-    play(ok ? 'correct' : 'wrong');
     setAnnounce(ok ? 'Correct.' : 'Not yet. Check your working.');
     if (next.every((c) => c.right)) finishMission(next.every((c) => c.tries <= 2));
   };
@@ -478,7 +469,6 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
                   onClick={() => {
                     setIndex(index + 1);
                     resetMission();
-                    play('tap');
                   }}
                 >
                   Next mission

@@ -14,7 +14,6 @@ import type { Pt } from '../../econ/calc';
 import type { TryProps } from '../../shared/activity/types';
 import { DataTable } from '../../shared/activity/CheckIt';
 import { celebrate } from '../../shared/fun/celebrate';
-import { play } from '../../shared/fun/sound';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import {
@@ -254,7 +253,6 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
     const cups = cupsSold(s, p);
     const next = [...prices, p];
     setPrices(next);
-    play('coin');
     const r = salesLog(s, next);
     const last = r[r.length - 1];
     let msg = `Day ${last.day}: at ${money(p)} you sold ${cups} cups. Total revenue ${money(last.revenue)}.`;
@@ -271,11 +269,9 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
     const v = Number(pedDraft.trim().replace('−', '-').replace(',', '.'));
     if (pedDraft.trim() === '' || !Number.isFinite(v)) return;
     if (pedTypedRight(v, today.ped)) {
-      play('correct');
       setTyped({ ...typed, [today.day]: { value: v, first: pedTries === 0 } });
       setAnnounce(fill(sw.pedRight, { ped: pedText(today.ped) }) + (rows.length >= days ? ' The week is over. Make your decision below.' : ''));
     } else {
-      play('wrong');
       setPedTries(pedTries + 1);
       setAnnounce(sw.pedWrong);
     }
@@ -293,7 +289,6 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const submit = () => {
     if (!decisionReady || pedPending) return;
     setSubmitted(true);
-    play(decisionRight ? 'correct' : 'wrong');
     if (campaign) {
       const pedRows = Object.values(typed);
       const result = weekResult(s.id, rows, sweet ? spotAns === 'unit' : typeAns === truth, {
@@ -303,7 +298,6 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
       setCampaign(results);
       if (campaignMet(results, lv)) {
         setTimeout(() => {
-          play('win');
           celebrate({ size: 'big' });
           onGoal(levelNo);
         }, 600);

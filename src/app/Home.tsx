@@ -2,7 +2,8 @@ import { CodeBadge, HlBadge, MarkIcon } from '../shared/design/components';
 import { DEFAULT_LEVELS } from '../shared/activity/mastery';
 import { Stamp } from '../shared/fun/Stamp';
 import { stampsFor } from '../shared/fun/stampDefs';
-import { countStamps } from '../shared/progress/stamps';
+import { countStamps, totalStamps } from '../shared/progress/stamps';
+import { titleFor } from '../shared/fun/titles';
 import { Progress, STEP } from '../shared/progress/types';
 import { ACTIVITIES, SUBTOPICS, UNITS } from './registry';
 
@@ -25,6 +26,7 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
   const later = allowed.filter((a) => !a.load);
   const withStamps = visible.filter((a) => a.goal);
   const stampMax = withStamps.reduce((n, a) => n + stampsFor(a).length, 0);
+  const allStamps = totalStamps(props.progress);
   const stampTotal = withStamps.reduce((n, a) => n + countStamps(props.progress.activities[a.id]?.stamps ?? 0), 0);
   return (
     <div class="stack">
@@ -48,6 +50,9 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
           <span class="hero-stat">
             {stampTotal} of {stampMax} stamps collected
           </span>
+          <a class="hero-stat" href="#/stamps">
+            <span aria-hidden="true">{titleFor(allStamps).icon}</span> {titleFor(allStamps).name}
+          </a>
         </div>
         <div class="row">
           <a class="btn hero-go" href={`#unit-${UNITS[0].unit}`} onClick={(e) => { e.preventDefault(); const h = document.getElementById(`unit-${UNITS[0].unit}`); h?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); h?.focus({ preventScroll: true }); }}>
