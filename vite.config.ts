@@ -10,7 +10,8 @@ export default defineConfig({
     preact(),
     VitePWA({
       registerType: 'autoUpdate',
-      injectRegister: 'script-defer',
+      // Registered in src/main.tsx, which reloads the page once a new version is ready.
+      injectRegister: false,
       includeAssets: ['icon.svg'],
       manifest: {
         name: 'IB Economics: Units 1 and 2',
@@ -25,6 +26,9 @@ export default defineConfig({
       workbox: {
         // App code is stored for offline use. Content and settings are NOT in this list,
         // so a teacher's edits show up on the next visit instead of being stuck in the cache.
+        // A new version takes over open pages straight away, so nobody is stuck on an old one.
+        clientsClaim: true,
+        skipWaiting: true,
         globPatterns: ['**/*.{js,css,html,svg}'],
         globIgnores: ['content/**', 'config/**'],
         // Content and settings: use the newest copy when online, the saved copy when offline.
