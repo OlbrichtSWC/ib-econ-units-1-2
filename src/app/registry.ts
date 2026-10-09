@@ -30,11 +30,11 @@ export const UNITS = [
 export const ACTIVITIES: ActivityMeta[] = [
   {
     id: 'ppc-explorer', tag: '1.1 PPC', code: '1.1', unit: 1, title: 'PPC Explorer', style: 'Strategy missions',
-    blurb: 'Run an island economy. Move workers between two goods, take on missions and react to events.',
-    goal: { name: 'Island Planner', how: 'Level 1 of Four seasons: finish the year with every need met and at least 2 of 3 predictions right.', icon: 'island' },
+    blurb: 'Run an island economy. Put each islander in the right job, react to events and answer opportunity cost questions.',
+    goal: { name: 'Island Planner', how: 'Level 1 of Four seasons: meet every season\'s need and earn at least 5 of 7 stars for predictions and cost questions.', icon: 'island' },
     goals: [
-      { name: 'Storm Planner', how: 'Level 2 of Four seasons: tighter needs and four events. Meet every need and get 3 of 4 predictions right.', icon: 'island' },
-      { name: 'Island Council', how: 'Level 3 of Four seasons: spot the need that cannot be met, plan the rest, and get all 4 predictions right.', icon: 'island' },
+      { name: 'Storm Planner', how: 'Level 2 of Four seasons: tighter needs and constant opportunity cost. Meet every need and earn at least 6 of 8 stars.', icon: 'island' },
+      { name: 'Island Council', how: 'Level 3 of Four seasons: one-good events, mixed-up islanders and a need that cannot be met. Plan every season and earn 7 of 8 stars.', icon: 'island' },
     ],
     load: () => import('../activities/ppc-explorer'),
   },

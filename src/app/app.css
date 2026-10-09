@@ -150,6 +150,25 @@ fieldset[disabled] .option { cursor: default; }
 .need-track span { display: block; height: 100%; border-radius: 6px; background: var(--warn); transition: width 0.25s ease; }
 .need-track.ok span { background: var(--ok); }
 .need-track i { position: absolute; top: -4px; bottom: -4px; width: 3px; background: var(--ink); }
+.season-steps { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; list-style-position: inside; color: var(--ink-soft); }
+.season-steps li.on { color: var(--navy); font-weight: 700; }
+.season-steps li.done::marker { content: '✓ '; color: var(--ok); }
+.job-board { display: grid; gap: 8px; }
+.job-lane { border: 2px solid var(--line); border-radius: var(--radius-sm); padding: 6px 8px; background: var(--white); }
+.job-lane h4 { margin: 0 0 6px; font-size: 1rem; }
+.lane-F { border-color: var(--navy-100); background: var(--navy-50); }
+.lane-T { border-color: #e6d3b3; background: #fbf6ee; }
+.lane-H { border-style: dashed; }
+.job-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.job-chip { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); padding: 2px 3px 2px 8px; animation: chip-in 0.25s ease; }
+.chip-name { font-weight: 700; }
+.chip-skill { white-space: nowrap; }
+.chip-moves { display: inline-flex; gap: 2px; }
+.chip-move { font: inherit; font-size: 0.9rem; min-width: 32px; min-height: 32px; padding: 0; border: 1px solid var(--navy); border-radius: 999px; background: var(--white); cursor: pointer; }
+.chip-move:hover:not(:disabled) { background: var(--navy-50); }
+.chip-move:disabled { opacity: 0.4; cursor: not-allowed; }
+@keyframes chip-in { from { transform: scale(0.85); opacity: 0.3; } to { transform: none; opacity: 1; } }
+.cost-check { border-color: var(--navy); }
 
 /* Same Slope: mystery */
 .case-file { border-color: var(--ink); background: #fffdf6; }
