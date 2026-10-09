@@ -938,19 +938,119 @@
     }
   ],
   "explain": {
-    "prompt": "Choose one scenario you played. Explain, using a demand and supply diagram, how the market moved to its new equilibrium.",
-    "frames": [
-      "The event changed ___, which is a non-price determinant of ___.",
-      "This shifted the ___ curve to the ___ from ___ to ___.",
-      "At the old price there was a ___ of ___, so the price ___.",
-      "The new equilibrium price ___ and the new equilibrium quantity ___."
+    "prompt": "Using a demand and supply diagram, explain how Riverton's market for coffee beans moves to a new equilibrium after the \"Frost on the farms\" scenario.",
+    "facts": "- The market starts in equilibrium at **$5** and **50 bags** (ceteris paribus).\n- **Frost on the farms:** a frost damages coffee farms abroad. Green coffee beans, the roasters' main raw material, now cost much more.\n- After the frost, roasters supply **20 fewer bags** at every price.\n\n| Price | Demand (D) | Supply before (S₁) | Supply after (S₂) |\n|---|---|---|---|\n| $5 | 50 | 50 | 30 |\n| $6 | 40 | 60 | 40 |\n| $7 | 30 | 70 | 50 |",
+    "steps": [
+      {
+        "lead": "The frost made green coffee beans, the roasters' main raw material, cost much more. This is",
+        "correct": 2,
+        "options": [
+          {
+            "text": "a change in the price of coffee beans, so roasters move along the supply curve.",
+            "why": "The cost of an input changed, not the price of the good itself. A non-price determinant shifts the curve."
+          },
+          {
+            "text": "a change in tastes, a non-price determinant of demand.",
+            "why": "Buyers want the same amount at each price. The frost changes what sellers can supply."
+          },
+          {
+            "text": "a change in the cost of factors of production, a non-price determinant of supply.",
+            "why": "Raw materials are a cost of production. Higher costs affect sellers, so this is about supply."
+          }
+        ]
+      },
+      {
+        "lead": "So the supply curve shifts",
+        "correct": 0,
+        "options": [
+          {
+            "text": "left from S₁ to S₂: roasters supply 20 fewer bags at every price.",
+            "why": "Each bag costs more to roast, so roasters offer less at every price."
+          },
+          {
+            "text": "right from S₁ to S₂, because roasters can charge more.",
+            "why": "Higher costs mean firms supply less at every price, so supply shifts left."
+          },
+          {
+            "text": "left, and the demand curve shifts left too, because coffee is dearer.",
+            "why": "A higher price causes a movement along the demand curve, not a shift of it."
+          }
+        ]
+      },
+      {
+        "lead": "At the old price of $5, quantity demanded is still 50 bags but quantity supplied falls to 30, so there is",
+        "correct": 1,
+        "options": [
+          {
+            "text": "a surplus of 20 bags, and the price falls.",
+            "why": "Buyers want more than sellers offer. That is a shortage, not a surplus."
+          },
+          {
+            "text": "a shortage of 20 bags, and the price rises.",
+            "why": "Excess demand of 50 − 30 = 20 bags pushes the price up."
+          },
+          {
+            "text": "a shortage of 30 bags, and the price stays at $5.",
+            "why": "The shortage is the gap: 50 − 30 = 20 bags. And a shortage pushes the price up."
+          }
+        ]
+      },
+      {
+        "lead": "As the price rises, it rations the scarce beans:",
+        "correct": 0,
+        "options": [
+          {
+            "text": "buyers who are not willing or able to pay more cut back, so quantity demanded falls along D.",
+            "why": "This is the rationing function. The beans go to the buyers who value them most."
+          },
+          {
+            "text": "the demand curve shifts left until the shortage is gone.",
+            "why": "Demand does not shift. Buyers move up along the same demand curve."
+          },
+          {
+            "text": "the government decides which buyers get the beans.",
+            "why": "In a free market the price does the rationing, not the government."
+          }
+        ]
+      },
+      {
+        "lead": "At the same time, the higher price gives roasters",
+        "correct": 2,
+        "options": [
+          {
+            "text": "a reason to shift the supply curve back to the right.",
+            "why": "The supply curve stays at S₂. The price change causes a movement along it."
+          },
+          {
+            "text": "a reason to supply less, because their costs went up.",
+            "why": "The cost rise already shifted supply left. Along S₂, a higher price raises quantity supplied."
+          },
+          {
+            "text": "an incentive to supply more, so they move up along S₂.",
+            "why": "A higher price means more profit per bag, so quantity supplied rises along S₂."
+          }
+        ]
+      },
+      {
+        "lead": "The new equilibrium is where D meets S₂:",
+        "correct": 1,
+        "options": [
+          {
+            "text": "the price rises to $6 and the quantity rises to 60 bags.",
+            "why": "That is what happens when demand shifts right. Here supply shifted left, so quantity falls."
+          },
+          {
+            "text": "the price rises from $5 to $6, and the quantity falls from 50 to 40 bags.",
+            "why": "At $6, quantity demanded and quantity supplied (S₂) are both 40 bags."
+          },
+          {
+            "text": "the price rises to $7, and the quantity falls to 30 bags.",
+            "why": "At $7, roasters supply 50 bags on S₂ but buyers want only 30. That is a surplus, not equilibrium."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I named the non-price determinant that changed.",
-      "I said which curve shifted and which way.",
-      "I explained the shortage or surplus at the old price and how the price moved to remove it.",
-      "I gave the new equilibrium price and quantity, and described a diagram with both curves labelled."
-    ]
+    "own": "For example, describe your diagram: label the axes, D, S₁ and S₂, and mark the old and new equilibrium points."
   },
   "teacherNotes": "Play the scenarios as a whole-class prediction game: students hold up D or S and point left or right before you reveal. The 17 shift scenarios cover every non-price determinant of demand and supply in the guide (2.1, 2.2). Turn on trap mode to practise shift versus movement along a curve; trap scenarios alternate with shift scenarios. After each shift, the gap at the old price shows excess demand or excess supply before the price adjusts (2.3 price mechanism), followed by a signalling, incentive or rationing question. The HL challenge and Check it question 8 cover income and substitution effects and diminishing marginal utility (HL 2.1). onComplete fires after 5 scenarios. Check it question 5 covers simultaneous shifts with an indeterminate outcome."
 }

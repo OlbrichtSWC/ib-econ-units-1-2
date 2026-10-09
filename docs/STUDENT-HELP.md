@@ -19,7 +19,7 @@ Each game has three levels. Earn a level's stamp to open the next level. You can
 
 ## Your written answers
 
-What you type in "Explain it in writing" saves on this device as you type. Find it all in **My progress**, under **My writing**. It is not in your progress code, so copy it somewhere safe before you switch devices.
+In "Explain it in writing", you build a paragraph by clicking the right ending for each sentence. The numbers you need are in the "Facts to use" box. Your paragraph saves on this device. Find it all in **My progress**, under **My writing**. It is not in your progress code, so copy it somewhere safe before you switch devices.
 
 ## A link from your teacher
 

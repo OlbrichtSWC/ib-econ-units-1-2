@@ -101,7 +101,7 @@ The passcode keeps answers out of casual view. It is not a real lock: because th
 - Progress (activities done, scores, self-ratings) is stored in the browser's local storage on that device. **Reset my progress** deletes it after asking "Are you sure?".
 - A progress code contains only that progress data. No names and no written answers. Students choose whether to copy it.
 - The progress summary image is made in the browser. Students choose whether to hand it in. The app never sends it.
-- Written answers in "Explain it in writing" are saved in the browser on that device only, so students do not lose them. They are never sent and are not in the progress code. **Reset my progress** deletes them too.
+- Paragraphs built in "Explain it in writing" (and any sentence the student adds) are saved in the browser on that device only, so students do not lose them. They are never sent and are not in the progress code. **Reset my progress** deletes them too.
 - A class link holds only which activities are on and whether HL content shows. The app asks before using it.
 - Stamps are saved with progress, on the device only. They are never compared between students, and there is no leaderboard.
 - The fonts (Fredoka and Nunito, free under the SIL Open Font License) are stored with the app, so no font is loaded from another website.

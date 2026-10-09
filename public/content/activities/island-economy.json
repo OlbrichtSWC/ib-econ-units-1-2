@@ -9,9 +9,18 @@
     "goal": "Your class is shipwrecked on a quiet island. Build a village from what washes ashore, then run it three different ways.",
     "intro": "**Level 1: What washed ashore?** Things wash up on the beach one at a time. Sort each into a factor of production, or call it a free good. Then the council must choose which projects to build first. Name the opportunity cost.\n\n**Level 2: Three villages.** Answer what, how and for whom the way each economic system does. Each right answer builds part of the village.\n\n**Level 3: System detective.** Read the clues about a village and name its economic system. Ask for another clue whenever you need one.",
     "levels": [
-      { "title": "What washed ashore?", "blurb": "Sort 12 finds and name the opportunity cost. Get 10 right first time." },
-      { "title": "Three villages", "blurb": "Answer what, how and for whom in three systems. Get 8 of 9 right first time." },
-      { "title": "System detective", "blurb": "Name the system from clues. Solve 5 of 6 cases with your first guess." }
+      {
+        "title": "What washed ashore?",
+        "blurb": "Sort 12 finds and name the opportunity cost. Get 10 right first time."
+      },
+      {
+        "title": "Three villages",
+        "blurb": "Answer what, how and for whom in three systems. Get 8 of 9 right first time."
+      },
+      {
+        "title": "System detective",
+        "blurb": "Name the system from clues. Solve 5 of 6 cases with your first guess."
+      }
     ],
     "factorNames": {
       "land": "Land",
@@ -28,24 +37,124 @@
       "free": "no opportunity cost"
     },
     "items": [
-      { "id": "palms", "icon": "🌴", "name": "Coconut palms", "text": "A grove of coconut palms grows behind the beach.", "factor": "land", "why": "Trees that grow naturally are a **natural resource**, so they are land." },
-      { "id": "spring", "icon": "💧", "name": "A freshwater spring", "text": "Clean water bubbles up from a spring in the rocks.", "factor": "land", "why": "Water from nature is a natural resource: **land**. It is scarce here, because only one small spring must serve the whole village." },
-      { "id": "lagoon", "icon": "🐟", "name": "Fish in the lagoon", "text": "The lagoon is full of fish.", "factor": "land", "why": "Fish in the wild are a **natural resource**, so they count as land." },
-      { "id": "swimmer", "icon": "🏊", "name": "Tomas, a strong swimmer", "text": "Tomas can dive for fish all day.", "factor": "labour", "why": "Tomas offers **human effort**. That is labour." },
-      { "id": "nurse", "icon": "🩺", "name": "A trained nurse", "text": "Mei trained as a nurse for four years.", "factor": "labour", "why": "Mei's skill is **human effort** (mental and physical). Training makes her labour more productive, but it is still labour." },
-      { "id": "net", "icon": "🥅", "name": "A fishing net", "text": "A strong fishing net washes up in one piece.", "factor": "capital", "why": "A net is **man-made** and is used to produce something else (fish). That is capital." },
-      { "id": "tools", "icon": "🔨", "name": "A hammer and a saw", "text": "A toolbox floats in with a hammer and a saw.", "factor": "capital", "why": "Tools are **man-made goods used to make other goods**: capital." },
-      { "id": "canoe", "icon": "🛶", "name": "A canoe", "text": "A canoe drifts in. It can carry fish to the village.", "factor": "capital", "why": "The canoe is **man-made** and helps produce and transport fish. It is capital, not land." },
-      { "id": "baker", "icon": "🍞", "name": "Ana's bakery plan", "text": "Ana spots that everyone wants bread. She risks her savings to start a bakery and organises two helpers.", "factor": "enterprise", "why": "Ana **organises** the other factors and **takes a risk**. That is entrepreneurship." },
-      { "id": "ferry", "icon": "⛵", "name": "Sam's ferry idea", "text": "Sam plans a ferry to the next island. He borrows a boat, hires a rower and hopes it pays off.", "factor": "enterprise", "why": "Sam **combines** land, labour and capital and **bears the risk** of failure: entrepreneurship." },
-      { "id": "air", "icon": "🌬️", "name": "Fresh sea air", "text": "There is plenty of fresh sea air for everyone.", "factor": "free", "why": "Breathing it takes nothing away from anyone else, so there is **no opportunity cost**. It is a free good." },
-      { "id": "sun", "icon": "☀️", "name": "Sunshine on the beach", "text": "The sun shines on the whole beach.", "factor": "free", "why": "Enjoying the sun uses up nothing that someone else wanted. **No opportunity cost**: a free good." }
+      {
+        "id": "palms",
+        "icon": "🌴",
+        "name": "Coconut palms",
+        "text": "A grove of coconut palms grows behind the beach.",
+        "factor": "land",
+        "why": "Trees that grow naturally are a **natural resource**, so they are land."
+      },
+      {
+        "id": "spring",
+        "icon": "💧",
+        "name": "A freshwater spring",
+        "text": "Clean water bubbles up from a spring in the rocks.",
+        "factor": "land",
+        "why": "Water from nature is a natural resource: **land**. It is scarce here, because only one small spring must serve the whole village."
+      },
+      {
+        "id": "lagoon",
+        "icon": "🐟",
+        "name": "Fish in the lagoon",
+        "text": "The lagoon is full of fish.",
+        "factor": "land",
+        "why": "Fish in the wild are a **natural resource**, so they count as land."
+      },
+      {
+        "id": "swimmer",
+        "icon": "🏊",
+        "name": "Tomas, a strong swimmer",
+        "text": "Tomas can dive for fish all day.",
+        "factor": "labour",
+        "why": "Tomas offers **human effort**. That is labour."
+      },
+      {
+        "id": "nurse",
+        "icon": "🩺",
+        "name": "A trained nurse",
+        "text": "Mei trained as a nurse for four years.",
+        "factor": "labour",
+        "why": "Mei's skill is **human effort** (mental and physical). Training makes her labour more productive, but it is still labour."
+      },
+      {
+        "id": "net",
+        "icon": "🥅",
+        "name": "A fishing net",
+        "text": "A strong fishing net washes up in one piece.",
+        "factor": "capital",
+        "why": "A net is **man-made** and is used to produce something else (fish). That is capital."
+      },
+      {
+        "id": "tools",
+        "icon": "🔨",
+        "name": "A hammer and a saw",
+        "text": "A toolbox floats in with a hammer and a saw.",
+        "factor": "capital",
+        "why": "Tools are **man-made goods used to make other goods**: capital."
+      },
+      {
+        "id": "canoe",
+        "icon": "🛶",
+        "name": "A canoe",
+        "text": "A canoe drifts in. It can carry fish to the village.",
+        "factor": "capital",
+        "why": "The canoe is **man-made** and helps produce and transport fish. It is capital, not land."
+      },
+      {
+        "id": "baker",
+        "icon": "🍞",
+        "name": "Ana's bakery plan",
+        "text": "Ana spots that everyone wants bread. She risks her savings to start a bakery and organises two helpers.",
+        "factor": "enterprise",
+        "why": "Ana **organises** the other factors and **takes a risk**. That is entrepreneurship."
+      },
+      {
+        "id": "ferry",
+        "icon": "⛵",
+        "name": "Sam's ferry idea",
+        "text": "Sam plans a ferry to the next island. He borrows a boat, hires a rower and hopes it pays off.",
+        "factor": "enterprise",
+        "why": "Sam **combines** land, labour and capital and **bears the risk** of failure: entrepreneurship."
+      },
+      {
+        "id": "air",
+        "icon": "🌬️",
+        "name": "Fresh sea air",
+        "text": "There is plenty of fresh sea air for everyone.",
+        "factor": "free",
+        "why": "Breathing it takes nothing away from anyone else, so there is **no opportunity cost**. It is a free good."
+      },
+      {
+        "id": "sun",
+        "icon": "☀️",
+        "name": "Sunshine on the beach",
+        "text": "The sun shines on the whole beach.",
+        "factor": "free",
+        "why": "Enjoying the sun uses up nothing that someone else wanted. **No opportunity cost**: a free good."
+      }
     ],
     "projects": [
-      { "id": "houses", "icon": "🏠", "name": "Houses" },
-      { "id": "well", "icon": "🪣", "name": "A deeper well" },
-      { "id": "clinic", "icon": "🏥", "name": "A clinic" },
-      { "id": "boats", "icon": "⛵", "name": "Fishing boats" }
+      {
+        "id": "houses",
+        "icon": "🏠",
+        "name": "Houses"
+      },
+      {
+        "id": "well",
+        "icon": "🪣",
+        "name": "A deeper well"
+      },
+      {
+        "id": "clinic",
+        "icon": "🏥",
+        "name": "A clinic"
+      },
+      {
+        "id": "boats",
+        "icon": "⛵",
+        "name": "Fishing boats"
+      }
     ],
     "projectStory": "The council has enough workers and tools for only **two** projects this season. Tap the four projects in order, from the one you want most to the one you want least.",
     "costFeedback": {
@@ -178,12 +287,28 @@
       "level": "core",
       "prompt": "A bakery uses an oven to bake bread. Which factor of production is the oven?",
       "options": [
-        { "text": "Capital", "correct": true, "feedback": "Yes. The oven is man-made and is used to produce another good (bread)." },
-        { "text": "Land", "feedback": "Land is a natural resource. An oven is made by people." },
-        { "text": "Labour", "feedback": "Labour is human effort. The oven is a machine." },
-        { "text": "Entrepreneurship", "feedback": "Entrepreneurship is organising and risk-taking. The oven is a tool." }
+        {
+          "text": "Capital",
+          "correct": true,
+          "feedback": "Yes. The oven is man-made and is used to produce another good (bread)."
+        },
+        {
+          "text": "Land",
+          "feedback": "Land is a natural resource. An oven is made by people."
+        },
+        {
+          "text": "Labour",
+          "feedback": "Labour is human effort. The oven is a machine."
+        },
+        {
+          "text": "Entrepreneurship",
+          "feedback": "Entrepreneurship is organising and risk-taking. The oven is a tool."
+        }
       ],
-      "hints": ["Was the oven made by people, or does it come from nature?", "Man-made goods used to make other goods are one factor of production."],
+      "hints": [
+        "Was the oven made by people, or does it come from nature?",
+        "Man-made goods used to make other goods are one factor of production."
+      ],
       "worked": "Example: a tractor on a farm is man-made and helps produce crops, so it is **capital**.",
       "explanation": "**Capital** is man-made goods used to produce other goods and services, such as machines, tools and buildings."
     },
@@ -193,12 +318,28 @@
       "level": "core",
       "prompt": "Which of these is the best example of **entrepreneurship**?",
       "options": [
-        { "text": "Lina uses her savings to open a café, hires two workers and rents a shop", "correct": true, "feedback": "Yes. Lina organises land, labour and capital and takes the risk that the café fails." },
-        { "text": "Lina works long shifts as a waiter in a café", "feedback": "That is labour: human effort for a wage." },
-        { "text": "Lina buys a new coffee machine for the café", "feedback": "The coffee machine is capital. Entrepreneurship is the organising and risk-taking." },
-        { "text": "Lina owns the land the café is built on", "feedback": "Land is a natural resource. Owning it is not the same as organising a business." }
+        {
+          "text": "Lina uses her savings to open a café, hires two workers and rents a shop",
+          "correct": true,
+          "feedback": "Yes. Lina organises land, labour and capital and takes the risk that the café fails."
+        },
+        {
+          "text": "Lina works long shifts as a waiter in a café",
+          "feedback": "That is labour: human effort for a wage."
+        },
+        {
+          "text": "Lina buys a new coffee machine for the café",
+          "feedback": "The coffee machine is capital. Entrepreneurship is the organising and risk-taking."
+        },
+        {
+          "text": "Lina owns the land the café is built on",
+          "feedback": "Land is a natural resource. Owning it is not the same as organising a business."
+        }
       ],
-      "hints": ["Look for organising other factors and taking a risk.", "Who could lose money if the business fails?"],
+      "hints": [
+        "Look for organising other factors and taking a risk.",
+        "Who could lose money if the business fails?"
+      ],
       "worked": "Example: Ravi borrows money to start a bike repair shop and hires a mechanic. He organises the factors and bears the risk: **entrepreneurship**.",
       "explanation": "**Entrepreneurship** means organising the other factors of production and taking risks to start or run a business."
     },
@@ -208,12 +349,28 @@
       "level": "core",
       "prompt": "Why is air usually called a **free good**?",
       "options": [
-        { "text": "Using it has no opportunity cost, because there is enough for everyone", "correct": true, "feedback": "Yes. Breathing air does not take it away from anyone else." },
-        { "text": "Nobody has to pay a price for it in a shop", "feedback": "Many things have no price but still have an opportunity cost. A free good has no opportunity cost at all." },
-        { "text": "The government provides it", "feedback": "Goods the government provides still use scarce resources, so they are not free goods." },
-        { "text": "It is a natural resource", "feedback": "Many natural resources, like oil, are scarce. Being natural does not make a good free." }
+        {
+          "text": "Using it has no opportunity cost, because there is enough for everyone",
+          "correct": true,
+          "feedback": "Yes. Breathing air does not take it away from anyone else."
+        },
+        {
+          "text": "Nobody has to pay a price for it in a shop",
+          "feedback": "Many things have no price but still have an opportunity cost. A free good has no opportunity cost at all."
+        },
+        {
+          "text": "The government provides it",
+          "feedback": "Goods the government provides still use scarce resources, so they are not free goods."
+        },
+        {
+          "text": "It is a natural resource",
+          "feedback": "Many natural resources, like oil, are scarce. Being natural does not make a good free."
+        }
       ],
-      "hints": ["Think about opportunity cost.", "Does your breathing stop anyone else from breathing?"],
+      "hints": [
+        "Think about opportunity cost.",
+        "Does your breathing stop anyone else from breathing?"
+      ],
       "worked": "Example: sunshine on a large beach. One person enjoying it does not reduce what others get, so there is no opportunity cost.",
       "explanation": "A **free good** is not scarce, so using it has **no opportunity cost**. A good with a zero price can still be scarce."
     },
@@ -231,33 +388,155 @@
         "title": "The problem of choice",
         "description": "Two boxes on the left, one for wants and one for resources, both point to a box in the middle. Arrows lead from it to a second box and then a third box on the right. Each box has a letter.",
         "boxes": [
-          { "at": { "q": 14, "p": 46 }, "w": 24, "h": 12, "text": "Unlimited wants" },
-          { "at": { "q": 14, "p": 14 }, "w": 24, "h": 12 },
-          { "at": { "q": 45, "p": 30 }, "w": 18, "h": 12 },
-          { "at": { "q": 68, "p": 30 }, "w": 16, "h": 12 },
-          { "at": { "q": 90, "p": 30 }, "w": 18, "h": 12 }
+          {
+            "at": {
+              "q": 14,
+              "p": 46
+            },
+            "w": 24,
+            "h": 12,
+            "text": "Unlimited wants"
+          },
+          {
+            "at": {
+              "q": 14,
+              "p": 14
+            },
+            "w": 24,
+            "h": 12
+          },
+          {
+            "at": {
+              "q": 45,
+              "p": 30
+            },
+            "w": 18,
+            "h": 12
+          },
+          {
+            "at": {
+              "q": 68,
+              "p": 30
+            },
+            "w": 16,
+            "h": 12
+          },
+          {
+            "at": {
+              "q": 90,
+              "p": 30
+            },
+            "w": 18,
+            "h": 12
+          }
         ],
         "arrows": [
-          { "from": { "q": 27, "p": 44 }, "to": { "q": 35, "p": 34 } },
-          { "from": { "q": 27, "p": 16 }, "to": { "q": 35, "p": 26 } },
-          { "from": { "q": 55, "p": 30 }, "to": { "q": 59, "p": 30 } },
-          { "from": { "q": 77, "p": 30 }, "to": { "q": 80, "p": 30 } }
+          {
+            "from": {
+              "q": 27,
+              "p": 44
+            },
+            "to": {
+              "q": 35,
+              "p": 34
+            }
+          },
+          {
+            "from": {
+              "q": 27,
+              "p": 16
+            },
+            "to": {
+              "q": 35,
+              "p": 26
+            }
+          },
+          {
+            "from": {
+              "q": 55,
+              "p": 30
+            },
+            "to": {
+              "q": 59,
+              "p": 30
+            }
+          },
+          {
+            "from": {
+              "q": 77,
+              "p": 30
+            },
+            "to": {
+              "q": 80,
+              "p": 30
+            }
+          }
         ],
         "tags": [
-          { "at": { "q": 14, "p": 14 }, "letter": "A" },
-          { "at": { "q": 45, "p": 30 }, "letter": "B" },
-          { "at": { "q": 68, "p": 30 }, "letter": "C" },
-          { "at": { "q": 90, "p": 30 }, "letter": "D" }
+          {
+            "at": {
+              "q": 14,
+              "p": 14
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 45,
+              "p": 30
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 68,
+              "p": 30
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 90,
+              "p": 30
+            },
+            "letter": "D"
+          }
         ]
       },
       "slots": [
-        { "letter": "A", "answer": "Limited resources", "feedback": "A sits next to unlimited wants. It is the other half of the problem: limited resources." },
-        { "letter": "B", "answer": "Scarcity", "feedback": "Unlimited wants and limited resources together create scarcity." },
-        { "letter": "C", "answer": "Choice", "feedback": "Scarcity forces us to choose." },
-        { "letter": "D", "answer": "Opportunity cost", "feedback": "Every choice gives up the next best alternative: the opportunity cost." }
+        {
+          "letter": "A",
+          "answer": "Limited resources",
+          "feedback": "A sits next to unlimited wants. It is the other half of the problem: limited resources."
+        },
+        {
+          "letter": "B",
+          "answer": "Scarcity",
+          "feedback": "Unlimited wants and limited resources together create scarcity."
+        },
+        {
+          "letter": "C",
+          "answer": "Choice",
+          "feedback": "Scarcity forces us to choose."
+        },
+        {
+          "letter": "D",
+          "answer": "Opportunity cost",
+          "feedback": "Every choice gives up the next best alternative: the opportunity cost."
+        }
       ],
-      "choices": ["Limited resources", "Scarcity", "Choice", "Opportunity cost", "Free good", "Equity"],
-      "hints": ["Start with A: it pairs with unlimited wants.", "The order is: the problem, what it forces us to do, and the cost of doing it."],
+      "choices": [
+        "Limited resources",
+        "Scarcity",
+        "Choice",
+        "Opportunity cost",
+        "Free good",
+        "Equity"
+      ],
+      "hints": [
+        "Start with A: it pairs with unlimited wants.",
+        "The order is: the problem, what it forces us to do, and the cost of doing it."
+      ],
       "worked": "Example: a town has one field (limited) and many people who want a park, a car park and houses (unlimited wants). That is scarcity. The council must choose. If it builds houses, the park it gives up is the opportunity cost.",
       "explanation": "Unlimited wants and **limited resources** create **scarcity**. Scarcity forces **choice**, and every choice has an **opportunity cost**."
     },
@@ -267,12 +546,28 @@
       "level": "core",
       "prompt": "Jo can work at a shop for $90, babysit for $70, or go to the beach. She chooses to study instead. What is the opportunity cost of studying?",
       "options": [
-        { "text": "The $90 from working at the shop", "correct": true, "feedback": "Yes, if the shop job is her next best alternative. Opportunity cost is only the next best option given up." },
-        { "text": "$160: the shop pay plus the babysitting pay", "feedback": "She could only do one of these, so only the next best alternative counts." },
-        { "text": "Nothing, because studying is free", "feedback": "Studying uses her time. The cost is what she could have done with that time." },
-        { "text": "The beach", "feedback": "Only if the beach was her next best choice. Here the question suggests the shop job is worth most to her." }
+        {
+          "text": "The $90 from working at the shop",
+          "correct": true,
+          "feedback": "Yes, if the shop job is her next best alternative. Opportunity cost is only the next best option given up."
+        },
+        {
+          "text": "$160: the shop pay plus the babysitting pay",
+          "feedback": "She could only do one of these, so only the next best alternative counts."
+        },
+        {
+          "text": "Nothing, because studying is free",
+          "feedback": "Studying uses her time. The cost is what she could have done with that time."
+        },
+        {
+          "text": "The beach",
+          "feedback": "Only if the beach was her next best choice. Here the question suggests the shop job is worth most to her."
+        }
       ],
-      "hints": ["Opportunity cost is the next best alternative given up.", "Can she do the shop job and babysit in the same hours?"],
+      "hints": [
+        "Opportunity cost is the next best alternative given up.",
+        "Can she do the shop job and babysit in the same hours?"
+      ],
       "worked": "Example: Sam chooses to play football instead of earning $50 at a café or $30 mowing lawns. If the café job is his next best choice, the opportunity cost is $50 of café pay.",
       "explanation": "**Opportunity cost** is the value of the **next best** alternative given up. Jo can only do one thing with that time, so it is not the sum of all options."
     },
@@ -282,12 +577,28 @@
       "level": "core",
       "prompt": "In a **planned economy**, how is the question **what to produce** answered?",
       "options": [
-        { "text": "The government decides and sets output targets", "correct": true, "feedback": "Yes. Planners choose what is made and how much." },
-        { "text": "Firms make whatever earns the most profit", "feedback": "That is how a free market economy answers it." },
-        { "text": "Consumers vote on every product", "feedback": "Planned economies do not run on votes for each product. The state decides." },
-        { "text": "Prices rise until the right amount is made", "feedback": "Prices guide output in a market economy. In a planned economy the state usually sets prices." }
+        {
+          "text": "The government decides and sets output targets",
+          "correct": true,
+          "feedback": "Yes. Planners choose what is made and how much."
+        },
+        {
+          "text": "Firms make whatever earns the most profit",
+          "feedback": "That is how a free market economy answers it."
+        },
+        {
+          "text": "Consumers vote on every product",
+          "feedback": "Planned economies do not run on votes for each product. The state decides."
+        },
+        {
+          "text": "Prices rise until the right amount is made",
+          "feedback": "Prices guide output in a market economy. In a planned economy the state usually sets prices."
+        }
       ],
-      "hints": ["Who owns the resources in a planned economy?", "Think about who makes decisions instead of prices."],
+      "hints": [
+        "Who owns the resources in a planned economy?",
+        "Think about who makes decisions instead of prices."
+      ],
       "worked": "Example: a planning office decides the country will make 2 million pairs of shoes and 10,000 tractors this year, and tells factories their targets.",
       "explanation": "In a **planned economy**, the government owns most resources and decides **what, how and for whom** to produce."
     },
@@ -297,12 +608,28 @@
       "level": "apply",
       "prompt": "A country has private firms competing for customers, but the government runs the hospitals and taxes high incomes more heavily. What kind of economy is it?",
       "options": [
-        { "text": "A mixed economy", "correct": true, "feedback": "Yes. Markets answer most questions, and the government steps in for health care and fairness." },
-        { "text": "A free market economy", "feedback": "A pure free market economy would leave hospitals to private firms and avoid redistributing income." },
-        { "text": "A planned economy", "feedback": "Private firms competing for customers shows prices are doing most of the work." },
-        { "text": "There is not enough information", "feedback": "There is: both private markets and government provision are described." }
+        {
+          "text": "A mixed economy",
+          "correct": true,
+          "feedback": "Yes. Markets answer most questions, and the government steps in for health care and fairness."
+        },
+        {
+          "text": "A free market economy",
+          "feedback": "A pure free market economy would leave hospitals to private firms and avoid redistributing income."
+        },
+        {
+          "text": "A planned economy",
+          "feedback": "Private firms competing for customers shows prices are doing most of the work."
+        },
+        {
+          "text": "There is not enough information",
+          "feedback": "There is: both private markets and government provision are described."
+        }
       ],
-      "hints": ["Are prices doing some of the work?", "Is the government also doing some of the work?"],
+      "hints": [
+        "Are prices doing some of the work?",
+        "Is the government also doing some of the work?"
+      ],
       "worked": "Example: shops and restaurants are private, but schools and roads are paid for by taxes. Both markets and government answer the basic questions: a mixed economy.",
       "explanation": "A **mixed economy** uses markets for most goods and government intervention for some goods and to reduce inequality. Almost every real economy is mixed."
     },
@@ -312,12 +639,28 @@
       "level": "apply",
       "prompt": "Which statement best describes a **weakness** of a free market economy?",
       "options": [
-        { "text": "People with low incomes may not afford basic goods, and some useful goods may not be provided", "correct": true, "feedback": "Yes. In a free market, goods go to those who can pay, and goods that cannot earn a profit may be missing." },
-        { "text": "There are no price signals, so firms cannot tell what people want", "feedback": "That is a weakness of a planned economy. Free markets are full of price signals." },
-        { "text": "The government makes too many decisions", "feedback": "In a free market economy the government makes very few decisions." },
-        { "text": "Firms have no incentive to be efficient", "feedback": "Competition and profit give firms a strong incentive to be efficient." }
+        {
+          "text": "People with low incomes may not afford basic goods, and some useful goods may not be provided",
+          "correct": true,
+          "feedback": "Yes. In a free market, goods go to those who can pay, and goods that cannot earn a profit may be missing."
+        },
+        {
+          "text": "There are no price signals, so firms cannot tell what people want",
+          "feedback": "That is a weakness of a planned economy. Free markets are full of price signals."
+        },
+        {
+          "text": "The government makes too many decisions",
+          "feedback": "In a free market economy the government makes very few decisions."
+        },
+        {
+          "text": "Firms have no incentive to be efficient",
+          "feedback": "Competition and profit give firms a strong incentive to be efficient."
+        }
       ],
-      "hints": ["In a free market, how is the question 'for whom' answered?", "Think about people with little income, and goods nobody can charge for."],
+      "hints": [
+        "In a free market, how is the question 'for whom' answered?",
+        "Think about people with little income, and goods nobody can charge for."
+      ],
       "worked": "Example: in a free market, private firms might not build a streetlight, because they cannot make people pay to use the light.",
       "explanation": "Free markets can be efficient, but they may leave **inequality** and fail to provide some goods. This is one reason most economies are mixed."
     },
@@ -327,31 +670,146 @@
       "level": "apply",
       "prompt": "Fishers catch fish faster than the fish can breed, so each year there are fewer fish. Which idea does this show best?",
       "options": [
-        { "text": "Scarcity and a threat to sustainability", "correct": true, "feedback": "Yes. Using a resource faster than it can renew means future generations have less." },
-        { "text": "Fish are a free good", "feedback": "Fish are scarce: catching one leaves fewer for others." },
-        { "text": "The fish are capital", "feedback": "Wild fish are a natural resource, so they are land." },
-        { "text": "A planned economy", "feedback": "The question is about using a resource up, not about who makes decisions." }
+        {
+          "text": "Scarcity and a threat to sustainability",
+          "correct": true,
+          "feedback": "Yes. Using a resource faster than it can renew means future generations have less."
+        },
+        {
+          "text": "Fish are a free good",
+          "feedback": "Fish are scarce: catching one leaves fewer for others."
+        },
+        {
+          "text": "The fish are capital",
+          "feedback": "Wild fish are a natural resource, so they are land."
+        },
+        {
+          "text": "A planned economy",
+          "feedback": "The question is about using a resource up, not about who makes decisions."
+        }
       ],
-      "hints": ["Is the resource getting scarcer over time?", "What happens to future generations?"],
+      "hints": [
+        "Is the resource getting scarcer over time?",
+        "What happens to future generations?"
+      ],
       "worked": "Example: cutting down a forest faster than trees grow back. Wood becomes scarcer and the forest may never recover: a sustainability problem.",
       "explanation": "Resources are **scarce**. Using them faster than they renew is **unsustainable**, because it reduces what future generations can use."
     }
   ],
   "explain": {
-    "prompt": "Choose one village. Explain how its economic system answers the three basic economic questions. Give one strength and one weakness.",
-    "frames": [
-      "In ___, the question of what to produce is answered by ___.",
-      "How to produce is decided by ___, because ___.",
-      "Goods go to ___, which means ___.",
-      "One strength of this system is ___.",
-      "One weakness is ___, because ___."
+    "prompt": "Explain how Market Village answers the three basic economic questions. Give one strength and one weakness of its economic system.",
+    "facts": "- The three **basic economic questions**: **what** (and how much) to produce, **how** to produce it, and **for whom**.\n- **Market Village:** people own the land, tools and boats. Prices rise and fall with demand and supply. The council does almost nothing.\n- **Plan Village:** the council owns the land, tools and boats. A planning committee makes every big decision.\n- **Harbour Village:** most shops and boats are private, but the council runs the clinic and the school, and collects taxes.",
+    "steps": [
+      {
+        "lead": "Market Village has",
+        "correct": 1,
+        "options": [
+          {
+            "text": "a planned economy, because the council decides what the village makes.",
+            "why": "The council in Market Village does almost nothing. In Plan Village, the council owns resources and decides."
+          },
+          {
+            "text": "a free market economy, because people own the resources and prices guide decisions.",
+            "why": "Right. Private ownership of land, tools and boats, and prices that move with demand and supply, mean a free market."
+          },
+          {
+            "text": "a mixed economy, because both people and the council own resources.",
+            "why": "In a mixed economy, like Harbour Village, the council runs some services. In Market Village it does almost nothing."
+          }
+        ]
+      },
+      {
+        "lead": "What to produce is decided by",
+        "correct": 2,
+        "options": [
+          {
+            "text": "the council, which sets a production target for each good.",
+            "why": "That is how Plan Village answers the question. Market Village has no planning committee."
+          },
+          {
+            "text": "what the villagers need most, so basic goods are made first.",
+            "why": "Need does not count in a market unless people can pay. Firms follow prices and profit."
+          },
+          {
+            "text": "buyers, because firms make whatever people are willing and able to pay for.",
+            "why": "Right. Firms follow prices and profit, so what gets made depends on what buyers will pay for."
+          }
+        ]
+      },
+      {
+        "lead": "How to produce is decided by each firm, which",
+        "correct": 0,
+        "options": [
+          {
+            "text": "chooses the cheapest method, so that it can make the most profit.",
+            "why": "Right. Each firm wants profit, so it looks for the lowest cost way to produce."
+          },
+          {
+            "text": "uses the methods and workers that the council tells it to use.",
+            "why": "That is Plan Village, where the committee tells each workshop what to do."
+          },
+          {
+            "text": "must follow council safety laws that set limits on its methods.",
+            "why": "Council rules that set limits belong to Harbour Village, the mixed economy."
+          }
+        ]
+      },
+      {
+        "lead": "For whom to produce is answered by price:",
+        "correct": 2,
+        "options": [
+          {
+            "text": "goods are shared out by need, for example with ration coupons.",
+            "why": "That is Plan Village. In Market Village, goods are not shared out by anyone."
+          },
+          {
+            "text": "everyone gets an equal share of what the village makes.",
+            "why": "The market does not share goods out equally. People with more income can buy more."
+          },
+          {
+            "text": "goods go to people who can pay, so what you get depends on your income.",
+            "why": "Right. The price rations goods to people who are willing and able to pay."
+          }
+        ]
+      },
+      {
+        "lead": "One strength of this system is that",
+        "correct": 0,
+        "options": [
+          {
+            "text": "prices send signals, so firms make what people want, and competition pushes them to be efficient.",
+            "why": "Right. Prices show firms what buyers want, and competition pushes them not to waste resources."
+          },
+          {
+            "text": "everyone is sure to get basic needs, such as food and health care, whatever their income.",
+            "why": "That is a strength of Plan Village. In Market Village, people with little income may go without."
+          },
+          {
+            "text": "the council provides streetlights, a clinic and a school for every villager.",
+            "why": "The council in Market Village does almost nothing. Goods that cannot earn a profit may not be made."
+          }
+        ]
+      },
+      {
+        "lead": "One weakness is that",
+        "correct": 1,
+        "options": [
+          {
+            "text": "without prices as signals, firms cannot tell what people want.",
+            "why": "That is the weakness of Plan Village. Market Village has prices that move with demand and supply."
+          },
+          {
+            "text": "people with little income may go without, and goods that earn no profit may not be made.",
+            "why": "Right. The market serves people who can pay, and firms make only what earns a profit."
+          },
+          {
+            "text": "high taxes weaken people's incentive to work hard and to start new firms.",
+            "why": "The council in Market Village does almost nothing, so taxes are not the problem. This weakness fits Harbour Village."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I named the economic system.",
-      "I answered all three questions: what, how and for whom.",
-      "I said who owns resources and who makes decisions.",
-      "I gave one strength and one weakness, with a reason for each."
-    ]
+    "own": "For example, compare Market Village with Plan Village or Harbour Village: how does one of them answer the for whom question?"
   },
   "teacherNotes": "Level 1 is a good opener for 1.1: project the beach and let the class vote on each find before a student taps. The canoe and the nurse cause the best debates (capital vs land; labour with training). In the opportunity cost task, students rank four projects; the answer depends on their own ranking, so ask two students with different rankings to compare. Level 2 builds the village one answer at a time, then shows a strength and a weakness of each system: use these for an evaluation discussion. Level 3 is a detective game; students can ask for more clues. Discussion idea: is any real economy a pure free market or a pure planned economy?"
 }

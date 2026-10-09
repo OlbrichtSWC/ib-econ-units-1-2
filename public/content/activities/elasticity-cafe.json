@@ -827,19 +827,119 @@
     }
   ],
   "explain": {
-    "prompt": "Explain, using your sales log, whether demand for your café's drink was price elastic or price inelastic, and what the café should do to raise its total revenue.",
-    "frames": [
-      "On Day ___, I changed the price from ___ to ___, and cups sold changed from ___ to ___.",
-      "The PED was ___, which is ___ than 1 in size, so demand is price ___.",
-      "When I raised the price, total revenue ___ because the ___ pull was bigger.",
-      "Demand was ___ because of HINTS, especially ___."
+    "prompt": "Use this sales log from Latte on Market Street. Explain whether demand for lattes is price elastic or price inelastic, and what the café should do to raise its total revenue.",
+    "facts": "- **Latte on Market Street** has **five other cafés** within one block.\n- Day 1: price **$6.00**, **160** cups sold, total revenue **$960**.\n- Day 2: price **$7.00**, **120** cups sold, total revenue **$840**.\n- At **$5.50** the café sells **180** cups, so total revenue is **$990**.\n- PED = % change in quantity demanded ÷ % change in price. Use the **original** (Day 1) values as the base.\n- HINTS: **H**abits, **I**ncome share, **N**ecessity, **T**ime, **S**ubstitutes.",
+    "steps": [
+      {
+        "lead": "When the price rose from $6 to $7, cups sold fell from 160 to 120,",
+        "correct": 2,
+        "options": [
+          {
+            "text": "a fall of 40%.",
+            "why": "40 is the change in cups, not the percentage change. Divide 40 by the original 160."
+          },
+          {
+            "text": "a fall of 33%.",
+            "why": "That uses the new value (120) as the base. Percentage change uses the original value, 160."
+          },
+          {
+            "text": "a fall of 25% (40 ÷ 160).",
+            "why": "Change ÷ original × 100 = 40 ÷ 160 × 100 = 25%."
+          }
+        ]
+      },
+      {
+        "lead": "The price rose by 16.7% ($1 ÷ $6), so PED =",
+        "correct": 0,
+        "options": [
+          {
+            "text": "−25% ÷ 16.7% = −1.5.",
+            "why": "PED = % change in quantity demanded ÷ % change in price = −25 ÷ 16.7 = −1.5."
+          },
+          {
+            "text": "16.7% ÷ −25% = −0.67.",
+            "why": "This is upside down. Quantity demanded goes on top of the formula."
+          },
+          {
+            "text": "−40 ÷ $1 = −40.",
+            "why": "PED uses percentage changes, not the raw changes in cups and dollars."
+          }
+        ]
+      },
+      {
+        "lead": "The size of PED (1.5) is more than 1, so demand for lattes is",
+        "correct": 1,
+        "options": [
+          {
+            "text": "price inelastic, because the minus sign shows that buyers hardly react.",
+            "why": "The minus sign only shows that price and quantity move in opposite directions. Judge the size without it."
+          },
+          {
+            "text": "price elastic: cups sold change by a bigger percentage than the price.",
+            "why": "A size above 1 means quantity demanded responds more than price, so demand is price elastic."
+          },
+          {
+            "text": "unit elastic, because each $1 rise loses the same number of cups.",
+            "why": "Unit elastic needs a PED of exactly 1. Here it is 1.5."
+          }
+        ]
+      },
+      {
+        "lead": "Total revenue fell from $960 to $840, because",
+        "correct": 2,
+        "options": [
+          {
+            "text": "a higher price always lowers total revenue, whatever the good is.",
+            "why": "Not always. When demand is inelastic, like at the ski lodge, a higher price raises total revenue."
+          },
+          {
+            "text": "the 40 lost cups would each have earned $7, so $280 was lost.",
+            "why": "The lost cups would have sold at the old price of $6. The cups still sold earn the extra $1."
+          },
+          {
+            "text": "the revenue lost on 40 cups (40 × $6 = $240) was more than the extra revenue on the 120 cups still sold (120 × $1 = $120).",
+            "why": "The revenue lost on cups no longer sold is bigger than the extra revenue on cups still sold. This is what elastic demand means for revenue."
+          }
+        ]
+      },
+      {
+        "lead": "So, to raise total revenue, the café should",
+        "correct": 1,
+        "options": [
+          {
+            "text": "raise its price, because each cup then earns more.",
+            "why": "Demand is elastic, so the cups lost cost more revenue than the higher price brings in."
+          },
+          {
+            "text": "lower its price, for example to $5.50, where it sells 180 cups and earns $990.",
+            "why": "With elastic demand, a price cut raises total revenue: $5.50 × 180 = $990, more than $960."
+          },
+          {
+            "text": "keep the price at $6, because any change lowers revenue.",
+            "why": "A price cut raises revenue when demand is elastic. At $5.50 revenue is $990, more than $960."
+          }
+        ]
+      },
+      {
+        "lead": "Using HINTS, demand is elastic mainly because",
+        "correct": 0,
+        "options": [
+          {
+            "text": "there are five other cafés within one block, so buyers have many close substitutes.",
+            "why": "Substitutes is the strongest factor here. Buyers can walk next door if the price rises."
+          },
+          {
+            "text": "a latte takes only a small part of a buyer's income.",
+            "why": "A small income share makes demand less elastic, not more."
+          },
+          {
+            "text": "many customers have a daily latte habit.",
+            "why": "A habit makes demand less elastic. It cannot explain why demand here is elastic."
+          }
+        ]
+      }
     ],
-    "checklist": [
-      "I used real numbers from my sales log (prices and cups sold).",
-      "I calculated PED and compared its size with 1.",
-      "I said what happened to total revenue and linked it to PED.",
-      "I said whether the café should raise or lower its price, and gave a HINTS reason."
-    ]
+    "own": "For example, describe your diagram: where the price pull and the quantity pull are when the price rises from $6 to $7."
   },
   "teacherNotes": "Each scenario has a hidden straight-line demand curve. Its playable price range lies wholly on the elastic part (latte, Cloud Fizz) or wholly on the inelastic part (ski lodge) of the line, so every price change the student makes gives the same answer. Cups sold are whole numbers and every PED in the sales log is worked out from them, using the previous day as the original value. The price pull is the price change on the units sold at both prices: (P₂ − P₁) × the smaller quantity. The quantity pull is the units gained or lost, valued at the lower price: lower price × (Q₂ − Q₁). The two areas never overlap, and together they equal the change in TR. In class: give half the room the latte and half the ski lodge, then compare their sales logs and link the results to HINTS. You can edit the scenarios (demand points, price range, start price, axes and HINTS text) in this file; keep each price range on one side of the unitary point, which the automated tests check. PED changing along a straight line is HL, and is labelled HL in the reveal."
 }
