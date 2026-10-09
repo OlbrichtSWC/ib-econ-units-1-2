@@ -6,7 +6,7 @@
     "caption": "A is on the PPC (efficient). B is inside (unemployed resources). C is outside (unattainable for now). The arrow shows growth in production possibilities: PPC₁ shifts out to PPC₂."
   },
   "try": {
-    "intro": "**Welcome to Pinewood Island**. Ten workers can catch fish or cut timber. Some are great at fishing, some are great at cutting timber.\n\n**Four seasons:** plan the island's year. Each season starts with an event: **predict** what it does to the PPC, then choose how many workers fish so the island meets that season's need. There are three levels. Each one opens when you earn the stamp for the level before.\n\n**Missions:** six short tasks, one at a time. Each mission tells you what to do and how to do it. They teach the controls and the key ideas. Then try the event scenarios: predict before you play each scenario.",
+    "intro": "**Welcome to Pinewood Island**. Ten islanders can catch fish or cut timber. Some are great at fishing, some are great at cutting timber.\n\n**Four seasons:** plan the island's year. Each season has three steps. 1. **Predict** what the event does to the PPC. 2. **Put each islander in a job** so the island meets the season's need. 3. Answer a short **opportunity cost** question. Each right prediction and each right answer earns a star. There are three levels. Each one opens when you earn the stamp for the level before.\n\n**Missions:** six short tasks, one at a time. Each mission tells you what to do and how to do it. They teach the controls and the key ideas. Then try the event scenarios: predict before you play each scenario.",
     "missions": [
       {
         "id": "efficient",
@@ -111,14 +111,14 @@
     ],
     "events": [
       {
-        "id": "nets",
-        "title": "New fishing nets",
-        "text": "A local firm invents a stronger, lighter fishing net. Every worker can now catch 50% more fish. Timber cutting does not change.",
+        "id": "workers",
+        "title": "New families arrive",
+        "text": "Two new families move to the island, adding 2 workers who are average at both jobs.",
         "effect": {
-          "fish": 1.5
+          "addWorkers": 2
         },
-        "correct": "pivot-fish",
-        "explain": "Better technology in fishing lets the island make more fish with the same workers, but no more timber. The PPC pivots outward along the fish axis. The timber end stays where it was. This is growth in production possibilities for fish."
+        "correct": "shift-out",
+        "explain": "More labour means the island can make more of both goods. The whole PPC shifts outward. This is growth in production possibilities."
       },
       {
         "id": "recession",
@@ -142,270 +142,426 @@
       },
       {
         "id": "storm",
-        "title": "Ice storm",
-        "text": "An ice storm destroys a large part of the island's forest. Each worker can now cut only 60% as much timber as before.",
+        "title": "A cyclone",
+        "text": "A cyclone wrecks boats and blows down part of the forest. Every worker can now catch 30% fewer fish and cut 30% less timber.",
         "effect": {
-          "timber": 0.6
+          "fish": 0.7,
+          "timber": 0.7
         },
-        "correct": "pivot-timber-in",
-        "explain": "A natural disaster that destroys resources reduces what the island can produce. Only timber was harmed, so the timber end of the PPC moves in and the fish end stays where it was. The PPC pivots inward along the timber axis. If the storm had harmed both goods, the whole PPC would shift inward."
+        "correct": "shift-in",
+        "explain": "A natural disaster that destroys resources used for both goods reduces what the island can produce. The **whole PPC shifts inward**."
       },
       {
-        "id": "workers",
-        "title": "New families arrive",
-        "text": "Two new families move to the island, adding 2 workers who are average at both jobs.",
+        "id": "nets",
+        "title": "New fishing nets",
+        "text": "A local firm invents a stronger, lighter fishing net. Every worker can now catch 50% more fish. Timber cutting does not change.",
         "effect": {
-          "addWorkers": 2
+          "fish": 1.5
         },
-        "correct": "shift-out",
-        "explain": "More labour means the island can make more of both goods. The whole PPC shifts outward. This is growth in production possibilities."
+        "correct": "pivot-fish",
+        "explain": "Better technology in fishing lets the island make more fish with the same workers, but no more timber. The PPC pivots outward along the fish axis. The timber end stays where it was. This is growth in production possibilities for fish."
       }
     ],
     "seasonLevels": [
       {
         "title": "A calm year",
-        "blurb": "Four seasons, three events. Get at least 2 of the 3 predictions right.",
-        "startFishers": 8,
-        "minPredictions": 2,
+        "blurb": "Put each islander in the right job. Events shift the whole PPC or change the number of jobs. Earn 5 of 7 stars.",
+        "start": "TTTTTFFFFF",
+        "minStars": 5,
+        "choices": [
+          "shift-out",
+          "shift-in",
+          "move-inside",
+          "move-toward"
+        ],
         "seasons": [
           {
             "id": "spring",
             "name": "Spring",
             "icon": "🌱",
+            "story": "Last year's council put many islanders in the wrong jobs. Look at what each islander is good at, then move them. The island needs wood to repair homes and fish to eat.",
             "event": null,
-            "story": "The fishing boats are ready and the islanders need wood to repair their homes. Last season most workers fished, so the island starts with too little timber.",
             "need": {
               "fish": 30,
-              "timber": 35
+              "timber": 40
+            },
+            "check": {
+              "q": "Dara can catch 7 tonnes of fish **or** cut 4 tonnes of timber. Dara moves from timber to fishing. What is the opportunity cost of **each tonne of fish** Dara catches?",
+              "choices": [
+                "1.75 tonnes of timber (7 ÷ 4)",
+                "0.57 tonnes of timber (4 ÷ 7)",
+                "4 tonnes of timber",
+                "7 tonnes of fish"
+              ],
+              "correct": 1,
+              "explain": "Dara gives up 4 tonnes of timber to catch 7 tonnes of fish. So each tonne of fish costs 4 ÷ 7 = **0.57 tonnes of timber**. Opportunity cost = what you give up ÷ what you gain."
             }
           },
           {
             "id": "summer",
             "name": "Summer",
             "icon": "☀️",
-            "event": {
-              "title": "New fishing nets",
-              "text": "A local firm invents a stronger, lighter fishing net. Every worker can now catch 50% more fish.",
-              "effect": {
-                "fish": 1.5
-              },
-              "correct": "pivot-fish",
-              "explain": "Better fishing technology lets the island make more fish with the same workers, but no more timber. The PPC pivots outward along the fish axis."
-            },
             "story": "Summer visitors arrive and want to eat fish. The island also needs timber for new jetties.",
+            "event": {
+              "title": "A new harbour and better tools",
+              "text": "The island builds a new harbour and buys better tools. Every islander can now catch 30% more fish **and** cut 30% more timber.",
+              "effect": {
+                "fish": 1.3,
+                "timber": 1.3
+              },
+              "correct": "shift-out",
+              "explain": "Better capital helps both jobs, so the island can make more of both goods. The **whole PPC shifts outward**. This is growth in production possibilities."
+            },
             "need": {
-              "fish": 50,
-              "timber": 40
+              "fish": 45,
+              "timber": 45
+            },
+            "check": {
+              "q": "After the new harbour and tools, Dara can catch 9.1 tonnes of fish or cut 5.2 tonnes of timber. What happened to the opportunity cost of Dara's fish?",
+              "choices": [
+                "It rose",
+                "It fell",
+                "It stayed the same: 0.57 tonnes of timber",
+                "It is now zero"
+              ],
+              "correct": 2,
+              "explain": "Both jobs became 30% more productive, so 5.2 ÷ 9.1 is still **0.57**. When output of both goods grows by the same percentage, the opportunity cost does not change. The whole PPC shifts out."
             }
           },
           {
             "id": "autumn",
             "name": "Autumn",
             "icon": "🍂",
+            "story": "The island stores food for winter and stacks firewood. With fewer jobs, think about **who** should stay at home.",
             "event": {
               "title": "Sawmill closes",
-              "text": "The sawmill closes for repairs. The 3 workers who are best at cutting timber lose their jobs this season.",
+              "text": "The sawmill closes for repairs. 3 jobs are lost, so only 7 islanders can work. The council chooses who.",
               "effect": {
                 "jobs": -3
               },
               "correct": "move-inside",
-              "explain": "Resources and technology do not change, so the PPC stays where it is. With 3 workers unemployed, the island can only produce at a point inside the PPC."
+              "explain": "Resources and technology do not change, so the PPC stays where it is. With 3 islanders unemployed, the island can only produce at a point **inside** the PPC."
             },
-            "story": "The island stores food for winter and stacks firewood.",
             "need": {
-              "fish": 40,
-              "timber": 20
+              "fish": 42,
+              "timber": 30
+            },
+            "check": {
+              "q": "Each tonne of Ana's fish costs 0.1 tonnes of timber. Each tonne of Hana's fish costs 2.67 tonnes of timber. What does this show?",
+              "choices": [
+                "Increasing opportunity cost: the more fish the island makes, the more timber each extra tonne costs",
+                "Constant opportunity cost: every tonne of fish costs the same",
+                "Hana does not work as hard as Ana",
+                "Fish are worth more than timber"
+              ],
+              "correct": 0,
+              "explain": "The first islanders to fish are good at it, so fish is cheap. Later islanders are better at timber, so each extra tonne of fish costs more timber. This is **increasing opportunity cost**, and it makes the PPC bow outward."
             }
           },
           {
             "id": "winter",
             "name": "Winter",
             "icon": "❄️",
-            "event": {
-              "title": "Sawmill reopens, then an ice storm",
-              "text": "Everyone is back at work. Then an ice storm destroys part of the forest, so each worker can cut only 60% as much timber as before.",
-              "effect": {
-                "jobs": 3,
-                "timber": 0.6
-              },
-              "correct": "pivot-timber-in",
-              "explain": "The storm destroys a resource used only for timber, so the PPC pivots inward along the timber axis. The workers who are back at work move the island from inside the curve back onto it."
-            },
             "story": "It is cold. The island needs firewood to stay warm and fish to stay fed.",
+            "event": {
+              "title": "Sawmill reopens",
+              "text": "The sawmill reopens. The 3 lost jobs come back.",
+              "effect": {
+                "jobs": 3
+              },
+              "correct": "move-toward",
+              "explain": "Nothing about the island's resources or technology changed, so the PPC does not move. Putting unemployed islanders back to work moves the island from inside the PPC **towards** the curve. This is actual growth."
+            },
             "need": {
-              "fish": 45,
-              "timber": 25
+              "fish": 48,
+              "timber": 48
+            },
+            "check": {
+              "q": "Why does Pinewood Island's PPC bow outward (concave to the origin)?",
+              "choices": [
+                "There are only 10 islanders",
+                "Fishing is harder than cutting timber",
+                "The islanders have different skills, so moving more of them into fishing costs more and more timber per tonne of fish",
+                "Some islanders are unemployed"
+              ],
+              "correct": 2,
+              "explain": "Resources are **not equally suited** to both jobs. Each extra tonne of fish needs an islander who is worse at fishing and better at timber, so the opportunity cost rises. Rising opportunity cost gives a bowed PPC."
             }
           }
         ]
       },
       {
         "title": "A stormy year",
-        "blurb": "Tighter needs and four events. Only one plan works each season. Get 3 of 4 predictions right.",
-        "startFishers": 2,
-        "minPredictions": 3,
+        "blurb": "Tighter needs: only a few plans work. Four events and four cost questions, including constant opportunity cost. Earn 6 of 8 stars.",
+        "start": "FTFTFTFTFT",
+        "minStars": 6,
+        "choices": [
+          "shift-out",
+          "shift-in",
+          "move-inside",
+          "move-toward"
+        ],
         "seasons": [
           {
             "id": "spring2",
             "name": "Spring",
             "icon": "🌱",
+            "story": "The islanders want to build a new school, so they need a lot of timber, and fish too.",
             "event": {
-              "title": "Sharper saw blades",
-              "text": "A new saw blade lets every worker cut 30% more timber. Fishing does not change.",
+              "title": "The island trains its workers",
+              "text": "A new training course teaches every islander better methods. Each islander can catch 20% more fish and cut 20% more timber.",
               "effect": {
-                "timber": 1.3
+                "fish": 1.2,
+                "timber": 1.2
               },
-              "correct": "pivot-timber-out",
-              "explain": "Better technology for timber only lets the island make more timber with the same workers, but no more fish. The PPC pivots outward along the timber axis."
+              "correct": "shift-out",
+              "explain": "Better human capital raises output of both goods. The **whole PPC shifts outward**: the island can now produce more of both."
             },
-            "story": "The islanders want to build a new school, so they need a lot of timber.",
             "need": {
-              "fish": 36,
-              "timber": 50
+              "fish": 40,
+              "timber": 45
+            },
+            "check": {
+              "q": "On **Flat Rock**, the island next door, every worker can catch 6 tonnes of fish or cut 6 tonnes of timber. What does Flat Rock's PPC look like?",
+              "choices": [
+                "A curve that bows outward",
+                "A curve that bows inward",
+                "A straight line: each tonne of fish always costs 1 tonne of timber",
+                "A single point"
+              ],
+              "correct": 2,
+              "explain": "On Flat Rock every worker is **equally good** at both jobs. Moving any worker gives up 6 timber for 6 fish, so each tonne of fish always costs 1 tonne of timber. **Constant opportunity cost** gives a straight-line PPC."
             }
           },
           {
             "id": "summer2",
             "name": "Summer",
             "icon": "☀️",
+            "story": "Visitors arrive. The island needs fish for them and timber for the school. With two islanders sick, think about **who** stays home.",
             "event": {
               "title": "A summer fever",
-              "text": "Two workers who are best at cutting timber catch a fever and cannot work all summer.",
+              "text": "A fever goes round the island. Two islanders are too sick to work all summer.",
               "effect": {
                 "jobs": -2
               },
               "correct": "move-inside",
-              "explain": "The island's resources and technology have not changed, so the PPC stays where it is. Two workers are not producing, so the island can only reach a point inside the PPC."
+              "explain": "The island's resources and technology have not changed, so the PPC stays where it is. Two islanders are not producing, so the island can only reach a point **inside** the PPC."
             },
-            "story": "Visitors arrive. The island needs fish for them and timber for the school.",
             "need": {
-              "fish": 26,
-              "timber": 38
+              "fish": 42,
+              "timber": 32
+            },
+            "check": {
+              "q": "After training, Ana can catch 12 tonnes of fish or cut 1.2 tonnes of timber. Gus can catch 4.8 tonnes of fish or cut 8.4 tonnes of timber. Who should fish, and why?",
+              "choices": [
+                "Ana: each tonne of her fish costs only 0.1 tonnes of timber, but each tonne of Gus's costs 1.75",
+                "Gus: he can cut more timber, so he is the better worker",
+                "It makes no difference who fishes",
+                "Neither: they should both cut timber"
+              ],
+              "correct": 0,
+              "explain": "Put each islander where their opportunity cost is lowest. Ana gives up 1.2 ÷ 12 = **0.1 tonnes of timber** per tonne of fish. Gus gives up 8.4 ÷ 4.8 = **1.75 tonnes**. Ana fishing and Gus cutting timber gets the most from both."
             }
           },
           {
             "id": "autumn2",
             "name": "Autumn",
             "icon": "🍂",
+            "story": "The island stores food and wood before the cold weather. Everything must be just right.",
             "event": {
               "title": "Everyone recovers",
-              "text": "The two sick workers are well again and go back to work.",
+              "text": "The two sick islanders are well again and can go back to work.",
               "effect": {
                 "jobs": 2
               },
               "correct": "move-toward",
-              "explain": "Nothing about the island's resources or technology has changed, so the PPC does not move. The workers who come back move the island from a point inside the PPC towards the curve."
+              "explain": "Nothing about the island's resources or technology has changed, so the PPC does not move. The islanders who come back move the island from inside the PPC **towards** the curve."
             },
-            "story": "The island stores food and wood before the cold weather.",
             "need": {
-              "fish": 44,
-              "timber": 44
+              "fish": 45,
+              "timber": 42
+            },
+            "check": {
+              "q": "With every islander working, the island moves from 4 islanders fishing (40.8 fish, 54 timber) to 5 fishing (48 fish, 48 timber). What is the opportunity cost of **each extra tonne of fish**?",
+              "choices": [
+                "1.2 tonnes of timber (7.2 ÷ 6)",
+                "6 tonnes of timber",
+                "48 tonnes of timber",
+                "0.83 tonnes of timber (6 ÷ 7.2)"
+              ],
+              "correct": 3,
+              "explain": "The island gains 48 − 40.8 = 7.2 tonnes of fish and gives up 54 − 48 = 6 tonnes of timber. Each tonne of fish costs 6 ÷ 7.2 = **0.83 tonnes of timber**."
             }
           },
           {
             "id": "winter2",
             "name": "Winter",
             "icon": "❄️",
+            "story": "A long winter. The island needs firewood and fish in equal amounts.",
             "event": {
-              "title": "A new island school",
-              "text": "The school opens. Every worker learns better methods and can catch 20% more fish and cut 20% more timber.",
+              "title": "A great storm",
+              "text": "A storm wrecks boats and blows down part of the forest. Every islander can now catch 20% fewer fish and cut 20% less timber.",
               "effect": {
-                "fish": 1.2,
-                "timber": 1.2
+                "fish": 0.8,
+                "timber": 0.8
               },
-              "correct": "shift-out",
-              "explain": "Better human capital raises output of both goods. The whole PPC shifts outward: the island can now produce more of both."
+              "correct": "shift-in",
+              "explain": "Resources used for both goods are destroyed, so the island can make less of both. The **whole PPC shifts inward**."
             },
-            "story": "A long winter. The island needs plenty of firewood and some fish.",
             "need": {
-              "fish": 46,
-              "timber": 60
+              "fish": 36,
+              "timber": 36
+            },
+            "check": {
+              "q": "Which change would turn Pinewood's bowed PPC into a **straight line**?",
+              "choices": [
+                "More islanders move to the island",
+                "Every islander becomes equally good at fishing and cutting timber",
+                "Every islander gets better nets",
+                "Everyone who wants a job has one"
+              ],
+              "correct": 1,
+              "explain": "A straight-line PPC needs **constant opportunity cost**. That happens when every resource is equally suited to both goods, like the workers on Flat Rock. More islanders or better tools shift the curve but keep its bowed shape."
             }
           }
         ]
       },
       {
         "title": "The council's year",
-        "blurb": "Every plan is tight, and one need cannot be met at all. Spot it. Get all 4 predictions right.",
-        "startFishers": 9,
-        "minPredictions": 4,
+        "blurb": "Some events change only one good, the islanders are mixed up, and one need cannot be met at all. Spot it. Earn 7 of 8 stars.",
+        "start": "TFTFTFTFTF",
+        "minStars": 7,
+        "choices": [
+          "shift-out",
+          "shift-in",
+          "pivot-fish",
+          "pivot-fish-in",
+          "pivot-timber-out",
+          "pivot-timber-in",
+          "move-inside",
+          "move-toward"
+        ],
+        "mixed": true,
         "impossibleOption": true,
         "seasons": [
           {
             "id": "spring3",
             "name": "Spring",
             "icon": "🌱",
+            "story": "The island must repair homes and still feed everyone. Read each islander's skills: the list is mixed up this year.",
             "event": {
-              "title": "A tsunami",
-              "text": "A tsunami damages the boats and knocks down part of the forest. Every worker can now catch 20% fewer fish and cut 20% less timber.",
+              "title": "Half the reef is closed",
+              "text": "To protect young fish, the council closes half the reef. Every islander can now catch only 60% as many fish. Timber does not change.",
               "effect": {
-                "fish": 0.8,
-                "timber": 0.8
+                "fish": 0.6
               },
-              "correct": "shift-in",
-              "explain": "Resources used for both goods are destroyed, so the island can make less of both. The whole PPC shifts inward."
+              "correct": "pivot-fish-in",
+              "explain": "Fewer fishing grounds is a loss of a resource used only for fish. The fish end of the PPC moves in and the timber end stays. The PPC **pivots inward along the fish axis**."
             },
-            "story": "The island must repair homes and still feed everyone.",
             "need": {
-              "fish": 31,
-              "timber": 31
+              "fish": 26,
+              "timber": 32
+            },
+            "check": {
+              "q": "After the reef closes, Ana can catch 6 tonnes of fish or cut 1 tonne of timber. What is the opportunity cost of **each tonne of fish** Ana catches?",
+              "choices": [
+                "6 tonnes of timber",
+                "0.1 tonnes of timber, the same as before",
+                "1 tonne of timber",
+                "0.17 tonnes of timber (1 ÷ 6)"
+              ],
+              "correct": 3,
+              "explain": "Ana gives up 1 tonne of timber for 6 tonnes of fish, so each tonne of fish costs 1 ÷ 6 = **0.17 tonnes of timber**. Before the reef closed it was 1 ÷ 10 = 0.1. Fish became harder to catch, so each tonne costs more timber."
             }
           },
           {
             "id": "summer3",
             "name": "Summer",
             "icon": "☀️",
+            "story": "The council asks for a lot of fish and even more timber. Can the island do it?",
             "event": {
-              "title": "Half the reef is closed",
-              "text": "To protect young fish, the council closes half the reef. Every worker can now catch only 60% as many fish. Timber does not change.",
+              "title": "Sharper saw blades",
+              "text": "A new saw blade lets every islander cut 30% more timber. Fishing does not change.",
               "effect": {
-                "fish": 0.6
+                "timber": 1.3
               },
-              "correct": "pivot-fish-in",
-              "explain": "Fewer fishing grounds is a loss of a resource used only for fish. The PPC pivots inward along the fish axis."
+              "correct": "pivot-timber-out",
+              "explain": "Better technology for timber only lets the island make more timber with the same islanders, but no more fish. The PPC **pivots outward along the timber axis**."
             },
-            "story": "The council asks for at least 24 tonnes of fish and 28 tonnes of timber. Can the island do it?",
             "need": {
-              "fish": 24,
-              "timber": 28
+              "fish": 30,
+              "timber": 45
+            },
+            "check": {
+              "q": "**Island A** can make 0, 10, 20 or 30 tonnes of fish, with 30, 20, 10 or 0 tonnes of timber. **Island B** can make 0, 10, 20 or 30 tonnes of fish, with 30, 27, 20 or 0 tonnes of timber. Which island has **constant** opportunity cost?",
+              "choices": [
+                "Island B: each tonne of fish always costs 1 tonne of timber",
+                "Island A: each tonne of fish always costs 1 tonne of timber",
+                "Both islands",
+                "Neither island"
+              ],
+              "correct": 1,
+              "explain": "On Island A, every 10 extra tonnes of fish costs 10 tonnes of timber: always **1 tonne each**, so its PPC is a straight line. On Island B the cost rises from 0.3 to 0.7 to 2 tonnes: increasing opportunity cost, a bowed PPC."
             }
           },
           {
             "id": "autumn3",
             "name": "Autumn",
             "icon": "🍂",
+            "story": "With fewer islanders working, the island needs just enough to get by. Choose who works with care.",
             "event": {
               "title": "A harbour strike",
-              "text": "Four workers who are best at cutting timber go on strike and stop working.",
+              "text": "Four islanders go on strike and stop working. Only 6 jobs are filled.",
               "effect": {
                 "jobs": -4
               },
               "correct": "move-inside",
-              "explain": "The island still has the same resources and technology, so the PPC does not move. With four workers not working, the island produces at a point inside the PPC."
+              "explain": "The island still has the same resources and technology, so the PPC does not move. With four islanders not working, the island produces at a point **inside** the PPC."
             },
-            "story": "With fewer workers, the island needs just enough to get by.",
             "need": {
-              "fish": 12,
-              "timber": 12
+              "fish": 20,
+              "timber": 22
+            },
+            "check": {
+              "q": "The island is inside its PPC because 4 islanders are on strike. If they go back to work, what must the island give up?",
+              "choices": [
+                "Some timber, to make more fish",
+                "Some fish, to make more timber",
+                "Nothing: it can make more fish **and** more timber",
+                "The PPC must shift first"
+              ],
+              "correct": 2,
+              "explain": "Inside the PPC, resources are unemployed. Putting them to work raises output of both goods, so there is **no opportunity cost** of moving towards the curve. Opportunity cost appears when you move **along** the PPC."
             }
           },
           {
             "id": "winter3",
             "name": "Winter",
             "icon": "❄️",
+            "story": "The coldest season. Every tonne counts.",
             "event": {
               "title": "The strike ends",
-              "text": "The four workers return to work.",
+              "text": "The four islanders return to work.",
               "effect": {
                 "jobs": 4
               },
               "correct": "move-toward",
-              "explain": "The PPC stays where it is, because resources and technology are the same. Returning workers move the island from inside the PPC back towards the curve."
+              "explain": "The PPC stays where it is, because resources and technology are the same. Returning islanders move the island from inside the PPC back **towards** the curve."
             },
-            "story": "The coldest season. Every tonne counts.",
             "need": {
-              "fish": 21,
-              "timber": 27
+              "fish": 27,
+              "timber": 44
+            },
+            "check": {
+              "q": "Pinewood's PPC is bowed. Flat Rock's PPC is a straight line. On which island does the **last** worker moved into fishing cost the most timber for each tonne of fish?",
+              "choices": [
+                "Pinewood: its last fisher is its best timber cutter",
+                "Flat Rock",
+                "They cost the same",
+                "You cannot tell"
+              ],
+              "correct": 0,
+              "explain": "On Pinewood, the last islander to move into fishing is Jaya, the best at timber and the worst at fishing. Each tonne of Jaya's fish costs a lot of timber. On Flat Rock every worker costs the same. Increasing versus constant opportunity cost."
             }
           }
         ]
@@ -1028,7 +1184,7 @@
     }
   ],
   "explain": {
-    "prompt": "Choose one event you played (for example new fishing nets, the sawmill closing or an ice storm). Explain, using a PPC diagram, what the event did to the island.",
+    "prompt": "Choose one event you played (for example a new harbour, the sawmill closing or a storm). Explain, using a PPC diagram, what the event did to the island.",
     "frames": [
       "Before the event, the island could produce ___.",
       "The event changed ___, so the PPC ___.",
@@ -1042,5 +1198,5 @@
       "I described a diagram with both axes labelled (fish and timber)."
     ]
   },
-  "teacherNotes": "Use projector mode and play the event scenarios as a whole-class prediction game: students show 1 to 5 fingers for the outcome before you play each scenario. The opportunity cost counter makes increasing opportunity cost visible: bars rise as you move workers into fishing. Compare with constant mode for the straight-line PPC (1.1 diagram: increasing versus constant opportunity cost)."
+  "teacherNotes": "Use projector mode and play the event scenarios as a whole-class prediction game: students show 1 to 5 fingers for the outcome before you play each scenario. In **Four seasons**, students place each islander in a job. Putting islanders in jobs that do not suit them leaves the island inside its PPC, so the game shows inefficiency as well as unemployment. Levels 1 and 2 use whole-curve shifts and changes in jobs. Level 3 adds events that change only one good (pivots). Each season ends with an opportunity cost question; Level 2 and 3 questions compare constant and increasing opportunity cost (1.1 diagram: increasing versus constant opportunity cost)."
 }
