@@ -1,0 +1,405 @@
+{
+  "id": "used-car-lot",
+  "outcome": "I can explain how asymmetric information causes adverse selection and moral hazard, and judge the private and government responses to it.",
+  "learn": {
+    "text": "^HL^ There is **[[asymmetric information]]** when one side of a deal knows more than the other. It is a cause of [[market failure]]: the market does not reach the allocatively efficient outcome.\n\n**[[Adverse selection]]** happens when one side has hidden information about quality or risk **before** the deal. On a used car lot, each seller knows if the car is good or a **[[lemon]]**. Buyers cannot tell, so they will only pay the expected value: an average. Owners of good cars will not sell at that price, so they leave. The average quality falls, so the price falls, and more good cars leave. The market for good cars can disappear.\n\n**[[Moral hazard]]** happens when one side changes its behaviour **after** the deal, because the other side cannot see what it does and carries the cost. Example: a driver takes more risks once insured. A bank takes big risks because it expects a government bail-out.\n\n**Private responses:** [[signalling|Market signalling]]: the side that knows more shows quality, for example a seller offers a warranty. [[Screening]]: the side that knows less finds out, for example a buyer pays for an inspection.\n\n**Government responses:** [[legislation and regulation]], for example consumer protection laws or a rule that every car must have a history report; and [[provision of information]], for example free public safety ratings.",
+    "caption": "The adverse selection spiral. Buyers cannot see quality, so they pay an average price. Good cars leave, the average quality falls, and the price falls again."
+  },
+  "try": {
+    "goal": "Run the used car lot. Watch good cars drive away, bring them back with the right response, then spot moral hazard.",
+    "intro": "**Level 1: Bid blind (HL).** You can see which cars are good, fair or lemons. Buyers cannot. Work out the most buyers will pay, then predict which owners drive away. Watch the lot shrink.\n\n**Level 2: Read the signals (HL).** Each case is a response to asymmetric information. Choose signalling, screening, legislation and regulation, or provision of information. Each right answer brings a good car back to the lot.\n\n**Level 3: Moral hazard (HL).** Is the information hidden before the deal (adverse selection) or after it (moral hazard)? Then choose the response that fixes the problem.",
+    "levels": [
+      { "title": "Bid blind (HL)", "blurb": "3 lots, 15 questions. Find the buyers' price and who drives away. Get 12 right first time." },
+      { "title": "Read the signals (HL)", "blurb": "10 cases. Choose the response to asymmetric information. Get 8 right first time." },
+      { "title": "Moral hazard (HL)", "blurb": "8 cases. Spot the problem, then choose the response. Score 13 of 16 first-try points." }
+    ],
+    "gradeNames": { "good": "Good car", "fair": "Fair car", "lemon": "Lemon" },
+    "priceWrong": {
+      "previous": "That was the old price. Some cars have left the lot, so work out the average worth of the cars that are still here.",
+      "best": "Buyers cannot see which car is good. They will not pay the worth of a good car for a car that might be a lemon.",
+      "unweighted": "That average ignores how many cars of each type there are. Multiply each worth by its number of cars, add them, then divide by all the cars.",
+      "ownerMin": "That is the average of the owners' lowest prices. Buyers will pay up to what a car is worth to them, so use the worth of each car."
+    },
+    "lots": [
+      {
+        "id": "town",
+        "name": "The town lot",
+        "intro": "12 cars are for sale: 4 good, 4 fair and 4 lemons. Buyers know the mix, but they cannot tell which car is which.",
+        "types": [
+          { "grade": "good", "worth": 9000, "min": 8000, "count": 4 },
+          { "grade": "fair", "worth": 6000, "min": 5000, "count": 4 },
+          { "grade": "lemon", "worth": 3000, "min": 2000, "count": 4 }
+        ],
+        "why": {
+          "prompt": "Every car on this lot was worth more to a buyer than its owner's lowest price. So why did the good and fair cars not sell?",
+          "options": [
+            { "text": "Buyers could not see quality, so they paid an average price. That was too low for owners of better cars.", "correct": true, "feedback": "Yes. This is adverse selection. Hidden information pushes the best cars out, and the price falls each round." },
+            { "text": "Buyers did not want good cars.", "feedback": "Buyers would pay $9,000 for a car they knew was good. They could not tell which cars were good." },
+            { "text": "The owners of good cars asked for more than the cars were worth.", "feedback": "A good car was worth $9,000 to a buyer and its owner wanted only $8,000. A deal would help both, but it did not happen." },
+            { "text": "There were too many sellers.", "feedback": "The number of sellers is not the problem. The problem is that buyers and sellers do not have the same information." }
+          ]
+        }
+      },
+      {
+        "id": "harbour",
+        "name": "The harbour lot",
+        "intro": "10 cars are for sale: 6 good cars and 4 lemons. Most cars are good. Will the good cars stay?",
+        "types": [
+          { "grade": "good", "worth": 10000, "min": 8000, "count": 6 },
+          { "grade": "lemon", "worth": 4000, "min": 2000, "count": 4 }
+        ],
+        "why": {
+          "prompt": "Most cars on this lot were good, but every good car left. Why?",
+          "options": [
+            { "text": "The expected value, $7,600, was below the $8,000 that good car owners needed.", "correct": true, "feedback": "Yes. Even a small share of lemons pulls the average price below what good car owners need. Then only lemons are left." },
+            { "text": "The lemons were worth more than the good cars.", "feedback": "A lemon was worth $4,000 and a good car $10,000. The problem is that buyers could not tell them apart." },
+            { "text": "Buyers paid $10,000 for every car.", "feedback": "Buyers cannot see quality, so they will not pay $10,000 for a car that might be a lemon. They pay the expected value." },
+            { "text": "The lemon owners refused to sell.", "feedback": "Lemon owners were happy to sell. Any price above $2,000 is good for them." }
+          ]
+        }
+      },
+      {
+        "id": "hill",
+        "name": "The hill lot",
+        "intro": "4 cars are for sale: 3 good cars and 1 lemon. The good car owners here will sell for $7,000 or more.",
+        "types": [
+          { "grade": "good", "worth": 10000, "min": 7000, "count": 3 },
+          { "grade": "lemon", "worth": 4000, "min": 3000, "count": 1 }
+        ],
+        "why": {
+          "prompt": "On this lot no one drove away. Why did the market work here?",
+          "options": [
+            { "text": "Most cars were good, so the expected value, $8,500, was above what good car owners needed.", "correct": true, "feedback": "Yes. Adverse selection hits hardest when there are many poor cars or the gap in quality is big. Here the average stayed high enough." },
+            { "text": "Buyers could see which cars were good.", "feedback": "Buyers still could not see quality. They paid the expected value, but it was high enough for every owner." },
+            { "text": "The lemon was taken off the lot.", "feedback": "The lemon stayed for sale. A buyer still had a 1 in 4 chance of getting it." },
+            { "text": "There is no asymmetric information on this lot.", "feedback": "The sellers still knew more than the buyers. The information gap was there, but it did not push good cars out." }
+          ]
+        }
+      }
+    ],
+    "responseNames": {
+      "signalling": "Signalling",
+      "screening": "Screening",
+      "legislation": "Legislation and regulation",
+      "information": "Provision of information"
+    },
+    "responseHints": {
+      "signalling": "Private: the side that knows more shows its quality.",
+      "screening": "Private: the side that knows less finds out.",
+      "legislation": "Government: laws and rules, with penalties.",
+      "information": "Government: gives people the facts for free."
+    },
+    "responseWrong": {
+      "signalling": "Signalling is done by the side that knows more, such as the seller. Here, who is acting: the side that knows more, the side that knows less, or the government?",
+      "screening": "Screening is done by the side that knows less, such as the buyer or the insurer. Here, who is acting?",
+      "legislation": "Legislation and regulation is a law or rule from the government, with a penalty for breaking it. Is there a law here, and who is acting?",
+      "information": "Provision of information is the government giving people facts. Is the government acting here, and is it a rule or just information?"
+    },
+    "cases": [
+      { "id": "warranty", "icon": "🛡️", "text": "A seller offers a 12-month warranty: if the car breaks down, she pays for the repair.", "actor": "informed", "act": "rule", "why": "The seller knows more about the car. Offering a warranty shows she is sure it is good. Owners of lemons would not offer one, because it would cost them too much." },
+      { "id": "mechanic", "icon": "🔧", "text": "Before buying, a buyer pays a mechanic $100 to inspect the car.", "actor": "uninformed", "act": "rule", "why": "The buyer knows less and acts to find out. That is screening." },
+      { "id": "report", "icon": "📄", "text": "A buyer pays for an online history report that shows the car's past crashes and owners.", "actor": "uninformed", "act": "rule", "why": "The buyer, the side that knows less, gathers information before the deal. That is screening." },
+      { "id": "refund", "icon": "⚖️", "text": "A consumer protection law says a dealer must give a full refund if a hidden fault appears in the first 30 days.", "actor": "government", "act": "rule", "why": "This is a law with a penalty. Dealers can no longer gain from hiding faults, so buyers trust the lot more." },
+      { "id": "required", "icon": "📋", "text": "A new rule says every dealer must show each car's crash history. Dealers who hide it are fined.", "actor": "government", "act": "rule", "why": "The government makes the seller share the information, and fines anyone who does not. That is regulation." },
+      { "id": "ratings", "icon": "🏛️", "text": "The government publishes free safety and fault ratings for every car model on a public website.", "actor": "government", "act": "facts", "why": "The government gives buyers the facts. There is no new rule for sellers. That is provision of information." },
+      { "id": "degree", "icon": "🎓", "text": "In a job market, an applicant shows her university degree to show she is a skilled worker.", "actor": "informed", "act": "rule", "why": "The worker knows her own skill. The degree is a signal that the employer can see. The same idea works in many markets." },
+      { "id": "health", "icon": "🩺", "text": "An insurance firm asks for a health check before it sells life insurance.", "actor": "uninformed", "act": "rule", "why": "The insurer knows less about each person's health. A health check finds out. That is screening." },
+      { "id": "certified", "icon": "🏅", "text": "A dealer pays for a 100-point check on each car and puts a \"certified\" badge on the ones that pass.", "actor": "informed", "act": "rule", "why": "The dealer knows its cars and pays to prove their quality to buyers. That is signalling." },
+      { "id": "hygiene", "icon": "🍽️", "text": "A city inspects every restaurant and publishes a hygiene score online for anyone to read.", "actor": "government", "act": "facts", "why": "The government finds the facts and gives them to diners for free. That is provision of information." }
+    ],
+    "problemNames": { "adverse": "Adverse selection", "moral": "Moral hazard" },
+    "problemHints": {
+      "adverse": "Hidden information about quality or risk before the deal.",
+      "moral": "Hidden behaviour that changes after the deal."
+    },
+    "problemWrong": {
+      "adverse": "Adverse selection is about hidden quality or risk before the deal. Here, does someone change what they do after the deal?",
+      "moral": "Moral hazard is about behaviour that changes after the deal. Here, is the problem hidden before the deal is made?"
+    },
+    "hazards": [
+      {
+        "id": "phone",
+        "icon": "📱",
+        "text": "After buying phone insurance, Sam stops using a phone case and leaves his phone on café tables.",
+        "hidden": "after",
+        "why": "Sam changes his behaviour after the deal, because the insurer will pay. The insurer cannot watch him. That is moral hazard.",
+        "options": [
+          { "text": "An excess: Sam pays the first $100 of any claim himself.", "correct": true, "feedback": "Yes. With an excess, Sam still carries part of the cost, so he has a reason to take care." },
+          { "text": "A health check before the contract.", "feedback": "A check before the deal is screening for hidden risk. The problem here is what Sam does after the deal." },
+          { "text": "A government website with phone ratings.", "feedback": "Better information about phones does not change how careful Sam is." }
+        ]
+      },
+      {
+        "id": "drivers",
+        "icon": "🚗",
+        "text": "Once they are insured, some drivers speed more and park in risky places.",
+        "hidden": "after",
+        "why": "The drivers take more risks after the deal, because the insurer carries the cost. That is moral hazard.",
+        "options": [
+          { "text": "Monitoring: a box in the car records speed, and safe drivers pay less.", "correct": true, "feedback": "Yes. Monitoring makes the hidden behaviour visible, and lower prices reward care." },
+          { "text": "Check each driver's past record before selling the policy.", "feedback": "That is screening before the deal. It helps with adverse selection, but it does not stop risky driving after the deal." },
+          { "text": "Lower the price of insurance for everyone.", "feedback": "A lower price does not give drivers any reason to take more care." }
+        ]
+      },
+      {
+        "id": "sick",
+        "icon": "🏥",
+        "text": "People who know they are often ill are the keenest to buy health insurance. Healthy people find it too expensive and do not buy.",
+        "hidden": "before",
+        "why": "Buyers know their own health before the deal, and the insurer does not. High-risk people buy and low-risk people leave. That is adverse selection.",
+        "options": [
+          { "text": "Screening: a health questionnaire and check, so the price matches each person's risk.", "correct": true, "feedback": "Yes. Screening finds the hidden information before the deal, so healthy people get a fair price and stay." },
+          { "text": "An excess on every claim.", "feedback": "An excess changes behaviour after the deal. The problem here is hidden risk before the deal." },
+          { "text": "Monitoring how people live after they buy.", "feedback": "The problem starts before the deal: who chooses to buy. Monitoring after the deal comes too late." }
+        ]
+      },
+      {
+        "id": "bank",
+        "icon": "🏦",
+        "text": "A very large bank makes risky loans. It expects the government to rescue it with a bail-out if the loans go wrong.",
+        "hidden": "after",
+        "why": "The bank takes more risk because someone else will carry the cost if it fails. That is moral hazard.",
+        "options": [
+          { "text": "Regulation: banks must keep more of their own money as a safety cushion, and are checked often.", "correct": true, "feedback": "Yes. Regulation makes the bank carry more of its own risk and lets the government watch what it does." },
+          { "text": "Promise a bail-out to every bank.", "feedback": "That makes the problem worse. Banks would take even more risk." },
+          { "text": "The bank offers its customers a warranty.", "feedback": "A warranty is a signal of quality from a seller. It does not stop the bank taking risks." }
+        ]
+      },
+      {
+        "id": "fault",
+        "icon": "🔩",
+        "text": "A seller knows his car has a fault in the gearbox. He does not tell buyers.",
+        "hidden": "before",
+        "why": "The seller hides information about quality before the deal. That is adverse selection, the lemons problem.",
+        "options": [
+          { "text": "Legislation: a law that lets a buyer return a car with a hidden fault.", "correct": true, "feedback": "Yes. Sellers can no longer gain from hiding faults, so buyers can trust the market again." },
+          { "text": "An excess for the buyer.", "feedback": "An excess is a moral hazard tool for insurance. The problem here is hidden quality before the sale." },
+          { "text": "Monitoring how the buyer drives.", "feedback": "The buyer's driving is not the problem. The seller hides the fault before the deal." }
+        ]
+      },
+      {
+        "id": "rental",
+        "icon": "🔑",
+        "text": "People drive rental cars harder than their own cars, because the rental firm pays for the wear.",
+        "hidden": "after",
+        "why": "Renters change how they drive after the deal, and the firm cannot watch them. That is moral hazard.",
+        "options": [
+          { "text": "A deposit that the firm keeps if the car comes back damaged.", "correct": true, "feedback": "Yes. Like an excess, a deposit makes the renter carry part of the cost, so they take more care." },
+          { "text": "Publish free ratings of rental firms.", "feedback": "Ratings help renters choose a firm. They do not change how renters drive." },
+          { "text": "Ask the firm to offer a warranty.", "feedback": "A warranty signals the quality of the car. The problem is the renter's behaviour after the deal." }
+        ]
+      },
+      {
+        "id": "worker",
+        "icon": "👷",
+        "text": "A worker on a fixed wage works slowly when the manager is not watching.",
+        "hidden": "after",
+        "why": "After the job contract, the worker's effort is hidden from the manager. That is moral hazard.",
+        "options": [
+          { "text": "Monitoring and pay for results: check the work and pay a bonus for output.", "correct": true, "feedback": "Yes. Monitoring makes effort visible, and a bonus gives the worker a reason to work hard." },
+          { "text": "A health check before hiring.", "feedback": "A check before the deal is screening. The problem here is effort after the deal." },
+          { "text": "A law that every worker must have a degree.", "feedback": "A degree may signal skill before hiring. It does not show how hard someone works after." }
+        ]
+      },
+      {
+        "id": "smoker",
+        "icon": "🚬",
+        "text": "Some smokers buy life insurance and do not tell the insurer that they smoke.",
+        "hidden": "before",
+        "why": "The buyers hide their risk before the deal. That is adverse selection.",
+        "options": [
+          { "text": "Screening: a medical test for nicotine before the contract.", "correct": true, "feedback": "Yes. The insurer finds the hidden risk before the deal and can set a price that matches it." },
+          { "text": "An excess on each claim.", "feedback": "There is only one claim on life insurance, and an excess does not reveal who smokes." },
+          { "text": "A government bail-out for the insurer.", "feedback": "A bail-out does not fix the hidden information, and it can cause moral hazard of its own." }
+        ]
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "What is **asymmetric information**?",
+      "options": [
+        { "text": "One side of a deal knows more about the good or about its own behaviour than the other side.", "correct": true, "feedback": "Yes. The information is not shared equally, so one side can gain from it." },
+        { "text": "Buyers and sellers have the same information.", "feedback": "That is symmetric information. Asymmetric means the two sides are not equal." },
+        { "text": "Prices change too slowly.", "feedback": "That is about price movements, not about who knows what." },
+        { "text": "A good is non-rival and non-excludable.", "feedback": "That describes a public good (2.9)." }
+      ],
+      "hints": ["Asymmetric means not equal on both sides.", "Think of a used car: who knows more about it, the seller or the buyer?"],
+      "worked": "Example: a person selling a used phone knows the battery is weak. The buyer cannot see it. The seller has more information than the buyer.",
+      "explanation": "There is **asymmetric information** when one party to a deal has more information than the other. It is a cause of market failure."
+    },
+    {
+      "id": "q2",
+      "type": "label",
+      "level": "core",
+      "prompt": "This flow chart shows the adverse selection spiral on a used car lot. Choose the label for each letter.",
+      "diagram": {
+        "xMax": 100,
+        "yMax": 60,
+        "xLabel": "",
+        "yLabel": "",
+        "noAxes": true,
+        "title": "The adverse selection spiral",
+        "description": "A start box, then four boxes in a loop, lettered A to D. Arrows go from A to B, B to C, C to D, and from D back to B.",
+        "boxes": [
+          { "at": { "q": 24, "p": 50 }, "w": 44, "h": 10 },
+          { "at": { "q": 76, "p": 50 }, "w": 44, "h": 10 },
+          { "at": { "q": 76, "p": 12 }, "w": 44, "h": 10 },
+          { "at": { "q": 24, "p": 12 }, "w": 44, "h": 10 }
+        ],
+        "arrows": [
+          { "from": { "q": 46, "p": 50 }, "to": { "q": 54, "p": 50 } },
+          { "from": { "q": 80, "p": 44.5 }, "to": { "q": 80, "p": 18 } },
+          { "from": { "q": 54, "p": 12 }, "to": { "q": 46, "p": 12 } },
+          { "from": { "q": 30, "p": 17.5 }, "to": { "q": 62, "p": 44.5 } }
+        ],
+        "tags": [
+          { "at": { "q": 24, "p": 50 }, "letter": "A" },
+          { "at": { "q": 76, "p": 50 }, "letter": "B" },
+          { "at": { "q": 76, "p": 12 }, "letter": "C" },
+          { "at": { "q": 24, "p": 12 }, "letter": "D" }
+        ]
+      },
+      "slots": [
+        { "letter": "A", "answer": "Quality is hidden", "feedback": "The spiral starts with hidden information: sellers know quality, buyers do not." },
+        { "letter": "B", "answer": "Average price paid", "feedback": "Buyers who cannot see quality pay the expected value, an average across all cars." },
+        { "letter": "C", "answer": "Good cars leave", "feedback": "The average price is below what owners of good cars need, so they do not sell." },
+        { "letter": "D", "answer": "Average quality falls", "feedback": "With the good cars gone, the cars left are worse on average. So buyers pay even less, and the loop goes round again." }
+      ],
+      "choices": ["Quality is hidden", "Average price paid", "Good cars leave", "Average quality falls", "Lemons leave", "Drivers take more risks", "Price rises"],
+      "hints": ["The spiral starts with what buyers cannot see.", "Each time good cars leave, the average quality on the lot gets worse, so the price falls again."],
+      "worked": "Example: in a market for used laptops, buyers cannot tell good laptops from bad ones. They offer an average price. Owners of good laptops keep them. The laptops for sale get worse, so buyers offer even less.",
+      "explanation": "Hidden quality (A) leads buyers to pay an average price (B). Good cars leave (C), so average quality falls (D), and the price falls again. This loop is **adverse selection**."
+    },
+    {
+      "id": "q3",
+      "type": "number",
+      "level": "core",
+      "prompt": "On a used car lot, 70% of cars are good and worth $10,000 to a buyer. 30% are lemons worth $4,000. Buyers cannot tell them apart. What is the expected value of a car: the most a buyer would pay?",
+      "answer": 8200,
+      "tolerance": 0.5,
+      "prefix": "$",
+      "mistakes": [
+        { "value": 7000, "feedback": "That is the plain average of $10,000 and $4,000. Weight each worth by its share: 0.7 and 0.3." },
+        { "value": 5800, "feedback": "You swapped the shares. 70% of cars are good, so multiply $10,000 by 0.7." },
+        { "value": 10000, "feedback": "Buyers cannot see which car is good, so they will not pay the full worth of a good car." },
+        { "value": 4000, "feedback": "Buyers know only 30% of cars are lemons. They will pay more than the worth of a lemon." }
+      ],
+      "hints": ["Expected value = share of good cars × worth of a good car + share of lemons × worth of a lemon.", "0.7 × $10,000 + 0.3 × $4,000."],
+      "worked": "Example: 50% good cars worth $8,000 and 50% lemons worth $2,000. Expected value = 0.5 × 8,000 + 0.5 × 2,000 = $5,000.",
+      "explanation": "Expected value = 0.7 × $10,000 + 0.3 × $4,000 = $7,000 + $1,200 = **$8,200**. A buyer who cannot see quality will pay at most this."
+    },
+    {
+      "id": "q4",
+      "type": "number",
+      "level": "apply",
+      "prompt": "Good cars are worth $9,000 to a buyer and lemons $3,000. Owners of good cars will not sell for less than $7,500. Buyers pay the expected value. What is the smallest share of good cars, in %, that keeps the good cars on the lot?",
+      "answer": 75,
+      "tolerance": 0.5,
+      "suffix": "%",
+      "mistakes": [
+        { "value": 83.33, "feedback": "You divided $7,500 by $9,000. The lemons add value too: solve share × 9,000 + (1 − share) × 3,000 = 7,500." },
+        { "value": 0.75, "feedback": "That is the share as a decimal. Give it as a percentage: multiply by 100." },
+        { "value": 25, "feedback": "That is the share of lemons. The question asks for the share of good cars." }
+      ],
+      "hints": ["The expected value must be at least $7,500.", "share × 9,000 + (1 − share) × 3,000 = 7,500, so 6,000 × share = 4,500."],
+      "worked": "Example: good cars worth $10,000, lemons $2,000, good owners need $8,000. 8,000 × share + 2,000 = 8,000, so share = 6,000 ÷ 8,000 = 75%.",
+      "explanation": "3,000 + 6,000 × share = 7,500, so share = 4,500 ÷ 6,000 = 0.75 = **75%**. With fewer good cars than this, the expected value falls below $7,500 and good cars leave."
+    },
+    {
+      "id": "q5",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "After buying travel insurance, Ana leaves her camera in an open bag on the beach. Which problem is this?",
+      "options": [
+        { "text": "Moral hazard", "correct": true, "feedback": "Yes. Ana changes her behaviour after the deal, because the insurer will pay for any loss." },
+        { "text": "Adverse selection", "feedback": "Adverse selection is hidden quality or risk before the deal. Here the change in behaviour comes after." },
+        { "text": "A negative externality of consumption", "feedback": "The cost falls on the insurer, the other side of the deal, not on a third party." },
+        { "text": "Signalling", "feedback": "Signalling is a response to asymmetric information. It is not the problem here." }
+      ],
+      "hints": ["Did the problem start before or after Ana bought the insurance?", "Behaviour that changes after the deal, when the other side cannot see it, is ..."],
+      "worked": "Example: once a bike is insured, its owner stops locking it. The risk-taking comes after the deal, so it is moral hazard.",
+      "explanation": "**Moral hazard**: after the deal, one side takes more risk because the other side carries the cost and cannot see what they do."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "core",
+      "prompt": "A buyer pays a mechanic to check a used car before buying it. Which response to asymmetric information is this?",
+      "options": [
+        { "text": "Screening", "correct": true, "feedback": "Yes. The buyer, the side that knows less, acts to find out." },
+        { "text": "Signalling", "feedback": "Signalling is done by the side that knows more, here the seller. The buyer is acting." },
+        { "text": "Legislation and regulation", "feedback": "There is no law here. It is a private choice by the buyer." },
+        { "text": "Provision of information", "feedback": "Provision of information is a government response. Here a private buyer acts." }
+      ],
+      "hints": ["Is this a private or a government response?", "Which side acts: the side that knows more or the side that knows less?"],
+      "worked": "Example: an insurer asks for a driving record before it sells car insurance. The insurer knows less and finds out: screening.",
+      "explanation": "**Screening**: the less informed side (the buyer) takes steps to find the hidden information. **Signalling** is the opposite: the informed side shows it."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A government wants buyers of used cars to trust the market more. Which is an example of **provision of information**?",
+      "options": [
+        { "text": "A free public website with the fault and safety record of every car model.", "correct": true, "feedback": "Yes. The government gives buyers the facts, so the information gap shrinks." },
+        { "text": "A law that fines dealers who hide a car's faults.", "feedback": "That is legislation and regulation: a rule with a penalty." },
+        { "text": "A dealer that offers a 1-year warranty.", "feedback": "That is signalling by a private seller, not a government response." },
+        { "text": "A buyer who checks a history report.", "feedback": "That is screening by a private buyer." }
+      ],
+      "hints": ["Provision of information is a government response.", "It gives people facts. It does not make a new rule with a penalty."],
+      "worked": "Example: a city publishes hygiene scores for every restaurant. Diners get the facts for free: provision of information.",
+      "explanation": "Government responses are **legislation and regulation** (rules) and **provision of information** (facts for everyone). Private responses are **signalling** and **screening**."
+    },
+    {
+      "id": "q8",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Large banks take big risks because they expect a government bail-out if they fail. Which response best reduces this moral hazard?",
+      "options": [
+        { "text": "Regulation: banks must hold more of their own money as a safety cushion and are checked often.", "correct": true, "feedback": "Yes. The bank carries more of its own risk, and the regulator can see what it does." },
+        { "text": "Promise every bank a bail-out.", "feedback": "That makes moral hazard worse: banks would take even more risk." },
+        { "text": "Banks offer customers a warranty.", "feedback": "A warranty is a signal of quality. It does not change the bank's own risk-taking." },
+        { "text": "Lower the interest rate on all loans.", "feedback": "That is monetary policy. It does not stop banks taking risks because of a bail-out." }
+      ],
+      "hints": ["Moral hazard falls when the risk-taker carries more of the cost, or is watched more closely.", "Which option makes the bank carry its own risk?"],
+      "worked": "Example: an insurer adds an excess, so drivers pay the first part of a claim. They carry some of the cost, so they drive more carefully.",
+      "explanation": "Moral hazard comes from hidden behaviour after the deal when someone else carries the cost. **Regulation and monitoring** make the bank carry its own risk and make its actions visible."
+    },
+    {
+      "id": "q9",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Evaluate: \"A warranty fully solves the lemons problem.\" Which judgement is best?",
+      "options": [
+        { "text": "It helps, because sellers of lemons will not offer one. But it costs sellers money, and it can cause moral hazard if buyers then take less care of the car.", "correct": true, "feedback": "Yes. A good evaluation gives a strength and a limitation, each with a reason." },
+        { "text": "It fully solves it, because every seller will offer a warranty.", "feedback": "If every seller offered one, it would tell buyers nothing. A signal works only if lemon owners find it too costly." },
+        { "text": "It has no effect, because buyers ignore warranties.", "feedback": "A warranty is a strong signal: it is costly for a lemon owner, so it separates good cars from lemons." },
+        { "text": "It is a government response, so it always works.", "feedback": "A warranty is a private response (signalling). No response always works." }
+      ],
+      "hints": ["Why would the owner of a lemon not offer a warranty?", "Look for an answer with both a strength and a limitation."],
+      "worked": "Example: a degree signals a skilled worker, because it is hard to get. But it costs time and money, and a degree does not show every skill.",
+      "explanation": "Signalling works when the signal is too costly for low-quality sellers. It has limits: costs for sellers, and possible moral hazard after the deal. Strong answers weigh both."
+    }
+  ],
+  "explain": {
+    "prompt": "Explain how asymmetric information can cause the market for good used cars to fail. Then evaluate one private and one government response.",
+    "frames": [
+      "Sellers know ___, but buyers do not, so buyers will only pay ___.",
+      "Owners of good cars will not sell at this price, so ___.",
+      "As a result, the average quality ___ and the price ___. This is adverse selection.",
+      "A private response is ___. It helps because ___, but a limitation is ___.",
+      "A government response is ___. It helps because ___, but a limitation is ___."
+    ],
+    "checklist": [
+      "I said who has more information and who has less.",
+      "I explained the spiral: average price, good cars leave, quality falls, price falls.",
+      "I named a private response (signalling or screening) and a government response.",
+      "I gave a strength and a limitation for each, with a reason."
+    ]
+  },
+  "teacherNotes": "The whole activity is HL (2.10 is HL only). Level 1 is a version of the lemons problem with simple numbers. Students see the sellers' view (grades and owners' lowest prices) while buyers do not. Every car is worth more to a buyer than its owner's lowest price, so every lost sale is a deal that would help both sides: that is the market failure. The hill lot shows that the spiral is not automatic: with a high share of good cars the expected value can stay above what good owners need. Level 2 follows the guide: private responses (signalling, screening) and government responses (legislation and regulation, provision of information). Level 3 contrasts adverse selection (hidden information before the deal) with moral hazard (hidden behaviour after it). The bank bail-out case links to 3.5 and the global financial crisis if you want to extend it. Discussion idea: which responses could themselves cause moral hazard, for example a generous warranty?"
+}

@@ -1,0 +1,46 @@
+/* Fair or Efficient?: the balance scale and the money flow. Motion stops when the device asks for reduced motion (tokens.css). */
+
+.fe-scale { display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto; }
+.fe-beam { transform-box: view-box; transform-origin: 180px 51px; transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.fe-pan { transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.fe-drop { animation: fe-drop 0.55s cubic-bezier(0.3, 1.4, 0.5, 1) both; }
+@keyframes fe-drop { from { transform: translateY(-60px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.fe-case { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border: 2px solid var(--navy); border-radius: 14px; background: var(--white); font-size: 1.08rem; }
+.fe-case-icon { font-size: 34px; line-height: 1; flex: none; }
+.fe-in { animation: fe-in 0.6s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+@keyframes fe-in { from { transform: translateY(-16px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.fe-pans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.fe-pan-btn { display: grid; gap: 2px; justify-items: center; text-align: center; padding: 14px 10px; border: 2px solid var(--line); border-radius: 48px 48px 14px 14px; background: var(--white); font: inherit; color: inherit; cursor: pointer; }
+.fe-pan-btn:hover:not(:disabled) { border-color: var(--navy); background: var(--navy-50); }
+.fe-pan-btn:active:not(:disabled) { transform: translateY(3px); }
+.fe-pan-btn:disabled { cursor: default; }
+.fe-pan-right { border-color: var(--ok); background: var(--ok-50); }
+.fe-pan-icon { font-size: 30px; }
+
+.fe-verdicts { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+
+.fe-flow { display: block; width: 100%; max-width: 460px; height: auto; margin: 0 auto; }
+.fe-coins { animation: fe-coins 1.4s linear infinite; }
+@keyframes fe-coins { to { stroke-dashoffset: -32; } }
+
+.fe-stations { display: flex; gap: 8px; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; counter-reset: fe; }
+.fe-stations li { counter-increment: fe; padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--ink-soft); }
+.fe-stations li::before { content: counter(fe) '. '; }
+.fe-stations li.on { border-color: var(--navy); color: var(--navy); font-weight: 700; background: var(--navy-50); }
+.fe-stations li.done { color: var(--ok); border-color: var(--ok); }
+.fe-stations li.done::after { content: ' ✓'; }
+
+.fe-table { border-collapse: collapse; width: 100%; max-width: 320px; }
+.fe-table caption { text-align: left; padding-bottom: 4px; }
+.fe-table th, .fe-table td { border: 1px solid var(--line); padding: 4px 10px; text-align: left; }
+.fe-table td:last-child, .fe-table th:last-child { text-align: right; }
+.fe-total td { font-weight: 700; background: var(--navy-50); }
+.fe-input { font: inherit; width: 8em; padding: 8px 10px; border: 2px solid var(--line); border-radius: var(--radius-sm); }
+.fe-input:focus { border-color: var(--navy); }
+
+@media (max-width: 420px) {
+  .fe-case { font-size: 1rem; }
+  .fe-verdicts { grid-template-columns: minmax(0, 1fr); }
+}

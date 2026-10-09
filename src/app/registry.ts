@@ -88,7 +88,16 @@ export const ACTIVITIES: ActivityMeta[] = [
     ],
     load: () => import('../activities/surplus-shader'),
   },
-  { id: 'bias-lab', tag: '2.4 Behavioural economics', code: '2.4', unit: 2, hl: 'all', title: 'Bias Lab', style: 'Experiments', blurb: 'Take part in short experiments on anchoring, framing and defaults, then design a nudge.' },
+  {
+    id: 'bias-lab', tag: '2.4 Behavioural economics', code: '2.4', unit: 2, hl: 'all', title: 'Mind Tricks Lab', style: 'Experiment lab',
+    blurb: 'Take part in quick experiments, watch the curtain reveal the trick, then hunt for biases and design nudges.',
+    goal: { name: 'Test Subject', how: 'Level 1 of Mind Tricks Lab (HL): take part in 5 experiments and name the bias at work in 4 right first time.', icon: 'brain' },
+    goals: [
+      { name: 'Bias Hunter', how: 'Level 2 of Mind Tricks Lab (HL): spot the bias or limit to rational choice in 8 of 10 scenarios right first time.', icon: 'brain' },
+      { name: 'Nudge Designer', how: 'Level 3 of Mind Tricks Lab (HL): design 4 nudges and match 5 firms to their objectives. Score 10 of 13 first-try points.', icon: 'brain' },
+    ],
+    load: () => import('../activities/bias-lab'),
+  },
   {
     id: 'elasticity-cafe', tag: '2.5 PED', code: '2.5', unit: 2, title: 'The Elasticity Café', style: 'Business simulation',
     blurb: 'Run a café for a week. Set prices, read your sales and discover the hidden PED.',
@@ -109,8 +118,26 @@ export const ACTIVITIES: ActivityMeta[] = [
     ],
     load: () => import('../activities/ped-line'),
   },
-  { id: 'hints-yed', tag: '2.5 PED determinants and YED', code: '2.5', unit: 2, hl: 'part', title: 'HINTS Sorter and YED Lab', style: 'Sort and explore', blurb: 'Sort goods by PED using HINTS, then explore Engel curves.' },
-  { id: 'supply-speed', tag: '2.6 PES', code: '2.6', unit: 2, hl: 'part', title: 'Supply Speed', style: 'Producer game', blurb: 'React to a price rise as a producer. See how time and capacity change PES.' },
+  {
+    id: 'hints-yed', tag: '2.5 PED determinants and YED', code: '2.5', unit: 2, hl: 'part', title: 'HINTS Market', style: 'Market stall',
+    blurb: 'Sort goods at a market stall with HINTS, watch Engel curves draw as income rises, then calculate PED and YED.',
+    goal: { name: 'Stall Sorter', how: 'Level 1 of HINTS Market: choose the HINTS determinant and the right crate for 8 of 10 goods, first time.', icon: 'basket' },
+    goals: [
+      { name: 'Income Explorer', how: 'Level 2 of HINTS Market: classify 5 of 6 goods as necessity, luxury or inferior from their Engel curves, first time.', icon: 'basket' },
+      { name: 'Elasticity Analyst', how: 'Level 3 of HINTS Market: calculate and classify 5 of 6 PEDs and YEDs right first time (one round is HL).', icon: 'basket' },
+    ],
+    load: () => import('../activities/hints-yed'),
+  },
+  {
+    id: 'supply-speed', tag: '2.6 PES', code: '2.6', unit: 2, hl: 'part', title: 'Supply Speed', style: 'Producer race',
+    blurb: 'Race producers after a price rise. See how time, spare capacity and stock change PES, then measure it.',
+    goal: { name: 'Supply Scout', how: 'Level 1 of Supply Speed: rank the producers and name the determinant, 8 of 10 right first time.', icon: 'gauge' },
+    goals: [
+      { name: 'Time Traveller', how: 'Level 2 of Supply Speed: choose what a producer can do in each time period, 10 of 12 right first time.', icon: 'gauge' },
+      { name: 'PES Pro', how: 'Level 3 of Supply Speed (includes HL): calculate and classify PES, 5 of 6 rounds with no wrong try.', icon: 'gauge' },
+    ],
+    load: () => import('../activities/supply-speed'),
+  },
   {
     id: 'gov-toolkit', tag: '2.7 Government intervention', code: '2.7', unit: 2, hl: 'part', title: 'Government Toolkit', style: "Minister's missions",
     blurb: 'Read a mission brief, choose a maximum price, minimum price, tax or subsidy, and see who wins and who loses.',
@@ -121,12 +148,66 @@ export const ACTIVITIES: ActivityMeta[] = [
     ],
     load: () => import('../activities/gov-toolkit'),
   },
-  { id: 'externality-fixer', tag: '2.8 Externalities', code: '2.8', unit: 2, hl: 'part', title: 'Externality Fixer', style: 'Policy puzzle', blurb: 'Choose a policy that moves output to the social optimum.' },
-  { id: 'fish-pond', tag: '2.8 Common pool resources', code: '2.8', unit: 2, title: 'Fish Pond', style: 'Multiplayer simulation', blurb: 'Fish a shared pond with computer players. Can the stock survive?' },
-  { id: 'streetlight-fund', tag: '2.9 Public goods', code: '2.9', unit: 2, title: 'Streetlight Fund', style: 'Contribution game', blurb: 'Fund a public good with computer players who may free ride.' },
-  { id: 'used-car-lot', tag: '2.10 Asymmetric information', code: '2.10', unit: 2, hl: 'all', title: 'Used Car Lot', style: 'Trading game', blurb: 'Buy cars without seeing their quality. Watch good cars leave the market.' },
-  { id: 'monopoly-game', tag: '2.11 Market power', code: '2.11', unit: 2, hl: 'all', title: 'Monopoly and Game Theory', style: 'Rival pricing game', blurb: 'Find MC = MR, then play a pricing game against a rival firm.' },
-  { id: 'fair-efficient', tag: '2.12 Equity', code: '2.12', unit: 2, hl: 'all', title: 'Fair or Efficient?', style: 'Judgement calls', blurb: 'Judge market outcomes as equitable, efficient, both or neither.' },
+  {
+    id: 'externality-fixer', tag: '2.8 Externalities', code: '2.8', unit: 2, hl: 'part', title: 'Smoke and Sunshine', style: 'Town fixer',
+    blurb: 'Spot the spillovers in a smoky town, then choose and size the policy that clears the smoke and brings out the sun.',
+    goal: { name: 'Spillover Spotter', how: 'Level 1 of Smoke and Sunshine: name the externality and its diagram gap for 8 of 10 scenarios right first time.', icon: 'factory' },
+    goals: [
+      { name: 'Town Fixer', how: 'Level 2 of Smoke and Sunshine: choose the right policy and set its size to reach Q*, 5 of 6 markets right first time.', icon: 'factory' },
+      { name: 'Welfare Judge', how: 'Level 3 of Smoke and Sunshine (HL): calculate the welfare loss and judge each policy. Score 15 of 18 first-try points.', icon: 'factory' },
+    ],
+    load: () => import('../activities/externality-fixer'),
+  },
+  {
+    id: 'fish-pond', tag: '2.8 Common pool resources', code: '2.8', unit: 2, title: 'Fish Pond', style: 'Shared pond',
+    blurb: 'Fish a shared pond with three computer fishers, test the rules that can save it, then stop a cheat before the stock collapses.',
+    goal: { name: 'Pond Keeper', how: 'Level 1 of Fish Pond: keep the pond alive for 8 seasons and answer 6 of 8 questions right first time.', icon: 'fish' },
+    goals: [
+      { name: 'Rule Maker', how: 'Level 2 of Fish Pond: predict and judge 5 rules for the pond. Score 12 of 15 first-try points.', icon: 'fish' },
+      { name: 'Pond Guardian', how: 'Level 3 of Fish Pond: stop a cheating fisher. End 10 seasons with at least 50 fish and 5 of 6 answers right first time.', icon: 'fish' },
+    ],
+    load: () => import('../activities/fish-pond'),
+  },
+  {
+    id: 'streetlight-fund', tag: '2.9 Public goods', code: '2.9', unit: 2, title: 'Streetlight Fund', style: 'Neighbourhood game',
+    blurb: 'Light up a dark street. Sort the goods, try to fund the lamps with neighbours who free ride, then help the council pay with a tax.',
+    goal: { name: 'Goods Sorter', how: 'Level 1 of Streetlight Fund: place goods in the rival and excludable grid, 8 of 10 right first time.', icon: 'lamp' },
+    goals: [
+      { name: 'Free Rider Detective', how: 'Level 2 of Streetlight Fund: play the six weeks of the street fund and answer 5 of 6 questions right first time.', icon: 'lamp' },
+      { name: 'Town Planner', how: 'Level 3 of Streetlight Fund: name direct provision or contracting out, set the tax per household and judge it. Score 10 of 12 first-try points.', icon: 'lamp' },
+    ],
+    load: () => import('../activities/streetlight-fund'),
+  },
+  {
+    id: 'used-car-lot', tag: '2.10 Asymmetric information', code: '2.10', unit: 2, hl: 'all', title: 'Used Car Lot', style: 'Car lot auction',
+    blurb: 'Bid on cars you cannot see inside. Watch good cars drive away, bring them back with signals and rules, then spot moral hazard.',
+    goal: { name: 'Smart Buyer', how: 'Level 1 of Used Car Lot (HL): find the buyers\' price and who drives away, 12 of 15 right first time.', icon: 'car' },
+    goals: [
+      { name: 'Signal Reader', how: 'Level 2 of Used Car Lot (HL): name the response to asymmetric information, 8 of 10 cases right first time.', icon: 'car' },
+      { name: 'Risk Watcher', how: 'Level 3 of Used Car Lot (HL): spot adverse selection or moral hazard and choose the response. Score 13 of 16 first-try points.', icon: 'car' },
+    ],
+    load: () => import('../activities/used-car-lot'),
+  },
+  {
+    id: 'monopoly-game', tag: '2.11 Market power', code: '2.11', unit: 2, hl: 'all', title: 'Rival Pricing', style: 'Coffee street duel',
+    blurb: 'Two cafés, one street. Map market structures, find the profit where MC = MR, then fight a price war with a payoff matrix.',
+    goal: { name: 'Market Mapper', how: 'Level 1 of Rival Pricing (HL): map the market structure for 8 of 10 markets right first time.', icon: 'crown' },
+    goals: [
+      { name: 'Profit Finder', how: 'Level 2 of Rival Pricing (HL): find the output, price, profit and kind of profit. Score 16 of 20 first-try points.', icon: 'crown' },
+      { name: 'Game Theorist', how: 'Level 3 of Rival Pricing (HL): read the payoff matrix, play the price duel and judge collusion. Score 15 of 18 first-try points.', icon: 'crown' },
+    ],
+    load: () => import('../activities/monopoly-game'),
+  },
+  {
+    id: 'fair-efficient', tag: '2.12 Equity', code: '2.12', unit: 2, hl: 'all', title: 'Fair or Efficient?', style: 'Balance scale',
+    blurb: 'Tip the scale between efficiency and equity. Sort fair from equal, judge market outcomes, then follow the money to see why incomes are unequal.',
+    goal: { name: 'Equity Spotter', how: 'Level 1 of Fair or Efficient?: sort 10 of 12 cases as equity or equality right first time.', icon: 'scale' },
+    goals: [
+      { name: 'Fair Judge', how: 'Level 2 of Fair or Efficient?: judge 6 of 8 market outcomes and their reasons with no wrong try.', icon: 'scale' },
+      { name: 'Flow Detective', how: 'Level 3 of Fair or Efficient?: find the causes, calculate income shares and match the responses. Score 11 of 14.', icon: 'scale' },
+    ],
+    load: () => import('../activities/fair-efficient'),
+  },
 ];
 
 /**

@@ -1,9 +1,17 @@
 /** A rubber-stamp picture. Earned stamps are inked in red; stamps not yet earned are a dashed outline. */
 import { ComponentChildren } from 'preact';
 
-export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask';
+export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory' | 'brain' | 'lamp' | 'fish' | 'car' | 'scale' | 'crown';
 
 const ICONS: Record<StampIcon, ComponentChildren> = {
+  // A shopping basket with a handle
+  basket: (
+    <g>
+      <path d="M38 44c0-10 5-16 12-16s12 6 12 16" />
+      <path d="M28 44h44l-6 24H34z" />
+      <path d="M42 50v12M50 50v12M58 50v12" />
+    </g>
+  ),
   // Palm tree on an island
   island: (
     <g>
@@ -75,6 +83,76 @@ const ICONS: Record<StampIcon, ComponentChildren> = {
     <g>
       <path d="M44 28h12M46 28v14L32 66c-1 2 0 4 3 4h30c3 0 4-2 3-4L54 42V28" />
       <path d="M38 56h24" />
+    </g>
+  ),
+  // A speed gauge: how fast supply responds
+  gauge: (
+    <g>
+      <path d="M28 62a22 22 0 0144 0" />
+      <path d="M32 50l4 2M50 40v4M68 50l-4 2" />
+      <path d="M50 62l12-14" />
+      <circle cx="50" cy="62" r="3" fill="currentColor" />
+    </g>
+  ),
+  // A factory with a smoking chimney
+  factory: (
+    <g>
+      <path d="M28 68V50l12-8v8l12-8v8l12-8v26z" />
+      <path d="M64 68V34h6v34" />
+      <path d="M26 68h48" />
+      <path d="M66 28c-4-3 0-7 4-6 1-4 7-4 8 0" />
+    </g>
+  ),
+  // A brain seen from the side, with a line between the two halves
+  brain: (
+    <g>
+      <path d="M50 30c-4-4-12-4-15 1-6 0-9 6-7 11-4 3-4 10 1 13-1 6 4 11 10 10 2 4 8 5 11 1z" />
+      <path d="M50 30c4-4 12-4 15 1 6 0 9 6 7 11 4 3 4 10-1 13 1 6-4 11-10 10-2 4-8 5-11 1z" />
+      <path d="M50 30v36" />
+      <path d="M36 42c3 0 5 2 5 5M38 56c2-2 6-2 7 1M64 42c-3 0-5 2-5 5M62 56c-2-2-6-2-7 1" />
+    </g>
+  ),
+  // A street lamp with light falling below it
+  lamp: (
+    <g transform="translate(-6 2)">
+      <path d="M44 72h12M50 72V36c0-5 4-8 9-8h3" />
+      <path d="M58 30h12l-3 6h-6z" />
+      <path d="M60 42l-4 10M64 42v10M68 42l4 10" stroke-dasharray="2 4" />
+    </g>
+  ),
+  // A fish swimming over a wave
+  fish: (
+    <g>
+      <path d="M30 46c8-12 26-12 34 0-8 12-26 12-34 0z" />
+      <path d="M64 46l10-8v16z" />
+      <circle cx="38" cy="44" r="2" fill="currentColor" />
+      <path d="M28 64c5-4 9-4 14 0s9 4 14 0 9-4 14 0" />
+    </g>
+  ),
+  // A small car seen from the side
+  car: (
+    <g>
+      <path d="M26 60v-8c0-3 2-5 5-5h5l7-9h16l8 9h3c3 0 5 2 5 5v8z" />
+      <path d="M44 41v6M56 41v6" />
+      <circle cx="37" cy="61" r="5" />
+      <circle cx="63" cy="61" r="5" />
+    </g>
+  ),
+  // A balance scale: efficiency and equity
+  scale: (
+    <g>
+      <path d="M50 30v36M40 68h20" />
+      <path d="M30 38h40" />
+      <path d="M32 38l-7 14h14zM68 38l-7 14h14z" />
+      <circle cx="50" cy="32" r="2.5" fill="currentColor" />
+    </g>
+  ),
+  // A crown: market power
+  crown: (
+    <g>
+      <path d="M30 62l-2-26 12 10 10-16 10 16 12-10-2 26z" />
+      <path d="M32 68h36" />
+      <circle cx="50" cy="52" r="3" />
     </g>
   ),
   star: <path d="M50 28l6.5 13.5 14.5 2-10.5 10 2.5 14.5L50 61l-13 7 2.5-14.5-10.5-10 14.5-2z" />,

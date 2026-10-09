@@ -601,6 +601,838 @@
       "meaning": "The idea that markets work best with very little government intervention. Linked to Adam Smith in the 18th century.",
       "code": "1.2",
       "example": "Letting prices, not the government, decide what firms produce."
+    },
+    {
+      "term": "Externality",
+      "aliases": [
+        "externalities",
+        "spillover"
+      ],
+      "meaning": "A cost or benefit that falls on third parties, people outside the market who did not choose it.",
+      "code": "2.8",
+      "example": "Smoke from a factory makes people nearby cough."
+    },
+    {
+      "term": "Market failure",
+      "meaning": "The free market does not allocate resources efficiently, so it makes too much or too little of a good. Externalities are one cause.",
+      "code": "2.8"
+    },
+    {
+      "term": "Social optimum",
+      "aliases": [
+        "socially optimum output"
+      ],
+      "meaning": "The quantity where marginal social benefit equals marginal social cost (MSB = MSC). Society is best off here: allocative efficiency.",
+      "code": "2.8"
+    },
+    {
+      "term": "Marginal private benefit",
+      "aliases": [
+        "MPB"
+      ],
+      "meaning": "The extra benefit to the buyer from one more unit. It is the demand curve.",
+      "code": "2.8"
+    },
+    {
+      "term": "Marginal private cost",
+      "aliases": [
+        "MPC"
+      ],
+      "meaning": "The extra cost to the producer of one more unit. It is the supply curve.",
+      "code": "2.8"
+    },
+    {
+      "term": "Marginal social benefit",
+      "aliases": [
+        "MSB"
+      ],
+      "meaning": "The extra benefit to society from one more unit: the buyer's benefit plus any external benefit, or minus any external cost, of consumption.",
+      "code": "2.8"
+    },
+    {
+      "term": "Marginal social cost",
+      "aliases": [
+        "MSC"
+      ],
+      "meaning": "The extra cost to society of one more unit: the firm's cost plus any external cost, or minus any external benefit, of production.",
+      "code": "2.8"
+    },
+    {
+      "term": "Merit good",
+      "aliases": [
+        "merit goods"
+      ],
+      "meaning": "A good that is good for people and society, but is underconsumed in a free market, often because of a positive consumption externality.",
+      "code": "2.8",
+      "example": "Education and vaccines."
+    },
+    {
+      "term": "Demerit good",
+      "aliases": [
+        "demerit goods"
+      ],
+      "meaning": "A good that harms the user and others, and is overconsumed in a free market.",
+      "code": "2.8",
+      "example": "Cigarettes."
+    },
+    {
+      "term": "Pigouvian tax",
+      "aliases": [
+        "Pigouvian taxes",
+        "indirect (Pigouvian) tax"
+      ],
+      "meaning": "A tax on each unit of a good with a negative externality. It should equal the external cost at the social optimum, so the market makes Q*.",
+      "code": "2.8"
+    },
+    {
+      "term": "Carbon tax",
+      "aliases": [
+        "carbon taxes"
+      ],
+      "meaning": "A tax on the carbon content of fuels, so firms and households pay for the harm from carbon emissions.",
+      "code": "2.8"
+    },
+    {
+      "term": "Tradable permits",
+      "aliases": [
+        "tradable permit",
+        "pollution permits"
+      ],
+      "meaning": "The government caps total pollution and issues permits for it. Firms can buy and sell the permits, so firms that can cut pollution cheaply do so.",
+      "code": "2.8"
+    },
+    {
+      "term": "Legislation and regulation",
+      "aliases": [
+        "regulation",
+        "legislation"
+      ],
+      "meaning": "Laws and rules that limit or ban an activity, with fines for breaking them.",
+      "code": "2.8",
+      "example": "A noise law that limits loud music at night."
+    },
+    {
+      "term": "Awareness creation",
+      "aliases": [
+        "education and awareness campaign",
+        "education and awareness campaigns",
+        "awareness campaign"
+      ],
+      "meaning": "Government education campaigns that give people better information, so demand moves towards MSB.",
+      "code": "2.8",
+      "example": "Health warnings about smoking."
+    },
+    {
+      "term": "Government provision",
+      "meaning": "The government makes or runs a good itself, often free or cheap, to raise its consumption.",
+      "code": "2.8",
+      "example": "Free public schools and vaccines."
+    },
+    {
+      "term": "Elastic supply",
+      "meaning": "PES is greater than 1. Quantity supplied changes by a bigger percentage than price.",
+      "code": "2.6",
+      "example": "A T-shirt factory with idle machines can raise output by 30% when the price rises 10%."
+    },
+    {
+      "term": "Inelastic supply",
+      "meaning": "PES is between 0 and 1. Quantity supplied changes by a smaller percentage than price.",
+      "code": "2.6",
+      "example": "A coffee farm raises output by only 5% when the price rises 25%, because new trees take years to grow."
+    },
+    {
+      "term": "Unitary PES",
+      "aliases": [
+        "unit elastic supply"
+      ],
+      "meaning": "PES equals 1. Quantity supplied changes by the same percentage as price. Any straight supply curve from the origin has PES = 1.",
+      "code": "2.6"
+    },
+    {
+      "term": "Momentary period",
+      "meaning": "A period so short that firms cannot change their output at all. Supply is perfectly inelastic (PES = 0).",
+      "code": "2.6",
+      "example": "The fish already on the boat are all that can be sold this morning."
+    },
+    {
+      "term": "Short run",
+      "meaning": "A period in which at least one factor of production, such as land or machines, is fixed. Firms can add workers and materials.",
+      "code": "2.6",
+      "example": "A car factory adds a night shift on the same assembly lines."
+    },
+    {
+      "term": "Long run",
+      "meaning": "A period long enough for all factors of production to change, and for new firms to join the market.",
+      "code": "2.6",
+      "example": "A car maker builds a second factory."
+    },
+    {
+      "term": "Unused capacity",
+      "aliases": [
+        "spare capacity"
+      ],
+      "meaning": "Machines, buildings or workers that a firm is not using fully. With unused capacity a firm can raise output quickly, so supply is more elastic.",
+      "code": "2.6",
+      "example": "A factory where half the machines stand idle."
+    },
+    {
+      "term": "Ability to store stock",
+      "aliases": [
+        "stock storage",
+        "ability to store",
+        "store stock"
+      ],
+      "meaning": "How easily a producer can keep goods to sell later. Goods that can be stored have more elastic supply, because stock can be sold as soon as the price rises.",
+      "code": "2.6",
+      "example": "Canned soup keeps for a long time; fresh flowers wilt in days."
+    },
+    {
+      "term": "Mobility of factors of production",
+      "aliases": [
+        "factor mobility",
+        "mobility of factors"
+      ],
+      "meaning": "How easily land, labour and capital can move into a new use. More mobile factors make supply more elastic.",
+      "code": "2.6",
+      "example": "Any rider with a bike can start working for a delivery service, but a shipyard needs specialist welders."
+    },
+    {
+      "term": "Manufactured products",
+      "aliases": [
+        "manufactured product",
+        "manufactured goods"
+      ],
+      "meaning": "Goods made in factories from raw materials, such as phones, bicycles or chocolate bars.",
+      "code": "2.6",
+      "hl": true
+    },
+    {
+      "term": "Engel curve",
+      "meaning": "A diagram showing how quantity demanded of a good changes as income changes. Income is on the vertical axis and quantity demanded is on the horizontal axis.",
+      "code": "2.5",
+      "example": "A flat section shows a luxury, a steep section a necessity, and a section that bends back an inferior good."
+    },
+    {
+      "term": "Luxury good",
+      "meaning": "A normal good with a YED above 1: quantity demanded rises by a bigger % than income. Many services are luxuries.",
+      "code": "2.5",
+      "aliases": [
+        "luxury",
+        "luxuries"
+      ],
+      "example": "Restaurant meals and holidays abroad."
+    },
+    {
+      "term": "Necessity good",
+      "meaning": "A normal good with a YED between 0 and 1: quantity demanded rises by a smaller % than income.",
+      "code": "2.5",
+      "aliases": [
+        "necessities"
+      ],
+      "example": "Bread and milk."
+    },
+    {
+      "term": "Market power",
+      "meaning": "A firm's ability to set its own price instead of accepting the market price. The fewer close substitutes and the higher the barriers to entry, the more market power.",
+      "code": "2.11",
+      "hl": true
+    },
+    {
+      "term": "Perfect competition",
+      "meaning": "A market with many small firms selling the same (homogeneous) product, with free entry and exit. Each firm is a price taker and has no market power.",
+      "code": "2.11",
+      "hl": true,
+      "example": "Many farmers growing the same kind of wheat."
+    },
+    {
+      "term": "Monopolistic competition",
+      "meaning": "A market with many firms and free entry, where each firm's product is a bit different. Each firm has a little market power.",
+      "code": "2.11",
+      "hl": true,
+      "example": "A street of cafés, hair salons or restaurants."
+    },
+    {
+      "term": "Oligopoly",
+      "meaning": "A market with a few large firms and high barriers to entry. The firms are interdependent: each one must think about how its rivals will react.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "oligopolies"
+      ],
+      "example": "Airlines, mobile networks, supermarket chains."
+    },
+    {
+      "term": "Monopoly",
+      "meaning": "A market with a single or dominant firm, high barriers to entry and no close substitutes. The firm is a price maker.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "monopolist",
+        "monopolies"
+      ]
+    },
+    {
+      "term": "Natural monopoly",
+      "meaning": "A market where economies of scale are so large that one firm can supply the whole market at a lower average cost than two or more firms could.",
+      "code": "2.11",
+      "hl": true,
+      "example": "Water pipes or an electricity grid."
+    },
+    {
+      "term": "Barriers to entry",
+      "meaning": "Anything that makes it hard for new firms to enter a market, such as high set-up costs, economies of scale, patents, licences or strong brands.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "barrier to entry",
+        "entry barriers"
+      ]
+    },
+    {
+      "term": "Price taker",
+      "meaning": "A firm that must accept the market price, because it is too small to change it. Firms in perfect competition are price takers.",
+      "code": "2.11",
+      "hl": true
+    },
+    {
+      "term": "Price maker",
+      "meaning": "A firm with market power that can choose its price. It faces a downward sloping demand curve, so a higher price means fewer sales.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "price setter"
+      ]
+    },
+    {
+      "term": "Product differentiation",
+      "meaning": "Making a product a bit different from rivals' products, for example by quality, style, brand or location.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "differentiated products",
+        "differentiated product"
+      ]
+    },
+    {
+      "term": "Interdependence",
+      "meaning": "In an oligopoly, each firm's best choice depends on what its rivals do, so firms must think about how rivals will react.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "interdependent"
+      ]
+    },
+    {
+      "term": "Concentration ratio",
+      "meaning": "The total market share of the largest firms in a market. CR4 is the combined share (%) of the four largest firms. A high ratio means a few firms dominate.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "concentration ratios",
+        "CR4"
+      ],
+      "example": "Shares of 30%, 25%, 15% and 10% give CR4 = 80%."
+    },
+    {
+      "term": "Marginal revenue",
+      "meaning": "The extra revenue from selling one more unit: the change in total revenue. For a firm with market power, MR is below the price.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "MR"
+      ]
+    },
+    {
+      "term": "Average revenue",
+      "meaning": "Revenue per unit sold: TR ÷ Q. Average revenue equals the price, so the demand curve is the AR curve.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "AR"
+      ]
+    },
+    {
+      "term": "Average cost",
+      "meaning": "Cost per unit: total cost ÷ quantity (TC ÷ Q).",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "AC",
+        "average total cost",
+        "ATC"
+      ]
+    },
+    {
+      "term": "Abnormal profit",
+      "meaning": "Profit above normal profit. It happens when AR > AC, so TR is greater than TC.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "supernormal profit",
+        "economic profit"
+      ]
+    },
+    {
+      "term": "Normal profit",
+      "meaning": "The profit a firm needs to stay in business. It happens when AR = AC, so TR = TC. Economists count normal profit as part of costs.",
+      "code": "2.11",
+      "hl": true
+    },
+    {
+      "term": "Collusion",
+      "meaning": "When firms work together instead of competing, for example by agreeing to keep prices high. Formal collusion (a cartel) is illegal in many countries.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "collude",
+        "collusive oligopoly",
+        "collusive"
+      ]
+    },
+    {
+      "term": "Cartel",
+      "meaning": "A formal agreement between firms to fix prices or limit output, so they act like one monopoly. Cartels are illegal in many countries.",
+      "code": "2.11",
+      "hl": true,
+      "aliases": [
+        "cartels"
+      ]
+    },
+    {
+      "term": "Prisoner's dilemma",
+      "meaning": "A game in which each player's dominant strategy leads to an outcome that is worse for both than if they had cooperated.",
+      "code": "2.11",
+      "hl": true,
+      "example": "Two cafés both cut prices and both earn less than if both kept prices high."
+    },
+    {
+      "term": "Non-price competition",
+      "meaning": "Competing in ways other than price, such as advertising, loyalty schemes, quality or new products. Common in oligopoly, where price cuts are quickly copied.",
+      "code": "2.11",
+      "hl": true
+    },
+    {
+      "term": "Economies of scale",
+      "meaning": "Falls in average cost as a firm grows and produces more.",
+      "code": "2.11",
+      "hl": true,
+      "example": "A big water company spreads the cost of its pipes over millions of homes."
+    },
+    {
+      "term": "Transfer payments",
+      "meaning": "Money the government pays to people without asking for a good, service or factor in return. They give an income to people the market pays little or nothing.",
+      "code": "2.12",
+      "aliases": [
+        "transfer payment"
+      ],
+      "example": "Unemployment benefits, disability benefits and pensions."
+    },
+    {
+      "term": "Asymmetric information",
+      "meaning": "One side of a deal knows more than the other, for example about the quality of a good or about its own behaviour. It can cause market failure.",
+      "code": "2.10",
+      "hl": true,
+      "example": "The seller of a used car knows about its faults. The buyer does not."
+    },
+    {
+      "term": "Adverse selection",
+      "meaning": "Hidden information about quality or risk before a deal. The side that knows less pays an average price, so the best products or lowest-risk buyers leave the market.",
+      "code": "2.10",
+      "hl": true,
+      "example": "Owners of good used cars will not sell at the average price, so mostly lemons are left."
+    },
+    {
+      "term": "Moral hazard",
+      "meaning": "One side changes its behaviour after a deal and takes more risk, because the other side carries the cost and cannot see what it does.",
+      "code": "2.10",
+      "hl": true,
+      "example": "A driver takes more risks once insured. A bank takes big risks because it expects a bail-out."
+    },
+    {
+      "term": "Lemon",
+      "aliases": [
+        "lemons"
+      ],
+      "meaning": "A used good of poor quality whose faults the buyer cannot see before buying.",
+      "code": "2.10",
+      "hl": true
+    },
+    {
+      "term": "Market signalling",
+      "meaning": "A private response to asymmetric information: the side that knows more shows its quality in a way that is costly to fake.",
+      "code": "2.10",
+      "hl": true,
+      "example": "A seller offers a warranty. A job applicant shows a degree."
+    },
+    {
+      "term": "Screening",
+      "meaning": "A private response to asymmetric information: the side that knows less takes steps to find the hidden information.",
+      "code": "2.10",
+      "hl": true,
+      "example": "A buyer pays for a car inspection. An insurer asks for a health check."
+    },
+    {
+      "term": "Provision of information",
+      "aliases": [
+        "information provision"
+      ],
+      "meaning": "A government response to asymmetric information: the government gives people the facts, often for free.",
+      "code": "2.10",
+      "hl": true,
+      "example": "Public safety ratings for car models, or hygiene scores for restaurants."
+    },
+    {
+      "term": "Common pool resources",
+      "aliases": [
+        "common pool resource",
+        "common access resources",
+        "common access resource"
+      ],
+      "meaning": "Resources that are rivalrous but non-excludable: one person's use leaves less for others, but it is hard to stop people from using them.",
+      "code": "2.8",
+      "example": "Fish in the open ocean, forests and groundwater."
+    },
+    {
+      "term": "Tragedy of the commons",
+      "meaning": "When people acting in their own self-interest overuse a shared resource, so it runs down and everyone loses.",
+      "code": "2.8",
+      "example": "Every boat catches as many fish as it can, and the fish stock collapses."
+    },
+    {
+      "term": "Rivalrous",
+      "aliases": [
+        "rivalry",
+        "rival"
+      ],
+      "meaning": "A good is rivalrous when one person's use leaves less for others.",
+      "code": "2.8",
+      "example": "A fish you catch cannot be caught by anyone else."
+    },
+    {
+      "term": "Non-excludable",
+      "aliases": [
+        "non-excludability"
+      ],
+      "meaning": "A good is non-excludable when it is hard or impossible to stop people from using it, even if they do not pay.",
+      "code": "2.8",
+      "example": "No one can keep boats out of the open ocean."
+    },
+    {
+      "term": "Quota",
+      "aliases": [
+        "quotas",
+        "catch quota",
+        "catch quotas"
+      ],
+      "meaning": "A limit on the quantity of something that can be produced, caught or traded.",
+      "code": "2.8",
+      "example": "Each boat may land only 2 tonnes of cod a week."
+    },
+    {
+      "term": "Collective self-governance",
+      "aliases": [
+        "self-governance"
+      ],
+      "meaning": "The users of a shared resource make, monitor and enforce their own rules for using it.",
+      "code": "2.8",
+      "example": "Villagers who share a lake agree catch limits, take turns checking, and fine anyone who cheats."
+    },
+    {
+      "term": "International agreements",
+      "aliases": [
+        "international agreement"
+      ],
+      "meaning": "Agreements between countries to act together on a shared problem, such as fish stocks or pollution that cross borders.",
+      "code": "2.8",
+      "example": "Countries that share a sea agree limits on the total catch."
+    },
+    {
+      "term": "Public good",
+      "aliases": [
+        "public goods"
+      ],
+      "meaning": "A good that is non-rivalrous and non-excludable. The free market may provide too little of it, or none at all.",
+      "code": "2.9",
+      "example": "Streetlights, national defence and a lighthouse."
+    },
+    {
+      "term": "Rivalry",
+      "aliases": [
+        "rivalrous",
+        "non-rivalrous",
+        "non-rivalry"
+      ],
+      "meaning": "A good is rivalrous when one person's use leaves less for others. It is non-rivalrous when one more user takes nothing away from anyone else.",
+      "code": "2.9",
+      "example": "A pizza is rivalrous. A streetlight is non-rivalrous: one more person walking under it does not dim the light."
+    },
+    {
+      "term": "Excludability",
+      "aliases": [
+        "excludable",
+        "non-excludable",
+        "non-excludability"
+      ],
+      "meaning": "A good is excludable when people who do not pay can be stopped from using it. It is non-excludable when nobody can be kept out.",
+      "code": "2.9",
+      "example": "A cinema is excludable. A fireworks display in the sky is non-excludable."
+    },
+    {
+      "term": "Free rider problem",
+      "aliases": [
+        "free rider",
+        "free riders",
+        "free riding"
+      ],
+      "meaning": "People enjoy a good without paying for it, because they cannot be stopped from using it. If many people free ride, nobody will pay to provide the good.",
+      "code": "2.9",
+      "example": "A neighbour pays nothing towards the streetlights but still walks home in their light."
+    },
+    {
+      "term": "Private good",
+      "aliases": [
+        "private goods"
+      ],
+      "meaning": "A good that is rivalrous and excludable. The free market can provide it, because sellers can charge everyone who uses it.",
+      "code": "2.9",
+      "example": "A pizza or a T-shirt."
+    },
+    {
+      "term": "Club good",
+      "aliases": [
+        "club goods"
+      ],
+      "meaning": "A good that is excludable but non-rivalrous (until it gets crowded). Not named in the IB guide, but useful for sorting goods.",
+      "code": "2.9",
+      "example": "A gym membership or a toll road."
+    },
+    {
+      "term": "Direct provision",
+      "meaning": "The government makes or runs a good itself, with its own workers, and pays for it with taxes.",
+      "code": "2.9",
+      "example": "A national army, or council workers who run the streetlights."
+    },
+    {
+      "term": "Contracting out",
+      "aliases": [
+        "contracting out to the private sector"
+      ],
+      "meaning": "The government pays a private firm to make or run a good. Taxes still pay for it, and the government decides what is provided.",
+      "code": "2.9",
+      "example": "A council pays a private firm to fit and run its streetlights."
+    },
+    {
+      "term": "Rational consumer choice",
+      "aliases": [
+        "rational choice"
+      ],
+      "meaning": "The standard model of how consumers choose. It assumes they are rational, maximize utility and have perfect information.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Consumer rationality",
+      "aliases": [
+        "rationality",
+        "rational"
+      ],
+      "meaning": "The assumption that consumers think carefully and choose the option that is best for them.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Utility maximization",
+      "aliases": [
+        "utility maximisation",
+        "maximize utility"
+      ],
+      "meaning": "The assumption that consumers choose to get the most satisfaction (utility) they can from their income.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Perfect information",
+      "meaning": "The assumption that consumers know everything about every choice, such as prices and quality.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Behavioural economics",
+      "aliases": [
+        "behavioral economics"
+      ],
+      "meaning": "A branch of economics that uses ideas from psychology to study how people really make choices.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Bias",
+      "aliases": [
+        "biases",
+        "cognitive bias"
+      ],
+      "meaning": "A mental shortcut or habit of thinking that leads to choices that are not fully rational.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Rule of thumb",
+      "aliases": [
+        "rules of thumb",
+        "heuristic"
+      ],
+      "meaning": "A simple mental shortcut used to make a choice quickly, instead of comparing every option.",
+      "code": "2.4",
+      "example": "Always buying the brand you bought last time.",
+      "hl": true
+    },
+    {
+      "term": "Anchoring",
+      "aliases": [
+        "anchor",
+        "anchors"
+      ],
+      "meaning": "A bias: people rely too much on the first number or fact they see, and judge later choices against it.",
+      "code": "2.4",
+      "example": "A \"was $200\" tag makes a $120 price look cheap.",
+      "hl": true
+    },
+    {
+      "term": "Framing",
+      "aliases": [
+        "frame"
+      ],
+      "meaning": "A bias: the same facts, described in a different way, change the choice people make.",
+      "code": "2.4",
+      "example": "\"90% fat free\" sounds healthier than \"10% fat\".",
+      "hl": true
+    },
+    {
+      "term": "Availability bias",
+      "aliases": [
+        "availability"
+      ],
+      "meaning": "A bias: things that are easy to bring to mind, such as vivid news, seem more common or likely than they are.",
+      "code": "2.4",
+      "example": "Fearing sharks after reading shark stories.",
+      "hl": true
+    },
+    {
+      "term": "Bounded rationality",
+      "meaning": "People have limited time, information and brain power, so they settle for a choice that is good enough.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Bounded self-control",
+      "aliases": [
+        "bounded self control"
+      ],
+      "meaning": "People plan well but give in to what they want now, against their own long-term interest.",
+      "code": "2.4",
+      "example": "Planning to save, then spending the money on a treat.",
+      "hl": true
+    },
+    {
+      "term": "Bounded selfishness",
+      "meaning": "People care about others and about fairness, not only about their own gain.",
+      "code": "2.4",
+      "example": "Giving to charity or leaving a tip.",
+      "hl": true
+    },
+    {
+      "term": "Imperfect information",
+      "meaning": "Buyers or sellers do not have all the facts they need to make the best choice.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Choice architecture",
+      "meaning": "The way choices are designed and set out for people. It can change what people choose.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Default choice",
+      "aliases": [
+        "default",
+        "default choices"
+      ],
+      "meaning": "An option that is chosen for people in advance. They keep it unless they opt out.",
+      "code": "2.4",
+      "example": "Workers are put into a pension plan unless they leave it.",
+      "hl": true
+    },
+    {
+      "term": "Restricted choice",
+      "aliases": [
+        "restricted choices"
+      ],
+      "meaning": "The number of options is limited, to make choosing easier or to remove harmful options.",
+      "code": "2.4",
+      "example": "A canteen menu with a short list of healthy meals.",
+      "hl": true
+    },
+    {
+      "term": "Mandated choice",
+      "aliases": [
+        "mandated choices"
+      ],
+      "meaning": "People must make a choice for themselves. Nothing is chosen for them in advance.",
+      "code": "2.4",
+      "example": "Answering yes or no to organ donation on a licence form.",
+      "hl": true
+    },
+    {
+      "term": "Nudge theory",
+      "aliases": [
+        "nudge",
+        "nudges"
+      ],
+      "meaning": "Small changes to how choices are presented can push people towards better choices, without banning options or changing incentives much.",
+      "code": "2.4",
+      "example": "Putting fruit at eye level in a canteen.",
+      "hl": true
+    },
+    {
+      "term": "Profit maximization",
+      "aliases": [
+        "profit maximisation",
+        "maximize profit"
+      ],
+      "meaning": "A business objective: earn the largest possible profit, total revenue minus total cost.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Corporate social responsibility",
+      "aliases": [
+        "CSR"
+      ],
+      "meaning": "A business objective: act ethically towards workers, communities and the environment, even if it costs more.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Market share",
+      "meaning": "A firm's sales as a share of all sales in the market. Some firms aim to make it bigger.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Satisficing",
+      "meaning": "A business objective: aim for a satisfactory level of profit, enough to keep stakeholders happy, not the most possible.",
+      "code": "2.4",
+      "hl": true
+    },
+    {
+      "term": "Business growth",
+      "aliases": [
+        "growth of a firm"
+      ],
+      "meaning": "A business objective: get bigger, with more sales revenue, output, sites or workers.",
+      "code": "2.4",
+      "hl": true
     }
   ]
 }

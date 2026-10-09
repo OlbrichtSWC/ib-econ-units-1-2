@@ -1,0 +1,97 @@
+/* Mind Tricks Lab: lab bench, lucky wheel, curtain reveal and specimen jars. Motion stops when the device asks for reduced motion (tokens.css). */
+
+.ml-lab { background: linear-gradient(180deg, var(--white) 0%, var(--navy-50) 100%); }
+.ml-bench { position: relative; margin-top: 8px; display: flex; gap: 12px; align-items: center; padding: 12px 14px; border: 2px solid var(--navy); border-radius: 14px; background: var(--white); box-shadow: 0 4px 0 rgba(27, 58, 107, 0.2); }
+.ml-bench-icon { font-size: 34px; line-height: 1; flex: none; }
+.ml-in { animation: ml-in 0.6s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+@keyframes ml-in { from { transform: translateY(14px) scale(0.97); opacity: 0; } to { transform: none; opacity: 1; } }
+.ml-pop { animation: ml-pop 0.45s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes ml-pop { from { transform: scale(0.4); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* The lucky wheel */
+.ml-wheel-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.ml-wheel-wrap { position: relative; width: 120px; height: 120px; flex: none; }
+.ml-wheel { position: absolute; inset: 0; border-radius: 50%; border: 4px solid var(--navy); background: conic-gradient(#c9d6ea 0 45deg, #f4c9d0 45deg 90deg, #c9d6ea 90deg 135deg, #f4c9d0 135deg 180deg, #c9d6ea 180deg 225deg, #f4c9d0 225deg 270deg, #c9d6ea 270deg 315deg, #f4c9d0 315deg 360deg); }
+.ml-wheel-spin { animation: ml-spin 1.4s cubic-bezier(0.15, 0.6, 0.2, 1) both; }
+@keyframes ml-spin { from { transform: rotate(0); } to { transform: rotate(1500deg); } }
+.ml-pointer { position: absolute; top: -10px; left: 50%; z-index: 2; width: 0; height: 0; margin-left: -10px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 18px solid var(--red); }
+.ml-hub { position: absolute; inset: 32px; z-index: 1; display: grid; place-items: center; border-radius: 50%; background: var(--white); border: 3px solid var(--navy); font-size: 1.5rem; font-weight: 700; color: var(--navy); }
+.ml-hub-num { animation: ml-pop 0.4s 1.2s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+.ml-item { padding: 8px 12px; border: 1px dashed var(--line); border-radius: 10px; background: var(--white); }
+.ml-slider { display: grid; gap: 6px; max-width: 420px; }
+.ml-slider input { width: 100%; accent-color: var(--navy); min-height: 32px; }
+
+/* Headlines */
+.ml-paper { padding: 12px 14px; border: 2px solid var(--ink); border-radius: 6px; background: #fbf8ef; box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.12); }
+.ml-headline { margin: 0 0 8px; font-weight: 700; font-family: Georgia, 'Times New Roman', serif; line-height: 1.3; animation: ml-in 0.5s ease-out both; }
+.ml-headline:last-child { margin-bottom: 0; }
+.ml-headline-0 { font-size: 1.3rem; color: var(--red); }
+.ml-headline-1 { animation-delay: 0.35s; }
+.ml-headline-2 { animation-delay: 0.7s; font-weight: 400; font-style: italic; }
+.ml-pick { font-size: 1.05rem; }
+
+/* The curtain and the lab screen */
+.ml-stage { position: relative; overflow: hidden; border-radius: 14px; border: 3px solid var(--navy); }
+.ml-screen { display: grid; gap: 10px; padding: 16px; background: #0f2342; color: #ffffff; background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 2px, transparent 2px 4px); }
+.ml-screen-head { margin: 0; font-family: ui-monospace, 'Courier New', monospace; font-size: 0.85rem; letter-spacing: 1px; color: #bfe8cf; display: flex; align-items: center; gap: 8px; }
+.ml-dot { width: 10px; height: 10px; border-radius: 50%; background: #5fd38d; animation: ml-blink 1.6s ease-in-out infinite; }
+@keyframes ml-blink { 50% { opacity: 0.3; } }
+.ml-you { font-weight: 700; color: #ffe08a; }
+.ml-curtain { position: absolute; top: 0; bottom: 0; width: 51%; pointer-events: none; background: repeating-linear-gradient(90deg, #a10d26 0 14px, #c8102e 14px 28px); box-shadow: inset 0 -12px 18px rgba(0, 0, 0, 0.25); }
+/* The end state (open) is the base style, so the curtain stays open when motion is off. */
+.ml-curtain-l { left: 0; transform: translateX(-102%); animation: ml-open-l 1.1s 0.25s ease-in-out both; }
+.ml-curtain-r { right: 0; transform: translateX(102%); animation: ml-open-r 1.1s 0.25s ease-in-out both; }
+@keyframes ml-open-l { from { transform: none; } to { transform: translateX(-102%); } }
+@keyframes ml-open-r { from { transform: none; } to { transform: translateX(102%); } }
+
+/* Anchor scale on the screen */
+.ml-scale-wrap { display: grid; gap: 4px; padding: 26px 8px 0; }
+.ml-scale { position: relative; height: 10px; border-radius: 5px; background: linear-gradient(90deg, #3b5c91, #c9d6ea); }
+.ml-mark { position: absolute; top: -6px; width: 4px; height: 22px; margin-left: -2px; border-radius: 2px; }
+.ml-mark-anchor { background: #ff8fa3; }
+.ml-mark-est { background: #ffe08a; }
+.ml-mark-label { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-weight: 700; font-size: 0.85rem; padding: 0 4px; border-radius: 4px; background: #0f2342; }
+.ml-mark-anchor .ml-mark-label { color: #ff8fa3; }
+.ml-mark-est .ml-mark-label { color: #ffe08a; bottom: -26px; }
+.ml-scale-ends { display: flex; justify-content: space-between; font-size: 0.8rem; color: #c9d6ea; margin-top: 20px; }
+.ml-screen .small { color: #e6ecf5; }
+
+/* Effect buttons: specimen labels */
+.ml-effects { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px; }
+.ml-effects-8 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.ml-effects-4 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.ml-effect { position: relative; display: grid; gap: 2px; justify-items: start; align-content: start; text-align: left; padding: 10px 12px; border: 2px solid var(--line); border-radius: 12px; background: var(--white); font: inherit; color: var(--ink); cursor: pointer; min-height: 44px; }
+.ml-effect:hover:not(:disabled) { border-color: var(--navy); background: var(--navy-50); }
+.ml-effect:active:not(:disabled) { transform: translateY(2px); }
+.ml-effect:disabled { cursor: default; }
+.ml-effect-icon { font-size: 24px; line-height: 1.1; }
+.ml-effect-miss { border-style: dashed; border-color: var(--red); }
+.ml-effect-right { border-color: var(--ok); background: var(--ok-50); }
+.ml-effect-right strong::after { content: ' ✓'; color: var(--ok); }
+
+/* Level 2: the specimen under the lens */
+.ml-specimen { position: relative; margin-top: 12px; display: flex; gap: 12px; align-items: center; padding: 14px 14px 14px 50px; border: 2px dashed var(--navy); border-radius: 14px; background: var(--white); }
+.ml-lens { position: absolute; left: 10px; top: 12px; font-size: 26px; animation: ml-lens 3s ease-in-out infinite; }
+@keyframes ml-lens { 0%, 100% { transform: translate(0, 0) rotate(-10deg); } 50% { transform: translate(4px, 8px) rotate(10deg); } }
+.ml-caught { position: absolute; right: 10px; top: -24px; padding: 1px 10px; border: 3px solid var(--red); border-radius: 6px; background: var(--white); color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; transform: rotate(-6deg); animation: ml-stamp 0.35s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes ml-stamp { from { transform: rotate(-6deg) scale(2.2); opacity: 0; } to { transform: rotate(-6deg) scale(1); opacity: 1; } }
+.ml-jars { display: flex; gap: 6px; flex-wrap: wrap; }
+.ml-jar { padding: 3px 10px; border: 1px solid var(--navy); border-radius: 10px 10px 4px 4px; background: var(--navy-50); color: var(--navy); font-size: 0.85rem; }
+
+/* Level 3 */
+.ml-lab-top { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.ml-meter-wrap { display: grid; gap: 4px; min-width: 220px; flex: 1; max-width: 360px; }
+.ml-meter { position: relative; height: 16px; border-radius: 8px; border: 2px solid var(--navy); background: var(--white); overflow: hidden; }
+.ml-meter-fill { height: 100%; background: linear-gradient(90deg, #7fd3a6, #2f9e68); transition: width 0.6s ease-out; }
+.ml-meter-goal { position: absolute; top: 0; bottom: 0; border-left: 2px dashed var(--red); }
+.ml-stations { display: flex; gap: 6px; margin: 0; padding: 0; list-style: none; counter-reset: st; flex-wrap: wrap; }
+.ml-stations li { counter-increment: st; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--ink-soft); }
+.ml-stations li::before { content: counter(st) '. '; }
+.ml-stations li.on { border-color: var(--navy); color: var(--navy); font-weight: 700; }
+.ml-stations li.done::after { content: ' \2713'; }
+.ml-proto { display: grid; gap: 6px; padding: 12px 14px; border: 2px solid var(--ok); border-radius: 12px; background: var(--ok-50); animation: ml-pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+.ml-proto-head { margin: 0; font-weight: 700; color: var(--ink); }
+.ml-proto-line { margin: 0; padding: 6px 10px; border-radius: 8px; background: var(--white); border: 1px solid var(--line); animation: ml-in 0.4s ease-out both; }
+.ml-proto-line-0 { animation-delay: 0.25s; }
+.ml-proto-line-1 { animation-delay: 0.5s; }
+.ml-reasons { display: grid; gap: 8px; }

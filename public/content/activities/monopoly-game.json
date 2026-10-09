@@ -1,0 +1,1400 @@
+{
+  "id": "monopoly-game",
+  "outcome": "I can compare market structures, find the profit-maximizing output where MC = MR from data, and use a payoff matrix to explain why oligopoly firms are tempted to collude and why collusion breaks down.",
+  "learn": {
+    "text": "^HL^ **[[Market power]]** is a firm's ability to set its own price. It depends on the market structure.\n\n- **[[Perfect competition]]**: many small firms, the same product, free entry. Each firm is a **[[price taker]]**.\n- **[[Monopolistic competition]]**: many firms, free entry, but [[product differentiation]]. A little market power.\n- **[[Oligopoly]]**: a few large firms, high [[barriers to entry]] and **[[interdependence]]**. A **[[concentration ratio]]** measures how much of the market the biggest firms hold.\n- **[[Monopoly]]**: one firm, high barriers to entry, no close substitutes. A **[[price maker]]**.\n\nEvery firm makes the most profit (TR − TC) where **MC = MR** ([[marginal revenue]]). The price comes from the demand curve, which is also [[average revenue]] (AR). If AR > [[average cost]] (AC), the firm earns **[[abnormal profit]]**. If AR = AC, it earns **[[normal profit]]**. If AR < AC, it makes a loss.\n\nA monopoly makes less and charges more than a competitive market. At its output, P > MC, so it is not [[allocatively efficient|Allocative efficiency]]: there is a **[[welfare loss]]** and market failure. Oligopoly firms face a **[[prisoner's dilemma]]**: they are tempted to [[collude|Collusion]], but each has an incentive to cheat. Governments respond to abuse of market power with legislation and regulation, government ownership and fines.",
+    "caption": "A monopoly makes Qm, where MC = MR, and charges Pm from the demand curve. AC at Qm is below Pm, so the dotted rectangle is abnormal profit. Because P > MC at Qm, the hatched area is the welfare loss compared with a competitive market."
+  },
+  "try": {
+    "goal": "Run a coffee chain on a busy street. Map the markets, find your profit, then win the price duel with your rival.",
+    "intro": "^HL^ Two coffee cafés face each other on one street. Customers walk to the cheaper one.\n\n**Level 1: Map the market.** Read about a market and its characteristics. Choose its market structure and say whether a firm is a price taker or a price maker. Some markets need a concentration ratio first.\n\n**Level 2: Find the profit.** Your café opens in five towns. Use the schedule to find the output where MC = MR, the price and the profit. Then say if it is abnormal profit, normal profit or a loss.\n\n**Level 3: Price war.** Read the payoff matrix and find your dominant strategy. Then play five weeks against the rival café. It starts with a high price, then copies your price from the week before.",
+    "levels": [
+      {
+        "title": "Map the market (HL)",
+        "blurb": "Match ten markets to the four market structures, with two concentration ratios."
+      },
+      {
+        "title": "Find the profit (HL)",
+        "blurb": "Find MC = MR, the price and the profit in five towns from a schedule."
+      },
+      {
+        "title": "Price war (HL)",
+        "blurb": "Read a payoff matrix, play five weeks against a rival, then judge collusion."
+      }
+    ],
+    "structNames": {
+      "perfect": "Perfect competition",
+      "monopolistic": "Monopolistic competition",
+      "oligopoly": "Oligopoly",
+      "monopoly": "Monopoly"
+    },
+    "structDefs": {
+      "perfect": "Perfect competition has many small firms selling the **same** product, with free entry.",
+      "monopolistic": "Monopolistic competition has **many** firms and free entry, with products that are a bit different.",
+      "oligopoly": "An oligopoly has **a few large** firms with high barriers to entry.",
+      "monopoly": "A monopoly is **one** firm with high barriers to entry and no close substitutes."
+    },
+    "clueNames": {
+      "firms": "Number of firms",
+      "product": "Product",
+      "barriers": "Barriers to entry"
+    },
+    "takerWrong": {
+      "taker": "A price taker must accept the market price. That only happens in perfect competition. Here the firm has some market power: it can raise its price and keep some buyers.",
+      "maker": "Each firm here is tiny and sells the same product as everyone else. If it raised its price, every buyer would go to another seller. It must take the market price."
+    },
+    "crText": {
+      "firstN": "You added the first firms in the table. Find the firms with the **biggest** shares first.",
+      "all": "You added every firm in the table. The concentration ratio only adds the shares of the four largest firms.",
+      "whole": "You added every firm in the market, so you got 100%. The concentration ratio only adds the four largest firms.",
+      "tooFew": "You added one firm too few. CR4 needs the four biggest firms.",
+      "average": "That is the average share. The concentration ratio is the **total** share of the biggest firms.",
+      "other": "Not yet. Sort the shares from biggest to smallest, then add the top four."
+    },
+    "items": [
+      {
+        "id": "water",
+        "kind": "market",
+        "icon": "🚰",
+        "name": "Tap water",
+        "text": "One company pipes water to every home in the region. Building a second set of pipes would cost far too much.",
+        "clues": {
+          "firms": "One",
+          "product": "No close substitutes",
+          "barriers": "Very high: huge set-up costs"
+        },
+        "structure": "monopoly",
+        "why": "One firm supplies the whole market and there are no close substitutes. Huge set-up costs and **[[economies of scale]]** mean one firm can supply at the lowest cost: a **[[natural monopoly]]**. It is a price maker."
+      },
+      {
+        "id": "coffee",
+        "kind": "market",
+        "icon": "☕",
+        "name": "Coffee shops",
+        "text": "Twenty coffee shops line one busy street. Each has its own drinks, music and style. A new shop can open quickly.",
+        "clues": {
+          "firms": "Many",
+          "product": "Differentiated: each shop is a bit different",
+          "barriers": "Low: easy to open a shop"
+        },
+        "structure": "monopolistic",
+        "why": "Many firms and free entry, but each product is a bit different. Loyal customers give each shop a little market power, so it is a price maker. But there are many close substitutes, so demand is quite elastic."
+      },
+      {
+        "id": "wheat",
+        "kind": "market",
+        "icon": "🌾",
+        "name": "Wheat",
+        "text": "Thousands of farmers grow the same kind of wheat. Each farm is tiny compared with the whole market.",
+        "clues": {
+          "firms": "Thousands, all small",
+          "product": "The same (homogeneous)",
+          "barriers": "None: anyone can start"
+        },
+        "structure": "perfect",
+        "why": "Many small firms sell the same product and entry is free. No farm can change the market price. If one farmer asked for more, buyers would go to another farmer. Each farm is a **[[price taker]]**."
+      },
+      {
+        "id": "fish",
+        "kind": "market",
+        "icon": "🐟",
+        "name": "Fish at the port",
+        "text": "Hundreds of fishing boats sell the same kind of fish at a big port market. New boats join every season.",
+        "clues": {
+          "firms": "Hundreds, all small",
+          "product": "The same (homogeneous)",
+          "barriers": "Low: buy a boat and start"
+        },
+        "structure": "perfect",
+        "why": "Many small sellers of the same fish, and free entry. Each boat must accept the market price: a **price taker**. This is close to perfect competition."
+      },
+      {
+        "id": "airlines",
+        "kind": "market",
+        "icon": "✈️",
+        "name": "Airlines",
+        "text": "A few large airlines fly most routes from a country's airports. When one airline cuts its fares, the others react within hours.",
+        "clues": {
+          "firms": "A few large firms",
+          "product": "Similar, with some differences",
+          "barriers": "High: planes, landing slots and licences"
+        },
+        "structure": "oligopoly",
+        "why": "A few large firms, high barriers to entry, and each firm watches its rivals: this is **[[interdependence]]**. Each airline is a price maker, but it must think about how rivals will react."
+      },
+      {
+        "id": "mobile",
+        "kind": "market",
+        "icon": "📱",
+        "name": "Mobile networks",
+        "text": "Three mobile networks serve almost every phone in a country. Each one studies the others' prices before it sets its own.",
+        "clues": {
+          "firms": "Three large firms",
+          "product": "Similar services",
+          "barriers": "High: licences and masts cost a lot"
+        },
+        "structure": "oligopoly",
+        "why": "Three large firms with high barriers, and each sets its price with an eye on the others. That is an oligopoly with strong **interdependence**."
+      },
+      {
+        "id": "salons",
+        "kind": "market",
+        "icon": "💇",
+        "name": "Hair salons",
+        "text": "Hundreds of hair salons work in one city. Each has its own style, prices and location.",
+        "clues": {
+          "firms": "Hundreds",
+          "product": "Differentiated: style, service, location",
+          "barriers": "Low: a salon is cheap to open"
+        },
+        "structure": "monopolistic",
+        "why": "Many firms and free entry, with differentiated services. Each salon has a little market power from its loyal customers, so it is a price maker, but it faces many substitutes."
+      },
+      {
+        "id": "medicine",
+        "kind": "market",
+        "icon": "💊",
+        "name": "A new medicine",
+        "text": "One drug company holds the patent on a new medicine. By law, no other firm may make it for 20 years.",
+        "clues": {
+          "firms": "One",
+          "product": "No close substitutes",
+          "barriers": "Very high: a legal barrier (patent)"
+        },
+        "structure": "monopoly",
+        "why": "A patent is a legal [[barrier to entry|Barriers to entry]]. One firm, no close substitutes: a monopoly. It is a price maker. Its abnormal profit may pay for research and development (R&D)."
+      },
+      {
+        "id": "grocers",
+        "kind": "cr",
+        "icon": "🛒",
+        "name": "Supermarkets",
+        "text": "A few big supermarket chains sell most of the food in a country. Opening a national chain takes huge amounts of money.",
+        "firms": [
+          {
+            "name": "Firm A",
+            "share": 14
+          },
+          {
+            "name": "Firm B",
+            "share": 27
+          },
+          {
+            "name": "Firm C",
+            "share": 8
+          },
+          {
+            "name": "Firm D",
+            "share": 21
+          },
+          {
+            "name": "Firm E",
+            "share": 16
+          },
+          {
+            "name": "Firm F",
+            "share": 6
+          }
+        ],
+        "others": 8,
+        "n": 4,
+        "clues": {
+          "firms": "A few large chains",
+          "product": "Similar, with own brands",
+          "barriers": "High: stores, warehouses, brands"
+        },
+        "structure": "oligopoly",
+        "why": "The [[concentration ratio]] is high: four firms hold most of the market. A few large firms with high barriers to entry is an **oligopoly**."
+      },
+      {
+        "id": "restaurants",
+        "kind": "cr",
+        "icon": "🍜",
+        "name": "Restaurants",
+        "text": "A big city has thousands of restaurants. Each cooks its own food in its own style.",
+        "firms": [
+          {
+            "name": "Firm A",
+            "share": 3
+          },
+          {
+            "name": "Firm B",
+            "share": 4
+          },
+          {
+            "name": "Firm C",
+            "share": 2
+          },
+          {
+            "name": "Firm D",
+            "share": 1
+          },
+          {
+            "name": "Firm E",
+            "share": 2
+          }
+        ],
+        "others": 88,
+        "n": 4,
+        "clues": {
+          "firms": "Thousands",
+          "product": "Differentiated: each menu is different",
+          "barriers": "Low: easy to open"
+        },
+        "structure": "monopolistic",
+        "why": "CR4 is very low: no firm has much of the market. Many firms, free entry and differentiated products make this **monopolistic competition**."
+      }
+    ],
+    "rounds": [
+      {
+        "id": "village",
+        "icon": "🏔️",
+        "title": "The mountain village",
+        "story": "Your chain runs the only café in a mountain village. The next café is an hour away, so you are a local monopoly.",
+        "prices": [
+          20,
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6
+        ],
+        "costs": [
+          10,
+          20,
+          26,
+          32,
+          39,
+          49,
+          62,
+          78,
+          97
+        ],
+        "why": "Price (AR = $14) is above average cost (AC = $9.75), so TR is above TC. High barriers (the next café is far away) let a monopoly keep this [[abnormal profit]]."
+      },
+      {
+        "id": "highstreet",
+        "icon": "🛍️",
+        "title": "The busy high street",
+        "story": "Your café is one of many on a busy shopping street. New cafés keep opening while there is profit to be made. Now no café earns more than it needs to stay open.",
+        "prices": [
+          15,
+          14,
+          13,
+          12,
+          11,
+          10,
+          9,
+          8
+        ],
+        "costs": [
+          20,
+          28,
+          34,
+          40,
+          48,
+          58,
+          70,
+          84,
+          100
+        ],
+        "why": "AR = AC = $12, so TR = TC. This is **[[normal profit]]**: just enough to keep the café in business. In monopolistic competition, free entry brings profit down to normal in the long run."
+      },
+      {
+        "id": "park",
+        "icon": "🏢",
+        "title": "The business park",
+        "story": "A big rival has just opened next door to your café in a business park. In the short run your sales have fallen, but you still have to pay your rent.",
+        "prices": [
+          18,
+          16,
+          14,
+          12,
+          10,
+          8,
+          6,
+          4
+        ],
+        "costs": [
+          40,
+          49,
+          56,
+          64,
+          73,
+          84,
+          97,
+          112,
+          129
+        ],
+        "why": "AR ($14) is below AC ($21.33), so TR is below TC: a **loss**. Producing where MC = MR makes the loss as small as it can be. If the loss lasts, the café may leave the market in the long run."
+      },
+      {
+        "id": "station",
+        "icon": "🚉",
+        "title": "The train station",
+        "story": "Your café is the only one inside a busy train station. Rents are high, but so is demand.",
+        "prices": [
+          45,
+          40,
+          35,
+          30,
+          25,
+          20,
+          15,
+          10
+        ],
+        "costs": [
+          30,
+          50,
+          65,
+          80,
+          100,
+          125,
+          155,
+          190,
+          230
+        ],
+        "why": "AR ($35) is above AC ($26.67), so the café earns **abnormal profit**. Notice the trap: at 5 units TR is highest, but profit there is only $0."
+      },
+      {
+        "id": "campus",
+        "icon": "🎓",
+        "title": "The college campus",
+        "story": "Your café is the only one on a college campus. Students like your drinks, but many bring coffee from home.",
+        "prices": [
+          28,
+          26,
+          24,
+          22,
+          20,
+          18,
+          16,
+          14
+        ],
+        "costs": [
+          24,
+          38,
+          48,
+          56,
+          65,
+          76,
+          89,
+          105,
+          124
+        ],
+        "why": "AR ($20) is above AC ($15.20), so TR is above TC: **abnormal profit**. The campus is a barrier to entry: other cafés cannot easily open there."
+      }
+    ],
+    "outputText": {
+      "trMax": "TR is highest here, but the café wants the most **profit**, not the most revenue. Here MC is above MR, so the last units cut profit.",
+      "before": "MR is still at least MC for the next unit, so making more would add profit. Keep going until MC rises above MR.",
+      "after": "Here MC is above MR, so this unit costs more than it brings in. Go back to the last unit where MR is at least MC."
+    },
+    "priceText": {
+      "mr": "That is MR. The price comes from the demand curve: read **Price = AR** at the best output.",
+      "mc": "That is MC. A firm with market power charges what buyers will pay: read **Price = AR** at the best output.",
+      "tr": "That is total revenue. The price is TR ÷ Q, the Price = AR column.",
+      "ac": "That is average cost (TC ÷ Q). The price is in the Price = AR column.",
+      "other": "Not yet. Find the best output row, then read the Price = AR column."
+    },
+    "profitText": {
+      "trOnly": "That is TR. Profit = TR − TC: take away total cost.",
+      "pMinusMc": "You used (P − MC) × Q. Profit uses average cost: (AR − AC) × Q, or simply TR − TC.",
+      "trMaxRow": "That is the profit where TR is highest. Use the output where MC = MR.",
+      "sign": "Check the sign. If TC is bigger than TR, profit is negative: a loss.",
+      "other": "Not yet. At the best output, take TC away from TR."
+    },
+    "kindNames": {
+      "abnormal": "Abnormal profit (AR > AC)",
+      "normal": "Normal profit (AR = AC)",
+      "loss": "Loss (AR < AC)"
+    },
+    "kindWrong": {
+      "abnormal": "Abnormal profit needs TR above TC (AR above AC). Look at your profit again.",
+      "normal": "Normal profit means TR = TC exactly (AR = AC), so profit is zero. Is it zero here?",
+      "loss": "A loss means TR is below TC (AR below AC), so profit is negative. Is it negative here?"
+    },
+    "matrix": {
+      "high-high": [
+        600,
+        600
+      ],
+      "high-low": [
+        200,
+        800
+      ],
+      "low-high": [
+        800,
+        200
+      ],
+      "low-low": [
+        400,
+        400
+      ]
+    },
+    "weeks": 5,
+    "judgements": [
+      {
+        "id": "tempt",
+        "prompt": "Why is **[[collusion]]** tempting for the two cafés?",
+        "options": [
+          {
+            "text": "With high prices they earn $1,200 a day together. With low prices they earn only $800.",
+            "correct": true,
+            "feedback": "Yes. By agreeing to keep prices high, the two firms act like one monopoly and earn more together."
+          },
+          {
+            "text": "Collusion lowers prices for customers.",
+            "feedback": "Collusion keeps prices high. Consumers pay more, which is why it is a problem."
+          },
+          {
+            "text": "The law tells firms to agree on prices.",
+            "feedback": "The opposite: formal price agreements are illegal in many countries."
+          },
+          {
+            "text": "Collusion makes each café a price taker.",
+            "feedback": "Collusion gives the firms more market power, not less."
+          }
+        ]
+      },
+      {
+        "id": "cheat",
+        "prompt": "Why does collusion often **break down**?",
+        "options": [
+          {
+            "text": "Each café can earn more by secretly cutting its price ($800 instead of $600). So each has an incentive to cheat.",
+            "correct": true,
+            "feedback": "Yes. The incentive to cheat makes the deal unstable, and a secret deal cannot be enforced."
+          },
+          {
+            "text": "Both cafés earn more with low prices.",
+            "feedback": "With low prices both earn $400, less than $600 each with high prices."
+          },
+          {
+            "text": "Customers always choose the café with the higher price.",
+            "feedback": "In this street, customers walk to the cheaper café. That is why cutting the price is tempting."
+          },
+          {
+            "text": "Costs always rise when firms collude.",
+            "feedback": "Costs are not the issue. The problem is the gain from cheating on the deal."
+          }
+        ]
+      },
+      {
+        "id": "cartel",
+        "prompt": "Two coffee chains sign a secret deal to fix their prices. This is a **[[cartel]]**. What is true in many countries?",
+        "options": [
+          {
+            "text": "Formal collusion like this is illegal. The firms can face large fines.",
+            "correct": true,
+            "feedback": "Yes. Competition law bans cartels, and governments can fine the firms."
+          },
+          {
+            "text": "It is legal as long as both firms agree.",
+            "feedback": "Agreement between firms does not make it legal. Price fixing harms consumers, so it is banned in many countries."
+          },
+          {
+            "text": "It makes the market allocatively efficient.",
+            "feedback": "A cartel restricts output and raises the price above MC. That is allocative inefficiency."
+          },
+          {
+            "text": "The government must then buy both chains.",
+            "feedback": "The usual responses are legislation, regulation and fines. Government ownership is more common for natural monopolies."
+          }
+        ]
+      },
+      {
+        "id": "nonprice",
+        "prompt": "Instead of cutting prices, the cafés compete with loyalty schemes, new flavours and adverts. What is this?",
+        "options": [
+          {
+            "text": "Non-price competition. It avoids a price war, which would hurt both cafés.",
+            "correct": true,
+            "feedback": "Yes. Oligopoly firms often prefer [[non-price competition]], because a price cut is quickly copied."
+          },
+          {
+            "text": "Perfect competition.",
+            "feedback": "There are only two firms here, and their products are different. That is not perfect competition."
+          },
+          {
+            "text": "A cartel.",
+            "feedback": "A cartel is an agreement on prices or output. Competing with adverts and new drinks is not an agreement."
+          },
+          {
+            "text": "A price war.",
+            "feedback": "A price war means firms keep cutting prices. Here the prices stay the same."
+          }
+        ]
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "hl": true,
+      "prompt": "Which list describes an **oligopoly**?",
+      "options": [
+        {
+          "text": "A few large firms, high barriers to entry, and each firm's choices depend on its rivals.",
+          "correct": true,
+          "feedback": "Yes. A few large firms that watch each other: that is interdependence."
+        },
+        {
+          "text": "Many firms, free entry and the same product.",
+          "feedback": "That is perfect competition. Firms there are price takers."
+        },
+        {
+          "text": "Many firms, free entry and differentiated products.",
+          "feedback": "That is monopolistic competition, such as a street of cafés."
+        },
+        {
+          "text": "One firm, high barriers to entry and no close substitutes.",
+          "feedback": "That is a monopoly. An oligopoly has a few firms, not one."
+        }
+      ],
+      "hints": [
+        "Oligo means few.",
+        "Think about the airlines or mobile networks in a country."
+      ],
+      "worked": "Example: three mobile networks serve a whole country. New networks need licences and masts, so barriers are high. Each network watches the others' prices: they are interdependent.",
+      "explanation": "An **oligopoly** has a few large firms, high barriers to entry and **interdependence**: each firm's best choice depends on what its rivals do."
+    },
+    {
+      "id": "q2",
+      "type": "label",
+      "level": "core",
+      "hl": true,
+      "prompt": "This diagram shows a firm with market power, making the most profit it can. Choose the label for each letter.",
+      "diagram": {
+        "xMax": 100,
+        "yMax": 24,
+        "xLabel": "Quantity",
+        "yLabel": "Price, costs, revenue ($)",
+        "title": "A firm with market power",
+        "description": "Two lines slope down from the same point on the price axis. One is twice as steep. A U-shaped curve, and a curve that dips then rises through the bottom of the U. A shaded rectangle sits on the left. Letters A to G show four curves, one quantity, one price and the shaded rectangle.",
+        "areas": [
+          {
+            "points": [
+              {
+                "q": 0,
+                "p": 11
+              },
+              {
+                "q": 40,
+                "p": 11
+              },
+              {
+                "q": 40,
+                "p": 14
+              },
+              {
+                "q": 0,
+                "p": 14
+              }
+            ],
+            "tone": "green",
+            "pattern": "dots"
+          }
+        ],
+        "guides": [
+          {
+            "at": {
+              "q": 40,
+              "p": 14
+            }
+          }
+        ],
+        "curves": [
+          {
+            "line": {
+              "a": {
+                "q": 0,
+                "p": 22
+              },
+              "b": {
+                "q": 100,
+                "p": 2
+              }
+            },
+            "tone": "navy"
+          },
+          {
+            "line": {
+              "a": {
+                "q": 0,
+                "p": 22
+              },
+              "b": {
+                "q": 55,
+                "p": 0
+              }
+            },
+            "tone": "navy",
+            "dashed": true
+          },
+          {
+            "points": [
+              {
+                "q": 0,
+                "p": 7.78
+              },
+              {
+                "q": 2.5,
+                "p": 7.25
+              },
+              {
+                "q": 5.0,
+                "p": 6.78
+              },
+              {
+                "q": 7.5,
+                "p": 6.36
+              },
+              {
+                "q": 10.0,
+                "p": 6.0
+              },
+              {
+                "q": 12.5,
+                "p": 5.69
+              },
+              {
+                "q": 15.0,
+                "p": 5.44
+              },
+              {
+                "q": 17.5,
+                "p": 5.25
+              },
+              {
+                "q": 20.0,
+                "p": 5.11
+              },
+              {
+                "q": 22.5,
+                "p": 5.03
+              },
+              {
+                "q": 25.0,
+                "p": 5.0
+              },
+              {
+                "q": 27.5,
+                "p": 5.03
+              },
+              {
+                "q": 30.0,
+                "p": 5.11
+              },
+              {
+                "q": 32.5,
+                "p": 5.25
+              },
+              {
+                "q": 35.0,
+                "p": 5.44
+              },
+              {
+                "q": 37.5,
+                "p": 5.69
+              },
+              {
+                "q": 40.0,
+                "p": 6.0
+              },
+              {
+                "q": 42.5,
+                "p": 6.36
+              },
+              {
+                "q": 45.0,
+                "p": 6.78
+              },
+              {
+                "q": 47.5,
+                "p": 7.25
+              },
+              {
+                "q": 50.0,
+                "p": 7.78
+              },
+              {
+                "q": 52.5,
+                "p": 8.36
+              },
+              {
+                "q": 55.0,
+                "p": 9.0
+              },
+              {
+                "q": 57.5,
+                "p": 9.69
+              },
+              {
+                "q": 60.0,
+                "p": 10.44
+              },
+              {
+                "q": 62.5,
+                "p": 11.25
+              },
+              {
+                "q": 65.0,
+                "p": 12.11
+              },
+              {
+                "q": 67.5,
+                "p": 13.03
+              },
+              {
+                "q": 70.0,
+                "p": 14.0
+              },
+              {
+                "q": 72.5,
+                "p": 15.03
+              },
+              {
+                "q": 75.0,
+                "p": 16.11
+              },
+              {
+                "q": 77.5,
+                "p": 17.25
+              },
+              {
+                "q": 80.0,
+                "p": 18.44
+              },
+              {
+                "q": 82.5,
+                "p": 19.69
+              },
+              {
+                "q": 85.0,
+                "p": 21.0
+              }
+            ],
+            "tone": "red"
+          },
+          {
+            "points": [
+              {
+                "q": 16,
+                "p": 22.52
+              },
+              {
+                "q": 18.5,
+                "p": 20.84
+              },
+              {
+                "q": 21.0,
+                "p": 19.28
+              },
+              {
+                "q": 23.5,
+                "p": 17.82
+              },
+              {
+                "q": 26.0,
+                "p": 16.48
+              },
+              {
+                "q": 28.5,
+                "p": 15.24
+              },
+              {
+                "q": 31.0,
+                "p": 14.12
+              },
+              {
+                "q": 33.5,
+                "p": 13.11
+              },
+              {
+                "q": 36.0,
+                "p": 12.21
+              },
+              {
+                "q": 38.5,
+                "p": 11.42
+              },
+              {
+                "q": 41.0,
+                "p": 10.74
+              },
+              {
+                "q": 43.5,
+                "p": 10.18
+              },
+              {
+                "q": 46.0,
+                "p": 9.72
+              },
+              {
+                "q": 48.5,
+                "p": 9.38
+              },
+              {
+                "q": 51.0,
+                "p": 9.14
+              },
+              {
+                "q": 53.5,
+                "p": 9.02
+              },
+              {
+                "q": 56.0,
+                "p": 9.01
+              },
+              {
+                "q": 58.5,
+                "p": 9.11
+              },
+              {
+                "q": 61.0,
+                "p": 9.32
+              },
+              {
+                "q": 63.5,
+                "p": 9.64
+              },
+              {
+                "q": 66.0,
+                "p": 10.08
+              },
+              {
+                "q": 68.5,
+                "p": 10.62
+              },
+              {
+                "q": 71.0,
+                "p": 11.28
+              },
+              {
+                "q": 73.5,
+                "p": 12.04
+              },
+              {
+                "q": 76.0,
+                "p": 12.92
+              },
+              {
+                "q": 78.5,
+                "p": 13.91
+              },
+              {
+                "q": 81.0,
+                "p": 15.01
+              },
+              {
+                "q": 83.5,
+                "p": 16.22
+              },
+              {
+                "q": 86.0,
+                "p": 17.54
+              },
+              {
+                "q": 88.5,
+                "p": 18.98
+              },
+              {
+                "q": 91.0,
+                "p": 20.52
+              },
+              {
+                "q": 93.5,
+                "p": 22.18
+              }
+            ],
+            "tone": "green"
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 76,
+              "p": 18.4
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 91,
+              "p": 22.0
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 88,
+              "p": 6.3
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 46,
+              "p": 3.6
+            },
+            "letter": "D"
+          },
+          {
+            "at": {
+              "q": 40,
+              "p": 1.3
+            },
+            "letter": "E"
+          },
+          {
+            "at": {
+              "q": 4,
+              "p": 15.3
+            },
+            "letter": "F"
+          },
+          {
+            "at": {
+              "q": 9,
+              "p": 12.5
+            },
+            "letter": "G"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "MC",
+          "feedback": "The curve that dips and then rises steeply through the bottom of AC is marginal cost (MC)."
+        },
+        {
+          "letter": "B",
+          "answer": "AC",
+          "feedback": "The U-shaped curve is average cost (AC). MC cuts it at its lowest point."
+        },
+        {
+          "letter": "C",
+          "answer": "D = AR",
+          "feedback": "The less steep downward line is demand. Demand is also average revenue: D = AR."
+        },
+        {
+          "letter": "D",
+          "answer": "MR",
+          "feedback": "The steeper downward line is marginal revenue (MR). It is twice as steep as AR."
+        },
+        {
+          "letter": "E",
+          "answer": "Qm",
+          "feedback": "The output where MC = MR is the profit-maximizing output, Qm."
+        },
+        {
+          "letter": "F",
+          "answer": "Pm",
+          "feedback": "The price is read from the demand curve above Qm: Pm."
+        },
+        {
+          "letter": "G",
+          "answer": "Abnormal profit",
+          "feedback": "The rectangle between Pm and AC, from 0 to Qm, is (AR − AC) × Q: abnormal profit."
+        }
+      ],
+      "choices": [
+        "MC",
+        "AC",
+        "D = AR",
+        "MR",
+        "Qm",
+        "Pm",
+        "Abnormal profit",
+        "Normal profit",
+        "Welfare loss",
+        "Supply"
+      ],
+      "hints": [
+        "The firm makes the output where MC = MR. The price comes from the demand curve above that output.",
+        "Demand is AR. MR is below AR and twice as steep. MC cuts AC at the lowest point of AC."
+      ],
+      "worked": "Example: draw D = AR sloping down and MR twice as steep. Draw MC rising through the bottom of the U-shaped AC. Find where MC = MR, go down to Qm and up to the demand curve for Pm. If AC at Qm is below Pm, the rectangle between them is abnormal profit.",
+      "explanation": "The firm makes **Qm**, where MC = MR. It charges **Pm**, read from D = AR above Qm. AC at Qm is below Pm, so the rectangle (AR − AC) × Q is **abnormal profit**."
+    },
+    {
+      "id": "q3",
+      "type": "number",
+      "level": "apply",
+      "hl": true,
+      "prompt": "A café with market power has this schedule. Calculate its **maximum profit**.",
+      "table": {
+        "caption": "Cost and revenue schedule ($)",
+        "headers": [
+          "Output (Q)",
+          "Price = AR",
+          "TR",
+          "TC",
+          "MR",
+          "MC"
+        ],
+        "rows": [
+          [
+            0,
+            "–",
+            0,
+            12,
+            "–",
+            "–"
+          ],
+          [
+            1,
+            22,
+            22,
+            22,
+            22,
+            10
+          ],
+          [
+            2,
+            20,
+            40,
+            30,
+            18,
+            8
+          ],
+          [
+            3,
+            18,
+            54,
+            38,
+            14,
+            8
+          ],
+          [
+            4,
+            16,
+            64,
+            46,
+            10,
+            8
+          ],
+          [
+            5,
+            14,
+            70,
+            57,
+            6,
+            11
+          ],
+          [
+            6,
+            12,
+            72,
+            72,
+            2,
+            15
+          ]
+        ]
+      },
+      "answer": 18,
+      "tolerance": 0.01,
+      "prefix": "$",
+      "mistakes": [
+        {
+          "value": 72,
+          "feedback": "$72 is the highest TR, not profit. Profit = TR − TC, and the firm does not aim for the highest TR."
+        },
+        {
+          "value": 64,
+          "feedback": "$64 is TR at 4 units. You need to take away TC: $64 − $46."
+        },
+        {
+          "value": 13,
+          "feedback": "$13 is the profit at 5 units. At 5 units MC ($11) is above MR ($6), so that unit cuts profit."
+        },
+        {
+          "value": 0,
+          "feedback": "$0 is the profit at 6 units, where TR is highest. The best output is where MC = MR, not where TR is highest."
+        },
+        {
+          "value": 32,
+          "feedback": "You used (P − MC) × Q. Profit uses average cost: (AR − AC) × Q, or simply TR − TC."
+        }
+      ],
+      "hints": [
+        "Find the output where MC = MR: keep going while MR is at least MC.",
+        "At 4 units MR is $10 and MC is $8. At 5 units MC is above MR. Profit = TR − TC at 4 units."
+      ],
+      "worked": "Example: at the best output, TR is $60 and TC is $45. Profit = $60 − $45 = $15.",
+      "explanation": "MR is above MC up to 4 units. At 5 units MC ($11) is above MR ($6). So the best output is 4. Profit = TR − TC = $64 − $46 = **$18**."
+    },
+    {
+      "id": "q4",
+      "type": "number",
+      "level": "core",
+      "hl": true,
+      "prompt": "A firm's total cost rises from **$84** at 6 units to **$99** at 7 units. What is the **marginal cost** of the 7th unit?",
+      "answer": 15,
+      "tolerance": 0.01,
+      "prefix": "$",
+      "mistakes": [
+        {
+          "value": 14.14,
+          "feedback": "That is average cost, TC ÷ Q ($99 ÷ 7). Marginal cost is the change in TC."
+        },
+        {
+          "value": 99,
+          "feedback": "$99 is total cost. Marginal cost is the extra cost of the 7th unit."
+        },
+        {
+          "value": 14,
+          "feedback": "$14 is the average cost at 6 units ($84 ÷ 6). Marginal cost is the change in TC."
+        }
+      ],
+      "hints": [
+        "Marginal cost is the extra cost of one more unit.",
+        "MC = change in TC ÷ change in Q."
+      ],
+      "worked": "Example: TC rises from $40 at 3 units to $52 at 4 units. MC = $52 − $40 = $12.",
+      "explanation": "MC = change in TC ÷ change in Q = ($99 − $84) ÷ 1 = **$15**."
+    },
+    {
+      "id": "q5",
+      "type": "number",
+      "level": "apply",
+      "hl": true,
+      "prompt": "The table shows market shares in a country's market for cola drinks. Calculate the **four-firm concentration ratio (CR4)**.",
+      "table": {
+        "caption": "Market share (%)",
+        "headers": [
+          "Firm",
+          "Share (%)"
+        ],
+        "rows": [
+          [
+            "Firm A",
+            12
+          ],
+          [
+            "Firm B",
+            31
+          ],
+          [
+            "Firm C",
+            4
+          ],
+          [
+            "Firm D",
+            22
+          ],
+          [
+            "Firm E",
+            15
+          ],
+          [
+            "Firm F",
+            6
+          ],
+          [
+            "All other firms",
+            10
+          ]
+        ]
+      },
+      "answer": 80,
+      "tolerance": 0.01,
+      "suffix": "%",
+      "mistakes": [
+        {
+          "value": 69,
+          "feedback": "You added the first four firms in the table. Find the four with the biggest shares."
+        },
+        {
+          "value": 68,
+          "feedback": "That is the three biggest firms (CR3). CR4 needs the four biggest."
+        },
+        {
+          "value": 20,
+          "feedback": "That is the average share of the four biggest. The concentration ratio is their total share."
+        },
+        {
+          "value": 100,
+          "feedback": "You added every firm. All the shares in a market add up to 100%. CR4 is only the four biggest."
+        }
+      ],
+      "hints": [
+        "Find the four firms with the biggest shares.",
+        "The four biggest are 31, 22, 15 and 12. Add them."
+      ],
+      "worked": "Example: shares are 30, 10, 25, 20 and 5. The four biggest are 30, 25, 20 and 10, so CR4 = 85%.",
+      "explanation": "CR4 = 31 + 22 + 15 + 12 = **80%**. Four firms hold most of the market, so it is highly concentrated, like an oligopoly."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "hl": true,
+      "prompt": "Two airlines choose a high or a low fare. Profits are in $ millions (Airline X first, then Airline Y). What is Airline X's **dominant strategy**?",
+      "table": {
+        "caption": "Payoff matrix: X's profit, Y's profit ($ millions)",
+        "headers": [
+          "",
+          "Y: high fare",
+          "Y: low fare"
+        ],
+        "rows": [
+          [
+            "X: high fare",
+            "7, 7",
+            "2, 9"
+          ],
+          [
+            "X: low fare",
+            "9, 2",
+            "4, 4"
+          ]
+        ]
+      },
+      "options": [
+        {
+          "text": "A low fare, because it earns X more whatever Y does.",
+          "correct": true,
+          "feedback": "Yes. 9 > 7 when Y is high, and 4 > 2 when Y is low."
+        },
+        {
+          "text": "A high fare, because both airlines earn the most together (7 + 7).",
+          "feedback": "That is the best outcome for the two together, but X can always earn more by cutting its fare. That is why collusion is hard to keep."
+        },
+        {
+          "text": "There is none: X's best fare depends on what Y does.",
+          "feedback": "Check both columns. The low fare is best for X in both."
+        },
+        {
+          "text": "A low fare, because it gives the highest total profit.",
+          "feedback": "Low fares for both give 4 + 4 = 8, the lowest total. Low is dominant because it is X's best reply to each Y choice."
+        }
+      ],
+      "hints": [
+        "Look at Y's high column, then Y's low column. Which fare is best for X each time?",
+        "If Y is high, X earns 9 with low and 7 with high. If Y is low, X earns 4 with low and 2 with high."
+      ],
+      "worked": "Example: if a firm earns more with a low price whether its rival goes high or low, the low price is its dominant strategy.",
+      "explanation": "Whatever Y does, X earns more with a **low fare** (9 > 7 and 4 > 2). So a low fare is X's dominant strategy. Y reasons the same way, so both end up low, earning 4 each, less than 7 each with high fares: a prisoner's dilemma."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "core",
+      "hl": true,
+      "prompt": "Why do **collusive** agreements between oligopoly firms often break down?",
+      "options": [
+        {
+          "text": "Each firm can earn more by secretly cutting its price, and the deal cannot be enforced.",
+          "correct": true,
+          "feedback": "Yes. The incentive to cheat makes collusion unstable."
+        },
+        {
+          "text": "Collusion lowers the profits of every firm.",
+          "feedback": "Collusion raises joint profits: the firms act like one monopoly. That is why it is tempting."
+        },
+        {
+          "text": "Governments pay firms to collude.",
+          "feedback": "Most governments ban formal collusion. Cartels can face large fines."
+        },
+        {
+          "text": "Customers like the higher prices.",
+          "feedback": "Higher prices hurt consumers. That is one reason cartels are illegal in many countries."
+        }
+      ],
+      "hints": [
+        "Think about what one firm gains if it secretly cuts its price.",
+        "A secret deal cannot be enforced in a court."
+      ],
+      "worked": "Example: two cafés agree to charge $5. One café cuts to $4 and takes most of the customers. The other café cuts too, and the deal is over.",
+      "explanation": "Each firm has an **incentive to cheat**: by cutting its price while the others keep theirs high, it earns more. The deal cannot be enforced, and **formal collusion (a cartel) is illegal** in many countries, so firms risk heavy fines."
+    },
+    {
+      "id": "q8",
+      "type": "choice",
+      "level": "apply",
+      "hl": true,
+      "prompt": "Compared with a perfectly competitive market, why does a monopoly cause **allocative inefficiency**?",
+      "options": [
+        {
+          "text": "It restricts output and charges a price above marginal cost (P > MC), so there is a welfare loss.",
+          "correct": true,
+          "feedback": "Yes. Allocative efficiency needs P = MC. The monopoly stops short of that output."
+        },
+        {
+          "text": "It makes more output than a competitive market, at a lower price.",
+          "feedback": "The other way round: a monopoly makes less output at a higher price."
+        },
+        {
+          "text": "It makes only normal profit in the long run.",
+          "feedback": "High barriers to entry let a monopoly keep abnormal profit in the long run."
+        },
+        {
+          "text": "It produces where P = MC, like a perfectly competitive firm.",
+          "feedback": "A monopoly produces where MC = MR. Because MR is below the price, P > MC there."
+        }
+      ],
+      "hints": [
+        "Compare price with marginal cost at the monopoly's output.",
+        "Allocative efficiency needs P = MC (MB = MC)."
+      ],
+      "worked": "Example: a monopoly sells 40 units at $14, where MC is only $6. Buyers value one more unit at about $14, more than it costs to make, but it is not made.",
+      "explanation": "The monopoly makes less and charges more: at Qm, **P > MC**. Units that buyers value above their cost are not made. Community surplus is not maximized, so there is a **welfare loss**: market failure."
+    },
+    {
+      "id": "q9",
+      "type": "choice",
+      "level": "apply",
+      "hl": true,
+      "prompt": "A large firm uses its market power to keep prices high and block new rivals. Which list gives **government responses** to this abuse of market power?",
+      "options": [
+        {
+          "text": "Legislation and regulation, government ownership, and fines.",
+          "correct": true,
+          "feedback": "Yes. These are the government responses in the guide."
+        },
+        {
+          "text": "Subsidies to the firm so it can grow even bigger.",
+          "feedback": "A subsidy would add to the firm's power, not limit its abuse."
+        },
+        {
+          "text": "Higher barriers to entry so fewer rivals can start.",
+          "feedback": "Higher barriers would give the firm more market power, not less."
+        },
+        {
+          "text": "Nothing, because a firm with market power is always efficient.",
+          "feedback": "Market power can bring economies of scale, but it can also bring high prices, less choice and a welfare loss."
+        }
+      ],
+      "hints": [
+        "Think about laws, who owns the firm, and penalties.",
+        "The guide lists legislation and regulation, government ownership, and fines."
+      ],
+      "worked": "Example: a competition authority finds that firms fixed prices. It fines them and stops a merger that would give one firm too much power.",
+      "explanation": "Governments can use **legislation and regulation** (competition law, blocking mergers, price regulation), **government ownership** (often for natural monopolies such as water), and **fines**."
+    }
+  ],
+  "explain": {
+    "prompt": "Using a payoff matrix, explain why two oligopoly firms are tempted to collude, and why collusion often breaks down.",
+    "frames": [
+      "In an oligopoly, firms are interdependent: each firm's profit depends on ___.",
+      "If both firms keep a high price, they earn ___ each. If both cut prices, they earn ___ each.",
+      "So they are tempted to collude, because ___.",
+      "But each firm has a dominant strategy of ___, because ___.",
+      "Collusion often breaks down because ___. Formal collusion (a cartel) is ___ in many countries."
+    ],
+    "checklist": [
+      "I drew a 2 × 2 payoff matrix with both firms' profits in each cell.",
+      "I named the dominant strategy and said why it is best whatever the rival does.",
+      "I said where both firms end up, and that both would be better off colluding.",
+      "I explained the incentive to cheat and that cartels are illegal in many countries."
+    ]
+  },
+  "teacherNotes": "The whole activity is HL (2.11). Level 1 uses the guide's characteristics: number of firms, product type and barriers to entry, plus price taker or price maker. The concentration ratio rounds list shares out of order, so students must find the largest firms first. Level 2 uses schedules (tables), never functions. With whole-unit data, MC = MR means making every unit where MR is at least MC and stopping before MC rises above MR. This always matches the highest TR − TC, and each round has exactly one best output. The rounds include abnormal profit, normal profit (AR = AC) and a loss (AR < AC), as the guide asks. Level 3 is a prisoner's dilemma: a low price is the dominant strategy, both firms end up with low prices, and both would earn more by colluding. The rival plays tit-for-tat, so students see the risk of a price war and why cheating is punished in a game that repeats. Discussion idea: is it good or bad for consumers when both cafés keep high prices with no deal? The guide's diagrams for perfect competition, natural monopoly and monopolistic competition are not drawn here: use them as a follow-up."
+}

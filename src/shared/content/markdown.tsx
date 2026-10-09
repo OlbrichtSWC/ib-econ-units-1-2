@@ -38,7 +38,8 @@ export function Md({ text, inline }: { text: string; inline?: boolean }) {
   );
 }
 
-const TOKEN = /(\*\*[^*]+\*\*|\*[^*]+\*|\[\[[^\]]+\]\]|\^HL\^)/g;
+// An italic star must not follow a letter or digit, so "Q*" (the social optimum) stays a plain star.
+const TOKEN = /(\*\*[^*]+\*\*|(?<![A-Za-z0-9])\*[^*]+\*|\[\[[^\]]+\]\]|\^HL\^)/g;
 
 export function renderInline(text: string): ComponentChildren {
   const parts = text.split(TOKEN).filter((p) => p !== '');

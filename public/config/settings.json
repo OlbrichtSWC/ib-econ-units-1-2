@@ -10,7 +10,16 @@
     "surplus-shader": true,
     "elasticity-cafe": true,
     "ped-line": true,
-    "gov-toolkit": true
+    "hints-yed": true,
+    "supply-speed": true,
+    "gov-toolkit": true,
+    "externality-fixer": true,
+    "bias-lab": true,
+    "streetlight-fund": true,
+    "fish-pond": true,
+    "used-car-lot": true,
+    "monopoly-game": true,
+    "fair-efficient": true
   },
   "scale": {
     "name": "CBE High School Proficiency Scale",

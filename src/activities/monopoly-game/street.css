@@ -1,0 +1,90 @@
+/* Rival Pricing: the coffee street, the market power map, the schedule and the payoff matrix.
+   Motion stops when the device asks for reduced motion (tokens.css): walkers then stand still on the pavement. */
+
+.rp-street { display: block; width: 100%; max-width: 760px; margin: 0 auto; height: auto; border-radius: 12px; border: 1px solid var(--line); background: #e3f2fb; }
+.rp-steam { animation: rp-steam 2.4s ease-in-out infinite; opacity: 0.8; }
+.rp-steam2 { animation-delay: 0.8s; }
+.rp-steam3 { animation-delay: 1.6s; }
+@keyframes rp-steam { 0% { translate: 0 4px; opacity: 0; } 40% { opacity: 0.85; } 100% { translate: 2px -10px; opacity: 0; } }
+.rp-walker { animation: rp-walk 4.2s linear infinite both; }
+@keyframes rp-walk {
+  0% { translate: var(--rp-from) 0; opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { translate: var(--rp-to) 0; opacity: 0; }
+}
+.rp-walker .rp-legs { animation: rp-step 0.5s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: top center; }
+@keyframes rp-step { from { transform: skewX(-12deg); } to { transform: skewX(12deg); } }
+.rp-coin { animation: rp-coin 0.6s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes rp-coin { from { translate: 0 30px; opacity: 0; } to { translate: 0 0; opacity: 1; } }
+.rp-flip { animation: rp-flip 0.4s ease-out both; transform-box: fill-box; transform-origin: center; }
+@keyframes rp-flip { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.rp-banner { animation: rp-shake 0.6s ease-in-out 2; transform-box: fill-box; transform-origin: center; }
+@keyframes rp-shake { 25% { transform: rotate(-3deg); } 75% { transform: rotate(3deg); } }
+.rp-cloud { animation: rp-bob 3s ease-in-out infinite; }
+.rp-cloudy { animation: rp-drift 14s ease-in-out infinite alternate; }
+@keyframes rp-bob { 50% { translate: 0 4px; } }
+@keyframes rp-drift { from { translate: -60px 0; } to { translate: 60px 0; } }
+
+.rp-scenario { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 2px solid var(--navy); border-radius: 14px; background: var(--white); font-size: 1.05rem; }
+.rp-scenario-icon { font-size: 34px; line-height: 1; }
+.rp-in { animation: rp-in 0.6s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+@keyframes rp-in { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+.rp-clues { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px; margin: 0; }
+.rp-clue { border: 1px dashed var(--line); border-radius: 8px; padding: 6px 8px; background: var(--bg); }
+.rp-clue dt { font-size: 0.8rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; }
+.rp-clue dd { margin: 0; font-size: 0.95rem; }
+
+/* Market power map */
+.rp-map { display: grid; gap: 6px; }
+.rp-map-bar { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); padding: 4px 10px; border-radius: 999px; background: linear-gradient(90deg, var(--ok-50), var(--navy-50) 50%, #f4c9d0); }
+.rp-map-stops { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.rp-stop { display: grid; justify-items: center; align-content: start; gap: 2px; text-align: center; padding: 8px 4px; border: 2px solid var(--line); border-radius: 12px; background: var(--white); font-size: 0.85rem; min-height: 96px; transition: border-color 0.3s ease, background 0.3s ease; }
+.rp-stop-on { border-color: var(--ok); background: var(--ok-50); }
+.rp-stop-icon { font-size: 26px; line-height: 1.1; }
+.rp-tokens { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; min-height: 22px; }
+.rp-token { font-size: 18px; animation: rp-pop 0.45s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes rp-pop { from { scale: 0; } to { scale: 1; } }
+
+.rp-grid2 { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.rp-grid4 { display: grid; gap: 8px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.rp-grid4 .choice-btn { text-align: center; padding: 10px 4px; }
+.rp-kinds { display: grid; gap: 8px; grid-template-columns: minmax(0, 1fr); }
+.rp-choice { display: flex; gap: 10px; align-items: center; }
+.rp-choice-icon { font-size: 22px; }
+.rp-input { font: inherit; width: 7em; padding: 8px 10px; border: 2px solid var(--line); border-radius: var(--radius-sm); }
+.rp-input:focus { border-color: var(--navy); }
+
+/* Schedule table */
+.rp-table th, .rp-table td { padding: 5px 8px; text-align: center; font-variant-numeric: tabular-nums; }
+.rp-table td:first-child { text-align: center; }
+.rp-q-btn { font: inherit; font-weight: 700; min-width: 44px; min-height: 36px; border: 2px solid var(--navy); border-radius: 8px; background: var(--white); color: var(--navy); cursor: pointer; display: inline-flex; gap: 4px; align-items: center; justify-content: center; }
+.rp-q-btn:hover, .rp-q-btn:focus-visible { background: var(--navy-50); }
+.rp-row-on td { background: var(--ok-50); font-weight: 700; }
+.rp-row-miss td { background: var(--warn-50); }
+.rp-share-table { max-width: 360px; }
+
+/* Payoff matrix */
+.rp-matrix { border-collapse: separate; border-spacing: 6px; width: 100%; }
+.rp-matrix caption { text-align: left; padding-bottom: 2px; }
+.rp-rival-h { color: var(--red); font-size: 0.9rem; }
+.rp-you-h { color: var(--navy); font-size: 0.9rem; text-align: left; max-width: 6em; }
+.rp-matrix td { padding: 0; vertical-align: middle; }
+.rp-cell, .rp-cell-btn { display: grid; gap: 2px; justify-items: center; width: 100%; padding: 10px 4px; border: 2px solid var(--line); border-radius: 10px; background: var(--white); font: inherit; color: var(--ink); }
+.rp-cell-btn { cursor: pointer; min-height: 64px; }
+.rp-cell-btn:hover, .rp-cell-btn:focus-visible { border-color: var(--navy); background: var(--navy-50); }
+.rp-cell-on .rp-cell, .rp-cell-on .rp-cell-btn { border-color: var(--ok); background: var(--ok-50); box-shadow: 0 0 0 2px var(--ok); }
+.rp-pay-you { color: var(--navy); font-weight: 700; }
+.rp-pay-rival { color: var(--red); font-weight: 700; }
+.rp-story { padding: 10px 12px; border-left: 4px solid var(--navy); background: var(--navy-50); border-radius: 6px; }
+
+@media (max-width: 420px) {
+  .rp-grid2 { grid-template-columns: minmax(0, 1fr); }
+  .rp-grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rp-scenario { font-size: 1rem; }
+  .rp-stop { font-size: 0.72rem; padding: 6px 2px; }
+  .rp-table th, .rp-table td { padding: 4px 3px; font-size: 0.85rem; }
+  .rp-q-btn { min-width: 38px; }
+  .rp-matrix { border-spacing: 3px; }
+  .rp-cell, .rp-cell-btn { font-size: 0.85rem; }
+}

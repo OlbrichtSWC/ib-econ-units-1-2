@@ -1,0 +1,652 @@
+{
+ "id": "hints-yed",
+ "outcome": "I can use HINTS to explain whether demand is price elastic or inelastic, use YED and Engel curves to classify goods, and calculate PED and YED from data.",
+ "learn": {
+  "text": "**[[Price elasticity of demand]]** (PED) shows how much quantity demanded responds to a change in price. PED = % change in quantity demanded ÷ % change in price. If the size of PED is above 1, demand is **[[price elastic]]**. If it is below 1, demand is **[[price inelastic]]**.\n\nWhat makes PED high or low? Remember **[[HINTS]]**, the [[determinants of PED]]:\n\n- **Habits:** habit-forming or addictive goods, like cigarettes, are inelastic.\n- **Income share:** a good that takes a tiny share of income, like salt, is inelastic. A big purchase, like a car, is elastic.\n- **Necessity:** necessities are inelastic. Luxuries are elastic.\n- **Time:** in the short run demand is more inelastic. Over time people find other options.\n- **Substitutes:** many close substitutes make demand elastic. One brand of cola is elastic. All soft drinks together are inelastic.\n\n**[[Income elasticity of demand]]** (YED) shows how much quantity demanded responds to a change in income. YED = % change in quantity demanded ÷ % change in income. The sign matters. A [[normal good]] has a positive YED. A **[[necessity|necessity good]]** has a YED between 0 and 1. A **[[luxury good]]** (and many services) has a YED above 1. An **[[inferior good]]** has a negative YED.\n\nAn **[[Engel curve]]** shows this. Income is on the vertical axis and quantity demanded is on the horizontal axis.\n\n^HL^ The PED for **[[primary commodities]]**, like wheat or oil, is usually lower than for **[[manufactured products]]**. Commodities are often necessities with few substitutes. A manufactured product, like one brand of phone, has many close substitutes.",
+  "caption": "One Engel curve can show all three types. At low incomes the good is a luxury (quantity rises faster than income), then a necessity (quantity rises more slowly than income), then inferior (quantity falls as income rises)."
+ },
+ "try": {
+  "goal": "Run the HINTS Market. Sort goods at the stall, watch baskets change as income rises, then work out PED and YED at the calculator corner.",
+  "intro": "**Level 1: The HINTS stall.** Goods slide down the chute one at a time. First choose the HINTS determinant that matters most. Then put the good in the price elastic crate or the price inelastic crate.\n\n**Level 2: Income lab.** Raise the household's income and watch the basket change. An Engel curve draws itself for each good. Use the data to say if each good is a necessity, a luxury or an inferior good.\n\n**Level 3: Calculator corner.** Work out PED and YED from the data, to 2 decimal places. Then say what the answer means. One round is HL: why primary commodities have a low PED.",
+  "levels": [
+   {
+    "title": "The HINTS stall",
+    "blurb": "Sort 10 goods. Get 8 right first time (determinant and crate)."
+   },
+   {
+    "title": "Income lab",
+    "blurb": "Read Engel curves for 6 goods. Get 5 right first time."
+   },
+   {
+    "title": "Calculator corner",
+    "blurb": "Calculate and classify 6 elasticities, one HL. Get 5 right first time."
+   }
+  ],
+  "detNames": {
+   "H": "Habits",
+   "I": "Income share",
+   "N": "Necessity",
+   "T": "Time",
+   "S": "Substitutes"
+  },
+  "detAbout": {
+   "H": "Habits is about addiction or a daily routine.",
+   "I": "Income share is about how much of a budget the good takes.",
+   "N": "Necessity is about whether people need the good or could do without it.",
+   "T": "Time is about how long buyers have to adjust to a price change.",
+   "S": "Substitutes is about other goods that buyers can switch to."
+  },
+  "detRules": {
+   "H": "A habit or addiction makes people keep buying, so demand is inelastic.",
+   "I": "A tiny share of income makes demand inelastic. A big share of income makes demand elastic.",
+   "N": "A necessity has inelastic demand. A luxury that nobody needs has elastic demand.",
+   "T": "In the short run people cannot change what they do, so demand is inelastic. Over time it becomes more elastic.",
+   "S": "Many close substitutes make demand elastic. No close substitutes make demand inelastic."
+  },
+  "goods": [
+   {
+    "id": "cola",
+    "icon": "🥤",
+    "name": "One brand of cola",
+    "clue": "The shop sells eight other colas on the same shelf.",
+    "det": "S",
+    "ped": "elastic",
+    "why": "If this brand gets dearer, shoppers pick one of the eight other colas. Many close substitutes make demand price elastic."
+   },
+   {
+    "id": "softdrinks",
+    "icon": "🧃",
+    "name": "All soft drinks",
+    "clue": "Every soft drink in the shop gets dearer at the same time.",
+    "det": "S",
+    "ped": "inelastic",
+    "why": "There is no other soft drink to switch to. A whole group of goods has fewer close substitutes than one brand, so demand is price inelastic."
+   },
+   {
+    "id": "salt",
+    "icon": "🧂",
+    "name": "Salt",
+    "clue": "A bag costs very little and lasts for months.",
+    "det": "I",
+    "ped": "inelastic",
+    "why": "Salt takes a tiny share of income. Even if the price doubles, people hardly notice, so demand is price inelastic."
+   },
+   {
+    "id": "petrol",
+    "icon": "⛽",
+    "name": "Petrol, this week",
+    "clue": "Drivers cannot change their car or their way to work in a few days.",
+    "det": "T",
+    "ped": "inelastic",
+    "why": "In the short run drivers have no time to change. They still need to get to work, so demand is price inelastic."
+   },
+   {
+    "id": "car",
+    "icon": "🚗",
+    "name": "A new car",
+    "clue": "It costs about a year of pay for many families.",
+    "det": "I",
+    "ped": "elastic",
+    "why": "A car takes a large share of income. A 10% rise is a lot of money, so many buyers wait or buy a cheaper car. Demand is price elastic."
+   },
+   {
+    "id": "cigarettes",
+    "icon": "🚬",
+    "name": "Cigarettes",
+    "clue": "Most smokers are addicted.",
+    "det": "H",
+    "ped": "inelastic",
+    "why": "Addiction is a strong habit. Smokers keep buying when the price rises, so demand is price inelastic."
+   },
+   {
+    "id": "insulin",
+    "icon": "💉",
+    "name": "Insulin",
+    "clue": "People with diabetes need it to stay alive.",
+    "det": "N",
+    "ped": "inelastic",
+    "why": "Insulin is a necessity. People must buy it whatever the price, so demand is price inelastic."
+   },
+   {
+    "id": "earrings",
+    "icon": "💍",
+    "name": "Gold earrings",
+    "clue": "A luxury: nice to have, but nobody needs them.",
+    "det": "N",
+    "ped": "elastic",
+    "why": "Earrings are a luxury, not a necessity. When the price rises, many people simply do without, so demand is price elastic."
+   },
+   {
+    "id": "croissant",
+    "icon": "🥐",
+    "name": "Croissants from one bakery",
+    "clue": "Four other bakeries on the same street sell the same croissants.",
+    "det": "S",
+    "ped": "elastic",
+    "why": "Shoppers can walk to the next bakery. Close substitutes make demand price elastic."
+   },
+   {
+    "id": "coffee",
+    "icon": "☕",
+    "name": "Morning coffee",
+    "clue": "For many buyers it is a habit: they have one every single morning.",
+    "det": "H",
+    "ped": "inelastic",
+    "why": "A daily habit is hard to break. Regular coffee drinkers keep buying when the price rises, so demand is price inelastic."
+   }
+  ],
+  "incomes": [2000, 3000, 4000, 5000, 6000],
+  "baskets": [
+   {
+    "id": "b1",
+    "name": "Household A: a young family",
+    "goods": [
+     {
+      "id": "bread",
+      "icon": "🍞",
+      "name": "Bread",
+      "unit": "loaves a month",
+      "qty": [10, 12, 14, 15, 16],
+      "kind": "necessity",
+      "why": "The family buys more bread as income rises, but quantity rises more slowly than income. The Engel curve is steep."
+     },
+     {
+      "id": "meals",
+      "icon": "🍽️",
+      "name": "Restaurant meals",
+      "unit": "meals a month",
+      "qty": [1, 2, 4, 6, 9],
+      "kind": "luxury",
+      "why": "Restaurant meals rise much faster than income. Eating out is a luxury service. The Engel curve is flat: it moves right quickly."
+     },
+     {
+      "id": "bus",
+      "icon": "🚌",
+      "name": "Bus tickets",
+      "unit": "tickets a month",
+      "qty": [40, 34, 28, 24, 20],
+      "kind": "inferior",
+      "why": "As income rises the family buys fewer bus tickets, because they can afford to drive. The Engel curve bends back to the left."
+     }
+    ]
+   },
+   {
+    "id": "b2",
+    "name": "Household B: two students sharing a flat",
+    "goods": [
+     {
+      "id": "noodles",
+      "icon": "🍜",
+      "name": "Instant noodles",
+      "unit": "packs a month",
+      "qty": [30, 26, 20, 15, 12],
+      "kind": "inferior",
+      "why": "As income rises the students buy fewer packs of noodles and switch to better food. The Engel curve bends back to the left."
+     },
+     {
+      "id": "milk",
+      "icon": "🥛",
+      "name": "Milk",
+      "unit": "litres a month",
+      "qty": [12, 14, 16, 17, 18],
+      "kind": "necessity",
+      "why": "Milk rises a little as income rises, but much more slowly than income. The Engel curve is steep."
+     },
+     {
+      "id": "concerts",
+      "icon": "🎫",
+      "name": "Concert tickets",
+      "unit": "tickets a year",
+      "qty": [1, 2, 3, 5, 7],
+      "kind": "luxury",
+      "why": "Concert tickets rise much faster than income. Live music is a luxury. The Engel curve is flat: it moves right quickly."
+     }
+    ]
+   }
+  ],
+  "yedNames": {
+   "necessity": "Necessity",
+   "luxury": "Luxury",
+   "inferior": "Inferior"
+  },
+  "yedHints": {
+   "necessity": "0 < YED < 1",
+   "luxury": "YED > 1",
+   "inferior": "YED < 0"
+  },
+  "calcs": [
+   {
+    "id": "c1",
+    "kind": "ped",
+    "title": "Bubble tea",
+    "story": "A bubble tea shop raises its price. Calculate the PED.",
+    "x0": 4,
+    "x1": 5,
+    "q0": 400,
+    "q1": 340,
+    "xName": "Price ($)",
+    "qName": "Cups a day",
+    "money": true,
+    "answer": -0.6
+   },
+   {
+    "id": "c2",
+    "kind": "yed",
+    "title": "Taxi rides",
+    "story": "Average income in a town rises. Calculate the YED for taxi rides.",
+    "x0": 40000,
+    "x1": 44000,
+    "q0": 50,
+    "q1": 58,
+    "xName": "Income a year ($)",
+    "qName": "Taxi rides a year",
+    "money": true,
+    "answer": 1.6
+   },
+   {
+    "id": "c3",
+    "kind": "ped",
+    "title": "Music streaming pass",
+    "story": "A streaming service cuts its price. Calculate the PED.",
+    "x0": 10,
+    "x1": 8,
+    "q0": 100,
+    "q1": 150,
+    "xName": "Price ($)",
+    "qName": "Passes sold (thousands)",
+    "money": true,
+    "answer": -2.5
+   },
+   {
+    "id": "c4",
+    "kind": "yed",
+    "title": "Second-hand clothes",
+    "story": "A family's income rises. Calculate the YED for second-hand clothes.",
+    "x0": 2500,
+    "x1": 3000,
+    "q0": 20,
+    "q1": 18,
+    "xName": "Income a month ($)",
+    "qName": "Items bought a year",
+    "money": true,
+    "answer": -0.5
+   },
+   {
+    "id": "c5",
+    "kind": "qty",
+    "title": "Fresh fruit",
+    "story": "The YED for fresh fruit is 0.5. Incomes rise by 8%. Calculate the % change in quantity demanded.",
+    "elasticity": 0.5,
+    "pct": 8,
+    "answer": 4
+   },
+   {
+    "id": "c6",
+    "kind": "ped",
+    "hl": true,
+    "title": "Wheat, a primary commodity",
+    "story": "The world price of wheat rises. Calculate the PED for wheat. Then explain why it is so low.",
+    "x0": 200,
+    "x1": 240,
+    "q0": 1000,
+    "q1": 960,
+    "xName": "Price per tonne ($)",
+    "qName": "Tonnes bought (millions)",
+    "money": true,
+    "answer": -0.2,
+    "reason": {
+     "prompt": "One brand of smartphone, a manufactured product, has a PED of about −1.5. Why is the PED for wheat so much lower?",
+     "options": [
+      {
+       "text": "Wheat is a basic food with no close substitutes. One brand of phone has many close substitutes.",
+       "correct": true,
+       "feedback": "Yes. Primary commodities are often necessities with few substitutes. A manufactured product, like one brand of phone, competes with many close substitutes, so its PED is higher."
+      },
+      {
+       "text": "Wheat is a manufactured product, so its demand is inelastic.",
+       "feedback": "Wheat is a primary commodity: it comes from farming. The smartphone is the manufactured product."
+      },
+      {
+       "text": "Wheat takes a large share of household income.",
+       "feedback": "A large share of income would make demand more elastic, not less. Look at substitutes and necessity."
+      },
+      {
+       "text": "Farmers can grow more wheat very quickly.",
+       "feedback": "That is about supply, not demand. PED is about how buyers respond to a price change."
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "check": [
+  {
+   "id": "q1",
+   "type": "choice",
+   "level": "core",
+   "prompt": "Demand for **one brand** of trainers is price elastic. Which HINTS determinant explains this best?",
+   "options": [
+    {
+     "text": "Substitutes: there are many other brands of trainers.",
+     "correct": true,
+     "feedback": "Yes. If one brand gets dearer, buyers switch to another brand. Many close substitutes make demand elastic."
+    },
+    {
+     "text": "Habits: people always buy trainers.",
+     "feedback": "A habit makes demand inelastic, not elastic. Think about what buyers can switch to."
+    },
+    {
+     "text": "Necessity: trainers are needed for sport.",
+     "feedback": "A necessity has inelastic demand. And there are many other brands that meet the same need."
+    },
+    {
+     "text": "Time: shoes last for a long time.",
+     "feedback": "Time is about how long buyers have to adjust to a price change. The key point here is the other brands."
+    }
+   ],
+   "hints": [
+    "The question says one brand, not all trainers.",
+    "What can a buyer do if one brand gets dearer?"
+   ],
+   "worked": "Example: one brand of toothpaste has elastic demand because there are many other brands (substitutes). Toothpaste as a whole has inelastic demand.",
+   "explanation": "The S in **HINTS**: the more close **substitutes** a good has, the more price elastic its demand."
+  },
+  {
+   "id": "q2",
+   "type": "choice",
+   "level": "core",
+   "prompt": "Which good is likely to have the **most price inelastic** demand?",
+   "options": [
+    {
+     "text": "Electricity for a home, in the next month",
+     "correct": true,
+     "feedback": "Yes. Electricity is a necessity with few substitutes, and in one month people cannot change their heaters or lights. Demand is very inelastic."
+    },
+    {
+     "text": "A holiday abroad",
+     "feedback": "A holiday is a luxury that takes a big share of income. Demand is likely to be elastic."
+    },
+    {
+     "text": "One brand of crisps",
+     "feedback": "There are many other brands of crisps, so demand for one brand is elastic."
+    },
+    {
+     "text": "A new sofa",
+     "feedback": "A sofa takes a big share of income and buyers can wait. Demand is likely to be elastic."
+    }
+   ],
+   "hints": [
+    "Go through HINTS for each good.",
+    "Look for a necessity with few substitutes, over a short time."
+   ],
+   "worked": "Example: water for a home is a necessity, takes a small share of income and has no substitutes, so demand is very price inelastic.",
+   "explanation": "Electricity is a **necessity**, has **few substitutes**, and over a **short time** people cannot change what they use. All of these make demand **price inelastic**."
+  },
+  {
+   "id": "q3",
+   "type": "number",
+   "level": "core",
+   "prompt": "The price of a cinema ticket rises from **$10 to $12**. Quantity demanded falls from **1,000 to 900** tickets a week. Calculate the PED. Give your answer to 2 decimal places.",
+   "answer": -0.5,
+   "tolerance": 0.011,
+   "mistakes": [
+    {
+     "value": -2,
+     "feedback": "You divided % change in price by % change in quantity. The formula is the other way up: PED = % change in **quantity demanded** ÷ % change in **price**."
+    },
+    {
+     "value": -0.67,
+     "feedback": "You used the new values ($12 and 900) as the base. Percentage change uses the **original** values: (new − original) ÷ original × 100."
+    },
+    {
+     "value": -50,
+     "feedback": "You divided the change in quantity (−100) by the change in price ($2). PED uses **percentage** changes, not the raw changes."
+    },
+    {
+     "value": 0.5,
+     "feedback": "The size is right, but price and quantity demanded moved in opposite directions, so PED is **negative**."
+    }
+   ],
+   "hints": [
+    "Work out the two percentage changes first, then divide.",
+    "% change in price = (12 − 10) ÷ 10 × 100. % change in quantity = (900 − 1,000) ÷ 1,000 × 100."
+   ],
+   "worked": "Example with different numbers: price rises from $4 to $5, so % change in price = 1 ÷ 4 × 100 = +25%. Quantity falls from 400 to 340, so % change in quantity = −60 ÷ 400 × 100 = −15%. PED = −15 ÷ 25 = −0.6.",
+   "explanation": "% change in price = (12 − 10) ÷ 10 × 100 = +20%. % change in quantity demanded = (900 − 1,000) ÷ 1,000 × 100 = −10%. PED = −10 ÷ 20 = **−0.5**. The size is less than 1, so demand is price inelastic."
+  },
+  {
+   "id": "q4",
+   "type": "number",
+   "level": "core",
+   "prompt": "Average income rises from **$50,000 to $55,000** a year. Gym memberships rise from **200 to 230**. Calculate the YED. Give your answer to 2 decimal places.",
+   "answer": 1.5,
+   "tolerance": 0.011,
+   "mistakes": [
+    {
+     "value": 0.67,
+     "feedback": "You divided % change in income by % change in quantity. The formula is: YED = % change in **quantity demanded** ÷ % change in **income**."
+    },
+    {
+     "value": 1.43,
+     "feedback": "You used the new values ($55,000 and 230) as the base. Percentage change uses the **original** values."
+    },
+    {
+     "value": -1.5,
+     "feedback": "Income and quantity both rose, so YED is **positive**."
+    }
+   ],
+   "hints": [
+    "Work out % change in income and % change in quantity demanded.",
+    "% change in income = 5,000 ÷ 50,000 × 100 = 10%. % change in quantity = 30 ÷ 200 × 100."
+   ],
+   "worked": "Example with different numbers: income rises from $40,000 to $44,000 (+10%). Taxi rides rise from 50 to 58 (+16%). YED = 16 ÷ 10 = 1.6.",
+   "explanation": "% change in income = (55,000 − 50,000) ÷ 50,000 × 100 = +10%. % change in quantity = (230 − 200) ÷ 200 × 100 = +15%. YED = 15 ÷ 10 = **1.5**. YED is above 1, so gym memberships are a luxury (income elastic)."
+  },
+  {
+   "id": "q5",
+   "type": "choice",
+   "level": "core",
+   "prompt": "The YED for a good is **−0.4**. What does this tell us?",
+   "options": [
+    {
+     "text": "It is an inferior good: when income rises, quantity demanded falls.",
+     "correct": true,
+     "feedback": "Yes. A negative YED means quantity demanded moves the opposite way to income."
+    },
+    {
+     "text": "It is a necessity, because the size is less than 1.",
+     "feedback": "A necessity has a YED between 0 and 1. It must be positive. Here the sign is negative."
+    },
+    {
+     "text": "Demand is price inelastic.",
+     "feedback": "YED is about income, not price. It tells us nothing about PED."
+    },
+    {
+     "text": "It is a luxury good.",
+     "feedback": "A luxury has a YED above 1. This YED is below 0."
+    }
+   ],
+   "hints": [
+    "Look at the sign first: plus or minus?",
+    "A negative YED means income and quantity move in opposite directions."
+   ],
+   "worked": "Example: if income rises 10% and quantity of bus tickets falls 3%, YED = −3 ÷ 10 = −0.3. Bus tickets are inferior for this group.",
+   "explanation": "The **sign** of YED matters. Negative YED: **inferior** good. Between 0 and 1: **necessity**. Above 1: **luxury**."
+  },
+  {
+   "id": "q6",
+   "type": "label",
+   "level": "core",
+   "prompt": "This Engel curve shows one good as income rises. Choose the label for each section.",
+   "diagram": {
+    "xMax": 100,
+    "yMax": 100,
+    "xLabel": "Quantity demanded",
+    "yLabel": "Income",
+    "title": "Engel curve",
+    "description": "An Engel curve with income on the vertical axis and quantity demanded on the horizontal axis. At low incomes the curve moves right quickly with a gentle slope (A). Then it rises steeply (B). At high incomes it bends back to the left (C).",
+    "curves": [
+     {
+      "points": [
+       { "q": 0, "p": 10 },
+       { "q": 20, "p": 20 },
+       { "q": 38, "p": 29 },
+       { "q": 46, "p": 36 },
+       { "q": 52, "p": 46 },
+       { "q": 56, "p": 58 },
+       { "q": 55, "p": 66 },
+       { "q": 48, "p": 78 },
+       { "q": 40, "p": 88 }
+      ],
+      "label": "Engel curve",
+      "labelOffset": { "dx": -10, "dy": -12 }
+     }
+    ],
+    "tags": [
+     { "at": { "q": 16, "p": 27 }, "letter": "A" },
+     { "at": { "q": 61, "p": 46 }, "letter": "B" },
+     { "at": { "q": 59, "p": 80 }, "letter": "C" }
+    ]
+   },
+   "slots": [
+    {
+     "letter": "A",
+     "answer": "Luxury (YED > 1)",
+     "feedback": "At A, quantity rises faster than income: the curve is flat and moves right quickly. YED is above 1."
+    },
+    {
+     "letter": "B",
+     "answer": "Necessity (0 < YED < 1)",
+     "feedback": "At B, quantity still rises, but more slowly than income: the curve is steep. YED is between 0 and 1."
+    },
+    {
+     "letter": "C",
+     "answer": "Inferior (YED < 0)",
+     "feedback": "At C, quantity falls as income rises: the curve bends back to the left. YED is negative."
+    }
+   ],
+   "choices": [
+    "Luxury (YED > 1)",
+    "Necessity (0 < YED < 1)",
+    "Inferior (YED < 0)",
+    "Price elastic (PED > 1)",
+    "Unit YED (YED = 1)"
+   ],
+   "hints": [
+    "Income is on the vertical axis. A flat section means quantity grows a lot for a small rise in income.",
+    "Where the curve bends back to the left, more income means less quantity."
+   ],
+   "worked": "Example: restaurant meals for a family. At low incomes, each pay rise brings many more meals out (luxury). Later, meals rise only a little (necessity). At very high incomes the family may switch to private chefs, and meals out fall (inferior).",
+   "explanation": "On an Engel curve: a **flat** section is a **luxury** (YED > 1), a **steep** section is a **necessity** (0 < YED < 1), and a section that **bends back** is **inferior** (YED < 0)."
+  },
+  {
+   "id": "q7",
+   "type": "number",
+   "level": "apply",
+   "prompt": "The YED for bread is **0.6**. Incomes rise by **5%**. Calculate the % change in quantity demanded of bread.",
+   "answer": 3,
+   "tolerance": 0.011,
+   "suffix": "%",
+   "mistakes": [
+    {
+     "value": 8.33,
+     "feedback": "You divided 5 by 0.6. Rearrange the formula: % change in quantity = YED × % change in income."
+    },
+    {
+     "value": 0.12,
+     "feedback": "You divided 0.6 by 5. Rearrange the formula: % change in quantity = YED × % change in income."
+    },
+    {
+     "value": -3,
+     "feedback": "YED is positive and income rose, so quantity demanded rises too."
+    }
+   ],
+   "hints": [
+    "YED = % change in quantity ÷ % change in income. Rearrange it.",
+    "% change in quantity = YED × % change in income."
+   ],
+   "worked": "Example: YED for fresh fruit is 0.5 and incomes rise 8%. % change in quantity = 0.5 × 8 = 4%.",
+   "explanation": "% change in quantity demanded = YED × % change in income = 0.6 × 5 = **3%**. Bread is a necessity: quantity rises, but by less than income."
+  },
+  {
+   "id": "q8",
+   "type": "choice",
+   "level": "apply",
+   "hl": true,
+   "prompt": "Incomes in a country grow steadily for 30 years. Using YED, which sector's share of the economy is most likely to **grow**?",
+   "options": [
+    {
+     "text": "Services, such as tourism, restaurants and health care, because they have a YED above 1.",
+     "correct": true,
+     "feedback": "Yes. Demand for services grows faster than income, so the service sector takes a larger share of the economy."
+    },
+    {
+     "text": "Agriculture, because food is a necessity.",
+     "feedback": "Food is a necessity with a YED below 1. Demand grows more slowly than income, so the share of agriculture tends to fall."
+    },
+    {
+     "text": "Basic food, because its YED is negative.",
+     "feedback": "Basic food usually has a YED between 0 and 1. And a good with a negative YED would shrink as incomes rise."
+    },
+    {
+     "text": "No sector changes, because YED stays the same.",
+     "feedback": "Different goods have different YEDs, so as incomes rise, spending shifts between sectors."
+    }
+   ],
+   "hints": [
+    "Which goods grow faster than income?",
+    "Luxuries and services have a YED above 1."
+   ],
+   "worked": "Example: as incomes rise, families spend a smaller share on food and a larger share on travel and eating out. Firms that sell income elastic products grow fastest in a boom.",
+   "explanation": "^HL^ YED helps explain changes in the **sectoral structure** of an economy. As incomes rise, the share of primary goods (low YED) falls and the share of **services** (high YED) grows. Firms also use YED to plan: income elastic products sell much more in a boom and much less in a recession."
+  },
+  {
+   "id": "q9",
+   "type": "choice",
+   "level": "apply",
+   "hl": true,
+   "prompt": "Why is the PED for **primary commodities**, such as coffee beans or copper, usually lower than the PED for **manufactured products**?",
+   "options": [
+    {
+     "text": "Primary commodities are often necessities or inputs with few substitutes. Manufactured products often have many close substitutes, like other brands.",
+     "correct": true,
+     "feedback": "Yes. Few substitutes and a high degree of necessity make demand for commodities price inelastic."
+    },
+    {
+     "text": "Primary commodities take a large share of household income.",
+     "feedback": "A large share of income would make demand more elastic. Most commodities are bought as inputs or take a small share of income."
+    },
+    {
+     "text": "Manufactured products are always necessities.",
+     "feedback": "Many manufactured products are luxuries, and each brand faces close substitutes. That makes their PED higher."
+    },
+    {
+     "text": "The supply of primary commodities is inelastic.",
+     "feedback": "That is about PES, not PED. The question asks how buyers respond to a price change."
+    }
+   ],
+   "hints": [
+    "Use the N and S of HINTS.",
+    "Can a chocolate firm easily replace cocoa beans? Can a buyer easily replace one brand of phone?"
+   ],
+   "worked": "Example: a coffee shop needs coffee beans whatever their price, so demand for beans is inelastic. But if one brand of laptop gets dearer, buyers choose another brand, so demand for it is elastic.",
+   "explanation": "^HL^ Primary commodities are often **necessities** (food, energy, raw materials) with **few substitutes**, so their PED is low. Manufactured products are often branded, with many close **substitutes**, so their PED is higher."
+  }
+ ],
+ "explain": {
+  "prompt": "Choose one good from the game. Use HINTS to explain whether its demand is price elastic or price inelastic. Then say what its YED is likely to be and why.",
+  "frames": [
+   "Demand for ___ is likely to be price ___ because ___.",
+   "The most important HINTS determinant is ___, because ___.",
+   "If income rises by 10%, quantity demanded of ___ will ___, so its YED is ___.",
+   "On an Engel curve, this good would look ___."
+  ],
+  "checklist": [
+   "I named a HINTS determinant and explained it.",
+   "I said price elastic or price inelastic, and why.",
+   "I used the sign and size of YED: inferior, necessity or luxury.",
+   "I linked my answer to the shape of an Engel curve."
+  ]
+ },
+ "teacherNotes": "Level 1 works well projected: pause on each good and ask the class to vote on the HINTS letter before anyone sorts it. One brand of cola against all soft drinks is the key contrast for substitutes. Level 2 uses hypothetical household data; ask students to compute one YED step by hand before they classify. Point out that IB Engel curves put income on the vertical axis. Level 3 covers the PED and YED calculations in the 2.5 guide (including a rearranged YED question). The wheat round and Check it questions 8 and 9 are HL: PED for primary commodities against manufactured products, and the importance of YED for firms and for sectoral change. For PED along a straight line and PED with total revenue, use Same Slope, Different PED and The Elasticity Café."
+}
