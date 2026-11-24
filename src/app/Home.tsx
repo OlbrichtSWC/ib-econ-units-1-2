@@ -13,6 +13,7 @@ const ICONS: Record<string, string> = {
   'market-shock': '📈', 'surplus-shader': '🎨', 'bias-lab': '🧠', 'elasticity-cafe': '☕', 'ped-line': '📏',
   'hints-yed': '🛒', 'supply-speed': '🚚', 'gov-toolkit': '🏛️', 'externality-fixer': '🌤️', 'fish-pond': '🐟',
   'streetlight-fund': '💡', 'used-car-lot': '🚗', 'monopoly-game': '🎲', 'fair-efficient': '⚖️',
+  'diagram-doctor': '🩺', 'command-terms': '🛫', 'build-break-judge': '🌉',
 };
 
 function stepsDone(steps: number) {
@@ -75,7 +76,7 @@ export function Home(props: { progress: Progress; enabled: Record<string, boolea
             return (
               <div key={s.code} class="subtopic">
                 <h3>
-                  {s.code} {s.title} {s.hl && <HlBadge />}
+                  {s.unit === 'skills' ? s.title : `${s.code} ${s.title}`} {s.hl && <HlBadge />}
                 </h3>
                 <div class="grid">
                   {acts.map((a) => {

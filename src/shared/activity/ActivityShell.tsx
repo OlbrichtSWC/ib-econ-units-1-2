@@ -194,7 +194,7 @@ export function ActivityShell(props: ShellProps) {
           />
         )}
 
-        {props.calculator !== false && (props.step === 'try' || props.step === 'check') && <Calculator />}
+        {props.calculator !== false && !meta.noCalculator && (props.step === 'try' || props.step === 'check') && <Calculator />}
 
         {props.step === 'rate' && (
           <SelfRate

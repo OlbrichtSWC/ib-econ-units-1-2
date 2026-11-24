@@ -117,7 +117,8 @@ export interface ActivityMeta {
   /** Syllabus sub-topic code, for example "2.5". Used for ordering. */
   code: string;
   title: string;
-  unit: 1 | 2;
+  /** Syllabus unit, or 'skills' for the exam skills section. */
+  unit: 1 | 2 | 'skills';
   /** 'all' = the whole activity is HL only; 'part' = some parts are HL. */
   hl?: 'all' | 'part';
   /** What kind of game this is, shown on the home screen. */
@@ -127,6 +128,8 @@ export interface ActivityMeta {
   goal?: GoalStamp;
   /** Stamps for the Level 2 and Level 3 goals. */
   goals?: [GoalStamp, GoalStamp];
+  /** Leave out the calculator button: the activity has nothing to calculate. */
+  noCalculator?: boolean;
   /** Present when the activity is built. */
   load?: () => Promise<ActivityModule>;
 }

@@ -48,6 +48,8 @@
   border-radius: 12px; box-shadow: 4px 4px 0 var(--red); transform: rotate(-1deg);
 }
 .unit-2 .unit-title { background: var(--red); box-shadow: 4px 4px 0 var(--navy); }
+.unit-skills .unit-title { background: var(--white); color: var(--navy); border: 3px solid var(--navy); box-shadow: 4px 4px 0 var(--red); transform: rotate(1deg); }
+.unit-skills .game-card { border-top: 6px double var(--red); }
 .subtopic h3 { margin: 18px 0 10px; font-size: 1.05rem; color: var(--ink); font-family: var(--font-body); }
 /* Activity cards on the home page: a coloured top edge, a big icon and a Play button. */
 .game-card { position: relative; border-width: 2px; border-top: 6px solid var(--navy); padding-top: 16px; }

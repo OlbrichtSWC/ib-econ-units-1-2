@@ -1,0 +1,4774 @@
+{
+  "id": "diagram-doctor",
+  "outcome": "I can check a diagram against the question, spot what is wrong with its axes, curves, shifts, marks and areas, and fix it so it would earn full marks.",
+  "learn": {
+    "text": "In the exam, a diagram can earn marks only if it is **correct** and **fully labelled**. The IB guide says students should include \"correctly labelled and clearly drawn diagrams\". The top markbands also want the diagram **explained** in your writing.\n\nCheck every diagram like a doctor, with this checklist:\n\n1. **Axes**: price (P) up the side, quantity (Q) along the bottom. Other diagrams use their own axes, such as wage and quantity of labour.\n2. **Curves**: every curve labelled, such as D and S, or MSC and MSB. Demand slopes down and supply slopes up.\n3. **Changes**: the right curve shifts in the right direction, with the new curve labelled (D₁ to D₂). A change in the good's own price is a **[[movement along the curve]]**, not a **[[shift of the curve]]**.\n4. **Marks**: dashed lines from each **[[equilibrium]]** to both axes, labelled P₁, Q₁, P₂ and Q₂.\n5. **Areas**: any shaded area, such as **[[consumer surplus]]**, is the right shape and labelled.\n6. **The question**: the diagram shows what the question asks about, in the right market.",
+    "caption": "A full-mark diagram: labelled axes, labelled curves, an arrow for the shift, and dashed lines to both equilibria."
+  },
+  "try": {
+    "goal": "Fix the diagrams like a doctor. In Level 1, cure 8 of 10 patients right first time to earn the **Check-up Doctor** stamp.",
+    "intro": "Diagrams arrive at the clinic with something wrong. **Read the task** on the patient's chart: it says what the diagram should show. **Examine** the lettered tags and tap the one that is wrong. Then **choose the cure**. The diagram heals and you see the fixed version.\n\nIn Level 2, each patient has **two** problems. In Level 3, there are no tags: decide what is wrong, or say the diagram is healthy.",
+    "levels": [
+      {
+        "title": "Check-up",
+        "blurb": "One problem per diagram. Cure 8 of 10 right first time."
+      },
+      {
+        "title": "Busy ward",
+        "blurb": "Two problems per diagram. Score 10 of 12 first-try points."
+      },
+      {
+        "title": "Exam triage",
+        "blurb": "No tags. Name every problem, or say it is healthy. 7 of 9 right first time."
+      }
+    ],
+    "checkups": [
+      {
+        "id": "income-cinema",
+        "task": "Draw a diagram to show the effect of a rise in incomes on the market for cinema tickets. Cinema tickets are a normal good.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for cinema tickets, as the student drew it",
+          "description": "Demand and supply diagram. A dashed demand curve D₁ and a solid demand curve D₂ to the left of it. An upward-sloping supply curve S. An arrow points from D₁ to D₂. P₁ and Q₁ are marked where D₁ meets S. P₂ and Q₂ are marked where D₂ meets S. Tag A is beside the price axis. Tag B is on D₂. Tag C is on S. Tag D is at the point where D₂ meets S.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "grey",
+              "label": "D₁",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 0.5,
+                  "p": 7.5
+                },
+                {
+                  "q": 7,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D₂"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 4
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 4
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 0.45,
+                "p": 6.8
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 1.8,
+                "p": 6.2
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 7.6,
+                "p": 7.6
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 3.4,
+                "p": 3.4
+              },
+              "letter": "D"
+            }
+          ],
+          "arrows": [
+            {
+              "from": {
+                "q": 7,
+                "p": 3
+              },
+              "to": {
+                "q": 5.3,
+                "p": 3
+              }
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for cinema tickets, fixed",
+          "description": "Demand shifts right from the dashed D₁ to D₂. Price rises from P₁ to P₂ and quantity rises from Q₁ to Q₂.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "grey",
+              "label": "D₁",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 3,
+                  "p": 9
+                },
+                {
+                  "q": 10,
+                  "p": 2
+                }
+              ],
+              "tone": "navy",
+              "label": "D₂"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 6
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 6
+              }
+            }
+          ],
+          "arrows": [
+            {
+              "from": {
+                "q": 6.2,
+                "p": 3.8
+              },
+              "to": {
+                "q": 7.9,
+                "p": 3.8
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "B",
+            "cures": [
+              {
+                "text": "Draw D₂ to the right of D₁.",
+                "feedback": "Yes. Higher incomes raise demand for a normal good, so demand shifts right.",
+                "correct": true
+              },
+              {
+                "text": "Shift supply to the left instead.",
+                "feedback": "Incomes change what buyers do, not sellers. It is demand that shifts."
+              },
+              {
+                "text": "Keep D₂ on the left, but call it D₁.",
+                "feedback": "A new name does not fix it. For a normal good, demand rises when incomes rise, so the curve moves right."
+              }
+            ]
+          }
+        ],
+        "why": "For a **normal good**, higher incomes increase demand at every price. Demand shifts **right**, so the price and the quantity both rise."
+      },
+      {
+        "id": "axis-demand",
+        "task": "Draw a diagram to show the market for bicycles in equilibrium.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Demand",
+          "title": "Market for bicycles, as the student drew it",
+          "description": "The vertical axis is labelled Demand. The horizontal axis is labelled Quantity. A downward-sloping curve D and an upward-sloping curve S cross. P* and Q* are marked where they cross. Tag A is beside the vertical axis. Tag B is on D. Tag C is on S. Tag D is beside the horizontal axis.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 0.45,
+                "p": 6.8
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 2.2,
+                "p": 7.8
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 7.8,
+                "p": 7.8
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 7.5,
+                "p": 0.45
+              },
+              "letter": "D"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for bicycles, fixed",
+          "description": "The vertical axis is labelled Price. D and S cross at P* and Q*.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Label the vertical axis Price (P).",
+                "feedback": "Yes. The vertical axis always shows price. Demand is the downward-sloping curve.",
+                "correct": true
+              },
+              {
+                "text": "Label the vertical axis Supply.",
+                "feedback": "Supply is a curve, not an axis. The vertical axis shows price."
+              },
+              {
+                "text": "Leave it. Demand goes up the side.",
+                "feedback": "Demand is the downward-sloping curve. The vertical axis measures price."
+              }
+            ]
+          }
+        ],
+        "why": "On a demand and supply diagram, the **vertical axis is price** and the **horizontal axis is quantity**. Demand and supply are the curves."
+      },
+      {
+        "id": "two-ds",
+        "task": "Draw a diagram to show the market for wheat in equilibrium.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for wheat, as the student drew it",
+          "description": "A downward-sloping curve labelled D and an upward-sloping curve also labelled D. P* and Q* are marked where they cross. Tag A is on the downward-sloping curve. Tag B is on the upward-sloping curve. Tag C is at the crossing point. Tag D is beside the horizontal axis.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "D"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 2.2,
+                "p": 7.8
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 7.8,
+                "p": 7.8
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 5.6,
+                "p": 5.0
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 7.5,
+                "p": 0.45
+              },
+              "letter": "D"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for wheat, fixed",
+          "description": "Demand D slopes down and supply S slopes up. They cross at P* and Q*.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "B",
+            "cures": [
+              {
+                "text": "Label the upward-sloping curve S.",
+                "feedback": "Yes. Firms supply more at higher prices, so the upward-sloping curve is supply.",
+                "correct": true
+              },
+              {
+                "text": "Label the downward-sloping curve S instead.",
+                "feedback": "The downward-sloping curve is demand: people buy more at lower prices."
+              },
+              {
+                "text": "Keep both labels D. There are two groups of buyers.",
+                "feedback": "An upward-sloping curve shows sellers. Firms supply more at higher prices."
+              }
+            ]
+          }
+        ],
+        "why": "Every curve needs the right label. **Demand (D) slopes down. Supply (S) slopes up.**"
+      },
+      {
+        "id": "upward-demand",
+        "task": "Draw a demand curve for concert tickets. Show what happens to the quantity demanded when the price falls from P₁ to P₂.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Demand for concert tickets, as the student drew it",
+          "description": "One upward-sloping curve labelled D. P₁ and Q₁ are marked high on the curve. P₂ and Q₂ are marked lower down, with a smaller quantity. An arrow runs down the curve from the first point to the second. Tag A is on the curve. Tag B is beside the price axis. Tag C is beside the quantity axis.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 7,
+                "p": 7
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 4
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 7,
+                "p": 7
+              }
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 4
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 2.2,
+                "p": 2.9
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 0.45,
+                "p": 8.6
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 8.6,
+                "p": 0.45
+              },
+              "letter": "C"
+            }
+          ],
+          "arrows": [
+            {
+              "from": {
+                "q": 6.4,
+                "p": 6.9
+              },
+              "to": {
+                "q": 4.6,
+                "p": 5.1
+              }
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Demand for concert tickets, fixed",
+          "description": "D slopes down. When the price falls from P₁ to P₂, the quantity demanded rises from Q₁ to Q₂. An arrow runs down along D.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 3,
+                "p": 7
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 3,
+                "p": 7
+              }
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              }
+            }
+          ],
+          "arrows": [
+            {
+              "from": {
+                "q": 3.7,
+                "p": 6.9
+              },
+              "to": {
+                "q": 5.5,
+                "p": 5.1
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Draw D sloping down from left to right.",
+                "feedback": "Yes. The law of demand: a lower price gives a higher quantity demanded.",
+                "correct": true
+              },
+              {
+                "text": "Keep the slope, but swap P₁ and P₂.",
+                "feedback": "Then the price rises, but the task says it falls. The problem is the slope."
+              },
+              {
+                "text": "Call the curve S.",
+                "feedback": "The task asks for a demand curve. Calling it supply does not show demand."
+              }
+            ]
+          }
+        ],
+        "why": "The **law of demand**: as price falls, quantity demanded rises, ceteris paribus. So demand **slopes down**."
+      },
+      {
+        "id": "off-equilibrium",
+        "task": "Draw a diagram to show the equilibrium price and quantity in the market for apples.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for apples, as the student drew it",
+          "description": "Demand D slopes down and supply S slopes up. They cross in the middle. A dot with dashed lines to P* and Q* sits above the crossing point, on neither curve. Tag A is on D. Tag B is on S. Tag C is at the dot. Tag D is beside the price axis.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 6.6
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 6.6
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 2.2,
+                "p": 7.8
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 7.8,
+                "p": 7.8
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 5.7,
+                "p": 7.2
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 0.45,
+                "p": 3.2
+              },
+              "letter": "D"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for apples, fixed",
+          "description": "P* and Q* are marked with dashed lines from the point where D and S cross.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "C",
+            "cures": [
+              {
+                "text": "Draw P* and Q* from where D and S cross.",
+                "feedback": "Yes. Equilibrium is where quantity demanded equals quantity supplied.",
+                "correct": true
+              },
+              {
+                "text": "Move S so it passes through the dot.",
+                "feedback": "Never move a curve to fit a mark. Find where the curves meet, then draw the dashed lines."
+              },
+              {
+                "text": "Leave it. Equilibrium can be anywhere.",
+                "feedback": "Equilibrium is only where D and S cross: quantity demanded equals quantity supplied."
+              }
+            ]
+          }
+        ],
+        "why": "**Equilibrium** is where D and S cross. Draw dashed lines from that point to **both** axes and label them P* and Q*."
+      },
+      {
+        "id": "tax-down",
+        "task": "Draw a diagram to show the effect of a specific (per unit) indirect tax on the market for cigarettes.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for cigarettes, as the student drew it",
+          "description": "Demand D slopes down. Supply S slopes up. A second supply curve, S + tax, is drawn below and to the right of S. P₁ and Q₁ are marked where D meets S. P₂ and Q₂ are marked where D meets S + tax. Tag A is on S + tax. Tag B is on D. Tag C is beside the price axis. Tag D is on S.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "grey",
+              "label": "S",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 3,
+                  "p": 1
+                },
+                {
+                  "q": 10,
+                  "p": 8
+                }
+              ],
+              "tone": "red",
+              "label": "S + tax"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 8.6,
+                "p": 6.0
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 2.2,
+                "p": 7.8
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 0.45,
+                "p": 8.6
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 2.0,
+                "p": 2.6
+              },
+              "letter": "D"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for cigarettes, fixed",
+          "description": "S + tax is above S by the amount of the tax. The price rises from P₁ to P₂ and the quantity falls from Q₁ to Q₂.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "grey",
+              "label": "S",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 0.5,
+                  "p": 2.5
+                },
+                {
+                  "q": 7.5,
+                  "p": 9.5
+                }
+              ],
+              "tone": "red",
+              "label": "S + tax"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Shift supply up by the tax, so S + tax sits above S.",
+                "feedback": "Yes. The tax is a cost for firms. They need the tax on top of the old price for every unit.",
+                "correct": true
+              },
+              {
+                "text": "Shift demand left instead.",
+                "feedback": "A tax on producers raises their costs. It is supply that shifts, not demand."
+              },
+              {
+                "text": "Leave it. A tax makes firms supply more.",
+                "feedback": "A tax is a cost for firms. At every quantity they need a higher price, so supply shifts up (left)."
+              }
+            ]
+          }
+        ],
+        "why": "A specific tax raises firms' costs by the same amount on every unit. Supply shifts **up** by the tax (vertically). Price rises and quantity falls."
+      },
+      {
+        "id": "max-above",
+        "task": "Draw a diagram to show a maximum price (price ceiling) that causes a shortage of rental flats.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for rental flats, as the student drew it",
+          "description": "Demand D slopes down and supply S slopes up. They cross at P* and Q*. A horizontal line labelled Pmax is drawn above P*. Tag A is on the Pmax line. Tag B is on D. Tag C is on S. Tag D is at the crossing point.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 2.2,
+                "p": 7.2
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 1.6,
+                "p": 8.4
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 8.4,
+                "p": 8.4
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 5.6,
+                "p": 4.4
+              },
+              "letter": "D"
+            }
+          ],
+          "hlines": [
+            {
+              "p": 7.2,
+              "label": "Pmax",
+              "tone": "ink"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for rental flats, fixed",
+          "description": "Pmax is below P*. At Pmax, the quantity supplied Qs is less than the quantity demanded Qd. The gap is the shortage.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 3,
+                "p": 3
+              },
+              "xText": "Qs"
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 3
+              },
+              "xText": "Qd"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 3,
+                "p": 3
+              }
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 3
+              }
+            }
+          ],
+          "hlines": [
+            {
+              "p": 3,
+              "label": "Pmax",
+              "tone": "ink"
+            }
+          ],
+          "texts": [
+            {
+              "at": {
+                "q": 5,
+                "p": 3.4
+              },
+              "text": "shortage",
+              "anchor": "middle"
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Draw Pmax below the equilibrium price.",
+                "feedback": "Yes. Below P*, buyers want more than sellers offer, so there is a shortage.",
+                "correct": true
+              },
+              {
+                "text": "Move Pmax even higher.",
+                "feedback": "Above P*, a maximum price has no effect. The market stays at P* and there is no shortage."
+              },
+              {
+                "text": "Call it a minimum price instead.",
+                "feedback": "The task asks for a maximum price that causes a shortage. A minimum price above P* makes a surplus."
+              }
+            ]
+          }
+        ],
+        "why": "A **maximum price** only bites when it is set **below** the equilibrium price. Then Qd is bigger than Qs, and the gap is the shortage (excess demand)."
+      },
+      {
+        "id": "shift-not-move",
+        "task": "Draw a diagram to show the effect of a rise in the price of coffee on the quantity of coffee demanded.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Demand for coffee, as the student drew it",
+          "description": "A dashed demand curve D₁ and a solid demand curve D₂ to the left of it, with an arrow from D₁ to D₂. Tag A is on D₂. Tag B is beside the price axis. Tag C is beside the quantity axis.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "grey",
+              "label": "D₁",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 0.5,
+                  "p": 7.5
+                },
+                {
+                  "q": 7,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D₂"
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 2.4,
+                "p": 5.1
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 0.45,
+                "p": 3.0
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 8.6,
+                "p": 0.45
+              },
+              "letter": "C"
+            }
+          ],
+          "arrows": [
+            {
+              "from": {
+                "q": 6.6,
+                "p": 3.4
+              },
+              "to": {
+                "q": 4.9,
+                "p": 3.4
+              }
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Demand for coffee, fixed",
+          "description": "One demand curve D. The price rises from P₁ to P₂ and the quantity demanded falls from Q₁ to Q₂. An arrow runs up along D.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              }
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              }
+            }
+          ],
+          "arrows": [
+            {
+              "from": {
+                "q": 5.6,
+                "p": 4.8
+              },
+              "to": {
+                "q": 4.5,
+                "p": 5.9
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Use one demand curve. Show a movement up along D.",
+                "feedback": "Yes. A change in the good's own price moves along the curve. It never shifts it.",
+                "correct": true
+              },
+              {
+                "text": "Shift D to the right instead.",
+                "feedback": "A change in the good's own price never shifts its demand curve. It is a movement along D."
+              },
+              {
+                "text": "Shift supply left as well.",
+                "feedback": "The task is about the quantity demanded. A rise in the good's own price is a movement along D."
+              }
+            ]
+          }
+        ],
+        "why": "A change in a good's **own price** causes a **movement along** the demand curve. Only non-price determinants, such as income or tastes, **shift** it."
+      },
+      {
+        "id": "cs-wrong",
+        "task": "Draw a diagram and shade consumer surplus at the equilibrium price.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Consumer surplus, as the student drew it",
+          "description": "Demand D slopes down and supply S slopes up from the origin. They cross at P* and Q*. The triangle below P* and above S is shaded and labelled CS. Tag A is in the shaded triangle. Tag B is on D. Tag C is on S. Tag D is at the crossing point.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 10
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 0
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 1.2,
+                "p": 3.6
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 1.8,
+                "p": 9.0
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 8.2,
+                "p": 7.6
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 5.6,
+                "p": 4.4
+              },
+              "letter": "D"
+            }
+          ],
+          "areas": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 0
+                },
+                {
+                  "q": 5,
+                  "p": 5
+                },
+                {
+                  "q": 0,
+                  "p": 5
+                }
+              ],
+              "tone": "navy",
+              "pattern": "hatch",
+              "label": "CS",
+              "labelAt": {
+                "q": 2.2,
+                "p": 3.9
+              }
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Consumer surplus, fixed",
+          "description": "The triangle under D and above P* is shaded and labelled CS.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 10
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 0
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "areas": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 10
+                },
+                {
+                  "q": 5,
+                  "p": 5
+                },
+                {
+                  "q": 0,
+                  "p": 5
+                }
+              ],
+              "tone": "navy",
+              "pattern": "hatch",
+              "label": "CS",
+              "labelAt": {
+                "q": 1.6,
+                "p": 6.4
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Shade the area under D and above P*.",
+                "feedback": "Yes. Consumer surplus is what buyers were willing to pay above the price they paid.",
+                "correct": true
+              },
+              {
+                "text": "Shade the whole area under D.",
+                "feedback": "Consumer surplus stops at the price paid. Only the part above P* counts."
+              },
+              {
+                "text": "Keep it. Buyers gain this area.",
+                "feedback": "This area is above S and below P*. It is producer surplus: what firms gain."
+              }
+            ]
+          }
+        ],
+        "why": "**Consumer surplus** is the area **under demand and above the price**. **Producer surplus** is the area above supply and below the price."
+      },
+      {
+        "id": "min-gap",
+        "task": "Draw a diagram to show a minimum price (price floor) above equilibrium in the market for milk. Label what it causes.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for milk, as the student drew it",
+          "description": "Demand D slopes down and supply S slopes up. A horizontal line Pmin is drawn above where they cross. At Pmin, Qd is marked on D and Qs is marked on S, further right. The gap between them is labelled excess demand. Tag A is on the gap label. Tag B is on the Pmin line. Tag C is on D. Tag D is on S.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 3,
+                "p": 7
+              },
+              "xText": "Qd"
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 7
+              },
+              "xText": "Qs"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 3,
+                "p": 7
+              }
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 7
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 3.6,
+                "p": 7.85
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 1.3,
+                "p": 7.0
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 1.8,
+                "p": 8.6
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 8.4,
+                "p": 8.4
+              },
+              "letter": "D"
+            }
+          ],
+          "hlines": [
+            {
+              "p": 7,
+              "label": "Pmin",
+              "tone": "ink"
+            }
+          ],
+          "texts": [
+            {
+              "at": {
+                "q": 5,
+                "p": 7.5
+              },
+              "text": "excess demand",
+              "anchor": "middle"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for milk, fixed",
+          "description": "At Pmin, Qs is bigger than Qd. The gap is labelled excess supply.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 3,
+                "p": 7
+              },
+              "xText": "Qd"
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 7
+              },
+              "xText": "Qs"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 3,
+                "p": 7
+              }
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 7
+              }
+            }
+          ],
+          "hlines": [
+            {
+              "p": 7,
+              "label": "Pmin",
+              "tone": "ink"
+            }
+          ],
+          "texts": [
+            {
+              "at": {
+                "q": 5,
+                "p": 7.5
+              },
+              "text": "excess supply",
+              "anchor": "middle"
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Label the gap excess supply (a surplus).",
+                "feedback": "Yes. At Pmin, firms want to sell more than buyers want to buy.",
+                "correct": true
+              },
+              {
+                "text": "Move Pmin below equilibrium.",
+                "feedback": "A minimum price must be above P* to have any effect. The level is right here."
+              },
+              {
+                "text": "Label the gap a shortage.",
+                "feedback": "A shortage is excess demand. Here Qs is bigger than Qd."
+              }
+            ]
+          }
+        ],
+        "why": "A **minimum price above equilibrium** makes Qs bigger than Qd. The gap is **excess supply** (a surplus)."
+      }
+    ],
+    "ward": [
+      {
+        "id": "cost-rise",
+        "task": "Draw a diagram to show the effect of a rise in the cost of raw materials on the market for furniture.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Supply",
+          "yLabel": "Price",
+          "title": "Market for furniture, as the student drew it",
+          "description": "The vertical axis is labelled Price. The horizontal axis is labelled Supply. Demand D slopes down. A dashed supply curve S₁ and a solid supply curve S₂ below and to the right of it. P₁ and Q₁ are where D meets S₁. P₂ and Q₂ are where D meets S₂. Tag A is beside the horizontal axis. Tag B is on S₂. Tag C is on D. Tag D is on S₁. Tag E is beside the price axis.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "grey",
+              "label": "S₁",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 3,
+                  "p": 1
+                },
+                {
+                  "q": 10,
+                  "p": 8
+                }
+              ],
+              "tone": "red",
+              "label": "S₂"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 7.5,
+                "p": 0.45
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 8.6,
+                "p": 6.0
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 2.2,
+                "p": 7.8
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 2.0,
+                "p": 2.6
+              },
+              "letter": "D"
+            },
+            {
+              "at": {
+                "q": 0.45,
+                "p": 8.6
+              },
+              "letter": "E"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for furniture, fixed",
+          "description": "The horizontal axis is labelled Quantity. Supply shifts left (up) from S₁ to S₂. Price rises from P₁ to P₂ and quantity falls from Q₁ to Q₂.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "grey",
+              "label": "S₁",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 0.5,
+                  "p": 2.5
+                },
+                {
+                  "q": 7.5,
+                  "p": 9.5
+                }
+              ],
+              "tone": "red",
+              "label": "S₂"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Label the horizontal axis Quantity (Q).",
+                "feedback": "Yes. The horizontal axis shows quantity. Supply is a curve.",
+                "correct": true
+              },
+              {
+                "text": "Label it Demand.",
+                "feedback": "Demand is a curve too. The horizontal axis shows quantity."
+              },
+              {
+                "text": "Leave it. Supply is measured across.",
+                "feedback": "Supply is the upward-sloping curve. The horizontal axis measures quantity."
+              }
+            ]
+          },
+          {
+            "letter": "B",
+            "cures": [
+              {
+                "text": "Shift supply left (up), so S₂ is above S₁.",
+                "feedback": "Yes. Higher costs mean firms supply less at every price.",
+                "correct": true
+              },
+              {
+                "text": "Shift demand left.",
+                "feedback": "Raw materials are a cost for the firms that make furniture. Supply shifts, not demand."
+              },
+              {
+                "text": "Keep S₂ on the right. Costs raise output.",
+                "feedback": "Higher costs reduce supply. Firms supply less at every price."
+              }
+            ]
+          }
+        ],
+        "why": "Higher costs of production **decrease supply**: it shifts **left (up)**. Price rises and quantity falls. And the horizontal axis is always **quantity**."
+      },
+      {
+        "id": "subsidy",
+        "task": "Draw a diagram to show the effect of a subsidy to producers of solar panels.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "",
+          "title": "Market for solar panels, as the student drew it",
+          "description": "The vertical axis has no label. The horizontal axis is labelled Quantity. Demand D slopes down. A dashed supply curve S and a solid curve S + subsidy above and to the left of it. P₁ and Q₁ are where D meets S. P₂ and Q₂ are where D meets S + subsidy. Tag A is beside the vertical axis. Tag B is on D. Tag C is on S + subsidy. Tag D is on S. Tag E is at the point where D meets S + subsidy.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "grey",
+              "label": "S",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 0.5,
+                  "p": 2.5
+                },
+                {
+                  "q": 7.5,
+                  "p": 9.5
+                }
+              ],
+              "tone": "red",
+              "label": "S + subsidy"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 0.45,
+                "p": 8.6
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 1.6,
+                "p": 8.4
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 2.0,
+                "p": 4.0
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 8.0,
+                "p": 8.0
+              },
+              "letter": "D"
+            },
+            {
+              "at": {
+                "q": 3.4,
+                "p": 6.5
+              },
+              "letter": "E"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for solar panels, fixed",
+          "description": "The vertical axis is labelled Price. S + subsidy is below S by the subsidy. Price falls from P₁ to P₂ and quantity rises from Q₁ to Q₂.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "grey",
+              "label": "S",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 3,
+                  "p": 1
+                },
+                {
+                  "q": 10,
+                  "p": 8
+                }
+              ],
+              "tone": "red",
+              "label": "S + subsidy"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 4
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Label the vertical axis Price (P).",
+                "feedback": "Yes. Every axis needs a label.",
+                "correct": true
+              },
+              {
+                "text": "Leave it. Axis labels are optional.",
+                "feedback": "Examiners expect both axes to be labelled on every diagram."
+              },
+              {
+                "text": "Label it Subsidy.",
+                "feedback": "The subsidy is shown by the shift of supply. The axis shows price."
+              }
+            ]
+          },
+          {
+            "letter": "C",
+            "cures": [
+              {
+                "text": "Shift supply down (right), so S + subsidy is below S.",
+                "feedback": "Yes. A subsidy lowers firms' costs, so supply increases.",
+                "correct": true
+              },
+              {
+                "text": "Shift demand right instead.",
+                "feedback": "The subsidy is paid to producers. It changes their costs, so supply shifts."
+              },
+              {
+                "text": "Keep it. A subsidy raises costs.",
+                "feedback": "A subsidy is a payment to firms. It lowers their costs, so supply shifts right (down)."
+              }
+            ]
+          }
+        ],
+        "why": "A subsidy to producers lowers their costs, so supply shifts **down (right)** by the subsidy. Price falls and quantity rises."
+      },
+      {
+        "id": "negative-externality",
+        "task": "Draw a diagram to show a negative production externality in the market for steel. Show the market outcome and the social optimum.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Costs and benefits",
+          "title": "Market for steel, as the student drew it",
+          "description": "The vertical axis is labelled Costs and benefits. A downward-sloping curve MPB = MSB. An upward-sloping curve MPC = S. A third curve MSC is below and to the right of MPC. One point is marked where MPB meets MPC, with dashed lines labelled Qm = Q* and Pm. Tag A is on MSC. Tag B is at the marked point. Tag C is on MPB = MSB. Tag D is on MPC = S.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "MPB = MSB"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "MPC = S"
+            },
+            {
+              "points": [
+                {
+                  "q": 3,
+                  "p": 1
+                },
+                {
+                  "q": 10,
+                  "p": 8
+                }
+              ],
+              "tone": "ink",
+              "label": "MSC"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Qm = Q*",
+              "yText": "Pm"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 8.6,
+                "p": 6.0
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 5.6,
+                "p": 5.4
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 1.6,
+                "p": 8.4
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 2.0,
+                "p": 2.6
+              },
+              "letter": "D"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Costs and benefits",
+          "title": "Market for steel, fixed",
+          "description": "MSC is above MPC by the external cost. The market produces Qm where MPB meets MPC. The social optimum Q* is where MSB meets MSC, to the left of Qm.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "MPB = MSB"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "MPC = S"
+            },
+            {
+              "points": [
+                {
+                  "q": 0.5,
+                  "p": 2.5
+                },
+                {
+                  "q": 7.5,
+                  "p": 9.5
+                }
+              ],
+              "tone": "ink",
+              "label": "MSC"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Qm",
+              "yText": "Pm"
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Draw MSC above MPC.",
+                "feedback": "Yes. The external cost is added to the private cost, so MSC is above MPC.",
+                "correct": true
+              },
+              {
+                "text": "Keep MSC below MPC. Society gains from steel.",
+                "feedback": "A negative externality is a cost to third parties. It makes social cost higher, not lower."
+              },
+              {
+                "text": "Draw MSC on top of MPC.",
+                "feedback": "Then there is no external cost. A negative production externality means MSC is above MPC."
+              }
+            ]
+          },
+          {
+            "letter": "B",
+            "cures": [
+              {
+                "text": "Mark Q* where MSC meets MSB, to the left of Qm.",
+                "feedback": "Yes. The social optimum uses the social curves.",
+                "correct": true
+              },
+              {
+                "text": "Q* is where MPC meets MPB, so leave it.",
+                "feedback": "That is the market outcome, Qm. The social optimum is where MSC meets MSB."
+              },
+              {
+                "text": "Mark Q* to the right of Qm.",
+                "feedback": "With an external cost, the market produces too much. Q* is less than Qm."
+              }
+            ]
+          }
+        ],
+        "why": "With a negative production externality, **MSC is above MPC**. The market makes **Qm**, but the social optimum **Q*** is where MSB = MSC. Qm is more than Q*: too much is produced."
+      },
+      {
+        "id": "minimum-wage",
+        "task": "Draw a diagram to show a minimum wage set above the equilibrium wage in a labour market.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity of labour",
+          "yLabel": "Wage",
+          "title": "Labour market, as the student drew it",
+          "description": "The vertical axis is labelled Wage. The horizontal axis is labelled Quantity of labour. A downward-sloping curve is labelled S. An upward-sloping curve is labelled D. A horizontal line Wmin is drawn below where they cross. Tag A is on the downward-sloping curve. Tag B is on the Wmin line. Tag C is on the upward-sloping curve. Tag D is at the crossing point.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "S"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "D"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Qe",
+              "yText": "We"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 2.2,
+                "p": 7.8
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 1.4,
+                "p": 3.0
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 8.0,
+                "p": 8.0
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 5.6,
+                "p": 4.4
+              },
+              "letter": "D"
+            }
+          ],
+          "hlines": [
+            {
+              "p": 3,
+              "label": "Wmin",
+              "tone": "ink"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity of labour",
+          "yLabel": "Wage",
+          "title": "Labour market, fixed",
+          "description": "Demand for labour D slopes down. Supply of labour S slopes up. Wmin is above the equilibrium wage. At Wmin, more workers want jobs (Qs) than firms want to hire (Qd). The gap is unemployment.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 3,
+                "p": 7
+              },
+              "xText": "Qd"
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 7
+              },
+              "xText": "Qs"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 3,
+                "p": 7
+              }
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 7
+              }
+            }
+          ],
+          "hlines": [
+            {
+              "p": 7,
+              "label": "Wmin",
+              "tone": "ink"
+            }
+          ],
+          "texts": [
+            {
+              "at": {
+                "q": 5,
+                "p": 7.5
+              },
+              "text": "unemployment",
+              "anchor": "middle"
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Swap the labels: D slopes down, S slopes up.",
+                "feedback": "Yes. Firms demand labour, and hire more at a lower wage. Workers supply labour, and offer more at a higher wage.",
+                "correct": true
+              },
+              {
+                "text": "Keep them. Workers are the buyers in a labour market.",
+                "feedback": "Firms buy labour, so firms are the demand side. Workers sell their labour, so they are the supply side."
+              },
+              {
+                "text": "Label both curves D.",
+                "feedback": "One curve is demand for labour and the other is supply of labour. Each needs its own label."
+              }
+            ]
+          },
+          {
+            "letter": "B",
+            "cures": [
+              {
+                "text": "Draw Wmin above the equilibrium wage.",
+                "feedback": "Yes. A minimum wage only has an effect when it is above the equilibrium wage.",
+                "correct": true
+              },
+              {
+                "text": "Keep Wmin below equilibrium and label unemployment.",
+                "feedback": "Below equilibrium, a minimum wage has no effect. The wage stays at We."
+              },
+              {
+                "text": "Draw Wmin on the equilibrium wage.",
+                "feedback": "Then nothing changes. The task asks for a minimum wage above the equilibrium wage."
+              }
+            ]
+          }
+        ],
+        "why": "In a labour market, **firms demand** labour and **workers supply** it. A minimum wage **above** the equilibrium wage makes Qs bigger than Qd: the gap is **unemployment**."
+      },
+      {
+        "id": "surplus-swap",
+        "task": "Draw a diagram to show consumer surplus and producer surplus at the equilibrium price.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Consumer and producer surplus, as the student drew it",
+          "description": "Demand D slopes down from the price axis and supply S slopes up from the origin. They cross at P* and Q*. The triangle above P* and under D is labelled PS. The triangle below P* and above S is labelled CS. Tag A is in the top triangle. Tag B is in the bottom triangle. Tag C is on D. Tag D is on S. Tag E is at the crossing point.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 10
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 0
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 1.0,
+                "p": 8.0
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 1.0,
+                "p": 2.2
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 7.6,
+                "p": 2.4
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 7.6,
+                "p": 7.6
+              },
+              "letter": "D"
+            },
+            {
+              "at": {
+                "q": 5.6,
+                "p": 4.4
+              },
+              "letter": "E"
+            }
+          ],
+          "areas": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 10
+                },
+                {
+                  "q": 5,
+                  "p": 5
+                },
+                {
+                  "q": 0,
+                  "p": 5
+                }
+              ],
+              "tone": "navy",
+              "pattern": "hatch",
+              "label": "PS",
+              "labelAt": {
+                "q": 1.8,
+                "p": 6.3
+              }
+            },
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 0
+                },
+                {
+                  "q": 5,
+                  "p": 5
+                },
+                {
+                  "q": 0,
+                  "p": 5
+                }
+              ],
+              "tone": "red",
+              "pattern": "dots",
+              "label": "CS",
+              "labelAt": {
+                "q": 1.8,
+                "p": 3.9
+              }
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Consumer and producer surplus, fixed",
+          "description": "The triangle under D and above P* is consumer surplus, CS. The triangle above S and below P* is producer surplus, PS.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 10
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 0
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "areas": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 10
+                },
+                {
+                  "q": 5,
+                  "p": 5
+                },
+                {
+                  "q": 0,
+                  "p": 5
+                }
+              ],
+              "tone": "navy",
+              "pattern": "hatch",
+              "label": "CS",
+              "labelAt": {
+                "q": 1.8,
+                "p": 6.3
+              }
+            },
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 0
+                },
+                {
+                  "q": 5,
+                  "p": 5
+                },
+                {
+                  "q": 0,
+                  "p": 5
+                }
+              ],
+              "tone": "red",
+              "pattern": "dots",
+              "label": "PS",
+              "labelAt": {
+                "q": 1.8,
+                "p": 3.9
+              }
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Label the top triangle CS.",
+                "feedback": "Yes. Under demand and above the price is what buyers gain: consumer surplus.",
+                "correct": true
+              },
+              {
+                "text": "Label the top triangle welfare loss.",
+                "feedback": "There is no welfare loss at equilibrium. This area is a gain for buyers."
+              },
+              {
+                "text": "Leave it. Firms gain the area under demand.",
+                "feedback": "Firms gain the area above supply. The area under demand and above the price is the buyers' gain."
+              }
+            ]
+          },
+          {
+            "letter": "B",
+            "cures": [
+              {
+                "text": "Label the bottom triangle PS.",
+                "feedback": "Yes. Above supply and below the price is what firms gain: producer surplus.",
+                "correct": true
+              },
+              {
+                "text": "Leave it. Buyers gain the area under the price.",
+                "feedback": "Buyers gain the area above the price they pay, not below it."
+              },
+              {
+                "text": "Label the bottom triangle community surplus.",
+                "feedback": "Community surplus is CS plus PS together: both triangles, not one."
+              }
+            ]
+          }
+        ],
+        "why": "**CS** is under demand and above the price. **PS** is above supply and below the price. Together they make **community surplus**."
+      },
+      {
+        "id": "ppc",
+        "task": "Draw a PPC that shows increasing opportunity cost. Mark a point U that shows unemployed resources.",
+        "sick": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Consumer goods",
+          "yLabel": "Capital goods",
+          "title": "PPC, as the student drew it",
+          "description": "The vertical axis is labelled Capital goods and the horizontal axis Consumer goods. The PPC is bowed in towards the origin. Point U is outside the curve, up and to the right. Tag A is on the curve. Tag B is at point U. Tag C is beside the vertical axis. Tag D is beside the horizontal axis.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 0.0,
+                  "p": 8.5
+                },
+                {
+                  "q": 0.073,
+                  "p": 7.391
+                },
+                {
+                  "q": 0.29,
+                  "p": 6.3
+                },
+                {
+                  "q": 0.647,
+                  "p": 5.247
+                },
+                {
+                  "q": 1.139,
+                  "p": 4.25
+                },
+                {
+                  "q": 1.756,
+                  "p": 3.326
+                },
+                {
+                  "q": 2.49,
+                  "p": 2.49
+                },
+                {
+                  "q": 3.326,
+                  "p": 1.756
+                },
+                {
+                  "q": 4.25,
+                  "p": 1.139
+                },
+                {
+                  "q": 5.247,
+                  "p": 0.647
+                },
+                {
+                  "q": 6.3,
+                  "p": 0.29
+                },
+                {
+                  "q": 7.391,
+                  "p": 0.073
+                },
+                {
+                  "q": 8.5,
+                  "p": 0.0
+                }
+              ],
+              "tone": "navy",
+              "label": "PPC"
+            }
+          ],
+          "tags": [
+            {
+              "at": {
+                "q": 1.6,
+                "p": 3.1
+              },
+              "letter": "A"
+            },
+            {
+              "at": {
+                "q": 7.6,
+                "p": 8.4
+              },
+              "letter": "B"
+            },
+            {
+              "at": {
+                "q": 0.45,
+                "p": 6.0
+              },
+              "letter": "C"
+            },
+            {
+              "at": {
+                "q": 6.0,
+                "p": 0.45
+              },
+              "letter": "D"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 7.2,
+                "p": 7.8
+              },
+              "label": "U",
+              "tone": "red"
+            }
+          ]
+        },
+        "healed": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Consumer goods",
+          "yLabel": "Capital goods",
+          "title": "PPC, fixed",
+          "description": "The PPC is bowed out from the origin (concave), which shows increasing opportunity cost. Point U is inside the curve.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 0.0,
+                  "p": 8.5
+                },
+                {
+                  "q": 1.109,
+                  "p": 8.427
+                },
+                {
+                  "q": 2.2,
+                  "p": 8.21
+                },
+                {
+                  "q": 3.253,
+                  "p": 7.853
+                },
+                {
+                  "q": 4.25,
+                  "p": 7.361
+                },
+                {
+                  "q": 5.174,
+                  "p": 6.744
+                },
+                {
+                  "q": 6.01,
+                  "p": 6.01
+                },
+                {
+                  "q": 6.744,
+                  "p": 5.174
+                },
+                {
+                  "q": 7.361,
+                  "p": 4.25
+                },
+                {
+                  "q": 7.853,
+                  "p": 3.253
+                },
+                {
+                  "q": 8.21,
+                  "p": 2.2
+                },
+                {
+                  "q": 8.427,
+                  "p": 1.109
+                },
+                {
+                  "q": 8.5,
+                  "p": 0.0
+                }
+              ],
+              "tone": "navy",
+              "label": "PPC"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 3,
+                "p": 3
+              },
+              "label": "U",
+              "tone": "red"
+            }
+          ]
+        },
+        "mistakes": [
+          {
+            "letter": "A",
+            "cures": [
+              {
+                "text": "Bow the curve out from the origin.",
+                "feedback": "Yes. A bowed-out (concave) PPC shows increasing opportunity cost.",
+                "correct": true
+              },
+              {
+                "text": "Draw a straight line.",
+                "feedback": "A straight-line PPC shows constant opportunity cost, not increasing."
+              },
+              {
+                "text": "Keep it bowed in.",
+                "feedback": "Bowed in would show the cost of each extra unit falling. The task asks for increasing cost."
+              }
+            ]
+          },
+          {
+            "letter": "B",
+            "cures": [
+              {
+                "text": "Move U inside the curve.",
+                "feedback": "Yes. Inside the PPC, some resources are unemployed or used inefficiently.",
+                "correct": true
+              },
+              {
+                "text": "Put U on the curve.",
+                "feedback": "Points on the PPC use all resources efficiently. There is no unemployment there."
+              },
+              {
+                "text": "Leave U outside the curve.",
+                "feedback": "Points outside the PPC cannot be reached with today's resources and technology."
+              }
+            ]
+          }
+        ],
+        "why": "Increasing opportunity cost gives a PPC **bowed out from the origin**. A point **inside** the PPC shows unemployed or inefficiently used resources."
+      }
+    ],
+    "problems": {
+      "axes": "Axis labels are missing or wrong",
+      "curves": "Curve labels are missing or wrong",
+      "slope": "A curve slopes the wrong way",
+      "shift": "The wrong curve shifts, or it shifts the wrong way",
+      "marks": "Price and quantity are not marked, or marked in the wrong place",
+      "area": "The wrong area is shaded"
+    },
+    "triage": [
+      {
+        "id": "t-tea",
+        "task": "Show the effect of a fall in the price of coffee on the market for tea. Coffee and tea are substitutes.",
+        "spec": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for tea",
+          "description": "Demand shifts left from the dashed D₁ to D₂. Supply S slopes up. P₁ and Q₁ are where D₁ meets S. P₂ and Q₂ are where D₂ meets S, at a lower price and quantity. Both axes are labelled.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "grey",
+              "label": "D₁",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 0.5,
+                  "p": 7.5
+                },
+                {
+                  "q": 7,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D₂"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 4
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 4
+              }
+            }
+          ]
+        },
+        "problems": [],
+        "why": "Healthy. Cheaper coffee draws buyers away from tea, so demand for tea shifts **left**. Every label and mark is there."
+      },
+      {
+        "id": "t-laptops",
+        "task": "Show the effect of better technology on the market for laptops.",
+        "spec": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for laptops",
+          "description": "Demand shifts right from the dashed D₁ to D₂. Supply S does not move. P₂ and Q₂ are where D₂ meets S, at a higher price and quantity. Both axes are labelled.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "grey",
+              "label": "D₁",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 3,
+                  "p": 9
+                },
+                {
+                  "q": 10,
+                  "p": 2
+                }
+              ],
+              "tone": "navy",
+              "label": "D₂"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 6
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 6,
+                "p": 6
+              }
+            }
+          ]
+        },
+        "problems": [
+          "shift"
+        ],
+        "why": "Better technology lowers firms' costs, so **supply** shifts right. This diagram shifts demand instead."
+      },
+      {
+        "id": "t-bread",
+        "task": "Show the market for bread in equilibrium.",
+        "spec": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "",
+          "yLabel": "",
+          "title": "Market for bread",
+          "description": "Neither axis has a label. Demand D slopes down and supply S slopes up. P* and Q* are marked where they cross.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ]
+        },
+        "problems": [
+          "axes"
+        ],
+        "why": "The curves and marks are right, but **both axes need labels**: price up the side and quantity along the bottom."
+      },
+      {
+        "id": "t-tomatoes",
+        "task": "Show the market for tomatoes in equilibrium. Mark the equilibrium price and quantity.",
+        "spec": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for tomatoes",
+          "description": "Both axes are labelled. A downward-sloping line and an upward-sloping line cross. Neither line has a label. Nothing is marked on the axes.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red"
+            }
+          ]
+        },
+        "problems": [
+          "curves",
+          "marks"
+        ],
+        "why": "The curves need the labels **D** and **S**, and the task asks for **P* and Q*** marked with dashed lines from where they cross."
+      },
+      {
+        "id": "t-trains",
+        "task": "Show the market for train tickets in equilibrium.",
+        "spec": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for train tickets",
+          "description": "Both axes are labelled. A steep downward-sloping curve D and a gentle downward-sloping curve S cross. P* and Q* are marked where they cross.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 6
+                },
+                {
+                  "q": 9,
+                  "p": 4
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ]
+        },
+        "problems": [
+          "slope"
+        ],
+        "why": "Supply must **slope up**: firms supply more at higher prices. Here S slopes down."
+      },
+      {
+        "id": "t-petrol",
+        "task": "Show the effect of a specific (per unit) tax on the market for petrol.",
+        "spec": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for petrol",
+          "description": "Both axes are labelled. Demand D slopes down. Supply shifts up from the dashed S to S + tax. P₁ and Q₁ are where D meets S. P₂ and Q₂ are where D meets S + tax, at a higher price and lower quantity.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "grey",
+              "label": "S",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 0.5,
+                  "p": 2.5
+                },
+                {
+                  "q": 7.5,
+                  "p": 9.5
+                }
+              ],
+              "tone": "red",
+              "label": "S + tax"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 4,
+                "p": 6
+              }
+            }
+          ]
+        },
+        "problems": [],
+        "why": "Healthy. A specific tax shifts supply **up** by the tax. Price rises and quantity falls."
+      },
+      {
+        "id": "t-ps",
+        "task": "Shade producer surplus at the equilibrium price.",
+        "spec": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Producer surplus",
+          "description": "Both axes are labelled. Demand D slopes down and supply S slopes up from the origin. They cross at P* and Q*. The triangle under D and above P* is shaded and labelled PS.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 10
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 0
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q*",
+              "yText": "P*"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            }
+          ],
+          "areas": [
+            {
+              "points": [
+                {
+                  "q": 0,
+                  "p": 10
+                },
+                {
+                  "q": 5,
+                  "p": 5
+                },
+                {
+                  "q": 0,
+                  "p": 5
+                }
+              ],
+              "tone": "red",
+              "pattern": "dots",
+              "label": "PS",
+              "labelAt": {
+                "q": 1.6,
+                "p": 6.4
+              }
+            }
+          ]
+        },
+        "problems": [
+          "area"
+        ],
+        "why": "Producer surplus is **above supply and below the price**. The shaded triangle is consumer surplus."
+      },
+      {
+        "id": "t-bus",
+        "task": "Show the effect of a fall in incomes on the market for bus tickets. Bus tickets are an inferior good.",
+        "spec": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for bus tickets",
+          "description": "Both axes are labelled. Demand shifts left from the dashed D₁ to D₂. Supply S slopes up. P₁ and Q₁ are where D₁ meets S. A second point P₂ and Q₂ is marked on D₂ below where D₂ meets S.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "grey",
+              "label": "D₁",
+              "dashed": true
+            },
+            {
+              "points": [
+                {
+                  "q": 0.5,
+                  "p": 7.5
+                },
+                {
+                  "q": 7,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D₂"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              },
+              "xText": "Q₁",
+              "yText": "P₁"
+            },
+            {
+              "at": {
+                "q": 5.5,
+                "p": 2.5
+              },
+              "xText": "Q₂",
+              "yText": "P₂"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 5,
+                "p": 5
+              }
+            },
+            {
+              "at": {
+                "q": 5.5,
+                "p": 2.5
+              }
+            }
+          ]
+        },
+        "problems": [
+          "shift",
+          "marks"
+        ],
+        "why": "For an **inferior good**, lower incomes **increase** demand, so D should shift right. And the new equilibrium must be marked where the new demand curve meets S."
+      },
+      {
+        "id": "t-ceiling",
+        "task": "Show a maximum price that causes a shortage in the market for bread.",
+        "spec": {
+          "xMax": 10,
+          "yMax": 10,
+          "xLabel": "Quantity",
+          "yLabel": "Price",
+          "title": "Market for bread",
+          "description": "Both axes are labelled. Demand D slopes down and supply S slopes up. A horizontal line Pmax is below where they cross. At Pmax, Qs is marked on S and Qd is marked on D, further right. The gap is labelled shortage.",
+          "curves": [
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 9
+                },
+                {
+                  "q": 9,
+                  "p": 1
+                }
+              ],
+              "tone": "navy",
+              "label": "D"
+            },
+            {
+              "points": [
+                {
+                  "q": 1,
+                  "p": 1
+                },
+                {
+                  "q": 9,
+                  "p": 9
+                }
+              ],
+              "tone": "red",
+              "label": "S"
+            }
+          ],
+          "guides": [
+            {
+              "at": {
+                "q": 3,
+                "p": 3
+              },
+              "xText": "Qs"
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 3
+              },
+              "xText": "Qd"
+            }
+          ],
+          "dots": [
+            {
+              "at": {
+                "q": 3,
+                "p": 3
+              }
+            },
+            {
+              "at": {
+                "q": 7,
+                "p": 3
+              }
+            }
+          ],
+          "hlines": [
+            {
+              "p": 3,
+              "label": "Pmax",
+              "tone": "ink"
+            }
+          ],
+          "texts": [
+            {
+              "at": {
+                "q": 5,
+                "p": 3.4
+              },
+              "text": "shortage",
+              "anchor": "middle"
+            }
+          ]
+        },
+        "problems": [],
+        "why": "Healthy. Pmax is below equilibrium, so Qd is bigger than Qs and there is a shortage."
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "What goes on the **vertical axis** of a demand and supply diagram?",
+      "options": [
+        {
+          "text": "Price (P)",
+          "correct": true,
+          "feedback": "Yes. Price goes up the side and quantity goes along the bottom."
+        },
+        {
+          "text": "Demand (D)",
+          "feedback": "Demand is a curve on the diagram, not an axis."
+        },
+        {
+          "text": "Quantity (Q)",
+          "feedback": "Quantity goes along the bottom, on the horizontal axis."
+        },
+        {
+          "text": "Supply (S)",
+          "feedback": "Supply is a curve on the diagram, not an axis."
+        }
+      ],
+      "hints": [
+        "Axes measure things. Curves show behaviour.",
+        "What do buyers and sellers react to as it goes up and down?"
+      ],
+      "worked": "Example: on a diagram of the market for apples, the vertical axis is the price of apples and the horizontal axis is the quantity of apples.",
+      "explanation": "The vertical axis is **price** and the horizontal axis is **quantity**. D and S are curves."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "This diagram should show an **increase in demand** for ice cream on a hot day. What is wrong with it?",
+      "diagram": {
+        "xMax": 10,
+        "yMax": 10,
+        "xLabel": "Quantity",
+        "yLabel": "Price",
+        "title": "Market for ice cream, as a student drew it",
+        "description": "Demand D slopes down. Supply shifts right from the dashed S₁ to S₂. P₁ and Q₁ are where D meets S₁. P₂ and Q₂ are where D meets S₂.",
+        "curves": [
+          {
+            "points": [
+              {
+                "q": 1,
+                "p": 9
+              },
+              {
+                "q": 9,
+                "p": 1
+              }
+            ],
+            "label": "D",
+            "tone": "navy"
+          },
+          {
+            "points": [
+              {
+                "q": 1,
+                "p": 1
+              },
+              {
+                "q": 9,
+                "p": 9
+              }
+            ],
+            "label": "S₁",
+            "tone": "grey",
+            "dashed": true
+          },
+          {
+            "points": [
+              {
+                "q": 3,
+                "p": 1
+              },
+              {
+                "q": 10,
+                "p": 8
+              }
+            ],
+            "label": "S₂",
+            "tone": "red"
+          }
+        ],
+        "guides": [
+          {
+            "at": {
+              "q": 5,
+              "p": 5
+            },
+            "xText": "Q₁",
+            "yText": "P₁"
+          },
+          {
+            "at": {
+              "q": 6,
+              "p": 4
+            },
+            "xText": "Q₂",
+            "yText": "P₂"
+          }
+        ]
+      },
+      "options": [
+        {
+          "text": "The wrong curve shifts. Demand should shift right, not supply.",
+          "correct": true,
+          "feedback": "Yes. Hot weather changes what buyers want, so demand shifts right."
+        },
+        {
+          "text": "Nothing. More ice cream is sold, so it is right.",
+          "feedback": "Quantity rises, but the price falls here. An increase in demand raises the price too. The wrong curve moved."
+        },
+        {
+          "text": "Supply should shift left instead.",
+          "feedback": "Hot weather does not change firms' costs. It changes demand."
+        },
+        {
+          "text": "The axes are the wrong way round.",
+          "feedback": "The axes are fine: price up the side, quantity along the bottom."
+        }
+      ],
+      "hints": [
+        "Who does hot weather affect: buyers or sellers?",
+        "Which curve moved on the diagram?"
+      ],
+      "worked": "Example: a fashion makes trainers popular. That is a change in tastes, a determinant of demand. Demand shifts right; supply stays put.",
+      "explanation": "Hot weather is a change in **tastes**: a determinant of **demand**. The diagram should shift **D right**, raising both price and quantity."
+    },
+    {
+      "id": "q3",
+      "type": "choice",
+      "level": "core",
+      "prompt": "A government puts a specific (per unit) tax on sugary drinks. On the diagram, how should supply move?",
+      "options": [
+        {
+          "text": "Up (to the left), by the amount of the tax",
+          "correct": true,
+          "feedback": "Yes. The tax is added to firms' costs at every quantity."
+        },
+        {
+          "text": "Down (to the right), by the amount of the tax",
+          "feedback": "That is a subsidy. A tax raises firms' costs."
+        },
+        {
+          "text": "It does not move. Demand shifts left.",
+          "feedback": "The tax is paid by producers, so supply shifts. Demand stays where it was."
+        },
+        {
+          "text": "Supply becomes vertical",
+          "feedback": "A tax shifts supply up by the tax. It does not change it to a vertical line."
+        }
+      ],
+      "hints": [
+        "Is a tax a cost or a gain for firms?",
+        "Higher costs: firms need a higher price for each unit."
+      ],
+      "worked": "Example: a $1 tax on each cinema ticket. Firms need $1 more for every ticket, so S shifts up by $1 to S + tax.",
+      "explanation": "A specific tax shifts supply **up by the tax** (vertically). The new curve is labelled **S + tax**."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "This diagram should show a **negative production externality** from a chemical factory. What should the student fix?",
+      "diagram": {
+        "xMax": 10,
+        "yMax": 10,
+        "xLabel": "Quantity",
+        "yLabel": "Costs and benefits",
+        "title": "Negative production externality, as a student drew it",
+        "description": "A downward-sloping curve MPB = MSB. An upward-sloping curve MPC = S. A steeper curve MSC is above MPC. One point is marked where MPB meets MPC, with dashed lines labelled Qm = Q*.",
+        "curves": [
+          {
+            "points": [
+              {
+                "q": 1,
+                "p": 9
+              },
+              {
+                "q": 9,
+                "p": 1
+              }
+            ],
+            "label": "MPB = MSB",
+            "tone": "navy"
+          },
+          {
+            "points": [
+              {
+                "q": 1,
+                "p": 1
+              },
+              {
+                "q": 9,
+                "p": 9
+              }
+            ],
+            "label": "MPC = S",
+            "tone": "red"
+          },
+          {
+            "points": [
+              {
+                "q": 0.5,
+                "p": 2.5
+              },
+              {
+                "q": 7.5,
+                "p": 9.5
+              }
+            ],
+            "label": "MSC",
+            "tone": "ink"
+          }
+        ],
+        "guides": [
+          {
+            "at": {
+              "q": 5,
+              "p": 5
+            },
+            "xText": "Qm = Q*",
+            "yText": "Pm"
+          }
+        ]
+      },
+      "options": [
+        {
+          "text": "Mark Q* where MSC meets MSB, to the left of Qm.",
+          "correct": true,
+          "feedback": "Yes. The curves are right, but the social optimum is where the social curves meet."
+        },
+        {
+          "text": "Move MSC below MPC.",
+          "feedback": "MSC above MPC is right: the external cost is added to the private cost."
+        },
+        {
+          "text": "Mark Q* to the right of Qm.",
+          "feedback": "The market makes too much when there is an external cost. Q* is less than Qm."
+        },
+        {
+          "text": "Nothing. Qm and Q* are always the same.",
+          "feedback": "They are the same only when there is no externality. Here MSC is above MPC."
+        }
+      ],
+      "hints": [
+        "Which curves decide the social optimum?",
+        "Find where MSC crosses MSB. Is it left or right of Qm?"
+      ],
+      "worked": "Example: a factory pollutes a river. MSC is above MPC. The market makes Qm where MPC = MPB, but society wants Q*, where MSC = MSB. Q* < Qm.",
+      "explanation": "The social optimum **Q*** is where **MSC = MSB**. With an external cost, Q* is **less than** Qm: the market overproduces."
+    },
+    {
+      "id": "q5",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A student draws a **minimum wage below the equilibrium wage** and labels a gap \"unemployment\". What is the best feedback?",
+      "options": [
+        {
+          "text": "Below equilibrium, the minimum wage has no effect. Draw it above the equilibrium wage to show unemployment.",
+          "correct": true,
+          "feedback": "Yes. Firms already pay the equilibrium wage, which is higher, so a lower minimum changes nothing."
+        },
+        {
+          "text": "Good, but label the gap a shortage of labour.",
+          "feedback": "A minimum wage below equilibrium creates no gap at all. The wage stays at equilibrium."
+        },
+        {
+          "text": "Swap the demand and supply curves.",
+          "feedback": "The curves are not the problem. The level of the minimum wage is."
+        },
+        {
+          "text": "Correct as drawn.",
+          "feedback": "A minimum wage only bites when it is set above the equilibrium wage."
+        }
+      ],
+      "hints": [
+        "Does a minimum wage stop wages going up, or down?",
+        "If the market wage is already higher, does the law change anything?"
+      ],
+      "worked": "Example: the equilibrium wage is $15 an hour. A minimum wage of $12 changes nothing: firms already pay $15. A minimum of $18 causes unemployment.",
+      "explanation": "A minimum wage is a price floor. It only has an effect **above** the equilibrium wage, where Qs of labour is bigger than Qd: **unemployment**."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Incomes rise. Instant noodles are an **inferior good**. Which diagram is right?",
+      "options": [
+        {
+          "text": "Demand for instant noodles shifts left. Price and quantity fall.",
+          "correct": true,
+          "feedback": "Yes. For an inferior good, demand falls when incomes rise."
+        },
+        {
+          "text": "Demand for instant noodles shifts right. Price and quantity rise.",
+          "feedback": "That is a normal good. Inferior goods are bought less as incomes rise."
+        },
+        {
+          "text": "Supply of instant noodles shifts left.",
+          "feedback": "Income is a determinant of demand, not supply."
+        },
+        {
+          "text": "A movement down along the demand curve.",
+          "feedback": "Income is a non-price determinant, so the demand curve shifts."
+        }
+      ],
+      "hints": [
+        "Is income a determinant of demand or supply?",
+        "What happens to buying of an inferior good when people earn more?"
+      ],
+      "worked": "Example: incomes rise and people switch from the bus to their own cars. Bus travel is an inferior good: demand for it shifts left.",
+      "explanation": "Income is a determinant of **demand**. For an **inferior good**, higher incomes **reduce** demand, so D shifts **left**."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Why must the dashed lines for P* and Q* start where D and S cross?",
+      "options": [
+        {
+          "text": "Only there is quantity demanded equal to quantity supplied.",
+          "correct": true,
+          "feedback": "Yes. That point is the equilibrium."
+        },
+        {
+          "text": "It looks neater in the middle of the diagram.",
+          "feedback": "Neatness does not decide it. Economics does: equilibrium is where Qd = Qs."
+        },
+        {
+          "text": "Because the examiner says so.",
+          "feedback": "There is a reason: it is the only price where the market clears."
+        },
+        {
+          "text": "They can start anywhere on the demand curve.",
+          "feedback": "A point on D that is not on S is not an equilibrium: Qd and Qs are different there."
+        }
+      ],
+      "hints": [
+        "What does equilibrium mean?",
+        "Where are buyers and sellers happy with the same quantity?"
+      ],
+      "worked": "Example: if D and S cross at $4 and 300 units, draw dashed lines from that point to $4 on the price axis and to 300 on the quantity axis.",
+      "explanation": "**Equilibrium** is where Qd = Qs. On the diagram, that is only where D crosses S."
+    },
+    {
+      "id": "dg1",
+      "type": "label",
+      "level": "core",
+      "prompt": "This is a full-mark diagram of a **specific tax**. **Label it.** Choose what each letter shows.",
+      "diagram": {
+        "xMax": 10,
+        "yMax": 10,
+        "xLabel": "Quantity",
+        "yLabel": "Price",
+        "title": "A tax diagram with four lettered parts",
+        "description": "Two parallel upward-sloping lines and one downward-sloping line. Letter A is on the lower upward line. Letter B is on the upper upward line. Letter C is on the higher dashed line from the price axis. Letter D is on the lower dashed line from the price axis.",
+        "curves": [
+          {
+            "points": [
+              {
+                "q": 1,
+                "p": 9
+              },
+              {
+                "q": 9,
+                "p": 1
+              }
+            ],
+            "label": "D",
+            "tone": "navy"
+          },
+          {
+            "points": [
+              {
+                "q": 1,
+                "p": 1
+              },
+              {
+                "q": 9,
+                "p": 9
+              }
+            ],
+            "tone": "grey",
+            "dashed": true
+          },
+          {
+            "points": [
+              {
+                "q": 0.5,
+                "p": 2.5
+              },
+              {
+                "q": 7.5,
+                "p": 9.5
+              }
+            ],
+            "tone": "red"
+          }
+        ],
+        "guides": [
+          {
+            "at": {
+              "q": 4,
+              "p": 6
+            }
+          },
+          {
+            "at": {
+              "q": 4,
+              "p": 4
+            }
+          },
+          {
+            "at": {
+              "q": 5,
+              "p": 5
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 8.2,
+              "p": 8.2
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 6.2,
+              "p": 8.2
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 1.6,
+              "p": 6
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 1.6,
+              "p": 4
+            },
+            "letter": "D"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "S: supply before the tax",
+          "feedback": "A is on the lower upward-sloping line: supply before the tax."
+        },
+        {
+          "letter": "B",
+          "answer": "S + tax: supply after the tax",
+          "feedback": "B is on the higher line: supply shifted up by the tax."
+        },
+        {
+          "letter": "C",
+          "answer": "Pc: price consumers pay",
+          "feedback": "C is where the new supply curve meets D: the price buyers now pay."
+        },
+        {
+          "letter": "D",
+          "answer": "Pp: price producers keep",
+          "feedback": "D is Pc minus the tax, read off the old supply curve at the new quantity: what firms keep."
+        }
+      ],
+      "choices": [
+        "S: supply before the tax",
+        "S + tax: supply after the tax",
+        "Pc: price consumers pay",
+        "Pp: price producers keep",
+        "D: demand",
+        "Welfare loss",
+        "Q₁: quantity before the tax"
+      ],
+      "hints": [
+        "The tax shifts supply up. Which line is higher?",
+        "Buyers pay the price where the new supply meets demand. Firms keep that price minus the tax."
+      ],
+      "worked": "Example: with a $2 tax, if buyers pay $6, producers keep $6 − $2 = $4. The vertical gap between S + tax and S is the tax.",
+      "explanation": "Supply shifts up from **S** to **S + tax**. Buyers pay **Pc** where S + tax meets D. Producers keep **Pp**, which is Pc minus the tax."
+    }
+  ],
+  "explain": {
+    "prompt": "A student drew a diagram for \"a rise in the cost of raw materials in the market for furniture\". They shifted supply to the right. Explain what is wrong and how to fix the diagram.",
+    "facts": "- The event: the **cost of raw materials rises** for furniture makers.\n- The student's diagram: supply shifts **right** from S₁ to S₂.\n- A full-mark diagram has labelled axes (P and Q), labelled curves and dashed lines to P₁, Q₁, P₂ and Q₂.",
+    "steps": [
+      {
+        "lead": "A rise in the cost of raw materials",
+        "correct": 1,
+        "options": [
+          {
+            "text": "makes furniture more popular, so demand increases.",
+            "why": "Costs affect sellers, not how much buyers want furniture."
+          },
+          {
+            "text": "raises firms' costs of production, so supply decreases.",
+            "why": "Right. Higher costs mean firms supply less at every price."
+          },
+          {
+            "text": "has no effect, because the price of furniture has not changed.",
+            "why": "Costs are a non-price determinant of supply. They shift the curve even before the price changes."
+          }
+        ]
+      },
+      {
+        "lead": "So on the diagram, the supply curve should",
+        "correct": 0,
+        "options": [
+          {
+            "text": "shift left (up), from S₁ to S₂.",
+            "why": "Right. Less is supplied at every price."
+          },
+          {
+            "text": "shift right, as the student drew it.",
+            "why": "A shift right is an increase in supply. Higher costs decrease supply."
+          },
+          {
+            "text": "stay where it is, with a movement along it.",
+            "why": "A movement along S happens only when the price of furniture itself changes first."
+          }
+        ]
+      },
+      {
+        "lead": "The new equilibrium is where",
+        "correct": 2,
+        "options": [
+          {
+            "text": "S₁ crosses D, at the same price as before.",
+            "why": "S₁ is the old curve. The new equilibrium uses S₂."
+          },
+          {
+            "text": "S₂ crosses D, at a lower price and a higher quantity.",
+            "why": "That would be the result of a shift right. A shift left raises the price."
+          },
+          {
+            "text": "S₂ crosses D, at a higher price P₂ and a lower quantity Q₂.",
+            "why": "Right. Supply falls, so price rises and quantity falls."
+          }
+        ]
+      },
+      {
+        "lead": "To earn full marks, the diagram also needs",
+        "correct": 1,
+        "options": [
+          {
+            "text": "a title only, because examiners do not read labels.",
+            "why": "Labels are how examiners see what the diagram shows."
+          },
+          {
+            "text": "labelled axes (P and Q), labelled curves and dashed lines to P₁, Q₁, P₂ and Q₂.",
+            "why": "Right. That is the full-mark checklist."
+          },
+          {
+            "text": "numbers on every axis, even when the question gives none.",
+            "why": "Numbers are needed only when the question gives data."
+          }
+        ]
+      }
+    ],
+    "own": "Add a sentence that explains your fixed diagram in words, as you would in the exam."
+  },
+  "teacherNotes": "Diagram Doctor revises diagrams from 1.1 and 2.1 to 2.8. Level 1 works well projected: show a patient and ask students to point at the problem tag before anyone taps. Level 3 mirrors how an examiner reads a diagram: check it against the question first, then the checklist. Two traps start good discussions: the inferior good (falling incomes shift demand right) and the minimum wage drawn below equilibrium (no effect). Follow up by asking students to swap their own practice diagrams and \"treat\" each other's with the six-point checklist from Learn it."
+}

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { paragraph, sentence } from '../src/shared/activity/explain';
 import type { ExplainTask } from '../src/shared/activity/types';
+import { ACTIVITIES } from '../src/app/registry';
 
 const files = import.meta.glob<{ explain: ExplainTask }>('../public/content/activities/*.json', { eager: true, import: 'default' });
 const tasks = Object.entries(files).map(([path, c]) => ({ id: path.replace(/^.*\//, '').replace('.json', ''), task: c.explain }));
@@ -9,7 +10,8 @@ const allText = (t: ExplainTask) => [t.prompt, t.facts ?? '', t.own ?? '', ...t.
 
 describe('Explain it in writing: build a paragraph by clicking', () => {
   it('every activity has a sentence builder', () => {
-    expect(tasks.length).toBe(18);
+    expect(tasks.length).toBe(ACTIVITIES.filter((a) => a.load).length);
+    expect(tasks.length).toBeGreaterThanOrEqual(19);
     for (const { id, task } of tasks) {
       expect(task, id).toBeTruthy();
       expect(task.steps.length, id).toBeGreaterThanOrEqual(4);

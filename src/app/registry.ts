@@ -5,7 +5,7 @@
  */
 import type { ActivityMeta } from '../shared/activity/types';
 
-export const SUBTOPICS: { code: string; unit: 1 | 2; title: string; hl?: boolean }[] = [
+export const SUBTOPICS: { code: string; unit: Section; title: string; hl?: boolean }[] = [
   { code: '1.1', unit: 1, title: 'What is economics?' },
   { code: '1.2', unit: 1, title: 'How do economists approach the world?' },
   { code: '2.1', unit: 2, title: 'Demand' },
@@ -20,11 +20,16 @@ export const SUBTOPICS: { code: string; unit: 1 | 2; title: string; hl?: boolean
   { code: '2.10', unit: 2, title: 'Market failure: asymmetric information', hl: true },
   { code: '2.11', unit: 2, title: 'Market failure: market power', hl: true },
   { code: '2.12', unit: 2, title: "The market's inability to achieve equity", hl: true },
+  { code: 'skills', unit: 'skills', title: 'Practise what examiners look for, using Units 1 and 2' },
 ];
 
-export const UNITS = [
-  { unit: 1 as const, title: 'Unit 1: Introduction to economics' },
-  { unit: 2 as const, title: 'Unit 2: Microeconomics' },
+/** A unit of the syllabus, or the exam skills section that uses all of them. */
+export type Section = 1 | 2 | 'skills';
+
+export const UNITS: { unit: Section; title: string }[] = [
+  { unit: 1, title: 'Unit 1: Introduction to economics' },
+  { unit: 2, title: 'Unit 2: Microeconomics' },
+  { unit: 'skills', title: 'Exam skills' },
 ];
 
 export const ACTIVITIES: ActivityMeta[] = [
@@ -207,6 +212,17 @@ export const ACTIVITIES: ActivityMeta[] = [
       { name: 'Flow Detective', how: 'Level 3 of Fair or Efficient?: find the causes, calculate income shares and match the responses. Score 11 of 14.', icon: 'scale' },
     ],
     load: () => import('../activities/fair-efficient'),
+  },
+  {
+    id: 'diagram-doctor', tag: 'Exam skills: diagrams', code: 'skills', unit: 'skills', title: 'Diagram Doctor', style: 'Diagram clinic',
+    blurb: 'Diagrams arrive at the clinic with mistakes. Examine the tags, find what is wrong, choose the cure and watch the diagram heal.',
+    goal: { name: 'Check-up Doctor', how: 'Level 1 of Diagram Doctor: cure 8 of 10 diagrams right first time.', icon: 'stethoscope' },
+    goals: [
+      { name: 'Ward Doctor', how: 'Level 2 of Diagram Doctor: two problems per diagram. Score 10 of 12 first-try points.', icon: 'stethoscope' },
+      { name: 'Triage Chief', how: 'Level 3 of Diagram Doctor: no tags. Name every problem or say it is healthy, 7 of 9 right first time.', icon: 'stethoscope' },
+    ],
+    noCalculator: true,
+    load: () => import('../activities/diagram-doctor'),
   },
 ];
 
