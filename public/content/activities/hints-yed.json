@@ -133,6 +133,60 @@
         "det": "H",
         "ped": "inelastic",
         "why": "A daily habit is hard to break. Regular coffee drinkers keep buying when the price rises, so demand is price inelastic."
+      },
+      {
+        "id": "toothpaste",
+        "icon": "🪥",
+        "name": "One brand of toothpaste",
+        "clue": "The shelf holds ten other brands that clean teeth just as well.",
+        "det": "S",
+        "ped": "elastic",
+        "why": "If this brand gets dearer, shoppers pick another one. Many close substitutes make demand price elastic."
+      },
+      {
+        "id": "gum",
+        "icon": "🍬",
+        "name": "A pack of chewing gum",
+        "clue": "It costs less than a bus ticket.",
+        "det": "I",
+        "ped": "inelastic",
+        "why": "Gum takes a tiny share of income. A price rise is hardly noticed, so demand is price inelastic."
+      },
+      {
+        "id": "sofa",
+        "icon": "🛋️",
+        "name": "A new sofa",
+        "clue": "It costs more than a month's rent for many families.",
+        "det": "I",
+        "ped": "elastic",
+        "why": "A sofa takes a large share of income. When the price rises, many buyers wait or keep the old one. Demand is price elastic."
+      },
+      {
+        "id": "holiday",
+        "icon": "🏖️",
+        "name": "A beach holiday abroad",
+        "clue": "Lovely, but families can still live well without one.",
+        "det": "N",
+        "ped": "elastic",
+        "why": "A holiday abroad is a luxury, not a necessity. When the price rises, many people stay at home instead, so demand is price elastic."
+      },
+      {
+        "id": "gas",
+        "icon": "🔥",
+        "name": "Gas for heating, during this week's cold snap",
+        "clue": "Homes cannot change their heating system in a few days.",
+        "det": "T",
+        "ped": "inelastic",
+        "why": "In the short run there is no time to switch to another way to heat the home. Demand is price inelastic."
+      },
+      {
+        "id": "energy",
+        "icon": "🥫",
+        "name": "Energy drinks for a regular drinker",
+        "clue": "Jo has had two cans a day, every day, for three years.",
+        "det": "H",
+        "ped": "inelastic",
+        "why": "A strong daily habit is hard to break. Jo keeps buying when the price rises, so demand is price inelastic."
       }
     ],
     "incomes": [

@@ -18,6 +18,7 @@ import { celebrate } from '../../shared/fun/celebrate';
 import { shuffled } from '../island-economy/model';
 import { BREAK_GOAL, breakWon, BUILD_GOAL, buildMax, buildWon, JUDGE_GOAL, judgeWon, nextPlank, plankPoint } from './model';
 import './bridge.css';
+import { newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Bridge Builder', 'Crack Finder', 'Fair Judge'];
 
@@ -30,7 +31,7 @@ interface TryContent { levels: LevelInfo[]; builds: Build[]; breaks: Break[]; ju
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);

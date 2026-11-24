@@ -21,9 +21,10 @@ import { celebrate } from '../../shared/fun/celebrate';
 import { shuffled } from '../island-economy/model';
 import {
   ALL_EFFECTS, anchorFor, anchorGap, DESIGN_GOAL, designMax, designWon, Effect, EXPERIMENT_EFFECTS, HUNT_GOAL, huntWon, isHighAnchor,
-  Objective, OBJECTIVES, SUBJECT_GOAL, subjectWon, Tool, TOOLS,
+  Objective, OBJECTIVES, SUBJECT_GOAL, subjectWon, Tool, TOOLS, HUNT_DRAW
 } from './model';
 import './mind.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Test Subject', 'Bias Hunter', 'Nudge Designer'];
 
@@ -75,7 +76,7 @@ interface TryContent {
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -365,7 +366,7 @@ function Subject({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
 // ---------------- Level 2: bias hunter ----------------
 
 function Hunt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const items = useMemo(() => shuffled(data.huntScenarios, seed + 11), [data.huntScenarios, seed]);
+  const items = useMemo(() => drawRound(data.huntScenarios, HUNT_DRAW, seed + 11), [data.huntScenarios, seed]);
   const [idx, setIdx] = useState(0);
   const [wrong, setWrong] = useState<Effect | null>(null);
   const [missed, setMissed] = useState(false);

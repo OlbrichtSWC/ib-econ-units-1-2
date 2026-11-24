@@ -55,3 +55,7 @@ export function labMax(steps: number, rewrites: number, ideas: number): number {
 export const beltWon = (firstRight: number, goal = BELT_GOAL) => firstRight >= goal;
 export const valueWon = (firstRight: number) => firstRight >= VALUE_GOAL;
 export const labWon = (points: number) => points >= LAB_GOAL;
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const BELT_DRAW = 12;
+export const VALUE_DRAW = 8;

@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   Calc, calcAnswer, calcClass, CALC_GOAL, calcWon, closeEnough, DETS, engelPoints, LAB_GOAL, labWon, pctChange, ped, PED_KINDS, pedKind, qtyChange,
-  round2, scheduleKind, slips, STALL_GOAL, stallWon, stepYeds, YED_KINDS, yed, yedKind,
-} from '../src/activities/hints-yed/model';
+  round2, scheduleKind, slips, STALL_GOAL, stallWon, stepYeds, YED_KINDS, yed, yedKind, STALL_DRAW } from '../src/activities/hints-yed/model';
 import content from '../public/content/activities/hints-yed.json';
 import glossary from '../public/content/glossary.json';
 
@@ -176,7 +175,8 @@ describe('HINTS Market: goals', () => {
     expect(calcWon(CALC_GOAL)).toBe(true);
     expect(calcWon(CALC_GOAL - 1)).toBe(false);
     expect(t.goods.length).toBeGreaterThanOrEqual(STALL_GOAL);
-    expect(STALL_GOAL).toBeGreaterThan(t.goods.length / 2);
+    expect(STALL_GOAL).toBeGreaterThan(STALL_DRAW / 2);
+    expect(t.goods.length).toBeGreaterThan(STALL_DRAW);
     const labItems = t.baskets.reduce((s, b) => s + b.goods.length, 0);
     expect(labItems).toBeGreaterThanOrEqual(LAB_GOAL);
     expect(LAB_GOAL).toBeGreaterThan(labItems / 2);

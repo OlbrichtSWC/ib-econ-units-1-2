@@ -17,9 +17,10 @@ import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
 import { shuffled } from '../island-economy/model';
 import {
-  CHECKUP_GOAL, checkupWon, health, mistakePoint, ProblemId, PROBLEMS, sameDiagnosis, toggleProblem, TRIAGE_GOAL, triageWon, WARD_GOAL, wardWon,
+  CHECKUP_GOAL, checkupWon, health, mistakePoint, ProblemId, PROBLEMS, sameDiagnosis, toggleProblem, TRIAGE_GOAL, triageWon, WARD_GOAL, wardWon, relabel,
 } from './model';
 import './doctor.css';
+import { newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Check-up Doctor', 'Ward Doctor', 'Triage Chief'];
 
@@ -38,7 +39,7 @@ interface TryContent {
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -114,7 +115,10 @@ function Chart(props: { n: number; total: number; task: string }) {
 // ---------------- Levels 1 and 2: the clinic ----------------
 
 function Clinic({ seed, level, patients, onComplete, onGoal, teacher, again }: LevelProps & { level: 1 | 2; patients: Patient[] }) {
-  const order = useMemo(() => shuffled(patients, seed + level * 7), [patients, seed, level]);
+  const order = useMemo(
+    () => shuffled(patients, seed + level * 7).map((pt, i) => relabel(pt, shuffled((pt.sick.tags ?? []).map((t) => t.letter), seed + level * 13 + i))),
+    [patients, seed, level],
+  );
   const [idx, setIdx] = useState(0);
   const [cured, setCured] = useState<string[]>([]);
   const [ruledOut, setRuledOut] = useState<string[]>([]);
@@ -128,9 +132,12 @@ function Clinic({ seed, level, patients, onComplete, onGoal, teacher, again }: L
   const [patientPoints, setPatientPoints] = useState(0);
   const [done, setDone] = useState(false);
   const [announce, setAnnounce] = useState('');
+  const [peek, setPeek] = useState<string | null>(null);
 
   const p = order[idx];
-  const letters = (p.sick.tags ?? []).map((t) => t.letter);
+  const tags = p.sick.tags ?? [];
+  const letters = tags.map((t) => t.letter);
+  const nameOf = (l: string) => tags.find((t) => t.letter === l)?.name ?? '';
   const sickLetters = p.mistakes.map((m) => m.letter);
   const healed = cured.length === p.mistakes.length;
   const mistake = p.mistakes.find((m) => m.letter === active);
@@ -224,7 +231,7 @@ function Clinic({ seed, level, patients, onComplete, onGoal, teacher, again }: L
         <div class="stack">
           <Monitor well={health(cured.length, p.mistakes.length)} label={healed ? 'Healed' : `Problems cured: ${cured.length} of ${p.mistakes.length}`} />
           <div key={`${p.id}-${healed}`} class={`dd-patient ${healed ? 'dd-healed' : 'dd-arrive'}`}>
-            <SpecDiagram spec={healed ? p.healed : p.sick} />
+            <SpecDiagram spec={healed ? p.healed : p.sick} hot={healed ? null : active ?? peek} />
             {healed && <span class="dd-discharged" aria-hidden="true">Healed</span>}
           </div>
         </div>
@@ -235,6 +242,7 @@ function Clinic({ seed, level, patients, onComplete, onGoal, teacher, again }: L
           </section>
           <section class="panel stack" aria-labelledby="dd-exam-h">
             <h3 id="dd-exam-h"><StepNo n={3} /> Examine: tap the tag that is wrong</h3>
+            <p class="small muted" style={{ margin: 0 }}>Each tag points to one part of the diagram. Point at a tag, or move to it with the Tab key, to light it up on the diagram.</p>
             <div class="dd-tags" role="group" aria-label="Tags on the diagram">
               {letters.map((l) => {
                 const isCured = cured.includes(l), out = ruledOut.includes(l), now = active === l;
@@ -246,9 +254,16 @@ function Clinic({ seed, level, patients, onComplete, onGoal, teacher, again }: L
                     disabled={healed || !!active || isCured || out}
                     aria-pressed={now}
                     onClick={() => tap(l)}
+                    onMouseEnter={() => setPeek(l)}
+                    onMouseLeave={() => setPeek(null)}
+                    onFocus={() => setPeek(l)}
+                    onBlur={() => setPeek(null)}
                   >
                     <span class="dd-tag-letter">{l}</span>
-                    <span class="small">{isCured ? 'Cured' : out ? 'Healthy' : now ? 'Problem' : 'Examine'}</span>
+                    <span class="dd-tag-text">
+                      <span class="dd-tag-name">{nameOf(l)}</span>
+                      <span class="small">{isCured ? 'Cured' : out ? 'Healthy' : now ? 'Problem' : 'Examine'}</span>
+                    </span>
                     {teacher && !isCured && sickLetters.includes(l) && <span class="badge badge-done">Answer</span>}
                   </button>
                 );
@@ -259,7 +274,7 @@ function Clinic({ seed, level, patients, onComplete, onGoal, teacher, again }: L
           </section>
           {mistake && (
             <section class="panel stack" aria-labelledby="dd-cure-h">
-              <h3 id="dd-cure-h"><StepNo n={4} /> Choose the cure for tag {mistake.letter}</h3>
+              <h3 id="dd-cure-h"><StepNo n={4} /> Choose the cure for tag {mistake.letter}: {nameOf(mistake.letter)}</h3>
               <div class="dd-cures" role="group" aria-label={`Cures for tag ${mistake.letter}`}>
                 {cures.map((c, i) => (
                   <button key={i} type="button" class={`dd-cure ${wrongCure === i ? 'shake dd-cure-no' : ''}`} onClick={() => choose(i)} disabled={wrongCure === i}>

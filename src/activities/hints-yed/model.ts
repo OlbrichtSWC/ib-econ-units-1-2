@@ -132,3 +132,6 @@ export function calcClass(c: Calc): Cls {
   if (c.kind === 'yed') return yedKind(calcAnswer(c)) as Cls;
   return yedKind(c.elasticity!) as Cls;
 }
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const STALL_DRAW = 10;

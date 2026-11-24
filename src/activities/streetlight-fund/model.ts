@@ -188,3 +188,6 @@ export function progressLamps(done: number, total: number): number {
   if (total <= 0) return 0;
   return Math.max(0, Math.min(LAMPS, Math.round((done / total) * LAMPS)));
 }
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const SORT_DRAW = 10;

@@ -32,7 +32,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Market for cinema tickets, as the student drew it",
-          "description": "Demand and supply diagram. A dashed demand curve D₁ and a solid demand curve D₂ to the left of it. An upward-sloping supply curve S. An arrow points from D₁ to D₂. P₁ and Q₁ are marked where D₁ meets S. P₂ and Q₂ are marked where D₂ meets S. Tag A is beside the price axis. Tag B is on D₂. Tag C is on S. Tag D is at the point where D₂ meets S.",
+          "description": "Demand and supply diagram. A dashed demand curve D₁ and a solid demand curve D₂ to the left of it. An upward-sloping supply curve S. An arrow points from D₁ to D₂. P₁ and Q₁ are marked where D₁ meets S. P₂ and Q₂ are marked where D₂ meets S. Tag A points to: Price axis label. Tag B points to: Curve D₂. Tag C points to: Supply curve S. Tag D points to: Point where D₂ meets S (P₂, Q₂).",
           "curves": [
             {
               "points": [
@@ -116,28 +116,37 @@
                 "q": 0.45,
                 "p": 6.8
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Price axis label",
+              "on": "yLabel"
             },
             {
               "at": {
                 "q": 1.8,
                 "p": 6.2
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Curve D₂"
             },
             {
               "at": {
                 "q": 7.6,
                 "p": 7.6
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Supply curve S"
             },
             {
               "at": {
-                "q": 3.4,
-                "p": 3.4
+                "q": 4.6,
+                "p": 2.4
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Point where D₂ meets S (P₂, Q₂)",
+              "point": {
+                "q": 4,
+                "p": 4
+              }
             }
           ],
           "arrows": [
@@ -281,7 +290,7 @@
           "xLabel": "Quantity",
           "yLabel": "Demand",
           "title": "Market for bicycles, as the student drew it",
-          "description": "The vertical axis is labelled Demand. The horizontal axis is labelled Quantity. A downward-sloping curve D and an upward-sloping curve S cross. P* and Q* are marked where they cross. Tag A is beside the vertical axis. Tag B is on D. Tag C is on S. Tag D is beside the horizontal axis.",
+          "description": "The vertical axis is labelled Demand. The horizontal axis is labelled Quantity. A downward-sloping curve D and an upward-sloping curve S cross. P* and Q* are marked where they cross. Tag A points to: Vertical axis label. Tag B points to: Curve D. Tag C points to: Curve S. Tag D points to: Horizontal axis label.",
           "curves": [
             {
               "points": [
@@ -336,28 +345,34 @@
                 "q": 0.45,
                 "p": 6.8
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Vertical axis label",
+              "on": "yLabel"
             },
             {
               "at": {
                 "q": 2.2,
                 "p": 7.8
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 7.8,
                 "p": 7.8
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Curve S"
             },
             {
               "at": {
                 "q": 7.5,
                 "p": 0.45
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Horizontal axis label",
+              "on": "xLabel"
             }
           ]
         },
@@ -448,7 +463,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Market for wheat, as the student drew it",
-          "description": "A downward-sloping curve labelled D and an upward-sloping curve also labelled D. P* and Q* are marked where they cross. Tag A is on the downward-sloping curve. Tag B is on the upward-sloping curve. Tag C is at the crossing point. Tag D is beside the horizontal axis.",
+          "description": "A downward-sloping curve labelled D and an upward-sloping curve also labelled D. P* and Q* are marked where they cross. Tag A points to: Downward-sloping curve. Tag B points to: Upward-sloping curve. Tag C points to: Crossing point (P*, Q*). Tag D points to: Quantity axis label.",
           "curves": [
             {
               "points": [
@@ -503,28 +518,37 @@
                 "q": 2.2,
                 "p": 7.8
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Downward-sloping curve"
             },
             {
               "at": {
                 "q": 7.8,
                 "p": 7.8
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Upward-sloping curve"
             },
             {
               "at": {
-                "q": 5.6,
-                "p": 5.0
+                "q": 5.7,
+                "p": 3.0
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Crossing point (P*, Q*)",
+              "point": {
+                "q": 5,
+                "p": 5
+              }
             },
             {
               "at": {
                 "q": 7.5,
                 "p": 0.45
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Quantity axis label",
+              "on": "xLabel"
             }
           ]
         },
@@ -615,7 +639,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Demand for concert tickets, as the student drew it",
-          "description": "One upward-sloping curve labelled D. P₁ and Q₁ are marked high on the curve. P₂ and Q₂ are marked lower down, with a smaller quantity. An arrow runs down the curve from the first point to the second. Tag A is on the curve. Tag B is beside the price axis. Tag C is beside the quantity axis.",
+          "description": "One upward-sloping curve labelled D. P₁ and Q₁ are marked high on the curve. P₂ and Q₂ are marked lower down, with a smaller quantity. An arrow runs down the curve from the first point to the second. Tag A points to: Curve D. Tag B points to: Price axis label. Tag C points to: Quantity axis label.",
           "curves": [
             {
               "points": [
@@ -670,21 +694,26 @@
                 "q": 2.2,
                 "p": 2.9
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 0.45,
                 "p": 8.6
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Price axis label",
+              "on": "yLabel"
             },
             {
               "at": {
                 "q": 8.6,
                 "p": 0.45
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Quantity axis label",
+              "on": "xLabel"
             }
           ],
           "arrows": [
@@ -799,7 +828,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Market for apples, as the student drew it",
-          "description": "Demand D slopes down and supply S slopes up. They cross in the middle. A dot with dashed lines to P* and Q* sits above the crossing point, on neither curve. Tag A is on D. Tag B is on S. Tag C is at the dot. Tag D is beside the price axis.",
+          "description": "Demand D slopes down and supply S slopes up. They cross in the middle. A dot with dashed lines to P* and Q* sits above the crossing point, on neither curve. Tag A points to: Curve D. Tag B points to: Curve S. Tag C points to: Dot for P* and Q*. Tag D points to: Price axis label.",
           "curves": [
             {
               "points": [
@@ -854,28 +883,37 @@
                 "q": 2.2,
                 "p": 7.8
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 7.8,
                 "p": 7.8
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Curve S"
             },
             {
               "at": {
                 "q": 5.7,
-                "p": 7.2
+                "p": 8.3
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Dot for P* and Q*",
+              "point": {
+                "q": 5,
+                "p": 6.6
+              }
             },
             {
               "at": {
                 "q": 0.45,
                 "p": 3.2
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Price axis label",
+              "on": "yLabel"
             }
           ]
         },
@@ -966,7 +1004,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Market for cigarettes, as the student drew it",
-          "description": "Demand D slopes down. Supply S slopes up. A second supply curve, S + tax, is drawn below and to the right of S. P₁ and Q₁ are marked where D meets S. P₂ and Q₂ are marked where D meets S + tax. Tag A is on S + tax. Tag B is on D. Tag C is beside the price axis. Tag D is on S.",
+          "description": "Demand D slopes down. Supply S slopes up. A second supply curve, S + tax, is drawn below and to the right of S. P₁ and Q₁ are marked where D meets S. P₂ and Q₂ are marked where D meets S + tax. Tag A points to: Curve S + tax. Tag B points to: Curve D. Tag C points to: Price axis label. Tag D points to: Curve S.",
           "curves": [
             {
               "points": [
@@ -1050,28 +1088,33 @@
                 "q": 8.6,
                 "p": 6.0
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Curve S + tax"
             },
             {
               "at": {
                 "q": 2.2,
                 "p": 7.8
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 0.45,
                 "p": 8.6
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Price axis label",
+              "on": "yLabel"
             },
             {
               "at": {
                 "q": 2.0,
                 "p": 2.6
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Curve S"
             }
           ]
         },
@@ -1191,7 +1234,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Market for rental flats, as the student drew it",
-          "description": "Demand D slopes down and supply S slopes up. They cross at P* and Q*. A horizontal line labelled Pmax is drawn above P*. Tag A is on the Pmax line. Tag B is on D. Tag C is on S. Tag D is at the crossing point.",
+          "description": "Demand D slopes down and supply S slopes up. They cross at P* and Q*. A horizontal line labelled Pmax is drawn above P*. Tag A points to: Pmax line. Tag B points to: Curve D. Tag C points to: Curve S. Tag D points to: Crossing point (P*, Q*).",
           "curves": [
             {
               "points": [
@@ -1246,28 +1289,36 @@
                 "q": 2.2,
                 "p": 7.2
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Pmax line"
             },
             {
               "at": {
                 "q": 1.6,
                 "p": 8.4
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 8.4,
                 "p": 8.4
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Curve S"
             },
             {
               "at": {
-                "q": 5.6,
-                "p": 4.4
+                "q": 5.7,
+                "p": 3.0
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Crossing point (P*, Q*)",
+              "point": {
+                "q": 5,
+                "p": 5
+              }
             }
           ],
           "hlines": [
@@ -1394,7 +1445,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Demand for coffee, as the student drew it",
-          "description": "A dashed demand curve D₁ and a solid demand curve D₂ to the left of it, with an arrow from D₁ to D₂. Tag A is on D₂. Tag B is beside the price axis. Tag C is beside the quantity axis.",
+          "description": "A dashed demand curve D₁ and a solid demand curve D₂ to the left of it, with an arrow from D₁ to D₂. Tag A points to: Curve D₂ and the arrow. Tag B points to: Price axis label. Tag C points to: Quantity axis label.",
           "curves": [
             {
               "points": [
@@ -1432,21 +1483,26 @@
                 "q": 2.4,
                 "p": 5.1
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Curve D₂ and the arrow"
             },
             {
               "at": {
                 "q": 0.45,
                 "p": 3.0
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Price axis label",
+              "on": "yLabel"
             },
             {
               "at": {
                 "q": 8.6,
                 "p": 0.45
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Quantity axis label",
+              "on": "xLabel"
             }
           ],
           "arrows": [
@@ -1561,7 +1617,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Consumer surplus, as the student drew it",
-          "description": "Demand D slopes down and supply S slopes up from the origin. They cross at P* and Q*. The triangle below P* and above S is shaded and labelled CS. Tag A is in the shaded triangle. Tag B is on D. Tag C is on S. Tag D is at the crossing point.",
+          "description": "Demand D slopes down and supply S slopes up from the origin. They cross at P* and Q*. The triangle below P* and above S is shaded and labelled CS. Tag A points to: Shaded area labelled CS. Tag B points to: Curve D. Tag C points to: Curve S. Tag D points to: Crossing point (P*, Q*).",
           "curves": [
             {
               "points": [
@@ -1616,28 +1672,36 @@
                 "q": 1.2,
                 "p": 3.6
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Shaded area labelled CS"
             },
             {
               "at": {
                 "q": 1.8,
                 "p": 9.0
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 8.2,
                 "p": 7.6
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Curve S"
             },
             {
               "at": {
-                "q": 5.6,
-                "p": 4.4
+                "q": 5.7,
+                "p": 3.0
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Crossing point (P*, Q*)",
+              "point": {
+                "q": 5,
+                "p": 5
+              }
             }
           ],
           "areas": [
@@ -1778,7 +1842,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Market for milk, as the student drew it",
-          "description": "Demand D slopes down and supply S slopes up. A horizontal line Pmin is drawn above where they cross. At Pmin, Qd is marked on D and Qs is marked on S, further right. The gap between them is labelled excess demand. Tag A is on the gap label. Tag B is on the Pmin line. Tag C is on D. Tag D is on S.",
+          "description": "Demand D slopes down and supply S slopes up. A horizontal line Pmin is drawn above where they cross. At Pmin, Qd is marked on D and Qs is marked on S, further right. The gap between them is labelled excess demand. Tag A points to: Label: excess demand. Tag B points to: Pmin line. Tag C points to: Curve D. Tag D points to: Curve S.",
           "curves": [
             {
               "points": [
@@ -1845,28 +1909,32 @@
                 "q": 3.6,
                 "p": 7.85
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Label: excess demand"
             },
             {
               "at": {
                 "q": 1.3,
                 "p": 7.0
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Pmin line"
             },
             {
               "at": {
                 "q": 1.8,
                 "p": 8.6
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 8.4,
                 "p": 8.4
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Curve S"
             }
           ],
           "hlines": [
@@ -2005,7 +2073,7 @@
           "xLabel": "Supply",
           "yLabel": "Price",
           "title": "Market for furniture, as the student drew it",
-          "description": "The vertical axis is labelled Price. The horizontal axis is labelled Supply. Demand D slopes down. A dashed supply curve S₁ and a solid supply curve S₂ below and to the right of it. P₁ and Q₁ are where D meets S₁. P₂ and Q₂ are where D meets S₂. Tag A is beside the horizontal axis. Tag B is on S₂. Tag C is on D. Tag D is on S₁. Tag E is beside the price axis.",
+          "description": "The vertical axis is labelled Price. The horizontal axis is labelled Supply. Demand D slopes down. A dashed supply curve S₁ and a solid supply curve S₂ below and to the right of it. P₁ and Q₁ are where D meets S₁. P₂ and Q₂ are where D meets S₂. Tag A points to: Horizontal axis label. Tag B points to: Curve S₂. Tag C points to: Curve D. Tag D points to: Curve S₁. Tag E points to: Price axis label.",
           "curves": [
             {
               "points": [
@@ -2089,35 +2157,42 @@
                 "q": 7.5,
                 "p": 0.45
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Horizontal axis label",
+              "on": "xLabel"
             },
             {
               "at": {
                 "q": 8.6,
                 "p": 6.0
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Curve S₂"
             },
             {
               "at": {
                 "q": 2.2,
                 "p": 7.8
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 2.0,
                 "p": 2.6
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Curve S₁"
             },
             {
               "at": {
                 "q": 0.45,
                 "p": 8.6
               },
-              "letter": "E"
+              "letter": "E",
+              "name": "Price axis label",
+              "on": "yLabel"
             }
           ]
         },
@@ -2255,7 +2330,7 @@
           "xLabel": "Quantity",
           "yLabel": "",
           "title": "Market for solar panels, as the student drew it",
-          "description": "The vertical axis has no label. The horizontal axis is labelled Quantity. Demand D slopes down. A dashed supply curve S and a solid curve S + subsidy above and to the left of it. P₁ and Q₁ are where D meets S. P₂ and Q₂ are where D meets S + subsidy. Tag A is beside the vertical axis. Tag B is on D. Tag C is on S + subsidy. Tag D is on S. Tag E is at the point where D meets S + subsidy.",
+          "description": "The vertical axis has no label. The horizontal axis is labelled Quantity. Demand D slopes down. A dashed supply curve S and a solid curve S + subsidy above and to the left of it. P₁ and Q₁ are where D meets S. P₂ and Q₂ are where D meets S + subsidy. Tag A points to: Vertical axis label. Tag B points to: Curve D. Tag C points to: Curve S + subsidy. Tag D points to: Curve S. Tag E points to: Point where D meets S + subsidy (P₂, Q₂).",
           "curves": [
             {
               "points": [
@@ -2339,35 +2414,45 @@
                 "q": 0.45,
                 "p": 8.6
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Vertical axis label",
+              "on": "yLabel"
             },
             {
               "at": {
                 "q": 1.6,
                 "p": 8.4
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 2.0,
                 "p": 4.0
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Curve S + subsidy"
             },
             {
               "at": {
                 "q": 8.0,
                 "p": 8.0
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Curve S"
             },
             {
               "at": {
-                "q": 3.4,
-                "p": 6.5
+                "q": 4.2,
+                "p": 7.7
               },
-              "letter": "E"
+              "letter": "E",
+              "name": "Point where D meets S + subsidy (P₂, Q₂)",
+              "point": {
+                "q": 4,
+                "p": 6
+              }
             }
           ]
         },
@@ -2505,7 +2590,7 @@
           "xLabel": "Quantity",
           "yLabel": "Costs and benefits",
           "title": "Market for steel, as the student drew it",
-          "description": "The vertical axis is labelled Costs and benefits. A downward-sloping curve MPB = MSB. An upward-sloping curve MPC = S. A third curve MSC is below and to the right of MPC. One point is marked where MPB meets MPC, with dashed lines labelled Qm = Q* and Pm. Tag A is on MSC. Tag B is at the marked point. Tag C is on MPB = MSB. Tag D is on MPC = S.",
+          "description": "The vertical axis is labelled Costs and benefits. A downward-sloping curve MPB = MSB. An upward-sloping curve MPC = S. A third curve MSC is below and to the right of MPC. One point is marked where MPB meets MPC, with dashed lines labelled Qm = Q* and Pm. Tag A points to: Curve MSC. Tag B points to: Marked point (Pm, Qm = Q*). Tag C points to: Curve MPB = MSB. Tag D points to: Curve MPC = S.",
           "curves": [
             {
               "points": [
@@ -2574,28 +2659,36 @@
                 "q": 8.6,
                 "p": 6.0
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Curve MSC"
             },
             {
               "at": {
-                "q": 5.6,
-                "p": 5.4
+                "q": 5.0,
+                "p": 7.0
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Marked point (Pm, Qm = Q*)",
+              "point": {
+                "q": 5,
+                "p": 5
+              }
             },
             {
               "at": {
                 "q": 1.6,
                 "p": 8.4
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Curve MPB = MSB"
             },
             {
               "at": {
                 "q": 2.0,
                 "p": 2.6
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Curve MPC = S"
             }
           ]
         },
@@ -2732,7 +2825,7 @@
           "xLabel": "Quantity of labour",
           "yLabel": "Wage",
           "title": "Labour market, as the student drew it",
-          "description": "The vertical axis is labelled Wage. The horizontal axis is labelled Quantity of labour. A downward-sloping curve is labelled S. An upward-sloping curve is labelled D. A horizontal line Wmin is drawn below where they cross. Tag A is on the downward-sloping curve. Tag B is on the Wmin line. Tag C is on the upward-sloping curve. Tag D is at the crossing point.",
+          "description": "The vertical axis is labelled Wage. The horizontal axis is labelled Quantity of labour. A downward-sloping curve is labelled S. An upward-sloping curve is labelled D. A horizontal line Wmin is drawn below where they cross. Tag A points to: Downward-sloping curve. Tag B points to: Wmin line. Tag C points to: Upward-sloping curve. Tag D points to: Crossing point (We, Qe).",
           "curves": [
             {
               "points": [
@@ -2787,28 +2880,36 @@
                 "q": 2.2,
                 "p": 7.8
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Downward-sloping curve"
             },
             {
               "at": {
                 "q": 1.4,
                 "p": 3.0
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Wmin line"
             },
             {
               "at": {
                 "q": 8.0,
                 "p": 8.0
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Upward-sloping curve"
             },
             {
               "at": {
-                "q": 5.6,
-                "p": 4.4
+                "q": 5.0,
+                "p": 7.0
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Crossing point (We, Qe)",
+              "point": {
+                "q": 5,
+                "p": 5
+              }
             }
           ],
           "hlines": [
@@ -2953,7 +3054,7 @@
           "xLabel": "Quantity",
           "yLabel": "Price",
           "title": "Consumer and producer surplus, as the student drew it",
-          "description": "Demand D slopes down from the price axis and supply S slopes up from the origin. They cross at P* and Q*. The triangle above P* and under D is labelled PS. The triangle below P* and above S is labelled CS. Tag A is in the top triangle. Tag B is in the bottom triangle. Tag C is on D. Tag D is on S. Tag E is at the crossing point.",
+          "description": "Demand D slopes down from the price axis and supply S slopes up from the origin. They cross at P* and Q*. The triangle above P* and under D is labelled PS. The triangle below P* and above S is labelled CS. Tag A points to: Top triangle (labelled PS). Tag B points to: Bottom triangle (labelled CS). Tag C points to: Curve D. Tag D points to: Curve S. Tag E points to: Crossing point (P*, Q*).",
           "curves": [
             {
               "points": [
@@ -3008,35 +3109,44 @@
                 "q": 1.0,
                 "p": 8.0
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "Top triangle (labelled PS)"
             },
             {
               "at": {
                 "q": 1.0,
                 "p": 2.2
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Bottom triangle (labelled CS)"
             },
             {
               "at": {
                 "q": 7.6,
                 "p": 2.4
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Curve D"
             },
             {
               "at": {
                 "q": 7.6,
                 "p": 7.6
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Curve S"
             },
             {
               "at": {
-                "q": 5.6,
-                "p": 4.4
+                "q": 5.2,
+                "p": 7.4
               },
-              "letter": "E"
+              "letter": "E",
+              "name": "Crossing point (P*, Q*)",
+              "point": {
+                "q": 5,
+                "p": 5
+              }
             }
           ],
           "areas": [
@@ -3241,7 +3351,7 @@
           "xLabel": "Consumer goods",
           "yLabel": "Capital goods",
           "title": "PPC, as the student drew it",
-          "description": "The vertical axis is labelled Capital goods and the horizontal axis Consumer goods. The PPC is bowed in towards the origin. Point U is outside the curve, up and to the right. Tag A is on the curve. Tag B is at point U. Tag C is beside the vertical axis. Tag D is beside the horizontal axis.",
+          "description": "The vertical axis is labelled Capital goods and the horizontal axis Consumer goods. The PPC is bowed in towards the origin. Point U is outside the curve, up and to the right. Tag A points to: The curve (PPC). Tag B points to: Point U. Tag C points to: Vertical axis label. Tag D points to: Horizontal axis label.",
           "curves": [
             {
               "points": [
@@ -3308,28 +3418,38 @@
                 "q": 1.6,
                 "p": 3.1
               },
-              "letter": "A"
+              "letter": "A",
+              "name": "The curve (PPC)"
             },
             {
               "at": {
-                "q": 7.6,
-                "p": 8.4
+                "q": 7.9,
+                "p": 8.9
               },
-              "letter": "B"
+              "letter": "B",
+              "name": "Point U",
+              "point": {
+                "q": 7.2,
+                "p": 7.8
+              }
             },
             {
               "at": {
                 "q": 0.45,
                 "p": 6.0
               },
-              "letter": "C"
+              "letter": "C",
+              "name": "Vertical axis label",
+              "on": "yLabel"
             },
             {
               "at": {
                 "q": 6.0,
                 "p": 0.45
               },
-              "letter": "D"
+              "letter": "D",
+              "name": "Horizontal axis label",
+              "on": "xLabel"
             }
           ],
           "dots": [

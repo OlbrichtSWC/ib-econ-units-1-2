@@ -114,6 +114,62 @@
         "kind": "normative",
         "trap": true,
         "why": "Trap! It has a number, but \"too high\" is a value judgement. A number does not make a statement positive."
+      },
+      {
+        "id": "s13",
+        "text": "When the price of concert tickets rises, fewer tickets are sold.",
+        "kind": "positive",
+        "trap": false,
+        "why": "We can count ticket sales before and after a price rise. It is a testable claim with no value judgement."
+      },
+      {
+        "id": "s14",
+        "text": "Rich countries should give more aid to poor countries.",
+        "kind": "normative",
+        "trap": false,
+        "why": "\"Should\" is a value judgement. Data can show how much aid is given, but not how much is right."
+      },
+      {
+        "id": "s15",
+        "text": "A rise in the price of petrol increases the demand for bicycles.",
+        "kind": "positive",
+        "trap": false,
+        "why": "We can test it with data on bicycle sales when petrol prices change. It is a claim about substitutes that we can check."
+      },
+      {
+        "id": "s16",
+        "text": "The moon is made of cheese.",
+        "kind": "positive",
+        "trap": true,
+        "why": "Trap! It is false, but it is still **positive**. We can check it with evidence. Positive means testable, not true."
+      },
+      {
+        "id": "s17",
+        "text": "Footballers are paid far too much.",
+        "kind": "normative",
+        "trap": false,
+        "why": "\"Far too much\" is a value judgement. We can measure their pay, but not whether it is too much."
+      },
+      {
+        "id": "s18",
+        "text": "In 2025, unemployment in this town was 30% and that is a disaster.",
+        "kind": "normative",
+        "trap": true,
+        "why": "Trap! The number can be checked, but \"a disaster\" is a value judgement. One value word makes the whole statement normative."
+      },
+      {
+        "id": "s19",
+        "text": "Taxing plastic bags will reduce the number of bags people use.",
+        "kind": "positive",
+        "trap": false,
+        "why": "A cause and effect claim: compare bag use before and after the tax. It is testable."
+      },
+      {
+        "id": "s20",
+        "text": "Healthy food ought to be cheaper than junk food.",
+        "kind": "normative",
+        "trap": false,
+        "why": "\"Ought to\" is a value judgement about what is good. No data can prove what prices ought to be."
       }
     ],
     "valueRounds": [
@@ -176,6 +232,36 @@
           "need"
         ],
         "why": "\"Need\" here is a value judgement: it says what is good for cities. Evidence can show the benefits of parks, but not that cities need them."
+      },
+      {
+        "id": "v9",
+        "text": "Schools must teach every student how to manage money.",
+        "values": [
+          "must"
+        ],
+        "why": "\"Must\" here says what someone thinks is right. That is a value judgement."
+      },
+      {
+        "id": "v10",
+        "text": "When house prices rise, fewer young people buy a home.",
+        "values": [],
+        "why": "No value word. We can check home buying by age before and after prices rise. This is positive."
+      },
+      {
+        "id": "v11",
+        "text": "It is wrong that some people cannot afford medicine.",
+        "values": [
+          "wrong"
+        ],
+        "why": "\"Wrong\" is a moral judgement. How many people cannot afford medicine is a fact we could check."
+      },
+      {
+        "id": "v12",
+        "text": "A better minimum wage would help families in poverty.",
+        "values": [
+          "better"
+        ],
+        "why": "\"Better\" judges what is good. People with different values will disagree about which minimum wage is better."
       }
     ],
     "methodSteps": [

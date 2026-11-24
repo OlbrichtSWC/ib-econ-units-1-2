@@ -19,9 +19,10 @@ import { celebrate } from '../../shared/fun/celebrate';
 import { shuffled } from '../island-economy/model';
 import {
   Fairness, FAIRNESS, FLOW_GOAL, flowMax, flowWidth, flowWon, incomeShare, isEfficient, isEquitable, JUDGE_GOAL, judgeWon,
-  numberRight, parseNumber, round2, SORT_GOAL, sortWon, tilt, total, Verdict, VERDICTS, verdictTilt,
+  numberRight, parseNumber, round2, SORT_GOAL, sortWon, tilt, total, Verdict, VERDICTS, verdictTilt, SORT_DRAW, JUDGE_DRAW
 } from './model';
 import './scale.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Equity Spotter', 'Fair Judge', 'Flow Detective'];
 
@@ -54,7 +55,7 @@ const VERDICT_ICON: Record<Verdict, string> = { efficient: '⚙️', equitable: 
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -172,7 +173,7 @@ function tiltWords(angle: number, left: string, right: string): string {
 // ---------------- Level 1: equity or equality? ----------------
 
 function Sorter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const items = useMemo(() => shuffled(data.cases, seed + 3), [data.cases, seed]);
+  const items = useMemo(() => drawRound(data.cases, SORT_DRAW, seed + 3), [data.cases, seed]);
   const [idx, setIdx] = useState(0);
   const [missed, setMissed] = useState(false);
   const [solved, setSolved] = useState(false);
@@ -288,7 +289,7 @@ function Sorter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
 
 function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   const rounds = useMemo(
-    () => shuffled(data.outcomes, seed + 7).map((o, i) => ({ ...o, reasons: shuffled(o.reasons, seed + 31 + i) })),
+    () => shuffled(VERDICTS.flatMap((v, k) => drawRound(data.outcomes.filter((o) => o.verdict === v), JUDGE_DRAW / VERDICTS.length, seed + 7 + k)), seed + 7).map((o, i) => ({ ...o, reasons: shuffled(o.reasons, seed + 31 + i) })),
     [data.outcomes, seed],
   );
   const [ri, setRi] = useState(0);

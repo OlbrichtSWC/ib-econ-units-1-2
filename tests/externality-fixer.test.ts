@@ -2,8 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   closeness, EXTS, FIX_GOAL, fixWon, gapAt, gapFor, GAPS, JUDGE_GOAL, judgeWon, lossAt, lossMistakes, lossTriangle, marketPoint, Market, msbLine,
   mscLine, numberRight, optimum, outcome, parseNumber, POINTS_PER_JUDGE_ROUND, rightSize, shiftedCurve, sizeRight, sizeVerdict, SPOT_GOAL, SPOTS,
-  spotWon, sunshine, Tool, toolFits, TOOLS, welfareLoss,
-} from '../src/activities/externality-fixer/model';
+  spotWon, sunshine, Tool, toolFits, TOOLS, welfareLoss, SPOT_DRAW } from '../src/activities/externality-fixer/model';
 import type { Ext } from '../src/activities/externality-fixer/model';
 import { renderInline } from '../src/shared/content/markdown';
 import content from '../public/content/activities/externality-fixer.json';
@@ -158,8 +157,9 @@ describe('Smoke and Sunshine: numbers and goals', () => {
     expect(fixWon(FIX_GOAL - 1)).toBe(false);
     expect(judgeWon(JUDGE_GOAL)).toBe(true);
     expect(judgeWon(JUDGE_GOAL - 1)).toBe(false);
-    expect(t.scenarios.length).toBe(10);
-    expect(SPOT_GOAL).toBeGreaterThan(t.scenarios.length / 2);
+    expect(t.scenarios.length).toBeGreaterThan(SPOT_DRAW);
+    expect(SPOT_GOAL).toBeGreaterThan(SPOT_DRAW / 2);
+    expect(t.scenarios.filter((s) => s.spot).length).toBeLessThanOrEqual(SPOT_DRAW);
     expect(t.markets.length).toBe(6);
     expect(FIX_GOAL).toBeLessThanOrEqual(t.markets.length);
     const maxPoints = t.rounds.length * POINTS_PER_JUDGE_ROUND;
@@ -247,6 +247,10 @@ describe('Smoke and Sunshine: content', () => {
     expect(by.vaccine).toBe('pos-cons');
     expect(by.smoking).toBe('neg-cons');
     expect(by.college).toBe('pos-cons');
+    expect(by.pigfarm).toBe('neg-prod');
+    expect(by.research).toBe('pos-prod');
+    expect(by.trainmusic).toBe('neg-cons');
+    expect(by.firstaid).toBe('pos-cons');
   });
 
   it('check it: the welfare loss and subsidy questions match the model', () => {

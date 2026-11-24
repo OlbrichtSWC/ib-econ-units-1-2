@@ -21,9 +21,10 @@ import { reducedMotion } from '../../shared/fun/motion';
 import { shuffled } from '../island-economy/model';
 import {
   Calc, calcAnswer, calcClass, CALC_GOAL, calcWon, Cls, closeEnough, Det, DETS, engelPoints, LAB_GOAL, labWon, pctChange, PED_KINDS, PedKind,
-  round2, slips, STALL_GOAL, stallWon, YED_KINDS, YedKind, yed,
+  round2, slips, STALL_GOAL, stallWon, YED_KINDS, YedKind, yed, STALL_DRAW
 } from './model';
 import './market.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Stall Sorter', 'Income Explorer', 'Elasticity Analyst'];
 
@@ -56,7 +57,7 @@ const money = (x: number) => (x < 100 ? `$${x.toFixed(2)}` : `$${x.toLocaleStrin
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -117,7 +118,7 @@ const PED_HINT: Record<PedKind, string> = { elastic: 'Buyers cut back a lot', in
 // ---------------- Level 1: the HINTS stall ----------------
 
 function Stall({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const goods = useMemo(() => shuffled(data.goods, seed + 3), [data.goods, seed]);
+  const goods = useMemo(() => drawRound(data.goods, STALL_DRAW, seed + 3), [data.goods, seed]);
   const [idx, setIdx] = useState(0);
   const [detDone, setDetDone] = useState(false);
   const [solved, setSolved] = useState(false);

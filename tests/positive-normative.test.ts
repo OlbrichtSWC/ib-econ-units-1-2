@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  bare, BELT_GOAL, beltWon, CENTURIES, isValueWord, KINDS, LAB_GOAL, labMax, labWon, nextMethodStep, tokenize, VALUE_GOAL, valueWon, valuesInText,
-} from '../src/activities/positive-normative/model';
+  bare, BELT_GOAL, beltWon, CENTURIES, isValueWord, KINDS, LAB_GOAL, labMax, labWon, nextMethodStep, tokenize, VALUE_GOAL, valueWon, valuesInText, BELT_DRAW, VALUE_DRAW } from '../src/activities/positive-normative/model';
 import content from '../public/content/activities/positive-normative.json';
 
 const t = content.try;
@@ -55,7 +54,10 @@ describe('Fact Lab: goals', () => {
   });
   it('every goal can be reached with the content', () => {
     expect(t.statements.length).toBeGreaterThanOrEqual(BELT_GOAL);
-    expect(BELT_GOAL).toBeGreaterThan(t.statements.length / 2);
+    expect(BELT_GOAL).toBeGreaterThan(BELT_DRAW / 2);
+    expect(t.statements.length).toBeGreaterThan(BELT_DRAW);
+    expect(t.valueRounds.length).toBeGreaterThan(VALUE_DRAW);
+    expect(VALUE_GOAL).toBeLessThanOrEqual(VALUE_DRAW);
     expect(t.valueRounds.length).toBeGreaterThanOrEqual(VALUE_GOAL);
   });
 });

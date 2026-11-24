@@ -171,3 +171,7 @@ export const trust = (solved: number, total: number) => (total <= 0 ? 0 : Math.m
 export function money(v: number): string {
   return `$${Math.round(v).toLocaleString('en-US')}`;
 }
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const SIGNAL_DRAW = 10;
+export const HAZARD_DRAW = 8;

@@ -243,6 +243,76 @@
         },
         "structure": "monopolistic",
         "why": "CR4 is very low: no firm has much of the market. Many firms, free entry and differentiated products make this **monopolistic competition**."
+      },
+      {
+        "id": "potatoes",
+        "kind": "market",
+        "icon": "🥔",
+        "name": "Potatoes",
+        "text": "Thousands of farms grow the same kind of potato. A farmer can start growing potatoes next season.",
+        "clues": {
+          "firms": "Thousands, all small",
+          "product": "The same (homogeneous)",
+          "barriers": "None: anyone with land can start"
+        },
+        "structure": "perfect",
+        "why": "Many small firms, the same product and free entry. No farm can change the market price, so each is a **price taker**. This is close to perfect competition."
+      },
+      {
+        "id": "bakeries",
+        "kind": "market",
+        "icon": "🥖",
+        "name": "Bakeries",
+        "text": "A city has hundreds of bakeries. Each one has its own recipes and its own loyal customers.",
+        "clues": {
+          "firms": "Hundreds",
+          "product": "Differentiated: each recipe is a bit different",
+          "barriers": "Low: a small bakery is cheap to open"
+        },
+        "structure": "monopolistic",
+        "why": "Many firms and free entry, with differentiated products. Each bakery is a price maker, but faces many close substitutes. That is **monopolistic competition**."
+      },
+      {
+        "id": "consoles",
+        "kind": "market",
+        "icon": "🎮",
+        "name": "Games consoles",
+        "text": "Three firms make almost every games console sold in the world. Each plans its launches around the others.",
+        "clues": {
+          "firms": "Three large firms",
+          "product": "Similar, with different games",
+          "barriers": "Very high: research, factories and brands"
+        },
+        "structure": "oligopoly",
+        "why": "A few large firms, high barriers and strong **interdependence**: each firm watches its rivals. That is an oligopoly."
+      },
+      {
+        "id": "cement",
+        "kind": "market",
+        "icon": "🧱",
+        "name": "Cement",
+        "text": "Four firms make most of a country's cement. A new cement plant costs hundreds of millions of dollars.",
+        "clues": {
+          "firms": "Four large firms",
+          "product": "Almost the same",
+          "barriers": "Very high: huge plants"
+        },
+        "structure": "oligopoly",
+        "why": "A few large firms and very high barriers to entry. Each firm's price depends on what the others do: an **oligopoly**."
+      },
+      {
+        "id": "rail",
+        "kind": "market",
+        "icon": "🚆",
+        "name": "A railway line",
+        "text": "One company runs the only railway line between two cities. Building a second line would cost far too much.",
+        "clues": {
+          "firms": "One",
+          "product": "No close substitute by rail",
+          "barriers": "Very high: huge set-up costs"
+        },
+        "structure": "monopoly",
+        "why": "One firm and huge set-up costs. **[[Economies of scale]]** mean one firm can serve the route at the lowest cost: a **natural monopoly**. It is a price maker."
       }
     ],
     "rounds": [

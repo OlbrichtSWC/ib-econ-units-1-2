@@ -120,6 +120,60 @@
         "rival": "Grass eaten by one farmer's cows cannot be eaten by another farmer's cows. It is rivalrous.",
         "excl": "Every farmer may use the field, so nobody can be kept out. It is non-excludable.",
         "why": "The shared field is a common pool resource: rivalrous but non-excludable."
+      },
+      {
+        "id": "floodwall",
+        "icon": "🌊",
+        "name": "A flood wall that protects a whole town",
+        "kind": "public",
+        "rival": "Protecting one more house does not leave less protection for the others. It is non-rivalrous.",
+        "excl": "The wall keeps water out of every street. Nobody in town can be left out, so it is non-excludable.",
+        "why": "A flood wall is a public good. Every household is protected, whether it paid or not."
+      },
+      {
+        "id": "radio",
+        "icon": "📻",
+        "name": "A free-to-air radio broadcast",
+        "kind": "public",
+        "rival": "One more listener does not make the signal weaker for anyone else. It is non-rivalrous.",
+        "excl": "Anyone with a radio can tune in. Nobody can be kept out, so it is non-excludable.",
+        "why": "A free-to-air broadcast is a public good. It is hard to charge listeners."
+      },
+      {
+        "id": "sandwich",
+        "icon": "🥪",
+        "name": "A sandwich",
+        "kind": "private",
+        "rival": "If you eat the sandwich, nobody else can eat it. It is rivalrous.",
+        "excl": "The café gives it to you only if you pay. It is excludable.",
+        "why": "A sandwich is a private good: rivalrous and excludable."
+      },
+      {
+        "id": "streaming",
+        "icon": "📺",
+        "name": "A film streaming service",
+        "kind": "club",
+        "rival": "One more viewer watching a film does not use it up for anyone else. It is non-rivalrous.",
+        "excl": "Only people who pay can log in. It is excludable.",
+        "why": "A streaming service is a club good: excludable, but non-rivalrous."
+      },
+      {
+        "id": "firewood",
+        "icon": "🪵",
+        "name": "Firewood in a forest anyone may enter",
+        "kind": "common",
+        "rival": "Wood taken by one family cannot be taken by another. It is rivalrous.",
+        "excl": "Anyone may walk into the forest, so nobody can be kept out. It is non-excludable.",
+        "why": "The forest's wood is a common pool resource: rivalrous but non-excludable. It is easily overused."
+      },
+      {
+        "id": "parking",
+        "icon": "🅿️",
+        "name": "Free street parking in a busy town centre",
+        "kind": "common",
+        "rival": "When one car takes a space, no other car can park there. It is rivalrous.",
+        "excl": "Any driver may park there for free. Nobody can be kept out, so it is non-excludable.",
+        "why": "Free street parking is a common pool resource: rivalrous but non-excludable. The spaces fill up fast."
       }
     ],
     "weeks": [

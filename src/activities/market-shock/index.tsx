@@ -20,6 +20,7 @@ import {
   Answer, BASE_D, BASE_S, buildDeck, Change, checkPrediction, dragDirection, expectedOutcome, gapAtPrice, HANDLE_P, marketOutcome, Mechanism,
   outcomeWords, parseShift, PredictionResult, priceStep, segment, Shift, shiftedMarket, shiftSizeFor, SHIFT_SIZE, Side, snapDrag, X_MAX, Y_MAX,
 } from './model';
+import { newSeed } from '../../shared/activity/seed';
 
 interface Option { id: Answer; text: string }
 interface ShiftCard {
@@ -122,7 +123,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
 
   // Level 2 deals trap cards between shift cards.
   const trapMode = level >= 2;
-  const [seed, setSeed] = useState(0);
+  const [seed, setSeed] = useState(newSeed);
   const [pos, setPos] = useState(0);
   const [phase, setPhase] = useState<Phase>('predict');
   const [prediction, setPrediction] = useState<Answer | null>(null);

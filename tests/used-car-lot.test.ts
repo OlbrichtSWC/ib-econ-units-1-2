@@ -2,8 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   accepts, Actor, BID_GOAL, bidWon, expectedValue, expectedValue2, Grade, HAZARD_GOAL, hazardWon, isPrivate, leaveOptions, leaving, Lot, minShareToStay,
   money, nextLot, POINTS_PER_HAZARD_CASE, priceOptions, problemFor, questionsPerLot, responseFor, RESPONSES, sameGrades, shareGood, SIGNAL_GOAL, signalWon,
-  spiral, totalCars, trust,
-} from '../src/activities/used-car-lot/model';
+  spiral, totalCars, trust, HAZARD_DRAW, SIGNAL_DRAW } from '../src/activities/used-car-lot/model';
 import { checkNumber } from '../src/shared/activity/CheckIt';
 import type { NumberQuestion } from '../src/shared/activity/types';
 import content from '../public/content/activities/used-car-lot.json';
@@ -137,6 +136,10 @@ describe('Used Car Lot: responses and problems', () => {
     expect(byId('mechanic')).toBe('screening');
     expect(byId('refund')).toBe('legislation');
     expect(byId('ratings')).toBe('information');
+    expect(byId('receipts')).toBe('signalling');
+    expect(byId('credit')).toBe('screening');
+    expect(byId('mileage')).toBe('legislation');
+    expect(byId('stolen')).toBe('information');
   });
   it('hidden before the deal is adverse selection, after is moral hazard', () => {
     expect(problemFor('before')).toBe('adverse');
@@ -167,13 +170,14 @@ describe('Used Car Lot: goals', () => {
     expect(bidWon(BID_GOAL - 1)).toBe(false);
   });
   it('level 2: 10 cases, goal 8', () => {
-    expect(t.cases.length).toBe(10);
-    expect(SIGNAL_GOAL).toBeLessThanOrEqual(t.cases.length);
+    expect(t.cases.length).toBeGreaterThan(SIGNAL_DRAW);
+    expect(SIGNAL_GOAL).toBeLessThanOrEqual(SIGNAL_DRAW);
+    expect(t.hazards.length).toBeGreaterThan(HAZARD_DRAW);
     expect(signalWon(SIGNAL_GOAL)).toBe(true);
     expect(signalWon(SIGNAL_GOAL - 1)).toBe(false);
   });
   it('level 3: 16 first-try points, goal 13', () => {
-    const max = t.hazards.length * POINTS_PER_HAZARD_CASE;
+    const max = HAZARD_DRAW * POINTS_PER_HAZARD_CASE;
     expect(max).toBe(16);
     expect(HAZARD_GOAL).toBeLessThanOrEqual(max);
     expect(hazardWon(HAZARD_GOAL)).toBe(true);

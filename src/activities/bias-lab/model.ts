@@ -70,3 +70,6 @@ export function designMax(goals: number, firms: number): number {
 export const subjectWon = (firstRight: number, goal = SUBJECT_GOAL) => firstRight >= goal;
 export const huntWon = (firstRight: number, goal = HUNT_GOAL) => firstRight >= goal;
 export const designWon = (points: number) => points >= DESIGN_GOAL;
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const HUNT_DRAW = 10;

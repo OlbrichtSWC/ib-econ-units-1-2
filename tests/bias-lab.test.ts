@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   ALL_EFFECTS, anchorFor, anchorGap, ANCHORS, DESIGN_GOAL, designMax, designWon, EXPERIMENT_EFFECTS, fatPercent, habitCost, HUNT_GOAL, huntWon,
-  isHighAnchor, OBJECTIVES, profit, SUBJECT_GOAL, subjectWon, TOOLS,
-} from '../src/activities/bias-lab/model';
+  isHighAnchor, OBJECTIVES, profit, SUBJECT_GOAL, subjectWon, TOOLS, HUNT_DRAW } from '../src/activities/bias-lab/model';
 import content from '../public/content/activities/bias-lab.json';
 import glossary from '../public/content/glossary.json';
 
@@ -62,7 +61,8 @@ describe('Mind Tricks Lab: goals', () => {
     expect(t.experiments.length).toBeGreaterThanOrEqual(SUBJECT_GOAL);
     expect(SUBJECT_GOAL).toBeGreaterThan(t.experiments.length / 2);
     expect(t.huntScenarios.length).toBeGreaterThanOrEqual(HUNT_GOAL);
-    expect(HUNT_GOAL).toBeGreaterThan(t.huntScenarios.length / 2);
+    expect(HUNT_GOAL).toBeGreaterThan(HUNT_DRAW / 2);
+    expect(t.huntScenarios.length).toBeGreaterThan(HUNT_DRAW);
     const max = designMax(t.designGoals.length, t.firms.length);
     expect(DESIGN_GOAL).toBeLessThanOrEqual(max);
     expect(DESIGN_GOAL).toBeGreaterThan(max / 2);

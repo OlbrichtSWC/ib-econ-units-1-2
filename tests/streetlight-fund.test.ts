@@ -3,8 +3,7 @@ import {
   BENEFIT_PER_LAMP, COUNCIL_GOAL, COUNCIL_TAX, councilTax, councilWon, ENDOWMENT, featuresOf, FUND_GOAL, fullyLitPossible, fundWon, GIFTS, HOUSEHOLDS,
   kindOf, KINDS, LAMPS, lampsLit, NEIGHBOURS, neighbourGift, neighboursTotal, numberRight, parseNumber, payoff, playWeek, POINTS_PER_CASE,
   progressLamps, SORT_GOAL, sortSlip, sortWon, STREET_BENEFIT_PER_LAMP, TARGET, taxMistakes, taxPerHousehold, totalCost, VOLUNTARY_WEEKS, WAYS, WEEKS,
-  LAMP_COST,
-} from '../src/activities/streetlight-fund/model';
+  LAMP_COST, SORT_DRAW } from '../src/activities/streetlight-fund/model';
 import type { Kind, Way } from '../src/activities/streetlight-fund/model';
 import { checkNumber } from '../src/shared/activity/CheckIt';
 import type { NumberQuestion } from '../src/shared/activity/types';
@@ -131,9 +130,9 @@ describe('Streetlight Fund: goals', () => {
   it('goals count first-try answers and can be reached with the content', () => {
     expect(sortWon(SORT_GOAL)).toBe(true);
     expect(sortWon(SORT_GOAL - 1)).toBe(false);
-    expect(t.goods.length).toBe(10);
-    expect(SORT_GOAL).toBeLessThanOrEqual(t.goods.length);
-    expect(SORT_GOAL).toBeGreaterThan(t.goods.length / 2);
+    expect(t.goods.length).toBeGreaterThan(SORT_DRAW);
+    expect(SORT_GOAL).toBeLessThanOrEqual(SORT_DRAW);
+    expect(SORT_GOAL).toBeGreaterThan(SORT_DRAW / 2);
     expect(fundWon(FUND_GOAL)).toBe(true);
     expect(fundWon(FUND_GOAL - 1)).toBe(false);
     expect(t.weeks.length).toBe(WEEKS);
@@ -153,6 +152,7 @@ describe('Streetlight Fund: content', () => {
     expect(by).toEqual({
       streetlight: 'public', defence: 'public', pizza: 'private', gym: 'club', fish: 'common',
       lighthouse: 'public', toll: 'club', fireworks: 'public', tshirt: 'private', field: 'common',
+      floodwall: 'public', radio: 'public', sandwich: 'private', streaming: 'club', firewood: 'common', parking: 'common',
     });
     for (const k of KINDS) expect(t.goods.some((g) => g.kind === k), k).toBe(true);
     for (const g of t.goods) {

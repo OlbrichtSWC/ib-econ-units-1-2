@@ -60,3 +60,6 @@ export function shuffled<T>(items: T[], seed: number): T[] {
   }
   return out;
 }
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const BEACH_DRAW = 12;

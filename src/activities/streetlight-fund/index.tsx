@@ -24,9 +24,10 @@ import { shuffled } from '../island-economy/model';
 import {
   BENEFIT_PER_LAMP, COUNCIL_GOAL, COUNCIL_TAX, councilTax, councilWon, ENDOWMENT, FUND_GOAL, fundWon, GIFTS, HOUSEHOLDS, Kind, LAMP_COST, LAMPS,
   numberRight, parseNumber, playWeek, POINTS_PER_CASE, progressLamps, SORT_GOAL, sortSlip, sortWon, TARGET, TaxSlip, taxMistakes, totalCost,
-  VOLUNTARY_WEEKS, Way, WAYS, WEEKS, WeekResult,
+  VOLUNTARY_WEEKS, Way, WAYS, WEEKS, WeekResult, SORT_DRAW
 } from './model';
 import './street.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Goods Sorter', 'Free Rider Detective', 'Town Planner'];
 
@@ -66,7 +67,7 @@ const money = (v: number) => `$${Math.abs(v - Math.round(v)) < 1e-9 ? Math.round
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -246,7 +247,7 @@ function LampMeter(props: { lit: number; label?: string }) {
 const KIND_ICON: Record<Kind, string> = { private: '🔒', club: '🎟️', common: '🌊', public: '💡' };
 
 function Sorter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const goods = useMemo(() => shuffled(data.goods, seed + 3), [data.goods, seed]);
+  const goods = useMemo(() => drawRound(data.goods, SORT_DRAW, seed + 3), [data.goods, seed]);
   const [idx, setIdx] = useState(0);
   const [missed, setMissed] = useState(false);
   const [wrong, setWrong] = useState<Kind | null>(null);

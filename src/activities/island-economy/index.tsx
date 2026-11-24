@@ -17,9 +17,10 @@ import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
 import {
   BEACH_GOAL, beachWon, DETECTIVE_GOAL, detectiveWon, Factor, FACTORS, opportunityCost, Question, QUESTIONS, shuffled, System, SYSTEMS, VILLAGE_GOAL,
-  villageWon,
+  villageWon, BEACH_DRAW
 } from './model';
 import './island.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Beachcomber', 'Village Builder', 'System Detective'];
 
@@ -64,7 +65,7 @@ const BUILDINGS: Record<System, string[]> = {
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -101,7 +102,7 @@ function win(onGoal: (l?: number) => void, level: number) {
 type BeachPhase = 'sort' | 'rank' | 'cost' | 'done';
 
 function Beach({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const items = useMemo(() => shuffled(data.items, seed + 3), [data.items, seed]);
+  const items = useMemo(() => drawRound(data.items, BEACH_DRAW, seed + 3), [data.items, seed]);
   const [idx, setIdx] = useState(0);
   const [phase, setPhase] = useState<BeachPhase>('sort');
   const [missed, setMissed] = useState(false);

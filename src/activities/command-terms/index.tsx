@@ -14,8 +14,10 @@ import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
 import { shuffled } from '../island-economy/model';
-import { Ao, aoOf, AOS, BOX_GOAL, boxMax, boxWon, PLAN_GOAL, planWon, RUNWAY_GOAL, runwayWon, Term } from './model';
+import { Ao, aoOf, AOS, BOX_GOAL, boxMax, boxWon, PLAN_GOAL, planWon, RUNWAY_GOAL, runwayWon, Term, RUNWAY_DRAW
+} from './model';
 import './tower.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Air Traffic Controller', 'Flight Planner', 'Crash Investigator'];
 
@@ -36,7 +38,7 @@ interface TryContent {
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -109,7 +111,7 @@ function Sky(props: { id: string; callsign: string; landed: boolean; children: C
 // ---------------- Level 1: runways ----------------
 
 function Runways({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const planes = useMemo(() => shuffled(data.planes, seed + 3), [data.planes, seed]);
+  const planes = useMemo(() => drawRound(data.planes, RUNWAY_DRAW, seed + 3), [data.planes, seed]);
   const [idx, setIdx] = useState(0);
   const [missed, setMissed] = useState(false);
   const [landed, setLanded] = useState(false);

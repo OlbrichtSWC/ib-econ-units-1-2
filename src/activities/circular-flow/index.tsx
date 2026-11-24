@@ -20,6 +20,7 @@ import {
   PIPE_SECTOR, PIPES, Sector, SECTORS, SPOT_GOAL, totalInjections, totalLeakages, Totals,
 } from './model';
 import './river.css';
+import { newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['River Builder', 'Drain Spotter', 'Flow Forecaster'];
 
@@ -47,7 +48,7 @@ function win(onGoal: (l?: number) => void, level: number) {
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);

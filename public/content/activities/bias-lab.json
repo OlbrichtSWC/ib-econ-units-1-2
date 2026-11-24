@@ -244,6 +244,46 @@
         "effect": "selfishness",
         "hint": "She gains nothing from the tip. What does that tell us about her motives?",
         "why": "Tipping when no one is watching shows people care about fairness, not only their own gain: bounded selfishness."
+      },
+      {
+        "id": "h11",
+        "icon": "🥛",
+        "text": "Two yoghurts are the same. One is labelled \"90% fat free\". The other is labelled \"10% fat\". Most shoppers pick the first one.",
+        "effect": "framing",
+        "hint": "Is the yoghurt different, or only the way it is described?",
+        "why": "Both labels say the same thing. The positive frame makes the first one feel healthier."
+      },
+      {
+        "id": "h12",
+        "icon": "📵",
+        "text": "After a friend's phone is stolen, Leo buys expensive phone insurance, even though thefts are very rare where he lives.",
+        "effect": "availability",
+        "hint": "Why does theft suddenly feel so likely to Leo?",
+        "why": "His friend's story is fresh and vivid, so Leo thinks theft is more likely than it is."
+      },
+      {
+        "id": "h13",
+        "icon": "⏰",
+        "text": "Jo sets an alarm for 6 a.m. to study before school. Every morning she presses snooze until 7.",
+        "effect": "selfcontrol",
+        "hint": "Jo knows what she wants to do. What happens when the moment comes?",
+        "why": "Jo plans well but gives in to comfort now. That is bounded self-control."
+      },
+      {
+        "id": "h14",
+        "icon": "🧼",
+        "text": "Max always buys the soap brand his parents bought. He never compares prices or other brands.",
+        "effect": "rule",
+        "hint": "Max uses the same shortcut every time. What is it called?",
+        "why": "\"Buy what my parents bought\" is a rule of thumb: a quick shortcut instead of comparing."
+      },
+      {
+        "id": "h15",
+        "icon": "💝",
+        "text": "A charity form shows the boxes $200, $100 and $50, with $200 first. People give more than when the first box says $20.",
+        "effect": "anchoring",
+        "hint": "Which number do people see first, and how does it shape their gift?",
+        "why": "The first, high amount is an anchor. People judge their gift against it, so they give more."
       }
     ],
     "toolNames": {

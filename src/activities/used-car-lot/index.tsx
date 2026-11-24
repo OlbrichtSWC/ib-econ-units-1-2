@@ -23,9 +23,10 @@ import { shuffled } from '../island-economy/model';
 import {
   Actor, BID_GOAL, bidWon, expectedValue, Grade, HAZARD_GOAL, hazardWon, leaveOptions, Lot, money, POINTS_PER_HAZARD_CASE, PriceKind, priceOptions,
   Problem, problemFor, PROBLEMS, questionsPerLot, Response, responseFor, RESPONSES, sameGrades, shareGood, SIGNAL_GOAL, signalWon, spiral, totalCars,
-  trust,
+  trust, SIGNAL_DRAW, HAZARD_DRAW
 } from './model';
 import './lot.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Smart Buyer', 'Signal Reader', 'Risk Watcher'];
 
@@ -56,7 +57,7 @@ const PROBLEM_ICON: Record<Problem, string> = { adverse: '🍋', moral: '🎲' }
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -412,7 +413,7 @@ function BidBlind({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
 // ---------------- Level 2: read the signals ----------------
 
 function Signals({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const cases = useMemo(() => shuffled(data.cases, seed + 31), [data.cases, seed]);
+  const cases = useMemo(() => drawRound(data.cases, SIGNAL_DRAW, seed + 31), [data.cases, seed]);
   const goal = Math.min(SIGNAL_GOAL, cases.length);
   const [ci, setCi] = useState(0);
   const [wrong, setWrong] = useState<Response | null>(null);
@@ -535,7 +536,7 @@ function Timeline(props: { hidden: 'before' | 'after' | null }) {
 }
 
 function MoralHazard({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const cases = useMemo(() => shuffled(data.hazards, seed + 41), [data.hazards, seed]);
+  const cases = useMemo(() => drawRound(data.hazards, HAZARD_DRAW, seed + 41), [data.hazards, seed]);
   const max = cases.length * POINTS_PER_HAZARD_CASE;
   const goal = Math.min(HAZARD_GOAL, max);
   const [hi, setHi] = useState(0);

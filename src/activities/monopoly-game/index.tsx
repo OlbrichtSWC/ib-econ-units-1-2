@@ -24,9 +24,10 @@ import {
   bestOutput, bestReply, cell, concentrationRatio, crMistakes, CrSlip, customersToYou, DUEL_GOAL, duelMax, duelWon, equilibrium, MAP_GOAL,
   mapWon, Matrix, Move, MOVES, numberRight, outputSlip, parseNumber, PriceSlip, priceMistakes, priceTaker, PROFIT_GOAL, PROFIT_KINDS, ProfitKind,
   profitKind, profitMistakes, ProfitSlip, profitWon, POINTS_PER_PROFIT_ROUND, rowAt, rows, Schedule, Structure, STRUCTURES, titForTat,
-  dominantStrategy,
+  dominantStrategy, MAP_DRAW
 } from './model';
 import './street.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Market Mapper', 'Profit Finder', 'Game Theorist'];
 
@@ -80,7 +81,7 @@ const MOVE_NAME: Record<Move, string> = { high: 'High price', low: 'Low price' }
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -316,7 +317,7 @@ function PowerMap(props: { data: TryContent; placed: { id: string; icon: string;
 type MapPhase = 'struct' | 'taker' | 'cr' | 'solved';
 
 function Mapper({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const items = useMemo(() => shuffled(data.items, seed + 3), [data.items, seed]);
+  const items = useMemo(() => drawRound(data.items, MAP_DRAW, seed + 3, (i) => i.kind === 'cr'), [data.items, seed]);
   const [idx, setIdx] = useState(0);
   const it = items[idx];
   const [phase, setPhase] = useState<MapPhase>(it.kind === 'cr' ? 'cr' : 'struct');

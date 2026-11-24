@@ -23,9 +23,11 @@
 .dd-chart-head { margin: 0 0 4px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-soft, #3d4555); }
 .dd-chart-task { margin: 0; font-size: 1.08rem; line-height: 1.45; }
 
-.dd-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.dd-tag { display: grid; justify-items: center; gap: 2px; min-width: 78px; padding: 8px 10px; border: 2px solid var(--red); border-radius: 14px; background: var(--white); color: var(--ink); font: inherit; cursor: pointer; }
-.dd-tag-letter { display: grid; place-items: center; width: 34px; height: 34px; border: 3px solid var(--red); border-radius: 50%; color: var(--red); font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; }
+.dd-tags { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; }
+.dd-tag { display: flex; align-items: center; gap: 10px; text-align: left; padding: 8px 10px; border: 2px solid var(--red); border-radius: 14px; background: var(--white); color: var(--ink); font: inherit; cursor: pointer; }
+.dd-tag-text { display: grid; gap: 1px; }
+.dd-tag-name { font-weight: 700; line-height: 1.25; }
+.dd-tag-letter { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border: 3px solid var(--red); border-radius: 50%; color: var(--red); font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; }
 .dd-tag:hover:not(:disabled) { background: #fdeaed; }
 .dd-tag:disabled { cursor: default; }
 .dd-tag-fine { border-color: var(--line); border-style: dashed; color: var(--ink-soft, #3d4555); }
