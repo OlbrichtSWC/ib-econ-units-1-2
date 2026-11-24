@@ -24,6 +24,9 @@ You can fix a typo, rewrite a hint or add a question without touching any code.
 | `content/activities/used-car-lot.json` | Everything in Used Car Lot |
 | `content/activities/monopoly-game.json` | Everything in Rival Pricing |
 | `content/activities/fair-efficient.json` | Everything in Fair or Efficient? |
+| `content/activities/diagram-doctor.json` | Everything in Diagram Doctor (each patient's sick and healed diagram, tags and cures) |
+| `content/activities/command-terms.json` | Everything in Control Tower (command terms and their IB definitions, questions, flight plans, black box answers) |
+| `content/activities/build-break-judge.json` | Everything in Build, Break, Judge (chains, cracked planks, claims) |
 
 ## Three rules for JSON files
 

@@ -1,0 +1,984 @@
+{
+  "id": "build-break-judge",
+  "outcome": "I can build a chain of reasoning step by step, spot the weak link in someone else's chain, and choose evaluation points and conclusions that are supported.",
+  "learn": {
+    "text": "Exam answers earn marks for **reasoning**, not just facts. Think of each answer as a bridge across a river.\n\n**Build it.** Start from the event and show every link: *this causes that, so this happens*. Use linking words such as *so*, *because* and *this means that*. Do not jump straight to the answer.\n\n**Break it.** Check each plank. Common cracks: the wrong curve shifts, a shift is confused with a **[[movement along the curve]]**, a step goes the wrong way (an inferior good, a complement), or a link is missing.\n\n**Judge it.** For AO3 questions, weigh up what you found. Strong evaluation uses an economic idea: **[[price elasticity of demand]]**, **[[stakeholders]]**, the short run and the long run, **[[opportunity cost]]**, or the assumptions behind the theory. Then end with a **conclusion that is supported** by your arguments.",
+    "caption": "A chain of reasoning: build the links in order, then judge how far the answer holds."
+  },
+  "try": {
+    "goal": "Build bridges of reasoning. In Level 1, place 19 of 24 planks right first time to earn the **Bridge Builder** stamp.",
+    "intro": "Good exam answers are chains: each step follows from the one before, like planks across a river.\n\nLevel 1 (**Build it**): tap the planks in order, from the event on the left bank to the answer on the right. Level 2 (**Break it**): one plank in each bridge is cracked. Find it, then choose the plank that fixes it. Level 3 (**Judge it**): the bridge is built. Choose the strongest evaluation point, then the best supported conclusion.",
+    "levels": [
+      {
+        "title": "Build it",
+        "blurb": "Put 6 chains of reasoning in order. Place 19 of 24 planks right first time."
+      },
+      {
+        "title": "Break it",
+        "blurb": "Find and fix the cracked plank in 8 bridges. Score 13 of 16 first-try points."
+      },
+      {
+        "title": "Judge it",
+        "blurb": "Choose the best evaluation and conclusion for 6 claims. Score 10 of 12 first-try points."
+      }
+    ],
+    "builds": [
+      {
+        "id": "b-frost",
+        "event": "A frost destroys much of the coffee harvest.",
+        "question": "What happens to the price and quantity of coffee?",
+        "planks": [
+          "The supply of coffee decreases: the supply curve shifts left.",
+          "At the old price, quantity demanded is bigger than quantity supplied: a shortage.",
+          "Buyers compete for the coffee, so the price rises.",
+          "As the price rises, buyers demand less: a movement along the demand curve.",
+          "A new equilibrium: a higher price and a lower quantity."
+        ]
+      },
+      {
+        "id": "b-tax",
+        "event": "The government puts a specific tax on cigarettes. Demand is price inelastic.",
+        "question": "Will the tax cut smoking by a lot?",
+        "planks": [
+          "Firms' costs rise by the tax on each pack.",
+          "Supply shifts up (left) by the amount of the tax.",
+          "At the old price there is a shortage, so the price buyers pay rises.",
+          "Demand is price inelastic, so the quantity demanded falls only a little.",
+          "Smoking falls a little, and the government earns a lot of tax revenue."
+        ]
+      },
+      {
+        "id": "b-invest",
+        "event": "A country moves resources into new machines and training.",
+        "question": "What happens to its PPC, now and later?",
+        "planks": [
+          "Resources move to making capital goods, so fewer consumer goods are made now.",
+          "The consumer goods given up are the opportunity cost of the investment.",
+          "The quantity and quality of the factors of production increase.",
+          "The PPC shifts outwards: growth in production possibilities.",
+          "In the future, the economy can produce more of both goods."
+        ]
+      },
+      {
+        "id": "b-smoke",
+        "event": "Smoke from a factory harms people who live nearby.",
+        "question": "Why is this a market failure?",
+        "planks": [
+          "The smoke is an external cost to third parties.",
+          "So the marginal social cost (MSC) is above the marginal private cost (MPC).",
+          "The factory produces where MPC = MPB, at the market quantity Qm.",
+          "Qm is more than the social optimum Q*, where MSC = MSB.",
+          "Too much is produced, so there is a welfare loss: a market failure."
+        ]
+      },
+      {
+        "id": "b-latte",
+        "event": "A café raises the price of its lattes. Demand is price elastic.",
+        "question": "What happens to the café's total revenue?",
+        "planks": [
+          "The price of a latte rises by a certain percentage.",
+          "Demand is price elastic, so quantity demanded falls by a bigger percentage.",
+          "The fall in quantity outweighs the rise in price.",
+          "Total revenue (price × quantity) falls.",
+          "So the café should not raise its price if it wants more revenue."
+        ]
+      },
+      {
+        "id": "b-rent",
+        "event": "The government sets a maximum rent below the equilibrium rent.",
+        "question": "What happens in the market for flats?",
+        "planks": [
+          "The rent is held below the equilibrium rent.",
+          "At this rent, landlords offer fewer flats, and more people want one.",
+          "Quantity demanded is bigger than quantity supplied: a shortage.",
+          "The flats must be shared out another way, such as waiting lists.",
+          "Some renters pay less, but others cannot find a flat at all."
+        ]
+      }
+    ],
+    "breaks": [
+      {
+        "id": "k-income",
+        "event": "Incomes rise. Cars are a normal good.",
+        "planks": [
+          "Consumers have more income to spend.",
+          "Demand for cars increases: the demand curve shifts right.",
+          "Supply of cars shifts right to meet the new demand.",
+          "At the old price there is excess demand, so the price rises.",
+          "A new equilibrium with a higher price and a higher quantity."
+        ],
+        "crack": 2,
+        "fixes": [
+          {
+            "text": "Supply does not shift: firms move up along the supply curve as the price rises.",
+            "feedback": "Yes. Income is a determinant of demand. Firms respond to the higher price by moving along supply.",
+            "correct": true
+          },
+          {
+            "text": "Demand shifts left, because cars now cost more.",
+            "feedback": "A higher price never shifts demand. And higher incomes raise demand for a normal good."
+          },
+          {
+            "text": "The price falls to clear the extra demand.",
+            "feedback": "Excess demand pushes the price up, not down."
+          }
+        ],
+        "why": "The cracked plank shifted **supply**. Nothing changed firms' costs. They supply more because the price rose: a **movement along** supply."
+      },
+      {
+        "id": "k-subsidy",
+        "event": "The government subsidises solar panel producers.",
+        "planks": [
+          "The government pays producers for each panel made.",
+          "Firms' costs fall, so supply shifts down (right).",
+          "The price rises because more panels are made.",
+          "Quantity demanded rises: a movement along demand.",
+          "More panels are sold, at a lower price."
+        ],
+        "crack": 2,
+        "fixes": [
+          {
+            "text": "At the old price there is excess supply, so the price falls.",
+            "feedback": "Yes. More is supplied at every price, so the price falls to clear the market.",
+            "correct": true
+          },
+          {
+            "text": "Demand shifts right because the government pays.",
+            "feedback": "The subsidy goes to producers. It shifts supply, not demand."
+          },
+          {
+            "text": "The price stays the same because the subsidy goes to firms.",
+            "feedback": "The extra supply pushes the price down. Buyers gain part of the subsidy."
+          }
+        ],
+        "why": "When supply increases, the price **falls**. The cracked plank said it rises."
+      },
+      {
+        "id": "k-bus",
+        "event": "A bus company raises fares by 10%. Demand is price inelastic.",
+        "planks": [
+          "Fares rise by 10%.",
+          "The number of passengers falls by 20%.",
+          "The rise in price outweighs the fall in quantity.",
+          "Total revenue rises.",
+          "So the company earns more from fares."
+        ],
+        "crack": 1,
+        "fixes": [
+          {
+            "text": "The number of passengers falls by less than 10%, for example 4%.",
+            "feedback": "Yes. Price inelastic means quantity falls by a smaller percentage than price.",
+            "correct": true
+          },
+          {
+            "text": "The number of passengers rises, because buses are a necessity.",
+            "feedback": "By the law of demand, a higher fare still lowers the quantity demanded. Inelastic means it falls only a little."
+          },
+          {
+            "text": "The number of passengers stays exactly the same.",
+            "feedback": "That would be perfectly inelastic. Price inelastic demand still falls, by a smaller percentage."
+          }
+        ],
+        "why": "A 20% fall after a 10% rise means PED = −2: **elastic**. With inelastic demand, quantity falls by **less** than 10%."
+      },
+      {
+        "id": "k-minwage",
+        "event": "The government sets a minimum wage above the equilibrium wage.",
+        "planks": [
+          "The minimum wage is set above the equilibrium wage.",
+          "Firms want to hire fewer workers at the higher wage.",
+          "More people want to work at the higher wage.",
+          "So there is a shortage of labour.",
+          "Some workers earn more, but others cannot find a job."
+        ],
+        "crack": 3,
+        "fixes": [
+          {
+            "text": "The quantity of labour supplied is bigger than the quantity demanded: unemployment.",
+            "feedback": "Yes. A wage above equilibrium causes excess supply of labour.",
+            "correct": true
+          },
+          {
+            "text": "So the wage falls back to the equilibrium.",
+            "feedback": "The minimum wage is the law. The wage cannot fall below it."
+          },
+          {
+            "text": "So demand for labour shifts right.",
+            "feedback": "Nothing shifted demand. Firms move along their demand for labour."
+          }
+        ],
+        "why": "Above equilibrium, more people want jobs than firms offer. That is **excess supply** of labour (unemployment), not a shortage."
+      },
+      {
+        "id": "k-light",
+        "event": "A town needs streetlights.",
+        "planks": [
+          "A streetlight lights the road for everyone who passes.",
+          "No one can be stopped from using it: it is non-excludable.",
+          "One person's use does not reduce what is left for others: it is non-rivalrous.",
+          "So everyone pays their fair share to a private firm.",
+          "The market does not provide it, so the government may."
+        ],
+        "crack": 3,
+        "fixes": [
+          {
+            "text": "So people can use it without paying: the free rider problem.",
+            "feedback": "Yes. Firms cannot charge, so they will not supply it.",
+            "correct": true
+          },
+          {
+            "text": "So the streetlight is a private good.",
+            "feedback": "A private good is rivalrous and excludable. A streetlight is neither."
+          },
+          {
+            "text": "So the price of streetlights rises.",
+            "feedback": "There is no market price here. Firms cannot charge for a non-excludable good."
+          }
+        ],
+        "why": "Because no one can be excluded, people can **free ride**. That is why the market will not provide it."
+      },
+      {
+        "id": "k-education",
+        "event": "Education gives benefits to the people who study and to society.",
+        "planks": [
+          "People who are educated earn more.",
+          "Society also gains: a more skilled workforce and better decisions.",
+          "So marginal social benefit is below marginal private benefit.",
+          "The market produces less than the social optimum.",
+          "There is underconsumption: a market failure."
+        ],
+        "crack": 2,
+        "fixes": [
+          {
+            "text": "So marginal social benefit is above marginal private benefit.",
+            "feedback": "Yes. The external benefit is added to the private benefit.",
+            "correct": true
+          },
+          {
+            "text": "So marginal social cost is above marginal private cost.",
+            "feedback": "That is a negative production externality. Education gives a positive consumption externality."
+          },
+          {
+            "text": "So the market produces too much education.",
+            "feedback": "With an external benefit, the market produces too little."
+          }
+        ],
+        "why": "An external **benefit** puts MSB **above** MPB, so the market underprovides."
+      },
+      {
+        "id": "k-ink",
+        "event": "The price of printers falls a lot.",
+        "planks": [
+          "Printers are cheaper, so more printers are bought.",
+          "Printers and ink are complements.",
+          "Demand for ink falls, because people spend their money on printers.",
+          "At the old price, there is excess demand for ink.",
+          "The price and quantity of ink rise."
+        ],
+        "crack": 2,
+        "fixes": [
+          {
+            "text": "Demand for ink increases: the demand curve for ink shifts right.",
+            "feedback": "Yes. More printers means more people need ink.",
+            "correct": true
+          },
+          {
+            "text": "Supply of ink shifts left.",
+            "feedback": "The price of printers is a determinant of demand for ink, a complement."
+          },
+          {
+            "text": "There is a movement along the demand curve for ink.",
+            "feedback": "The price of ink did not change first. A change in a complement's price shifts demand."
+          }
+        ],
+        "why": "For **complements**, a lower price of one good **increases** demand for the other."
+      },
+      {
+        "id": "k-fish",
+        "event": "Many boats fish in the same sea.",
+        "planks": [
+          "Fish in the sea are rivalrous: a fish caught by one boat cannot be caught by another.",
+          "No one can be stopped from fishing: they are non-excludable.",
+          "Each boat catches as many fish as it can.",
+          "The fish stock grows, because more boats take more care of it.",
+          "The stock collapses: the tragedy of the commons."
+        ],
+        "crack": 3,
+        "fixes": [
+          {
+            "text": "Fish are caught faster than they can breed, so the stock falls.",
+            "feedback": "Yes. That is the link to the collapse.",
+            "correct": true
+          },
+          {
+            "text": "The price of fish falls to zero.",
+            "feedback": "That does not follow. The problem is the stock running down."
+          },
+          {
+            "text": "The government owns all the fish, so nothing changes.",
+            "feedback": "No one owns a common pool resource. That is part of the problem."
+          }
+        ],
+        "why": "When each boat takes as much as it can, fish are caught **faster than they breed**, so the stock falls."
+      }
+    ],
+    "judges": [
+      {
+        "id": "j-sugar",
+        "claim": "A tax on sugary drinks will greatly reduce how many people drink them.",
+        "analysis": "The tax shifts supply up. The price of sugary drinks rises and the quantity falls.",
+        "evals": [
+          {
+            "text": "Demand for sugary drinks may be price inelastic, because of habit, so consumption may fall only a little.",
+            "feedback": "Yes. It questions how big the effect is, using PED.",
+            "correct": true
+          },
+          {
+            "text": "The tax shifts supply up, so the price rises and the quantity falls.",
+            "feedback": "That repeats the analysis. Evaluation asks how far it is true."
+          },
+          {
+            "text": "Sugary drinks are unhealthy, so people should stop drinking them.",
+            "feedback": "That is an opinion. It does not weigh up the tax."
+          }
+        ],
+        "conclusions": [
+          {
+            "text": "The tax will cut consumption, but by how much depends on PED. It may work best with campaigns that inform people.",
+            "feedback": "Yes. A supported judgement that uses the evaluation.",
+            "correct": true
+          },
+          {
+            "text": "The tax will stop everyone drinking sugary drinks.",
+            "feedback": "Too strong. Your evaluation showed demand may be inelastic."
+          },
+          {
+            "text": "The tax is unfair, so it should never be used.",
+            "feedback": "That judgement ignores the analysis and gives no evidence."
+          }
+        ]
+      },
+      {
+        "id": "j-bread",
+        "claim": "A maximum price on bread helps low-income families.",
+        "analysis": "The maximum price is below equilibrium, so bread is cheaper, but quantity demanded is bigger than quantity supplied.",
+        "evals": [
+          {
+            "text": "Families who can buy bread gain, but the shortage means some cannot buy any, and a black market may appear.",
+            "feedback": "Yes. It weighs who gains against who loses.",
+            "correct": true
+          },
+          {
+            "text": "The maximum price is set below the equilibrium price.",
+            "feedback": "That repeats the analysis."
+          },
+          {
+            "text": "Bread should be free for everyone.",
+            "feedback": "That is an opinion, not an evaluation of the policy."
+          }
+        ],
+        "conclusions": [
+          {
+            "text": "It helps the families who get bread, but the shortage harms others. A subsidy or cash transfers may help without a shortage.",
+            "feedback": "Yes. It judges the policy and compares an alternative.",
+            "correct": true
+          },
+          {
+            "text": "It helps every family, because the price is lower.",
+            "feedback": "That ignores the shortage you found."
+          },
+          {
+            "text": "Bread is not important to families.",
+            "feedback": "That has nothing to do with the analysis."
+          }
+        ]
+      },
+      {
+        "id": "j-minwage",
+        "claim": "A higher minimum wage helps low-paid workers.",
+        "analysis": "The minimum wage is above the equilibrium wage, so workers who have jobs earn more, but the quantity of labour demanded falls.",
+        "evals": [
+          {
+            "text": "Workers who keep their jobs gain, but some may lose their jobs. The size of the job loss depends on how much firms cut hiring.",
+            "feedback": "Yes. It weighs gainers against losers and says what it depends on.",
+            "correct": true
+          },
+          {
+            "text": "The minimum wage is above the equilibrium wage.",
+            "feedback": "That repeats the analysis."
+          },
+          {
+            "text": "Everyone deserves a high wage.",
+            "feedback": "That is a value judgement with no economic reasoning."
+          }
+        ],
+        "conclusions": [
+          {
+            "text": "It helps workers who keep their jobs, but it may cause some unemployment. The harm is smaller if firms do not cut many jobs.",
+            "feedback": "Yes. Balanced, and it says when the policy works best.",
+            "correct": true
+          },
+          {
+            "text": "It always causes mass unemployment, so it never helps.",
+            "feedback": "Too strong. Your evaluation said it depends on how much firms cut hiring."
+          },
+          {
+            "text": "Minimum wages are popular, so they work.",
+            "feedback": "Popularity is not evidence that a policy works."
+          }
+        ]
+      },
+      {
+        "id": "j-carbon",
+        "claim": "A carbon tax will fix pollution from power stations.",
+        "analysis": "The tax raises the private cost of producing electricity towards the social cost, so output falls towards Q*.",
+        "evals": [
+          {
+            "text": "It is hard to measure the external cost, so the tax may be set too low or too high. In the short run, firms may have no cleaner option.",
+            "feedback": "Yes. It looks at a key assumption and at short run versus long run.",
+            "correct": true
+          },
+          {
+            "text": "The tax raises the private cost towards the social cost.",
+            "feedback": "That repeats the analysis."
+          },
+          {
+            "text": "Pollution is bad for everyone.",
+            "feedback": "True, but it does not weigh up the tax."
+          }
+        ],
+        "conclusions": [
+          {
+            "text": "It can move output towards Q*, but how well depends on setting the right tax and on cleaner options in the long run.",
+            "feedback": "Yes. A supported, balanced judgement.",
+            "correct": true
+          },
+          {
+            "text": "It will remove all pollution at once.",
+            "feedback": "Too strong. Output falls towards Q*, and Q* is not zero."
+          },
+          {
+            "text": "Taxes are always bad for the economy.",
+            "feedback": "A sweeping claim with no support."
+          }
+        ]
+      },
+      {
+        "id": "j-ev",
+        "claim": "A subsidy for electric cars is the best way to cut emissions from cars.",
+        "analysis": "The subsidy shifts the supply of electric cars down, so their price falls and more are sold.",
+        "evals": [
+          {
+            "text": "It has an opportunity cost: the money could fund public transport, which might cut more emissions for each dollar.",
+            "feedback": "Yes. Best way means comparing it with other uses of the money.",
+            "correct": true
+          },
+          {
+            "text": "The subsidy shifts supply down, so more electric cars are sold.",
+            "feedback": "That repeats the analysis."
+          },
+          {
+            "text": "Electric cars look modern.",
+            "feedback": "That is not about emissions or the policy."
+          }
+        ],
+        "conclusions": [
+          {
+            "text": "It raises electric car sales, but whether it is the best way depends on its cost compared with policies such as public transport.",
+            "feedback": "Yes. It answers \"best way\" by comparing.",
+            "correct": true
+          },
+          {
+            "text": "It is the best way, because more electric cars are sold.",
+            "feedback": "More sales does not show it is the best way. Compare the alternatives."
+          },
+          {
+            "text": "No policy can cut emissions.",
+            "feedback": "Too strong, and it ignores your analysis."
+          }
+        ]
+      },
+      {
+        "id": "j-nudge",
+        "claim": "Putting fruit at eye level in the school cafeteria will make students eat healthily. (HL)",
+        "analysis": "This is a nudge: the choice architecture changes, but every option is still there.",
+        "evals": [
+          {
+            "text": "It keeps freedom of choice and costs little, but the effect may be small and may fade over time.",
+            "feedback": "Yes. Strengths and limitations of the nudge.",
+            "correct": true
+          },
+          {
+            "text": "Fruit at eye level is a nudge.",
+            "feedback": "That repeats the analysis."
+          },
+          {
+            "text": "Fruit tastes better than chips.",
+            "feedback": "That is an opinion about taste, not an evaluation."
+          }
+        ],
+        "conclusions": [
+          {
+            "text": "It is a cheap way to nudge students towards fruit, but it works best alongside other policies, such as education about diet.",
+            "feedback": "Yes. A supported judgement with a sensible next step.",
+            "correct": true
+          },
+          {
+            "text": "It will make every student eat healthily.",
+            "feedback": "Too strong. Nudges change some choices, not all."
+          },
+          {
+            "text": "Cafeterias should close.",
+            "feedback": "That does not follow from the analysis."
+          }
+        ]
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "What makes a **chain of reasoning** strong?",
+      "options": [
+        {
+          "text": "Each step follows from the one before, with no jumps.",
+          "feedback": "Yes. Every link is shown, so the reader can follow it.",
+          "correct": true
+        },
+        {
+          "text": "It uses as many key terms as possible.",
+          "feedback": "Key terms help, but only if each step links to the next."
+        },
+        {
+          "text": "It jumps straight from the event to the answer.",
+          "feedback": "That skips the links. Examiners reward the steps in between."
+        },
+        {
+          "text": "It is as long as possible.",
+          "feedback": "Length does not make it strong. Clear links do."
+        }
+      ],
+      "hints": [
+        "Think of a bridge: what happens if a plank is missing?",
+        "Can the reader see why each step happens?"
+      ],
+      "worked": "Example: frost → supply falls (shifts left) → shortage at the old price → price rises → new equilibrium with higher price, lower quantity.",
+      "explanation": "A strong chain shows **every link**: each step is caused by the one before."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Incomes rise. Holidays abroad are a normal good. So the price of holidays rises. **Which link is missing?**",
+      "options": [
+        {
+          "text": "Demand for holidays increases: the demand curve shifts right.",
+          "feedback": "Yes. That is the link between higher income and a higher price.",
+          "correct": true
+        },
+        {
+          "text": "Supply of holidays increases.",
+          "feedback": "Income is a determinant of demand. And more supply would lower the price."
+        },
+        {
+          "text": "Holidays become an inferior good.",
+          "feedback": "Holidays are a normal good here: demand rises with income."
+        },
+        {
+          "text": "The price of flights falls.",
+          "feedback": "That is a different event. It is not the missing link."
+        }
+      ],
+      "hints": [
+        "Is income a determinant of demand or supply?",
+        "What must happen before the price can rise?"
+      ],
+      "worked": "Example: a fashion makes trainers popular → demand for trainers increases → excess demand at the old price → price rises.",
+      "explanation": "Higher income → **demand for a normal good increases** → excess demand at the old price → the price rises."
+    },
+    {
+      "id": "q3",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Find the **cracked plank**: \"(1) Incomes fall. (2) Bus travel is an inferior good. (3) So demand for bus travel falls. (4) So fewer people take the bus.\"",
+      "options": [
+        {
+          "text": "Plank 3: demand for an inferior good rises when incomes fall.",
+          "feedback": "Yes. For an inferior good, demand moves the opposite way to income.",
+          "correct": true
+        },
+        {
+          "text": "Plank 1: incomes cannot fall.",
+          "feedback": "Incomes can fall, for example in a recession."
+        },
+        {
+          "text": "Plank 2: bus travel is always a normal good.",
+          "feedback": "Bus travel is a common example of an inferior good."
+        },
+        {
+          "text": "Plank 4: it should say more people walk.",
+          "feedback": "Plank 4 follows from plank 3. The crack is earlier."
+        }
+      ],
+      "hints": [
+        "What does inferior good mean?",
+        "When income falls, what happens to demand for an inferior good?"
+      ],
+      "worked": "Example: incomes fall and people buy more store-brand food (inferior good) and fewer restaurant meals (normal good).",
+      "explanation": "For an **inferior good**, demand **rises** when incomes fall. So plank 3 is cracked."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Which sentence is **evaluation**, not analysis?",
+      "options": [
+        {
+          "text": "However, demand for petrol is price inelastic, so the tax may cut driving only a little.",
+          "feedback": "Yes. It weighs how well the policy works.",
+          "correct": true
+        },
+        {
+          "text": "The tax shifts the supply of petrol up.",
+          "feedback": "That is analysis: what happens."
+        },
+        {
+          "text": "Petrol is a fuel used by cars.",
+          "feedback": "That is a fact, not evaluation."
+        },
+        {
+          "text": "The price of petrol rises from P₁ to P₂.",
+          "feedback": "That is analysis from the diagram."
+        }
+      ],
+      "hints": [
+        "Evaluation weighs up strengths and limitations.",
+        "Look for a sentence that questions how far something works."
+      ],
+      "worked": "Example: \"However, in the long run drivers may switch to electric cars, so the tax works better over time.\"",
+      "explanation": "**Evaluation** weighs up: it asks how far, for whom, and when something works."
+    },
+    {
+      "id": "q5",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A government subsidises bus fares. Which is the **strongest** evaluation point?",
+      "options": [
+        {
+          "text": "The subsidy has an opportunity cost: the money could have been spent on schools or health care.",
+          "feedback": "Yes. It weighs the policy against what is given up.",
+          "correct": true
+        },
+        {
+          "text": "The subsidy shifts the supply of bus travel down.",
+          "feedback": "That is analysis, not evaluation."
+        },
+        {
+          "text": "Buses are good.",
+          "feedback": "That is an opinion with no reasoning."
+        },
+        {
+          "text": "Bus fares are paid in money.",
+          "feedback": "That is a fact, and not relevant to evaluation."
+        }
+      ],
+      "hints": [
+        "Strong evaluation is specific and uses economic ideas.",
+        "What is given up to pay for the subsidy?"
+      ],
+      "worked": "Example: \"A sugar tax raises revenue, but it takes a bigger share of low incomes, so it may be regressive.\"",
+      "explanation": "Strong evaluation uses an **economic idea**, such as opportunity cost, PED, stakeholders, or short run versus long run."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Analysis showed a maximum price makes food cheaper but causes a shortage. Which conclusion is **best supported**?",
+      "options": [
+        {
+          "text": "It helps buyers who get the food, but the shortage harms others, so a subsidy may be a better way to help.",
+          "feedback": "Yes. It uses the analysis and reaches a balanced judgement.",
+          "correct": true
+        },
+        {
+          "text": "It helps everyone, because the price is lower.",
+          "feedback": "That ignores the shortage."
+        },
+        {
+          "text": "Maximum prices are always wrong.",
+          "feedback": "Too sweeping, and not supported by evidence."
+        },
+        {
+          "text": "Food is expensive.",
+          "feedback": "That is not a conclusion about the policy."
+        }
+      ],
+      "hints": [
+        "A good conclusion uses the arguments that came before.",
+        "Does it mention both the gain and the harm?"
+      ],
+      "worked": "Example: \"The tax cuts consumption, but by how much depends on PED, so it works best with awareness campaigns.\"",
+      "explanation": "A **supported conclusion** uses both sides of the evaluation and says when or how far something works."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Which phrase usually starts an **evaluation** point?",
+      "options": [
+        {
+          "text": "\"However, this depends on...\"",
+          "feedback": "Yes. It signals that you are weighing up.",
+          "correct": true
+        },
+        {
+          "text": "\"The definition of...\"",
+          "feedback": "That starts a definition (AO1)."
+        },
+        {
+          "text": "\"The curve shifts to...\"",
+          "feedback": "That starts analysis."
+        },
+        {
+          "text": "\"In the diagram, label...\"",
+          "feedback": "That is about drawing, not evaluation."
+        }
+      ],
+      "hints": [
+        "Evaluation weighs up.",
+        "Which phrase turns to the other side?"
+      ],
+      "worked": "Other evaluation starters: \"On the other hand...\", \"In the long run...\", \"For some stakeholders...\".",
+      "explanation": "Phrases such as **\"however\"**, **\"on the other hand\"** and **\"this depends on\"** signal evaluation."
+    },
+    {
+      "id": "dg1",
+      "type": "label",
+      "level": "core",
+      "prompt": "A frost destroys much of the coffee harvest. The flow chart shows the chain of reasoning. **Label it.** Choose what each box shows.",
+      "diagram": {
+        "xMax": 100,
+        "yMax": 60,
+        "xLabel": "",
+        "yLabel": "",
+        "noAxes": true,
+        "title": "A flow chart of four empty boxes",
+        "description": "Four empty boxes in a row, joined by arrows from left to right. Letter A is on the first box, B on the second, C on the third and D on the fourth.",
+        "boxes": [
+          {
+            "at": {
+              "q": 13,
+              "p": 30
+            },
+            "w": 20,
+            "h": 16
+          },
+          {
+            "at": {
+              "q": 38,
+              "p": 30
+            },
+            "w": 20,
+            "h": 16
+          },
+          {
+            "at": {
+              "q": 63,
+              "p": 30
+            },
+            "w": 20,
+            "h": 16
+          },
+          {
+            "at": {
+              "q": 88,
+              "p": 30
+            },
+            "w": 20,
+            "h": 16
+          }
+        ],
+        "arrows": [
+          {
+            "from": {
+              "q": 23.5,
+              "p": 30
+            },
+            "to": {
+              "q": 27.5,
+              "p": 30
+            }
+          },
+          {
+            "from": {
+              "q": 48.5,
+              "p": 30
+            },
+            "to": {
+              "q": 52.5,
+              "p": 30
+            }
+          },
+          {
+            "from": {
+              "q": 73.5,
+              "p": 30
+            },
+            "to": {
+              "q": 77.5,
+              "p": 30
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 13,
+              "p": 30
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 38,
+              "p": 30
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 63,
+              "p": 30
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 88,
+              "p": 30
+            },
+            "letter": "D"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "Supply decreases",
+          "feedback": "The frost cuts the harvest, so supply decreases first."
+        },
+        {
+          "letter": "B",
+          "answer": "Shortage at the old price",
+          "feedback": "With less supplied at the old price, there is a shortage."
+        },
+        {
+          "letter": "C",
+          "answer": "The price rises",
+          "feedback": "The shortage pushes the price up."
+        },
+        {
+          "letter": "D",
+          "answer": "Higher price, lower quantity",
+          "feedback": "The new equilibrium has a higher price and a lower quantity."
+        }
+      ],
+      "choices": [
+        "Supply decreases",
+        "Shortage at the old price",
+        "The price rises",
+        "Higher price, lower quantity",
+        "Demand increases",
+        "Surplus at the old price"
+      ],
+      "hints": [
+        "Who does a frost affect first: buyers or sellers?",
+        "What happens at the old price when supply falls?"
+      ],
+      "worked": "Example: a new technology → supply increases → surplus at the old price → price falls → lower price, higher quantity.",
+      "explanation": "Frost → **supply decreases** → **shortage at the old price** → **the price rises** → **higher price, lower quantity**."
+    }
+  ],
+  "explain": {
+    "prompt": "Explain how a frost that destroys much of the coffee harvest affects the price of coffee. Then add one evaluation point.",
+    "facts": "- A frost destroys much of the **coffee harvest**.\n- Before the frost, the coffee market is in equilibrium.\n- Demand for coffee is price inelastic, because many people drink it every day.",
+    "steps": [
+      {
+        "lead": "The frost means that",
+        "correct": 1,
+        "options": [
+          {
+            "text": "demand for coffee increases, because people want more coffee.",
+            "why": "The frost affects growers, not how much people want coffee."
+          },
+          {
+            "text": "the supply of coffee decreases, so the supply curve shifts left.",
+            "why": "Right. Less coffee can be supplied at every price."
+          },
+          {
+            "text": "the price of coffee falls, because there is less of it.",
+            "why": "Less supply pushes the price up, not down."
+          }
+        ]
+      },
+      {
+        "lead": "At the old price,",
+        "correct": 0,
+        "options": [
+          {
+            "text": "quantity demanded is bigger than quantity supplied, so there is a shortage.",
+            "why": "Right. That is the link to the price rise."
+          },
+          {
+            "text": "there is a surplus, because buyers want less.",
+            "why": "Buyers' wants did not change. Supply fell, so there is a shortage."
+          },
+          {
+            "text": "the market stays in equilibrium.",
+            "why": "Supply has fallen, so the old price no longer clears the market."
+          }
+        ]
+      },
+      {
+        "lead": "So",
+        "correct": 2,
+        "options": [
+          {
+            "text": "the price falls until the surplus is gone.",
+            "why": "There is a shortage, not a surplus."
+          },
+          {
+            "text": "demand shifts left to match supply.",
+            "why": "Demand does not shift. Buyers move along demand as the price rises."
+          },
+          {
+            "text": "the price rises until a new equilibrium is reached, with a higher price and a lower quantity.",
+            "why": "Right. That completes the chain."
+          }
+        ]
+      },
+      {
+        "lead": "However,",
+        "correct": 0,
+        "options": [
+          {
+            "text": "because demand for coffee is price inelastic, the price may rise a lot while the quantity falls only a little.",
+            "why": "Right. It uses PED to judge the size of the effect."
+          },
+          {
+            "text": "coffee is a popular drink.",
+            "why": "That is a fact. It does not weigh anything up."
+          },
+          {
+            "text": "the supply curve shifts left.",
+            "why": "That repeats the analysis."
+          }
+        ]
+      }
+    ],
+    "own": "Add your own sentence about a stakeholder who gains or loses, such as coffee farmers whose crops survived."
+  },
+  "teacherNotes": "Build, Break, Judge practises the chain of reasoning behind AO2 answers and the evaluation behind AO3 answers, using content from 1.1 and 2.1 to 2.9 (one Judge it case is HL). Level 1 works well as a whole-class warm-up: read the event and ask students to call out the first plank. In Level 2, ask students why each cracked plank is tempting: these are the most common slips in Paper 1 answers. In Level 3, point out that the wrong evaluation options either repeat the analysis or give an unsupported opinion."
+}

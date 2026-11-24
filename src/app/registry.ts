@@ -235,6 +235,17 @@ export const ACTIVITIES: ActivityMeta[] = [
     noCalculator: true,
     load: () => import('../activities/command-terms'),
   },
+  {
+    id: 'build-break-judge', tag: 'Exam skills: analysis and evaluation', code: 'skills', unit: 'skills', title: 'Build, Break, Judge', style: 'Bridge workshop',
+    blurb: 'Chains of reasoning are bridges. Build them plank by plank, find the cracked plank, then judge how far each claim holds.',
+    goal: { name: 'Bridge Builder', how: 'Level 1 of Build, Break, Judge: put 6 chains of reasoning in order, 19 of 24 planks right first time.', icon: 'bridge' },
+    goals: [
+      { name: 'Crack Finder', how: 'Level 2 of Build, Break, Judge: find and fix the cracked plank in 8 bridges. Score 13 of 16 first-try points.', icon: 'bridge' },
+      { name: 'Fair Judge', how: 'Level 3 of Build, Break, Judge: choose the best evaluation point and conclusion for 6 claims. Score 10 of 12 first-try points.', icon: 'bridge' },
+    ],
+    noCalculator: true,
+    load: () => import('../activities/build-break-judge'),
+  },
 ];
 
 /**
