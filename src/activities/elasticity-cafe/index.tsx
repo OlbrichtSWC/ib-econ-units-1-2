@@ -408,6 +408,7 @@ function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
             xLabel="Quantity (cups)"
             yLabel="Price ($)"
             title={`Your café's sales: ${s.name}`}
+            heading={`Demand at your café: ${s.name}`}
             description={description}
           >
             {today && changed && (

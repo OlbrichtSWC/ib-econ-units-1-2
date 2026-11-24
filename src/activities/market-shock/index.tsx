@@ -24,6 +24,8 @@ import {
 interface Option { id: Answer; text: string }
 interface ShiftCard {
   id: string; determinant: string; title: string; text: string; market?: string; answer: Shift; explain: string;
+  /** Diagram title when this scenario is about a different market from marketName. */
+  diagramMarket?: string;
   mechanism: { sentence: string; answer: Mechanism };
 }
 interface TrapCard {
@@ -146,6 +148,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
   const deck = useMemo(() => buildDeck(data.cards.map((c) => c.id), data.traps.map((c) => c.id), trapMode, seed), [data, trapMode, seed]);
   const card = byId.get(deck[pos % deck.length])!;
   const trap = isTrap(card);
+  const diagramMarket = (!isTrap(card) && card.diagramMarket) || data.marketName;
   const move = isTrap(card) ? card.move : null;
 
   // The curve that shifts on this card (for a trap card with a cause, the other curve).
@@ -331,7 +334,8 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
             yMax={Y_MAX}
             xLabel="Quantity (bags)"
             yLabel="Price ($)"
-            title={data.marketName}
+            title={diagramMarket}
+            heading={diagramMarket}
             description={description}
             yTicks={[0, 2, 4, 6, 8, 10]}
             formatY={(v) => `${v}`}
@@ -469,9 +473,10 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
             </ol>
           </div>
           <h3 id="ms-card-h"><StepNo n={2} /> {card.title}</h3>
+          <p class="market-chip"><span aria-hidden="true">📈</span> The diagram shows: <strong>{diagramMarket}</strong></p>
           {!trap && card.market && <Md text={card.market} />}
           <Md text={card.text} />
-          <p><strong>Predict first:</strong> {trap ? <Md inline text={card.question} /> : 'which curve shifts, and which way?'}</p>
+          <p><strong>Predict first:</strong> {trap ? <Md inline text={card.question} /> : 'which curve shifts in the market on the diagram, and which way?'}</p>
           <div class="choice-grid" role="group" aria-label="Your prediction">
             {options.map((o) => (
               <button key={o.id} type="button" class="choice-btn" aria-pressed={prediction === o.id} disabled={phase !== 'predict'} onClick={() => { setPrediction(o.id); }}>

@@ -1,6 +1,7 @@
 {
   "teacherPasscode": "change-me",
   "showHlContent": true,
+  "calculator": true,
   "modules": {
     "ppc-explorer": true,
     "island-economy": true,

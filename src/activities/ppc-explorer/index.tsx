@@ -218,6 +218,7 @@ function FreePlay({ content, onComplete }: TryProps) {
             xLabel="Fish (tonnes)"
             yLabel="Timber (tonnes)"
             title="Island PPC"
+            heading="The island's PPC: fish and timber"
             description={`The economy makes ${round(out.fish, 1)} tonnes of fish and ${round(out.timber, 1)} tonnes of timber. This point is ${where} the PPC.`}
             xTicks={[0, 20, 40, 60, 80]}
             yTicks={[0, 20, 40, 60, 80]}

@@ -279,6 +279,7 @@ export function Seasons(props: {
             xLabel="Fish (tonnes)"
             yLabel="Timber (tonnes)"
             title={`Island PPC in ${season.name}`}
+            heading={`The island's PPC: fish and timber in ${season.name}`}
             description={`The island makes ${round(out.fish, 1)} tonnes of fish and ${round(out.timber, 1)} tonnes of timber, ${where} the PPC. This season needs at least ${need.fish} fish and ${need.timber} timber: the shaded corner.`}
             xTicks={[20, 40, 60, 80]}
             yTicks={[20, 40, 60, 80]}

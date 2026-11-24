@@ -2,6 +2,8 @@
 
 Every activity follows the same rhythm: **Learn it** (short explanation and diagram), **Try it** (the game), **Check it** (questions with a hint ladder), **Self-rate** (proficiency scale, formative only). Turn on **Teacher** view to see answers and teacher notes, and **projector mode** for whole-class demos.
 
+Every diagram in a game now has a title above it that names the market (for example **Market for coffee beans in Riverton**), and Market Shock says which market the diagram shows next to each scenario. A **Calculator** button sits in the corner of Try it and Check it: a four-function calculator with the PED, YED, PES and percentage change formulas. Turn it off in `config/settings.json` (`"calculator": false`) when you want Paper 1 conditions.
+
 | Activity | Syllabus | Game style | Suggested lesson use |
 | --- | --- | --- | --- |
 | **PPC Explorer** | 1.1 PPC (choice, opportunity cost, unemployment, actual growth, growth in production possibilities, increasing vs constant opportunity cost) | Strategy missions on an island economy, plus event scenarios. **Four seasons**: predict each season's event, put each islander in the job that suits them to meet the need for fish and timber, then answer an opportunity cost question. Whole-curve shifts in Levels 1 and 2; one-good pivots and constant versus increasing opportunity cost questions build up to Level 3 | **Hook (10 min, projector):** play the event scenarios as a class. Students show 1 to 5 fingers to predict the outcome before you play each scenario. **Pairs (15 min):** complete the missions, then compare the opportunity cost bars in increasing and constant mode. **Exit:** the "Explain it in writing" task. |

@@ -337,6 +337,7 @@ function EngelChart(props: { good: BasketGood; incomes: number[]; step: number }
         xLabel="Quantity"
         yLabel="Income"
         title={`Engel curve: ${good.name}`}
+        heading={`Engel curve: ${good.name}`}
         description={desc}
         width={340}
         height={300}

@@ -232,6 +232,7 @@ export function Mystery(props: {
             xLabel={`Quantity (${curve.unit} per day)`}
             yLabel="Price ($)"
             title={`Mystery: find the hidden point on the demand curve for ${info.name}`}
+            heading={`The demand curve: ${info.name}`}
             description={`The point is at a price of ${money(price)} and ${q} ${curve.unit}. PED and total revenue are hidden.`}
             xTicks={curve.xTicks}
             yTicks={curve.yTicks}

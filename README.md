@@ -92,6 +92,7 @@ The passcode keeps answers out of casual view. It is not a real lock: because th
 ## 7. Other settings
 
 - `"showHlContent": true` shows HL questions and activities to everyone, labelled **HL**. Set it to `false` to hide HL-only parts from students (you still see them in teacher view).
+- `"calculator": true` shows a **Calculator** button in the corner of Try it and Check it (a four-function calculator with a list of formulas). Set it to `false` to hide it, for example when practising for Paper 1, which does not allow calculators.
 - `"scale"`: the names and short descriptions of the 8 proficiency levels used in Self-rate. Colleagues outside CBE can change these to their own scale. Keep exactly 8 levels.
 
 ## 8. Privacy (Alberta POPA)

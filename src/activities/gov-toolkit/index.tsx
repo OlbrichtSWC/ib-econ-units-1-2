@@ -84,7 +84,7 @@ function PolicyDiagram(props: { m: Mission; tool: Tool | null; o: Outcome | null
     if (o.budget < 0) description += ` Subsidy spending ${total(m, -o.budget)}, shown as a hatched rectangle.`;
   }
   return (
-    <Diagram xMax={m.xMax} yMax={m.yMax} xLabel={m.xLabel} yLabel={m.yLabel} title={`The market: ${m.title}`} description={description}>
+    <Diagram xMax={m.xMax} yMax={m.yMax} xLabel={m.xLabel} yLabel={m.yLabel} title={`The market: ${m.title}`} heading={`The market: ${m.title}`} description={description}>
       {rect.length > 0 && <Area points={rect} pattern="hatch" tone={o!.budget > 0 ? 'green' : 'red'} />}
       {tri.length > 0 && <Area points={tri} pattern="cross" tone="grey" />}
       <Guide at={e} xText="Qe" yText="Pe" />

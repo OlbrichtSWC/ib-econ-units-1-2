@@ -57,6 +57,8 @@ export interface DiagramProps {
   title: string;
   /** Longer description of what the diagram shows right now. */
   description?: string;
+  /** A title shown above the diagram, for example "Market for coffee beans", so students can see which market it is. */
+  heading?: string;
   width?: number;
   height?: number;
   /** Numbered ticks (optional; IB diagrams often have none). */
@@ -97,6 +99,11 @@ export function Diagram(props: DiagramProps) {
 
   return (
     <DiagramCtx.Provider value={ctx}>
+      {props.heading && (
+        <p class="diagram-heading">
+          {props.heading}
+        </p>
+      )}
       <svg
         ref={svgRef}
         class="diagram"

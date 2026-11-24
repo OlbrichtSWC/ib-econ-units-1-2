@@ -319,3 +319,6 @@ details.coming-later > summary { cursor: pointer; }
 .stamp-slot { padding: 8px; border-radius: 14px; }
 .stamp-slot.has { background: linear-gradient(135deg, var(--red-50), var(--white)); }
 .stamp-slot.has .stamp { filter: drop-shadow(0 3px 0 var(--red-100)); }
+
+/* Which market the game's diagram shows, said in words next to the scenario. */
+.market-chip { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0; padding: 4px 12px; border: 2px solid var(--navy); border-radius: 999px; background: var(--white); color: var(--navy); font-size: 0.95rem; }
