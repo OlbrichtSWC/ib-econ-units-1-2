@@ -10,6 +10,8 @@ export interface Settings {
   showHlContent: boolean;
   /** true = students can open it; false = hidden until you release it. Missing = on. */
   modules: Record<string, boolean>;
+  /** Show the on-screen calculator button in Try it and Check it. Missing = on. */
+  calculator: boolean;
   scale: { name: string; levels: ScaleLevel[] };
 }
 
@@ -17,6 +19,7 @@ export const DEFAULT_SETTINGS: Settings = {
   teacherPasscode: 'change-me',
   showHlContent: true,
   modules: {},
+  calculator: true,
   scale: { name: 'Proficiency scale', levels: DEFAULT_LEVELS },
 };
 
@@ -27,6 +30,7 @@ export async function loadSettings(): Promise<Settings> {
       ...DEFAULT_SETTINGS,
       ...s,
       modules: { ...(s.modules ?? {}) },
+      calculator: s.calculator !== false,
       scale: s.scale?.levels?.length === 8 ? s.scale : DEFAULT_SETTINGS.scale,
     };
   } catch {

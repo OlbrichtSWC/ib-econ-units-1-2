@@ -400,7 +400,7 @@ function TimeDiagram(props: { t: TimeProducer; reached: number }) {
     ? 'The starting point at price P0 and quantity Q0. An arrow shows the price rising to P1.'
     : `Supply curves through the starting point. ${PERIODS.slice(0, reached + 1).map((p, i) => `${CURVE_NAME[p]} for the ${p === 'momentary' ? 'momentary period' : p === 'short' ? 'short run' : 'long run'}${i === 0 ? ' is vertical' : ''}`).join('. ')}. Each later curve is flatter.`;
   return (
-    <Diagram xMax={110} yMax={60} xLabel="Quantity supplied" yLabel="Price" title={`Supply of the ${t.name.toLowerCase()} over time`} description={desc}>
+    <Diagram xMax={110} yMax={60} xLabel="Quantity supplied" yLabel="Price" title={`Supply of the ${t.name.toLowerCase()} over time`} heading={`Supply of the ${t.name.toLowerCase()} over time`} description={desc}>
       {reached >= 0 && <Guide at={{ q: latest, p: P1 }} yText="P₁" xText={reached > 0 && latest - BASE >= 9 ? 'Q₁' : undefined} />}
       <Guide at={{ q: BASE, p: P0 }} yText="P₀" xText="Q₀" />
       {PERIODS.slice(0, Math.max(0, reached)).map((p, i) => (

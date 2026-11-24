@@ -275,6 +275,7 @@ function DialLab({ content, onComplete }: TryProps) {
             xLabel="Day passes"
             yLabel="Price ($)"
             title="Market for ski day passes"
+            heading="Market for ski day passes at Snowcap Ridge"
             description={description}
             xTicks={xTicks}
             yTicks={yTicks}

@@ -5,7 +5,7 @@
  */
 import type { ActivityMeta } from '../shared/activity/types';
 
-export const SUBTOPICS: { code: string; unit: 1 | 2; title: string; hl?: boolean }[] = [
+export const SUBTOPICS: { code: string; unit: Section; title: string; hl?: boolean }[] = [
   { code: '1.1', unit: 1, title: 'What is economics?' },
   { code: '1.2', unit: 1, title: 'How do economists approach the world?' },
   { code: '2.1', unit: 2, title: 'Demand' },
@@ -20,11 +20,16 @@ export const SUBTOPICS: { code: string; unit: 1 | 2; title: string; hl?: boolean
   { code: '2.10', unit: 2, title: 'Market failure: asymmetric information', hl: true },
   { code: '2.11', unit: 2, title: 'Market failure: market power', hl: true },
   { code: '2.12', unit: 2, title: "The market's inability to achieve equity", hl: true },
+  { code: 'skills', unit: 'skills', title: 'Practise what examiners look for, using Units 1 and 2' },
 ];
 
-export const UNITS = [
-  { unit: 1 as const, title: 'Unit 1: Introduction to economics' },
-  { unit: 2 as const, title: 'Unit 2: Microeconomics' },
+/** A unit of the syllabus, or the exam skills section that uses all of them. */
+export type Section = 1 | 2 | 'skills';
+
+export const UNITS: { unit: Section; title: string }[] = [
+  { unit: 1, title: 'Unit 1: Introduction to economics' },
+  { unit: 2, title: 'Unit 2: Microeconomics' },
+  { unit: 'skills', title: 'Exam skills' },
 ];
 
 export const ACTIVITIES: ActivityMeta[] = [
@@ -207,6 +212,39 @@ export const ACTIVITIES: ActivityMeta[] = [
       { name: 'Flow Detective', how: 'Level 3 of Fair or Efficient?: find the causes, calculate income shares and match the responses. Score 11 of 14.', icon: 'scale' },
     ],
     load: () => import('../activities/fair-efficient'),
+  },
+  {
+    id: 'diagram-doctor', tag: 'Exam skills: diagrams', code: 'skills', unit: 'skills', title: 'Diagram Doctor', style: 'Diagram clinic',
+    blurb: 'Diagrams arrive at the clinic with mistakes. Examine the tags, find what is wrong, choose the cure and watch the diagram heal.',
+    goal: { name: 'Check-up Doctor', how: 'Level 1 of Diagram Doctor: cure 8 of 10 diagrams right first time.', icon: 'stethoscope' },
+    goals: [
+      { name: 'Ward Doctor', how: 'Level 2 of Diagram Doctor: two problems per diagram. Score 10 of 12 first-try points.', icon: 'stethoscope' },
+      { name: 'Triage Chief', how: 'Level 3 of Diagram Doctor: no tags. Name every problem or say it is healthy, 7 of 9 right first time.', icon: 'stethoscope' },
+    ],
+    noCalculator: true,
+    load: () => import('../activities/diagram-doctor'),
+  },
+  {
+    id: 'command-terms', tag: 'Exam skills: command terms', code: 'skills', unit: 'skills', title: 'Control Tower', style: 'Air traffic control',
+    blurb: 'Every exam question is a plane. Land it on the right runway for its command term, file the right flight plan, then fix answers from the black box.',
+    goal: { name: 'Air Traffic Controller', how: 'Level 1 of Control Tower: land 11 of 14 questions on the right assessment objective runway, first time.', icon: 'tower' },
+    goals: [
+      { name: 'Flight Planner', how: 'Level 2 of Control Tower: choose the answer plan that fits the command term, 6 of 8 right first time.', icon: 'tower' },
+      { name: 'Crash Investigator', how: 'Level 3 of Control Tower: judge 8 student answers and fix them. Score 11 of 14 first-try points.', icon: 'tower' },
+    ],
+    noCalculator: true,
+    load: () => import('../activities/command-terms'),
+  },
+  {
+    id: 'build-break-judge', tag: 'Exam skills: analysis and evaluation', code: 'skills', unit: 'skills', title: 'Build, Break, Judge', style: 'Bridge workshop',
+    blurb: 'Chains of reasoning are bridges. Build them plank by plank, find the cracked plank, then judge how far each claim holds.',
+    goal: { name: 'Bridge Builder', how: 'Level 1 of Build, Break, Judge: put 6 chains of reasoning in order, 19 of 24 planks right first time.', icon: 'bridge' },
+    goals: [
+      { name: 'Crack Finder', how: 'Level 2 of Build, Break, Judge: find and fix the cracked plank in 8 bridges. Score 13 of 16 first-try points.', icon: 'bridge' },
+      { name: 'Fair Judge', how: 'Level 3 of Build, Break, Judge: choose the best evaluation point and conclusion for 6 claims. Score 10 of 12 first-try points.', icon: 'bridge' },
+    ],
+    noCalculator: true,
+    load: () => import('../activities/build-break-judge'),
   },
 ];
 

@@ -577,6 +577,7 @@ function MarketDiagram(props: { m: MarketData; tool?: Tool; size?: number; numbe
       xLabel="Quantity"
       yLabel="Price, costs, benefits ($)"
       title={`The market: ${m.title}`}
+      heading={`The market: ${m.title}`}
       description={description}
       xTicks={props.numbers ? undefined : ticks(m.xMax, m.xMax > 80 ? 20 : 10)}
       yTicks={props.numbers ? undefined : ticks(m.yMax, yStep)}

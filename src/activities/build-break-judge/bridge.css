@@ -1,0 +1,44 @@
+/* Build, Break, Judge: a river with two banks and a bridge of planks. Motion stops when the device asks for reduced motion (tokens.css). */
+
+.bb-scene { display: grid; grid-template-columns: minmax(120px, 1fr) minmax(0, 3fr) minmax(120px, 1fr); gap: 0; border-radius: 16px; overflow: hidden; border: 2px solid var(--navy-100, #c7d6fb); }
+.bb-bank { padding: 12px; background: #e3f1d8; border-bottom: 6px solid #8bbf6a; }
+.bb-bank p { margin: 4px 0 0; font-weight: 700; line-height: 1.35; }
+.bb-bank-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.6px; color: #2e5a1c; font-weight: 700; }
+.bb-river { position: relative; padding: 14px 10px; background: linear-gradient(180deg, #8ec5ff, #3f8ce8); overflow: hidden; }
+.bb-wave { position: absolute; inset: 0; background: repeating-linear-gradient(170deg, rgba(255, 255, 255, 0.18) 0 6px, transparent 6px 26px); animation: bb-flow 4s linear infinite; }
+@keyframes bb-flow { to { background-position: 0 52px; } }
+.bb-deck { position: relative; }
+.bb-slots { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; counter-reset: plank; }
+.bb-slot { counter-increment: plank; min-height: 40px; border: 2px dashed rgba(255, 255, 255, 0.85); border-radius: 8px; }
+.bb-slot-on { border: none; }
+.bb-plank-in { display: flex; gap: 8px; align-items: center; width: 100%; box-sizing: border-box; padding: 8px 10px; border: 2px solid #6b4523; border-radius: 8px; background: repeating-linear-gradient(90deg, #d9a066 0 22px, #cf9558 22px 24px); color: #2a1a0b; font: inherit; font-weight: 700; text-align: left; box-shadow: 0 4px 0 #6b4523; animation: bb-drop 0.45s cubic-bezier(0.2, 1.5, 0.4, 1) both; }
+.bb-plank-in::before { content: counter(plank); display: grid; place-items: center; flex: none; width: 24px; height: 24px; border-radius: 50%; background: #6b4523; color: #ffffff; font-size: 0.85rem; }
+@keyframes bb-drop { from { transform: translateY(-18px) rotate(-2deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.bb-inspect { cursor: pointer; animation: none; }
+.bb-inspect:hover:not(:disabled) { outline: 3px solid #ffffff; }
+.bb-inspect:disabled { cursor: default; }
+.bb-holds { background: #e8f4ec; border-color: var(--ok); box-shadow: 0 4px 0 var(--ok); }
+.bb-cracked { background: #fdeaed; border-color: var(--red); box-shadow: 0 4px 0 var(--red); border-style: dashed; }
+.bb-mended { background: #e8f4ec; border-color: var(--ok); box-shadow: 0 4px 0 var(--ok); animation: bb-drop 0.45s cubic-bezier(0.2, 1.5, 0.4, 1) both; }
+.bb-note { margin-left: auto; flex: none; padding: 1px 8px; border-radius: 999px; background: #ffffff; color: var(--ink); font-size: 0.8rem; }
+.bb-walker { position: absolute; right: 8px; bottom: 2px; font-size: 30px; animation: bb-walk 2.4s ease-in-out both; }
+@keyframes bb-walk { from { right: 90%; } to { right: 8px; } }
+
+.bb-pile { display: grid; gap: 8px; }
+.bb-plank { display: flex; gap: 8px; align-items: flex-start; justify-content: space-between; text-align: left; padding: 10px 12px; border: 2px solid #6b4523; border-radius: 8px; background: #fbf1e4; color: var(--ink); font: inherit; cursor: pointer; box-shadow: 0 3px 0 #b07a45; }
+.bb-plank:hover:not(:disabled) { background: #f3dcc0; }
+.bb-plank:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 #b07a45; }
+.bb-plank:disabled { cursor: default; }
+.bb-plank-no { border-style: dashed; opacity: 0.75; text-decoration: line-through; text-decoration-color: var(--red); box-shadow: none; }
+.bb-plank-yes { border-color: var(--ok); background: var(--ok-50); box-shadow: 0 3px 0 var(--ok); }
+.bb-rail { border-color: var(--navy); background: var(--white); box-shadow: 0 3px 0 var(--navy-100, #c7d6fb); }
+.bb-rail:hover:not(:disabled) { background: var(--navy-50); }
+
+.bb-claim { display: grid; gap: 4px; padding: 14px 16px; border-radius: 14px; border: 3px solid var(--navy); background: var(--white); animation: bb-drop 0.5s ease-out both; }
+.bb-claim-label { margin: 6px 0 0; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; color: var(--red); }
+.bb-claim-text { margin: 0; font-family: var(--font-head); font-size: 1.25rem; color: var(--navy); }
+
+@media (max-width: 700px) {
+  .bb-scene { grid-template-columns: 1fr; }
+  .bb-bank { border-bottom-width: 4px; }
+}

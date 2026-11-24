@@ -129,6 +129,7 @@ export function DoubleShock({ content, onGoal, onComplete }: TryProps) {
             xLabel="Quantity (bags)"
             yLabel="Price ($)"
             title="Riverton coffee beans: two shifts at once"
+            heading="Market for coffee beans in Riverton"
             description={
               locked
                 ? `Demand shifts ${dDir} ${dSize} bags and supply shifts ${sDir} ${sSize} bags. Equilibrium moves from ${money(e1.p)} and ${bags(e1.q)} to ${money(e2.p)} and ${bags(e2.q)}.`

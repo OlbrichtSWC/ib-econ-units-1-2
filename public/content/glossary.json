@@ -1433,6 +1433,16 @@
       "meaning": "A business objective: get bigger, with more sales revenue, output, sites or workers.",
       "code": "2.4",
       "hl": true
+    },
+    {
+      "term": "Command term",
+      "meaning": "The key word in an exam question, such as define, explain or evaluate. It tells you what to do and how deep your answer must go.",
+      "example": "\"Evaluate\" asks you to weigh up strengths and limitations, then judge."
+    },
+    {
+      "term": "Assessment objective",
+      "meaning": "One of the four kinds of skill the IB marks: AO1 knowledge and understanding, AO2 application and analysis, AO3 synthesis and evaluation, AO4 use of skills such as diagrams and calculations.",
+      "example": "\"Explain\" is an AO2 command term."
     }
   ]
 }

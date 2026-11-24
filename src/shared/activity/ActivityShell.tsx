@@ -7,6 +7,7 @@ import { loadJson } from '../content/loader';
 import { Md } from '../content/markdown';
 import { CodeBadge, HlBadge, MarkIcon, StepNo } from '../design/components';
 import { ActivityProgress, STEP } from '../progress/types';
+import { Calculator } from '../calculator/Calculator';
 import { CheckIt } from './CheckIt';
 import { ExplainBox } from './ExplainBox';
 import type { Evidence } from './mastery';
@@ -34,6 +35,8 @@ export interface ShellProps {
   teacher: boolean;
   showHl: boolean;
   scale: { name: string; levels: ScaleLevel[] };
+  /** Show the on-screen calculator in Try it and Check it. */
+  calculator?: boolean;
 }
 
 export function ActivityShell(props: ShellProps) {
@@ -190,6 +193,8 @@ export function ActivityShell(props: ShellProps) {
             onFinish={(e, sharp) => props.onProgress({ ...e }, STEP.check, sharp)}
           />
         )}
+
+        {props.calculator !== false && !meta.noCalculator && (props.step === 'try' || props.step === 'check') && <Calculator />}
 
         {props.step === 'rate' && (
           <SelfRate

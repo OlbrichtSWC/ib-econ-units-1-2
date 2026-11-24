@@ -118,7 +118,8 @@
         "mechanism": {
           "sentence": "The lower price of instant coffee tells its makers that buyers want less of it, so resources can move to other goods.",
           "answer": "signalling"
-        }
+        },
+        "diagramMarket": "Market for store-brand instant coffee in Riverton"
       },
       {
         "id": "tastes-up",
@@ -287,7 +288,8 @@
         "mechanism": {
           "sentence": "The falling price of decaf beans tells decaf buyers that more is now available.",
           "answer": "signalling"
-        }
+        },
+        "diagramMarket": "Market for decaf coffee beans in Riverton"
       },
       {
         "id": "competitive",
@@ -300,7 +302,8 @@
         "mechanism": {
           "sentence": "Farmers moved land to cocoa because the higher cocoa price meant more profit.",
           "answer": "incentive"
-        }
+        },
+        "diagramMarket": "Market for green coffee beans from Riverton's hill farms"
       }
     ],
     "traps": [

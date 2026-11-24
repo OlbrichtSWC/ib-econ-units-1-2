@@ -236,7 +236,7 @@ export function PaintGame(props: { onGoal: (level: number) => void; stamps: numb
       <LevelPicker levels={LEVELS} level={levelNo} onPick={pickLevel} stamps={props.stamps} teacher={props.teacher} icon="brush" stampNames={STAMP_NAMES} />
       <div class="play play-card-first">
         <div class="stack">
-          <Diagram xMax={X_MAX} yMax={Y_MAX} xLabel="Day passes" yLabel="Price ($)" title="Paint the surplus" description={description} xTicks={[200, 400, 600, 800]} yTicks={[20, 40, 60, 80, 100]}>
+          <Diagram xMax={X_MAX} yMax={Y_MAX} xLabel="Day passes" yLabel="Price ($)" title="Paint the surplus" heading="Market for ski day passes at Snowcap Ridge" description={description} xTicks={[200, 400, 600, 800]} yTicks={[20, 40, 60, 80, 100]}>
             {task.shift && task.shift[0] !== 0 && <Curve line={DEMAND} label="D₁" tone="navy" ghost labelOffset={{ dx: -20, dy: -36 }} />}
             {task.shift && task.shift[1] !== 0 && <Curve line={SUPPLY} label="S₁" tone="red" ghost labelOffset={{ dx: -40, dy: 18 }} />}
             <Curve line={market.demand} label={task.shift && task.shift[0] ? 'D₂ = MB' : 'D = MB'} tone="navy" labelOffset={{ dx: -20, dy: -36 }} />

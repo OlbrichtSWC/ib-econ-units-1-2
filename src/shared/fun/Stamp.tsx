@@ -1,7 +1,7 @@
 /** A rubber-stamp picture. Earned stamps are inked in red; stamps not yet earned are a dashed outline. */
 import { ComponentChildren } from 'preact';
 
-export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory' | 'brain' | 'lamp' | 'fish' | 'car' | 'scale' | 'crown';
+export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory' | 'brain' | 'lamp' | 'fish' | 'car' | 'scale' | 'crown' | 'stethoscope' | 'tower' | 'bridge';
 
 const ICONS: Record<StampIcon, ComponentChildren> = {
   // A shopping basket with a handle
@@ -153,6 +153,32 @@ const ICONS: Record<StampIcon, ComponentChildren> = {
       <path d="M30 62l-2-26 12 10 10-16 10 16 12-10-2 26z" />
       <path d="M32 68h36" />
       <circle cx="50" cy="52" r="3" />
+    </g>
+  ),
+  // A stethoscope: Diagram Doctor
+  stethoscope: (
+    <g>
+      <path d="M36 28v14c0 8 6 14 14 14s14-6 14-14V28" />
+      <path d="M50 56v4c0 6 5 10 11 10s10-4 10-10v-6" />
+      <circle cx="71" cy="50" r="5" />
+      <path d="M32 28h8M60 28h8" />
+    </g>
+  ),
+  // An airport control tower: Command terms
+  tower: (
+    <g>
+      <path d="M34 34h32l-4 12H38z" />
+      <path d="M42 46v24M58 46v24M36 70h28" />
+      <path d="M44 28h12v6H44z" />
+      <path d="M50 22v6" />
+    </g>
+  ),
+  // A bridge over water: Build, Break, Judge
+  bridge: (
+    <g>
+      <path d="M26 52c8-14 40-14 48 0" />
+      <path d="M26 52h48M34 52v-6M42 52v-9M50 52v-10M58 52v-9M66 52v-6" />
+      <path d="M28 64c4-3 8-3 12 0s8 3 12 0 8-3 12 0 6 2 8 1" />
     </g>
   ),
   star: <path d="M50 28l6.5 13.5 14.5 2-10.5 10 2.5 14.5L50 61l-13 7 2.5-14.5-10.5-10 14.5-2z" />,

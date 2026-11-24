@@ -137,6 +137,7 @@ export function App() {
           teacher={teacher}
           showHl={showHl || teacher}
           scale={settings.scale}
+          calculator={settings.calculator}
         />
       );
     }

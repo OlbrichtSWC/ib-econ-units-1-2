@@ -208,6 +208,7 @@ function Explore({ content, onComplete }: TryProps) {
             xLabel={Q_LABEL}
             yLabel="Price ($)"
             title="Demand curve for bike rentals with total revenue shaded"
+            heading="Demand for bike rentals"
             description={`The point is at a price of ${money(price)} and a quantity of ${q}. Total revenue is ${cash(tr)}. PED here is ${pedText(pedNow)}, ${type}.`}
             xTicks={X_TICKS}
             yTicks={[0, 4, 8, 12, 16, 20]}
