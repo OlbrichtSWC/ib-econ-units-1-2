@@ -27,6 +27,7 @@ Every diagram in a game now has a title above it that names the market (for exam
 | **Diagram Doctor** | Exam skills: diagrams from 1.1 and 2.1 to 2.8 (axes, curve labels, shifts and movements, equilibrium marks, shaded areas, price controls, externalities, PPC) | Diagram clinic. **Level 1**: each tag names the part it points to; tap the tag that is wrong and choose the cure; the diagram heals. **Level 2**: two problems per diagram. **Level 3**: no tags; mark every problem on an examiner's checklist, or say it is healthy | **Projector:** students point at the problem tag before anyone taps. **Pairs:** swap practice diagrams and treat each other's with the six-point checklist. |
 | **Control Tower** | Exam skills: IB command terms and assessment objectives (AO1 to AO4), with definitions from the guide's glossary | Air traffic control. **Level 1**: land each question on its AO runway. **Level 2**: choose the answer plan that fits the command term. **Level 3**: read a student's answer from the black box, say what it is missing and choose the fix | **Hook:** fingers up for the AO before landing. Watch the traps: *comment* is AO2 and *examine* is AO3. |
 | **Build, Break, Judge** | Exam skills: chains of reasoning (AO2) and evaluation with a supported conclusion (AO3), using 1.1 and 2.1 to 2.9 | Bridge workshop. **Level 1**: put the planks of a chain in order. **Level 2**: find and fix the cracked plank. **Level 3**: choose the strongest evaluation point and the best supported conclusion | **Warm-up:** call out the first plank. **Discuss:** why each cracked plank is tempting. |
+| **IA Trailhead** | IA portfolio (guide: internal assessment). Unit 2 articles in Level 3 | Hiking trail. **Level 1**: six interest questions point a compass at a unit and key concepts; a strengths panel shows the student's Check it scores for Unit 2 topics in this browser; five IA rules; then a three-commentary plan (saved in this browser). **Level 2**: keep or leave news articles, then name the unit or the rule broken. **Level 3**: choose the diagram and the full-mark key concept link (criterion D) | **Projector:** read a Level 2 article and vote keep or leave. **Pairs:** compare plans and check each other's against the rules. The practice articles are not for submission: students must find their own. |
 
 ## Levels, stamps and titles (updated in 1.3)
 
@@ -58,6 +59,7 @@ Every diagram in a game now has a title above it that names the market (for exam
 | Diagram Doctor | Check-up Doctor | Ward Doctor | Triage Chief |
 | Control Tower | Air Traffic Controller | Flight Planner | Crash Investigator |
 | Build, Break, Judge | Bridge Builder | Crack Finder | Fair Judge |
+| IA Trailhead | Trailblazer | Article Scout | Lens Master |
 
 - **Stamp celebration.** A new stamp opens a big pop-up: the stamp thumps down with confetti, and the student sees how many stamps they have.
 - **Economist titles.** Stamps earn personal titles: New Recruit, Apprentice Economist (1 stamp), Junior Economist (5), Economist (15), Senior Economist (30), Chief Economist (50) and Economics Legend (75). Titles show on the home page and in **Stamps**. Like stamps, they are personal and never compared.
@@ -85,7 +87,7 @@ In Teacher view, find **Class link**. Choose the activities your class should se
 
 ## Coming in later versions
 
-An IA helper for choosing a topic and an article.
+All planned activities are built. New ideas come from teacher and student feedback.
 
 ## Fresh scenarios every play
 

@@ -1,7 +1,7 @@
 /** A rubber-stamp picture. Earned stamps are inked in red; stamps not yet earned are a dashed outline. */
 import { ComponentChildren } from 'preact';
 
-export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory' | 'brain' | 'lamp' | 'fish' | 'car' | 'scale' | 'crown' | 'stethoscope' | 'tower' | 'bridge';
+export type StampIcon = 'island' | 'shift' | 'brush' | 'cup' | 'target' | 'star' | 'circle' | 'pillars' | 'hut' | 'flow' | 'flask' | 'gauge' | 'basket' | 'factory' | 'brain' | 'lamp' | 'fish' | 'car' | 'scale' | 'crown' | 'stethoscope' | 'tower' | 'bridge' | 'compass';
 
 const ICONS: Record<StampIcon, ComponentChildren> = {
   // A shopping basket with a handle
@@ -179,6 +179,14 @@ const ICONS: Record<StampIcon, ComponentChildren> = {
       <path d="M26 52c8-14 40-14 48 0" />
       <path d="M26 52h48M34 52v-6M42 52v-9M50 52v-10M58 52v-9M66 52v-6" />
       <path d="M28 64c4-3 8-3 12 0s8 3 12 0 8-3 12 0 6 2 8 1" />
+    </g>
+  ),
+  // A compass: IA Trailhead
+  compass: (
+    <g>
+      <circle cx="50" cy="50" r="20" />
+      <path d="M50 34l5 16-5 16-5-16z" />
+      <path d="M50 26v4M50 70v4M26 50h4M70 50h4" />
     </g>
   ),
   star: <path d="M50 28l6.5 13.5 14.5 2-10.5 10 2.5 14.5L50 61l-13 7 2.5-14.5-10.5-10 14.5-2z" />,

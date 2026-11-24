@@ -1,0 +1,1203 @@
+{
+  "id": "ia-helper",
+  "outcome": "I can explain the rules for the IA portfolio, choose an article that meets them, and pick a diagram and a key concept link that fit the article.",
+  "learn": {
+    "text": "Your **[[internal assessment]]** (IA) is a portfolio of **three commentaries**. Each one explains a news article using economic theory. It is worth 20% (HL) or 30% (SL) of your final grade.\n\n**The rules.** Each commentary is on a different unit: **Unit 2, Unit 3 and Unit 4** (never Unit 1). Each one uses a different **[[key concept]]** as its lens. Each article comes from a different source: a newspaper, a journal or a website, not TV or radio. It must be published **no more than a year before** you write, and you must choose it yourself. Each commentary is at most **800 words**.\n\n**The marks.** Each commentary is marked for diagrams (3), terminology (2), application and analysis (3), the key concept (3) and evaluation (3). The rules above are worth 3 more marks for the whole portfolio.\n\n**Choose well.** Pick a topic you care about and a theory you understand. A good article has one clear event that you can show on a diagram.",
+    "caption": "Your IA trail: three commentaries, three units, three different key concepts."
+  },
+  "try": {
+    "goal": "Find your direction, scout good articles, then choose the right diagram and key concept link.",
+    "intro": "This trail helps you plan your IA. Level 1: answer six quick questions to find what interests you, see your strengths so far, check the rules, then make a plan. Level 2: scout news articles and decide which ones you could use. Level 3: for each article, choose the diagram that fits and the key concept link that would earn full marks.",
+    "levels": [
+      {
+        "title": "Compass",
+        "blurb": "Find your interests and strengths, answer 4 of 5 trail rules right first time, and make a plan that meets the rules."
+      },
+      {
+        "title": "Article scout",
+        "blurb": "Keep or leave 10 news articles. Score 16 of 20 first-try points."
+      },
+      {
+        "title": "Lens and diagram",
+        "blurb": "Choose the diagram and the full-mark key concept link for 6 articles. Score 10 of 12 first-try points."
+      }
+    ],
+    "interests": [
+      {
+        "id": "i1",
+        "prompt": "Which headline would you click first?",
+        "options": [
+          {
+            "text": "A city puts a tax on sugary drinks",
+            "unit": 2,
+            "concept": "intervention"
+          },
+          {
+            "text": "Prices in the shops rose fast this year",
+            "unit": 3,
+            "concept": "change"
+          },
+          {
+            "text": "Two countries agree to cut tariffs",
+            "unit": 4,
+            "concept": "interdependence"
+          }
+        ]
+      },
+      {
+        "id": "i2",
+        "prompt": "Which problem would you most like to fix?",
+        "options": [
+          {
+            "text": "A river polluted by a factory",
+            "unit": 2,
+            "concept": "sustainability"
+          },
+          {
+            "text": "Young people who cannot find a job",
+            "unit": 3,
+            "concept": "wellbeing"
+          },
+          {
+            "text": "Countries that stay poor while others grow rich",
+            "unit": 4,
+            "concept": "equity"
+          }
+        ]
+      },
+      {
+        "id": "i3",
+        "prompt": "Which question makes you most curious?",
+        "options": [
+          {
+            "text": "Why do concert tickets sell out so fast?",
+            "unit": 2,
+            "concept": "scarcity"
+          },
+          {
+            "text": "Why do people save less when interest rates fall?",
+            "unit": 3,
+            "concept": "choice"
+          },
+          {
+            "text": "Why is a currency worth more this year than last year?",
+            "unit": 4,
+            "concept": "change"
+          }
+        ]
+      },
+      {
+        "id": "i4",
+        "prompt": "Which kind of story do you follow?",
+        "options": [
+          {
+            "text": "A big firm buys its main rival",
+            "unit": 2,
+            "concept": "efficiency"
+          },
+          {
+            "text": "The government's budget and who pays more tax",
+            "unit": 3,
+            "concept": "equity"
+          },
+          {
+            "text": "Countries meet to agree on climate action",
+            "unit": 4,
+            "concept": "sustainability"
+          }
+        ]
+      },
+      {
+        "id": "i5",
+        "prompt": "Where do you notice economics in your own life?",
+        "options": [
+          {
+            "text": "Shops, cafés and the prices I pay",
+            "unit": 2,
+            "concept": "choice"
+          },
+          {
+            "text": "Family talk about jobs, wages and bills",
+            "unit": 3,
+            "concept": "wellbeing"
+          },
+          {
+            "text": "Travel, imported goods and world news",
+            "unit": 4,
+            "concept": "interdependence"
+          }
+        ]
+      },
+      {
+        "id": "i6",
+        "prompt": "Which would you rather explain to a friend?",
+        "options": [
+          {
+            "text": "Why a maximum rent can leave people without a flat",
+            "unit": 2,
+            "concept": "equity"
+          },
+          {
+            "text": "Why a central bank raises interest rates",
+            "unit": 3,
+            "concept": "intervention"
+          },
+          {
+            "text": "Why trade lets countries consume more",
+            "unit": 4,
+            "concept": "efficiency"
+          }
+        ]
+      }
+    ],
+    "ideas": {
+      "2": [
+        "a tax on sugary drinks, tobacco or plastic bags",
+        "a maximum rent or another price ceiling",
+        "a subsidy for electric cars, solar panels or farmers",
+        "a change to the minimum wage",
+        "a bad harvest or a new technology that changes a price",
+        "pollution, overfishing or traffic in your area"
+      ],
+      "3": [
+        "inflation and the cost of living",
+        "a central bank interest rate decision",
+        "unemployment rising or falling",
+        "a government budget or a tax change",
+        "economic growth or a recession"
+      ],
+      "4": [
+        "a new tariff, quota or trade deal",
+        "a currency rising or falling",
+        "foreign aid, loans or debt relief",
+        "a country's exports or imports",
+        "a development project in a low-income country"
+      ]
+    },
+    "themes": [
+      {
+        "id": "markets",
+        "name": "Markets: demand, supply and prices",
+        "codes": [
+          "2.1",
+          "2.2",
+          "2.3"
+        ],
+        "idea": "Look for a story about a price that rose or fell, and explain it with a shift in demand or supply."
+      },
+      {
+        "id": "elasticity",
+        "name": "Elasticity",
+        "codes": [
+          "2.5",
+          "2.6"
+        ],
+        "idea": "Look for a price change or a tax. Use PED or PES to judge how much the quantity changes, and who pays."
+      },
+      {
+        "id": "government",
+        "name": "Government intervention",
+        "codes": [
+          "2.7"
+        ],
+        "idea": "Look for a new tax, subsidy, maximum price or minimum price, and judge who gains and who loses."
+      },
+      {
+        "id": "failure",
+        "name": "Market failure: externalities, common pool resources and public goods",
+        "codes": [
+          "2.8",
+          "2.9"
+        ],
+        "idea": "Look for pollution, overfishing, traffic or a public service, and show the welfare loss on a diagram."
+      },
+      {
+        "id": "behaviour",
+        "name": "Behaviour, information and market power (HL)",
+        "codes": [
+          "2.4",
+          "2.10",
+          "2.11"
+        ],
+        "idea": "Look for a nudge, a firm with market power, or a market where buyers and sellers know different things."
+      },
+      {
+        "id": "equity",
+        "name": "Equity (HL)",
+        "codes": [
+          "2.12"
+        ],
+        "idea": "Look for a story about who can afford something, and judge whether the outcome is fair."
+      }
+    ],
+    "rules": [
+      {
+        "id": "r1",
+        "icon": "📺",
+        "text": "Sam finds a great TV news report about a sugar tax. Can he use it for his commentary?",
+        "options": [
+          {
+            "text": "No. Articles must come from a newspaper, a journal or the internet, not from TV or radio.",
+            "correct": true,
+            "feedback": "Right. TV and radio broadcasts are not allowed."
+          },
+          {
+            "text": "Yes, if it was shown in the last year.",
+            "feedback": "The date is fine, but the source is not. TV and radio broadcasts are not allowed."
+          },
+          {
+            "text": "Yes, if he writes down the name of the channel.",
+            "feedback": "Naming the source does not help. TV and radio broadcasts are not allowed."
+          }
+        ]
+      },
+      {
+        "id": "r2",
+        "icon": "📅",
+        "text": "Mia's article was published 14 months before the day she writes her commentary. Can she use it?",
+        "options": [
+          {
+            "text": "No. It must be published no earlier than one year before she writes the commentary.",
+            "correct": true,
+            "feedback": "Right. 14 months is more than a year, so it breaks the rule."
+          },
+          {
+            "text": "Yes. Any article from the last two years is fine.",
+            "feedback": "The limit is one year before the commentary is written, not two."
+          },
+          {
+            "text": "Yes, if the news in it is still true.",
+            "feedback": "The rule is about the date it was published, not whether it is still true."
+          }
+        ]
+      },
+      {
+        "id": "r3",
+        "icon": "🔁",
+        "text": "Leo loves microeconomics. He wants to write two of his three commentaries on Unit 2. Is that allowed?",
+        "options": [
+          {
+            "text": "No. Each commentary must be on a different unit: one on Unit 2, one on Unit 3 and one on Unit 4.",
+            "correct": true,
+            "feedback": "Right. That is one of the three rubric requirements in criterion F."
+          },
+          {
+            "text": "Yes, if he uses two different articles.",
+            "feedback": "Different articles are needed anyway. The units must be different too."
+          },
+          {
+            "text": "Yes, if one of them is on an HL topic.",
+            "feedback": "HL does not change the rule. Each commentary must be on a different unit."
+          }
+        ]
+      },
+      {
+        "id": "r4",
+        "icon": "🔍",
+        "text": "Ana used efficiency as the key concept in her first commentary. She wants to use it again in her second. What should she do?",
+        "options": [
+          {
+            "text": "Choose a different key concept, or she risks losing 3 marks in criterion D.",
+            "correct": true,
+            "feedback": "Right. Each commentary must use a different key concept as its lens."
+          },
+          {
+            "text": "Use it again. It is fine if the articles are on different units.",
+            "feedback": "The units are different, but the key concepts must be different too."
+          },
+          {
+            "text": "Use it again, but explain it more fully the second time.",
+            "feedback": "A fuller explanation does not help. A key concept that was already used scores 0 in criterion D."
+          }
+        ]
+      },
+      {
+        "id": "r5",
+        "icon": "✂️",
+        "text": "Ravi's commentary is 950 words long. What happens to the last 150 words?",
+        "options": [
+          {
+            "text": "The moderator stops reading at 800 words, so they earn nothing.",
+            "correct": true,
+            "feedback": "Right. Each commentary must not exceed 800 words."
+          },
+          {
+            "text": "Nothing. The word limit is only a guide.",
+            "feedback": "The limit is a rule. Moderators will not read beyond 800 words."
+          },
+          {
+            "text": "He loses one mark for every 50 extra words.",
+            "feedback": "There is no penalty per word. The words after 800 are simply not read, so any marks in them are lost."
+          }
+        ]
+      }
+    ],
+    "articles": [
+      {
+        "id": "parking",
+        "icon": "🅿️",
+        "headline": "City doubles parking fees in the town centre",
+        "sourceName": "A national newspaper",
+        "source": "newspaper",
+        "ageMonths": 2,
+        "unit": 2,
+        "summary": "The council says higher fees will cut traffic. Shop owners fear fewer customers.",
+        "why": "A price rise, demand and PED: this is Unit 2 microeconomics."
+      },
+      {
+        "id": "rates",
+        "icon": "🏦",
+        "headline": "Central bank raises its interest rate again",
+        "sourceName": "A business news website",
+        "source": "online",
+        "ageMonths": 1,
+        "unit": 3,
+        "summary": "The bank says it wants to slow inflation. Home owners face higher loan payments.",
+        "why": "Interest rates and inflation are monetary policy: Unit 3 macroeconomics."
+      },
+      {
+        "id": "steel",
+        "icon": "🏗️",
+        "headline": "Government puts new tariffs on imported steel",
+        "sourceName": "A national newspaper",
+        "source": "newspaper",
+        "ageMonths": 4,
+        "unit": 4,
+        "summary": "Local steel firms welcome the move. Car makers say their costs will rise.",
+        "why": "A tariff is a trade barrier: Unit 4, the global economy."
+      },
+      {
+        "id": "milktv",
+        "icon": "📺",
+        "headline": "Farmers protest about low milk prices",
+        "sourceName": "An evening TV news show",
+        "source": "tv",
+        "ageMonths": 1,
+        "unit": 2,
+        "summary": "Farmers drive tractors to the capital. They say milk sells for less than it costs to make.",
+        "why": "The economics is good, but the source is a TV broadcast. TV and radio are not allowed."
+      },
+      {
+        "id": "jobsradio",
+        "icon": "📻",
+        "headline": "Interview: why young people cannot find work",
+        "sourceName": "A radio phone-in show",
+        "source": "radio",
+        "ageMonths": 2,
+        "unit": 3,
+        "summary": "Callers share their stories about looking for a first job.",
+        "why": "A radio broadcast is not allowed, even on a good topic. Look for a newspaper or website report instead."
+      },
+      {
+        "id": "sugarold",
+        "icon": "🥤",
+        "headline": "Sugar tax raises less money than planned",
+        "sourceName": "A business news website",
+        "source": "online",
+        "ageMonths": 15,
+        "unit": 2,
+        "summary": "People bought fewer sugary drinks than expected, so tax revenue was lower.",
+        "why": "It was published 15 months ago. Articles must be published no earlier than one year before you write."
+      },
+      {
+        "id": "fuelold",
+        "icon": "⛽",
+        "headline": "Fuel prices jump after a refinery fire",
+        "sourceName": "A national newspaper",
+        "source": "newspaper",
+        "ageMonths": 20,
+        "unit": 2,
+        "summary": "Drivers queue at petrol stations as supply falls.",
+        "why": "Good economics, but it is 20 months old. That is more than a year before the commentary."
+      },
+      {
+        "id": "cupfinal",
+        "icon": "⚽",
+        "headline": "Home team wins the cup final in extra time",
+        "sourceName": "A sports website",
+        "source": "online",
+        "ageMonths": 1,
+        "unit": null,
+        "summary": "A late goal sends fans into the streets to celebrate.",
+        "why": "There is no economic theory to apply. A commentary must link the article to theory from Unit 2, 3 or 4."
+      },
+      {
+        "id": "garden",
+        "icon": "🌻",
+        "headline": "Ten tips to make your garden bloom",
+        "sourceName": "A lifestyle magazine website",
+        "source": "online",
+        "ageMonths": 3,
+        "unit": null,
+        "summary": "Plant in spring, water in the evening and choose flowers for bees.",
+        "why": "Useful tips, but no economic theory. There is nothing to analyse with a diagram."
+      },
+      {
+        "id": "teacherbags",
+        "icon": "🛍️",
+        "headline": "New tax on plastic bags starts next month",
+        "sourceName": "Handed to the whole class by the teacher",
+        "source": "newspaper",
+        "ageMonths": 1,
+        "fromTeacher": true,
+        "unit": 2,
+        "summary": "Shops must charge for every bag. The money goes to a recycling fund.",
+        "why": "Students must choose their own articles. An article the teacher gives to the class cannot be used."
+      },
+      {
+        "id": "wheat",
+        "icon": "🌾",
+        "headline": "Government pays farmers more to grow wheat",
+        "sourceName": "An economics magazine",
+        "source": "journal",
+        "ageMonths": 6,
+        "unit": 2,
+        "summary": "A new subsidy aims to cut the price of bread. Critics say it costs taxpayers too much.",
+        "why": "A subsidy on one good: Unit 2 microeconomics."
+      },
+      {
+        "id": "jobs",
+        "icon": "👷",
+        "headline": "Unemployment falls to its lowest level in years",
+        "sourceName": "A national newspaper",
+        "source": "newspaper",
+        "ageMonths": 3,
+        "unit": 3,
+        "summary": "More firms are hiring, but some say wages are not keeping up with prices.",
+        "why": "Unemployment in the whole economy is Unit 3 macroeconomics."
+      },
+      {
+        "id": "currency",
+        "icon": "💱",
+        "headline": "Currency falls to a five-year low",
+        "sourceName": "A business news website",
+        "source": "online",
+        "ageMonths": 2,
+        "unit": 4,
+        "summary": "Exporters are pleased. Families going on holiday abroad will pay more.",
+        "why": "Exchange rates are Unit 4, the global economy."
+      },
+      {
+        "id": "rentcap",
+        "icon": "🏠",
+        "headline": "Rent cap leaves fewer flats to rent, landlords say",
+        "sourceName": "A city newspaper",
+        "source": "newspaper",
+        "ageMonths": 5,
+        "unit": 2,
+        "summary": "Tenants welcome lower rents. Landlords say they will sell flats instead of renting them out.",
+        "why": "A maximum price in one market: Unit 2 microeconomics."
+      },
+      {
+        "id": "inflation",
+        "icon": "🛒",
+        "headline": "Rising prices hit low-income families hardest",
+        "sourceName": "A news website",
+        "source": "online",
+        "ageMonths": 8,
+        "unit": 3,
+        "summary": "Food and energy prices rose faster than other prices this year.",
+        "why": "Inflation and its costs are Unit 3 macroeconomics."
+      },
+      {
+        "id": "wells",
+        "icon": "🚰",
+        "headline": "Aid agency builds wells in rural villages",
+        "sourceName": "A world news website",
+        "source": "online",
+        "ageMonths": 2,
+        "unit": 4,
+        "summary": "Clean water close to home means children spend less time fetching water and more time at school.",
+        "why": "Foreign aid and development are Unit 4, the global economy."
+      }
+    ],
+    "reasonNames": {
+      "old": "Too old: more than a year before I write",
+      "broadcast": "TV or radio: not allowed",
+      "noTheory": "No economic theory from Units 2 to 4 to apply",
+      "teacher": "The teacher gave it to the whole class"
+    },
+    "lenses": [
+      {
+        "id": "sugar",
+        "icon": "🥤",
+        "headline": "City puts a tax on every sugary drink",
+        "summary": "Each can now costs more. The council says it wants people to drink less sugar.",
+        "concept": "intervention",
+        "diagrams": [
+          {
+            "text": "An indirect tax: supply shifts up by the amount of the tax.",
+            "correct": true,
+            "feedback": "Right. A tax per can raises firms' costs, so supply shifts up by the tax."
+          },
+          {
+            "text": "Demand for sugary drinks shifts to the right.",
+            "feedback": "The tax is paid by sellers to the government. It changes supply, not demand."
+          },
+          {
+            "text": "A maximum price below the equilibrium price.",
+            "feedback": "A maximum price limits the price. Here a tax is added to it."
+          }
+        ],
+        "links": [
+          {
+            "text": "The key concept in this article is intervention.",
+            "feedback": "It names the key concept but does not link it to the article. That is 1 mark: an attempt to link."
+          },
+          {
+            "text": "The tax is intervention, because the government is involved in the market for sugary drinks.",
+            "feedback": "It links the key concept to the article, but does not explain how. That is 2 marks: partially explained."
+          },
+          {
+            "text": "The tax is intervention: the council changes the market outcome on purpose. It raises the price of sugary drinks, so the quantity bought falls, because the free market ignores the costs of too much sugar.",
+            "correct": true,
+            "feedback": "Right. It names the concept, links it to the tax, and explains how and why. That is 3 marks: fully explained."
+          }
+        ]
+      },
+      {
+        "id": "parking",
+        "icon": "🅿️",
+        "headline": "City doubles parking fees in the town centre",
+        "summary": "The council says higher fees will cut traffic. Shop owners fear fewer customers.",
+        "concept": "choice",
+        "diagrams": [
+          {
+            "text": "One demand curve, with a movement along it from P₁ to P₂.",
+            "correct": true,
+            "feedback": "Right. The fee is the price of parking, so drivers move along the demand curve."
+          },
+          {
+            "text": "The demand curve shifts to the left.",
+            "feedback": "A change in the good's own price causes a movement along demand, not a shift."
+          },
+          {
+            "text": "A subsidy: supply shifts down.",
+            "feedback": "Nobody is paid a subsidy here. The price of parking rises."
+          }
+        ],
+        "links": [
+          {
+            "text": "This article is about choice.",
+            "feedback": "It names the key concept but does not link it to the article. That is 1 mark: an attempt to link."
+          },
+          {
+            "text": "Drivers have to make a choice about parking.",
+            "feedback": "It links the key concept to the article, but does not explain how. That is 2 marks: partially explained."
+          },
+          {
+            "text": "Choice: with a higher fee, each driver weighs the cost of parking against the bus or shopping elsewhere. If demand is price elastic, many will choose not to park, which cuts traffic but may also cut shop sales.",
+            "correct": true,
+            "feedback": "Right. It explains how the article changes the choices people make, and uses theory to show the result. That is 3 marks."
+          }
+        ]
+      },
+      {
+        "id": "rentcap",
+        "icon": "🏠",
+        "headline": "City caps rents below the market level",
+        "summary": "Tenants welcome lower rents. Landlords say they will sell flats instead of renting them out.",
+        "concept": "equity",
+        "diagrams": [
+          {
+            "text": "A maximum price below the equilibrium price, with a shortage between Qs and Qd.",
+            "correct": true,
+            "feedback": "Right. A cap below equilibrium means more people want flats than are offered."
+          },
+          {
+            "text": "A minimum price above the equilibrium price.",
+            "feedback": "A cap is a maximum, and it is set below the market rent."
+          },
+          {
+            "text": "Supply shifts to the right.",
+            "feedback": "The cap does not make more flats. Fewer are offered at the lower rent."
+          }
+        ],
+        "links": [
+          {
+            "text": "The key concept I will use is equity.",
+            "feedback": "It names the key concept but does not link it to the article. That is 1 mark: an attempt to link."
+          },
+          {
+            "text": "The rent cap is about equity, because rent is a big cost for many people.",
+            "feedback": "It links the key concept to the article, but does not explain how. That is 2 marks: partially explained."
+          },
+          {
+            "text": "Equity: the cap aims to be fair to low-income tenants by making rent affordable. But it causes a shortage, so some tenants pay less while others find no flat at all, which may not be fair either.",
+            "correct": true,
+            "feedback": "Right. It links fairness to the policy and explains who gains and who loses. That is 3 marks."
+          }
+        ]
+      },
+      {
+        "id": "solar",
+        "icon": "☀️",
+        "headline": "Government pays a subsidy to solar panel makers",
+        "summary": "Solar panels get cheaper. More homes put them on their roofs.",
+        "concept": "sustainability",
+        "diagrams": [
+          {
+            "text": "A subsidy: supply shifts down by the amount of the subsidy.",
+            "correct": true,
+            "feedback": "Right. The subsidy lowers firms' costs, so supply shifts down (to the right)."
+          },
+          {
+            "text": "A tax: supply shifts up.",
+            "feedback": "Firms are paid money here, not charged it."
+          },
+          {
+            "text": "Demand shifts to the left.",
+            "feedback": "Cheaper panels mean people buy more, along the demand curve."
+          }
+        ],
+        "links": [
+          {
+            "text": "Sustainability is the key concept.",
+            "feedback": "It names the key concept but does not link it to the article. That is 1 mark: an attempt to link."
+          },
+          {
+            "text": "Solar panels are linked to sustainability, because they are green.",
+            "feedback": "It links the key concept to the article, but does not explain how. That is 2 marks: partially explained."
+          },
+          {
+            "text": "Sustainability: the subsidy lowers the price of solar panels, so more homes use them instead of electricity from fossil fuels. This cuts pollution that would harm future generations.",
+            "correct": true,
+            "feedback": "Right. It explains how the subsidy supports meeting today's needs without harming future generations. That is 3 marks."
+          }
+        ]
+      },
+      {
+        "id": "fishing",
+        "icon": "🐟",
+        "headline": "Fish stocks fall as more boats fish the same bay",
+        "summary": "No one owns the bay. Each boat catches as much as it can before the others do.",
+        "concept": "scarcity",
+        "diagrams": [
+          {
+            "text": "A common pool resource: fish are rivalrous but non-excludable, so the bay is overused.",
+            "correct": true,
+            "feedback": "Right. No one can be kept out, and each fish caught leaves fewer for others."
+          },
+          {
+            "text": "A public good: non-rivalrous and non-excludable.",
+            "feedback": "Fish are rivalrous: a fish one boat catches cannot be caught by another."
+          },
+          {
+            "text": "A maximum price below equilibrium.",
+            "feedback": "No price is being controlled here. The problem is overuse."
+          }
+        ],
+        "links": [
+          {
+            "text": "Scarcity is the key concept here.",
+            "feedback": "It names the key concept but does not link it to the article. That is 1 mark: an attempt to link."
+          },
+          {
+            "text": "Fish are scarce, so this article is about scarcity.",
+            "feedback": "It links the key concept to the article, but does not explain how. That is 2 marks: partially explained."
+          },
+          {
+            "text": "Scarcity: the fish in the bay are limited, but each boat wants as many as it can catch. Because no one can be kept out, the scarce fish are overused and stocks fall, so there will be even fewer fish in future.",
+            "correct": true,
+            "feedback": "Right. It explains why the resource is scarce and how the way it is used makes it scarcer. That is 3 marks."
+          }
+        ]
+      },
+      {
+        "id": "minwage",
+        "icon": "💵",
+        "headline": "Minimum wage rises for the second year running",
+        "summary": "Low-paid workers will earn more per hour. Some small firms say they will hire fewer people.",
+        "concept": "wellbeing",
+        "diagrams": [
+          {
+            "text": "A minimum wage above the equilibrium wage in a labour market, with unemployment between the quantity supplied and the quantity demanded.",
+            "correct": true,
+            "feedback": "Right. A wage floor above equilibrium means more people want work than firms want to hire."
+          },
+          {
+            "text": "A maximum price below equilibrium.",
+            "feedback": "A minimum wage is a floor, set above the market wage."
+          },
+          {
+            "text": "The demand for labour shifts to the right.",
+            "feedback": "The law does not make firms want more workers. They move along their demand for labour."
+          }
+        ],
+        "links": [
+          {
+            "text": "This commentary uses economic well-being.",
+            "feedback": "It names the key concept but does not link it to the article. That is 1 mark: an attempt to link."
+          },
+          {
+            "text": "A higher minimum wage affects the economic well-being of workers.",
+            "feedback": "It links the key concept to the article, but does not explain how. That is 2 marks: partially explained."
+          },
+          {
+            "text": "Economic well-being: workers who keep their jobs can meet more of their basic needs with a higher wage. But if firms hire fewer people, some workers lose their income, so well-being may fall for them.",
+            "correct": true,
+            "feedback": "Right. It explains how the policy changes well-being, for whom, and why. That is 3 marks."
+          }
+        ]
+      },
+      {
+        "id": "oranges",
+        "icon": "🍊",
+        "headline": "Frost destroys much of this year's orange harvest",
+        "summary": "Orange juice prices are expected to rise in the coming months.",
+        "concept": "change",
+        "diagrams": [
+          {
+            "text": "Supply shifts to the left, so the price rises and the quantity falls.",
+            "correct": true,
+            "feedback": "Right. The frost means fewer oranges at every price."
+          },
+          {
+            "text": "Demand shifts to the right.",
+            "feedback": "The frost affects growers, not how much people want oranges."
+          },
+          {
+            "text": "A movement along the supply curve.",
+            "feedback": "Something other than price has changed supply, so the curve shifts."
+          }
+        ],
+        "links": [
+          {
+            "text": "The key concept is change.",
+            "feedback": "It names the key concept but does not link it to the article. That is 1 mark: an attempt to link."
+          },
+          {
+            "text": "The frost is a change in the orange market.",
+            "feedback": "It links the key concept to the article, but does not explain how. That is 2 marks: partially explained."
+          },
+          {
+            "text": "Change: the frost is a sudden change in the conditions of supply. Supply falls, so there is a shortage at the old price and the price rises, which changes what buyers and growers do next season.",
+            "correct": true,
+            "feedback": "Right. It explains the change, how it works through the market, and its effects. That is 3 marks."
+          }
+        ]
+      },
+      {
+        "id": "river",
+        "icon": "🏭",
+        "headline": "Factory waste kills fish downstream",
+        "summary": "Fishers say their catch has halved since the factory opened. The factory pays nothing for the harm.",
+        "concept": "efficiency",
+        "diagrams": [
+          {
+            "text": "A negative production externality: MSC is above MPC, so the market overproduces.",
+            "correct": true,
+            "feedback": "Right. The harm to fishers is an external cost of production."
+          },
+          {
+            "text": "A positive consumption externality: MSB is above MPB.",
+            "feedback": "The harm comes from production, and it is a cost, not a benefit."
+          },
+          {
+            "text": "Demand for the factory's goods shifts to the left.",
+            "feedback": "Nothing has changed demand. The problem is a cost the market ignores."
+          }
+        ],
+        "links": [
+          {
+            "text": "Efficiency is my key concept.",
+            "feedback": "It names the key concept but does not link it to the article. That is 1 mark: an attempt to link."
+          },
+          {
+            "text": "The factory is not efficient, because it pollutes the river.",
+            "feedback": "It links the key concept to the article, but does not explain how. That is 2 marks: partially explained."
+          },
+          {
+            "text": "Efficiency: the factory ignores the cost of its waste to fishers, so the market produces more than the social optimum, where MSB = MSC. Too many resources go to this good, so there is a welfare loss: the outcome is allocatively inefficient.",
+            "correct": true,
+            "feedback": "Right. It uses allocative efficiency, the social optimum and the welfare loss to explain the link. That is 3 marks."
+          }
+        ]
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Your IA portfolio has three commentaries. **Which units can they be based on?**",
+      "options": [
+        {
+          "text": "Units 2, 3 and 4: one commentary on each.",
+          "correct": true,
+          "feedback": "Right. Unit 1 is not allowed, and each commentary must be on a different unit."
+        },
+        {
+          "text": "Any unit, as long as the articles are different.",
+          "feedback": "Each commentary must be on a different unit, and Unit 1 is not allowed."
+        },
+        {
+          "text": "Units 1, 2 and 3.",
+          "feedback": "Unit 1 (Introduction to economics) is excluded."
+        },
+        {
+          "text": "All three on the unit you know best.",
+          "feedback": "That breaks a rubric requirement in criterion F."
+        }
+      ],
+      "hints": [
+        "Which unit is left out?",
+        "Think: micro, macro, global."
+      ],
+      "worked": "Example plan: a sugar tax (Unit 2), an interest rate rise (Unit 3) and a new tariff (Unit 4).",
+      "explanation": "One commentary on each of **Unit 2, Unit 3 and Unit 4**. Unit 1 is excluded."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "What is the **word limit** for each commentary?",
+      "options": [
+        {
+          "text": "800 words.",
+          "correct": true,
+          "feedback": "Right. Moderators will not read beyond 800 words."
+        },
+        {
+          "text": "1,000 words.",
+          "feedback": "The limit is 800 words for each commentary."
+        },
+        {
+          "text": "2,400 words for the three together, shared out as you like.",
+          "feedback": "Each commentary has its own limit of 800 words."
+        },
+        {
+          "text": "There is no limit.",
+          "feedback": "There is: 800 words for each commentary."
+        }
+      ],
+      "hints": [
+        "It is less than 1,000.",
+        "The moderator stops reading at this number."
+      ],
+      "worked": "Example: a 900-word commentary loses whatever is in its last 100 words, because they are not read.",
+      "explanation": "Each commentary must not exceed **800 words**."
+    },
+    {
+      "id": "q3",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Which of these is **not** included in the word count?",
+      "options": [
+        {
+          "text": "A label of five words or fewer on a diagram.",
+          "correct": true,
+          "feedback": "Right. Diagrams and short labels are not counted."
+        },
+        {
+          "text": "A definition of an economic term.",
+          "feedback": "Definitions must be in the body of the work, and they are counted."
+        },
+        {
+          "text": "A quotation from the article.",
+          "feedback": "Quotations are in the body of the work, so they are counted."
+        },
+        {
+          "text": "A paragraph of evaluation.",
+          "feedback": "Evaluation is the heart of the commentary. It is counted."
+        }
+      ],
+      "hints": [
+        "Think about what is drawn, not written in sentences.",
+        "Short labels and headings on diagrams are left out."
+      ],
+      "worked": "Not counted: diagrams, short labels, tables of data, calculations, citations and references. Counted: definitions and quotations.",
+      "explanation": "Diagrams, **labels of five words or fewer**, short diagram headings, tables, calculations, citations and references are not counted."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Which article could you use?",
+      "options": [
+        {
+          "text": "A business news website report, published two months ago, about a new subsidy for buses.",
+          "correct": true,
+          "feedback": "Right. A website is allowed, it is recent, and it has Unit 2 theory to apply."
+        },
+        {
+          "text": "A TV news report, shown last week, about a new subsidy for buses.",
+          "feedback": "TV and radio broadcasts are not allowed."
+        },
+        {
+          "text": "A newspaper report, published two years ago, about a new subsidy for buses.",
+          "feedback": "It must be published no earlier than one year before you write."
+        },
+        {
+          "text": "A newspaper report your teacher handed to the whole class.",
+          "feedback": "You must choose your own articles."
+        }
+      ],
+      "hints": [
+        "Check the source, then the date.",
+        "Who chose the article?"
+      ],
+      "worked": "Ask three questions: Is it a newspaper, journal or website? Is it less than a year old? Did I find it myself?",
+      "explanation": "Use a **newspaper, journal or website** article, **published no more than a year before** you write, that **you chose yourself**."
+    },
+    {
+      "id": "q5",
+      "type": "choice",
+      "level": "core",
+      "prompt": "What does a commentary need for full marks in **criterion E: Evaluation**?",
+      "options": [
+        {
+          "text": "Judgments supported by effective and balanced reasoning.",
+          "correct": true,
+          "feedback": "Right. That is the 3-mark descriptor."
+        },
+        {
+          "text": "A long summary of the article.",
+          "feedback": "A summary is not a judgment."
+        },
+        {
+          "text": "Your own opinion, stated clearly.",
+          "feedback": "An opinion needs reasoning to support it, and both sides should be weighed."
+        },
+        {
+          "text": "As many diagrams as possible.",
+          "feedback": "Diagrams are assessed in criterion A, not E."
+        }
+      ],
+      "hints": [
+        "Evaluation weighs up.",
+        "Look for the words judgment and balanced."
+      ],
+      "worked": "Example: \"The tax may cut sugary drink sales a little, because demand is price inelastic. But the revenue could fund health programmes, so on balance it may still help.\"",
+      "explanation": "3 marks: **judgments supported by effective and balanced reasoning**."
+    },
+    {
+      "id": "q6",
+      "type": "label",
+      "level": "apply",
+      "prompt": "One good way to plan a commentary is shown as a trail with four stops. **Label it.** Choose what each stop is.",
+      "diagram": {
+        "xMax": 100,
+        "yMax": 60,
+        "xLabel": "",
+        "yLabel": "",
+        "noAxes": true,
+        "title": "A trail of four empty boxes",
+        "description": "Four empty boxes in a row, joined by arrows from left to right. Letter A is on the first box, B on the second, C on the third and D on the fourth.",
+        "boxes": [
+          {
+            "at": {
+              "q": 13,
+              "p": 30
+            },
+            "w": 20,
+            "h": 16
+          },
+          {
+            "at": {
+              "q": 38,
+              "p": 30
+            },
+            "w": 20,
+            "h": 16
+          },
+          {
+            "at": {
+              "q": 63,
+              "p": 30
+            },
+            "w": 20,
+            "h": 16
+          },
+          {
+            "at": {
+              "q": 88,
+              "p": 30
+            },
+            "w": 20,
+            "h": 16
+          }
+        ],
+        "arrows": [
+          {
+            "from": {
+              "q": 23.5,
+              "p": 30
+            },
+            "to": {
+              "q": 27.5,
+              "p": 30
+            }
+          },
+          {
+            "from": {
+              "q": 48.5,
+              "p": 30
+            },
+            "to": {
+              "q": 52.5,
+              "p": 30
+            }
+          },
+          {
+            "from": {
+              "q": 73.5,
+              "p": 30
+            },
+            "to": {
+              "q": 77.5,
+              "p": 30
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 13,
+              "p": 30
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 38,
+              "p": 30
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 63,
+              "p": 30
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 88,
+              "p": 30
+            },
+            "letter": "D"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "What happened in the article",
+          "feedback": "Start with the event: what happened, and to whom."
+        },
+        {
+          "letter": "B",
+          "answer": "Theory with a diagram",
+          "feedback": "Then apply theory from the unit, with an accurate, labelled diagram that you explain."
+        },
+        {
+          "letter": "C",
+          "answer": "Link to the key concept",
+          "feedback": "Explain how your key concept links to the article."
+        },
+        {
+          "letter": "D",
+          "answer": "Judgment with reasons",
+          "feedback": "End by weighing up, with balanced reasoning."
+        }
+      ],
+      "choices": [
+        "What happened in the article",
+        "Theory with a diagram",
+        "Link to the key concept",
+        "Judgment with reasons",
+        "Your opinion with no reasons",
+        "A copy of the whole article"
+      ],
+      "hints": [
+        "What must a reader know before any theory?",
+        "Evaluation comes last."
+      ],
+      "worked": "Example: a rent cap (event) → maximum price diagram with a shortage (theory) → equity (key concept) → who gains and who loses (judgment).",
+      "explanation": "Event → **theory with a diagram** → **link to the key concept** → **judgment with reasons**."
+    }
+  ],
+  "explain": {
+    "prompt": "Explain why an article about a new tax on plastic bags, found by you on a news website last month, is a good choice for your Unit 2 commentary.",
+    "facts": "- You found the article yourself, on a **news website**.\n- It was published **last month**.\n- It reports a new **tax on plastic bags** in your city.\n- You plan to use the key concept **sustainability**.",
+    "steps": [
+      {
+        "lead": "The article meets the rules, because",
+        "correct": 0,
+        "options": [
+          {
+            "text": "it is from a website, it is less than a year old, and I chose it myself.",
+            "why": "Right. Source, date and your own choice are all fine."
+          },
+          {
+            "text": "it is about a topic my teacher likes.",
+            "why": "The rules are about the source, the date and who chose it."
+          },
+          {
+            "text": "it is very long, so there is a lot to write about.",
+            "why": "Long articles are discouraged. If you use one, highlight the part you discuss."
+          }
+        ]
+      },
+      {
+        "lead": "It fits Unit 2, because",
+        "correct": 1,
+        "options": [
+          {
+            "text": "it is about the whole economy.",
+            "why": "The whole economy is Unit 3. This tax is on one good."
+          },
+          {
+            "text": "an indirect tax on one good shifts supply up, so I can draw a tax diagram.",
+            "why": "Right. A tax on one good is Unit 2 theory with a clear diagram."
+          },
+          {
+            "text": "it is about trade between countries.",
+            "why": "Trade is Unit 4. This tax is on one good in one city."
+          }
+        ]
+      },
+      {
+        "lead": "It links to sustainability, because",
+        "correct": 2,
+        "options": [
+          {
+            "text": "sustainability is a key concept.",
+            "why": "That names the concept but does not link it to the article."
+          },
+          {
+            "text": "plastic bags are bad.",
+            "why": "That is an opinion. Explain how the tax links to future generations."
+          },
+          {
+            "text": "the tax raises the price of bags, so fewer are used and less plastic waste is left for future generations.",
+            "why": "Right. It explains how the tax links to the concept."
+          }
+        ]
+      },
+      {
+        "lead": "I can also evaluate, because",
+        "correct": 0,
+        "options": [
+          {
+            "text": "if demand for bags is price elastic, use may fall a lot, but shoppers on low incomes pay more at first.",
+            "why": "Right. It weighs up how well the tax works and for whom."
+          },
+          {
+            "text": "the article says the tax is new.",
+            "why": "That is a fact, not a judgment."
+          },
+          {
+            "text": "I think taxes are always good.",
+            "why": "An opinion with no reasons does not earn evaluation marks."
+          }
+        ]
+      }
+    ],
+    "own": "Add your own sentence about a stakeholder who gains or loses from the tax."
+  },
+  "teacherNotes": "IA Trailhead supports the start of the IA portfolio (guide: Internal assessment). Level 1 is personal: the interest questions have no right answers, and the strengths panel reads only this browser's Check it scores for Unit 2 games. The plan is saved in this browser only. Students must still choose their own articles: the articles in Levels 2 and 3 are practice examples, not articles to submit. Level 3 uses Unit 2 articles only, because this app covers Units 1 and 2. Ask students to compare the 1, 2 and 3 mark key concept links with the criterion D descriptors."
+}

@@ -13,7 +13,7 @@ const ICONS: Record<string, string> = {
   'market-shock': '📈', 'surplus-shader': '🎨', 'bias-lab': '🧠', 'elasticity-cafe': '☕', 'ped-line': '📏',
   'hints-yed': '🛒', 'supply-speed': '🚚', 'gov-toolkit': '🏛️', 'externality-fixer': '🌤️', 'fish-pond': '🐟',
   'streetlight-fund': '💡', 'used-car-lot': '🚗', 'monopoly-game': '🎲', 'fair-efficient': '⚖️',
-  'diagram-doctor': '🩺', 'command-terms': '🛫', 'build-break-judge': '🌉',
+  'diagram-doctor': '🩺', 'command-terms': '🛫', 'build-break-judge': '🌉', 'ia-helper': '🧭',
 };
 
 function stepsDone(steps: number) {

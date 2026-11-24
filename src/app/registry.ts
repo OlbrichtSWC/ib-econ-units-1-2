@@ -21,6 +21,7 @@ export const SUBTOPICS: { code: string; unit: Section; title: string; hl?: boole
   { code: '2.11', unit: 2, title: 'Market failure: market power', hl: true },
   { code: '2.12', unit: 2, title: "The market's inability to achieve equity", hl: true },
   { code: 'skills', unit: 'skills', title: 'Practise what examiners look for, using Units 1 and 2' },
+  { code: 'ia', unit: 'skills', title: 'Plan your IA portfolio' },
 ];
 
 /** A unit of the syllabus, or the exam skills section that uses all of them. */
@@ -29,7 +30,7 @@ export type Section = 1 | 2 | 'skills';
 export const UNITS: { unit: Section; title: string }[] = [
   { unit: 1, title: 'Unit 1: Introduction to economics' },
   { unit: 2, title: 'Unit 2: Microeconomics' },
-  { unit: 'skills', title: 'Exam skills' },
+  { unit: 'skills', title: 'Exam and IA skills' },
 ];
 
 export const ACTIVITIES: ActivityMeta[] = [
@@ -246,6 +247,17 @@ export const ACTIVITIES: ActivityMeta[] = [
     noCalculator: true,
     load: () => import('../activities/build-break-judge'),
   },
+  {
+    id: 'ia-helper', tag: 'IA: plan your portfolio', code: 'ia', unit: 'skills', title: 'IA Trailhead', style: 'Hiking trail',
+    blurb: 'Find what interests you and what you are strongest at, check the IA rules, scout news articles, and choose a diagram and key concept that fit.',
+    goal: { name: 'Trailblazer', how: 'Level 1 of IA Trailhead: answer 4 of 5 IA rules right first time and make a portfolio plan that meets the rules.', icon: 'compass' },
+    goals: [
+      { name: 'Article Scout', how: 'Level 2 of IA Trailhead: keep or leave 10 news articles. Score 16 of 20 first-try points.', icon: 'compass' },
+      { name: 'Lens Master', how: 'Level 3 of IA Trailhead: choose the diagram and the full-mark key concept link for 6 articles. Score 10 of 12 first-try points.', icon: 'compass' },
+    ],
+    noCalculator: true,
+    load: () => import('../activities/ia-helper'),
+  },
 ];
 
 /**
@@ -257,6 +269,7 @@ export const PROGRESS_ID_TABLE: readonly string[] = [
   'bias-lab', 'elasticity-cafe', 'ped-line', 'hints-yed', 'supply-speed', 'gov-toolkit', 'externality-fixer',
   'fish-pond', 'streetlight-fund', 'used-car-lot', 'monopoly-game', 'fair-efficient',
   'diagram-doctor', 'command-terms', 'build-break-judge',
+  'ia-helper',
 ];
 
 export function findActivity(id: string) {

@@ -25,6 +25,7 @@ You can fix a typo, rewrite a hint or add a question without touching any code.
 | `content/activities/monopoly-game.json` | Everything in Rival Pricing |
 | `content/activities/fair-efficient.json` | Everything in Fair or Efficient? |
 | `content/activities/diagram-doctor.json` | Everything in Diagram Doctor (each patient's sick and healed diagram, tags and cures). Each tag has a `name` (shown on its button). Use `"on": "yLabel"` or `"xLabel"` for a tag about an axis label, and `"point"` to draw a pointer line from the tag to a spot. |
+| `content/activities/ia-helper.json` | Everything in IA Trailhead: interest questions, article ideas, strength themes, IA rules, practice articles (`articles`, with `source`, `ageMonths` and `unit`) and Level 3 articles (`lenses`) |
 | `content/activities/command-terms.json` | Everything in Control Tower (command terms and their IB definitions, questions, flight plans, black box answers) |
 | `content/activities/build-break-judge.json` | Everything in Build, Break, Judge (chains, cracked planks, claims) |
 
