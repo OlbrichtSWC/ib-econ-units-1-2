@@ -1,0 +1,54 @@
+/* Command terms: a control tower, a sky with a plane carrying the question, and four runways. Motion stops when the device asks for reduced motion (tokens.css). */
+
+.ct-sky { position: relative; overflow: hidden; min-height: 150px; padding: 18px 70px 18px 14px; border-radius: 16px; background: linear-gradient(#cfe0ff, #eef3ff 70%, #ffffff); border: 2px solid var(--navy-100, #c7d6fb); }
+.ct-cloud { position: absolute; width: 90px; height: 28px; border-radius: 20px; background: #ffffff; opacity: 0.9; animation: ct-drift 18s linear infinite; }
+.ct-cloud::before { content: ''; position: absolute; left: 18px; top: -14px; width: 42px; height: 32px; border-radius: 50%; background: #ffffff; }
+.ct-cloud1 { top: 14px; left: 60%; }
+.ct-cloud2 { bottom: 16px; left: 10%; animation-duration: 26s; }
+@keyframes ct-drift { from { transform: translateX(0); } to { transform: translateX(-260px); } }
+.ct-flight { position: relative; display: grid; gap: 6px; max-width: 640px; }
+.ct-arrive { animation: ct-arrive 0.9s cubic-bezier(0.2, 0.8, 0.3, 1) both; }
+@keyframes ct-arrive { from { transform: translate(60%, -30px) rotate(-4deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.ct-landed { animation: ct-land 0.7s ease-in both; }
+@keyframes ct-land { 0% { transform: none; } 100% { transform: translateY(10px); } }
+.ct-plane { position: absolute; right: -6px; top: -14px; font-size: 40px; transform: scaleX(-1); }
+.ct-callsign { justify-self: start; padding: 2px 10px; border-radius: 999px; background: var(--navy); color: var(--white); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px; }
+.ct-banner { padding: 12px 16px; border: 2px solid var(--navy); border-radius: 14px; background: var(--white); font-size: 1.12rem; line-height: 1.45; box-shadow: 0 4px 0 rgba(29, 78, 216, 0.25); }
+.ct-banner strong { color: var(--red); }
+.ct-tower { position: absolute; right: 12px; bottom: 6px; font-size: 44px; }
+
+.ct-runways { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+.ct-runway { position: relative; display: grid; gap: 2px; justify-items: start; text-align: left; padding: 12px 12px 26px; border: none; border-radius: 12px; background: #3a4458; color: #ffffff; font: inherit; cursor: pointer; box-shadow: 0 4px 0 #1f2633; }
+.ct-runway:hover:not(:disabled) { background: #2c3a52; outline: 3px solid var(--navy-100, #c7d6fb); }
+.ct-runway:disabled { cursor: default; }
+.ct-runway .small { color: #e8ecf4; }
+.ct-rw-ao { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; color: #ffd84d; }
+.ct-stripes { position: absolute; left: 12px; right: 12px; bottom: 10px; height: 4px; background: repeating-linear-gradient(90deg, #ffffff 0 16px, transparent 16px 28px); }
+.ct-runway-on { background: var(--ok); box-shadow: 0 4px 0 #0f3d20; }
+.ct-parked { display: block; margin-top: 4px; color: #ffffff; opacity: 0.95; }
+
+.ct-passes { display: grid; gap: 8px; }
+.ct-pass, .ct-verdict { position: relative; display: grid; gap: 4px; text-align: left; padding: 12px 14px; border: 2px dashed var(--navy); border-radius: 12px; background: var(--white); color: var(--ink); font: inherit; cursor: pointer; }
+.ct-pass:hover:not(:disabled), .ct-verdict:hover:not(:disabled) { background: var(--navy-50); border-style: solid; }
+.ct-pass:disabled, .ct-verdict:disabled { cursor: default; }
+.ct-pass-head { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--navy); }
+.ct-pass-no { border-color: var(--line); opacity: 0.75; text-decoration: line-through; text-decoration-color: var(--red); }
+.ct-pass-yes { border: 2px solid var(--ok); background: var(--ok-50); opacity: 1; text-decoration: none; }
+.ct-verdicts { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px; }
+
+.ct-box { display: grid; gap: 6px; padding: 14px; border-radius: 14px; background: #1b2638; color: #ffffff; border: 3px solid #ff8a1f; }
+.ct-box strong { color: #ffd84d; }
+.ct-box-label { margin: 6px 0 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.6px; color: #ffb36b; font-weight: 700; }
+.ct-box-term { margin: 0; color: #dfe6f3; }
+.ct-tape { margin: 0; padding: 10px 12px; border-radius: 8px; background: #fffdf5; color: var(--ink); font-size: 1.05rem; line-height: 1.5; border-left: 6px solid #ff8a1f; }
+
+.ct-ladder { display: grid; gap: 8px; }
+.ct-rung { padding: 10px 14px; border-radius: 12px; border: 2px solid var(--navy); background: var(--white); }
+.ct-rung p { margin: 0; }
+.ct-rung-head strong { display: inline-block; min-width: 44px; padding: 0 8px; margin-right: 6px; border-radius: 8px; background: var(--navy); color: var(--white); text-align: center; }
+.ct-rung-AO3 { margin-left: 0; border-color: var(--red); }
+.ct-rung-AO3 .ct-rung-head strong { background: var(--red); }
+.ct-rung-AO2 { margin-left: 18px; }
+.ct-rung-AO1 { margin-left: 36px; }
+.ct-rung-AO4 { border-style: dashed; }
+.ct-rung-terms { font-size: 0.95rem; color: var(--ink-soft); }

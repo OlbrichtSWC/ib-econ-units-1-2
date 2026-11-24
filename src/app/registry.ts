@@ -224,6 +224,17 @@ export const ACTIVITIES: ActivityMeta[] = [
     noCalculator: true,
     load: () => import('../activities/diagram-doctor'),
   },
+  {
+    id: 'command-terms', tag: 'Exam skills: command terms', code: 'skills', unit: 'skills', title: 'Control Tower', style: 'Air traffic control',
+    blurb: 'Every exam question is a plane. Land it on the right runway for its command term, file the right flight plan, then fix answers from the black box.',
+    goal: { name: 'Air Traffic Controller', how: 'Level 1 of Control Tower: land 11 of 14 questions on the right assessment objective runway, first time.', icon: 'tower' },
+    goals: [
+      { name: 'Flight Planner', how: 'Level 2 of Control Tower: choose the answer plan that fits the command term, 6 of 8 right first time.', icon: 'tower' },
+      { name: 'Crash Investigator', how: 'Level 3 of Control Tower: judge 8 student answers and fix them. Score 11 of 14 first-try points.', icon: 'tower' },
+    ],
+    noCalculator: true,
+    load: () => import('../activities/command-terms'),
+  },
 ];
 
 /**

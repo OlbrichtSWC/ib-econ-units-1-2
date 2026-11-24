@@ -1,0 +1,1008 @@
+{
+  "id": "command-terms",
+  "outcome": "I can say what each command term asks me to do, link it to its assessment objective, and plan or fix an answer so it does what the question asks.",
+  "learn": {
+    "text": "Every exam question has a **[[command term]]**, such as *define*, *explain* or *evaluate*. It tells you how deep your answer must go.\n\nThe IB groups command terms by **[[assessment objective]]** (AO):\n\n- **AO1, knowledge and understanding:** define, describe, list, outline, state.\n- **AO2, application and analysis:** analyse, apply, comment, distinguish, explain, suggest.\n- **AO3, synthesis and evaluation:** compare, compare and contrast, contrast, discuss, evaluate, examine, justify, recommend, to what extent.\n- **AO4, use of skills:** calculate, construct, draw, identify, label, sketch and others.\n\nA question can use a command term from the topic's AO level **or a lower one**, never a higher one.\n\nThe marks are a clue too. Paper 1 part (a) is worth 10 marks and part (b) is worth 15 marks, with evaluation (AO3) in part (b). A 2-mark \"define\" needs one precise sentence. A 15-mark \"evaluate\" needs theory, a diagram, examples, both sides and a supported judgement.",
+    "caption": "The four assessment objectives. Cognitive demand rises from AO1 to AO3. AO4 terms are skills."
+  },
+  "try": {
+    "goal": "Run the control tower. In Level 1, land 11 of 14 planes on the right runway first time to earn the **Air Traffic Controller** stamp.",
+    "intro": "Every exam question is a plane, and its **command term** is in bold. The command term tells you how deep your answer must go.\n\nLevel 1: land each plane on the runway for its **assessment objective** (AO1 to AO4). Level 2: choose the **flight plan** that answers the question the right way. Level 3: open the **black box**: read a student's answer, say what it is missing, then choose the fix.",
+    "levels": [
+      {
+        "title": "Runways",
+        "blurb": "Land 14 planes on the right AO runway. Get 11 right first time."
+      },
+      {
+        "title": "Flight plans",
+        "blurb": "Choose the answer plan that fits each command term. Get 6 of 8 right first time."
+      },
+      {
+        "title": "Black box",
+        "blurb": "Judge 8 student answers and fix them. Score 11 of 14 first-try points."
+      }
+    ],
+    "terms": [
+      {
+        "term": "Define",
+        "ao": "AO1",
+        "meaning": "Give the precise meaning of a word, phrase, concept or physical quantity."
+      },
+      {
+        "term": "Describe",
+        "ao": "AO1",
+        "meaning": "Give a detailed account."
+      },
+      {
+        "term": "List",
+        "ao": "AO1",
+        "meaning": "Give a sequence of brief answers with no explanation."
+      },
+      {
+        "term": "Outline",
+        "ao": "AO1",
+        "meaning": "Give a brief account or summary."
+      },
+      {
+        "term": "State",
+        "ao": "AO1",
+        "meaning": "Give a specific name, value or other brief answer without explanation or calculation."
+      },
+      {
+        "term": "Analyse",
+        "ao": "AO2",
+        "meaning": "Break down in order to bring out the essential elements or structure."
+      },
+      {
+        "term": "Apply",
+        "ao": "AO2",
+        "meaning": "Use an idea, equation, principle, theory or law in relation to a given problem or issue."
+      },
+      {
+        "term": "Comment",
+        "ao": "AO2",
+        "meaning": "Give a judgment based on a given statement or result of a calculation."
+      },
+      {
+        "term": "Distinguish",
+        "ao": "AO2",
+        "meaning": "Make clear the differences between two or more concepts or items."
+      },
+      {
+        "term": "Explain",
+        "ao": "AO2",
+        "meaning": "Give a detailed account including reasons or causes."
+      },
+      {
+        "term": "Suggest",
+        "ao": "AO2",
+        "meaning": "Propose a solution, hypothesis or other possible answer."
+      },
+      {
+        "term": "Compare",
+        "ao": "AO3",
+        "meaning": "Give an account of the similarities between two (or more) items or situations, referring to both (all) of them throughout."
+      },
+      {
+        "term": "Compare and contrast",
+        "ao": "AO3",
+        "meaning": "Give an account of similarities and differences between two (or more) items or situations, referring to both (all) of them throughout."
+      },
+      {
+        "term": "Contrast",
+        "ao": "AO3",
+        "meaning": "Give an account of the differences between two (or more) items or situations, referring to both (all) of them throughout."
+      },
+      {
+        "term": "Discuss",
+        "ao": "AO3",
+        "meaning": "Offer a considered and balanced review that includes a range of arguments, factors or hypotheses. Opinions or conclusions should be presented clearly and supported by appropriate evidence."
+      },
+      {
+        "term": "Evaluate",
+        "ao": "AO3",
+        "meaning": "Make an appraisal by weighing up the strengths and limitations."
+      },
+      {
+        "term": "Examine",
+        "ao": "AO3",
+        "meaning": "Consider an argument or concept in a way that uncovers the assumptions and interrelationships of the issue."
+      },
+      {
+        "term": "Justify",
+        "ao": "AO3",
+        "meaning": "Give valid reasons or evidence to support an answer or conclusion."
+      },
+      {
+        "term": "Recommend",
+        "ao": "AO3",
+        "meaning": "Present an advisable course of action with appropriate supporting evidence/reason in relation to a given situation, problem or issue."
+      },
+      {
+        "term": "To what extent",
+        "ao": "AO3",
+        "meaning": "Consider the merits or otherwise of an argument or concept. Opinions and conclusions should be presented clearly and supported with appropriate evidence and sound argument."
+      },
+      {
+        "term": "Calculate",
+        "ao": "AO4",
+        "meaning": "Obtain a numerical answer showing the relevant stages in the working."
+      },
+      {
+        "term": "Construct",
+        "ao": "AO4",
+        "meaning": "Display information in a diagrammatic or logical form."
+      },
+      {
+        "term": "Draw",
+        "ao": "AO4",
+        "meaning": "Represent by means of a labelled, accurate diagram or graph, using a pencil. A ruler (straight edge) should be used for straight lines. Diagrams should be drawn to scale. Graphs should have points correctly plotted (if appropriate) and joined in a straight line or smooth curve."
+      },
+      {
+        "term": "Identify",
+        "ao": "AO4",
+        "meaning": "Provide an answer from a number of possibilities."
+      },
+      {
+        "term": "Label",
+        "ao": "AO4",
+        "meaning": "Add labels to a diagram."
+      },
+      {
+        "term": "Sketch",
+        "ao": "AO4",
+        "meaning": "Represent by means of a diagram or graph (labelled as appropriate). The sketch should give a general idea of the required shape or relationship and should include relevant features."
+      }
+    ],
+    "runways": {
+      "AO1": {
+        "name": "Know it",
+        "blurb": "Knowledge and understanding"
+      },
+      "AO2": {
+        "name": "Apply it",
+        "blurb": "Application and analysis"
+      },
+      "AO3": {
+        "name": "Judge it",
+        "blurb": "Synthesis and evaluation"
+      },
+      "AO4": {
+        "name": "Skills",
+        "blurb": "Diagrams, calculations and other skills"
+      }
+    },
+    "planes": [
+      {
+        "id": "define-oc",
+        "term": "Define",
+        "question": "**Define** opportunity cost. [2]",
+        "callsign": "OC"
+      },
+      {
+        "id": "list-fop",
+        "term": "List",
+        "question": "**List** the four factors of production. [2]",
+        "callsign": "FP"
+      },
+      {
+        "id": "outline-ppc",
+        "term": "Outline",
+        "question": "**Outline** what a point inside a PPC shows. [2]",
+        "callsign": "PPC"
+      },
+      {
+        "id": "explain-cig",
+        "term": "Explain",
+        "question": "**Explain** why the demand for cigarettes is price inelastic. [4]",
+        "callsign": "PED"
+      },
+      {
+        "id": "dist-goods",
+        "term": "Distinguish",
+        "question": "**Distinguish** between a public good and a common pool resource. [4]",
+        "callsign": "PG"
+      },
+      {
+        "id": "comment-ped",
+        "term": "Comment",
+        "question": "**Comment** on the PED of −0.4 for bus travel that you calculated in part (a). [2]",
+        "callsign": "BUS"
+      },
+      {
+        "id": "analyse-sub",
+        "term": "Analyse",
+        "question": "**Analyse** how a subsidy to solar panel producers affects producers and consumers. [4]",
+        "callsign": "SUN"
+      },
+      {
+        "id": "eval-carbon",
+        "term": "Evaluate",
+        "question": "**Evaluate** the use of a carbon tax to reduce pollution. [15]",
+        "callsign": "CO2"
+      },
+      {
+        "id": "discuss-minwage",
+        "term": "Discuss",
+        "question": "**Discuss** whether a minimum wage helps low-paid workers. [15]",
+        "callsign": "MW"
+      },
+      {
+        "id": "extent-rent",
+        "term": "To what extent",
+        "question": "**To what extent** is a maximum price on rent the best way to help low-income renters? [15]",
+        "callsign": "RNT"
+      },
+      {
+        "id": "examine-nudge",
+        "term": "Examine",
+        "question": "**Examine** the view that nudges are better than taxes for changing what people buy. [15] (HL)",
+        "callsign": "NDG"
+      },
+      {
+        "id": "calc-ped",
+        "term": "Calculate",
+        "question": "**Calculate** the PED when the price of a café's latte rises from $4 to $5 and the quantity sold falls from 200 to 150 a day. [2]",
+        "callsign": "LAT"
+      },
+      {
+        "id": "draw-ext",
+        "term": "Draw",
+        "question": "**Draw** a diagram to show a negative production externality. [2]",
+        "callsign": "EXT"
+      },
+      {
+        "id": "identify-pes",
+        "term": "Identify",
+        "question": "**Identify** two determinants of the price elasticity of supply. [2]",
+        "callsign": "PES"
+      }
+    ],
+    "plans": [
+      {
+        "id": "fp-define",
+        "question": "**Define** price elasticity of demand (PED). [2]",
+        "options": [
+          {
+            "text": "One precise sentence: PED measures how responsive the quantity demanded is to a change in the good's price.",
+            "feedback": "Yes. Define asks for the precise meaning, and nothing more.",
+            "correct": true
+          },
+          {
+            "text": "A definition, then a diagram and two real-world examples.",
+            "feedback": "Define asks only for the precise meaning. The diagram and examples earn no extra marks and cost you time."
+          },
+          {
+            "text": "\"PED is when the price changes and people buy more or less.\"",
+            "feedback": "Too loose. A definition must be precise: it measures the responsiveness of quantity demanded to a change in price."
+          }
+        ]
+      },
+      {
+        "id": "fp-list",
+        "question": "**List** three non-price determinants of supply. [3]",
+        "options": [
+          {
+            "text": "Three short answers with no explanation, such as the cost of inputs, technology and indirect taxes.",
+            "feedback": "Yes. List means a sequence of brief answers with no explanation.",
+            "correct": true
+          },
+          {
+            "text": "One determinant, explained in detail with an example.",
+            "feedback": "The question asks for three. And list means brief answers with no explanation."
+          },
+          {
+            "text": "Three determinants, each explained with its own diagram.",
+            "feedback": "List needs no explanation or diagrams. Save your time for the questions that ask for them."
+          }
+        ]
+      },
+      {
+        "id": "fp-explain",
+        "question": "**Explain**, using a diagram, how a rise in the price of tea affects the market for coffee. [4]",
+        "options": [
+          {
+            "text": "A labelled diagram where demand for coffee shifts right, with the reason: tea and coffee are substitutes, so buyers switch to coffee, and the price and quantity of coffee rise.",
+            "feedback": "Yes. Explain needs the reasons or causes, and the question asks for a diagram too.",
+            "correct": true
+          },
+          {
+            "text": "A labelled diagram with no words.",
+            "feedback": "Explain asks for reasons or causes. A diagram alone does not give the reason buyers switch."
+          },
+          {
+            "text": "A definition of substitutes, then stop.",
+            "feedback": "That is knowledge (AO1). Explain needs the chain: tea dearer, buyers switch, demand for coffee rises."
+          }
+        ]
+      },
+      {
+        "id": "fp-distinguish",
+        "question": "**Distinguish** between a normal good and an inferior good. [4]",
+        "options": [
+          {
+            "text": "Make the difference clear: when income rises, demand for a normal good rises, but demand for an inferior good falls. One example of each.",
+            "feedback": "Yes. Distinguish means making the differences clear.",
+            "correct": true
+          },
+          {
+            "text": "Define a normal good, then stop.",
+            "feedback": "Distinguish needs both goods, and the difference between them."
+          },
+          {
+            "text": "Describe each good in its own paragraph and never say how they differ.",
+            "feedback": "The reader has to find the difference alone. Distinguish asks you to make it clear."
+          }
+        ]
+      },
+      {
+        "id": "fp-calc",
+        "question": "**Calculate** the PED when the price rises from $4 to $5 and the quantity demanded falls from 200 to 150. [2]",
+        "options": [
+          {
+            "text": "Show the steps: %ΔQd = (150 − 200) ÷ 200 × 100 = −25%. %ΔP = (5 − 4) ÷ 4 × 100 = 25%. PED = −25 ÷ 25 = −1.",
+            "feedback": "Yes. Calculate means a numerical answer showing the relevant stages in the working.",
+            "correct": true
+          },
+          {
+            "text": "Write \"PED = −1\" and nothing else.",
+            "feedback": "Calculate asks for the stages of the working. Without them, a slip earns nothing."
+          },
+          {
+            "text": "A paragraph about what PED means, with no numbers.",
+            "feedback": "Calculate needs a numerical answer. The question does not ask what PED means."
+          }
+        ]
+      },
+      {
+        "id": "fp-comment",
+        "question": "A café's latte has a PED of −1.5. **Comment** on whether the café should raise its price to increase total revenue. [2]",
+        "options": [
+          {
+            "text": "Give a judgement based on the result: demand is price elastic, so a price rise would lower total revenue. The café should not raise its price.",
+            "feedback": "Yes. Comment means a judgement based on a given statement or result.",
+            "correct": true
+          },
+          {
+            "text": "Work out the PED again with the same numbers.",
+            "feedback": "The PED is given. Comment asks what the result means for the café."
+          },
+          {
+            "text": "Write a full essay with three arguments on each side and a long conclusion.",
+            "feedback": "Comment is AO2 and worth 2 marks: one clear judgement based on the result is enough."
+          }
+        ]
+      },
+      {
+        "id": "fp-evaluate",
+        "question": "**Evaluate** the use of a carbon tax to reduce pollution. [15]",
+        "options": [
+          {
+            "text": "Explain how the tax works with a diagram, then weigh its strengths and limitations (for example PED, stakeholders, short and long run) and end with a supported judgement.",
+            "feedback": "Yes. Evaluate means an appraisal that weighs up strengths and limitations.",
+            "correct": true
+          },
+          {
+            "text": "Explain how the tax works with a diagram, then stop.",
+            "feedback": "That is analysis (AO2). Evaluate also needs strengths and limitations weighed up."
+          },
+          {
+            "text": "Say that carbon taxes are good, because pollution is bad.",
+            "feedback": "That is an opinion with no economic theory or evidence. Evaluate needs theory, both sides and a judgement."
+          }
+        ]
+      },
+      {
+        "id": "fp-extent",
+        "question": "**To what extent** is a maximum price on rent the best way to help low-income renters? [15]",
+        "options": [
+          {
+            "text": "Explain the maximum price with a diagram, consider its merits and problems (such as a shortage), compare other policies, and conclude how far it is the best way.",
+            "feedback": "Yes. To what extent asks you to consider the merits or otherwise, and reach a supported conclusion.",
+            "correct": true
+          },
+          {
+            "text": "List the policies a government could use.",
+            "feedback": "A list gives no argument. To what extent needs merits, problems and a conclusion."
+          },
+          {
+            "text": "Explain only the shortage that a maximum price causes.",
+            "feedback": "That is one side. To what extent needs the merits too, and a clear conclusion."
+          }
+        ]
+      }
+    ],
+    "verdicts": {
+      "ok": "Does what the command term asks",
+      "reasons": "Needs reasons: it describes but does not explain",
+      "judgement": "Needs a judgement or conclusion",
+      "balance": "Needs the other side: it gives only one side",
+      "working": "Needs working: the steps are missing",
+      "differences": "Needs the difference made clear"
+    },
+    "boxes": [
+      {
+        "id": "bb-cig",
+        "question": "**Explain** why the demand for cigarettes is price inelastic. [4]",
+        "answer": "Demand for cigarettes is price inelastic. This means PED is less than 1. When the price rises, the quantity demanded falls by a smaller percentage.",
+        "verdict": "reasons",
+        "why": "It says what price inelastic means, but never why cigarettes are inelastic. Explain needs reasons or causes.",
+        "fixes": [
+          {
+            "text": "Add the reasons: cigarettes are habit-forming and have few close substitutes, so buyers keep buying when the price rises.",
+            "feedback": "Yes. These are the causes the question asks for.",
+            "correct": true
+          },
+          {
+            "text": "Add a conclusion on whether cigarettes should be taxed.",
+            "feedback": "The question does not ask for a judgement. It asks why demand is inelastic."
+          },
+          {
+            "text": "Add a second definition of PED.",
+            "feedback": "One definition is enough. The missing part is the reasons."
+          }
+        ]
+      },
+      {
+        "id": "bb-yed",
+        "question": "**Calculate** the YED when income rises from $1,000 to $1,100 and the quantity demanded rises from 50 to 60. [2]",
+        "answer": "YED = 2.",
+        "verdict": "working",
+        "why": "The answer is right, but calculate means showing the relevant stages in the working.",
+        "fixes": [
+          {
+            "text": "Show the steps: %ΔQd = 10 ÷ 50 × 100 = 20%. %ΔY = 100 ÷ 1,000 × 100 = 10%. YED = 20 ÷ 10 = 2.",
+            "feedback": "Yes. Now an examiner can see each stage.",
+            "correct": true
+          },
+          {
+            "text": "Add that the good is a luxury, because YED is above 1.",
+            "feedback": "That is true, but the question asks for the calculation. The working is what is missing."
+          },
+          {
+            "text": "Write a paragraph about income elasticity.",
+            "feedback": "No paragraph is needed. Calculate needs the numbers and the steps."
+          }
+        ]
+      },
+      {
+        "id": "bb-sugar",
+        "question": "**Evaluate** the use of a tax on sugary drinks to reduce how many people drink them. [15]",
+        "answer": "A tax shifts supply up by the tax (diagram). The price rises and the quantity falls from Q1 to Q2. The government also earns tax revenue it can spend on health. So the tax works.",
+        "verdict": "balance",
+        "why": "It gives the strengths only. Evaluate means weighing up strengths and limitations.",
+        "fixes": [
+          {
+            "text": "Weigh the limitations too: demand may be price inelastic, so consumption falls only a little, and the tax takes a bigger share of low incomes.",
+            "feedback": "Yes. Now the answer weighs both sides before it judges.",
+            "correct": true
+          },
+          {
+            "text": "Draw the diagram bigger.",
+            "feedback": "A bigger diagram does not add evaluation. The limitations are missing."
+          },
+          {
+            "text": "Add more definitions of key terms.",
+            "feedback": "Definitions help, but the answer still has only one side."
+          }
+        ]
+      },
+      {
+        "id": "bb-public",
+        "question": "**Discuss** whether governments should provide public goods. [15]",
+        "answer": "Public goods are non-rivalrous and non-excludable. Because of the free rider problem, markets do not provide them. Governments can provide them using tax revenue, or contract out to private firms. However, this has an opportunity cost: the tax could fund schools or hospitals. The government may also not know how much people value the good.",
+        "verdict": "judgement",
+        "why": "It has arguments on both sides, but it stops without a conclusion. Discuss asks for conclusions presented clearly and supported by evidence.",
+        "fixes": [
+          {
+            "text": "End with a supported conclusion, for example: governments should provide public goods such as street lighting, because the market will not, but they should check value for money.",
+            "feedback": "Yes. Now the answer ends with a clear, supported conclusion.",
+            "correct": true
+          },
+          {
+            "text": "Remove the \"However\" part to keep it simple.",
+            "feedback": "That would make it one-sided. The balance is good: what is missing is the conclusion."
+          },
+          {
+            "text": "Add another definition of public goods.",
+            "feedback": "The definition is already there. The answer needs a conclusion."
+          }
+        ]
+      },
+      {
+        "id": "bb-shift",
+        "question": "**Distinguish** between a shift of the demand curve and a movement along it. [4]",
+        "answer": "A shift of the demand curve happens when income changes. A movement along the demand curve is shown by an arrow on the curve.",
+        "verdict": "differences",
+        "why": "The two sentences do not show the key difference: what causes each one.",
+        "fixes": [
+          {
+            "text": "Say what causes each: a change in the good's own price causes a movement along the curve, while a change in a non-price determinant, such as income, shifts the whole curve.",
+            "feedback": "Yes. That makes the difference clear.",
+            "correct": true
+          },
+          {
+            "text": "Add an evaluation of which one matters more.",
+            "feedback": "Distinguish is AO2. It asks for the difference, not a judgement."
+          },
+          {
+            "text": "Remove the example of income.",
+            "feedback": "The example helps. The missing part is the cause of a movement along the curve."
+          }
+        ]
+      },
+      {
+        "id": "bb-merit",
+        "question": "**Define** a merit good. [2]",
+        "answer": "A merit good is a good that benefits the person who consumes it and society, and is underprovided and underconsumed by the free market. An example is education.",
+        "verdict": "ok",
+        "why": "A precise meaning, short and clear. That is what define asks for."
+      },
+      {
+        "id": "bb-ceiling",
+        "question": "**Explain**, using a diagram, why a maximum price can cause a shortage. [4]",
+        "answer": "(A labelled diagram with Pmax below P*, and Qs and Qd marked.) At Pmax, below the equilibrium price, firms supply less (Qs) and buyers want more (Qd). Qd is bigger than Qs, so there is a shortage, also called excess demand.",
+        "verdict": "ok",
+        "why": "A diagram and the reason the shortage happens. That is what explain asks for."
+      },
+      {
+        "id": "bb-comment",
+        "question": "**Comment** on the PED of −0.4 for bus travel that you calculated in part (a). [2]",
+        "answer": "PED = −0.4.",
+        "verdict": "judgement",
+        "why": "It repeats the result. Comment means giving a judgement based on that result.",
+        "fixes": [
+          {
+            "text": "Say what the result means: demand for bus travel is price inelastic, so a fare rise would increase the bus company's total revenue.",
+            "feedback": "Yes. That is a judgement based on the result.",
+            "correct": true
+          },
+          {
+            "text": "Work out the PED again with a different formula.",
+            "feedback": "The PED is already worked out. The question asks what it means."
+          },
+          {
+            "text": "Add the definition of PED only.",
+            "feedback": "A definition is not a judgement about the result."
+          }
+        ]
+      }
+    ]
+  },
+  "check": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Which command term asks for **reasons or causes**?",
+      "options": [
+        {
+          "text": "Explain",
+          "feedback": "Yes. Explain: give a detailed account including reasons or causes.",
+          "correct": true
+        },
+        {
+          "text": "Describe",
+          "feedback": "Describe asks for a detailed account, without the reasons."
+        },
+        {
+          "text": "State",
+          "feedback": "State asks for a brief answer without explanation."
+        },
+        {
+          "text": "List",
+          "feedback": "List asks for brief answers with no explanation."
+        }
+      ],
+      "hints": [
+        "Which one is AO2?",
+        "Which word do you use when you answer \"why?\""
+      ],
+      "worked": "Example: \"Explain why the price of coffee rose\" needs the cause: a frost cut supply, so price rose.",
+      "explanation": "**Explain** (AO2) means a detailed account **including reasons or causes**."
+    },
+    {
+      "id": "q2",
+      "type": "choice",
+      "level": "core",
+      "prompt": "\"**Evaluate** the use of a subsidy to increase the consumption of fruit. [15]\" What must your answer include to reach the top markband?",
+      "options": [
+        {
+          "text": "Strengths and limitations of the subsidy, weighed up, with a supported judgement.",
+          "feedback": "Yes. Evaluate means making an appraisal by weighing up strengths and limitations.",
+          "correct": true
+        },
+        {
+          "text": "A detailed explanation of how a subsidy shifts supply, and nothing else.",
+          "feedback": "That is analysis. Evaluate also needs the limitations weighed against the strengths."
+        },
+        {
+          "text": "A list of five other policies.",
+          "feedback": "A list is not an appraisal. Stay on the subsidy and weigh it up."
+        },
+        {
+          "text": "Your opinion in one sentence.",
+          "feedback": "An opinion needs theory and evidence behind it, and both sides first."
+        }
+      ],
+      "hints": [
+        "Evaluate is AO3.",
+        "Weigh up: what is good about it, and what are its limits?"
+      ],
+      "worked": "Example: a subsidy lowers the price of fruit (strength), but it costs the government money and demand may be price inelastic (limitations). Judgement: it works best alongside awareness campaigns.",
+      "explanation": "**Evaluate** (AO3): make an appraisal by **weighing up the strengths and limitations**, then reach a judgement."
+    },
+    {
+      "id": "q3",
+      "type": "choice",
+      "level": "core",
+      "prompt": "Which assessment objective does **Comment** belong to?",
+      "options": [
+        {
+          "text": "AO2",
+          "feedback": "Yes. Comment: give a judgment based on a given statement or result of a calculation.",
+          "correct": true
+        },
+        {
+          "text": "AO3",
+          "feedback": "Comment gives a judgement, but only on a given result. The IB guide puts it at AO2."
+        },
+        {
+          "text": "AO1",
+          "feedback": "AO1 terms recall knowledge. Comment asks for a judgement on a result."
+        },
+        {
+          "text": "AO4",
+          "feedback": "AO4 terms are skills such as calculate and draw."
+        }
+      ],
+      "hints": [
+        "It is a trap: it sounds like a judgement word.",
+        "It works on a result you already have, such as a PED you calculated."
+      ],
+      "worked": "Example: \"Comment on the PED of −2 for concert tickets\": demand is price elastic, so a price cut would raise total revenue.",
+      "explanation": "**Comment** is **AO2**. It asks for a judgement **based on a given statement or result**, not a full evaluation."
+    },
+    {
+      "id": "q4",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "A topic in the syllabus is assessed at **AO2**. Which question **cannot** appear in the exam for it?",
+      "options": [
+        {
+          "text": "Evaluate the policy. [15]",
+          "feedback": "Right. Evaluate is AO3, a higher level than the topic allows.",
+          "correct": true
+        },
+        {
+          "text": "Explain the policy. [4]",
+          "feedback": "Explain is AO2, so it can appear."
+        },
+        {
+          "text": "Describe the policy. [4]",
+          "feedback": "Describe is AO1. A lower level than the topic's can appear."
+        },
+        {
+          "text": "Outline the policy. [2]",
+          "feedback": "Outline is AO1. A lower level than the topic's can appear."
+        }
+      ],
+      "hints": [
+        "Questions can use the topic's AO level or a lower one.",
+        "Which command term is above AO2?"
+      ],
+      "worked": "Example: for an AO2 topic, \"explain\", \"distinguish\" and \"describe\" can appear. \"Discuss\" (AO3) cannot.",
+      "explanation": "The IB guide says a question may use a command term from the topic's AO level **or a lower level**, but never a more demanding one."
+    },
+    {
+      "id": "q5",
+      "type": "choice",
+      "level": "core",
+      "prompt": "\"**Calculate** the total revenue when 120 tickets are sold at $15. [2]\" What earns full marks?",
+      "options": [
+        {
+          "text": "$15 × 120 = $1,800",
+          "feedback": "Yes. The working and the answer, with units.",
+          "correct": true
+        },
+        {
+          "text": "$1,800",
+          "feedback": "The answer is right, but calculate asks for the relevant stages in the working."
+        },
+        {
+          "text": "Total revenue is price times quantity.",
+          "feedback": "That is the formula, but there is no numerical answer."
+        },
+        {
+          "text": "1,800 tickets",
+          "feedback": "The working is missing, and total revenue is in dollars, not tickets."
+        }
+      ],
+      "hints": [
+        "Calculate: a numerical answer and the working.",
+        "Total revenue = price × quantity."
+      ],
+      "worked": "Example: 80 cups at $3: TR = $3 × 80 = $240.",
+      "explanation": "**Calculate** (AO4): obtain a numerical answer **showing the relevant stages in the working**. TR = $15 × 120 = **$1,800**."
+    },
+    {
+      "id": "q6",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Which answer best fits \"**Distinguish** between positive and normative economics\"?",
+      "options": [
+        {
+          "text": "Positive economics can be tested with evidence; normative economics contains value judgements, so evidence cannot settle it.",
+          "feedback": "Yes. It makes the difference between the two clear.",
+          "correct": true
+        },
+        {
+          "text": "Positive economics is about facts.",
+          "feedback": "That covers one of the two, and only briefly. Distinguish needs the difference made clear."
+        },
+        {
+          "text": "Normative economics is better because it helps governments decide.",
+          "feedback": "That is a judgement. Distinguish only asks for the difference."
+        },
+        {
+          "text": "Both are part of economics.",
+          "feedback": "That is a similarity. Distinguish asks for the differences."
+        }
+      ],
+      "hints": [
+        "Distinguish: make the differences clear.",
+        "Mention both, and what separates them."
+      ],
+      "worked": "Example: distinguish between a normal good and an inferior good: as income rises, demand for a normal good rises, but demand for an inferior good falls.",
+      "explanation": "**Distinguish** (AO2): make clear the **differences** between two or more concepts."
+    },
+    {
+      "id": "q7",
+      "type": "choice",
+      "level": "apply",
+      "prompt": "Paper 1 part (b) is worth 15 marks and uses an AO3 command term. Which plan fits it best?",
+      "options": [
+        {
+          "text": "Define the key terms, explain the theory with a diagram, use a real-world example, weigh up the arguments and reach a supported conclusion.",
+          "feedback": "Yes. That covers AO1, AO2, AO3 and AO4.",
+          "correct": true
+        },
+        {
+          "text": "Write as many definitions as possible.",
+          "feedback": "Definitions are AO1. Part (b) needs evaluation (AO3) too."
+        },
+        {
+          "text": "Draw two diagrams and explain each one.",
+          "feedback": "Diagrams and explanation help, but part (b) also needs evaluation and a conclusion."
+        },
+        {
+          "text": "Give your conclusion first and stop there.",
+          "feedback": "A conclusion needs support: theory, examples and both sides first."
+        }
+      ],
+      "hints": [
+        "Paper 1 part (b) tests AO1, AO2, AO3 and AO4.",
+        "Which plan has a judgement at the end?"
+      ],
+      "worked": "Example: \"Evaluate a carbon tax\": define a carbon tax, draw the externality diagram, use a real example, weigh strengths and limitations, conclude.",
+      "explanation": "Part (b) rewards **all four AOs**, and AO3 means weighing up and reaching a supported conclusion."
+    },
+    {
+      "id": "dg1",
+      "type": "label",
+      "level": "core",
+      "prompt": "\"**Draw** a diagram to show an increase in supply.\" Draw means a labelled, accurate diagram. **Label it.** Choose what each letter shows.",
+      "diagram": {
+        "xMax": 10,
+        "yMax": 10,
+        "xLabel": "",
+        "yLabel": "",
+        "title": "A diagram with four lettered parts",
+        "description": "One downward-sloping line and two parallel upward-sloping lines, the second to the right of the first. Letter A is at the top of the vertical axis. Letter B is at the end of the horizontal axis. Letter C is on the left upward line. Letter D is on the right upward line.",
+        "curves": [
+          {
+            "points": [
+              {
+                "q": 1,
+                "p": 9
+              },
+              {
+                "q": 9,
+                "p": 1
+              }
+            ],
+            "label": "D",
+            "tone": "navy"
+          },
+          {
+            "points": [
+              {
+                "q": 1,
+                "p": 1
+              },
+              {
+                "q": 9,
+                "p": 9
+              }
+            ],
+            "tone": "grey",
+            "dashed": true
+          },
+          {
+            "points": [
+              {
+                "q": 3,
+                "p": 1
+              },
+              {
+                "q": 10,
+                "p": 8
+              }
+            ],
+            "tone": "red"
+          }
+        ],
+        "guides": [
+          {
+            "at": {
+              "q": 5,
+              "p": 5
+            }
+          },
+          {
+            "at": {
+              "q": 6,
+              "p": 4
+            }
+          }
+        ],
+        "tags": [
+          {
+            "at": {
+              "q": 0.5,
+              "p": 9.4
+            },
+            "letter": "A"
+          },
+          {
+            "at": {
+              "q": 9.6,
+              "p": 0.5
+            },
+            "letter": "B"
+          },
+          {
+            "at": {
+              "q": 2.2,
+              "p": 2.2
+            },
+            "letter": "C"
+          },
+          {
+            "at": {
+              "q": 8.4,
+              "p": 6.4
+            },
+            "letter": "D"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "letter": "A",
+          "answer": "Price (P)",
+          "feedback": "The vertical axis is price."
+        },
+        {
+          "letter": "B",
+          "answer": "Quantity (Q)",
+          "feedback": "The horizontal axis is quantity."
+        },
+        {
+          "letter": "C",
+          "answer": "S₁: supply before",
+          "feedback": "C is on the dashed curve: supply before the change."
+        },
+        {
+          "letter": "D",
+          "answer": "S₂: supply after",
+          "feedback": "D is on the curve to the right: supply has increased."
+        }
+      ],
+      "choices": [
+        "Price (P)",
+        "Quantity (Q)",
+        "S₁: supply before",
+        "S₂: supply after",
+        "Demand (D)",
+        "Total revenue"
+      ],
+      "hints": [
+        "Axes first: what goes up the side, and along the bottom?",
+        "An increase in supply moves the curve to the right."
+      ],
+      "worked": "Example: for an increase in demand, label the axes P and Q, then D₁ for the old demand curve and D₂ for the new one to the right.",
+      "explanation": "**Draw** (AO4) means a **labelled**, accurate diagram: P and Q on the axes, and **S₁** and **S₂** on the curves."
+    }
+  ],
+  "explain": {
+    "prompt": "Paper 1 part (b) asks: \"Using real-world examples, **evaluate** the use of a carbon tax to reduce pollution. [15]\" Explain what the command term asks you to do, and how you would plan your answer.",
+    "facts": "- **Evaluate** (AO3): make an appraisal by weighing up the strengths and limitations.\n- Paper 1 part (b) is worth **15 marks** and tests AO1, AO2, AO3 and AO4.\n- A carbon tax is a tax on the carbon content of fuels. It targets a negative production externality.",
+    "steps": [
+      {
+        "lead": "The command term \"evaluate\" asks me to",
+        "correct": 0,
+        "options": [
+          {
+            "text": "weigh up the strengths and limitations of the carbon tax.",
+            "why": "Right. That is the IB meaning of evaluate."
+          },
+          {
+            "text": "give the precise meaning of a carbon tax.",
+            "why": "That is define (AO1). It is a start, but evaluate asks for much more."
+          },
+          {
+            "text": "list every policy that could reduce pollution.",
+            "why": "List means brief answers with no explanation. Evaluate needs a weighed-up appraisal."
+          }
+        ]
+      },
+      {
+        "lead": "First, I would",
+        "correct": 2,
+        "options": [
+          {
+            "text": "write my conclusion, then stop.",
+            "why": "A conclusion needs support first: theory, diagram and both sides."
+          },
+          {
+            "text": "write about every market failure I know.",
+            "why": "Stay on the question: the carbon tax and pollution."
+          },
+          {
+            "text": "define the key terms and explain, with a diagram, how the tax moves output towards the social optimum.",
+            "why": "Right. That covers AO1, AO2 and AO4 before the evaluation."
+          }
+        ]
+      },
+      {
+        "lead": "Then I would weigh it up, for example by saying that",
+        "correct": 1,
+        "options": [
+          {
+            "text": "carbon taxes are good, because pollution is bad.",
+            "why": "That is an opinion with no theory or evidence behind it."
+          },
+          {
+            "text": "the tax raises revenue and gives firms a reason to cut emissions, but demand for fuel may be price inelastic and it is hard to set the right tax.",
+            "why": "Right. Strengths and limitations, side by side."
+          },
+          {
+            "text": "the supply curve shifts up by the tax.",
+            "why": "That is analysis. Evaluation weighs strengths against limitations."
+          }
+        ]
+      },
+      {
+        "lead": "Finally, I would",
+        "correct": 0,
+        "options": [
+          {
+            "text": "reach a supported judgement, for example on when the tax works best.",
+            "why": "Right. An evaluation ends with a judgement backed by the arguments."
+          },
+          {
+            "text": "repeat my definitions.",
+            "why": "A conclusion should judge, not repeat."
+          },
+          {
+            "text": "say that it is impossible to decide.",
+            "why": "You can say it depends, but say what it depends on and why."
+          }
+        ]
+      }
+    ],
+    "own": "Add a sentence naming a real-world example you would use, and why it fits."
+  },
+  "teacherNotes": "Command term definitions and AO levels come from the IB Economics guide (first assessment 2022), \"Glossary of command terms\" and \"Assessment objectives in practice\". Level 1 is quick to project: read the plane's question aloud and ask students to hold up 1, 2, 3 or 4 fingers for the AO before anyone lands it. The traps are **comment** (sounds like AO3 but is AO2) and **examine** (sounds like AO1 but is AO3). Level 3 uses short student-style answers; ask pairs to rewrite one from their own past work in the same way."
+}
