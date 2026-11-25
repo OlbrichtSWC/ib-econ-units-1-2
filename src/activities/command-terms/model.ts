@@ -32,3 +32,6 @@ export function boxMax(boxes: readonly { verdict: string }[]): number {
 export const runwayWon = (firstTry: number) => firstTry >= RUNWAY_GOAL;
 export const planWon = (firstTry: number) => firstTry >= PLAN_GOAL;
 export const boxWon = (points: number) => points >= BOX_GOAL;
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const RUNWAY_DRAW = 14;

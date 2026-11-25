@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   FAIRNESS, FLOW_GOAL, flowMax, flowWidth, flowWon, incomeShare, isEfficient, isEquitable, JUDGE_GOAL, judgeWon, numberRight,
-  parseNumber, round2, SORT_GOAL, sortWon, tilt, total, VERDICTS, verdictOf, verdictTilt,
-} from '../src/activities/fair-efficient/model';
+  parseNumber, round2, SORT_GOAL, sortWon, tilt, total, VERDICTS, verdictOf, verdictTilt, JUDGE_DRAW, SORT_DRAW } from '../src/activities/fair-efficient/model';
 import content from '../public/content/activities/fair-efficient.json';
 import glossary from '../public/content/glossary.json';
 
@@ -86,11 +85,11 @@ describe('Fair or Efficient?: goals', () => {
     expect(flowWon(FLOW_GOAL - 1)).toBe(false);
   });
   it('every goal can be reached with the content, but needs more than half right', () => {
-    expect(t.cases.length).toBe(12);
-    expect(SORT_GOAL).toBeLessThanOrEqual(t.cases.length);
-    expect(SORT_GOAL).toBeGreaterThan(t.cases.length / 2);
-    expect(t.outcomes.length).toBe(8);
-    expect(JUDGE_GOAL).toBeLessThanOrEqual(t.outcomes.length);
+    expect(t.cases.length).toBeGreaterThan(SORT_DRAW);
+    expect(SORT_GOAL).toBeLessThanOrEqual(SORT_DRAW);
+    expect(SORT_GOAL).toBeGreaterThan(SORT_DRAW / 2);
+    expect(t.outcomes.length).toBeGreaterThan(JUDGE_DRAW);
+    expect(JUDGE_GOAL).toBeLessThanOrEqual(JUDGE_DRAW);
     const max = flowMax(t.households.length, t.calcs.length, t.responses.length);
     expect(max).toBe(14);
     expect(FLOW_GOAL).toBeLessThanOrEqual(max);
@@ -109,8 +108,9 @@ describe('Fair or Efficient?: content', () => {
     expect(t.cases.filter((c) => c.kind === 'equity').length).toBeGreaterThanOrEqual(5);
     expect(t.cases.filter((c) => c.kind === 'equality').length).toBeGreaterThanOrEqual(5);
   });
-  it('level 2 uses every verdict twice and each round has exactly one right reason', () => {
-    for (const v of VERDICTS) expect(t.outcomes.filter((o) => o.verdict === v).length, v).toBe(2);
+  it('level 2 has three outcomes for every verdict (a round draws two of each) and each round has exactly one right reason', () => {
+    for (const v of VERDICTS) expect(t.outcomes.filter((o) => o.verdict === v).length, v).toBe(3);
+    expect(JUDGE_DRAW % VERDICTS.length).toBe(0);
     for (const o of t.outcomes) expect(o.reasons.filter((r) => 'correct' in r && r.correct).length, o.id).toBe(1);
   });
   it('level 3: each household has a different cause, and each response round has exactly one right answer', () => {

@@ -90,3 +90,7 @@ export function flowWidth(income: number, biggest: number, min = 2, max = 16): n
   if (biggest <= 0) return min;
   return min + (max - min) * Math.max(0, Math.min(1, income / biggest));
 }
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const SORT_DRAW = 12;
+export const JUDGE_DRAW = 8;

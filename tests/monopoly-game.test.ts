@@ -3,8 +3,7 @@ import {
   bestOutput, bestReply, cell, cheatGain, concentrationRatio, crMistakes, customersToYou, dominantStrategy, DUEL_GOAL, duelMax, duelWon, equilibrium,
   isPrisonersDilemma, jointBest, MAP_GOAL, mapWon, Matrix, mcEqualsMrOutput, numberRight, outputSlip, parseNumber, powerRank, priceMistakes, priceTaker,
   PROFIT_GOAL, profitKind, profitMistakes, profitWon, POINTS_PER_PROFIT_ROUND, rivalBestReply, rivalDominantStrategy, rowAt, rows, Schedule,
-  Structure, STRUCTURES, tally, titForTat, trMaxOutputs, uniqueBest,
-} from '../src/activities/monopoly-game/model';
+  Structure, STRUCTURES, tally, titForTat, trMaxOutputs, uniqueBest, MAP_DRAW } from '../src/activities/monopoly-game/model';
 import { checkNumber } from '../src/shared/activity/CheckIt';
 import type { NumberQuestion } from '../src/shared/activity/types';
 import content from '../public/content/activities/monopoly-game.json';
@@ -149,9 +148,9 @@ describe('Rival Pricing: numbers and goals', () => {
   it('goals count first-try answers and can be reached with the content', () => {
     expect(mapWon(MAP_GOAL)).toBe(true);
     expect(mapWon(MAP_GOAL - 1)).toBe(false);
-    expect(t.items.length).toBe(10);
-    expect(MAP_GOAL).toBeLessThanOrEqual(t.items.length);
-    expect(MAP_GOAL).toBeGreaterThan(t.items.length / 2);
+    expect(t.items.length).toBeGreaterThan(MAP_DRAW);
+    expect(MAP_GOAL).toBeLessThanOrEqual(MAP_DRAW);
+    expect(MAP_GOAL).toBeGreaterThan(MAP_DRAW / 2);
     const profitMax = t.rounds.length * POINTS_PER_PROFIT_ROUND;
     expect(profitMax).toBe(20);
     expect(profitWon(PROFIT_GOAL)).toBe(true);
@@ -172,7 +171,7 @@ describe('Rival Pricing: content', () => {
     const crs = t.items.filter((i) => i.kind === 'cr');
     expect(crs.length).toBe(2);
     const by = Object.fromEntries(t.items.map((i) => [i.id, i.structure]));
-    expect(by).toMatchObject({ water: 'monopoly', coffee: 'monopolistic', wheat: 'perfect', airlines: 'oligopoly', mobile: 'oligopoly' });
+    expect(by).toMatchObject({ water: 'monopoly', coffee: 'monopolistic', wheat: 'perfect', airlines: 'oligopoly', mobile: 'oligopoly', potatoes: 'perfect', bakeries: 'monopolistic', consoles: 'oligopoly', cement: 'oligopoly', rail: 'monopoly' });
   });
 
   it('level 1 concentration ratios are hand-checked, listed out of order, and no slip gives the answer', () => {

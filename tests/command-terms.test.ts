@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { aoOf, AOS, BOX_GOAL, boxMax, boxWon, PLAN_GOAL, planWon, RUNWAY_GOAL, runwayWon, termInQuestion, Term } from '../src/activities/command-terms/model';
+import { aoOf, AOS, BOX_GOAL, boxMax, boxWon, PLAN_GOAL, planWon, RUNWAY_GOAL, runwayWon, termInQuestion, Term, RUNWAY_DRAW } from '../src/activities/command-terms/model';
 import content from '../public/content/activities/command-terms.json';
 import glossary from '../public/content/glossary.json';
 
@@ -79,10 +79,11 @@ describe('Control Tower: goals', () => {
     expect(planWon(PLAN_GOAL - 1)).toBe(false);
     expect(boxWon(BOX_GOAL)).toBe(true);
     expect(boxWon(BOX_GOAL - 1)).toBe(false);
-    expect(t.planes.length).toBe(14);
+    expect(t.planes.length).toBeGreaterThan(RUNWAY_DRAW);
+    expect(RUNWAY_DRAW).toBe(14);
     expect(t.plans.length).toBe(8);
     expect(boxMax(t.boxes)).toBe(14);
-    expect(RUNWAY_GOAL).toBeGreaterThan(t.planes.length / 2);
+    expect(RUNWAY_GOAL).toBeGreaterThan(RUNWAY_DRAW / 2);
   });
   it('a black box point comes from each verdict, plus each fix', () => {
     expect(boxMax([{ verdict: 'ok' }, { verdict: 'reasons' }])).toBe(3);

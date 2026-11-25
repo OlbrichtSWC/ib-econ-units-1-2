@@ -24,7 +24,7 @@ You can fix a typo, rewrite a hint or add a question without touching any code.
 | `content/activities/used-car-lot.json` | Everything in Used Car Lot |
 | `content/activities/monopoly-game.json` | Everything in Rival Pricing |
 | `content/activities/fair-efficient.json` | Everything in Fair or Efficient? |
-| `content/activities/diagram-doctor.json` | Everything in Diagram Doctor (each patient's sick and healed diagram, tags and cures) |
+| `content/activities/diagram-doctor.json` | Everything in Diagram Doctor (each patient's sick and healed diagram, tags and cures). Each tag has a `name` (shown on its button). Use `"on": "yLabel"` or `"xLabel"` for a tag about an axis label, and `"point"` to draw a pointer line from the tag to a spot. |
 | `content/activities/command-terms.json` | Everything in Control Tower (command terms and their IB definitions, questions, flight plans, black box answers) |
 | `content/activities/build-break-judge.json` | Everything in Build, Break, Judge (chains, cracked planks, claims) |
 
@@ -117,3 +117,7 @@ Optional: `"aliases": ["markets"]`, `"example": "..."`, `"hl": true`.
 ## Writing style for students
 
 Short, direct sentences. Plain words (many students are learning English). No em dashes. Avoid "genuinely", "honestly" and "actually". Say "mark" or "checkmark", not "tick". Use invented numbers ("a café", "a ski hill"); if you use real data, name the source.
+
+## Adding scenarios to a pool
+
+Many games draw each round from a bigger pool (for example `statements` in positive-normative.json). You can add a scenario by copying one in the same list and changing its `id` and words. The game still shows the same number per round, so the stamp goals do not change. Run the tests after editing: they check every new item.

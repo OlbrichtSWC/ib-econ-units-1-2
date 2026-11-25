@@ -119,6 +119,48 @@
         "text": "A family plants a flower garden in front of their house. People walking past enjoy the colours and the smell.",
         "ext": "pos-cons",
         "why": "The benefit comes from the family **consuming** the garden, and passers-by gain too. MSB is above MPB."
+      },
+      {
+        "id": "pigfarm",
+        "icon": "🐖",
+        "text": "A pig farm grows bigger. The smell drifts over the village next door, and fewer visitors come to its cafés.",
+        "ext": "neg-prod",
+        "why": "The harm comes from **producing** pork and falls on third parties. MSC is above MPC."
+      },
+      {
+        "id": "airport",
+        "icon": "✈️",
+        "text": "An airport adds night flights. People living under the flight path lose sleep.",
+        "ext": "neg-prod",
+        "why": "The harm comes from the airline **producing** flights. The airline does not pay for it, so MSC is above MPC."
+      },
+      {
+        "id": "research",
+        "icon": "🔬",
+        "text": "A firm pays for research into a better battery. Other firms learn from its published results and make better batteries too.",
+        "ext": "pos-prod",
+        "why": "The extra benefit comes from the firm's **production** choices, and other firms gain for free. MSC is below MPC."
+      },
+      {
+        "id": "trainmusic",
+        "icon": "🎧",
+        "text": "A passenger plays videos out loud on a crowded train. The people nearby cannot read or rest.",
+        "ext": "neg-cons",
+        "why": "The harm comes from **using** the phone. Society gets less benefit than the passenger does, so MSB is below MPB."
+      },
+      {
+        "id": "paint",
+        "icon": "🏡",
+        "text": "A family repaints their run-down house. The whole street looks better, and the neighbours' homes are worth more.",
+        "ext": "pos-cons",
+        "why": "The benefit comes from the family **consuming** the paint job, and the neighbours gain too. MSB is above MPB."
+      },
+      {
+        "id": "firstaid",
+        "icon": "⛑️",
+        "text": "A teenager takes a first aid course. Later she helps a stranger who falls ill at a bus stop.",
+        "ext": "pos-cons",
+        "why": "The extra benefit comes from **consuming** the course, and third parties gain. MSB is above MPB, so too few people would take the course in a free market."
       }
     ],
     "toolNames": {

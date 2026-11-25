@@ -25,6 +25,7 @@ import {
   TIME_GOAL, timeWon,
 } from './model';
 import './supply.css';
+import { newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Supply Scout', 'Time Traveller', 'PES Pro'];
 
@@ -65,7 +66,7 @@ interface TryContent {
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);

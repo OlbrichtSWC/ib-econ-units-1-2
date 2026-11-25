@@ -132,6 +132,54 @@
         "text": "The sun shines on the whole beach.",
         "factor": "free",
         "why": "Enjoying the sun uses up nothing that someone else wanted. **No opportunity cost**: a free good."
+      },
+      {
+        "id": "clay",
+        "icon": "🏺",
+        "name": "A clay pit",
+        "text": "Soft red clay lies in a pit near the river.",
+        "factor": "land",
+        "why": "Clay in the ground is a **natural resource**, so it is land."
+      },
+      {
+        "id": "forest",
+        "icon": "🌳",
+        "name": "Hardwood trees",
+        "text": "Tall hardwood trees grow on the hills.",
+        "factor": "land",
+        "why": "Trees that grow by nature are a **natural resource**: land. Once they are cut and made into a boat, the boat is capital."
+      },
+      {
+        "id": "carpenter",
+        "icon": "🪚",
+        "name": "Lina, a carpenter",
+        "text": "Lina can build huts and boats from wood.",
+        "factor": "labour",
+        "why": "Lina offers **human effort and skill**. That is labour."
+      },
+      {
+        "id": "teacher",
+        "icon": "📚",
+        "name": "Ravi, a teacher",
+        "text": "Ravi teaches the village children to read and count.",
+        "factor": "labour",
+        "why": "Teaching is **human effort**, mental rather than physical. It is still labour."
+      },
+      {
+        "id": "pump",
+        "icon": "🔧",
+        "name": "A water pump",
+        "text": "The villagers build a pump that lifts water from the spring.",
+        "factor": "capital",
+        "why": "The pump is **man-made** and is used to produce something else (water for homes). That is capital."
+      },
+      {
+        "id": "drying",
+        "icon": "🐠",
+        "name": "Kofi's fish-drying business",
+        "text": "Kofi builds drying racks, hires two helpers and risks his savings to sell dried fish to passing ships.",
+        "factor": "enterprise",
+        "why": "Kofi **organises** land, labour and capital and **takes the risk** of failure. That is entrepreneurship."
       }
     ],
     "projects": [

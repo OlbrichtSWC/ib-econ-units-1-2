@@ -262,6 +262,54 @@
         "actor": "government",
         "act": "facts",
         "why": "The government finds the facts and gives them to diners for free. That is provision of information."
+      },
+      {
+        "id": "receipts",
+        "icon": "🧾",
+        "text": "A seller shows buyers every service receipt from the past five years.",
+        "actor": "informed",
+        "act": "rule",
+        "why": "The seller knows the car's history and shows proof of good care. That is signalling."
+      },
+      {
+        "id": "reviews",
+        "icon": "⭐",
+        "text": "A builder shows new customers photos of past jobs and letters from happy clients.",
+        "actor": "informed",
+        "act": "rule",
+        "why": "The builder knows the quality of the work and shows it. That is signalling. The same idea works in many markets."
+      },
+      {
+        "id": "references",
+        "icon": "🏠",
+        "text": "A landlord asks a new tenant for letters from the tenant's past landlords.",
+        "actor": "uninformed",
+        "act": "rule",
+        "why": "The landlord knows less about the tenant and acts to find out. That is screening."
+      },
+      {
+        "id": "credit",
+        "icon": "💳",
+        "text": "A bank checks a borrower's record of paying back past loans before it lends.",
+        "actor": "uninformed",
+        "act": "rule",
+        "why": "The bank knows less about the borrower and gathers facts before the deal. That is screening."
+      },
+      {
+        "id": "mileage",
+        "icon": "🔢",
+        "text": "A law makes it a crime to wind back a car's mileage reading. Dealers who do it are fined.",
+        "actor": "government",
+        "act": "rule",
+        "why": "This is a law with a penalty. That is legislation and regulation."
+      },
+      {
+        "id": "stolen",
+        "icon": "🔍",
+        "text": "The government runs a free website where anyone can check if a car was stolen or badly damaged.",
+        "actor": "government",
+        "act": "facts",
+        "why": "The government gives buyers the facts for free. There is no new rule for sellers. That is provision of information."
       }
     ],
     "problemNames": {
@@ -450,6 +498,94 @@
           {
             "text": "A government bail-out for the insurer.",
             "feedback": "A bail-out does not fix the hidden information, and it can cause moral hazard of its own."
+          }
+        ]
+      },
+      {
+        "id": "door",
+        "icon": "🚪",
+        "text": "After buying home insurance, Ana stops locking her back door.",
+        "hidden": "after",
+        "why": "Ana takes less care after the deal, because the insurer will pay. The insurer cannot watch her. That is moral hazard.",
+        "options": [
+          {
+            "text": "A condition in the policy: no payout for theft if a door was left unlocked.",
+            "correct": true,
+            "feedback": "Yes. Ana now carries the cost of carelessness, so she has a reason to lock up."
+          },
+          {
+            "text": "A check of Ana's past claims before she buys.",
+            "feedback": "That is screening before the deal. The problem here is what Ana does after the deal."
+          },
+          {
+            "text": "A government website with ratings of insurers.",
+            "feedback": "Ratings help Ana choose an insurer. They do not change how careful she is."
+          }
+        ]
+      },
+      {
+        "id": "roof",
+        "icon": "🏗️",
+        "text": "A builder is paid a fixed price for a new roof. After the contract is signed, he uses cheap parts where no one can see them.",
+        "hidden": "after",
+        "why": "The builder's effort is hidden after the deal. That is moral hazard.",
+        "options": [
+          {
+            "text": "Monitoring: an inspector checks the work at each stage before the next payment.",
+            "correct": true,
+            "feedback": "Yes. Monitoring makes the hidden work visible, and holding back payment gives the builder a reason to do it well."
+          },
+          {
+            "text": "Ask the builder for photos of past jobs before hiring.",
+            "feedback": "That helps before the deal, with hidden quality. The problem here is what the builder does after the deal."
+          },
+          {
+            "text": "Pay the builder the full price in advance.",
+            "feedback": "That makes it worse. The builder has no reason left to do good work."
+          }
+        ]
+      },
+      {
+        "id": "travel",
+        "icon": "🧳",
+        "text": "Travel insurance has one price for everyone. Mostly people who plan risky trips buy it, so the insurer loses money.",
+        "hidden": "before",
+        "why": "Buyers know their own travel plans before the deal, and the insurer does not. High-risk people buy and low-risk people leave. That is adverse selection.",
+        "options": [
+          {
+            "text": "Screening: ask where and how each person will travel, and set a price for that risk.",
+            "correct": true,
+            "feedback": "Yes. Screening finds the hidden risk before the deal, so low-risk travellers get a fair price and stay."
+          },
+          {
+            "text": "An excess on every claim.",
+            "feedback": "An excess changes behaviour after the deal. The problem here is who chooses to buy before the deal."
+          },
+          {
+            "text": "Raise the single price for everyone.",
+            "feedback": "A higher single price drives even more low-risk buyers away. The problem gets worse."
+          }
+        ]
+      },
+      {
+        "id": "hiring",
+        "icon": "👩‍💼",
+        "text": "Every job applicant says they are a hard worker. The employer cannot tell who is telling the truth.",
+        "hidden": "before",
+        "why": "Applicants know their own skill before the deal, and the employer does not. That is adverse selection.",
+        "options": [
+          {
+            "text": "Screening: a skills test and a trial period before a long contract.",
+            "correct": true,
+            "feedback": "Yes. The employer finds out about skill before the deal, so good workers are not mixed up with weak ones."
+          },
+          {
+            "text": "Monitoring the workers after they are hired.",
+            "feedback": "Monitoring helps with effort after the deal. The problem here is hidden skill before the deal."
+          },
+          {
+            "text": "Pay every applicant the same low wage.",
+            "feedback": "A low wage for all drives the best workers away. That is the lemons problem again."
           }
         ]
       }

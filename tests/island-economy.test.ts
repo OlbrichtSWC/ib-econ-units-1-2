@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  BEACH_GOAL, beachWon, DETECTIVE_GOAL, detectiveWon, FACTORS, opportunityCost, QUESTIONS, shuffled, SYSTEMS, VILLAGE_GOAL, villageWon,
-} from '../src/activities/island-economy/model';
+  BEACH_GOAL, beachWon, DETECTIVE_GOAL, detectiveWon, FACTORS, opportunityCost, QUESTIONS, shuffled, SYSTEMS, VILLAGE_GOAL, villageWon, BEACH_DRAW } from '../src/activities/island-economy/model';
 import content from '../public/content/activities/island-economy.json';
 
 const t = content.try;
@@ -30,7 +29,8 @@ describe('Castaway Council: level goals', () => {
   });
   it('every goal can be reached with the content, but not without some right answers', () => {
     expect(t.items.length).toBeGreaterThanOrEqual(BEACH_GOAL);
-    expect(BEACH_GOAL).toBeGreaterThan(t.items.length / 2);
+    expect(BEACH_GOAL).toBeGreaterThan(BEACH_DRAW / 2);
+    expect(t.items.length).toBeGreaterThan(BEACH_DRAW);
     expect(VILLAGE_GOAL).toBeLessThanOrEqual(t.villages.length * QUESTIONS.length);
     expect(t.cases.length).toBeGreaterThanOrEqual(DETECTIVE_GOAL);
   });

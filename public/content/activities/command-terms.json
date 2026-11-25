@@ -256,6 +256,54 @@
         "term": "Identify",
         "question": "**Identify** two determinants of the price elasticity of supply. [2]",
         "callsign": "PES"
+      },
+      {
+        "id": "state-merit",
+        "term": "State",
+        "question": "**State** two examples of a merit good. [2]",
+        "callsign": "MER"
+      },
+      {
+        "id": "describe-floor",
+        "term": "Describe",
+        "question": "**Describe** what happens in a market when the government sets a minimum price above the equilibrium price. [2]",
+        "callsign": "FLR"
+      },
+      {
+        "id": "suggest-flowers",
+        "term": "Suggest",
+        "question": "**Suggest** two reasons why the supply of fresh flowers is price inelastic in the short run. [4]",
+        "callsign": "FLW"
+      },
+      {
+        "id": "apply-oc",
+        "term": "Apply",
+        "question": "**Apply** the concept of opportunity cost to a student who takes a part-time job instead of studying. [4]",
+        "callsign": "JOB"
+      },
+      {
+        "id": "cc-permits",
+        "term": "Compare and contrast",
+        "question": "**Compare and contrast** a carbon tax and tradable permits as ways to reduce pollution. [15]",
+        "callsign": "PMT"
+      },
+      {
+        "id": "justify-bus",
+        "term": "Justify",
+        "question": "**Justify** a subsidy for electric buses in a city with dirty air. [15]",
+        "callsign": "EBS"
+      },
+      {
+        "id": "label-loss",
+        "term": "Label",
+        "question": "**Label** the welfare loss on a diagram of a negative consumption externality. [2]",
+        "callsign": "WL"
+      },
+      {
+        "id": "sketch-ped0",
+        "term": "Sketch",
+        "question": "**Sketch** a demand curve that is perfectly price inelastic. [2]",
+        "callsign": "PI"
       }
     ],
     "plans": [

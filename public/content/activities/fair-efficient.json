@@ -114,6 +114,48 @@
         "text": "People with a low income pay half price on the bus.",
         "kind": "equity",
         "why": "The discount goes to the people who find the full fare hardest to pay. That is **equity**."
+      },
+      {
+        "id": "c13",
+        "icon": "💻",
+        "text": "Every student in the school gets the same laptop.",
+        "kind": "equality",
+        "why": "Every student gets exactly the same thing. That is **equality**."
+      },
+      {
+        "id": "c14",
+        "icon": "🦻",
+        "text": "Hearing aids are free for people with hearing loss.",
+        "kind": "equity",
+        "why": "Help goes to the people who need it, so they can take part like everyone else. That is **equity**."
+      },
+      {
+        "id": "c15",
+        "icon": "⏱️",
+        "text": "Every pupil gets the same 30-minute meeting with the careers adviser.",
+        "kind": "equality",
+        "why": "Each pupil gets the same amount of time. That is **equality**."
+      },
+      {
+        "id": "c16",
+        "icon": "⚽",
+        "text": "A sports club charges lower fees to families on low incomes.",
+        "kind": "equity",
+        "why": "Families who find the fee hardest to pay get a discount. That is **equity**."
+      },
+      {
+        "id": "c17",
+        "icon": "🚰",
+        "text": "Every household gets the same 50 litres of free water a day.",
+        "kind": "equality",
+        "why": "Every household gets the same amount, whatever its size or income. That is **equality**."
+      },
+      {
+        "id": "c18",
+        "icon": "👨‍👩‍👧‍👦",
+        "text": "Families with more children get a bigger child benefit.",
+        "kind": "equity",
+        "why": "Families with more needs get more help. That is **equity**: fairness, not sameness."
       }
     ],
     "verdictNames": {
@@ -302,6 +344,94 @@
           {
             "text": "It is not equitable, because the tax raises prices for everyone.",
             "feedback": "Prices rise, but the revenue is given to low-income households. Their gain can be bigger than the higher prices they pay."
+          }
+        ]
+      },
+      {
+        "id": "j9",
+        "icon": "🚲",
+        "title": "A free market for used bikes",
+        "story": "Thousands of people buy and sell used bikes on an app. There are no externalities. Low-income buyers can only afford old, worn bikes.",
+        "verdict": "efficient",
+        "reasons": [
+          {
+            "text": "Output is where MB = MC, so there is no welfare loss. But the best bikes go to the people who can pay the most.",
+            "correct": true,
+            "feedback": "Right. The competitive market is allocatively efficient, but ability to pay depends on income."
+          },
+          {
+            "text": "There is a welfare loss, because some buyers get worse bikes.",
+            "feedback": "Getting a cheaper bike is not a welfare loss. At the market output MB = MC. The problem is fairness, not efficiency."
+          },
+          {
+            "text": "It is equitable, because anyone may use the app.",
+            "feedback": "Anyone may use it, but low-income buyers can only afford the worst bikes. Equal access is not the same as a fair outcome."
+          }
+        ]
+      },
+      {
+        "id": "j10",
+        "icon": "🤧",
+        "title": "Flu vaccines sold only at full price",
+        "story": "Flu vaccines have a positive externality. The government does nothing, so each person pays the full price. Few people on low incomes get vaccinated.",
+        "verdict": "neither",
+        "reasons": [
+          {
+            "text": "The market ignores the external benefit, so too few vaccines are used (MSB is above MSC). And low-income people miss out most.",
+            "correct": true,
+            "feedback": "Right. The positive externality causes underconsumption, and the price keeps low-income people out."
+          },
+          {
+            "text": "It is efficient, because people buy as many vaccines as they want.",
+            "feedback": "Buyers count only their private benefit. At the market output MSB is above MSC, so there is a welfare loss."
+          },
+          {
+            "text": "It is equitable, because everyone pays the same price.",
+            "feedback": "The same price is equality. Low-income people find it much harder to pay, so many would say it is not fair."
+          }
+        ]
+      },
+      {
+        "id": "j11",
+        "icon": "🥛",
+        "title": "A minimum price for milk",
+        "story": "There is no externality. The government sets a minimum price for milk above the market price, to raise the incomes of small dairy farmers. Farmers now produce more milk than people buy.",
+        "verdict": "equitable",
+        "reasons": [
+          {
+            "text": "It aims to make farm incomes fairer, but it causes excess supply. Resources are wasted on milk nobody buys: a welfare loss.",
+            "correct": true,
+            "feedback": "Right. A price floor aims at equity for farmers, but it is allocatively inefficient."
+          },
+          {
+            "text": "It is efficient, because farmers earn more.",
+            "feedback": "Higher farm incomes are not the same as efficiency. Quantity bought falls below the free market level, and the surplus milk is wasted."
+          },
+          {
+            "text": "It is not equitable, because it helps farmers.",
+            "feedback": "Helping a low-income group is the aim of the policy. Many people would see that aim as equity, even though consumers pay more."
+          }
+        ]
+      },
+      {
+        "id": "j12",
+        "icon": "🏠",
+        "title": "An insulation subsidy for low-income homes",
+        "story": "Home insulation has a positive externality: homes burn less fuel, so there is less pollution. The government pays a subsidy equal to the external benefit, and gives it to low-income households.",
+        "verdict": "both",
+        "reasons": [
+          {
+            "text": "The subsidy closes the gap between MPB and MSB, so use rises to the social optimum. And it helps the households with the least.",
+            "correct": true,
+            "feedback": "Right. The subsidy corrects the externality (efficiency) and is aimed at low-income homes (equity)."
+          },
+          {
+            "text": "It is not efficient, because the government spends money.",
+            "feedback": "Spending money is not a welfare loss on its own. Here the subsidy moves output from too little to the social optimum."
+          },
+          {
+            "text": "It is not equitable, because only some households get the subsidy.",
+            "feedback": "It goes to the households with the least money. Giving more help to those who need it is equity."
           }
         ]
       }

@@ -17,9 +17,10 @@ import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
 import { shuffled } from '../island-economy/model';
 import {
-  BELT_GOAL, beltWon, Century, CENTURIES, isValueWord, Kind, KINDS, LAB_GOAL, labMax, labWon, nextMethodStep, tokenize, VALUE_GOAL, valueWon,
+  BELT_GOAL, beltWon, Century, CENTURIES, isValueWord, Kind, KINDS, LAB_GOAL, labMax, labWon, nextMethodStep, tokenize, VALUE_GOAL, valueWon, BELT_DRAW, VALUE_DRAW
 } from './model';
 import './lab.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Fact Finder', 'Value Spotter', 'Lab Scientist'];
 
@@ -53,7 +54,7 @@ const WRONG_HINT: Record<Kind, string> = {
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -98,7 +99,7 @@ function Fb(props: { ok: boolean; children: ComponentChildren }) {
 // ---------------- Level 1: the sorting belt ----------------
 
 function Belt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const items = useMemo(() => shuffled(data.statements, seed + 5), [data.statements, seed]);
+  const items = useMemo(() => drawRound(data.statements, BELT_DRAW, seed + 5), [data.statements, seed]);
   const [idx, setIdx] = useState(0);
   const [missed, setMissed] = useState(false);
   const [solved, setSolved] = useState(false);
@@ -212,7 +213,7 @@ function Belt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
 const NONE = -1;
 
 function ValueHunt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const rounds = useMemo(() => shuffled(data.valueRounds, seed + 11), [data.valueRounds, seed]);
+  const rounds = useMemo(() => drawRound(data.valueRounds, VALUE_DRAW, seed + 11), [data.valueRounds, seed]);
   const [ri, setRi] = useState(0);
   const [missed, setMissed] = useState(false);
   const [solved, setSolved] = useState(false);

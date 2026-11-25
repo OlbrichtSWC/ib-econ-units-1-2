@@ -281,3 +281,6 @@ export const mapWon = (firstRight: number, goal = MAP_GOAL) => firstRight >= goa
 export const profitWon = (points: number) => points >= PROFIT_GOAL;
 export const duelWon = (points: number) => points >= DUEL_GOAL;
 export const duelMax = (weeks: number, judgements: number) => MATRIX_STEPS + weeks * POINTS_PER_WEEK + judgements;
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const MAP_DRAW = 10;

@@ -25,6 +25,7 @@ import {
   Season, stockPath, Trend, TRENDS,
 } from './model';
 import './pond.css';
+import { newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Pond Keeper', 'Rule Maker', 'Pond Guardian'];
 
@@ -52,7 +53,7 @@ const sum = (xs: number[]) => xs.reduce((s, x) => s + x, 0);
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);

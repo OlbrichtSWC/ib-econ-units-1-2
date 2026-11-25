@@ -41,3 +41,25 @@ export function health(cured: number, total: number): number {
 export const checkupWon = (firstTry: number) => firstTry >= CHECKUP_GOAL;
 export const wardWon = (points: number) => points >= WARD_GOAL;
 export const triageWon = (firstTry: number) => firstTry >= TRIAGE_GOAL;
+
+/**
+ * Give the tags new letters for this play, so the wrong tag is not always A.
+ * `order` is a shuffled copy of the patient's letters: the tag that was letters[i] becomes order[i].
+ * Tags come back sorted A, B, C..., and the description's "Tag X points to" sentences follow.
+ */
+export function relabel<
+  T extends { letter: string; name?: string },
+  P extends { sick: { tags?: T[]; description: string }; mistakes: { letter: string }[] },
+>(p: P, order: readonly string[]): P {
+  const tags = p.sick.tags ?? [];
+  const letters = tags.map((t) => t.letter);
+  const map = new Map(letters.map((l, i) => [l, order[i] ?? l]));
+  const newTags = tags.map((t) => ({ ...t, letter: map.get(t.letter)! })).sort((a, b) => a.letter.localeCompare(b.letter));
+  const base = p.sick.description.replace(/\s*Tag [A-Z] points to: [^.]*\./g, '').trim();
+  const description = [base, ...newTags.map((t) => `Tag ${t.letter} points to: ${t.name ?? 'a part of the diagram'}.`)].join(' ');
+  return {
+    ...p,
+    sick: { ...p.sick, tags: newTags, description },
+    mistakes: p.mistakes.map((m) => ({ ...m, letter: map.get(m.letter)! })),
+  };
+}

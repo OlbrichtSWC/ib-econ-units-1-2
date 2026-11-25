@@ -2,11 +2,12 @@ import { describe, expect, it } from 'vitest';
 import {
   CHECKUP_GOAL, checkupWon, health, mistakePoint, PROBLEMS, sameDiagnosis, toggleProblem, TRIAGE_GOAL, triageWon, WARD_GOAL, wardWon,
 } from '../src/activities/diagram-doctor/model';
+import { relabel } from '../src/activities/diagram-doctor/model';
 import content from '../public/content/activities/diagram-doctor.json';
 import glossary from '../public/content/glossary.json';
 
 type Pt = { q: number; p: number };
-type Spec = { curves?: { points?: Pt[]; label?: string }[]; guides?: { at: Pt; xText?: string; yText?: string }[]; tags?: { at: Pt; letter: string }[]; hlines?: { p: number; label?: string }[]; dots?: { at: Pt; label?: string }[]; description: string; xLabel: string; yLabel: string };
+type Spec = { curves?: { points?: Pt[]; label?: string }[]; guides?: { at: Pt; xText?: string; yText?: string }[]; tags?: { at: Pt; letter: string; name?: string; on?: string; point?: Pt }[]; hlines?: { p: number; label?: string }[]; dots?: { at: Pt; label?: string }[]; description: string; xLabel: string; yLabel: string };
 const t = content.try as unknown as {
   checkups: { id: string; sick: Spec; healed: Spec; mistakes: { letter: string; cures: { correct?: boolean }[] }[] }[];
   ward: { id: string; sick: Spec; healed: Spec; mistakes: { letter: string; cures: { correct?: boolean }[] }[] }[];
@@ -76,6 +77,19 @@ describe('Diagram Doctor: patients are well formed', () => {
       }
       expect(p.healed.tags, p.id).toBeUndefined();
       for (const x of letters) expect(p.sick.description, `${p.id} ${x}`).toContain(`Tag ${x}`);
+    }
+  });
+  it('every tag names the one part it points to (student feedback: tags were hard to read)', () => {
+    for (const p of [...t.checkups, ...t.ward]) {
+      const tags = p.sick.tags!;
+      const names = tags.map((x) => x.name ?? '');
+      for (const n of names) expect(n.length, p.id).toBeGreaterThan(3);
+      expect(new Set(names).size, p.id).toBe(names.length);
+      for (const x of tags) {
+        if (/axis label/.test(x.name!)) expect(x.on, `${p.id} ${x.letter}`).toMatch(/^(x|y)Label$/);
+        if (/point|Dot/i.test(x.name!)) expect(x.point, `${p.id} ${x.letter}`).toBeDefined();
+        expect(p.sick.description).toContain(`Tag ${x.letter} points to: ${x.name}.`);
+      }
     }
   });
   it('triage uses only the checklist problems, and some patients are healthy', () => {
@@ -182,5 +196,18 @@ describe('Diagram Doctor: content', () => {
   });
   it('on-screen text follows the house style', () => {
     expect(JSON.stringify(content)).not.toMatch(/—|genuinely|honestly|actually|\btick\b|\bcards?\b/i);
+  });
+});
+
+describe('Diagram Doctor: letters are shuffled each play', () => {
+  it('relabel moves the problem with its tag and keeps the tags in A, B, C order', () => {
+    const p = t.checkups.find((x) => x.id === 'shift-not-move')!;
+    const r = relabel(p, ['C', 'A', 'B']);
+    expect(r.sick.tags!.map((x) => x.letter)).toEqual(['A', 'B', 'C']);
+    expect(r.mistakes[0].letter).toBe('C');
+    expect(r.sick.tags!.find((x) => x.letter === 'C')!.name).toBe(p.sick.tags!.find((x) => x.letter === 'A')!.name);
+    expect(r.sick.description).toContain(`Tag C points to: ${p.sick.tags![0].name}.`);
+    expect(r.sick.description.match(/Tag [A-Z] points to/g)!.length).toBe(3);
+    expect(p.mistakes[0].letter).toBe('A');
   });
 });

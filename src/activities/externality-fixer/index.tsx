@@ -25,9 +25,10 @@ import { shuffled } from '../island-economy/model';
 import {
   closeness, Ext, EXTS, FIX_GOAL, fixWon, Gap, gapAt, gapFor, GAPS, isNegative, isProduction, JUDGE_GOAL, judgeWon, lossAt, lossMistakes,
   lossTriangle, Market, marketPoint, numberRight, optimum, outcome, parseNumber, POINTS_PER_JUDGE_ROUND, privateLine, rightSize, shiftedCurve,
-  sizeVerdict, Spot, SPOT_GOAL, SPOTS, spotWon, sunshine, Tool, welfareLoss,
+  sizeVerdict, Spot, SPOT_GOAL, SPOTS, spotWon, sunshine, Tool, welfareLoss, SPOT_DRAW
 } from './model';
 import './town.css';
+import { drawRound, newSeed } from '../../shared/activity/seed';
 
 const STAMP_NAMES = ['Spillover Spotter', 'Town Fixer', 'Welfare Judge'];
 
@@ -82,7 +83,7 @@ const money = (v: number) => `$${Math.abs(v - Math.round(v)) < 1e-9 ? Math.round
 function Try({ content, onComplete, onGoal, stamps, teacher }: TryProps) {
   const data = content.try as unknown as TryContent;
   const [levelNo, setLevelNo] = useState(1);
-  const [round, setRound] = useState(0);
+  const [round, setRound] = useState(newSeed);
   const pick = (n: number) => {
     setLevelNo(n);
     setRound((r) => r + 1);
@@ -357,7 +358,7 @@ function MiniGap({ gap }: { gap: Gap }) {
 }
 
 function Spotter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
-  const items = useMemo(() => shuffled(data.scenarios, seed + 3), [data.scenarios, seed]);
+  const items = useMemo(() => drawRound(data.scenarios, SPOT_DRAW, seed + 3, (s) => !!s.spot), [data.scenarios, seed]);
   const [idx, setIdx] = useState(0);
   const [phase, setPhase] = useState<'type' | 'gap' | 'solved'>('type');
   const [missed, setMissed] = useState(false);

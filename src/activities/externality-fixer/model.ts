@@ -210,3 +210,6 @@ export const POINTS_PER_JUDGE_ROUND = 3;
 export const spotWon = (firstRight: number, goal = SPOT_GOAL) => firstRight >= goal;
 export const fixWon = (firstRight: number) => firstRight >= FIX_GOAL;
 export const judgeWon = (points: number) => points >= JUDGE_GOAL;
+
+/** How many scenarios one round draws from the bigger pool. The goals above are out of these. */
+export const SPOT_DRAW = 10;
