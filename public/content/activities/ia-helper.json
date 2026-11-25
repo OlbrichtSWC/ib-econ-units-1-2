@@ -7,11 +7,11 @@
   },
   "try": {
     "goal": "Find your direction, scout good articles, then choose the right diagram and key concept link.",
-    "intro": "This trail helps you plan your IA. Level 1: answer six quick questions to find what interests you, see your strengths so far, check the rules, then make a plan. Level 2: scout news articles and decide which ones you could use. Level 3: for each article, choose the diagram that fits and the key concept link that would earn full marks.",
+    "intro": "This trail helps you plan your IA. You write one commentary for each of Units 2, 3 and 4. Level 1: choose a unit and answer five quick questions to find a topic and key concepts that interest you. Do it for each unit, then check the rules and make a plan. Level 2: scout news articles and decide which ones you could use. Level 3: for each article, choose the diagram that fits and the key concept link that would earn full marks.",
     "levels": [
       {
         "title": "Compass",
-        "blurb": "Find your interests and strengths, answer 4 of 5 trail rules right first time, and make a plan that meets the rules."
+        "blurb": "Choose Unit 2, 3 or 4 and answer five questions about it. Then answer 4 of 5 trail rules right first time and make a plan that meets the rules."
       },
       {
         "title": "Article scout",
@@ -22,158 +22,6 @@
         "blurb": "Choose the diagram and the full-mark key concept link for 6 articles. Score 10 of 12 first-try points."
       }
     ],
-    "interests": [
-      {
-        "id": "i1",
-        "prompt": "Which headline would you click first?",
-        "options": [
-          {
-            "text": "A city puts a tax on sugary drinks",
-            "unit": 2,
-            "concept": "intervention"
-          },
-          {
-            "text": "Prices in the shops rose fast this year",
-            "unit": 3,
-            "concept": "change"
-          },
-          {
-            "text": "Two countries agree to cut tariffs",
-            "unit": 4,
-            "concept": "interdependence"
-          }
-        ]
-      },
-      {
-        "id": "i2",
-        "prompt": "Which problem would you most like to fix?",
-        "options": [
-          {
-            "text": "A river polluted by a factory",
-            "unit": 2,
-            "concept": "sustainability"
-          },
-          {
-            "text": "Young people who cannot find a job",
-            "unit": 3,
-            "concept": "wellbeing"
-          },
-          {
-            "text": "Countries that stay poor while others grow rich",
-            "unit": 4,
-            "concept": "equity"
-          }
-        ]
-      },
-      {
-        "id": "i3",
-        "prompt": "Which question makes you most curious?",
-        "options": [
-          {
-            "text": "Why do concert tickets sell out so fast?",
-            "unit": 2,
-            "concept": "scarcity"
-          },
-          {
-            "text": "Why do people save less when interest rates fall?",
-            "unit": 3,
-            "concept": "choice"
-          },
-          {
-            "text": "Why is a currency worth more this year than last year?",
-            "unit": 4,
-            "concept": "change"
-          }
-        ]
-      },
-      {
-        "id": "i4",
-        "prompt": "Which kind of story do you follow?",
-        "options": [
-          {
-            "text": "A big firm buys its main rival",
-            "unit": 2,
-            "concept": "efficiency"
-          },
-          {
-            "text": "The government's budget and who pays more tax",
-            "unit": 3,
-            "concept": "equity"
-          },
-          {
-            "text": "Countries meet to agree on climate action",
-            "unit": 4,
-            "concept": "sustainability"
-          }
-        ]
-      },
-      {
-        "id": "i5",
-        "prompt": "Where do you notice economics in your own life?",
-        "options": [
-          {
-            "text": "Shops, cafés and the prices I pay",
-            "unit": 2,
-            "concept": "choice"
-          },
-          {
-            "text": "Family talk about jobs, wages and bills",
-            "unit": 3,
-            "concept": "wellbeing"
-          },
-          {
-            "text": "Travel, imported goods and world news",
-            "unit": 4,
-            "concept": "interdependence"
-          }
-        ]
-      },
-      {
-        "id": "i6",
-        "prompt": "Which would you rather explain to a friend?",
-        "options": [
-          {
-            "text": "Why a maximum rent can leave people without a flat",
-            "unit": 2,
-            "concept": "equity"
-          },
-          {
-            "text": "Why a central bank raises interest rates",
-            "unit": 3,
-            "concept": "intervention"
-          },
-          {
-            "text": "Why trade lets countries consume more",
-            "unit": 4,
-            "concept": "efficiency"
-          }
-        ]
-      }
-    ],
-    "ideas": {
-      "2": [
-        "a tax on sugary drinks, tobacco or plastic bags",
-        "a maximum rent or another price ceiling",
-        "a subsidy for electric cars, solar panels or farmers",
-        "a change to the minimum wage",
-        "a bad harvest or a new technology that changes a price",
-        "pollution, overfishing or traffic in your area"
-      ],
-      "3": [
-        "inflation and the cost of living",
-        "a central bank interest rate decision",
-        "unemployment rising or falling",
-        "a government budget or a tax change",
-        "economic growth or a recession"
-      ],
-      "4": [
-        "a new tariff, quota or trade deal",
-        "a currency rising or falling",
-        "foreign aid, loans or debt relief",
-        "a country's exports or imports",
-        "a development project in a low-income country"
-      ]
-    },
     "themes": [
       {
         "id": "markets",
@@ -814,7 +662,601 @@
           }
         ]
       }
-    ]
+    ],
+    "units": {
+      "2": {
+        "questions": [
+          {
+            "id": "u2a",
+            "prompt": "Which headline would you click first?",
+            "options": [
+              {
+                "text": "A city puts a tax on sugary drinks",
+                "topic": "government",
+                "concept": "intervention"
+              },
+              {
+                "text": "Concert tickets sell out in minutes",
+                "topic": "markets",
+                "concept": "scarcity"
+              },
+              {
+                "text": "A big firm buys its main rival",
+                "topic": "behaviour",
+                "concept": "efficiency"
+              }
+            ]
+          },
+          {
+            "id": "u2b",
+            "prompt": "Which problem would you most like to fix?",
+            "options": [
+              {
+                "text": "A river polluted by a factory",
+                "topic": "failure",
+                "concept": "sustainability"
+              },
+              {
+                "text": "Rents too high for students to afford",
+                "topic": "equity",
+                "concept": "equity"
+              },
+              {
+                "text": "Farmers paid less for their crop every year",
+                "topic": "elasticity",
+                "concept": "wellbeing"
+              }
+            ]
+          },
+          {
+            "id": "u2c",
+            "prompt": "Which question makes you most curious?",
+            "options": [
+              {
+                "text": "Why do people keep driving when petrol prices rise?",
+                "topic": "elasticity",
+                "concept": "choice"
+              },
+              {
+                "text": "Why do apps set defaults to steer what we pick?",
+                "topic": "behaviour",
+                "concept": "choice"
+              },
+              {
+                "text": "Why are streetlights paid for with taxes?",
+                "topic": "failure",
+                "concept": "efficiency"
+              }
+            ]
+          },
+          {
+            "id": "u2d",
+            "prompt": "Which story would you follow?",
+            "options": [
+              {
+                "text": "A new subsidy for electric cars",
+                "topic": "government",
+                "concept": "sustainability"
+              },
+              {
+                "text": "Coffee prices jump after a bad harvest",
+                "topic": "markets",
+                "concept": "change"
+              },
+              {
+                "text": "Some families cannot afford the medicine they need",
+                "topic": "equity",
+                "concept": "wellbeing"
+              }
+            ]
+          },
+          {
+            "id": "u2e",
+            "prompt": "Which would you rather explain to a friend?",
+            "options": [
+              {
+                "text": "Why a maximum rent can leave people without a flat",
+                "topic": "government",
+                "concept": "equity"
+              },
+              {
+                "text": "Why a tax on cigarettes cuts smoking only a little",
+                "topic": "elasticity",
+                "concept": "intervention"
+              },
+              {
+                "text": "Why too many fish get caught when no one owns the sea",
+                "topic": "failure",
+                "concept": "scarcity"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "id": "markets",
+            "name": "Markets: demand, supply and prices",
+            "codes": [
+              "2.1",
+              "2.2",
+              "2.3"
+            ],
+            "diagram": "A demand and supply diagram with a shift",
+            "ideas": [
+              "a price that rose or fell after a shortage or a glut",
+              "a bad harvest or a new technology",
+              "a change in tastes or income that moves demand"
+            ]
+          },
+          {
+            "id": "elasticity",
+            "name": "Elasticity",
+            "codes": [
+              "2.5",
+              "2.6"
+            ],
+            "diagram": "A demand and supply diagram that shows how elastic demand or supply is",
+            "ideas": [
+              "a price rise that barely changed what people buy",
+              "farm prices that fall when harvests are good",
+              "a firm that cannot raise output quickly"
+            ]
+          },
+          {
+            "id": "government",
+            "name": "Government intervention",
+            "codes": [
+              "2.7"
+            ],
+            "diagram": "A tax, subsidy, maximum price or minimum price diagram",
+            "ideas": [
+              "a tax on sugary drinks, tobacco or plastic bags",
+              "a maximum rent or another price ceiling",
+              "a subsidy for electric cars, solar panels or farmers",
+              "a change to the minimum wage"
+            ]
+          },
+          {
+            "id": "failure",
+            "name": "Market failure: externalities, common pool resources and public goods",
+            "codes": [
+              "2.8",
+              "2.9"
+            ],
+            "diagram": "An externality diagram that shows the welfare loss",
+            "ideas": [
+              "pollution, traffic or noise in your area",
+              "overfishing or a shared resource running out",
+              "a public service that the market does not provide"
+            ]
+          },
+          {
+            "id": "behaviour",
+            "name": "Behaviour, information and market power (HL)",
+            "codes": [
+              "2.4",
+              "2.10",
+              "2.11"
+            ],
+            "diagram": "A monopoly diagram (HL), or a demand and supply diagram",
+            "ideas": [
+              "a nudge or a default choice",
+              "a firm with market power, or a merger",
+              "a market where buyers and sellers know different things"
+            ]
+          },
+          {
+            "id": "equity",
+            "name": "Equity (HL)",
+            "codes": [
+              "2.12"
+            ],
+            "diagram": "A maximum price or subsidy diagram (2.7) that shows who can afford the good",
+            "ideas": [
+              "housing, medicine or food that some people cannot afford",
+              "a policy that helps low-income families buy a good",
+              "a debate about whether a market outcome is fair"
+            ]
+          }
+        ]
+      },
+      "3": {
+        "questions": [
+          {
+            "id": "u3a",
+            "prompt": "Which headline would you click first?",
+            "options": [
+              {
+                "text": "Food and fuel prices up again this year",
+                "topic": "inflation",
+                "concept": "change"
+              },
+              {
+                "text": "Factory closes and 400 workers lose their jobs",
+                "topic": "unemployment",
+                "concept": "wellbeing"
+              },
+              {
+                "text": "Central bank raises its interest rate",
+                "topic": "monetary",
+                "concept": "intervention"
+              }
+            ]
+          },
+          {
+            "id": "u3b",
+            "prompt": "Which question makes you most curious?",
+            "options": [
+              {
+                "text": "Why do some years feel like a boom and others like a slump?",
+                "topic": "growth",
+                "concept": "change"
+              },
+              {
+                "text": "Why do the richest 10% earn so much more than everyone else?",
+                "topic": "inequality",
+                "concept": "equity"
+              },
+              {
+                "text": "Should the government spend more on roads and schools?",
+                "topic": "fiscal",
+                "concept": "choice"
+              }
+            ]
+          },
+          {
+            "id": "u3c",
+            "prompt": "Which problem would you most like to fix?",
+            "options": [
+              {
+                "text": "Wages that do not keep up with prices",
+                "topic": "inflation",
+                "concept": "wellbeing"
+              },
+              {
+                "text": "Workers without the skills that firms need",
+                "topic": "supplyside",
+                "concept": "efficiency"
+              },
+              {
+                "text": "A government with a growing debt",
+                "topic": "fiscal",
+                "concept": "sustainability"
+              }
+            ]
+          },
+          {
+            "id": "u3d",
+            "prompt": "Which story would you follow?",
+            "options": [
+              {
+                "text": "New figures show the economy shrank this quarter",
+                "topic": "growth",
+                "concept": "scarcity"
+              },
+              {
+                "text": "A new tax on the richest households",
+                "topic": "inequality",
+                "concept": "intervention"
+              },
+              {
+                "text": "Cheaper loans for people buying a home",
+                "topic": "monetary",
+                "concept": "choice"
+              }
+            ]
+          },
+          {
+            "id": "u3e",
+            "prompt": "Which would you rather explain to a friend?",
+            "options": [
+              {
+                "text": "Why spending cuts can lead to job losses",
+                "topic": "unemployment",
+                "concept": "interdependence"
+              },
+              {
+                "text": "Why a government spends more in a slump",
+                "topic": "fiscal",
+                "concept": "intervention"
+              },
+              {
+                "text": "Why training and new technology let a country produce more",
+                "topic": "supplyside",
+                "concept": "scarcity"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "id": "growth",
+            "name": "Economic growth and the business cycle",
+            "codes": [
+              "3.1",
+              "3.3"
+            ],
+            "diagram": "A business cycle diagram, or an AD/AS diagram with AD or LRAS shifting right",
+            "ideas": [
+              "new GDP figures, a boom or a recession",
+              "a forecast for economic growth next year",
+              "consumer or business confidence rising or falling"
+            ]
+          },
+          {
+            "id": "unemployment",
+            "name": "Unemployment",
+            "codes": [
+              "3.3"
+            ],
+            "diagram": "An AD/AS diagram with a deflationary gap",
+            "ideas": [
+              "job losses at a large employer",
+              "the unemployment rate rising or falling",
+              "young people struggling to find work"
+            ]
+          },
+          {
+            "id": "inflation",
+            "name": "Inflation and the cost of living",
+            "codes": [
+              "3.3"
+            ],
+            "diagram": "An AD/AS diagram showing demand-pull or cost-push inflation",
+            "ideas": [
+              "the latest inflation figure",
+              "fuel, food or energy prices pushing up costs",
+              "wages that do not keep up with prices"
+            ]
+          },
+          {
+            "id": "inequality",
+            "name": "Inequality and poverty",
+            "codes": [
+              "3.4"
+            ],
+            "diagram": "A Lorenz curve",
+            "ideas": [
+              "a report on the gap between rich and poor",
+              "a tax or benefit change aimed at low-income families",
+              "a minimum wage or a basic income debate"
+            ]
+          },
+          {
+            "id": "monetary",
+            "name": "Monetary policy",
+            "codes": [
+              "3.5"
+            ],
+            "diagram": "An AD/AS diagram showing expansionary or contractionary monetary policy",
+            "ideas": [
+              "a central bank interest rate decision",
+              "mortgage and loan rates changing",
+              "a central bank warning about inflation"
+            ]
+          },
+          {
+            "id": "fiscal",
+            "name": "Fiscal policy",
+            "codes": [
+              "3.6"
+            ],
+            "diagram": "An AD/AS diagram showing expansionary or contractionary fiscal policy",
+            "ideas": [
+              "a government budget",
+              "spending on roads, schools or hospitals",
+              "a tax cut or tax rise for households or firms"
+            ]
+          },
+          {
+            "id": "supplyside",
+            "name": "Supply-side policies",
+            "codes": [
+              "3.7"
+            ],
+            "diagram": "An AD/AS diagram with LRAS shifting right",
+            "ideas": [
+              "money for training, education or research",
+              "cutting red tape or opening a market to competition",
+              "new infrastructure such as rail or broadband"
+            ]
+          }
+        ]
+      },
+      "4": {
+        "questions": [
+          {
+            "id": "u4a",
+            "prompt": "Which headline would you click first?",
+            "options": [
+              {
+                "text": "Two countries sign a free trade deal",
+                "topic": "integration",
+                "concept": "interdependence"
+              },
+              {
+                "text": "Government adds a tariff on imported steel",
+                "topic": "protection",
+                "concept": "intervention"
+              },
+              {
+                "text": "The currency falls to a five-year low",
+                "topic": "exchange",
+                "concept": "change"
+              }
+            ]
+          },
+          {
+            "id": "u4b",
+            "prompt": "Which question makes you most curious?",
+            "options": [
+              {
+                "text": "Why do some countries stay poor for generations?",
+                "topic": "barriers",
+                "concept": "equity"
+              },
+              {
+                "text": "Why do countries buy goods they could make at home?",
+                "topic": "protection",
+                "concept": "efficiency"
+              },
+              {
+                "text": "How can we tell if life in a country is getting better?",
+                "topic": "development",
+                "concept": "wellbeing"
+              }
+            ]
+          },
+          {
+            "id": "u4c",
+            "prompt": "Which problem would you most like to fix?",
+            "options": [
+              {
+                "text": "Forests cut down to grow crops for export",
+                "topic": "development",
+                "concept": "sustainability"
+              },
+              {
+                "text": "A country that imports far more than it exports",
+                "topic": "bop",
+                "concept": "interdependence"
+              },
+              {
+                "text": "Small farmers who cannot get a loan to grow",
+                "topic": "barriers",
+                "concept": "scarcity"
+              }
+            ]
+          },
+          {
+            "id": "u4d",
+            "prompt": "Which story would you follow?",
+            "options": [
+              {
+                "text": "A trading bloc lets workers move freely between members",
+                "topic": "integration",
+                "concept": "choice"
+              },
+              {
+                "text": "Exporters cheer as the currency weakens",
+                "topic": "exchange",
+                "concept": "choice"
+              },
+              {
+                "text": "The trade deficit is the biggest in ten years",
+                "topic": "bop",
+                "concept": "change"
+              }
+            ]
+          },
+          {
+            "id": "u4e",
+            "prompt": "Which would you rather explain to a friend?",
+            "options": [
+              {
+                "text": "Why a tariff makes imported goods dearer at home",
+                "topic": "protection",
+                "concept": "scarcity"
+              },
+              {
+                "text": "Why a stronger currency makes holidays abroad cheaper",
+                "topic": "exchange",
+                "concept": "wellbeing"
+              },
+              {
+                "text": "Why foreign aid or loans can help a country grow",
+                "topic": "barriers",
+                "concept": "intervention"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "id": "protection",
+            "name": "Trade and trade protection",
+            "codes": [
+              "4.1",
+              "4.2",
+              "4.3"
+            ],
+            "diagram": "A tariff, quota or subsidy diagram",
+            "ideas": [
+              "a new tariff or quota on imports",
+              "a subsidy that helps exporters",
+              "a trade dispute between two countries"
+            ]
+          },
+          {
+            "id": "integration",
+            "name": "Trading blocs and trade agreements",
+            "codes": [
+              "4.4"
+            ],
+            "diagram": "A tariff diagram that shows a tariff being removed",
+            "ideas": [
+              "a new free trade agreement",
+              "a country joining or leaving a trading bloc",
+              "a common market or a monetary union in the news"
+            ]
+          },
+          {
+            "id": "exchange",
+            "name": "Exchange rates",
+            "codes": [
+              "4.5"
+            ],
+            "diagram": "An exchange rate diagram: demand and supply of a currency",
+            "ideas": [
+              "a currency rising or falling",
+              "a central bank stepping in to support its currency",
+              "tourists or exporters affected by the exchange rate"
+            ]
+          },
+          {
+            "id": "bop",
+            "name": "Balance of payments",
+            "codes": [
+              "4.6"
+            ],
+            "diagram": "An exchange rate diagram, or the J-curve (HL)",
+            "ideas": [
+              "a trade deficit or surplus figure",
+              "a country borrowing to pay for its imports",
+              "exports rising after the currency fell"
+            ]
+          },
+          {
+            "id": "development",
+            "name": "Sustainable development and measuring it",
+            "codes": [
+              "4.7",
+              "4.8"
+            ],
+            "diagram": "No set diagram here. Link the story to a barrier or a strategy you can draw (4.9, 4.10)",
+            "ideas": [
+              "a country moving up or down the HDI",
+              "progress on a Sustainable Development Goal",
+              "growth that harms the environment"
+            ]
+          },
+          {
+            "id": "barriers",
+            "name": "Barriers to development and strategies",
+            "codes": [
+              "4.9",
+              "4.10"
+            ],
+            "diagram": "A poverty cycle diagram, or a diagram from another unit that fits the strategy",
+            "ideas": [
+              "foreign aid, loans or debt relief",
+              "microfinance or access to credit",
+              "a development project in a low-income country"
+            ]
+          }
+        ]
+      }
+    }
   },
   "check": [
     {
@@ -1199,5 +1641,5 @@
     ],
     "own": "Add your own sentence about a stakeholder who gains or loses from the tax."
   },
-  "teacherNotes": "IA Trailhead supports the start of the IA portfolio (guide: Internal assessment). Level 1 is personal: the interest questions have no right answers, and the strengths panel reads only this browser's Check it scores for Unit 2 games. The plan is saved in this browser only. Students must still choose their own articles: the articles in Levels 2 and 3 are practice examples, not articles to submit. Level 3 uses Unit 2 articles only, because this app covers Units 1 and 2. Ask students to compare the 1, 2 and 3 mark key concept links with the criterion D descriptors."
+  "teacherNotes": "IA Trailhead supports the start of the IA portfolio (guide: Internal assessment). Level 1 is personal: students choose Unit 2, 3 or 4 and answer five questions about it, with no right answers. The compass suggests a topic from that unit's syllabus list (for example 3.3 or 4.5), a diagram to plan for, article search ideas and key concepts. Students can explore all three units, one for each commentary, and the plan fills in from all three. The strengths panel shows only for Unit 2, because it reads this browser's Check it scores and this app has Unit 2 games only. The plan is saved in this browser only. Students must still choose their own articles: the articles in Levels 2 and 3 are practice examples, not articles to submit. Level 3 uses Unit 2 articles only, because this app covers Units 1 and 2. Ask students to compare the 1, 2 and 3 mark key concept links with the criterion D descriptors."
 }

@@ -39,28 +39,48 @@ export const MAX_AGE_MONTHS = 12;
 
 // ---------------- Level 1: the compass ----------------
 
-/** Each interest answer adds a point to one unit and one key concept. */
-export interface Lean { unit: Unit; concept: Concept }
+/**
+ * The student chooses a unit (2, 3 or 4) and answers five questions about it.
+ * Each answer adds a point to one topic in that unit and one key concept.
+ */
+export interface TopicLean { topic: string; concept: Concept }
 
-export interface CompassResult {
-  /** Units 2, 3 and 4, most points first (ties keep the order 2, 3, 4). */
-  units: { unit: Unit; points: number }[];
+export interface UnitCompassResult {
+  /** The unit's topics, most points first (ties keep the syllabus order given). */
+  topics: { topic: string; points: number }[];
   /** Key concepts with at least one point, most first (ties keep the guide's order). */
   concepts: { concept: Concept; points: number }[];
 }
 
-export function compass(leans: readonly Lean[]): CompassResult {
-  const u = new Map<Unit, number>(IA_UNITS.map((x) => [x, 0]));
+export function unitCompass(answers: readonly TopicLean[], topicOrder: readonly string[]): UnitCompassResult {
+  const t = new Map<string, number>(topicOrder.map((x) => [x, 0]));
   const c = new Map<Concept, number>(CONCEPTS.map((x) => [x, 0]));
-  for (const l of leans) {
-    if (u.has(l.unit)) u.set(l.unit, u.get(l.unit)! + 1);
-    c.set(l.concept, c.get(l.concept)! + 1);
+  for (const a of answers) {
+    if (t.has(a.topic)) t.set(a.topic, t.get(a.topic)! + 1);
+    if (c.has(a.concept)) c.set(a.concept, c.get(a.concept)! + 1);
   }
-  const units = IA_UNITS.map((unit) => ({ unit, points: u.get(unit)! })).sort((a, b) => b.points - a.points);
+  const topics = topicOrder.map((topic) => ({ topic, points: t.get(topic)! })).sort((a, b) => b.points - a.points);
   const concepts = CONCEPTS.map((concept) => ({ concept, points: c.get(concept)! }))
     .filter((x) => x.points > 0)
     .sort((a, b) => b.points - a.points);
-  return { units, concepts };
+  return { topics, concepts };
+}
+
+/** What the compass found for each unit the student has explored: top topic and key concepts, best first. */
+export type CompassMemory = Partial<Record<Unit, { topic: string; concepts: Concept[] }>>;
+
+/**
+ * A plan with one commentary per unit (2, 3, 4). Each unit takes its own best key concept that
+ * no earlier unit has taken. A unit not explored yet takes the first key concept still free.
+ */
+export function planFromCompass(mem: CompassMemory): PlanRow[] {
+  const used = new Set<Concept>();
+  return IA_UNITS.map((unit) => {
+    const prefs = [...(mem[unit]?.concepts ?? []), ...CONCEPTS];
+    const concept = prefs.find((c) => !used.has(c))!;
+    used.add(concept);
+    return { unit, concept };
+  });
 }
 
 /** One commentary in the student's plan. */

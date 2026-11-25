@@ -1,8 +1,9 @@
 /**
  * IA Trailhead: plan the IA portfolio as a hiking trail.
  *
- * Level 1 (Compass): six interest questions point a compass at a unit and key concepts, the
- *   strengths panel reads this browser's Check it scores, five trail rules, then a three-commentary plan.
+ * Level 1 (Compass): the student chooses Unit 2, 3 or 4 and answers five questions about it, which point
+ *   to a topic and key concepts in that unit (one commentary per unit, so they can do all three). The
+ *   Unit 2 strengths panel reads this browser's Check it scores. Then five trail rules and a three-commentary plan.
  * Level 2 (Article scout): keep or leave news articles; then say which unit, or why it must be left.
  * Level 3 (Lens and diagram): for Unit 2 articles, choose the diagram that fits and the full-mark key concept link.
  */
@@ -17,26 +18,28 @@ import { shuffled } from '../island-economy/model';
 import { drawRound, newSeed } from '../../shared/activity/seed';
 import { ACTIVITIES } from '../../app/registry';
 import {
-  checkScore, compass, Concept, CONCEPT_NAMES, CONCEPTS, IA_UNITS, LeaveReason, LEAVE_REASONS, leaveReason, LENS_DRAW, LENS_GOAL, lensWon,
-  PlanProblem, planProblems, PlanRow, RULES_GOAL, SCOUT_DRAW, SCOUT_GOAL, scoutWon, ScoutArticle, trailWon, Unit, UNIT_NAMES,
+  checkScore, CompassMemory, Concept, CONCEPT_NAMES, CONCEPTS, IA_UNITS, LeaveReason, LEAVE_REASONS, leaveReason, LENS_DRAW, LENS_GOAL, lensWon,
+  PlanProblem, planFromCompass, planProblems, PlanRow, RULES_GOAL, SCOUT_DRAW, SCOUT_GOAL, scoutWon, ScoutArticle, TopicLean, trailWon, Unit, unitCompass, UNIT_NAMES,
 } from './model';
 import './trail.css';
 import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Trailblazer', 'Article Scout', 'Lens Master'];
 const PLAN_KEY = 'ib-econ-1-2.ia-plan';
+const COMPASS_KEY = 'ib-econ-1-2.ia-compass';
 const PROGRESS_KEY = 'ib-econ-1-2.progress';
 
 interface Option { text: string; correct?: boolean; feedback: string }
-interface Interest { id: string; prompt: string; options: { text: string; unit: Unit; concept: Concept }[] }
+interface Question { id: string; prompt: string; options: (TopicLean & { text: string })[] }
+interface Topic { id: string; name: string; codes: string[]; diagram: string; ideas: string[] }
+interface UnitPack { questions: Question[]; topics: Topic[] }
 interface Theme { id: string; name: string; codes: string[]; idea: string }
 interface Rule { id: string; icon: string; text: string; options: Option[] }
 interface Article extends ScoutArticle { id: string; icon: string; headline: string; sourceName: string; summary: string; why: string }
 interface Lens { id: string; icon: string; headline: string; summary: string; concept: Concept; diagrams: Option[]; links: Option[] }
 interface TryContent {
   levels: LevelInfo[];
-  interests: Interest[];
-  ideas: Record<string, string[]>;
+  units: Record<string, UnitPack>;
   themes: Theme[];
   rules: Rule[];
   articles: Article[];
@@ -142,7 +145,7 @@ const NEEDLE: Record<number, number> = { 2: -45, 3: 0, 4: 45 };
 function CompassRose(props: { unit: Unit | null }) {
   const angle = props.unit ? NEEDLE[props.unit] : 0;
   return (
-    <svg class="ia-compass" viewBox="0 0 200 140" role="img" aria-label={props.unit ? `The compass points to ${UNIT_NAMES[props.unit]}.` : 'The compass is waiting for your answers.'}>
+    <svg class="ia-compass" viewBox="0 0 200 140" role="img" aria-label={props.unit ? `The compass points to ${UNIT_NAMES[props.unit]}.` : 'The compass is waiting for you to choose a unit.'}>
       <path d="M20 130 A80 80 0 0 1 180 130" fill="#eef3ff" stroke="#1d4ed8" stroke-width="3" />
       <text x="38" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#1d4ed8">Unit 2</text>
       <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#1d4ed8">Unit 3</text>
@@ -182,6 +185,33 @@ function readStrengths(themes: Theme[]): ThemeScore[] {
     .sort((a, b) => (b.score ?? -1) - (a.score ?? -1));
 }
 
+function loadCompass(): CompassMemory {
+  try {
+    const raw = localStorage.getItem(COMPASS_KEY);
+    const m = raw ? (JSON.parse(raw) as CompassMemory) : {};
+    const out: CompassMemory = {};
+    for (const u of IA_UNITS) {
+      const r = m?.[u];
+      if (r && typeof r.topic === 'string' && Array.isArray(r.concepts)) out[u] = { topic: r.topic, concepts: r.concepts.filter((c) => CONCEPTS.includes(c)) };
+    }
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+function saveCompass(m: CompassMemory) {
+  try {
+    localStorage.setItem(COMPASS_KEY, JSON.stringify(m));
+  } catch {
+    /* storage blocked: the compass stays on screen only */
+  }
+}
+
+function topicOf(data: TryContent, unit: Unit, id: string | undefined): Topic | undefined {
+  return data.units[String(unit)]?.topics.find((t) => t.id === id);
+}
+
 function loadPlan(): PlanRow[] {
   const empty: PlanRow[] = [0, 1, 2].map(() => ({ unit: null, concept: null }));
   try {
@@ -214,8 +244,11 @@ const PROBLEM_TEXT: Record<PlanProblem, string> = {
 };
 
 function CompassLevel({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
+  const [unit, setUnit] = useState<Unit | null>(null);
   const [qi, setQi] = useState(0);
-  const [answers, setAnswers] = useState<{ unit: Unit; concept: Concept }[]>([]);
+  const [answers, setAnswers] = useState<TopicLean[]>([]);
+  const [redo, setRedo] = useState(false);
+  const [mem, setMem] = useState<CompassMemory>(loadCompass);
   const [ri, setRi] = useState(-1);
   const [tried, setTried] = useState<number[]>([]);
   const [rulesRight, setRulesRight] = useState(0);
@@ -226,23 +259,44 @@ function CompassLevel({ data, seed, onComplete, onGoal, teacher, again }: LevelP
 
   const rules = useMemo(() => shuffled(data.rules, seed + 3).map((r, i) => ({ ...r, options: shuffled(r.options, seed + 7 + i) })), [data.rules, seed]);
   const strengths = useMemo(() => readStrengths(data.themes), [data.themes]);
-  const interestsDone = answers.length === data.interests.length;
-  const result = useMemo(() => compass(answers), [answers]);
-  const topUnit = interestsDone ? result.units[0].unit : null;
+  const pack = unit ? data.units[String(unit)] : null;
+  const questions = useMemo(
+    () => (pack ? pack.questions.map((q, i) => ({ ...q, options: shuffled(q.options, seed + 11 + i) })) : []),
+    [pack, seed],
+  );
+  const found = unit ? mem[unit] : undefined;
+  const asking = !!unit && (!found || redo);
+  const topic = unit && found ? topicOf(data, unit, found.topic) : undefined;
+  const explored = IA_UNITS.filter((u) => mem[u]);
   const rulesDone = ri >= rules.length;
   const rule = ri >= 0 && ri < rules.length ? rules[ri] : null;
   const ruleSolved = !!rule && tried.some((i) => rule.options[i].correct);
 
-  const answer = (o: { unit: Unit; concept: Concept }) => {
+  const chooseUnit = (u: Unit) => {
+    setUnit(u);
+    setQi(0);
+    setAnswers([]);
+    setRedo(false);
+    setAnnounce(mem[u] ? `${UNIT_NAMES[u]}. Your compass for this unit is below.` : `${UNIT_NAMES[u]}. Question 1 of 5.`);
+  };
+
+  const answer = (o: TopicLean) => {
+    if (!unit || !pack) return;
     const next = [...answers, o];
     setAnswers(next);
-    if (qi + 1 < data.interests.length) {
+    if (qi + 1 < questions.length) {
       setQi(qi + 1);
-      setAnnounce(`Question ${qi + 2} of ${data.interests.length}.`);
-    } else {
-      const top = compass(next).units[0].unit;
-      setAnnounce(`The compass points to ${UNIT_NAMES[top]}.`);
+      setAnnounce(`Question ${qi + 2} of ${questions.length}.`);
+      return;
     }
+    const r = unitCompass(next, pack.topics.map((t) => t.id));
+    const m = { ...mem, [unit]: { topic: r.topics[0].topic, concepts: r.concepts.map((c) => c.concept) } };
+    setMem(m);
+    saveCompass(m);
+    setRedo(false);
+    setAnswers([]);
+    setQi(0);
+    setAnnounce(`Your compass for ${UNIT_NAMES[unit]} points to ${topicOf(data, unit, r.topics[0].topic)?.name ?? 'a topic'}.`);
   };
 
   const pickRule = (i: number) => {
@@ -263,9 +317,7 @@ function CompassLevel({ data, seed, onComplete, onGoal, teacher, again }: LevelP
   };
 
   const fromCompass = () => {
-    const units = result.units.map((u) => u.unit);
-    const ranked = [...result.concepts.map((c) => c.concept), ...CONCEPTS.filter((c) => !result.concepts.some((x) => x.concept === c))];
-    const p = units.map((unit, i) => ({ unit, concept: ranked[i] })).sort((x, y) => x.unit - y.unit);
+    const p = planFromCompass(mem);
     setPlan(p);
     savePlan(p);
     setChecked(null);
@@ -306,73 +358,99 @@ function CompassLevel({ data, seed, onComplete, onGoal, teacher, again }: LevelP
     );
   }
 
-  const stage = !interestsDone ? 0 : ri < 0 ? 1 : !rulesDone ? 2 + ri : 2 + rules.length;
+  const stage = explored.length === 0 ? 0 : ri < 0 ? Math.min(explored.length, 2) : !rulesDone ? 2 + ri : 2 + rules.length;
   const stageTotal = 3 + rules.length;
 
   return (
     <div class="stack">
       <LiveRegion text={announce} />
       <p class="small muted" style={{ margin: 0 }}>
-        Level 1. {interestsDone ? `Trail rules right first time: ${rulesRight} (goal ${RULES_GOAL} of ${rules.length}).` : `Question ${qi + 1} of ${data.interests.length}. There are no wrong answers here.`}
+        Level 1. {ri >= 0 ? `Trail rules right first time: ${rulesRight} (goal ${RULES_GOAL} of ${rules.length}).` : `Units explored: ${explored.length} of 3. There are no wrong answers in the questions.`}
       </p>
       <Trail at={stage} total={stageTotal} label={`Trail progress: stop ${stage + 1} of ${stageTotal + 1}.`} />
       <div class="play">
         <section class="panel stack" aria-labelledby="ia-int-h">
-          <h3 id="ia-int-h"><StepNo n={2} /> Answer six quick questions</h3>
-          {!interestsDone ? (
+          <h3 id="ia-int-h"><StepNo n={2} /> Choose a unit and answer five questions</h3>
+          <p class="small" style={{ margin: 0 }}>You write one commentary for each of Units 2, 3 and 4. Explore each unit to find a topic for it.</p>
+          <div class="ia-units" role="group" aria-label="Choose a unit">
+            {IA_UNITS.map((u) => (
+              <button key={u} type="button" class={`ia-unit ${unit === u ? 'on' : ''}`} aria-pressed={unit === u} onClick={() => chooseUnit(u)}>
+                <strong>Unit {u}</strong>
+                <span class="small">{UNIT_NAMES[u].replace(/^Unit \d: /, '')}</span>
+                {mem[u] && <span class="ia-unit-done small"><MarkIcon /> Explored</span>}
+              </button>
+            ))}
+          </div>
+          {asking && questions[qi] && (
             <div class="stack">
-              <p style={{ margin: 0 }}><strong>{data.interests[qi].prompt}</strong></p>
-              <div class="ia-options" role="group" aria-label={data.interests[qi].prompt}>
-                {data.interests[qi].options.map((o, i) => (
-                  <button key={i} type="button" class="ia-option" onClick={() => answer(o)}>{o.text}</button>
+              <p class="small muted" style={{ margin: 0 }}>{UNIT_NAMES[unit!]}. Question {qi + 1} of {questions.length}.</p>
+              <p style={{ margin: 0 }}><strong>{questions[qi].prompt}</strong></p>
+              <div class="ia-options" role="group" aria-label={questions[qi].prompt}>
+                {questions[qi].options.map((o, i) => (
+                  <button key={`${qi}-${i}`} type="button" class="ia-option" onClick={() => answer(o)}>{o.text}</button>
                 ))}
               </div>
             </div>
-          ) : (
-            <p class="small muted" style={{ margin: 0 }}>Done. Your answers set the compass.</p>
           )}
-          <CompassRose unit={topUnit} />
+          <CompassRose unit={unit} />
         </section>
 
-        {interestsDone && (
+        {unit && found && !asking && (
           <section class="panel stack" aria-labelledby="ia-res-h">
-            <h3 id="ia-res-h"><StepNo n={3} /> Read your compass</h3>
+            <h3 id="ia-res-h"><StepNo n={3} /> Read your compass for Unit {unit}</h3>
             <p style={{ margin: 0 }}>
-              Your interests point most to <strong>{UNIT_NAMES[result.units[0].unit]}</strong>. Your top key concepts:{' '}
-              <strong>{result.concepts.slice(0, 3).map((c) => CONCEPT_NAMES[c.concept]).join(', ')}</strong>.
+              Your answers point to <strong>{topic?.name ?? 'a topic'}</strong>
+              {topic && <span class="small muted"> ({topic.codes.join(', ')})</span>}. Your top key concepts:{' '}
+              <strong>{found.concepts.slice(0, 3).map((c) => CONCEPT_NAMES[c]).join(', ') || 'none yet'}</strong>.
             </p>
-            <div>
-              <p style={{ margin: 0 }}><strong>Article ideas to search for ({UNIT_NAMES[result.units[0].unit]}):</strong></p>
-              <ul class="ia-ideas">
-                {(data.ideas[String(result.units[0].unit)] ?? []).map((t) => <li key={t}>{t}</li>)}
-              </ul>
-            </div>
-            <div class="ia-strengths">
-              <p style={{ margin: 0 }}><strong>Your strengths so far in Unit 2</strong> <span class="small muted">(from your Check it answers in this browser)</span></p>
-              {strengths.some((s) => s.score !== null) ? (
-                <ul class="ia-strength-list">
-                  {strengths.map((s) => (
-                    <li key={s.theme.id}>
-                      <span>{s.theme.name}</span>
-                      {s.score === null ? (
-                        <span class="small muted">Not enough answers yet</span>
-                      ) : (
-                        <span class="ia-meter" role="img" aria-label={`${s.score}% right`}>
-                          <span class="ia-meter-fill" style={{ width: `${s.score}%` }} />
-                          <span class="ia-meter-text">{s.score}%</span>
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p class="small" style={{ margin: 0 }}>Play the Check it questions in a few Unit 2 games, then come back. Your strongest topics will show here.</p>
+            {topic && (
+              <>
+                <div>
+                  <p style={{ margin: 0 }}><strong>Article ideas to search for:</strong></p>
+                  <ul class="ia-ideas">{topic.ideas.map((t) => <li key={t}>{t}</li>)}</ul>
+                </div>
+                <p style={{ margin: 0 }}><strong>Diagram to plan for:</strong> {topic.diagram}.</p>
+              </>
+            )}
+            {unit === 2 && (
+              <div class="ia-strengths">
+                <p style={{ margin: 0 }}><strong>Your strengths so far in Unit 2</strong> <span class="small muted">(from your Check it answers in this browser)</span></p>
+                {strengths.some((s) => s.score !== null) ? (
+                  <ul class="ia-strength-list">
+                    {strengths.map((s) => (
+                      <li key={s.theme.id}>
+                        <span>{s.theme.name}</span>
+                        {s.score === null ? (
+                          <span class="small muted">Not enough answers yet</span>
+                        ) : (
+                          <span class="ia-meter" role="img" aria-label={`${s.score}% right`}>
+                            <span class="ia-meter-fill" style={{ width: `${s.score}%` }} />
+                            <span class="ia-meter-text">{s.score}%</span>
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p class="small" style={{ margin: 0 }}>Play the Check it questions in a few Unit 2 games, then come back. Your strongest topics will show here.</p>
+                )}
+                {strengths[0]?.score !== null && strengths[0] && (
+                  <p class="small" style={{ margin: 0 }}><strong>Idea from your strengths:</strong> {strengths[0].theme.idea}</p>
+                )}
+              </div>
+            )}
+            <div class="row" style={{ flexWrap: 'wrap', gap: 8 }}>
+              <button type="button" class="btn btn-secondary" onClick={() => { setRedo(true); setQi(0); setAnswers([]); }}>Answer again</button>
+              {explored.length < 3 && (
+                <button type="button" class="btn btn-secondary" onClick={() => chooseUnit(IA_UNITS.find((u) => !mem[u])!)}>
+                  Explore Unit {IA_UNITS.find((u) => !mem[u])} next
+                </button>
               )}
-              {strengths[0]?.score !== null && strengths[0] && (
-                <p class="small" style={{ margin: 0 }}><strong>Idea for your Unit 2 commentary:</strong> {strengths[0].theme.idea}</p>
-              )}
+              {ri < 0 && <button class="btn" onClick={nextRule}>Go on to the trail rules</button>}
             </div>
-            {ri < 0 && <div><button class="btn" onClick={nextRule}>Go on to the trail rules</button></div>}
+            {ri < 0 && explored.length < 3 && (
+              <p class="small muted" style={{ margin: 0 }}>Tip: explore all three units before you make your plan. You can also come back to the others later.</p>
+            )}
           </section>
         )}
       </div>
@@ -411,6 +489,9 @@ function CompassLevel({ data, seed, onComplete, onGoal, teacher, again }: LevelP
                     {CONCEPTS.map((c) => <option key={c} value={c}>{CONCEPT_NAMES[c]}</option>)}
                   </select>
                 </label>
+                {row.unit && row.unit !== 1 && mem[row.unit] && (
+                  <p class="small ia-plan-hint">Topic idea from your compass: {topicOf(data, row.unit, mem[row.unit]!.topic)?.name}</p>
+                )}
               </fieldset>
             ))}
           </div>
