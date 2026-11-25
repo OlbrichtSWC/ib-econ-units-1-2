@@ -49,3 +49,12 @@
   .ia-learn { grid-template-columns: 1fr; }
   .ia-two { grid-template-columns: 1fr; }
 }
+
+/* Level 1: choose a unit */
+.ia-units { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.ia-unit { display: grid; gap: 2px; justify-items: start; text-align: left; padding: 10px 12px; border: 2px solid var(--navy); border-radius: 14px; background: var(--white); color: var(--ink); font: inherit; cursor: pointer; box-shadow: 0 3px 0 #b9c8f5; min-height: 64px; }
+.ia-unit:hover { background: #eef3ff; }
+.ia-unit.on { background: var(--navy); color: #fff; box-shadow: 0 3px 0 var(--red); }
+.ia-unit-done { display: inline-flex; gap: 4px; align-items: center; font-weight: 700; }
+.ia-plan-hint { grid-column: 1 / -1; margin: 0; color: var(--ink-soft, #3d4555); }
+@media (max-width: 560px) { .ia-units { grid-template-columns: 1fr; } }

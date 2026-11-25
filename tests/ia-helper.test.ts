@@ -1,15 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import {
-  checkScore, compass, conceptMarksAtRisk, CONCEPTS, IA_UNITS, LEAVE_REASONS, leaveReason, LENS_DRAW, LENS_GOAL, lensWon, MAX_AGE_MONTHS,
-  planProblems, RULES_GOAL, SCOUT_DRAW, SCOUT_GOAL, scoutWon, trailWon,
+  checkScore, conceptMarksAtRisk, CONCEPTS, IA_UNITS, LEAVE_REASONS, leaveReason, LENS_DRAW, LENS_GOAL, lensWon, MAX_AGE_MONTHS,
+  planFromCompass, planProblems, RULES_GOAL, SCOUT_DRAW, SCOUT_GOAL, scoutWon, trailWon, unitCompass,
 } from '../src/activities/ia-helper/model';
 import type { Concept, ScoutArticle, Unit } from '../src/activities/ia-helper/model';
 import content from '../public/content/activities/ia-helper.json';
 
 type Opt = { text: string; correct?: boolean; feedback: string };
 const t = content.try as unknown as {
-  interests: { id: string; options: { unit: number; concept: string }[] }[];
-  ideas: Record<string, string[]>;
+  units: Record<string, {
+    questions: { id: string; options: { topic: string; concept: string }[] }[];
+    topics: { id: string; codes: string[]; diagram: string; ideas: string[] }[];
+  }>;
   themes: { id: string; codes: string[] }[];
   rules: { id: string; options: Opt[] }[];
   articles: (ScoutArticle & { id: string; why: string })[];
@@ -43,11 +45,19 @@ describe('IA Trailhead: the rules from the guide', () => {
     expect(IA_UNITS).toEqual([2, 3, 4]);
     expect(CONCEPTS).toHaveLength(9);
   });
-  it('the compass ranks units and concepts by the answers given', () => {
-    const r = compass([{ unit: 3, concept: 'change' }, { unit: 3, concept: 'equity' }, { unit: 2, concept: 'change' }]);
-    expect(r.units.map((u) => u.unit)).toEqual([3, 2, 4]);
+  it('the unit compass ranks topics and key concepts by the answers given', () => {
+    const r = unitCompass([{ topic: 'fiscal', concept: 'change' }, { topic: 'fiscal', concept: 'equity' }, { topic: 'growth', concept: 'change' }], ['growth', 'inflation', 'fiscal']);
+    expect(r.topics.map((x) => x.topic)).toEqual(['fiscal', 'growth', 'inflation']);
     expect(r.concepts[0]).toEqual({ concept: 'change', points: 2 });
-    expect(compass([]).units.map((u) => u.unit)).toEqual([2, 3, 4]);
+    expect(unitCompass([], ['a', 'b']).topics.map((x) => x.topic)).toEqual(['a', 'b']);
+  });
+  it('a plan from the compass has one commentary per unit and three different key concepts', () => {
+    const p = planFromCompass({ 2: { topic: 'markets', concepts: ['equity', 'choice'] }, 3: { topic: 'fiscal', concepts: ['equity', 'change'] } });
+    expect(p).toEqual([{ unit: 2, concept: 'equity' }, { unit: 3, concept: 'change' }, { unit: 4, concept: 'scarcity' }]);
+    expect(planProblems(p)).toEqual([]);
+    expect(planProblems(planFromCompass({}))).toEqual([]);
+    const same = planFromCompass({ 2: { topic: 'a', concepts: ['equity'] }, 3: { topic: 'b', concepts: ['equity'] }, 4: { topic: 'c', concepts: ['equity'] } });
+    expect(planProblems(same)).toEqual([]);
   });
   it('strengths need at least three answers', () => {
     expect(checkScore(2, 2)).toBeNull();
@@ -70,14 +80,31 @@ describe('IA Trailhead: the rules from the guide', () => {
 });
 
 describe('IA Trailhead: content', () => {
-  it('each interest question has one option for each of Units 2, 3 and 4, with a real key concept', () => {
-    expect(t.interests).toHaveLength(6);
-    for (const q of t.interests) {
-      expect(q.options.map((o) => o.unit).sort()).toEqual([2, 3, 4]);
-      for (const o of q.options) expect(CONCEPTS).toContain(o.concept);
+  it('Units 2, 3 and 4 each have five questions with three options, a real topic and a real key concept', () => {
+    expect(Object.keys(t.units).sort()).toEqual(['2', '3', '4']);
+    for (const u of IA_UNITS) {
+      const unit = t.units[String(u)];
+      const ids = unit.topics.map((x) => x.id);
+      expect(unit.questions).toHaveLength(5);
+      for (const q of unit.questions) {
+        expect(q.options).toHaveLength(3);
+        for (const o of q.options) {
+          expect(ids).toContain(o.topic);
+          expect(CONCEPTS).toContain(o.concept);
+        }
+      }
+      // Every topic can win, and every topic names its syllabus codes, a diagram and article ideas.
+      for (const topic of unit.topics) {
+        expect(unit.questions.some((q) => q.options.some((o) => o.topic === topic.id))).toBe(true);
+        expect(topic.codes.every((c) => c.startsWith(`${u}.`))).toBe(true);
+        expect(topic.diagram.length).toBeGreaterThan(5);
+        expect(topic.ideas.length).toBeGreaterThanOrEqual(3);
+      }
     }
-    for (const u of IA_UNITS) expect(t.ideas[String(u)].length).toBeGreaterThanOrEqual(4);
+    // Unit 2 topics match the strengths themes, so the strengths panel and the compass agree.
+    expect(t.units['2'].topics.map((x) => x.id)).toEqual(t.themes.map((x) => x.id));
   });
+
   it('strength themes cover every Unit 2 sub-topic once', () => {
     const codes = t.themes.flatMap((th) => th.codes).sort();
     expect(codes).toEqual(['2.1', '2.10', '2.11', '2.12', '2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '2.9']);
