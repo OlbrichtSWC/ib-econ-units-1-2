@@ -13,6 +13,7 @@ import { ExplainBox } from './ExplainBox';
 import type { Evidence } from './mastery';
 import { ScaleLevel, SelfRate } from './SelfRate';
 import type { ActivityContent, ActivityMeta, ActivityModule } from './types';
+import { EARN_LEVEL_EVENT } from './levelEvents';
 
 export type StepName = 'learn' | 'try' | 'check' | 'rate';
 const STEPS: { key: StepName; label: string; flag: number }[] = [
@@ -55,6 +56,17 @@ export function ActivityShell(props: ShellProps) {
       })
       .catch((e) => setError(String(e.message ?? e)));
   }, [meta.id]);
+
+  // Streak fast track: the game's level picker asks for a level stamp after 5 in a row.
+  const goal = props.onGoal;
+  useEffect(() => {
+    const earn = (e: Event) => {
+      const n = (e as CustomEvent<{ level: number }>).detail?.level;
+      if (n === 1 || n === 2 || n === 3) goal(n);
+    };
+    window.addEventListener(EARN_LEVEL_EVENT, earn);
+    return () => window.removeEventListener(EARN_LEVEL_EVENT, earn);
+  }, [goal]);
 
   const steps = props.progress?.steps ?? 0;
   const evidence: Evidence | null = props.progress && props.progress.total > 0 ? props.progress : null;

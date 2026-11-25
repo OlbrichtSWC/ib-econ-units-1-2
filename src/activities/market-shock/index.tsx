@@ -12,6 +12,7 @@ import { CrossIcon, HlBadge, LiveRegion, MarkIcon, StepNo } from '../../shared/d
 import { Arrow, Curve, Diagram, Dot, Guide, Handle, Label, Tone } from '../../shared/diagrams/Diagram';
 import type { TryProps } from '../../shared/activity/types';
 import { celebrate } from '../../shared/fun/celebrate';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import { ClassMode } from './ClassMode';
 import { DoubleShock } from './DoubleShock';
@@ -184,6 +185,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
       }
       return next;
     });
+    if (addCorrect) reportAnswer(wasRight);
     if (wasRight && addCorrect) setCorrect((n) => n + 1);
   };
 
@@ -220,6 +222,7 @@ function Cards({ content, onComplete, onGoal, level }: TryProps & { level: numbe
       finishCard(right, true);
     } else {
       setPhase('drag');
+      reportAnswer(right);
       if (right) setCorrect((n) => n + 1);
     }
     setAnnounce(right ? 'Your prediction was right.' : trap ? 'Not quite. Read the explanation, then carry on.' : 'Not quite. Read the hint, then drag the curve.');

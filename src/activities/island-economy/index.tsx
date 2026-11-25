@@ -21,6 +21,7 @@ import {
 } from './model';
 import './island.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Beachcomber', 'Village Builder', 'System Detective'];
 
@@ -122,6 +123,7 @@ function Beach({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (f === item.factor) {
       setSolved(true);
       setWrongPick(null);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setPiles({ ...piles, [f]: [...piles[f], item.icon] });
       setAnnounce(`Right: ${data.factorNames[f]}.`);
@@ -331,6 +333,7 @@ function Villages({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
       setSolved(true);
       setWrong(null);
       setBuilt((b) => b + 1);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce('Right. A new building goes up.');
     } else {
@@ -453,6 +456,7 @@ function Detective({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
     if (s === c.answer) {
       setSolved(true);
       setWrong(null);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setShown(c.clues.length);
       setAnnounce(`Case solved: ${data.systemNames[s]}.`);

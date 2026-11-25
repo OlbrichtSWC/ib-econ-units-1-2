@@ -5,9 +5,10 @@ import { loadJson } from '../shared/content/loader';
 import { CelebrationLayer } from '../shared/fun/CelebrationLayer';
 import { stampsFor } from '../shared/fun/stampDefs';
 import { StampCeremony } from '../shared/fun/StampCeremony';
+import { goToLevel, nextAfterStamp } from '../shared/activity/levelEvents';
 import { LocalProgressStore } from '../shared/progress/localStore';
 import { autoStamps, levelFlag, newStampFlags, totalStamps } from '../shared/progress/stamps';
-import { emptyActivity, Progress, STEP, today } from '../shared/progress/types';
+import { emptyActivity, Progress, STAMP, STEP, today } from '../shared/progress/types';
 import { GlossaryPage } from './GlossaryPage';
 import { Home } from './Home';
 import { ProgressPage } from './ProgressPage';
@@ -41,6 +42,18 @@ function setSession(key: string, v: string | null) {
   } catch {
     /* ignore */
   }
+}
+
+/**
+ * The "where next" button on a stamp pop-up. A Level 1 or 2 stamp offers the next level
+ * (it just opened); a Level 3 stamp offers Check it. Other stamps offer nothing extra.
+ * Only on the last pop-up of a queue, so a second new stamp is not skipped.
+ */
+function nextStep(activityId: string, flag: number, queued: number): { label: string; go: () => void } | undefined {
+  const next = nextAfterStamp(flag, queued, STAMP);
+  if (!next) return undefined;
+  if ('level' in next) return { label: `Go to Level ${next.level}`, go: () => goToLevel(next.level) };
+  return { label: 'Next: Check it', go: () => (location.hash = `#/a/${activityId}/check`) };
 }
 
 export function App() {
@@ -244,6 +257,7 @@ export function App() {
             before={t.before}
             queue={t.of > 1 ? { at: t.at, of: t.of } : undefined}
             bookHref="#/stamps"
+            next={nextStep(meta.id, t.flag, toasts.length)}
             onClose={() => setToasts((all) => all.slice(1))}
           />
         );

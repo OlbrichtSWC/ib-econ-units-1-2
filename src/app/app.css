@@ -324,3 +324,11 @@ details.coming-later > summary { cursor: pointer; }
 
 /* Which market the game's diagram shows, said in words next to the scenario. */
 .market-chip { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0; padding: 4px 12px; border: 2px solid var(--navy); border-radius: 999px; background: var(--white); color: var(--navy); font-size: 0.95rem; }
+
+/* Streak fast track (LevelPicker) */
+.streak-meter { margin: 2px 0 0; color: var(--ink); }
+.streak-banner {
+  display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center;
+  border: 2px solid var(--red); border-radius: var(--radius-sm); background: var(--red-50); padding: 10px 12px;
+}
+.streak-banner > span:nth-child(2) { flex: 1 1 240px; }

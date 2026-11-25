@@ -23,6 +23,7 @@ import {
 } from './model';
 import './scale.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Equity Spotter', 'Fair Judge', 'Flow Detective'];
 
@@ -191,6 +192,7 @@ function Sorter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
     if (k === c.kind) {
       setSolved(true);
       setWrong(null);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setPans({ ...pans, [k]: [...pans[k], { key: c.id, icon: c.icon }] });
       setAnnounce(`Right: ${data.kindNames[k]}.`);
@@ -321,6 +323,7 @@ function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (reasonSolved) return;
     setReason(i);
     const ok = !!r.reasons[i].correct;
+    reportAnswer(ok && !missed);
     if (ok && !missed) setFirstRight((n) => n + 1);
     if (!ok) setMissed(true);
     setAnnounce(r.reasons[i].feedback);
@@ -523,6 +526,7 @@ function FollowMoney({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
   const pickCause = (k: CauseId) => {
     if (hSolved) return;
     if (k === h.cause) {
+      reportAnswer(!hMissed);
       if (!hMissed) score();
       setHSolved(true);
       setHWrong(null);
@@ -555,6 +559,7 @@ function FollowMoney({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
       return;
     }
     if (numberRight(v, answer)) {
+      reportAnswer(!cMissed);
       if (!cMissed) score();
       setCSolved(true);
       setCFb('');
@@ -586,6 +591,7 @@ function FollowMoney({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
     setRPick(i);
     const ok = !!resp.options[i].correct;
     if (ok) {
+      reportAnswer(!rMissed);
       if (!rMissed) score();
       setMatched([...matched, { key: resp.id, icon: resp.icon }]);
     } else setRMissed(true);

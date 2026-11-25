@@ -21,6 +21,7 @@ import {
 } from './model';
 import './doctor.css';
 import { newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Check-up Doctor', 'Ward Doctor', 'Triage Chief'];
 
@@ -172,6 +173,7 @@ function Clinic({ seed, level, patients, onComplete, onGoal, teacher, again }: L
     const pt = mistakePoint(huntMisses, cureMisses);
     const nowCured = [...cured, mistake.letter];
     setCured(nowCured);
+    reportAnswer(pt === 1);
     setPoints((n) => n + pt);
     setPatientPoints((n) => n + pt);
     if (nowCured.length === p.mistakes.length && patientPoints + pt === p.mistakes.length) setFirstTry((n) => n + 1);
@@ -327,6 +329,7 @@ function Triage({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
     if (ok) {
       setSolved(true);
       setWrongMsg('');
+      reportAnswer(!missed);
       if (!missed) setFirstTry((n) => n + 1);
       setAnnounce('Right diagnosis.');
     } else {
