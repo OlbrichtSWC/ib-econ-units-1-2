@@ -23,7 +23,8 @@
     "fair-efficient": true,
     "diagram-doctor": true,
     "command-terms": true,
-    "build-break-judge": true
+    "build-break-judge": true,
+    "ia-helper": true
   },
   "scale": {
     "name": "CBE High School Proficiency Scale",

@@ -1443,6 +1443,16 @@
       "term": "Assessment objective",
       "meaning": "One of the four kinds of skill the IB marks: AO1 knowledge and understanding, AO2 application and analysis, AO3 synthesis and evaluation, AO4 use of skills such as diagrams and calculations.",
       "example": "\"Explain\" is an AO2 command term."
+    },
+    {
+      "term": "Internal assessment",
+      "meaning": "The IA: a portfolio of three commentaries on news articles, marked by your teacher and checked by the IB. Each commentary is on a different unit (2, 3 and 4) and is at most 800 words.",
+      "example": "My IA commentary on a sugar tax uses Unit 2 theory."
+    },
+    {
+      "term": "Key concept",
+      "meaning": "One of the nine big ideas of the course: scarcity, choice, efficiency, equity, economic well-being, sustainability, change, interdependence and intervention. Each IA commentary uses a different one as its lens.",
+      "example": "I used sustainability as the key concept for my article on a plastic bag tax."
     }
   ]
 }

@@ -1,0 +1,51 @@
+/* IA Trailhead: a hiking trail in school colours. */
+.ia-trail { display: flex; align-items: center; gap: 8px; }
+.ia-trail-end { font-size: 1.5rem; line-height: 1; }
+.ia-trail-path { position: relative; flex: 1; height: 14px; border-radius: 999px; background: repeating-linear-gradient(90deg, #dbe4fb 0 12px, #fff 12px 18px); border: 2px solid var(--navy); }
+.ia-trail-done { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: var(--navy); transition: width 0.5s ease; }
+.ia-hiker { position: absolute; top: 50%; transform: translate(-50%, -60%); font-size: 1.4rem; transition: left 0.5s ease; }
+
+.ia-options { display: grid; gap: 8px; }
+.ia-two { grid-template-columns: 1fr 1fr; }
+.ia-option { display: flex; justify-content: space-between; align-items: center; gap: 8px; text-align: left; padding: 10px 14px; border: 2px solid var(--navy); border-radius: 14px; background: var(--white); color: var(--ink); font: inherit; cursor: pointer; box-shadow: 0 3px 0 #b9c8f5; }
+.ia-option:hover:not(:disabled) { background: #eef3ff; }
+.ia-option:disabled { cursor: default; }
+.ia-option-wrong { border-color: var(--line); border-style: dashed; box-shadow: none; color: var(--ink-soft, #3d4555); text-decoration: line-through; }
+.ia-option-right { border-color: var(--ok, #1e6b3a); background: var(--ok-50, #e8f5ec); box-shadow: 0 3px 0 #9fd0ae; }
+
+.ia-compass { width: 100%; max-width: 280px; display: block; margin: 0 auto; }
+.ia-needle { transform-origin: 100px 126px; transform-box: view-box; transition: transform 1.2s cubic-bezier(.3, 1.6, .5, 1); }
+@media (prefers-reduced-motion: reduce) {
+  .ia-needle, .ia-hiker, .ia-trail-done { transition: none; }
+}
+
+.ia-ideas { margin: 4px 0 0; padding-left: 1.2em; }
+.ia-strengths { display: grid; gap: 6px; padding: 10px 12px; border: 2px dashed var(--navy); border-radius: 14px; background: #f7f9ff; }
+.ia-strength-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ia-strength-list li { display: grid; grid-template-columns: 1fr minmax(110px, 40%); gap: 8px; align-items: center; }
+.ia-meter { position: relative; height: 20px; border-radius: 999px; background: #dbe4fb; overflow: hidden; }
+.ia-meter-fill { position: absolute; inset: 0 auto 0 0; background: var(--navy); }
+.ia-meter-text { position: absolute; right: 8px; top: 0; line-height: 20px; font-size: 0.8rem; font-weight: 700; color: var(--ink); background: #fff; padding: 0 4px; border-radius: 6px; margin-top: 1px; height: 18px; line-height: 18px; }
+
+.ia-plan { display: grid; gap: 10px; }
+.ia-plan-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; border: 2px solid var(--navy); border-radius: 14px; padding: 8px 12px 12px; margin: 0; }
+.ia-plan-row legend { font-family: var(--font-head); font-weight: 700; color: var(--navy); padding: 0 6px; }
+.ia-plan-row label { display: grid; gap: 4px; }
+.ia-plan-row select { font: inherit; padding: 8px; border: 2px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); }
+.ia-plan-summary { margin: 0; padding-left: 1.4em; }
+
+.ia-clip { display: grid; gap: 6px; padding: 12px 14px; background: #fffdf6; border: 2px solid #c9b88a; border-radius: 6px; box-shadow: 4px 4px 0 #e6dcc0; transform: rotate(-0.4deg); }
+.ia-clip-meta { margin: 0; color: var(--ink-soft, #3d4555); }
+.ia-clip-head { margin: 0; font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--ink); }
+.ia-pack { display: grid; gap: 4px; padding: 8px 12px; border-radius: 12px; background: #f7f9ff; border: 2px dashed var(--navy); }
+
+.ia-learn { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 12px; border-radius: 14px; background: repeating-linear-gradient(90deg, transparent 0 14px, #dbe4fb 14px 20px) center 48px / 100% 4px no-repeat, #fff; }
+.ia-learn-stop { display: grid; justify-items: center; gap: 4px; text-align: center; padding: 10px; border: 2px solid var(--navy); border-radius: 14px; background: #fff; }
+.ia-learn-icon { font-size: 2rem; }
+.ia-learn-flag { padding: 2px 10px; border-radius: 999px; background: var(--red); color: #fff; font-weight: 700; font-size: 0.85rem; }
+
+@media (max-width: 560px) {
+  .ia-plan-row { grid-template-columns: 1fr; }
+  .ia-learn { grid-template-columns: 1fr; }
+  .ia-two { grid-template-columns: 1fr; }
+}
