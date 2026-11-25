@@ -10,6 +10,7 @@ import { useMemo, useState } from 'preact/hooks';
 import { Md } from '../../shared/content/markdown';
 import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/components';
 import type { TryProps } from '../../shared/activity/types';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import type { LevelInfo } from '../../shared/activity/LevelPicker';
 import { celebrate } from '../../shared/fun/celebrate';
@@ -296,6 +297,7 @@ function Spotter<T extends string>(props: {
     if (t === it.answer) {
       setSolved(true);
       setWrong(null);
+      reportAnswer(!missed);
       if (!missed) setRight((n) => n + 1);
     } else {
       setMissed(true);
@@ -557,6 +559,7 @@ function Forecast({ data, onComplete, onGoal, teacher, again }: LevelProps) {
     setPickd(c);
     if (c === truth) {
       setSolved(true);
+      reportAnswer(!missed);
       if (!missed) setRight((n) => n + 1);
       setLevel((l) => Math.max(1, Math.min(9, l + (truth === 'rise' ? 2 : truth === 'fall' ? -2 : 0))));
       setAnnounce(`Right. ${data.changeNames[truth]}.`);

@@ -22,6 +22,8 @@ export function StampCeremony(props: {
   /** "2 of 3" when several stamps arrive together. */
   queue?: { at: number; of: number };
   bookHref: string;
+  /** Where to go next: the next game level, or Check it after Level 3. */
+  next?: { label: string; go: () => void };
   onClose: () => void;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -87,7 +89,12 @@ export function StampCeremony(props: {
           )}
         </div>
         <div class="row" style={{ justifyContent: 'center' }}>
-          <button class="btn" autofocus onClick={() => ref.current?.close()}>
+          {!more && props.next && (
+            <button class="btn ceremony-next" autofocus onClick={() => { ref.current?.close(); props.next!.go(); }}>
+              {props.next.label} <span aria-hidden="true">→</span>
+            </button>
+          )}
+          <button class={props.next && !more ? 'btn btn-secondary' : 'btn'} autofocus={!props.next || more} onClick={() => ref.current?.close()}>
             {more ? 'Next stamp' : 'Keep playing'}
           </button>
           <a class="btn btn-secondary" href={props.bookHref} onClick={() => ref.current?.close()}>

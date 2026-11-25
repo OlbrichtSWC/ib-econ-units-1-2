@@ -28,6 +28,7 @@ import {
 } from './model';
 import './street.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Goods Sorter', 'Free Rider Detective', 'Town Planner'];
 
@@ -269,6 +270,7 @@ function Sorter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
     if (k === g.kind) {
       setWrong(null);
       setSolved(true);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setPlaced([...placed, g]);
       setAnnounce(`Right: ${data.kindNames[k]}. ${g.why}`);
@@ -407,6 +409,7 @@ function Fund({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     setPick(i);
     if (options[i].correct) {
       setSolved(true);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce(options[i].feedback);
     } else {
@@ -584,6 +587,7 @@ function Council({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
   const pickWay = (w: Way) => {
     if (phase !== 'way') return;
     if (w === c.way) {
+      reportAnswer(!wayMissed);
       if (!wayMissed) setPoints((p) => p + 1);
       setWrongWay(null);
       setPhase('calc');
@@ -603,6 +607,7 @@ function Council({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
       return;
     }
     if (numberRight(v, tax)) {
+      reportAnswer(!calcMissed);
       if (!calcMissed) setPoints((p) => p + 1);
       setCalcFb(null);
       setPhase('judge');
@@ -620,6 +625,7 @@ function Council({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     if (phase !== 'judge') return;
     setJPick(i);
     if (judgeOpts[i].correct) {
+      reportAnswer(!jMissed);
       if (!jMissed) setPoints((p) => p + 1);
       setPhase('solved');
       setSolvedCount((n) => n + 1);

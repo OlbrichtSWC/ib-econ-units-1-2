@@ -25,6 +25,7 @@ import {
 } from './model';
 import './market.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Stall Sorter', 'Income Explorer', 'Elasticity Analyst'];
 
@@ -150,6 +151,7 @@ function Stall({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (k === g.ped) {
       setSolved(true);
       setWrongCrate(null);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setCrates({ ...crates, [k]: [...crates[k], g] });
       setAnnounce(`Right: ${g.name} goes in the ${PED_NAME[k].toLowerCase()} crate.`);
@@ -413,6 +415,7 @@ function IncomeLab({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
     const p = picks[g.id];
     if (p.solved) return;
     if (k === g.kind) {
+      reportAnswer(!p.missed);
       if (!p.missed) setFirstRight((n) => n + 1);
       setPicks({ ...picks, [g.id]: { ...p, solved: true, wrong: null } });
       setAnnounce(`Right: ${g.name} is ${data.yedNames[k].toLowerCase()}.`);
@@ -658,6 +661,7 @@ function CalcCorner({ data, seed, onComplete, onGoal, teacher, again }: LevelPro
     setClsWrong(o.correct ? null : i);
     if (o.correct) {
       setClsOk(true);
+      reportAnswer(!numMissed && !clsMissed);
       if (!numMissed && !clsMissed) setFirstRight((n) => n + 1);
     } else {
       setClsMissed(true);

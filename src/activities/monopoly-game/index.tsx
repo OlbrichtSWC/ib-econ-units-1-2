@@ -28,6 +28,7 @@ import {
 } from './model';
 import './street.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Market Mapper', 'Profit Finder', 'Game Theorist'];
 
@@ -335,6 +336,7 @@ function Mapper({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) 
 
   const finishItem = () => {
     setPhase('solved');
+    reportAnswer(!missed);
     if (!missed) setFirstRight((n) => n + 1);
     setPlaced([...placed, { id: it.id, icon: it.icon, s: it.structure }]);
   };
@@ -671,6 +673,7 @@ function ProfitFinder({ data, seed, onComplete, onGoal, teacher, again }: LevelP
   const nextRow = rows(r).find((x) => x.q === q + 1);
 
   const point = () => {
+    reportAnswer(!missed);
     if (!missed) setPoints((p) => p + 1);
     setMissed(false);
   };
@@ -973,6 +976,7 @@ function PriceWar({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
   );
 
   const point = () => {
+    reportAnswer(!missed);
     if (!missed) setPoints((p) => p + 1);
     setMissed(false);
   };

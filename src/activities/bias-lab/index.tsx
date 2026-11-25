@@ -25,6 +25,7 @@ import {
 } from './model';
 import './mind.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Test Subject', 'Bias Hunter', 'Nudge Designer'];
 
@@ -211,6 +212,7 @@ function Subject({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     if (e === x.effect) {
       setSolved(true);
       setWrong(null);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce(`Right: ${data.effectNames[e]}.`);
     } else {
@@ -383,6 +385,7 @@ function Hunt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (e === s.effect) {
       setSolved(true);
       setWrong(null);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setCaught([...caught, e]);
       setAnnounce(`Caught it: ${data.effectNames[e]}. ${s.why}`);
@@ -519,6 +522,7 @@ function Designer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     if (t === g.tool) {
       setToolOk(true);
       setToolWrong(null);
+      reportAnswer(!toolMissed);
       if (!toolMissed) setPoints((p) => p + 1);
       setAnnounce(`Right: ${data.toolNames[t]}. Your design is built: ${g.prototype.join('. ')}. Now say why it works.`);
     } else {
@@ -532,6 +536,7 @@ function Designer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     if (reasonOk) return;
     setReasonPick(i);
     const ok = !!g.reasons[i].correct;
+    reportAnswer(ok && !reasonMissed);
     if (ok && !reasonMissed) setPoints((p) => p + 1);
     if (!ok) setReasonMissed(true);
     setAnnounce(g.reasons[i].feedback);
@@ -555,6 +560,7 @@ function Designer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     if (o === f.objective) {
       setObjOk(true);
       setObjWrong(null);
+      reportAnswer(!objMissed);
       if (!objMissed) setPoints((p) => p + 1);
       setAnnounce(`Right: ${data.objectiveNames[o]}. ${f.why}`);
     } else {

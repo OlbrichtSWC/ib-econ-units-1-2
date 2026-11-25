@@ -29,6 +29,7 @@ import {
 } from './model';
 import './town.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Spillover Spotter', 'Town Fixer', 'Welfare Judge'];
 
@@ -396,6 +397,7 @@ function Spotter({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     if (g === gapFor(s.ext)) {
       setWrongGap(null);
       setPhase('solved');
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       if (s.spot) setSpotted(new Set([...spotted, s.spot]));
       setAnnounce(`Right: ${data.gapNames[g]}.`);
@@ -689,6 +691,7 @@ function Fixer({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       celebrate({ size: 'small' });
       setSolved(true);
       setVerdict(null);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setFixed(new Set([...fixed, m.spot]));
       setAnnounce(`Fixed. Output is at Q*, ${fmt(optimum(m).q)} ${m.unit}.`);
@@ -870,6 +873,7 @@ function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       return;
     }
     if (numberRight(v, answer)) {
+      reportAnswer(!calcMissed);
       if (!calcMissed) setPoints((p) => p + 1);
       setCalcFb(null);
       setPhase('strength');
@@ -887,6 +891,7 @@ function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (phase !== 'strength') return;
     setSPick(i);
     if (strengths[i].correct) {
+      reportAnswer(!sMissed);
       if (!sMissed) setPoints((p) => p + 1);
       setPhase('limit');
       setAnnounce(`${strengths[i].feedback} Now pick a limitation.`);
@@ -900,6 +905,7 @@ function Judge({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (phase !== 'limit') return;
     setLPick(i);
     if (limits[i].correct) {
+      reportAnswer(!lMissed);
       if (!lMissed) setPoints((p) => p + 1);
       setPhase('solved');
       setJudged(new Set([...judged, r.spot]));

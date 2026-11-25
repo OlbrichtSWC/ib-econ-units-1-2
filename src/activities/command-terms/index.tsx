@@ -18,6 +18,7 @@ import { Ao, aoOf, AOS, BOX_GOAL, boxMax, boxWon, PLAN_GOAL, planWon, RUNWAY_GOA
 } from './model';
 import './tower.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Air Traffic Controller', 'Flight Planner', 'Crash Investigator'];
 
@@ -129,6 +130,7 @@ function Runways({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     if (r === ao) {
       setLanded(true);
       setWrong(null);
+      reportAnswer(!missed);
       if (!missed) setFirstTry((n) => n + 1);
       setParked({ ...parked, [r]: [...parked[r], pl.term] });
       setAnnounce(`Landed on ${r}, ${data.runways[r].name}.`);
@@ -225,6 +227,7 @@ function Plans({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     setTried([...tried, i]);
     if (options[i].correct) {
       setSolved(true);
+      reportAnswer(!missed);
       if (!missed) setFirstTry((n) => n + 1);
       setAnnounce(`Cleared for take-off. ${options[i].feedback}`);
     } else {
@@ -319,6 +322,7 @@ function BlackBox({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     setVerdictTried(tries);
     if (v === b.verdict) {
       setVerdictOk(true);
+      reportAnswer(tries.length === 1);
       if (tries.length === 1) setPoints((n) => n + 1);
       setAnnounce(`Right: ${data.verdicts[v]}. ${b.why}`);
     } else setAnnounce(`Not quite: ${data.verdicts[v]}. Read the command term's meaning and look again.`);
@@ -330,6 +334,7 @@ function BlackBox({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     setFixTried(tries);
     if (fixes[i].correct) {
       setFixOk(true);
+      reportAnswer(tries.length === 1);
       if (tries.length === 1) setPoints((n) => n + 1);
     }
     setAnnounce(fixes[i].feedback);

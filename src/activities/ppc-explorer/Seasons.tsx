@@ -13,6 +13,7 @@ import { CrossIcon, LiveRegion, MarkIcon, StepNo } from '../../shared/design/com
 import { Area, Curve, Diagram, Dot, Guide } from '../../shared/diagrams/Diagram';
 import { celebrate } from '../../shared/fun/celebrate';
 import { ordered, ppc, Worker } from './model';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 import { LevelPicker } from '../../shared/activity/LevelPicker';
 import {
   applyJobs, displayOrder, islandAt, ISLANDERS, Job, meetsNeed, needImpossible, outputOf, SeasonLevel, starsOnOffer, working, yearWon,
@@ -164,6 +165,7 @@ export function Seasons(props: {
   const playEvent = () => {
     if (!season.event || !prediction) return;
     const right = prediction === season.event.correct;
+    reportAnswer(right);
     if (right) setStars((n) => n + 1);
     setEventShown(true);
     setPhase('plan');

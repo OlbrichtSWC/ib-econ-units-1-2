@@ -21,6 +21,7 @@ import {
 } from './model';
 import './lab.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Fact Finder', 'Value Spotter', 'Lab Scientist'];
 
@@ -116,6 +117,7 @@ function Belt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (k === s.kind) {
       setSolved(true);
       setWrong(null);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setBins({ ...bins, [k]: bins[k] + 1 });
       setAnnounce(`Right: ${data.kindNames[k]}.${s.trap ? ' That one was a trap.' : ''}`);
@@ -231,6 +233,7 @@ function ValueHunt({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
     if (ok) {
       setSolved(true);
       setWrong(null);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce(positive ? 'Right: no value word. This statement is positive.' : `Right: ${words[i]} is the value word.`);
     } else {
@@ -371,6 +374,7 @@ function Lab({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       setAnnounce(data.methodWrong);
       return;
     }
+    reportAnswer(!stepMissed);
     if (!stepMissed) score();
     setStepMissed(false);
     setWrongStep(null);
@@ -384,6 +388,7 @@ function Lab({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (rwSolved) return;
     setRwPick(i);
     const ok = !!r.options[i].correct;
+    reportAnswer(ok && !rwMissed);
     if (ok && !rwMissed) score();
     if (!ok) setRwMissed(true);
     setAnnounce(r.options[i].feedback);
@@ -408,6 +413,7 @@ function Lab({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       return;
     }
     const gained = ideaMissed ? 0 : 1;
+    reportAnswer(gained === 1);
     if (gained) score();
     setShelf({ ...shelf, [c]: [...shelf[c], idea] });
     setIdeaMissed(false);

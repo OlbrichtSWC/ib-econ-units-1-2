@@ -34,6 +34,8 @@ Every diagram in a game now has a title above it that names the market (for exam
 - **Three levels per game.** Each game has a level picker. Level 1 is open. Level 2 opens when the student earns the level 1 stamp, and level 3 opens with the level 2 stamp. In teacher view every level is open.
 - **Five stamps per activity:** one for each level, **First-Try Star** (every Check it question right on the first try) and **Full Circle** (all four steps done). Students see them on the home page and in **Stamps**. Stamps are personal, never taken away and never ranked. They travel in the progress code and appear on the summary image. Old progress codes still load.
 - **One free hint.** Using one hint on a question still counts as a first try. A second hint, or a wrong answer, does not.
+- **Streak fast track.** In question games, 5 answers in a row right first time earns the level's stamp early. A 🔥 streak meter under the level picker counts the run, and one wrong first try starts it again from 0. After the stamp, the student can go straight to the next level or keep going for practice. The full round and its goal still work as before, and every scenario stays in the pool. The streak does not apply where a level is one task rather than separate questions: The Elasticity Café, Government Toolkit, Same Slope Mystery, Surplus Shader Paint the surplus and Market Shock Level 3.
+- **Next level button.** The stamp pop-up for a level now has a **Go to Level 2** (or **Level 3**) button that opens the next level. After Level 3 it offers **Next: Check it**.
 - **Stamps need the economics.** Each game stamp asks for a right prediction, explanation or calculation, not just play.
 
 | Activity | Level 1 | Level 2 | Level 3 |

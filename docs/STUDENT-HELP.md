@@ -15,7 +15,7 @@ Your code changes as you work. Get a new one each time you switch devices.
 
 ## Stamps and titles
 
-Each game has three levels. Earn a level's stamp to open the next level. You can also earn a stamp for getting every Check it question right on the first try (using one hint is fine), and one for finishing all four steps. That is up to five stamps in each activity. See them in **Stamps**. Stamps are just for you and are never taken away. Every stamp moves you towards a new economist title, from New Recruit all the way to Economics Legend.
+Each game has three levels. Earn a level's stamp to open the next level. Fast track: get 5 in a row right first time and you earn the level's stamp early. Watch the 🔥 streak meter. Then choose **Go to Level 2** (or 3) to move up, or keep going for practice. You can also earn a stamp for getting every Check it question right on the first try (using one hint is fine), and one for finishing all four steps. That is up to five stamps in each activity. See them in **Stamps**. Stamps are just for you and are never taken away. Every stamp moves you towards a new economist title, from New Recruit all the way to Economics Legend.
 
 ## Your written answers
 

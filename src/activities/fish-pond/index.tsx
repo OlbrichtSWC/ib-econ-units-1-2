@@ -26,6 +26,7 @@ import {
 } from './model';
 import './pond.css';
 import { newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Pond Keeper', 'Rule Maker', 'Pond Guardian'];
 
@@ -428,6 +429,7 @@ function Seasons({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
 
   const right = (first: boolean) => {
     setSolved(true);
+    reportAnswer(first);
     if (first) setFirstRight((n) => n + 1);
     setAnnounce('Right. Read why, then go on.');
   };
@@ -556,6 +558,7 @@ function Rules({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
       setAnnounce(trendHint(t));
       return;
     }
+    reportAnswer(!missed);
     if (!missed) setPoints((p) => p + 1);
     setWrongTrend(null);
     setStep('run');
@@ -577,6 +580,7 @@ function Rules({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
   };
 
   const judged = (first: boolean, next: 'limit' | 'next') => {
+    reportAnswer(first);
     if (first) setPoints((p) => p + 1);
     setStep(next);
   };
@@ -726,6 +730,7 @@ function Cheat({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
 
   const right = (first: boolean) => {
     setSolved(true);
+    reportAnswer(first);
     if (first) setFirstRight((n) => n + 1);
   };
 

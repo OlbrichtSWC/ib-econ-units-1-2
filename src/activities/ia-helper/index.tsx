@@ -21,6 +21,7 @@ import {
   PlanProblem, planProblems, PlanRow, RULES_GOAL, SCOUT_DRAW, SCOUT_GOAL, scoutWon, ScoutArticle, trailWon, Unit, UNIT_NAMES,
 } from './model';
 import './trail.css';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Trailblazer', 'Article Scout', 'Lens Master'];
 const PLAN_KEY = 'ib-econ-1-2.ia-plan';
@@ -491,6 +492,7 @@ function ScoutLevel({ data, seed, onComplete, onGoal, teacher, again }: LevelPro
     const t = [...keepTried, k];
     setKeepTried(t);
     if (k === rightKeep) {
+      reportAnswer(t.length === 1);
       if (t.length === 1) setPoints((p) => p + 1);
       setAnnounce(k === 'keep' ? 'Right: it is a good pick. Which unit is it?' : 'Right: leave it. Why?');
     } else setAnnounce('Not this time. Check the source, the date, who chose it and the economics.');
@@ -501,6 +503,7 @@ function ScoutLevel({ data, seed, onComplete, onGoal, teacher, again }: LevelPro
     const t = [...twoTried, v];
     setTwoTried(t);
     if (v === rightTwo) {
+      reportAnswer(t.length === 1);
       if (t.length === 1) setPoints((p) => p + 1);
       if (rightKeep === 'keep') setKept((k) => [...k, a.icon]);
       else setLeft((l) => [...l, a.icon]);
@@ -621,6 +624,7 @@ function LensLevel({ data, seed, onComplete, onGoal, teacher, again }: LevelProp
     const t = [...tried, i];
     (which === 'd' ? setDTried : setKTried)(t);
     if (opts[i].correct) {
+      reportAnswer(t.length === 1);
       if (t.length === 1) setPoints((p) => p + 1);
       setAnnounce('Right.');
     } else setAnnounce('Not quite. Read the feedback and try again.');

@@ -26,6 +26,7 @@ import {
 } from './model';
 import './supply.css';
 import { newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Supply Scout', 'Time Traveller', 'PES Pro'];
 
@@ -221,6 +222,7 @@ function Race({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (next.length === r.producers.length - 1) next = [...next, ranked[ranked.length - 1]];
     setPlaced(next);
     if (next.length === r.producers.length) {
+      reportAnswer(!rankMissed);
       if (!rankMissed) setMarks((m) => m + 1);
       setAnnounce(`Ranking complete. ${r.rankWhy} Now name the determinant.`);
     } else setAnnounce(`${p.name}: ${PLACE_NAMES[placed.length].toLowerCase()}.`);
@@ -230,6 +232,7 @@ function Race({ data, seed, onComplete, onGoal, teacher, again }: LevelProps) {
     if (detSolved) return;
     setDet(d);
     if (d === r.determinant) {
+      reportAnswer(!detMissed);
       if (!detMissed) setMarks((m) => m + 1);
       setAnnounce(`Right: ${data.determinantNames[d]}.`);
     } else {
@@ -442,6 +445,7 @@ function TimeMachine({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
     setPick(i);
     const o = options[i];
     if (o.correct) {
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setReached(stage);
       const q = outputIn(t, period);
@@ -611,6 +615,7 @@ function Measure({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
 
   const finishRound = (missedNow: boolean) => {
     setRoundDone(true);
+    reportAnswer(!missedNow);
     if (!missedNow) setSolvedCount((n) => n + 1);
   };
 

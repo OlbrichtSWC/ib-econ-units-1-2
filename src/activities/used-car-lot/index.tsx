@@ -27,6 +27,7 @@ import {
 } from './model';
 import './lot.css';
 import { drawRound, newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Smart Buyer', 'Signal Reader', 'Risk Watcher'];
 
@@ -236,6 +237,7 @@ function BidBlind({ data, seed, onComplete, onGoal, teacher, again }: LevelProps
     setAnnounce(say);
     if (ok) {
       setSolved(true);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
     } else {
       setMissed(true);
@@ -432,6 +434,7 @@ function Signals({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
       setSolved(true);
       setWrong(null);
       setBack((n) => n + 1);
+      reportAnswer(!missed);
       if (!missed) setFirstRight((n) => n + 1);
       setAnnounce(`Right: ${data.responseNames[r]}. A good car drives back onto the lot.`);
     } else {
@@ -558,6 +561,7 @@ function MoralHazard({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
     if (p === answer) {
       setPSolved(true);
       setPWrong(null);
+      reportAnswer(!pMissed);
       if (!pMissed) setPoints((n) => n + 1);
       setAnnounce(`Right: ${data.problemNames[p]}. ${h.why}`);
     } else {
@@ -570,6 +574,7 @@ function MoralHazard({ data, seed, onComplete, onGoal, teacher, again }: LevelPr
     if (rSolved) return;
     setRPick(i);
     const ok = !!opts[i].correct;
+    reportAnswer(ok && !rMissed);
     if (ok && !rMissed) setPoints((n) => n + 1);
     if (!ok) setRMissed(true);
     setAnnounce(opts[i].feedback);

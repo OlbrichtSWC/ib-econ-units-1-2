@@ -19,6 +19,7 @@ import { shuffled } from '../island-economy/model';
 import { BREAK_GOAL, breakWon, BUILD_GOAL, buildMax, buildWon, JUDGE_GOAL, judgeWon, nextPlank, plankPoint } from './model';
 import './bridge.css';
 import { newSeed } from '../../shared/activity/seed';
+import { reportAnswer } from '../../shared/activity/levelEvents';
 
 const STAMP_NAMES = ['Bridge Builder', 'Crack Finder', 'Fair Judge'];
 
@@ -137,6 +138,7 @@ function BuildIt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     // The last plank places itself: there is only one place it can go.
     if (now === total - 1) now = total;
     setPlaced(now);
+    reportAnswer(gained === 1);
     setPoints((p) => p + gained);
     setMisses(0);
     setWrong(null);
@@ -232,6 +234,7 @@ function BreakIt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     setTapped(t);
     if (i === b.crack) {
       setFound(true);
+      reportAnswer(t.length === 1);
       if (t.length === 1) setPoints((p) => p + 1);
       setAnnounce(`Plank ${i + 1} is cracked. Now choose the plank that fixes it.`);
     } else setAnnounce(`Plank ${i + 1} holds. It follows from the one before.`);
@@ -243,6 +246,7 @@ function BreakIt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     setFixTried(t);
     if (fixes[i].correct) {
       setFixed(true);
+      reportAnswer(t.length === 1);
       if (t.length === 1) setPoints((p) => p + 1);
     }
     setAnnounce(fixes[i].feedback);
@@ -355,6 +359,7 @@ function JudgeIt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     setEvalTried(t);
     if (evals[i].correct) {
       setEvalOk(true);
+      reportAnswer(t.length === 1);
       if (t.length === 1) setPoints((p) => p + 1);
     }
     setAnnounce(evals[i].feedback);
@@ -365,6 +370,7 @@ function JudgeIt({ data, seed, onComplete, onGoal, teacher, again }: LevelProps)
     setConcTried(t);
     if (concs[i].correct) {
       setConcOk(true);
+      reportAnswer(t.length === 1);
       if (t.length === 1) setPoints((p) => p + 1);
     }
     setAnnounce(concs[i].feedback);
